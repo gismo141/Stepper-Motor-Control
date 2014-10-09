@@ -1,0 +1,4 @@
+--ignore-dir=build
+--ignore-file=match:CMakeLists.txt
+--ignore-file=ext:sublime-project
+--ignore-file=ext:sublime-workspace
