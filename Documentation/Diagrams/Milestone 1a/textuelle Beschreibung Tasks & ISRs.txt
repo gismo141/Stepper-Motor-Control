@@ -1,0 +1,56 @@
+#Beschreibung der benötigten Tasks und Interrupt-Service-Routinen#
+Das Steuerprogramm zur Kontrolle des Schrittmotors reagiert auf Eingaben durch den Benutzer. 
+Dies geschieht über verschiedene Schalter und Taster. Außerdem werden dem Benutzer während des 
+Betriebs Informationen über ein LC-Display, eine Debug-Console und LEDs angezeigt.
+Die Steuerung des Motors geschieht über eine eigene Motor-Control-Unit (MCU), die anhand von 
+in Registern abgelegten Informationen, angesteuert. Das Steuerprogramm und die MCU kommunizieren 
+somit nur über die zur Verfügung stehenden Registern und Interrupt-Leitungen.
+
+##benötigte Tasks##
+Damit Aufgaben parallel abgearbeitet werden können, sind drei Tasks von Nöten:
+
+Die "Main-Task" oder auch **"User-Input-Task"** stellt die höchste Kontrollinstanz dar. Nach der 
+Initialisierung der Hardware, Interrupt-Service-Routinen(ISR) und der Ausgabe von 
+Systeminformationen auf dem Display und in der Debug-Console, wird auf eingehende 
+Benutzer-Eingaben reagiert. Anhand derer werden, wenn nicht gerade der Motor läuft, die 
+entsprechenden Register verändert. 
+Wird der Taster "Key 0" zum Starten des Motors gedrückt, so wird ein letztes Mal der Modus 
+überprüft, sodass die MCU mit den Informationen der Register den Schrittmotor bewegen kann. 
+Während der Motor läuft, ist vom Steuerprogramm nur die Drehrichtung veränderbar. Natürlich lässt 
+sich der Schrittmotor jederzeit anhalten.
+
+Eine eigene **"User-Output-Task"** stellt dem Benutzer Informationen zur Verfügung. Sie zeigt auf dem 
+LCD-Display neben der Programmversion, den Motormodus und Motorstatus an. Außerdem ist bei
+eingeschaltetem Debug-Modus dies kenntlich gemacht.
+Weil im Display nicht alle Informationen übersichtlich dargestellt werden können, werden zusätzlich
+die HEX-Anzeigen 0-2 zur Anzeige der Drehrichtung, der Geschwindigkeit und es Modus benutzt.
+
+Währenddessen werden in einem über die JTAG-UART-Schnittstelle angeschlossenen Terminal Meldungen
+dargestellt. Diese enthalten alle Inhalte der Register zur Kommunikation mit der MCU.
+
+Eine Forderung an die Steuersoftware ist die Anzeige eines "Heartbeats". Damit lässt sich jederzeit 
+erkennen, ob der Prozessor noch in einem funktionsfähigen Betriebszustand ist.
+Dieser Heartbeat wird über eine eigene Task namens **"Hearbeat-Task"** erzeugt und auf der
+HEX-Anzeige 3 und der LED 9 durch einen Blinkcode dargestellt.
+
+Wenn der "Debug-Schalter" auf '1' gestellt wurde, wird in der Heartbeat-Task alle 3 Sekunden ein
+Interrupt erzeugt, dass dem Steuerprogramm das Anhalten des Motors signalisiert.
+Wenn das "Run-Bit" im Control-Register auf '1' gesetzt ist, also der Schrittmotor sich dreht, wird
+entsprechend der Drehrichtung das Register "stepsReg" zum Schrittezählen verändert. So lässt sich
+das Programm ohne MCU testen.
+
+##benötigte Interrupt-Service-Routinen##
+Damit eine Reaktion auf Benutzereingaben in Echtzeit möglich ist, werden die Taster über eine
+**"Key-ISR"** ausgewertet. Sobald ein Taster gedrückt wurde, wird der Interrupt gesetzt und im 
+Interrupthandler der Zustand der Taster abgefragt. Für den gedrückten Taster wird dann ein Flag 
+an die Main-Task gesetzt.
+
+Die **"Switch-ISR** reagiert auf Änderungen der Schalterstellungen.
+Zur Einsparung von Flags werden die Schalter etwas anders ausgewertet. Bei Betätigung wird auch ein 
+Interrupt ausgelöst, allerdings wird im Interrupt-Handler die Stellung aller Schalter in einer globalen
+Variable abgespeichert und anschließend nur ein "Switch-Update-Flag" an die Main-
+Task gesetzt. Diese muss dann die Schalterstellungen aus der globalen Variabel lesen.
+
+Zu guter Letzt wird über die **"Motor-ISR"** das Stoppen des Motors in der 
+"Chain of steps"-Betriebsart signalisiert. Im Interrupt-Handler wird nur ein Flag an die Main-Task
+gesendet. Diese ISR ist mit dem 'IR'-Bit des Control-Registers verbunden.
