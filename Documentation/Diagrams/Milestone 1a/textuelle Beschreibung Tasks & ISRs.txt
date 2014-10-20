@@ -47,9 +47,9 @@ an die Main-Task gesetzt.
 
 Die **"Switch-ISR** reagiert auf Änderungen der Schalterstellungen.
 Zur Einsparung von Flags werden die Schalter etwas anders ausgewertet. Bei Betätigung wird auch ein 
-Interrupt ausgelöst, allerdings wird im Interrupt-Handler die Stellung aller Schalter in einer globalen
-Variable abgespeichert und anschließend nur ein "Switch-Update-Flag" an die Main-
-Task gesetzt. Diese muss dann die Schalterstellungen aus der globalen Variabel lesen.
+Interrupt ausgelöst, allerdings wird im Interrupt-Handler die Stellung aller Schalter in eine MessageQueue
+gespeichert und anschließend nur ein "Switch-Update-Flag" an die Main-
+Task gesetzt. Diese muss dann die Schalterstellungen aus der Queue abholen.
 
 Zu guter Letzt wird über die **"Motor-ISR"** das Stoppen des Motors in der 
 "Chain of steps"-Betriebsart signalisiert. Im Interrupt-Handler wird nur ein Flag an die Main-Task
