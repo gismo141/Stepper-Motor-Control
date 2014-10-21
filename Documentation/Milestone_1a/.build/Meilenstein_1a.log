@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.8)  20 OCT 2014 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.8)  21 OCT 2014 12:51
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1726,7 +1726,7 @@ Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
 
-<../../Additions/Images/athene.pdf, id=63, 229.05504pt x 224.99908pt>
+<../../Additions/Images/athene.pdf, id=67, 229.05504pt x 224.99908pt>
 File: ../../Additions/Images/athene.pdf Graphic file (type pdf)
 
 <use ../../Additions/Images/athene.pdf>
@@ -1811,7 +1811,7 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 232.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<../../Planning/Gantt-Diagramm.png, id=105, 2023.56pt x 994.71625pt>
+<../../Planning/Gantt-Diagramm.png, id=110, 2023.56pt x 994.71625pt>
 File: ../../Planning/Gantt-Diagramm.png Graphic file (type png)
 
 <use ../../Planning/Gantt-Diagramm.png>
@@ -1819,7 +1819,7 @@ Package pdftex.def Info: ../../Planning/Gantt-Diagramm.png used on input line 2
 53.
 (pdftex.def)             Requested size: 607.0727pt x 298.41718pt.
 
-<../../Planning/Planung_Meilenstein1a.pdf, id=107, 691.7594pt x 1000.88297pt>
+<../../Planning/Planung_Meilenstein1a.pdf, id=112, 691.7594pt x 1000.88297pt>
 File: ../../Planning/Planung_Meilenstein1a.pdf Graphic file (type pdf)
 
 <use ../../Planning/Planung_Meilenstein1a.pdf>
@@ -1830,7 +1830,7 @@ Package pdftex.def Info: ../../Planning/Planung_Meilenstein1a.pdf used on input
 
 LaTeX Warning: Float too large for page by 9.6663pt on input line 263.
 
-<../../Planning/Zeitbedarf.pdf, id=108, 614.295pt x 845.1284pt>
+<../../Planning/Zeitbedarf.pdf, id=113, 614.295pt x 845.1284pt>
 File: ../../Planning/Zeitbedarf.pdf Graphic file (type pdf)
 
 <use ../../Planning/Zeitbedarf.pdf>
@@ -1875,36 +1875,44 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 272.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 272.
- [4 <../../Planning/Zeitbedarf.pdf>] <../Diagrams/UseCases.pdf, id=509, 1266.73
-25pt x 593.21625pt>
+ [4 <../../Planning/Zeitbedarf.pdf>]
+Kapitel 2.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 275.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 275.
+<../Diagrams/UseCases.pdf, id=514, 1266.7325pt x 593.21625pt>
 File: ../Diagrams/UseCases.pdf Graphic file (type pdf)
 
 <use ../Diagrams/UseCases.pdf>
-Package pdftex.def Info: ../Diagrams/UseCases.pdf used on input line 283.
+Package pdftex.def Info: ../Diagrams/UseCases.pdf used on input line 285.
 (pdftex.def)             Requested size: 455.24411pt x 213.18655pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 306.
+(babel)             in language  on input line 308.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 306.
+(babel)             in language  on input line 308.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 306.
+(babel)             in language  on input line 308.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 306.
- [5 <../Diagrams/UseCases.pdf>]
-Kapitel 2.
+(babel)             in language  on input line 308.
+ [5
+
+
+ <../Diagrams/UseCases.pdf>]
+Kapitel 3.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 309.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 309.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 320.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 318.
+(babel)             in language  on input line 320.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 324.
+(babel)             in language  on input line 326.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 324.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 326.
+(babel)             in language  on input line 326.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 328.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1914,280 +1922,280 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 342.
+(babel)             in language  on input line 344.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 342.
+(babel)             in language  on input line 344.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 353.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 353.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 353.
+(babel)             in language  on input line 355.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 353.
+(babel)             in language  on input line 355.
  [6
 
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 358.
+(babel)             in language  on input line 360.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 358.
+(babel)             in language  on input line 360.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 377.
+(babel)             in language  on input line 379.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 377.
+(babel)             in language  on input line 379.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 382.
+(babel)             in language  on input line 384.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 382.
+(babel)             in language  on input line 384.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 391.
+(babel)             in language  on input line 393.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 391.
+(babel)             in language  on input line 393.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 403.
+(babel)             in language  on input line 405.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 403.
+(babel)             in language  on input line 405.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 411.
+(babel)             in language  on input line 413.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 411.
+(babel)             in language  on input line 413.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 411.
+(babel)             in language  on input line 413.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 411.
+(babel)             in language  on input line 413.
  [7]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 413.
+(babel)             in language  on input line 415.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 413.
+(babel)             in language  on input line 415.
 
-<../Diagrams/Activities/Functions/Init.pdf, id=652, 1072.005pt x 618.31pt>
+<../Diagrams/Activities/Functions/Init.pdf, id=657, 1072.005pt x 618.31pt>
 File: ../Diagrams/Activities/Functions/Init.pdf Graphic file (type pdf)
 
 <use ../Diagrams/Activities/Functions/Init.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/Functions/Init.pdf used on inpu
-t line 417.
+t line 419.
 (pdftex.def)             Requested size: 455.24411pt x 262.57542pt.
 
-<../Diagrams/Activities/Tasks/User-Input.pdf, id=653, 1365.1pt x 899.36pt>
+<../Diagrams/Activities/Tasks/User-Input.pdf, id=658, 1365.1pt x 899.36pt>
 File: ../Diagrams/Activities/Tasks/User-Input.pdf Graphic file (type pdf)
 
 <use ../Diagrams/Activities/Tasks/User-Input.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/Tasks/User-Input.pdf used on in
-put line 423.
+put line 425.
 (pdftex.def)             Requested size: 455.24411pt x 299.91858pt.
 
-<../Diagrams/Activities/Tasks/User-Output.pdf, id=654, 658.46pt x 763.85374pt>
+<../Diagrams/Activities/Tasks/User-Output.pdf, id=659, 658.46pt x 763.85374pt>
 File: ../Diagrams/Activities/Tasks/User-Output.pdf Graphic file (type pdf)
 
 <use ../Diagrams/Activities/Tasks/User-Output.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/Tasks/User-Output.pdf used on i
-nput line 429.
+nput line 431.
 (pdftex.def)             Requested size: 455.24411pt x 528.12029pt.
 
-<../Diagrams/Activities/Tasks/Heartbeat-Debug.pdf, id=655, 1416.29124pt x 354.3
+<../Diagrams/Activities/Tasks/Heartbeat-Debug.pdf, id=660, 1416.29124pt x 354.3
 2375pt>
 File: ../Diagrams/Activities/Tasks/Heartbeat-Debug.pdf Graphic file (type pdf)
  <use ../Diagrams/Activities/Tasks/Heartbeat-Debug.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/Tasks/Heartbeat-Debug.pdf used 
-on input line 435.
+on input line 437.
 (pdftex.def)             Requested size: 455.24411pt x 113.88872pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 439.
+(babel)             in language  on input line 441.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 439.
+(babel)             in language  on input line 441.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 439.
+(babel)             in language  on input line 441.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 439.
+(babel)             in language  on input line 441.
  [8 <../Diagrams/Activities/Functions/Init.pdf>]
-<../Diagrams/Activities/ISR/key_ISR.pdf, id=750, 591.20876pt x 325.215pt>
+<../Diagrams/Activities/ISR/key_ISR.pdf, id=755, 591.20876pt x 325.215pt>
 File: ../Diagrams/Activities/ISR/key_ISR.pdf Graphic file (type pdf)
 
 <use ../Diagrams/Activities/ISR/key_ISR.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/ISR/key_ISR.pdf used on input l
-ine 443.
+ine 445.
 (pdftex.def)             Requested size: 455.24411pt x 250.4312pt.
 
-<../Diagrams/Activities/ISR/switch_ISR.pdf, id=751, 589.20125pt x 372.39125pt>
+<../Diagrams/Activities/ISR/switch_ISR.pdf, id=756, 589.20125pt x 372.39125pt>
 File: ../Diagrams/Activities/ISR/switch_ISR.pdf Graphic file (type pdf)
 
 <use ../Diagrams/Activities/ISR/switch_ISR.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/ISR/switch_ISR.pdf used on inpu
-t line 449.
+t line 451.
 (pdftex.def)             Requested size: 455.24411pt x 287.73085pt.
 
-<../Diagrams/Activities/ISR/motor_ISR.pdf, id=752, 591.20876pt x 339.2675pt>
+<../Diagrams/Activities/ISR/motor_ISR.pdf, id=757, 591.20876pt x 339.2675pt>
 File: ../Diagrams/Activities/ISR/motor_ISR.pdf Graphic file (type pdf)
 
 <use ../Diagrams/Activities/ISR/motor_ISR.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/ISR/motor_ISR.pdf used on input
- line 455.
+ line 457.
 (pdftex.def)             Requested size: 455.24411pt x 261.2523pt.
 
-<../Diagrams/Activities/Functions/Chain-of-Steps.pdf, id=753, 414.54875pt x 168
+<../Diagrams/Activities/Functions/Chain-of-Steps.pdf, id=758, 414.54875pt x 168
 .63pt>
 File: ../Diagrams/Activities/Functions/Chain-of-Steps.pdf Graphic file (type pd
 f)
  <use ../Diagrams/Activities/Functions/Chain-of-Steps.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/Functions/Chain-of-Steps.pdf us
-ed on input line 463.
+ed on input line 465.
 (pdftex.def)             Requested size: 414.54773pt x 168.63472pt.
 
-<../Diagrams/Activities/Functions/Continuous-Run.pdf, id=754, 414.54875pt x 168
+<../Diagrams/Activities/Functions/Continuous-Run.pdf, id=759, 414.54875pt x 168
 .63pt>
 File: ../Diagrams/Activities/Functions/Continuous-Run.pdf Graphic file (type pd
 f)
  <use ../Diagrams/Activities/Functions/Continuous-Run.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/Functions/Continuous-Run.pdf us
-ed on input line 469.
+ed on input line 471.
 (pdftex.def)             Requested size: 414.54773pt x 168.63472pt.
 
-<../Diagrams/Activities/Functions/Heartbeat.pdf, id=755, 994.71625pt x 230.8625
+<../Diagrams/Activities/Functions/Heartbeat.pdf, id=760, 994.71625pt x 230.8625
 pt>
 File: ../Diagrams/Activities/Functions/Heartbeat.pdf Graphic file (type pdf)
  <use ../Diagrams/Activities/Functions/Heartbeat.pdf>
 Package pdftex.def Info: ../Diagrams/Activities/Functions/Heartbeat.pdf used on
- input line 475.
+ input line 477.
 (pdftex.def)             Requested size: 455.24411pt x 105.65906pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
  [9 <../Diagrams/Activities/Tasks/User-Input.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
  [10 <../Diagrams/Activities/Tasks/User-Output.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 [11 <../Diagrams/Activities/Tasks/Heartbeat-Debug.pdf> <../Diagrams/Activities/
 ISR/key_ISR.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
  [12 <../Diagrams/Activities/ISR/switch_ISR.pdf> <../Diagrams/Activities/ISR/mo
 tor_ISR.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 481.
+(babel)             in language  on input line 483.
  [13 <../Diagrams/Activities/Functions/Chain-of-Steps.pdf> <../Diagrams/Activit
 ies/Functions/Continuous-Run.pdf> <../Diagrams/Activities/Functions/Heartbeat.p
 df>]
-Kapitel 3.
+Kapitel 4.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 482.
+(babel)             in language  on input line 484.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 482.
+(babel)             in language  on input line 484.
 
-<../Diagrams/Auflistung_Betriebssystemkomponenten.pdf, id=1439, 845.1575pt x 59
+<../Diagrams/Auflistung_Betriebssystemkomponenten.pdf, id=1444, 845.1575pt x 59
 7.23125pt>
 File: ../Diagrams/Auflistung_Betriebssystemkomponenten.pdf Graphic file (type p
 df)
  <use ../Diagrams/Auflistung_Betriebssystemkomponenten.pdf>
 Package pdftex.def Info: ../Diagrams/Auflistung_Betriebssystemkomponenten.pdf u
-sed on input line 486.
+sed on input line 488.
 (pdftex.def)             Requested size: 455.24411pt x 321.70723pt.
 
-<../Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf, id=1440, 845.1575pt 
+<../Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf, id=1445, 845.1575pt 
 x 597.23125pt>
 File: ../Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf Graphic file (ty
 pe pdf)
  <use ../Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf>
 Package pdftex.def Info: ../Diagrams/Uebersicht_Komponenten_und_Kommunikation.p
-df used on input line 492.
+df used on input line 494.
 (pdftex.def)             Requested size: 455.24411pt x 321.70723pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
 
 [14
 
 
  <../Diagrams/Auflistung_Betriebssystemkomponenten.pdf>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 497.
+(babel)             in language  on input line 499.
  [15 <../Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf>]
 
 Package glossaries Warning: Empty glossary for \printnoidxglossary[type={main}]
 . Rerun may be required (or you may have forgotten to use commands like \gls). 
-on input line 511.
+on input line 513.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 516.
+(babel)             in language  on input line 518.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 516.
+(babel)             in language  on input line 518.
 Package tocbasic Info: character protrusion at lof deactivated on input line 51
-6.
+8.
 (./Meilenstein_1a.lof)
 \tf@lof=\write8
 \openout8 = `Meilenstein_1a.lof'.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 531.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 529.
+(babel)             in language  on input line 531.
  [1
 
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 532.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 532.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 534.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 534.
  (./Meilenstein_1a.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 532.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 532.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 534.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 534.
 Package rerunfilecheck Info: File `Meilenstein_1a.out' has not changed.
-(rerunfilecheck)             Checksum: 9FBD7FBF3645C5C2E740991930653C7D;3167.
+(rerunfilecheck)             Checksum: 27E6BCA8D14A0A7C14B2C40E83FB4848;3380.
  ) 
 Here is how much of TeX's memory you used:
- 33998 strings out of 493117
- 593672 string characters out of 6135434
- 780856 words of memory out of 5000000
- 36590 multiletter control sequences out of 15000+600000
+ 34001 strings out of 493117
+ 593729 string characters out of 6135434
+ 780912 words of memory out of 5000000
+ 36592 multiletter control sequences out of 15000+600000
  68407 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,11n,75p,1866b,1087s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2200,10 +2208,10 @@ lm/lmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/lmro12.pfb></usr/l
 ocal/texlive/2014/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Meilenstein_1a.pdf (18 pages, 955009 bytes).
+Output written on Meilenstein_1a.pdf (18 pages, 955296 bytes).
 PDF statistics:
- 1546 PDF objects out of 1728 (max. 8388607)
- 977 compressed objects within 10 object streams
- 50 named destinations out of 1000 (max. 500000)
- 25810 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 1551 PDF objects out of 1728 (max. 8388607)
+ 982 compressed objects within 10 object streams
+ 51 named destinations out of 1000 (max. 500000)
+ 25818 words of extra memory for PDF output out of 29859 (max. 10000000)
 

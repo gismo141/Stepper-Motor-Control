@@ -1,3 +1,70 @@
+---
+documentclass: scrbook
+classoption: |
+    fontsize=12pt
+    , paper=a4
+    , twoside=false
+    , DIV12
+    , BCOR=1cm
+    , numbers=enddot
+    , listof=totoc
+    , bibliography=totoc
+    , index=totoc
+    , headings=small
+    , headlines=1.5
+    , final
+geometry: |
+    top=2.5cm
+    , left=2.5cm
+    , right=2.5cm
+    , bottom=2cm
+    , includehead
+    , a4paper
+lang: ngerman
+title: Meilenstein 1a - Beschreibung der kompletten Steuersoftware
+subtitle: System on a Chip - Schrittmotorsteuerung mit NIOS II/s
+author: Marc Kossmann und Michael Riedel, Gruppe 04
+biblio-title: Literaturverzeichnis
+linkcolor: black
+citecolor: black
+urlcolor: black
+header-includes: ../../Additions/Input
+include-before: ../../Additions/Titelseite
+include-after:
+figures: true
+listings: false
+tables: false
+...
+
+# Planung des Projekts
+
+Zur zeitlichen Planung wird das Gantt-Diagramm gemäß Abbildung \ref{fig:gantt} verwendet. Es stellt die zeitliche Abfolge der einzelnen Aufgaben, sortiert nach Meilenstein über die Dauer des Praktikums dar. Die aufgelisteten Aufgabe unterteilen sich in weitere Unteraufgaben, die zur Wahrung der Anschaulichkeit nicht aufgelistet werden.
+
+Abbildung \ref{fig:projektplanung} zeigt den geplanten und benötigten Zeitaufwand für die Erstellung des Meilenstein 1a unterteilt in folgende Aufgabenbereiche:
+
+- Einarbeitung
+- Zeitplanung
+- Design
+- Implementierung
+- Verifikation
+- Dokumentation
+
+Die Darstellung wird gesondert für die Studenten Marc Kossmann und Michael Riedel betrachtet. Diese Zeiten sind unabhängig von gemeinsam bearbeiteten Aufgaben. Die Abbildung \ref{fig:zeitbedarf} zeigt die komplette geplante und benötigte Zeit, die durch Aufsummierung der einzelnen Meilensteine entsteht.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=.3,angle=90]{../../Planning/Gantt-Diagramm.png}
+\end{center}
+\caption{Gantt-Diagramm zur kompletten Zeitplanung}
+\label{fig:gantt}
+\end{figure}
+
+![Projektplanung für Meilenstein 1a\label{fig:projektplanung}](../../Planning/Planung_Meilenstein1a.pdf)
+
+![Zeitbedarfsübersicht für das gesamte Projekt\label{fig:zeitbedarf}](../../Planning/Zeitbedarf.pdf)
+
+\newpage
+
 # Beschreibung der Anwendungsfälle
 
 Gemäß Abbildung \ref{fig:anwendungsfaelle} hat der Anwender (dargestellt als *User*) die Möglichkeit, den Modus der Steuerung (*mode*), die Drehrichtung (*direction*) und die Drehgeschwindigkeit (*speed*) einzustellen, sowie den Motor zu starten und zu stoppen (*start/stop motor*).
