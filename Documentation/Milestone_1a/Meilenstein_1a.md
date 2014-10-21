@@ -113,32 +113,32 @@ Zu guter Letzt wird gemäß [Abbildung](fig:motor_isr) über die `Motor-ISR` das
 
 [fig:gantt]: ../Planning/Gantt-Diagramm.png "Gantt-Diagramm zur kompletten Zeitplanung"
 
-[fig:projektplanung]: ../Planning/Planung_Meilenstein1a.pdf "Projektplanung für Meilenstein 1a" 
+[fig:projektplanung]: ../Planning/Planung_Meilenstein1a.png "Projektplanung für Meilenstein 1a" 
 
-[fig:zeitbedarf]: ../Planning/Zeitbedarf.pdf "Zeitbedarfsübersicht für das gesamte Projekt"
+[fig:zeitbedarf]: ../Planning/Zeitbedarf.png "Zeitbedarfsübersicht für das gesamte Projekt"
 
-[fig:anwendungsfaelle]: ../Milestone_1a/Diagrams/UseCases.pdf "Anwendungsfälle"
+[fig:anwendungsfaelle]: ../Milestone_1a/Diagrams/UseCases.png "Anwendungsfälle"
 
-[fig:init]: ../Milestone_1a/Diagrams/Activities/Functions/Init.pdf "Initialisierung der Hardware, ISR und Tasks"
+[fig:init]: ../Milestone_1a/Diagrams/Activities/Functions/Init.png "Initialisierung der Hardware, ISR und Tasks"
 
-[fig:user_input]: ../Milestone_1a/Diagrams/Activities/Tasks/User-Input.pdf "User-Input Task"
+[fig:user_input]: ../Milestone_1a/Diagrams/Activities/Tasks/User-Input.png "User-Input Task"
 
-[fig:user_output]: ../Milestone_1a/Diagrams/Activities/Tasks/User-Output.pdf "User-Output Task"
+[fig:user_output]: ../Milestone_1a/Diagrams/Activities/Tasks/User-Output.png "User-Output Task"
 
-[fig:heartbeat_debug]: ../Milestone_1a/Diagrams/Activities/Tasks/Heartbeat-Debug.pdf "Heartbeat/Debug Task"
+[fig:heartbeat_debug]: ../Milestone_1a/Diagrams/Activities/Tasks/Heartbeat-Debug.png "Heartbeat/Debug Task"
 
-[fig:key_isr]: ../Milestone_1a/Diagrams/Activities/ISR/key_ISR.pdf "Key ISR"
+[fig:key_isr]: ../Milestone_1a/Diagrams/Activities/ISR/key_ISR.png "Key ISR"
 
-[fig:switch_isr]: ../Milestone_1a/Diagrams/Activities/ISR/switch_ISR.pdf "Switch ISR"
+[fig:switch_isr]: ../Milestone_1a/Diagrams/Activities/ISR/switch_ISR.png "Switch ISR"
 
-[fig:motor_isr]: ../Milestone_1a/Diagrams/Activities/ISR/motor_ISR.pdf "Motor ISR"
+[fig:motor_isr]: ../Milestone_1a/Diagrams/Activities/ISR/motor_ISR.png "Motor ISR"
 
-[fig:chain_of_steps]: ../Milestone_1a/Diagrams/Activities/Functions/Chain-of-Steps.pdf "Chain of Steps Funktion"
+[fig:chain_of_steps]: ../Milestone_1a/Diagrams/Activities/Functions/Chain-of-Steps.png "Chain of Steps Funktion"
 
-[fig:continuous_run]: ../Milestone_1a/Diagrams/Activities/Functions/Continuous-Run.pdf "Continuous Run Funktion"
+[fig:continuous_run]: ../Milestone_1a/Diagrams/Activities/Functions/Continuous-Run.png "Continuous Run Funktion"
 
-[fig:heartbeat]: ../Milestone_1a/Diagrams/Activities/Functions/Heartbeat.pdf "Heartbeat Funktion"
+[fig:heartbeat]: ../Milestone_1a/Diagrams/Activities/Functions/Heartbeat.png "Heartbeat Funktion"
 
-[fig:auflistung]: ../Milestone_1a/Diagrams/Auflistung_Betriebssystemkomponenten.pdf "Auflistung Betriebssystemkomponenten"
+[fig:auflistung]: ../Milestone_1a/Diagrams/Auflistung_Betriebssystemkomponenten.png "Auflistung Betriebssystemkomponenten"
 
-[fig:kommunikation]: ../Milestone_1a/Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf "Übersicht der Komponenten und Kommunikation"
+[fig:kommunikation]: ../Milestone_1a/Diagrams/Uebersicht_Komponenten_und_Kommunikation.png "Übersicht der Komponenten und Kommunikation"
