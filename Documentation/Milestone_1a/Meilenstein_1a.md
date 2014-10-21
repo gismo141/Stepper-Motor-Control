@@ -1,41 +1,3 @@
----
-documentclass: scrbook
-classoption: |
-    fontsize=12pt
-    , paper=a4
-    , twoside=false
-    , DIV12
-    , BCOR=1cm
-    , numbers=enddot
-    , listof=totoc
-    , bibliography=totoc
-    , index=totoc
-    , headings=small
-    , headlines=1.5
-    , final
-geometry: |
-    top=2.5cm
-    , left=2.5cm
-    , right=2.5cm
-    , bottom=2cm
-    , includehead
-    , a4paper
-lang: ngerman
-title: Meilenstein 1a - Beschreibung der kompletten Steuersoftware
-subtitle: System on a Chip - Schrittmotorsteuerung mit NIOS II/s
-author: Marc Kossmann und Michael Riedel, Gruppe 04
-biblio-title: Literaturverzeichnis
-linkcolor: black
-citecolor: black
-urlcolor: black
-header-includes: ../../Additions/Input
-include-before: ../../Additions/Titelseite
-include-after:
-figures: true
-listings: false
-tables: false
-...
-
 # Planung des Projekts
 
 Zur zeitlichen Planung wird das Gantt-Diagramm gemäß Abbildung \ref{fig:gantt} verwendet. Es stellt die zeitliche Abfolge der einzelnen Aufgaben, sortiert nach Meilenstein über die Dauer des Praktikums dar. Die aufgelisteten Aufgabe unterteilen sich in weitere Unteraufgaben, die zur Wahrung der Anschaulichkeit nicht aufgelistet werden.
@@ -51,25 +13,17 @@ Abbildung \ref{fig:projektplanung} zeigt den geplanten und benötigten Zeitaufwa
 
 Die Darstellung wird gesondert für die Studenten Marc Kossmann und Michael Riedel betrachtet. Diese Zeiten sind unabhängig von gemeinsam bearbeiteten Aufgaben. Die Abbildung \ref{fig:zeitbedarf} zeigt die komplette geplante und benötigte Zeit, die durch Aufsummierung der einzelnen Meilensteine entsteht.
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=.3,angle=90]{../../Planning/Gantt-Diagramm.png}
-\end{center}
-\caption{Gantt-Diagramm zur kompletten Zeitplanung}
-\label{fig:gantt}
-\end{figure}
+![Gantt-Diagramm zur kompletten Zeitplanung\label{fig:gantt}][fig:gantt]
 
-![Projektplanung für Meilenstein 1a\label{fig:projektplanung}](../../Planning/Planung_Meilenstein1a.pdf)
+![Projektplanung für Meilenstein 1a\label{fig:projektplanung}][fig:projektplanung]
 
-![Zeitbedarfsübersicht für das gesamte Projekt\label{fig:zeitbedarf}](../../Planning/Zeitbedarf.pdf)
-
-\newpage
+![Zeitbedarfsübersicht für das gesamte Projekt\label{fig:zeitbedarf}][fig:zeitbedarf]
 
 # Beschreibung der Anwendungsfälle
 
 Gemäß Abbildung \ref{fig:anwendungsfaelle} hat der Anwender (dargestellt als *User*) die Möglichkeit, den Modus der Steuerung (*mode*), die Drehrichtung (*direction*) und die Drehgeschwindigkeit (*speed*) einzustellen, sowie den Motor zu starten und zu stoppen (*start/stop motor*).
 
-![Anwendungsfälle\label{fig:anwendungsfaelle}](../Diagrams/UseCases.pdf)
+![Anwendungsfälle\label{fig:anwendungsfaelle}][fig:anwendungsfaelle]
 
 Der Anwender kann somit zwischen drei Modi wählen:
 
@@ -124,41 +78,67 @@ Die `Switch-ISR` reagiert gemäß Abbildung \ref{fig:switch_isr} auf Änderungen
 
 ### Die Abfrage der Motorsteuerung
 
-Zu guter Letzt wird gemäß Abbildung \ref{fig:motor_isr} über die `Motor-ISR` das Stoppen des Motors in der 
+Zu guter Letzt wird gemäß [Abbildung](fig:motor_isr) über die `Motor-ISR` das Stoppen des Motors in der 
 `Chain of Steps`-Betriebsart signalisiert. Im *Interrupthandler* wird nur ein Flag an die Main-Task gesendet. Diese ISR ist mit dem `IR`-Bit des Control-Registers (`ctrlReg`) verbunden.
 
 ## Darstellung der Aktivitätsdiagramme
 
-![Initialisierung der Hardware, ISR und Tasks\label{fig:init}](../Diagrams/Activities/Functions/Init.pdf)
+![Initialisierung der Hardware, ISR und Tasks\label{fig:init}][fig:init]
 
-![User-Input Task\label{fig:user_input}](../Diagrams/Activities/Tasks/User-Input.pdf)
+![User-Input Task\label{fig:user_input}][fig:user_input]
 
-![User-Output Task\label{fig:user_output}](../Diagrams/Activities/Tasks/User-Output.pdf)
+![User-Output Task\label{fig:user_output}][fig:user_output]
 
-![Heartbeat-Debug Task\label{fig:heartbeat_debug}](../Diagrams/Activities/Tasks/Heartbeat-Debug.pdf)
+![Heartbeat-Debug Task\label{fig:heartbeat_debug}][fig:heartbeat_debug]
 
-\newpage
+![Key ISR\label{fig:key_isr}][fig:key_isr]
 
-![Key ISR\label{fig:key_isr}](../Diagrams/Activities/ISR/key_ISR.pdf)
+![Switch ISR\label{fig:switch_isr}][fig:switch_isr]
 
-![Switch ISR\label{fig:switch_isr}](../Diagrams/Activities/ISR/switch_ISR.pdf)
+![Motor ISR\label{fig:motor_isr}][fig:motor_isr]
 
-![Motor ISR\label{fig:motor_isr}](../Diagrams/Activities/ISR/motor_ISR.pdf)
+![Chain of Steps Funktion\label{fig:chain_of_steps}][fig:chain_of_steps]
 
-\newpage
+![Continuous Run Funktion\label{fig:continuous_run}][fig:continuous_run]
 
-![Chain of Steps Funktion\label{fig:chain_of_steps}](../Diagrams/Activities/Functions/Chain-of-Steps.pdf)
-
-![Continuous Run Funktion\label{fig:continuous_run}](../Diagrams/Activities/Functions/Continuous-Run.pdf)
-
-![Heartbeat Funktion\label{fig:heartbeat}](../Diagrams/Activities/Functions/Heartbeat.pdf)
-
-\newpage
+![Heartbeat Funktion\label{fig:heartbeat}][fig:heartbeat]
 
 # Weitere Darstellungen zur Erläuterung der internen Kommunikation
 
-![Auflistung Betriebssystemkomponenten\label{fig:auflistung}](../Diagrams/Auflistung_Betriebssystemkomponenten.pdf)
+![Auflistung Betriebssystemkomponenten\label{fig:auflistung}][fig:auflistung]
 
-![Übersicht der Komponenten und Kommunikation\label{fig:kommunikation}](../Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf)
+![Übersicht der Komponenten und Kommunikation\label{fig:kommunikation}][fig:kommunikation]
 
-\newpage
+<!-- Links -->
+
+[fig:gantt]: ../Planning/Gantt-Diagramm.png "Gantt-Diagramm zur kompletten Zeitplanung"
+
+[fig:projektplanung]: ../Planning/Planung_Meilenstein1a.pdf "Projektplanung für Meilenstein 1a" 
+
+[fig:zeitbedarf]: ../Planning/Zeitbedarf.pdf "Zeitbedarfsübersicht für das gesamte Projekt"
+
+[fig:anwendungsfaelle]: ../Milestone_1a/Diagrams/UseCases.pdf "Anwendungsfälle"
+
+[fig:init]: ../Milestone_1a/Diagrams/Activities/Functions/Init.pdf "Initialisierung der Hardware, ISR und Tasks"
+
+[fig:user_input]: ../Milestone_1a/Diagrams/Activities/Tasks/User-Input.pdf "User-Input Task"
+
+[fig:user_output]: ../Milestone_1a/Diagrams/Activities/Tasks/User-Output.pdf "User-Output Task"
+
+[fig:heartbeat_debug]: ../Milestone_1a/Diagrams/Activities/Tasks/Heartbeat-Debug.pdf "Heartbeat/Debug Task"
+
+[fig:key_isr]: ../Milestone_1a/Diagrams/Activities/ISR/key_ISR.pdf "Key ISR"
+
+[fig:switch_isr]: ../Milestone_1a/Diagrams/Activities/ISR/switch_ISR.pdf "Switch ISR"
+
+[fig:motor_isr]: ../Milestone_1a/Diagrams/Activities/ISR/motor_ISR.pdf "Motor ISR"
+
+[fig:chain_of_steps]: ../Milestone_1a/Diagrams/Activities/Functions/Chain-of-Steps.pdf "Chain of Steps Funktion"
+
+[fig:continuous_run]: ../Milestone_1a/Diagrams/Activities/Functions/Continuous-Run.pdf "Continuous Run Funktion"
+
+[fig:heartbeat]: ../Milestone_1a/Diagrams/Activities/Functions/Heartbeat.pdf "Heartbeat Funktion"
+
+[fig:auflistung]: ../Milestone_1a/Diagrams/Auflistung_Betriebssystemkomponenten.pdf "Auflistung Betriebssystemkomponenten"
+
+[fig:kommunikation]: ../Milestone_1a/Diagrams/Uebersicht_Komponenten_und_Kommunikation.pdf "Übersicht der Komponenten und Kommunikation"

@@ -1,4 +1,6 @@
 *.sublime-project
 *.sublime-workspace
-build/
 .DS_Store
+
+build/
+Documentation/.build
