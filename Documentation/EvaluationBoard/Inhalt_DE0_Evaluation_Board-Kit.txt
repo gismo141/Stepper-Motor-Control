@@ -1,0 +1,15 @@
+Inhalt DE0_Evaluation_Board-Kit
+
+Sourcen VHDL/SoC-Module
+Sourcen NIOS-Module
+Beschreibung_DE0_CycloneIII_Eval_Board.pdf
+pinning_DE0_Nano_Flash_Eval_Board.csv
+Schematic DE0: de0-nano-c4-rev-b(release_cd_rom).pdf
+DE0_Nano_User_Manual_v1.6.pdf
+
+ETTI4-Evaluation Board mit DE0-Nano-Board
+Mini-USB-Blaster-Kabel
+
+Achtung!!!!!
+DE0-Nano-Board muss mit HW-kompatiblem File "vor"-geladen werden, damit keine Port-Konflikte auftreten können:
+DE0_Nano_ohne_Flash_SDRAM_PLL_Eval_Board_prog.jic

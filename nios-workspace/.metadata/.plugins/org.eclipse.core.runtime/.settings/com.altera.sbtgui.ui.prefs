@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+newSoftwareExampleWizardPage.defaultLocation=S\:\\SoC04\\Stepper-Motor-Control\\quartus\\software\\ControlUnit
+newSoftwareExampleWizardPage.sopcinfoFile=S\:\\SoC04\\Stepper-Motor-Control\\quartus\\StepperMotorControl.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=S\:\\SoC04\\Stepper-Motor-Control\\quartus\\software\\ControlUnit_bsp
