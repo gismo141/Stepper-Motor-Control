@@ -1,19 +1,21 @@
 /**
-  ***************************************************************************
-  * @file      	hardwareAccess.h
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
-  * @version   	V0.1
-  * @date      	21.10.2014
-  * @brief   	functions for HW-access
-  ***************************************************************************
+  *****************************************************************************
+  * @file       hardwareAccess.h
+  * @author     Michael Riedel
+  * @author     Marc Kossmann
+  * @version    v0.1
+  * @date       21.10.2014
+  * @brief      functions for HW-access
+  *****************************************************************************
   * @par History:
-  * @details V0.1 Riedel & Kossmann
-  *			- first draft for milestone 1b
-  ****************************************************************************
+  * @details    v0.1 Riedel & Kossmann
+  *             - first draft for milestone 1b
+  *****************************************************************************
   */
-#ifndef HARDWAREACCESS_H_
-#define HARDWAREACCESS_H_
+
+#ifndef __HARDWAREACCESS_H__
+#define __HARDWAREACCESS_H__
+
 #include <stdint.h>
 #include "interfaceRegs.h"
 #include <system.h>
@@ -26,7 +28,7 @@
   */
 static __inline__ uint32_t getSW(void)
 {
-    return(IORD_INTERFACE_SWITCH(INTERFACE_COMP_0_BASE));
+    return (IORD_INTERFACE_SWITCH(INTERFACE_COMP_0_BASE));
 }
 
 /**
@@ -49,7 +51,7 @@ static __inline__ void SetRedLed(uint32_t redled)
   */
 static __inline__ uint32_t GetRedLed(void)
 {
-    return(IORD_INTERFACE_REDLED(INTERFACE_COMP_0_BASE));
+    return (IORD_INTERFACE_REDLED(INTERFACE_COMP_0_BASE));
 }
 
 /**
@@ -82,7 +84,7 @@ static __inline__ uint32_t GetRedLed(void)
   *                      @arg Bit 5..3 interrupt enable
   * @retval None
   */
- static __inline__ void SetKeyReg(uint32_t newkeyval)
+static __inline__ void SetKeyReg(uint32_t newkeyval)
 {
     IOWR_INTERFACE_KEY(INTERFACE_COMP_0_BASE, newkeyval);
 }
@@ -93,9 +95,9 @@ static __inline__ uint32_t GetRedLed(void)
   *                     @arg Bit 2..0 interrupt request
   *                     @arg Bit 5..3 interrupt enable
   */
- static __inline__ uint32_t GetKeyReg(void)
+static __inline__ uint32_t GetKeyReg(void)
 {
-    return(IORD_INTERFACE_KEY(INTERFACE_COMP_0_BASE));
+    return (IORD_INTERFACE_KEY(INTERFACE_COMP_0_BASE));
 }
 
-#endif
+#endif /*__HARDWAREACCESS_H__*/

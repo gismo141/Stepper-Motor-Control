@@ -1,32 +1,33 @@
 /**
-  ******************************************************************************
-  * @file    	interfaceRegs.h
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
-  * @version   	V0.1
-  * @date      	21.10.2014
-  * @brief   	Register file for interface-component
-  * @details 	definition of interface
+  *****************************************************************************
+  * @file       interfaceRegs.h
+  * @author     Michael Riedel
+  * @author     Marc Kossmann
+  * @version    v0.1
+  * @date       21.10.2014
+  * @brief      Register file for interface-component
+  * @details    definition of interface
   * @verbatim
     Register:
-     ADDR  width  access   structure                  				function
-      0    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S	ctrlReg
-      1    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S	ctrlSetReg
-      2    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S	ctrlClearReg
-      3    3_Bit    RW     SPEED2 SPEED1 SPEED0						speedReg
-      4    32_Bit   RW     step										stepReg
-      5    10_Bit   RW     red LEDs                  				red LEDs 
-      6    8_Bit    RW     green LEDs                 				green LEDs
+     ADDR  width  access   structure                               function
+      0    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S   ctrlReg
+      1    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S   ctrlSetReg
+      2    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S   ctrlClearReg
+      3    3_Bit    RW     SPEED2 SPEED1 SPEED0                    speedReg
+      4    32_Bit   RW     step                                    stepReg
+      5    10_Bit   RW     red LEDs                                red LEDs
+      6    8_Bit    RW     green LEDs                              green LEDs
   @endverbatim
-  ******************************************************************************
+  *****************************************************************************
   * @par History:
-  * @details V0.1 Riedel & Kossmann
-  *			- first draft for milestone 1b
-  ********************************************************************************
+  * @details    v0.1 Riedel & Kossmann
+  *             - first draft for milestone 1b
+  *****************************************************************************
   */
 
 #ifndef __INTERFACE_REGS_H__
 #define __INTERFACE_REGS_H__
+  
 #include <io.h>
 
 /**
@@ -42,7 +43,7 @@
 
 /** @brief Macro to calculate the address of the key register */
 #define IOADDR_INTERFACE_KEY(base)       \
-                              __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_KEY_REG)
+    __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_KEY_REG)
 
 /** @brief Macro to read key register */
 #define IORD_INTERFACE_KEY(base)         IORD(base, INTERFACE_KEY_REG)
@@ -77,13 +78,13 @@
 
 /** @brief Macro to calculate the address of register for green LEDs */
 #define IOADDR_INTERFACE_GREENLED(base)   \
-                         __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_GREENLED_REG)
+    __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_GREENLED_REG)
 
 /** @brief Macro to read green LEDs register */
 #define IORD_INTERFACE_GREENLED(base)      IORD(base, INTERFACE_GREENLED_REG)
 /** @brief Macro to write key to green LEDS register */
 #define IOWR_INTERFACE_GREENLED(base, data) \
-                                       IOWR(base, INTERFACE_GREENLED_REG, data)
+    IOWR(base, INTERFACE_GREENLED_REG, data)
 /** @brief Define to mask used bits in green led register */
 #define INTERFACE_GREENLED_MSK          (0xFF)
 
@@ -95,7 +96,7 @@
 
 /** @brief Macro to calculate the address of register for red LEDs */
 #define IOADDR_INTERFACE_REDLED(base)   \
-                          __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_REDLED_REG)
+    __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_REDLED_REG)
 /** @brief Macro to read red LEDs register */
 #define IORD_INTERFACE_REDLED(base)       IORD(base, INTERFACE_REDLED_REG)
 /** @brief Macro to write key to red LEDS register */
@@ -111,7 +112,7 @@
 
 /** @briefMacro to calculate the address of register for sliding switches  */
 #define IOADDR_INTERFACE_SWITCH(base)    \
-                           __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_SWITCH_REG)
+    __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_SWITCH_REG)
 
 /** @brief Macro to read register for sliding switches */
 #define IORD_INTERFACE_SWITCH(base)         IORD(base, INTERFACE_SWITCH_REG)

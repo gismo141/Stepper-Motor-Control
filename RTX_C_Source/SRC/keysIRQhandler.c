@@ -1,16 +1,16 @@
 /**
-  ***************************************************************************
-  * @file      	keysIRQhandler
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
-  * @version   	V0.1
-  * @date      	21.10.2014
-  * @brief  	IRQ-handler for keys
-  ***************************************************************************
+  *****************************************************************************
+  * @file       keysIRQhandler
+  * @author     Michael Riedel
+  * @author     Marc Kossmann
+  * @version    v0.1
+  * @date       21.10.2014
+  * @brief      IRQ-handler for keys
+  *****************************************************************************
   * @par History:
-  * @details V0.1 Riedel & Kossmann
-  *			- first draft for milestone 1b
-  ****************************************************************************
+  * @details    v0.1 Riedel & Kossmann
+  *             - first draft for milestone 1b
+  *****************************************************************************
   */
 
 #include <system.h>
@@ -26,8 +26,6 @@
   * @param  context : pointer to context variable (not used)
   * @retval none
   */
- void keysIRQhandler(void * context)
+void keysIRQhandler(void *context)
 {
 }
-
-

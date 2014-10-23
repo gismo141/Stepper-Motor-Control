@@ -1,18 +1,18 @@
 /**
-  ******************************************************************************
+  *****************************************************************************
   * @file    	userInputTask.h
   * @author  	Michael Riedel
   * @author  	Marc Kossmann
-  * @version   	V0.1
+  * @version   	v0.1
   * @date      	22.10.2014
   * @brief   	Header file for userInputTask.c
-  * @details 	Contains defines, includes, typedefs and declarations needed for
-  *             this task.
-  ******************************************************************************
+  * @details 	Contains defines, includes, typedefs and declarations needed
+  * 			for this task.
+  *****************************************************************************
   * @par History:
-  * @details V0.1 Riedel & Kossmann
-  *			- first draft for milestone 1b
-  ********************************************************************************
+  * @details 	v0.1 Riedel & Kossmann
+  *				- first draft for milestone 1b
+  *****************************************************************************
   */
 
 #ifndef __USER_INPUT_TASK_H__
@@ -89,4 +89,4 @@ typedef struct motorState{
 
 void UserInputTask(void * pdata);
 
-#endif
+#endif /*__USER_INPUT_TASK_H__*/

@@ -1,16 +1,16 @@
 /**
-  ***************************************************************************
-  * @file      	motorIRQhandler.h
-  * @author  	  Michael Riedel
-  * @author  	  Marc Kossmann
-  * @version   	V0.1
-  * @date      	21.10.2014
-  * @brief  	  Header file for motorIRQhandler.c
-  ***************************************************************************
+  *****************************************************************************
+  * @file       motorIRQhandler.h
+  * @author     Michael Riedel
+  * @author     Marc Kossmann
+  * @version    v0.1
+  * @date       21.10.2014
+  * @brief      Header file for motorIRQhandler.c
+  *****************************************************************************
   * @par History:
-  * @details V0.1 Riedel & Kossmann
-  *			- first draft for milestone 1b
-  ****************************************************************************
+  * @details    v0.1 Riedel & Kossmann
+  *             - first draft for milestone 1b
+  *****************************************************************************
   */
 
 #ifndef __MOTOR_IRQ_HANDLER_H__
@@ -20,6 +20,6 @@
 #include "hardwareAccess.h"
 
 /* IRQ-handler declaration */
-void motorIRQhandler(void * context);
+void motorIRQhandler(void *context);
 
-#endif
+#endif /*__MOTOR_IRQ_HANDLER_H__*/
