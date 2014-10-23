@@ -6,13 +6,15 @@
 
 This project is an example for a system-on-a-chip-design of a stepper-motor-control using the NIOS II/s Processor on the development boards from [terasIC](http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=163#Category165).
 
+![Project-Overview][fig:soc2014]
+
 ## Software
 
 The following software is beeing used for the development:
 
-- VHDL-Source-Management: [ModelSim - Starter Edition (14.0.2)](http://www.altera.com/products/software/quartus-ii/modelsim/qts-modelsim-index.html)
-- C-Source-Management: [Eclipse](https://www.eclipse.org)
-- Project-Management: [Quartus II - Web Edition (14.0.0)](http://www.altera.com/products/software/quartus-ii/web-edition/qts-we-index.html)
+- VHDL-Simulation: [ModelSim - Starter Edition (14.0.2)](http://www.altera.com/products/software/quartus-ii/modelsim/qts-modelsim-index.html)
+- VHDL-Source- and Project-Management: [Quartus II - Web Edition (14.0.0)](http://www.altera.com/products/software/quartus-ii/web-edition/qts-we-index.html)
+- C-Source-Management: [NIOS (based on Eclipse, integrated in Quartus)](http://www.altera.com/devices/processor/nios2/tools/ide/ni2-ide.html)
 
 ## Development
 
@@ -62,3 +64,5 @@ b) Isolated Control via DE0 / DE2 - Board-Switches
 ##### 4. Combined Solution
 
 combining the motor-control-unit with the NIOS II/s Base-Software with register-interface
+
+[fig:soc2014]: SoC2014.png "Project-Overview"
