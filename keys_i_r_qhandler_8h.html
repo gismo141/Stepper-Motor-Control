@@ -125,8 +125,8 @@ Include dependency graph for keysIRQhandler.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a200e6646e9d1d9032bfa64f3df522450"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a200e6646e9d1d9032bfa64f3df522450"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>keysIRQhandler</b> (void *context)</td></tr>
+<tr class="memitem:a200e6646e9d1d9032bfa64f3df522450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a> (void *context)</td></tr>
+<tr class="memdesc:a200e6646e9d1d9032bfa64f3df522450"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ-Handler for key-input.  <a href="#a200e6646e9d1d9032bfa64f3df522450">More...</a><br /></td></tr>
 <tr class="separator:a200e6646e9d1d9032bfa64f3df522450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -138,17 +138,62 @@ Marc Kossmann </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21.10.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>v0.1 Riedel &amp; Kossmann</p><ul>
-<li>first draft for milestone 1b </li>
+<li>first draft for milestone 1b</li>
+</ul>
+<p>2014-10-27 by Riedel:</p><ul>
+<li>added function-documentation </li>
 </ul>
 
 <p>Definition in file <a class="el" href="keys_i_r_qhandler_8h_source.html">keysIRQhandler.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a200e6646e9d1d9032bfa64f3df522450"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void keysIRQhandler </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ-Handler for key-input. </p>
+<p>sets an event, when key is pressed </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>: pointer to context variable (not used) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="keys_i_r_qhandler_8c_source.html#l00026">26</a> of file <a class="el" href="keys_i_r_qhandler_8c_source.html">keysIRQhandler.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="keys_i_r_qhandler_8h_a200e6646e9d1d9032bfa64f3df522450_cgraph.png" border="0" usemap="#keys_i_r_qhandler_8h_a200e6646e9d1d9032bfa64f3df522450_cgraph" alt=""/></div>
+<map name="keys_i_r_qhandler_8h_a200e6646e9d1d9032bfa64f3df522450_cgraph" id="keys_i_r_qhandler_8h_a200e6646e9d1d9032bfa64f3df522450_cgraph">
+<area shape="rect" id="node2" href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9" title="function to read content of key register " alt="" coords="170,5,261,31"/><area shape="rect" id="node3" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b" title="function to control green leds " alt="" coords="171,55,260,80"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="keys_i_r_qhandler_8h.html">keysIRQhandler.h</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:08:38 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Oct 27 2014 12:39:16 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

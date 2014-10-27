@@ -118,33 +118,46 @@ $(document).ready(function(){initNavTree('switches_i_r_qhandler_8c_source.html',
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  * @par History:</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @details    v0.1 Riedel &amp; Kossmann</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;sys/alt_irq.h&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../INC/hardwareAccess.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  * @brief      IRQ-Handler for switches</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">  * @details    sets an event, when an switch changed and stores all switch values</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  *             in message queue</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">  * @param      context : pointer to context variable (not used)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">  * @retval none</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a>(<span class="keywordtype">void</span> *context)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="ttc" id="switches_i_r_qhandler_8c_html_ad831687986b7a5fb97291c2c3fd65ff9"><div class="ttname"><a href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a></div><div class="ttdeci">void switchesIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for switches. </div><div class="ttdef"><b>Definition:</b> <a href="switches_i_r_qhandler_8c_source.html#l00029">switchesIRQhandler.c:29</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  * @details    2014-10-27 by Riedel:</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *             - basic implementation</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;sys/alt_irq.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../INC/hardwareAccess.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../INC/events.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a>(<span class="keywordtype">void</span> *context)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    uint32_t isrsignals;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    INT8U err;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    OSIntEnter();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    isrsignals =  <a class="code" href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c">getSW</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Clear Request</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">SetKeyReg</a>(isrsignals &amp; ~(<a class="code" href="interface_regs_8h.html#ab0a3114a64692b840372fafcae1d4966">INTERFACE_SWITCH_MSK</a>));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    isrsignals = isrsignals &amp; (<a class="code" href="interface_regs_8h.html#ab0a3114a64692b840372fafcae1d4966">INTERFACE_SWITCH_MSK</a>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Send corresponding Event</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    OSFlagPost(<a class="code" href="events_8h.html#a7322eda4a819d8262e996615ecc13b05">SWITCH_UPDATE_EVENT</a>, isrsignals, OS_FLAG_SET, &amp;err);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    OSIntExit();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="ttc" id="interface_regs_8h_html_ab0a3114a64692b840372fafcae1d4966"><div class="ttname"><a href="interface_regs_8h.html#ab0a3114a64692b840372fafcae1d4966">INTERFACE_SWITCH_MSK</a></div><div class="ttdeci">#define INTERFACE_SWITCH_MSK</div><div class="ttdoc">Define to mask used bits in sliding switch register. </div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00120">interfaceRegs.h:120</a></div></div>
+<div class="ttc" id="events_8h_html_a7322eda4a819d8262e996615ecc13b05"><div class="ttname"><a href="events_8h.html#a7322eda4a819d8262e996615ecc13b05">SWITCH_UPDATE_EVENT</a></div><div class="ttdeci">#define SWITCH_UPDATE_EVENT</div><div class="ttdoc">something changed, needs to be identified manually </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00022">events.h:22</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a226a59d3c74a7cade8c03c525e003a5c"><div class="ttname"><a href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c">getSW</a></div><div class="ttdeci">static __inline__ uint32_t getSW(void)</div><div class="ttdoc">function to read position of sliding switches </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00029">hardwareAccess.h:29</a></div></div>
+<div class="ttc" id="switches_i_r_qhandler_8c_html_ad831687986b7a5fb97291c2c3fd65ff9"><div class="ttname"><a href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a></div><div class="ttdeci">void switchesIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for switches. </div><div class="ttdef"><b>Definition:</b> <a href="switches_i_r_qhandler_8c_source.html#l00025">switchesIRQhandler.c:25</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a310e4afbd25f15e4e5733034636a0a0b"><div class="ttname"><a href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">SetKeyReg</a></div><div class="ttdeci">static __inline__ void SetKeyReg(uint32_t newkeyval)</div><div class="ttdoc">function to control green leds </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00087">hardwareAccess.h:87</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="switches_i_r_qhandler_8c.html">switchesIRQhandler.c</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:08:38 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Oct 27 2014 12:39:16 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

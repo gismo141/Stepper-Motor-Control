@@ -1,4 +1,5 @@
 <map id="switchesIRQhandler.c" name="switchesIRQhandler.c">
-<area shape="rect" id="node6" href="$hardware_access_8h.html" title="functions for HW&#45;access " alt="" coords="141,79,309,104"/>
-<area shape="rect" id="node7" href="$interface_regs_8h.html" title="Register file for interface&#45;component. " alt="" coords="168,152,282,177"/>
+<area shape="rect" id="node6" href="$hardware_access_8h.html" title="functions for HW&#45;access " alt="" coords="78,79,247,104"/>
+<area shape="rect" id="node9" href="$events_8h.html" title="definitions for used events " alt="" coords="544,79,653,104"/>
+<area shape="rect" id="node7" href="$interface_regs_8h.html" title="Register file for interface&#45;component. " alt="" coords="105,152,220,177"/>
 </map>
