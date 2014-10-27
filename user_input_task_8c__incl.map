@@ -1,0 +1,7 @@
+<map id="userInputTask.c" name="userInputTask.c">
+<area shape="rect" id="node2" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="314,79,467,104"/>
+<area shape="rect" id="node8" href="$hardware_access_8h.html" title="functions for HW&#45;access " alt="" coords="453,152,584,177"/>
+<area shape="rect" id="node12" href="$events_8h.html" title="definitions for used events " alt="" coords="706,152,778,177"/>
+<area shape="rect" id="node13" href="$heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="173,152,327,177"/>
+<area shape="rect" id="node9" href="$interface_regs_8h.html" title="Register file for interface&#45;component. " alt="" coords="574,225,689,251"/>
+</map>
