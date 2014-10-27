@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Stepper-Motor-Control">
+		<CBX_INST_ENTRY INSTANCE_NAME="|StepperMotorControl|StepperMotorControl_CPU:cpu|StepperMotorControl_CPU_register_bank_a_module:StepperMotorControl_CPU_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_6mn1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|StepperMotorControl|StepperMotorControl_jtag_uart:jtag_uart|StepperMotorControl_jtag_uart_scfifo_w:the_StepperMotorControl_jtag_uart_scfifo_w|scfifo:wfifo" CBX_FILE_NAME="scfifo_3291.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|StepperMotorControl|StepperMotorControl_CPU:cpu|StepperMotorControl_CPU_nios2_oci:the_StepperMotorControl_CPU_nios2_oci|StepperMotorControl_CPU_nios2_ocimem:the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram_module:StepperMotorControl_CPU_ociram_sp_ram|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_psf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|StepperMotorControl|StepperMotorControl_CPU:cpu|StepperMotorControl_CPU_register_bank_b_module:StepperMotorControl_CPU_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_7mn1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|StepperMotorControl|StepperMotorControl_jtag_uart:jtag_uart|StepperMotorControl_jtag_uart_scfifo_r:the_StepperMotorControl_jtag_uart_scfifo_r|scfifo:rfifo" CBX_FILE_NAME="scfifo_3291.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
