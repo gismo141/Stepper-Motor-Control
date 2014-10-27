@@ -10,6 +10,8 @@
   * @par History:
   * @details    v0.1 Riedel & Kossmann
   *             - first draft for milestone 1b
+  * @details    2014-10-27 by Riedel:
+  *             - added function-documentation
   *****************************************************************************
   */
 
@@ -19,7 +21,12 @@
 #include "includes.h"
 #include "hardwareAccess.h"
 
-/* IRQ-handler declaration */
+/**
+  * @brief  IRQ-Handler for motor stopped
+  * @details sets an event, when motor stopped
+  * @param  context : pointer to context variable (not used)
+  * @retval none
+  */
 void motorIRQhandler(void *context);
 
 #endif /*__MOTOR_IRQ_HANDLER_H__*/

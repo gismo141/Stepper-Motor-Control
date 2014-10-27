@@ -27,7 +27,7 @@
 
 #ifndef __INTERFACE_REGS_H__
 #define __INTERFACE_REGS_H__
-  
+
 #include <io.h>
 
 /**

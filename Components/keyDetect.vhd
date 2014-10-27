@@ -2,7 +2,7 @@
 --! @file keyDetect.vhd
 --! @author  Michael Riedel
 --! @author  Marc Kossmann
---! @version V0.1
+--! @version v0.1
 --! @date    21.10.2014
 --!
 --! @brief Key-Detector

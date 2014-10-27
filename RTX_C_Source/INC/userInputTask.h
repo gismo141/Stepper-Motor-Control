@@ -12,6 +12,8 @@
   * @par History:
   * @details 	v0.1 Riedel & Kossmann
   *				- first draft for milestone 1b
+  *				2014-10-27: Riedel:
+  *				- moved events to events.h for better handling
   *****************************************************************************
   */
 
@@ -24,13 +26,8 @@
 #include <stdbool.h>
 #include "includes.h"
 #include "hardwareAccess.h"
+#include "../INC/events.h"
 #include "../INC/heartbeatTask.h"
-
-#define KEY0_RS_EVENT			(0x1)
-#define KEY2_MINUS_EVENT		(0x2)
-#define KEY3_PLUS_EVENT			(0x4)
-#define SWITCH_UPDATE_EVENT		(0x8)
-#define MOTOR_STOP_EVENT		(0x10)
 
 #define CTRL_REG_RS_MSK			(0x1)
 #define CTRL_REG_LR_MSK			(0x2)
