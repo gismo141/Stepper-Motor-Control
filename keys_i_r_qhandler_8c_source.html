@@ -106,9 +106,9 @@ $(document).ready(function(){initNavTree('keys_i_r_qhandler_8c_source.html','');
 <div class="title">keysIRQhandler.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
+<a href="keys_i_r_qhandler_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       keysIRQhandler</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       keysIRQhandler.c</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
@@ -124,40 +124,37 @@ $(document).ready(function(){initNavTree('keys_i_r_qhandler_8c_source.html','');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *****************************************************************************</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  */</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;sys/alt_irq.h&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span> <span class="comment">// WofÃ¼r ist die?</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../INC/hardwareAccess.h&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../INC/events.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a>(<span class="keywordtype">void</span> *context)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    uint32_t isrsignals;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    INT8U err;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    OSIntEnter();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    isrsignals =  <a class="code" href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">GetKeyReg</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Clear Request</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">SetKeyReg</a>(isrsignals &amp; ~(<a class="code" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">INTERFACE_KEY_IR0_MSK</a> |</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                             <a class="code" href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">INTERFACE_KEY_IR1_MSK</a> |</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                             <a class="code" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">INTERFACE_KEY_IR2_MSK</a>));</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    isrsignals = isrsignals &amp; (<a class="code" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">INTERFACE_KEY_IR0_MSK</a> |</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                               <a class="code" href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">INTERFACE_KEY_IR1_MSK</a> |</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                               <a class="code" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">INTERFACE_KEY_IR2_MSK</a>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Send corresponding Event</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(isrsignals &amp; <a class="code" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">INTERFACE_KEY_IR0_MSK</a>)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        OSFlagPost(<a class="code" href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">KEY0_RS_EVENT</a>, isrsignals, OS_FLAG_SET, &amp;err);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span>(isrsignals &amp; <a class="code" href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">INTERFACE_KEY_IR1_MSK</a>)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        OSFlagPost(<a class="code" href="events_8h.html#af84520160425bf02b52498a6ab50b904">KEY2_MINUS_EVENT</a>, isrsignals, OS_FLAG_SET, &amp;err);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span>(isrsignals &amp; <a class="code" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">INTERFACE_KEY_IR2_MSK</a>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        OSFlagPost(<a class="code" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">KEY3_PLUS_EVENT</a>, isrsignals, OS_FLAG_SET, &amp;err);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    OSIntExit();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;sys/alt_irq.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span> <span class="comment">// WofÃ¼r ist die?</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../INC/hardwareAccess.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../INC/events.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="keys_i_r_qhandler_8c.html#a200e6646e9d1d9032bfa64f3df522450">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="keys_i_r_qhandler_8c.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a>(<span class="keywordtype">void</span> *context)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    uint32_t isrsignals;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    INT8U err;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    OSIntEnter();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    isrsignals =  <a class="code" href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">GetKeyReg</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Clear Request</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">SetKeyReg</a>(isrsignals &amp; ~(<a class="code" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">INTERFACE_KEY_IR0_MSK</a> |</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                             <a class="code" href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">INTERFACE_KEY_IR1_MSK</a> |</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                             <a class="code" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">INTERFACE_KEY_IR2_MSK</a>));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    isrsignals = isrsignals &amp; (<a class="code" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">INTERFACE_KEY_IR0_MSK</a> |</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                               <a class="code" href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">INTERFACE_KEY_IR1_MSK</a> |</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                               <a class="code" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">INTERFACE_KEY_IR2_MSK</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Send corresponding Event</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>(isrsignals &amp; <a class="code" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">INTERFACE_KEY_IR0_MSK</a>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        OSFlagPost(<a class="code" href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">KEY0_RS_EVENT</a>, isrsignals, OS_FLAG_SET, &amp;err);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(isrsignals &amp; <a class="code" href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">INTERFACE_KEY_IR1_MSK</a>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        OSFlagPost(<a class="code" href="events_8h.html#af84520160425bf02b52498a6ab50b904">KEY2_MINUS_EVENT</a>, isrsignals, OS_FLAG_SET, &amp;err);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span>(isrsignals &amp; <a class="code" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">INTERFACE_KEY_IR2_MSK</a>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        OSFlagPost(<a class="code" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">KEY3_PLUS_EVENT</a>, isrsignals, OS_FLAG_SET, &amp;err);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    OSIntExit();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="ttc" id="interface_regs_8h_html_a38e9ad727c8a99cd0af65f9c09325e15"><div class="ttname"><a href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">INTERFACE_KEY_IR0_MSK</a></div><div class="ttdeci">#define INTERFACE_KEY_IR0_MSK</div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00056">interfaceRegs.h:56</a></div></div>
-<div class="ttc" id="keys_i_r_qhandler_8h_html_a200e6646e9d1d9032bfa64f3df522450"><div class="ttname"><a href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a></div><div class="ttdeci">void keysIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for key-input. </div><div class="ttdef"><b>Definition:</b> <a href="keys_i_r_qhandler_8c_source.html#l00026">keysIRQhandler.c:26</a></div></div>
 <div class="ttc" id="interface_regs_8h_html_a5f38834866a190c125be7a9a4f8b23fd"><div class="ttname"><a href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">INTERFACE_KEY_IR1_MSK</a></div><div class="ttdeci">#define INTERFACE_KEY_IR1_MSK</div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00058">interfaceRegs.h:58</a></div></div>
 <div class="ttc" id="interface_regs_8h_html_a00db043b738b330ab9a2f73b402cf880"><div class="ttname"><a href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">INTERFACE_KEY_IR2_MSK</a></div><div class="ttdeci">#define INTERFACE_KEY_IR2_MSK</div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00060">interfaceRegs.h:60</a></div></div>
 <div class="ttc" id="hardware_access_8h_html_a310e4afbd25f15e4e5733034636a0a0b"><div class="ttname"><a href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">SetKeyReg</a></div><div class="ttdeci">static __inline__ void SetKeyReg(uint32_t newkeyval)</div><div class="ttdoc">function to control green leds </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00087">hardwareAccess.h:87</a></div></div>
@@ -165,13 +162,14 @@ $(document).ready(function(){initNavTree('keys_i_r_qhandler_8c_source.html','');
 <div class="ttc" id="hardware_access_8h_html_a8b0a952395f92b19bc5dda6986fec2b9"><div class="ttname"><a href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">GetKeyReg</a></div><div class="ttdeci">static __inline__ uint32_t GetKeyReg(void)</div><div class="ttdoc">function to read content of key register </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00098">hardwareAccess.h:98</a></div></div>
 <div class="ttc" id="events_8h_html_abc6dd41fc67e290a2dfe87e6984c2999"><div class="ttname"><a href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">KEY0_RS_EVENT</a></div><div class="ttdeci">#define KEY0_RS_EVENT</div><div class="ttdoc">runs or stops the motor via key_0 </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00019">events.h:19</a></div></div>
 <div class="ttc" id="events_8h_html_af84520160425bf02b52498a6ab50b904"><div class="ttname"><a href="events_8h.html#af84520160425bf02b52498a6ab50b904">KEY2_MINUS_EVENT</a></div><div class="ttdeci">#define KEY2_MINUS_EVENT</div><div class="ttdoc">decreases the steps to turn via key_2 </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00020">events.h:20</a></div></div>
+<div class="ttc" id="keys_i_r_qhandler_8c_html_a200e6646e9d1d9032bfa64f3df522450"><div class="ttname"><a href="keys_i_r_qhandler_8c.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a></div><div class="ttdeci">void keysIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for key-input. </div><div class="ttdef"><b>Definition:</b> <a href="keys_i_r_qhandler_8c_source.html#l00024">keysIRQhandler.c:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><b>keysIRQhandler.c</b></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:39:16 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="keys_i_r_qhandler_8c.html">keysIRQhandler.c</a></li>
+    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -1,6 +1,6 @@
 <map id="events.h" name="events.h">
 <area shape="rect" id="node2" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="34,79,150,104"/>
-<area shape="rect" id="node6" href="$keys_i_r_qhandler_8c_source.html" title="keysIRQhandler.c" alt="" coords="174,79,301,104"/>
+<area shape="rect" id="node6" href="$keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="174,79,301,104"/>
 <area shape="rect" id="node7" href="$motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="324,79,457,104"/>
 <area shape="rect" id="node8" href="$switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="481,79,631,104"/>
 <area shape="rect" id="node3" href="$main_8h.html" title="Header file for main.c. " alt="" coords="5,152,67,177"/>

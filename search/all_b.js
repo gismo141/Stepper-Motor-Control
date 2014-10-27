@@ -14,7 +14,8 @@ var searchData=
   ['std_5flogic_5fsigned',['std_logic_signed',['../classinterface.html#aa9364a3b0c6316da928edf136ae9b8e1',1,'interface']]],
   ['sw',['SW',['../classinterface___r_t_x___base.html#a50c2b250ae3294fd98bcbe4525019448',1,'interface_RTX_Base']]],
   ['switch_5fupdate_5fevent',['SWITCH_UPDATE_EVENT',['../events_8h.html#a7322eda4a819d8262e996615ecc13b05',1,'events.h']]],
-  ['switchesirqhandler',['switchesIRQhandler',['../switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9',1,'switchesIRQhandler.c']]],
+  ['switchesirqhandler',['switchesIRQhandler',['../switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9',1,'switchesIRQhandler(void *context):&#160;switchesIRQhandler.c'],['../switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9',1,'switchesIRQhandler(void *context):&#160;switchesIRQhandler.c']]],
   ['switchesirqhandler_2ec',['switchesIRQhandler.c',['../switches_i_r_qhandler_8c.html',1,'']]],
+  ['switchesirqhandler_2eh',['switchesIRQhandler.h',['../switches_i_r_qhandler_8h.html',1,'']]],
   ['systemstate',['systemState',['../structsystem_state.html',1,'']]]
 ];

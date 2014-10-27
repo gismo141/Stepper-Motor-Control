@@ -1,0 +1,4 @@
+<map id="switchesIRQhandler" name="switchesIRQhandler">
+<area shape="rect" id="node2" href="$hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c" title="function to read position of sliding switches " alt="" coords="208,5,269,31"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b" title="function to control green leds " alt="" coords="194,55,283,80"/>
+</map>

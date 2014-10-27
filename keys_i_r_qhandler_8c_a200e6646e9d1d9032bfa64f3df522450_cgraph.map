@@ -1,0 +1,4 @@
+<map id="keysIRQhandler" name="keysIRQhandler">
+<area shape="rect" id="node2" href="$hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9" title="function to read content of key register " alt="" coords="170,5,261,31"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b" title="function to control green leds " alt="" coords="171,55,260,80"/>
+</map>
