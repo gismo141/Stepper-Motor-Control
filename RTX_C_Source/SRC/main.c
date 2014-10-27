@@ -1,18 +1,18 @@
 /**
-  ***************************************************************************
-  * @file      	main.c
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
-  * @version   	v0.1
-  * @date      	27.10.2014
-  * @brief   	Main-Routine for Stepper-Motor-Control
+  *****************************************************************************
+  * @file       main.c
+  * @author     Michael Riedel
+  * @author     Marc Kossmann
+  * @version    v0.1
+  * @date       22.10.2014
+  * @brief      Main-Routine for Stepper-Motor-Control
   * @todo		introduce error-handling like in User-Output-Task
   * @todo		uncomment isr registration
-  ***************************************************************************
+  *****************************************************************************
   * @par History:
   * @details    v0.1 Riedel & Kossmann
-  *			    - first draft for milestone 1b
-  ****************************************************************************
+  *             - first draft for milestone 1b
+  *****************************************************************************
   */
 
 #include "../INC/main.h"
@@ -35,7 +35,7 @@ int32_t main(void)
   // -------------------- Tasks ----------------------------------------
   OSTaskCreateExt(UserInputTask,
                   NULL,
-                  (void *)&UserInputTask_Stk[TASK_STACKSIZE-1],
+                    (void *)&UserInputTask_Stk[TASK_STACKSIZE - 1],
                   USER_INPUT_TASK_PRIORITY,
                   USER_INPUT_TASK_PRIORITY,
                   UserInputTask_Stk,
@@ -45,7 +45,7 @@ int32_t main(void)
    
   OSTaskCreateExt(UserOutputTask,
                   NULL,
-                  (void *)&UserOutputTask_Stk[TASK_STACKSIZE-1],
+                    (void *)&UserOutputTask_Stk[TASK_STACKSIZE - 1],
                   USER_OUTPUT_TASK_PRIORITY,
                   USER_OUTPUT_TASK_PRIORITY,
                   UserOutputTask_Stk,
@@ -85,7 +85,6 @@ int32_t main(void)
   printf_term("Stepper Motor - System on a Chip 2014\n");
   printf_term("Michael Riedel & Marc Kossmann\n");
   printf_term("Version 0.1 - 21.10.2014\n");
-
   
 //  //init LC-Display and show initial screen
 //  initLCD();

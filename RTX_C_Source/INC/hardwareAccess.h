@@ -1,19 +1,21 @@
 /**
-  ***************************************************************************
-  * @file     hardwareAccess.h
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
-  * @version  v0.1
-  * @date     21.10.2014
-  * @brief   	Functions for HW-access
-  ***************************************************************************
+  *****************************************************************************
+  * @file       hardwareAccess.h
+  * @author     Michael Riedel
+  * @author     Marc Kossmann
+  * @version    v0.1
+  * @date       21.10.2014
+  * @brief      functions for HW-access
+  *****************************************************************************
   * @par History:
-  * @details  v0.1 Riedel & Kossmann
-  *			      - first draft for milestone 1b
-  ****************************************************************************
+  * @details    v0.1 Riedel & Kossmann
+  *             - first draft for milestone 1b
+  *****************************************************************************
   */
+
 #ifndef HARDWAREACCESS_H_
 #define HARDWAREACCESS_H_
+
 #include <stdint.h>
 #include "interfaceRegs.h"
 #include <system.h>
@@ -98,4 +100,4 @@ static __inline__ uint32_t GetRedLed(void)
     return(IORD_INTERFACE_KEY(INTERFACE_COMP_0_BASE));
 }
 
-#endif
+#endif /*__HARDWAREACCESS_H__*/

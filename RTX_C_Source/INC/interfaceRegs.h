@@ -1,12 +1,12 @@
 /**
-  ******************************************************************************
-  * @file    	interfaceRegs.h
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
-  * @version  v0.1
-  * @date     21.10.2014
-  * @brief   	Register file for interface-component
-  * @details 	definition of interface
+  *****************************************************************************
+  * @file       interfaceRegs.h
+  * @author     Michael Riedel
+  * @author     Marc Kossmann
+  * @version    v0.1
+  * @date       21.10.2014
+  * @brief      Register file for interface-component
+  * @details    definition of interface
   * @verbatim
     Register:
      ADDR  width  access   structure                  				function
@@ -18,15 +18,16 @@
       5    10_Bit   RW     red LEDs                  				red LEDs 
       6    8_Bit    RW     green LEDs                 				green LEDs
   @endverbatim
-  ******************************************************************************
+  *****************************************************************************
   * @par History:
-  * @details  v0.1 Riedel & Kossmann
-  *			      - first draft for milestone 1b
-  ********************************************************************************
+  * @details    v0.1 Riedel & Kossmann
+  *             - first draft for milestone 1b
+  *****************************************************************************
   */
 
 #ifndef __INTERFACE_REGS_H__
 #define __INTERFACE_REGS_H__
+
 #include <io.h>
 
 /**

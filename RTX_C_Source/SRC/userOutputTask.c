@@ -1,18 +1,18 @@
 /**
- ***************************************************************************
- * @file      	userOutputTask.c
- * @author  	Michael Riedel
- * @author  	Marc Kossmann
- * @version   	v0.1
- * @date      	27.10.2014
- * @brief   	Source code for User-Output-Task which communications with
- * 				the user and shows him system information
+ ******************************************************************************
+ * @file        userOutputTask.c
+ * @author      Michael Riedel
+ * @author      Marc Kossmann
+ * @version     v0.1
+ * @date        21.10.2014
+ * @brief       Source code for User-Output-Task which communications with
+ *              the user and shows him system information
  * @todo		finish hex update
- ***************************************************************************
+ ******************************************************************************
  * @par History:
- * @details     v0.1 Riedel & Kossmann
- *			    - first draft for milestone 1b
- ****************************************************************************
+ * @details 	v0.1 Riedel & Kossmann
+ *          	- first draft for milestone 1b
+ ******************************************************************************
  */
 
 #include "../INC/userOutputTask.h"
@@ -25,7 +25,7 @@ extern OS_EVENT *outputTaskMailbox;
  * @param  pdata : Pointer to parameter structure (not used)
  * @retval None
  */
-void UserOutputTask(void * pdata)
+void UserOutputTask(void *pdata)
 {
 	uint8_t err;
 	outputTaskMailbox_t *outputTaskMboxContentPtr;
@@ -35,7 +35,7 @@ void UserOutputTask(void * pdata)
 	//Wait 2 seconds before starting
 	OSTimeDlyHMSM(0, 0, 2, 0);
 
-	while(1)
+    while (1)
 	{
 		outputTaskMboxContentPtr = OSMboxPend(outputTaskMailbox, 0, &err);
 		if(OS_NO_ERR == err && NULL != outputTaskMboxContentPtr){
@@ -56,7 +56,7 @@ void UserOutputTask(void * pdata)
 			}
 			if(outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK){
 				printf_term("Steps: %i\n", outputTaskMboxContentPtr->stepsReg);
-				OSTimeDlyHMSM(0, 0, 1, 0);
+        OSTimeDlyHMSM(0, 0, 0, 100);
 			}
 			//END of terminal output
 			//BEGIN of lcd ouput
