@@ -13,12 +13,12 @@ module StepperMotorControl (
 	lcd_RW,
 	lcd_data,
 	lcd_E,
-	led9_export,
 	key_export,
 	hex0_export,
 	hex1_export,
 	hex2_export,
-	hex3_export);	
+	hex3_export,
+	led9_export);	
 
 	input		reset_reset_n;
 	input		clk_clk;
@@ -33,10 +33,10 @@ module StepperMotorControl (
 	output		lcd_RW;
 	inout	[7:0]	lcd_data;
 	output		lcd_E;
-	output		led9_export;
 	input	[2:0]	key_export;
 	output	[6:0]	hex0_export;
 	output	[6:0]	hex1_export;
 	output	[6:0]	hex2_export;
 	output	[6:0]	hex3_export;
+	output		led9_export;
 endmodule

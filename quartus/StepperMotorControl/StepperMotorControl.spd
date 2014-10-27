@@ -303,7 +303,7 @@
    type="VHDL"
    library="mm_interconnect_0" />
  <file
-   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_pio_led9_s1_translator.vhd"
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_pio_key_s1_translator.vhd"
    type="VHDL"
    library="mm_interconnect_0" />
  <file
@@ -331,6 +331,10 @@
    type="VHDL"
    library="mm_interconnect_0" />
  <file
+   path="simulation/submodules/StepperMotorControl_pio_led9.vhd"
+   type="VHDL"
+   library="pio_led9" />
+ <file
    path="simulation/submodules/StepperMotorControl_pio_hex0.vhd"
    type="VHDL"
    library="pio_hex0" />
@@ -338,10 +342,6 @@
    path="simulation/submodules/StepperMotorControl_pio_key.vhd"
    type="VHDL"
    library="pio_key" />
- <file
-   path="simulation/submodules/StepperMotorControl_pio_led9.vhd"
-   type="VHDL"
-   library="pio_led9" />
  <file
    path="simulation/submodules/StepperMotorControl_pio_sw.vhd"
    type="VHDL"

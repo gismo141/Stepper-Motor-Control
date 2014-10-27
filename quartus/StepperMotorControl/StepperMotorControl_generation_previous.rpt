@@ -24,8 +24,6 @@ Progress: Adding lcd [altera_avalon_lcd_16207 14.0]
 Progress: Parameterizing module lcd
 Progress: Adding pio_sw [altera_avalon_pio 14.0]
 Progress: Parameterizing module pio_sw
-Progress: Adding pio_led9 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_led9
 Progress: Adding pio_key [altera_avalon_pio 14.0]
 Progress: Parameterizing module pio_key
 Progress: Adding pio_hex0 [altera_avalon_pio 14.0]
@@ -36,6 +34,8 @@ Progress: Adding pio_hex2 [altera_avalon_pio 14.0]
 Progress: Parameterizing module pio_hex2
 Progress: Adding pio_hex3 [altera_avalon_pio 14.0]
 Progress: Parameterizing module pio_hex3
+Progress: Adding pio_led9 [altera_avalon_pio 14.0]
+Progress: Parameterizing module pio_led9
 Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
@@ -51,20 +51,20 @@ Info: StepperMotorControl.pio_sw: PIO inputs are not hardwired in test bench. Un
 Info: StepperMotorControl.pio_key: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info: StepperMotorControl: Generating StepperMotorControl "StepperMotorControl" for SIM_VHDL
 Info: CPU: Starting RTL generation for module 'StepperMotorControl_CPU'
-Info: CPU:   Generation command is [exec C:/altera/14.0/quartus/bin64/eperlcmd.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=StepperMotorControl_CPU --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0001_CPU_gen/ --quartus_bindir=C:/altera/14.0/quartus/bin64 --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0001_CPU_gen//StepperMotorControl_CPU_processor_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0001_CPU_gen/  ]
-Info: CPU: # 2014.10.27 19:28:21 (*) Starting Nios II generation
-Info: CPU: # 2014.10.27 19:28:21 (*)   Checking for plaintext license.
-Info: CPU: # 2014.10.27 19:28:23 (*)   Couldn't query license setup in Quartus directory C:/altera/14.0/quartus/bin64
-Info: CPU: # 2014.10.27 19:28:23 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info: CPU: # 2014.10.27 19:28:23 (*)   LM_LICENSE_FILE environment variable is empty
-Info: CPU: # 2014.10.27 19:28:23 (*)   Plaintext license not found.
-Info: CPU: # 2014.10.27 19:28:23 (*)   No license required to generate encrypted Nios II/e.
-Info: CPU: # 2014.10.27 19:28:23 (*)   Elaborating CPU configuration settings
-Info: CPU: # 2014.10.27 19:28:23 (*)   Creating all objects for CPU
-Info: CPU: # 2014.10.27 19:28:24 (*)   Creating 'C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0001_CPU_gen//StepperMotorControl_CPU_nios2_waves.do'
-Info: CPU: # 2014.10.27 19:28:24 (*)   Generating RTL from CPU objects
-Info: CPU: # 2014.10.27 19:28:24 (*)   Creating plain-text RTL
-Info: CPU: # 2014.10.27 19:28:27 (*) Done Nios II generation
+Info: CPU:   Generation command is [exec C:/altera/14.0/quartus/bin64/eperlcmd.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=StepperMotorControl_CPU --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0010_CPU_gen/ --quartus_bindir=C:/altera/14.0/quartus/bin64 --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0010_CPU_gen//StepperMotorControl_CPU_processor_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0010_CPU_gen/  ]
+Info: CPU: # 2014.10.27 23:17:17 (*) Starting Nios II generation
+Info: CPU: # 2014.10.27 23:17:17 (*)   Checking for plaintext license.
+Info: CPU: # 2014.10.27 23:17:19 (*)   Couldn't query license setup in Quartus directory C:/altera/14.0/quartus/bin64
+Info: CPU: # 2014.10.27 23:17:19 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: CPU: # 2014.10.27 23:17:19 (*)   LM_LICENSE_FILE environment variable is empty
+Info: CPU: # 2014.10.27 23:17:19 (*)   Plaintext license not found.
+Info: CPU: # 2014.10.27 23:17:19 (*)   No license required to generate encrypted Nios II/e.
+Info: CPU: # 2014.10.27 23:17:19 (*)   Elaborating CPU configuration settings
+Info: CPU: # 2014.10.27 23:17:19 (*)   Creating all objects for CPU
+Info: CPU: # 2014.10.27 23:17:20 (*)   Creating 'C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0010_CPU_gen//StepperMotorControl_CPU_nios2_waves.do'
+Info: CPU: # 2014.10.27 23:17:20 (*)   Generating RTL from CPU objects
+Info: CPU: # 2014.10.27 23:17:20 (*)   Creating plain-text RTL
+Info: CPU: # 2014.10.27 23:17:23 (*) Done Nios II generation
 Info: CPU: Done RTL generation for module 'StepperMotorControl_CPU'
 Info: CPU: "StepperMotorControl" instantiated altera_nios2_qsys "CPU"
 Info: sysid_qsys_0: Generating VHDL simulation model
@@ -72,11 +72,11 @@ Warning: Parallel compilation is not licensed and has been disabled
 Info: sysid_qsys_0: Generated simulation model StepperMotorControl_sysid_qsys_0.vho
 Info: sysid_qsys_0: "StepperMotorControl" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
 Info: jtag_uart: Starting RTL generation for module 'StepperMotorControl_jtag_uart'
-Info: jtag_uart:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=StepperMotorControl_jtag_uart --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0005_jtag_uart_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0005_jtag_uart_gen//StepperMotorControl_jtag_uart_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0005_jtag_uart_gen/  ]
+Info: jtag_uart:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=StepperMotorControl_jtag_uart --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0014_jtag_uart_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0014_jtag_uart_gen//StepperMotorControl_jtag_uart_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0014_jtag_uart_gen/  ]
 Info: jtag_uart: Done RTL generation for module 'StepperMotorControl_jtag_uart'
 Info: jtag_uart: "StepperMotorControl" instantiated altera_avalon_jtag_uart "jtag_uart"
 Info: RTX_Timer: Starting RTL generation for module 'StepperMotorControl_RTX_Timer'
-Info: RTX_Timer:   Generation command is [exec C:/altera/14.0/quartus/bin64//perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64//perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=StepperMotorControl_RTX_Timer --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0006_RTX_Timer_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0006_RTX_Timer_gen//StepperMotorControl_RTX_Timer_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0006_RTX_Timer_gen/  ]
+Info: RTX_Timer:   Generation command is [exec C:/altera/14.0/quartus/bin64//perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64//perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=StepperMotorControl_RTX_Timer --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0015_RTX_Timer_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0015_RTX_Timer_gen//StepperMotorControl_RTX_Timer_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0015_RTX_Timer_gen/  ]
 Info: RTX_Timer: Done RTL generation for module 'StepperMotorControl_RTX_Timer'
 Info: RTX_Timer: "StepperMotorControl" instantiated altera_avalon_timer "RTX_Timer"
 Info: SRAM_CVGX: "StepperMotorControl" instantiated altera_generic_tristate_controller "SRAM_CVGX"
@@ -102,7 +102,7 @@ Info: Running Quartus II 64-Bit Shell
     Info: devices manufactured by Altera and sold by Altera or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Mon Oct 27 19:28:37 2014
+    Info: Processing started: Mon Oct 27 23:17:34 2014
 Info: Command: quartus_sh -t run_simgen_cmd.tcl
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
@@ -121,7 +121,7 @@ Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: devices manufactured by Altera and sold by Altera or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Mon Oct 27 19:28:39 2014
+    Info: Processing started: Mon Oct 27 23:17:36 2014
 Info: Command: quartus_map StepperMotorControl_pll_100MHz.qpf --simgen --ini=disable_check_quartus_compatibility_qsys_only=on --simgen_parameter=CBX_HDL_LANGUAGE=VHDL
 Info (20034): Auto device selection is not supported for Cyclone V device family. The default device, 5CGXFC7C7F23C8, is set.
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -199,38 +199,38 @@ SIMGEN_PROGRESS Phase 2 : Connections between internal objects made -- 60% compl
 SIMGEN_PROGRESS Phase 3 : Netlist generated -- 100% complete
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 557 megabytes
-    Info: Processing ended: Mon Oct 27 19:28:40 2014
+    Info: Processing ended: Mon Oct 27 23:17:37 2014
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 Info (23030): Evaluation of Tcl script run_simgen_cmd.tcl was successful
 Info: Quartus II 64-Bit Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 221 megabytes
-    Info: Processing ended: Mon Oct 27 19:28:40 2014
+    Info: Processing ended: Mon Oct 27 23:17:37 2014
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 Info: pll_100MHz: Simgen was successful
 Info: pll_100MHz: "StepperMotorControl" instantiated altera_pll "pll_100MHz"
 Info: SRAM_PinSharer: "StepperMotorControl" instantiated altera_tristate_conduit_pin_sharer "SRAM_PinSharer"
 Info: lcd: Starting RTL generation for module 'StepperMotorControl_lcd'
-Info: lcd:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207 -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207/generate_rtl.pl --name=StepperMotorControl_lcd --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0011_lcd_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0011_lcd_gen//StepperMotorControl_lcd_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0011_lcd_gen/  ]
+Info: lcd:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207 -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207/generate_rtl.pl --name=StepperMotorControl_lcd --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0020_lcd_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0020_lcd_gen//StepperMotorControl_lcd_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0020_lcd_gen/  ]
 Info: lcd: Done RTL generation for module 'StepperMotorControl_lcd'
 Info: lcd: "StepperMotorControl" instantiated altera_avalon_lcd_16207 "lcd"
 Info: pio_sw: Starting RTL generation for module 'StepperMotorControl_pio_sw'
-Info: pio_sw:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_sw --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0012_pio_sw_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0012_pio_sw_gen//StepperMotorControl_pio_sw_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0012_pio_sw_gen/  ]
+Info: pio_sw:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_sw --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0021_pio_sw_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0021_pio_sw_gen//StepperMotorControl_pio_sw_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0021_pio_sw_gen/  ]
 Info: pio_sw: Done RTL generation for module 'StepperMotorControl_pio_sw'
 Info: pio_sw: "StepperMotorControl" instantiated altera_avalon_pio "pio_sw"
-Info: pio_led9: Starting RTL generation for module 'StepperMotorControl_pio_led9'
-Info: pio_led9:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_led9 --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0013_pio_led9_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0013_pio_led9_gen//StepperMotorControl_pio_led9_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0013_pio_led9_gen/  ]
-Info: pio_led9: Done RTL generation for module 'StepperMotorControl_pio_led9'
-Info: pio_led9: "StepperMotorControl" instantiated altera_avalon_pio "pio_led9"
 Info: pio_key: Starting RTL generation for module 'StepperMotorControl_pio_key'
-Info: pio_key:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_key --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0014_pio_key_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0014_pio_key_gen//StepperMotorControl_pio_key_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0014_pio_key_gen/  ]
+Info: pio_key:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_key --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0022_pio_key_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0022_pio_key_gen//StepperMotorControl_pio_key_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0022_pio_key_gen/  ]
 Info: pio_key: Done RTL generation for module 'StepperMotorControl_pio_key'
 Info: pio_key: "StepperMotorControl" instantiated altera_avalon_pio "pio_key"
 Info: pio_hex0: Starting RTL generation for module 'StepperMotorControl_pio_hex0'
-Info: pio_hex0:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_hex0 --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0015_pio_hex0_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0015_pio_hex0_gen//StepperMotorControl_pio_hex0_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0015_pio_hex0_gen/  ]
+Info: pio_hex0:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_hex0 --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0023_pio_hex0_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0023_pio_hex0_gen//StepperMotorControl_pio_hex0_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0023_pio_hex0_gen/  ]
 Info: pio_hex0: Done RTL generation for module 'StepperMotorControl_pio_hex0'
 Info: pio_hex0: "StepperMotorControl" instantiated altera_avalon_pio "pio_hex0"
+Info: pio_led9: Starting RTL generation for module 'StepperMotorControl_pio_led9'
+Info: pio_led9:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_led9 --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0024_pio_led9_gen/ --quartus_dir=C:/altera/14.0/quartus --vhdl --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0024_pio_led9_gen//StepperMotorControl_pio_led9_component_configuration.pl  --do_build_sim=1    --sim_dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_1151086246048829581.dir/0024_pio_led9_gen/  ]
+Info: pio_led9: Done RTL generation for module 'StepperMotorControl_pio_led9'
+Info: pio_led9: "StepperMotorControl" instantiated altera_avalon_pio "pio_led9"
 Info: mm_interconnect_0: "StepperMotorControl" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: Generating VHDL simulation model
 Warning: Parallel compilation is not licensed and has been disabled
@@ -281,246 +281,7 @@ Warning: Parallel compilation is not licensed and has been disabled
 Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
 Warning: Parallel compilation is not licensed and has been disabled
 Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
-Info: SRAM_CVGX_uas_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "SRAM_CVGX_uas_burst_adapter"
-Info: cmd_demux: Generating VHDL simulation model
-Warning: Parallel compilation is not licensed and has been disabled
-Info: cmd_demux: Generated simulation model StepperMotorControl_mm_interconnect_0_cmd_demux.vho
-Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
-Info: cmd_demux_001: Generating VHDL simulation model
-Warning: Parallel compilation is not licensed and has been disabled
-Info: cmd_demux_001: Generated simulation model StepperMotorControl_mm_interconnect_0_cmd_demux_001.vho
-Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
-Info: cmd_mux: Generating VHDL simulation model
-Warning: Parallel compilation is not licensed and has been disabled
-Info: cmd_mux: Generated simulation model StepperMotorControl_mm_interconnect_0_cmd_mux.vho
-Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
-Info: cmd_mux_002: Generating VHDL simulation model
-Warning: Parallel compilation is not licensed and has been disabled
-Info: cmd_mux_002: Generated simulation model StepperMotorControl_mm_interconnect_0_cmd_mux_002.vho
-Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
-Info: rsp_demux_002: Generating VHDL simulation model
-Warning: Parallel compilation is not licensed and has been disabled
-Info: rsp_demux_002: Generated simulation model StepperMotorControl_mm_interconnect_0_rsp_demux_002.vho
-Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
-Info: rsp_mux: Generating VHDL simulation model
-Warning: Parallel compilation is not licensed and has been disabled
-Info: rsp_mux: Generated simulation model StepperMotorControl_mm_interconnect_0_rsp_mux.vho
-Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: rsp_mux_001: Generating VHDL simulation model
-Warning: Parallel compilation is not licensed and has been disabled
-Info: rsp_mux_001: Generated simulation model StepperMotorControl_mm_interconnect_0_rsp_mux_001.vho
-Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
-Info: SRAM_CVGX_uas_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "SRAM_CVGX_uas_rsp_width_adapter"
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/submodules/mentor/altera_merlin_address_alignment.sv
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/submodules/mentor/altera_merlin_burst_uncompressor.sv
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/submodules/aldec/altera_merlin_address_alignment.sv
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/submodules/aldec/altera_merlin_burst_uncompressor.sv
-Info: StepperMotorControl: Done "StepperMotorControl" with 42 modules, 101 files
-Info: ip-generate succeeded.
-Info: Finished: Create simulation model
-Info: Starting: Create Modelsim Project.
-Info: sim-script-gen --spd=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\StepperMotorControl.spd --output-directory=C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/
-Info: Doing: ip-make-simscript --spd=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\StepperMotorControl.spd --output-directory=C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/
-Info: Generating the following file(s) for MODELSIM simulator in C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/ directory:
-Info: 	mentor/msim_setup.tcl
-Info: Skipping VCS script generation since VHDL file $QUARTUS_INSTALL_DIR/eda/sim_lib/altera_syn_attributes.vhd is required for simulation
-Info: Generating the following file(s) for VCSMX simulator in C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/ directory:
-Info: 	synopsys/vcsmx/synopsys_sim.setup
-Info: 	synopsys/vcsmx/vcsmx_setup.sh
-Info: Generating the following file(s) for NCSIM simulator in C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/ directory:
-Info: 	cadence/cds.lib
-Info: 	cadence/hdl.var
-Info: 	cadence/ncsim_setup.sh
-Info: 	34 .cds.lib files in cadence/cds_libs/ directory
-Info: Generating the following file(s) for RIVIERA simulator in C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/simulation/ directory:
-Info: 	aldec/rivierapro_setup.tcl
-Info: Finished: Create Modelsim Project.
-Info: Starting: Create block symbol file (.bsf)
-Info: ip-generate --project-directory=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus --output-directory=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl --report-file=bsf:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\StepperMotorControl.bsf --system-info=DEVICE_FAMILY="Cyclone V" --system-info=DEVICE=5CGXFC5C6F27C7 --system-info=DEVICE_SPEEDGRADE=7_H6 --component-file=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl.qsys
-Progress: Loading quartus/StepperMotorControl.qsys
-Progress: Reading input file
-Progress: Adding clk_50MHz [clock_source 14.0]
-Progress: Parameterizing module clk_50MHz
-Progress: Adding CPU [altera_nios2_qsys 14.0]
-Progress: Parameterizing module CPU
-Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 14.0]
-Progress: Parameterizing module sysid_qsys_0
-Progress: Adding jtag_uart [altera_avalon_jtag_uart 14.0]
-Progress: Parameterizing module jtag_uart
-Progress: Adding RTX_Timer [altera_avalon_timer 14.0]
-Progress: Parameterizing module RTX_Timer
-Progress: Adding SRAM_CVGX [altera_generic_tristate_controller 14.0]
-Progress: Parameterizing module SRAM_CVGX
-Progress: Adding SRAM_Conduit [altera_tristate_conduit_bridge 14.0]
-Progress: Parameterizing module SRAM_Conduit
-Progress: Adding pll_100MHz [altera_pll 14.0]
-Progress: Parameterizing module pll_100MHz
-Progress: Adding SRAM_PinSharer [altera_tristate_conduit_pin_sharer 14.0]
-Progress: Parameterizing module SRAM_PinSharer
-Progress: Adding lcd [altera_avalon_lcd_16207 14.0]
-Progress: Parameterizing module lcd
-Progress: Adding pio_sw [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_sw
-Progress: Adding pio_led9 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_led9
-Progress: Adding pio_key [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_key
-Progress: Adding pio_hex0 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex0
-Progress: Adding pio_hex1 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex1
-Progress: Adding pio_hex2 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex2
-Progress: Adding pio_hex3 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex3
-Progress: Building connections
-Progress: Parameterizing connections
-Progress: Validating
-Progress: Done reading input file
-Info: StepperMotorControl.StepperMotorControl: There are recommended upgrades for: pll_100MHz
-Info: StepperMotorControl.CPU: Please note that for early evaluation, preview versions of new Nios II Gen2 Processors are available with this release.
-Info: StepperMotorControl.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
-Info: StepperMotorControl.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
-Warning: StepperMotorControl.SRAM_CVGX: Properties (isMemoryDevice) have been set on interface uas - in composed mode these are ignored
-Info: StepperMotorControl.pll_100MHz: The legal reference clock frequency is 5.0 MHz..700.0 MHz
-Info: StepperMotorControl.pll_100MHz: Able to implement PLL with user settings
-Info: StepperMotorControl.pio_sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
-Info: StepperMotorControl.pio_key: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
-Info: ip-generate succeeded.
-Info: Finished: Create block symbol file (.bsf)
-Info: 
-Info: Starting: Create HDL design files for synthesis
-Info: ip-generate --project-directory=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus --output-directory=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\synthesis --file-set=QUARTUS_SYNTH --report-file=html:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\StepperMotorControl.html --report-file=sopcinfo:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl.sopcinfo --report-file=cmp:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\StepperMotorControl.cmp --report-file=qip:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\synthesis\StepperMotorControl.qip --report-file=svd:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\synthesis\StepperMotorControl.svd --report-file=regmap:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\synthesis\StepperMotorControl.regmap --report-file=xml:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\StepperMotorControl.xml --report-file=debuginfo:C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl\synthesis\StepperMotorControl.debuginfo --system-info=DEVICE_FAMILY="Cyclone V" --system-info=DEVICE=5CGXFC5C6F27C7 --system-info=DEVICE_SPEEDGRADE=7_H6 --component-file=C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\StepperMotorControl.qsys --language=VHDL
-Progress: Loading quartus/StepperMotorControl.qsys
-Progress: Reading input file
-Progress: Adding clk_50MHz [clock_source 14.0]
-Progress: Parameterizing module clk_50MHz
-Progress: Adding CPU [altera_nios2_qsys 14.0]
-Progress: Parameterizing module CPU
-Progress: Adding sysid_qsys_0 [altera_avalon_sysid_qsys 14.0]
-Progress: Parameterizing module sysid_qsys_0
-Progress: Adding jtag_uart [altera_avalon_jtag_uart 14.0]
-Progress: Parameterizing module jtag_uart
-Progress: Adding RTX_Timer [altera_avalon_timer 14.0]
-Progress: Parameterizing module RTX_Timer
-Progress: Adding SRAM_CVGX [altera_generic_tristate_controller 14.0]
-Progress: Parameterizing module SRAM_CVGX
-Progress: Adding SRAM_Conduit [altera_tristate_conduit_bridge 14.0]
-Progress: Parameterizing module SRAM_Conduit
-Progress: Adding pll_100MHz [altera_pll 14.0]
-Progress: Parameterizing module pll_100MHz
-Progress: Adding SRAM_PinSharer [altera_tristate_conduit_pin_sharer 14.0]
-Progress: Parameterizing module SRAM_PinSharer
-Progress: Adding lcd [altera_avalon_lcd_16207 14.0]
-Progress: Parameterizing module lcd
-Progress: Adding pio_sw [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_sw
-Progress: Adding pio_led9 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_led9
-Progress: Adding pio_key [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_key
-Progress: Adding pio_hex0 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex0
-Progress: Adding pio_hex1 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex1
-Progress: Adding pio_hex2 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex2
-Progress: Adding pio_hex3 [altera_avalon_pio 14.0]
-Progress: Parameterizing module pio_hex3
-Progress: Building connections
-Progress: Parameterizing connections
-Progress: Validating
-Progress: Done reading input file
-Info: StepperMotorControl.StepperMotorControl: There are recommended upgrades for: pll_100MHz
-Info: StepperMotorControl.CPU: Please note that for early evaluation, preview versions of new Nios II Gen2 Processors are available with this release.
-Info: StepperMotorControl.sysid_qsys_0: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
-Info: StepperMotorControl.sysid_qsys_0: Time stamp will be automatically updated when this component is generated.
-Warning: StepperMotorControl.SRAM_CVGX: Properties (isMemoryDevice) have been set on interface uas - in composed mode these are ignored
-Info: StepperMotorControl.pll_100MHz: The legal reference clock frequency is 5.0 MHz..700.0 MHz
-Info: StepperMotorControl.pll_100MHz: Able to implement PLL with user settings
-Info: StepperMotorControl.pio_sw: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
-Info: StepperMotorControl.pio_key: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
-Info: StepperMotorControl: Generating StepperMotorControl "StepperMotorControl" for QUARTUS_SYNTH
-Info: CPU: Starting RTL generation for module 'StepperMotorControl_CPU'
-Info: CPU:   Generation command is [exec C:/altera/14.0/quartus/bin64/eperlcmd.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/altera/14.0/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=StepperMotorControl_CPU --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0084_CPU_gen/ --quartus_bindir=C:/altera/14.0/quartus/bin64 --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0084_CPU_gen//StepperMotorControl_CPU_processor_configuration.pl  --do_build_sim=0  ]
-Info: CPU: # 2014.10.27 19:29:50 (*) Starting Nios II generation
-Info: CPU: # 2014.10.27 19:29:50 (*)   Checking for plaintext license.
-Info: CPU: # 2014.10.27 19:29:52 (*)   Couldn't query license setup in Quartus directory C:/altera/14.0/quartus/bin64
-Info: CPU: # 2014.10.27 19:29:52 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info: CPU: # 2014.10.27 19:29:52 (*)   LM_LICENSE_FILE environment variable is empty
-Info: CPU: # 2014.10.27 19:29:52 (*)   Plaintext license not found.
-Info: CPU: # 2014.10.27 19:29:52 (*)   No license required to generate encrypted Nios II/e.
-Info: CPU: # 2014.10.27 19:29:52 (*)   Elaborating CPU configuration settings
-Info: CPU: # 2014.10.27 19:29:52 (*)   Creating all objects for CPU
-Info: CPU: # 2014.10.27 19:29:53 (*)   Generating RTL from CPU objects
-Info: CPU: # 2014.10.27 19:29:53 (*)   Creating plain-text RTL
-Info: CPU: # 2014.10.27 19:29:55 (*) Done Nios II generation
-Info: CPU: Done RTL generation for module 'StepperMotorControl_CPU'
-Info: CPU: "StepperMotorControl" instantiated altera_nios2_qsys "CPU"
-Info: sysid_qsys_0: "StepperMotorControl" instantiated altera_avalon_sysid_qsys "sysid_qsys_0"
-Info: jtag_uart: Starting RTL generation for module 'StepperMotorControl_jtag_uart'
-Info: jtag_uart:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=StepperMotorControl_jtag_uart --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0086_jtag_uart_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0086_jtag_uart_gen//StepperMotorControl_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
-Info: jtag_uart: Done RTL generation for module 'StepperMotorControl_jtag_uart'
-Info: jtag_uart: "StepperMotorControl" instantiated altera_avalon_jtag_uart "jtag_uart"
-Info: RTX_Timer: Starting RTL generation for module 'StepperMotorControl_RTX_Timer'
-Info: RTX_Timer:   Generation command is [exec C:/altera/14.0/quartus/bin64//perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64//perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=StepperMotorControl_RTX_Timer --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0087_RTX_Timer_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0087_RTX_Timer_gen//StepperMotorControl_RTX_Timer_component_configuration.pl  --do_build_sim=0  ]
-Info: RTX_Timer: Done RTL generation for module 'StepperMotorControl_RTX_Timer'
-Info: RTX_Timer: "StepperMotorControl" instantiated altera_avalon_timer "RTX_Timer"
-Info: SRAM_CVGX: "StepperMotorControl" instantiated altera_generic_tristate_controller "SRAM_CVGX"
-Info: SRAM_Conduit: "StepperMotorControl" instantiated altera_tristate_conduit_bridge "SRAM_Conduit"
-Info: pll_100MHz: "StepperMotorControl" instantiated altera_pll "pll_100MHz"
-Info: SRAM_PinSharer: "StepperMotorControl" instantiated altera_tristate_conduit_pin_sharer "SRAM_PinSharer"
-Info: lcd: Starting RTL generation for module 'StepperMotorControl_lcd'
-Info: lcd:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207 -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_lcd_16207/generate_rtl.pl --name=StepperMotorControl_lcd --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0090_lcd_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0090_lcd_gen//StepperMotorControl_lcd_component_configuration.pl  --do_build_sim=0  ]
-Info: lcd: Done RTL generation for module 'StepperMotorControl_lcd'
-Info: lcd: "StepperMotorControl" instantiated altera_avalon_lcd_16207 "lcd"
-Info: pio_sw: Starting RTL generation for module 'StepperMotorControl_pio_sw'
-Info: pio_sw:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_sw --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0091_pio_sw_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0091_pio_sw_gen//StepperMotorControl_pio_sw_component_configuration.pl  --do_build_sim=0  ]
-Info: pio_sw: Done RTL generation for module 'StepperMotorControl_pio_sw'
-Info: pio_sw: "StepperMotorControl" instantiated altera_avalon_pio "pio_sw"
-Info: pio_led9: Starting RTL generation for module 'StepperMotorControl_pio_led9'
-Info: pio_led9:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_led9 --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0092_pio_led9_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0092_pio_led9_gen//StepperMotorControl_pio_led9_component_configuration.pl  --do_build_sim=0  ]
-Info: pio_led9: Done RTL generation for module 'StepperMotorControl_pio_led9'
-Info: pio_led9: "StepperMotorControl" instantiated altera_avalon_pio "pio_led9"
-Info: pio_key: Starting RTL generation for module 'StepperMotorControl_pio_key'
-Info: pio_key:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_key --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0093_pio_key_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0093_pio_key_gen//StepperMotorControl_pio_key_component_configuration.pl  --do_build_sim=0  ]
-Info: pio_key: Done RTL generation for module 'StepperMotorControl_pio_key'
-Info: pio_key: "StepperMotorControl" instantiated altera_avalon_pio "pio_key"
-Info: pio_hex0: Starting RTL generation for module 'StepperMotorControl_pio_hex0'
-Info: pio_hex0:   Generation command is [exec C:/altera/14.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/14.0/quartus/bin64/perl/lib -I C:/altera/14.0/quartus/sopc_builder/bin/europa -I C:/altera/14.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/14.0/quartus/sopc_builder/bin -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=StepperMotorControl_pio_hex0 --dir=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0094_pio_hex0_gen/ --quartus_dir=C:/altera/14.0/quartus --verilog --config=C:/Users/mpeg/AppData/Local/Temp/alt6370_2205796758274655043.dir/0094_pio_hex0_gen//StepperMotorControl_pio_hex0_component_configuration.pl  --do_build_sim=0  ]
-Info: pio_hex0: Done RTL generation for module 'StepperMotorControl_pio_hex0'
-Info: pio_hex0: "StepperMotorControl" instantiated altera_avalon_pio "pio_hex0"
-Info: mm_interconnect_0: "StepperMotorControl" instantiated altera_mm_interconnect "mm_interconnect_0"
-Info: irq_mapper: "StepperMotorControl" instantiated altera_irq_mapper "irq_mapper"
-Info: rst_controller: "StepperMotorControl" instantiated altera_reset_controller "rst_controller"
-Info: tdt: "SRAM_CVGX" instantiated altera_tristate_controller_translator "tdt"
-Info: slave_translator: "SRAM_CVGX" instantiated altera_merlin_slave_translator "slave_translator"
-Info: tda: "SRAM_CVGX" instantiated altera_tristate_controller_aggregator "tda"
-Info: pin_sharer: "SRAM_PinSharer" instantiated altera_tristate_conduit_pin_sharer_core "pin_sharer"
-Info: arbiter: "SRAM_PinSharer" instantiated altera_merlin_std_arbitrator "arbiter"
-Info: CPU_instruction_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "CPU_instruction_master_translator"
-Info: CPU_instruction_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "CPU_instruction_master_agent"
-Info: CPU_jtag_debug_module_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "CPU_jtag_debug_module_agent"
-Info: CPU_jtag_debug_module_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "CPU_jtag_debug_module_agent_rsp_fifo"
-Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
-Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
-Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
-Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
-Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
-Info: SRAM_CVGX_uas_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "SRAM_CVGX_uas_burst_adapter"
-Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
-Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
-Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
-Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/altera_merlin_arbitrator.sv
-Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
-Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/altera_merlin_arbitrator.sv
-Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/altera_merlin_arbitrator.sv
-Info: SRAM_CVGX_uas_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "SRAM_CVGX_uas_rsp_width_adapter"
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/altera_merlin_address_alignment.sv
-Info: Reusing file C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/altera_merlin_burst_uncompressor.sv
-Info: StepperMotorControl: Done "StepperMotorControl" with 40 modules, 65 files
-Info: ip-generate succeeded.
-Info: Finished: Create HDL design files for synthesis
+Error: Generation stopped, 57 or more modules remaining
+Info: StepperMotorControl: Done "StepperMotorControl" with 42 modules, 74 files
+Error: ip-generate failed with exit code 1: 1 Error, 18 Warnings
+Info: Stopping: Create simulation model

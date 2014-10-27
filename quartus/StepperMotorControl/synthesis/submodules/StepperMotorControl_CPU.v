@@ -607,9 +607,9 @@ module StepperMotorControl_CPU_nios2_avalon_reg (
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
-          oci_ienable <= 32'b10000000000000000000000000000011;
+          oci_ienable <= 32'b10000000000000000000000000000111;
       else if (take_action_oci_intr_mask_reg)
-          oci_ienable <= writedata | ~(32'b10000000000000000000000000000011);
+          oci_ienable <= writedata | ~(32'b10000000000000000000000000000111);
     end
 
 
@@ -4150,7 +4150,7 @@ module StepperMotorControl_CPU (
   //custom_instruction_master, which is an e_custom_instruction_master
   assign no_ci_readra = 1'b0;
   assign E_ci_multi_stall = 1'b0;
-  assign iactive = d_irq[31 : 0] & 32'b10000000000000000000000000000011;
+  assign iactive = d_irq[31 : 0] & 32'b10000000000000000000000000000111;
   assign F_pc_sel_nxt = R_ctrl_exception                          ? 2'b00 :
     R_ctrl_break                              ? 2'b01 :
     (W_br_taken | R_ctrl_uncond_cti_non_br)   ? 2'b10 :
@@ -4753,9 +4753,9 @@ defparam StepperMotorControl_CPU_register_bank_b.lpm_file = "StepperMotorControl
 
   assign W_bstatus_reg_nxt = E_valid ? W_bstatus_reg_inst_nxt : W_bstatus_reg;
   assign W_ienable_reg_nxt = ((E_wrctl_ienable & E_valid) ? 
-    E_src1[31 : 0] : W_ienable_reg) & 32'b10000000000000000000000000000011;
+    E_src1[31 : 0] : W_ienable_reg) & 32'b10000000000000000000000000000111;
 
-  assign W_ipending_reg_nxt = iactive & W_ienable_reg & oci_ienable & 32'b10000000000000000000000000000011;
+  assign W_ipending_reg_nxt = iactive & W_ienable_reg & oci_ienable & 32'b10000000000000000000000000000111;
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)

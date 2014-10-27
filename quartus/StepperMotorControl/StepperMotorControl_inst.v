@@ -12,11 +12,11 @@
 		.lcd_RW         (<connected-to-lcd_RW>),         //      .RW
 		.lcd_data       (<connected-to-lcd_data>),       //      .data
 		.lcd_E          (<connected-to-lcd_E>),          //      .E
-		.led9_export    (<connected-to-led9_export>),    //  led9.export
 		.key_export     (<connected-to-key_export>),     //   key.export
 		.hex0_export    (<connected-to-hex0_export>),    //  hex0.export
 		.hex1_export    (<connected-to-hex1_export>),    //  hex1.export
 		.hex2_export    (<connected-to-hex2_export>),    //  hex2.export
-		.hex3_export    (<connected-to-hex3_export>)     //  hex3.export
+		.hex3_export    (<connected-to-hex3_export>),    //  hex3.export
+		.led9_export    (<connected-to-led9_export>)     //  led9.export
 	);
 

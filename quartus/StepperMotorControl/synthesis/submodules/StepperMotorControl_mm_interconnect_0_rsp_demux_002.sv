@@ -28,8 +28,8 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         StepperMotorControl_mm_interconnect_0_rsp_demux_002
-//   ST_DATA_W:           97
-//   ST_CHANNEL_W:        6
+//   ST_DATA_W:           99
+//   ST_CHANNEL_W:        13
 //   NUM_OUTPUTS:         1
 //   VALID_WIDTH:         1
 // ------------------------------------------
@@ -46,8 +46,8 @@ module StepperMotorControl_mm_interconnect_0_rsp_demux_002
     // Sink
     // -------------------
     input  [1-1      : 0]   sink_valid,
-    input  [97-1    : 0]   sink_data, // ST_DATA_W=97
-    input  [6-1 : 0]   sink_channel, // ST_CHANNEL_W=6
+    input  [99-1    : 0]   sink_data, // ST_DATA_W=99
+    input  [13-1 : 0]   sink_channel, // ST_CHANNEL_W=13
     input                         sink_startofpacket,
     input                         sink_endofpacket,
     output                        sink_ready,
@@ -56,8 +56,8 @@ module StepperMotorControl_mm_interconnect_0_rsp_demux_002
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [97-1    : 0] src0_data, // ST_DATA_W=97
-    output reg [6-1 : 0] src0_channel, // ST_CHANNEL_W=6
+    output reg [99-1    : 0] src0_data, // ST_DATA_W=99
+    output reg [13-1 : 0] src0_channel, // ST_CHANNEL_W=13
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
@@ -94,7 +94,7 @@ module StepperMotorControl_mm_interconnect_0_rsp_demux_002
     // -------------------
     assign ready_vector[0] = src0_ready;
 
-    assign sink_ready = |(sink_channel & {{5{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
+    assign sink_ready = |(sink_channel & {{12{1'b0}},{ready_vector[NUM_OUTPUTS - 1 : 0]}});
 
 endmodule
 

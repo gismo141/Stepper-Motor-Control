@@ -13,12 +13,12 @@
 			lcd_RW         : out   std_logic;                                        -- RW
 			lcd_data       : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- data
 			lcd_E          : out   std_logic;                                        -- E
-			led9_export    : out   std_logic;                                        -- export
 			key_export     : in    std_logic_vector(2 downto 0)  := (others => 'X'); -- export
 			hex0_export    : out   std_logic_vector(6 downto 0);                     -- export
 			hex1_export    : out   std_logic_vector(6 downto 0);                     -- export
 			hex2_export    : out   std_logic_vector(6 downto 0);                     -- export
-			hex3_export    : out   std_logic_vector(6 downto 0)                      -- export
+			hex3_export    : out   std_logic_vector(6 downto 0);                     -- export
+			led9_export    : out   std_logic                                         -- export
 		);
 	end component StepperMotorControl;
 
@@ -37,11 +37,11 @@
 			lcd_RW         => CONNECTED_TO_lcd_RW,         --      .RW
 			lcd_data       => CONNECTED_TO_lcd_data,       --      .data
 			lcd_E          => CONNECTED_TO_lcd_E,          --      .E
-			led9_export    => CONNECTED_TO_led9_export,    --  led9.export
 			key_export     => CONNECTED_TO_key_export,     --   key.export
 			hex0_export    => CONNECTED_TO_hex0_export,    --  hex0.export
 			hex1_export    => CONNECTED_TO_hex1_export,    --  hex1.export
 			hex2_export    => CONNECTED_TO_hex2_export,    --  hex2.export
-			hex3_export    => CONNECTED_TO_hex3_export     --  hex3.export
+			hex3_export    => CONNECTED_TO_hex3_export,    --  hex3.export
+			led9_export    => CONNECTED_TO_led9_export     --  led9.export
 		);
 
