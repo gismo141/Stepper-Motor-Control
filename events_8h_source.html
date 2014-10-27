@@ -124,20 +124,20 @@ $(document).ready(function(){initNavTree('events_8h_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef __EVENTS_H__</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define __EVENTS_H__</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define KEY0_RS_EVENT       (0x1)</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define KEY2_MINUS_EVENT    (0x2)</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define KEY3_PLUS_EVENT     (0x4)</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define SWITCH_UPDATE_EVENT (0x8)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define MOTOR_STOP_EVENT    (0x10)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*__EVENTS_H__*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">   19</a></span>&#160;<span class="preprocessor">#define KEY0_RS_EVENT       (0x1)   </span><span class="comment">//!&lt; runs or stops the motor via key_0</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="events_8h.html#af84520160425bf02b52498a6ab50b904">   20</a></span>&#160;<span class="comment"></span>#define KEY2_MINUS_EVENT    (0x2)   <span class="comment">//!&lt; decreases the steps to turn via key_2</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">   21</a></span>&#160;<span class="comment"></span>#define KEY3_PLUS_EVENT     (0x4)   <span class="comment">//!&lt; increases the steps to turn via key_3</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="events_8h.html#a7322eda4a819d8262e996615ecc13b05">   22</a></span>&#160;<span class="comment"></span>#define SWITCH_UPDATE_EVENT (0x8)   <span class="comment">//!&lt; something changed, needs to be identified manually</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">   23</a></span>&#160;<span class="comment"></span>#define MOTOR_STOP_EVENT    (0x10)  <span class="comment">//!&lt; the interrupt is sent via VHDL-Component, when the motor reached its end-position</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;#endif <span class="comment">/*__EVENTS_H__*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:00:43 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Oct 27 2014 12:08:38 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -3,6 +3,7 @@ var searchData=
   ['main',['main',['../main_8c.html#a52d2cba30e6946c95578be946ac12a65',1,'main.c']]],
   ['main_2ec',['main.c',['../main_8c.html',1,'']]],
   ['main_2eh',['main.h',['../main_8h.html',1,'']]],
+  ['motor_5fstop_5fevent',['MOTOR_STOP_EVENT',['../events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e',1,'events.h']]],
   ['motorirqhandler',['motorIRQhandler',['../motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622',1,'motorIRQhandler(void *context):&#160;motorIRQhandler.c'],['../motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622',1,'motorIRQhandler(void *context):&#160;motorIRQhandler.c']]],
   ['motorirqhandler_2ec',['motorIRQhandler.c',['../motor_i_r_qhandler_8c.html',1,'']]],
   ['motorirqhandler_2eh',['motorIRQhandler.h',['../motor_i_r_qhandler_8h.html',1,'']]],
