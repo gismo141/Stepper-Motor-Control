@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/mentor/altera_merlin_width_adapter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_rsp_width_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_address_alignment.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_rsp_width_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_burst_uncompressor.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_rsp_width_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_width_adapter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_rsp_width_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_address_alignment.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_rsp_width_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_burst_uncompressor.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_rsp_width_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_rsp_mux_001.vho"
+   type="VHDL"
+   library="rsp_mux_001" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_rsp_mux.vho"
+   type="VHDL"
+   library="rsp_mux" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_rsp_demux_002.vho"
+   type="VHDL"
+   library="rsp_demux_002" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_cmd_mux_002.vho"
+   type="VHDL"
+   library="cmd_mux_002" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_cmd_mux.vho"
+   type="VHDL"
+   library="cmd_mux" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_cmd_demux_001.vho"
+   type="VHDL"
+   library="cmd_demux_001" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_cmd_demux.vho"
+   type="VHDL"
+   library="cmd_demux" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_burst_adapter_13_1.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_burst_adapter_new.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_burst_adapter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_incr_burst_converter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_wrap_burst_converter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_default_burst_converter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_avalon_st_pipeline_base.v"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_avalon_st_pipeline_stage.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_address_alignment.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_burst_adapter_13_1.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_burst_adapter_new.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_burst_adapter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_incr_burst_converter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_wrap_burst_converter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_default_burst_converter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_avalon_st_pipeline_base.v"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_avalon_st_pipeline_stage.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_address_alignment.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_router_004.vho"
+   type="VHDL"
+   library="router_004" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_router_003.vho"
+   type="VHDL"
+   library="router_003" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_router_002.vho"
+   type="VHDL"
+   library="router_002" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_router_001.vho"
+   type="VHDL"
+   library="router_001" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_router.vho"
+   type="VHDL"
+   library="router" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_SRAM_CVGX_uas_agent_rdata_fifo.vho"
+   type="VHDL"
+   library="SRAM_CVGX_uas_agent_rdata_fifo" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_SRAM_CVGX_uas_agent_rsp_fifo.vho"
+   type="VHDL"
+   library="SRAM_CVGX_uas_agent_rsp_fifo" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_CPU_jtag_debug_module_agent_rsp_fifo.vho"
+   type="VHDL"
+   library="CPU_jtag_debug_module_agent_rsp_fifo" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_slave_agent.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_jtag_debug_module_agent"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_burst_uncompressor.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_jtag_debug_module_agent"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_slave_agent.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_jtag_debug_module_agent"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_burst_uncompressor.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_jtag_debug_module_agent"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_master_agent.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_agent"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_master_agent.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_agent"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_master_translator.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_translator"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_master_translator.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_translator"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/StepperMotorControl_SRAM_PinSharer_arbiter.vho"
+   type="VHDL"
+   library="arbiter" />
+ <file
+   path="simulation/submodules/StepperMotorControl_SRAM_PinSharer_pin_sharer.vho"
+   type="VHDL"
+   library="pin_sharer" />
+ <file
+   path="simulation/submodules/StepperMotorControl_SRAM_CVGX_tda.vho"
+   type="VHDL"
+   library="tda" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_slave_translator.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="slave_translator"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_slave_translator.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="slave_translator"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/StepperMotorControl_SRAM_CVGX_tdt.vho"
+   type="VHDL"
+   library="tdt" />
+ <file
+   path="simulation/submodules/mentor/altera_reset_controller.v"
+   type="VERILOG_ENCRYPT"
+   library="rst_controller"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_reset_synchronizer.v"
+   type="VERILOG_ENCRYPT"
+   library="rst_controller"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_reset_controller.v"
+   type="VERILOG_ENCRYPT"
+   library="rst_controller"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_reset_synchronizer.v"
+   type="VERILOG_ENCRYPT"
+   library="rst_controller"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/StepperMotorControl_irq_mapper.vho"
+   type="VHDL"
+   library="irq_mapper" />
+ <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_cpu_jtag_debug_module_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_jtag_uart_avalon_jtag_slave_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_rtx_timer_s1_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_sysid_qsys_0_control_slave_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_lcd_control_slave_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_pio_sw_s1_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_pio_led9_s1_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_cpu_jtag_debug_module_agent.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_agent.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_rsp_width_adapter.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_cmd_width_adapter.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_cpu_instruction_master_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_cpu_data_master_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/StepperMotorControl_pio_hex0.vhd"
+   type="VHDL"
+   library="pio_hex0" />
+ <file
+   path="simulation/submodules/StepperMotorControl_pio_key.vhd"
+   type="VHDL"
+   library="pio_key" />
+ <file
+   path="simulation/submodules/StepperMotorControl_pio_led9.vhd"
+   type="VHDL"
+   library="pio_led9" />
+ <file
+   path="simulation/submodules/StepperMotorControl_pio_sw.vhd"
+   type="VHDL"
+   library="pio_sw" />
+ <file
+   path="simulation/submodules/StepperMotorControl_lcd.vhd"
+   type="VHDL"
+   library="lcd" />
+ <file
+   path="simulation/submodules/StepperMotorControl_SRAM_PinSharer.vhd"
+   type="VHDL"
+   library="SRAM_PinSharer" />
+ <file
+   path="simulation/submodules/StepperMotorControl_pll_100MHz.vho"
+   type="VHDL"
+   library="pll_100MHz" />
+ <file
+   path="simulation/submodules/StepperMotorControl_SRAM_Conduit.vho"
+   type="VHDL"
+   library="SRAM_Conduit" />
+ <file
+   path="simulation/submodules/StepperMotorControl_SRAM_CVGX.vhd"
+   type="VHDL"
+   library="SRAM_CVGX" />
+ <file
+   path="simulation/submodules/StepperMotorControl_RTX_Timer.vhd"
+   type="VHDL"
+   library="RTX_Timer" />
+ <file
+   path="simulation/submodules/StepperMotorControl_jtag_uart.vhd"
+   type="VHDL"
+   library="jtag_uart" />
+ <file
+   path="simulation/submodules/StepperMotorControl_sysid_qsys_0.vho"
+   type="VHDL"
+   library="sysid_qsys_0" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU.sdc"
+   type="SDC"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU.vhd"
+   type="VHDL"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_jtag_debug_module_sysclk.vhd"
+   type="VHDL"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_jtag_debug_module_tck.vhd"
+   type="VHDL"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_jtag_debug_module_wrapper.vhd"
+   type="VHDL"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_nios2_waves.do"
+   type="OTHER"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_ociram_default_contents.dat"
+   type="DAT"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_ociram_default_contents.hex"
+   type="HEX"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_ociram_default_contents.mif"
+   type="MIF"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_oci_test_bench.vhd"
+   type="VHDL"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_rf_ram_a.dat"
+   type="DAT"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_rf_ram_a.hex"
+   type="HEX"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_rf_ram_a.mif"
+   type="MIF"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_rf_ram_b.dat"
+   type="DAT"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_rf_ram_b.hex"
+   type="HEX"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_rf_ram_b.mif"
+   type="MIF"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_test_bench.vhd"
+   type="VHDL"
+   library="CPU" />
+ <file path="simulation/StepperMotorControl.vhd" type="VHDL" />
+ <file path="simulation/steppermotorcontrol_rst_controller.vhd" type="VHDL" />
+ <file
+   path="simulation/steppermotorcontrol_rst_controller_001.vhd"
+   type="VHDL" />
+ <topLevel name="StepperMotorControl" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

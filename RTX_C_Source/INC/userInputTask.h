@@ -1,20 +1,18 @@
 /**
-  *****************************************************************************
+  ******************************************************************************
   * @file    	userInputTask.h
   * @author  	Michael Riedel
   * @author  	Marc Kossmann
-  * @version   	v0.1
-  * @date      	22.10.2014
+  * @version  v0.1
+  * @date     27.10.2014
   * @brief   	Header file for userInputTask.c
-  * @details 	Contains defines, includes, typedefs and declarations needed
-  * 			for this task.
-  *****************************************************************************
+  * @details 	Contains defines, includes, typedefs and declarations needed for
+  *           this task.
+  ******************************************************************************
   * @par History:
-  * @details 	v0.1 Riedel & Kossmann
-  *				- first draft for milestone 1b
-  *				2014-10-27: Riedel:
-  *				- moved events to events.h for better handling
-  *****************************************************************************
+  * @details  v0.1 Riedel & Kossmann
+  *			      - first draft for milestone 1b
+  ********************************************************************************
   */
 
 #ifndef __USER_INPUT_TASK_H__
@@ -25,9 +23,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "includes.h"
-#include "hardwareAccess.h"
-#include "../INC/events.h"
+#include "../INC/auxilaryFunctions.h"
+//#include "hardwareAccess.h"
 #include "../INC/heartbeatTask.h"
+
+#define KEY0_RS_EVENT			(0x1)
+#define KEY2_MINUS_EVENT		(0x2)
+#define KEY3_PLUS_EVENT			(0x4)
+#define SWITCH_UPDATE_EVENT		(0x8)
+#define MOTOR_STOP_EVENT		(0x10)
 
 #define CTRL_REG_RS_MSK			(0x1)
 #define CTRL_REG_LR_MSK			(0x2)
@@ -47,18 +51,6 @@
 #define MODE_CH_OF_ST_1			(0xA)
 #define MODE_CH_OF_ST_2			(0xE)
 
-typedef struct outputTaskMailbox {
-	uint32_t ctrlReg;
-	uint32_t speedReg;
-	uint32_t stepsReg;
-	bool debugState;
-}outputTaskMailbox_t;
-
-typedef struct systemState {
-	state_t operationalStatus;
-	useCases_t activeUseCase;
-}systemState_t;
-
 typedef enum state{
 	ERROR				= 0,
     FUNCTIONAL			= 1,
@@ -74,6 +66,11 @@ typedef enum useCases{
 	CONTINOUS 			= 5
 }useCases_t;
 
+typedef struct systemState {
+	state_t operationalStatus;
+	useCases_t activeUseCase;
+}systemState_t;
+
 typedef enum direction{
 	LEFT = 0,
 	RIGHT = 1
@@ -84,6 +81,14 @@ typedef struct motorState{
 	direction_t direction;
 }motorState_t;
 
+typedef struct outputTaskMailbox {
+	systemState_t systemState;
+	uint32_t ctrlReg;
+	uint32_t speedReg;
+	uint32_t stepsReg;
+	bool debugState;
+}outputTaskMailbox_t;
+
 void UserInputTask(void * pdata);
 
-#endif /*__USER_INPUT_TASK_H__*/
+#endif

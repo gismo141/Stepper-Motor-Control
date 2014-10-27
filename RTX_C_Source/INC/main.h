@@ -1,18 +1,18 @@
 /**
-  *****************************************************************************
-  * @file       main.h
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       22.10.2014
-  * @brief      Header file for main.c
-  * @details    Contains defines, includes, typedefs and declarations needed
-  *             for this task.
-  ****************************************************************************
+  ******************************************************************************
+  * @file    	main.h
+  * @author 	Michael Riedel
+  * @author  	Marc Kossmann
+  * @version  v0.1
+  * @date     27.10.2014
+  * @brief   	Header file for main.c
+  * @details 	Contains defines, includes, typedefs and declarations needed for
+  *             this task.
+  ******************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
-  *             - first draft for milestone 1b
-  ****************************************************************************
+  * @details  v0.1 Riedel & Kossmann
+  *			      - first draft for milestone 1b
+  ********************************************************************************
   */
 
 #ifndef __MAIN_H__
@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "includes.h"
+#include "../INC/auxilaryFunctions.h"
 #include "../INC/userInputTask.h"
 #include "../INC/userOutputTask.h"
 //#include "../INC/heartbeatTask.h"
@@ -47,4 +48,4 @@ OS_STK    HeartbeatDebugTask_Stk[TASK_STACKSIZE];
 #define USER_OUTPUT_TASK_PRIORITY       5  /*!< Priority Task UserOutputTask */
 #define HEARTBEAT_DEBUG_TASK_PRIORITY   6  /*!< Priority Task HeartbeatDebugTask */
 
-#endif /*__MAIN_H__*/
+#endif

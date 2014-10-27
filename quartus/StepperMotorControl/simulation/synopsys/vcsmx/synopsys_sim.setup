@@ -1,0 +1,45 @@
+
+WORK > DEFAULT
+DEFAULT:                              ./libraries/work/                                
+work:                                 ./libraries/work/                                
+rsp_mux_001:                          ./libraries/rsp_mux_001/                         
+rsp_mux:                              ./libraries/rsp_mux/                             
+rsp_demux_002:                        ./libraries/rsp_demux_002/                       
+cmd_mux_002:                          ./libraries/cmd_mux_002/                         
+cmd_mux:                              ./libraries/cmd_mux/                             
+cmd_demux_001:                        ./libraries/cmd_demux_001/                       
+cmd_demux:                            ./libraries/cmd_demux/                           
+router_004:                           ./libraries/router_004/                          
+router_003:                           ./libraries/router_003/                          
+router_002:                           ./libraries/router_002/                          
+router_001:                           ./libraries/router_001/                          
+router:                               ./libraries/router/                              
+SRAM_CVGX_uas_agent_rdata_fifo:       ./libraries/SRAM_CVGX_uas_agent_rdata_fifo/      
+SRAM_CVGX_uas_agent_rsp_fifo:         ./libraries/SRAM_CVGX_uas_agent_rsp_fifo/        
+CPU_jtag_debug_module_agent_rsp_fifo: ./libraries/CPU_jtag_debug_module_agent_rsp_fifo/
+arbiter:                              ./libraries/arbiter/                             
+pin_sharer:                           ./libraries/pin_sharer/                          
+tda:                                  ./libraries/tda/                                 
+tdt:                                  ./libraries/tdt/                                 
+irq_mapper:                           ./libraries/irq_mapper/                          
+mm_interconnect_0:                    ./libraries/mm_interconnect_0/                   
+pio_hex0:                             ./libraries/pio_hex0/                            
+pio_key:                              ./libraries/pio_key/                             
+pio_led9:                             ./libraries/pio_led9/                            
+pio_sw:                               ./libraries/pio_sw/                              
+lcd:                                  ./libraries/lcd/                                 
+SRAM_PinSharer:                       ./libraries/SRAM_PinSharer/                      
+pll_100MHz:                           ./libraries/pll_100MHz/                          
+SRAM_Conduit:                         ./libraries/SRAM_Conduit/                        
+SRAM_CVGX:                            ./libraries/SRAM_CVGX/                           
+RTX_Timer:                            ./libraries/RTX_Timer/                           
+jtag_uart:                            ./libraries/jtag_uart/                           
+sysid_qsys_0:                         ./libraries/sysid_qsys_0/                        
+CPU:                                  ./libraries/CPU/                                 
+altera:                               ./libraries/altera/                              
+lpm:                                  ./libraries/lpm/                                 
+sgate:                                ./libraries/sgate/                               
+altera_mf:                            ./libraries/altera_mf/                           
+altera_lnsim:                         ./libraries/altera_lnsim/                        
+cyclonev:                             ./libraries/cyclonev/                            
+LIBRARY_SCAN = TRUE
