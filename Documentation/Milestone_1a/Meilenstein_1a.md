@@ -127,11 +127,11 @@ Zu guter Letzt wird gemäß [Abbildung](fig:motor_isr) über die `Motor-ISR` das
 
 [fig:heartbeat_debug]: ../Milestone_1a/Diagrams/Activities/Tasks/Heartbeat-Debug.png "Heartbeat/Debug Task"
 
-[fig:key_isr]: ../Milestone_1a/Diagrams/Activities/ISR/key_ISR.png "Key ISR"
+[fig:key_isr]: ../Milestone_1a/Diagrams/Activities/ISRs/key_ISR.png "Key ISR"
 
-[fig:switch_isr]: ../Milestone_1a/Diagrams/Activities/ISR/switch_ISR.png "Switch ISR"
+[fig:switch_isr]: ../Milestone_1a/Diagrams/Activities/ISRs/switch_ISR.png "Switch ISR"
 
-[fig:motor_isr]: ../Milestone_1a/Diagrams/Activities/ISR/motor_ISR.png "Motor ISR"
+[fig:motor_isr]: ../Milestone_1a/Diagrams/Activities/ISRs/motor_ISR.png "Motor ISR"
 
 [fig:chain_of_steps]: ../Milestone_1a/Diagrams/Activities/Functions/Chain-of-Steps.png "Chain of Steps Funktion"
 
