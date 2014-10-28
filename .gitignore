@@ -6,3 +6,5 @@ Thumbs.db
 
 build/
 Documentation/.build
+quartus/db
+quartus/incremental_db
