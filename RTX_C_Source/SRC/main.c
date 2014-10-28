@@ -85,6 +85,9 @@ int main(void)
   printf_lcd("Stepper-Control ");
   fflush_lcd();
   
+
+  // blubb
+
   OSStart();
   return 0;
 }
