@@ -8,12 +8,12 @@
 			sram_SRAM_D    : inout std_logic_vector(15 downto 0) := (others => 'X'); -- SRAM_D
 			sram_SRAM_A    : out   std_logic_vector(18 downto 0);                    -- SRAM_A
 			sram_SRAM_WE_N : out   std_logic_vector(0 downto 0);                     -- SRAM_WE_N
-			sw_export      : in    std_logic_vector(8 downto 0)  := (others => 'X'); -- export
+			sw_export      : in    std_logic_vector(9 downto 0)  := (others => 'X'); -- export
 			lcd_RS         : out   std_logic;                                        -- RS
 			lcd_RW         : out   std_logic;                                        -- RW
 			lcd_data       : inout std_logic_vector(7 downto 0)  := (others => 'X'); -- data
 			lcd_E          : out   std_logic;                                        -- E
-			key_export     : in    std_logic_vector(2 downto 0)  := (others => 'X'); -- export
+			key_export     : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export
 			hex0_export    : out   std_logic_vector(6 downto 0);                     -- export
 			hex1_export    : out   std_logic_vector(6 downto 0);                     -- export
 			hex2_export    : out   std_logic_vector(6 downto 0);                     -- export

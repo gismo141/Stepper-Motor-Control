@@ -20,7 +20,9 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "includes.h"
+#include "../INC/userInputTask.h"
 
 void UserOutputTask(void *pdata);
 void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,

@@ -39,27 +39,27 @@ module StepperMotorControl_pio_sw (
   input   [  2: 0] address;
   input            chipselect;
   input            clk;
-  input   [  8: 0] in_port;
+  input   [  9: 0] in_port;
   input            reset_n;
   input            write_n;
   input   [ 31: 0] writedata;
 
   wire             clk_en;
-  reg     [  8: 0] d1_data_in;
-  reg     [  8: 0] d2_data_in;
-  wire    [  8: 0] data_in;
-  reg     [  8: 0] edge_capture;
+  reg     [  9: 0] d1_data_in;
+  reg     [  9: 0] d2_data_in;
+  wire    [  9: 0] data_in;
+  reg     [  9: 0] edge_capture;
   wire             edge_capture_wr_strobe;
-  wire    [  8: 0] edge_detect;
+  wire    [  9: 0] edge_detect;
   wire             irq;
-  reg     [  8: 0] irq_mask;
-  wire    [  8: 0] read_mux_out;
+  reg     [  9: 0] irq_mask;
+  wire    [  9: 0] read_mux_out;
   reg     [ 31: 0] readdata;
   assign clk_en = 1;
   //s1, which is an e_avalon_slave
-  assign read_mux_out = ({9 {(address == 0)}} & data_in) |
-    ({9 {(address == 2)}} & irq_mask) |
-    ({9 {(address == 3)}} & edge_capture);
+  assign read_mux_out = ({10 {(address == 0)}} & data_in) |
+    ({10 {(address == 2)}} & irq_mask) |
+    ({10 {(address == 3)}} & edge_capture);
 
   always @(posedge clk or negedge reset_n)
     begin
@@ -76,7 +76,7 @@ module StepperMotorControl_pio_sw (
       if (reset_n == 0)
           irq_mask <= 0;
       else if (chipselect && ~write_n && (address == 2))
-          irq_mask <= writedata[8 : 0];
+          irq_mask <= writedata[9 : 0];
     end
 
 
@@ -187,6 +187,18 @@ module StepperMotorControl_pio_sw (
               edge_capture[8] <= 0;
           else if (edge_detect[8])
               edge_capture[8] <= -1;
+    end
+
+
+  always @(posedge clk or negedge reset_n)
+    begin
+      if (reset_n == 0)
+          edge_capture[9] <= 0;
+      else if (clk_en)
+          if (edge_capture_wr_strobe)
+              edge_capture[9] <= 0;
+          else if (edge_detect[9])
+              edge_capture[9] <= -1;
     end
 
 

@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'StepperMotorControl'
  * SOPC Builder design path: ../../StepperMotorControl.sopcinfo
  *
- * Generated: Tue Oct 21 11:36:46 CEST 2014
+ * Generated: Tue Oct 28 09:24:15 CET 2014
  */
 
 /*
@@ -60,6 +60,7 @@
 
 #include "altera_nios2_qsys_irq.h"
 #include "altera_avalon_jtag_uart.h"
+#include "altera_avalon_lcd_16207.h"
 #include "altera_avalon_sysid_qsys.h"
 #include "altera_avalon_timer.h"
 
@@ -69,6 +70,7 @@
 
 ALTERA_NIOS2_QSYS_IRQ_INSTANCE ( CPU, CPU);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART, jtag_uart);
+ALTERA_AVALON_LCD_16207_INSTANCE ( LCD, lcd);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID_QSYS_0, sysid_qsys_0);
 ALTERA_AVALON_TIMER_INSTANCE ( RTX_TIMER, RTX_Timer);
 
@@ -95,5 +97,6 @@ void alt_sys_init( void )
 {
     ALTERA_AVALON_TIMER_INIT ( RTX_TIMER, RTX_Timer);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART, jtag_uart);
+    ALTERA_AVALON_LCD_16207_INIT ( LCD, lcd);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID_QSYS_0, sysid_qsys_0);
 }

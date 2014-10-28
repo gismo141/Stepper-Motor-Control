@@ -32,7 +32,7 @@ entity StepperMotorControl_pio_key is
                  signal address : IN STD_LOGIC_VECTOR (1 DOWNTO 0);
                  signal chipselect : IN STD_LOGIC;
                  signal clk : IN STD_LOGIC;
-                 signal in_port : IN STD_LOGIC_VECTOR (2 DOWNTO 0);
+                 signal in_port : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
                  signal reset_n : IN STD_LOGIC;
                  signal write_n : IN STD_LOGIC;
                  signal writedata : IN STD_LOGIC_VECTOR (31 DOWNTO 0);
@@ -46,27 +46,27 @@ end entity StepperMotorControl_pio_key;
 
 architecture europa of StepperMotorControl_pio_key is
                 signal clk_en :  STD_LOGIC;
-                signal d1_data_in :  STD_LOGIC_VECTOR (2 DOWNTO 0);
-                signal d2_data_in :  STD_LOGIC_VECTOR (2 DOWNTO 0);
-                signal data_in :  STD_LOGIC_VECTOR (2 DOWNTO 0);
-                signal edge_capture :  STD_LOGIC_VECTOR (2 DOWNTO 0);
+                signal d1_data_in :  STD_LOGIC_VECTOR (3 DOWNTO 0);
+                signal d2_data_in :  STD_LOGIC_VECTOR (3 DOWNTO 0);
+                signal data_in :  STD_LOGIC_VECTOR (3 DOWNTO 0);
+                signal edge_capture :  STD_LOGIC_VECTOR (3 DOWNTO 0);
                 signal edge_capture_wr_strobe :  STD_LOGIC;
-                signal edge_detect :  STD_LOGIC_VECTOR (2 DOWNTO 0);
-                signal irq_mask :  STD_LOGIC_VECTOR (2 DOWNTO 0);
-                signal read_mux_out :  STD_LOGIC_VECTOR (2 DOWNTO 0);
+                signal edge_detect :  STD_LOGIC_VECTOR (3 DOWNTO 0);
+                signal irq_mask :  STD_LOGIC_VECTOR (3 DOWNTO 0);
+                signal read_mux_out :  STD_LOGIC_VECTOR (3 DOWNTO 0);
 
 begin
 
   clk_en <= std_logic'('1');
   --s1, which is an e_avalon_slave
-  read_mux_out <= (((A_REP(to_std_logic((((std_logic_vector'("000000000000000000000000000000") & (address)) = std_logic_vector'("00000000000000000000000000000000")))), 3) AND data_in)) OR ((A_REP(to_std_logic((((std_logic_vector'("000000000000000000000000000000") & (address)) = std_logic_vector'("00000000000000000000000000000010")))), 3) AND irq_mask))) OR ((A_REP(to_std_logic((((std_logic_vector'("000000000000000000000000000000") & (address)) = std_logic_vector'("00000000000000000000000000000011")))), 3) AND edge_capture));
+  read_mux_out <= (((A_REP(to_std_logic((((std_logic_vector'("000000000000000000000000000000") & (address)) = std_logic_vector'("00000000000000000000000000000000")))), 4) AND data_in)) OR ((A_REP(to_std_logic((((std_logic_vector'("000000000000000000000000000000") & (address)) = std_logic_vector'("00000000000000000000000000000010")))), 4) AND irq_mask))) OR ((A_REP(to_std_logic((((std_logic_vector'("000000000000000000000000000000") & (address)) = std_logic_vector'("00000000000000000000000000000011")))), 4) AND edge_capture));
   process (clk, reset_n)
   begin
     if reset_n = '0' then
       readdata <= std_logic_vector'("00000000000000000000000000000000");
     elsif clk'event and clk = '1' then
       if std_logic'(clk_en) = '1' then 
-        readdata <= std_logic_vector'("00000000000000000000000000000000") OR (std_logic_vector'("00000000000000000000000000000") & (read_mux_out));
+        readdata <= std_logic_vector'("00000000000000000000000000000000") OR (std_logic_vector'("0000000000000000000000000000") & (read_mux_out));
       end if;
     end if;
 
@@ -76,10 +76,10 @@ begin
   process (clk, reset_n)
   begin
     if reset_n = '0' then
-      irq_mask <= std_logic_vector'("000");
+      irq_mask <= std_logic_vector'("0000");
     elsif clk'event and clk = '1' then
       if std_logic'(((chipselect AND NOT write_n) AND to_std_logic((((std_logic_vector'("000000000000000000000000000000") & (address)) = std_logic_vector'("00000000000000000000000000000010")))))) = '1' then 
-        irq_mask <= writedata(2 DOWNTO 0);
+        irq_mask <= writedata(3 DOWNTO 0);
       end if;
     end if;
 
@@ -138,8 +138,24 @@ begin
   process (clk, reset_n)
   begin
     if reset_n = '0' then
-      d1_data_in <= std_logic_vector'("000");
-      d2_data_in <= std_logic_vector'("000");
+      edge_capture(3) <= std_logic'('0');
+    elsif clk'event and clk = '1' then
+      if std_logic'(clk_en) = '1' then 
+        if std_logic'(edge_capture_wr_strobe) = '1' then 
+          edge_capture(3) <= std_logic'('0');
+        elsif std_logic'(edge_detect(3)) = '1' then 
+          edge_capture(3) <= Vector_To_Std_Logic(-SIGNED(std_logic_vector'("00000000000000000000000000000001")));
+        end if;
+      end if;
+    end if;
+
+  end process;
+
+  process (clk, reset_n)
+  begin
+    if reset_n = '0' then
+      d1_data_in <= std_logic_vector'("0000");
+      d2_data_in <= std_logic_vector'("0000");
     elsif clk'event and clk = '1' then
       if std_logic'(clk_en) = '1' then 
         d1_data_in <= data_in;

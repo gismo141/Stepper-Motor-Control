@@ -23,6 +23,11 @@ extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 OS_EVENT *switchesMailbox;
 OS_EVENT *outputTaskMailbox;
 
+/** @brief Variable for ISR-Context
+  * @details Not used in this program
+  */
+  uint32_t ISRcontext;
+
 /**
   * @brief  UserInputTask
   * @details 
@@ -65,7 +70,16 @@ void UserInputTask(void *pdata)
 	switchesMailbox = OSMboxCreate(NULL);
 	outputTaskMailbox = OSMboxCreate(NULL);
 
-	while (1)
+	//init key ISR
+	alt_ic_isr_register(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ,
+			keysIRQhandler, (void *) &ISRcontext, NULL);
+	alt_ic_irq_enable(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ);
+	// Enable Interrupt and Reset
+	SetKeyReg(INTERFACE_KEY_IE0_MSK |
+			  INTERFACE_KEY_IE2_MSK |
+			  INTERFACE_KEY_IE3_MSK);
+
+	while (0)
 	{
 		//check for new events
 		newFlag = OSFlagPend(userInputTaskFlagsGrp,

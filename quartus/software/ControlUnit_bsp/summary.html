@@ -16,16 +16,16 @@
 <td width="20%" bgcolor="#77BBFF">CPU:</td><td>CPU</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Settings File:</td><td>.\settings.bsp</td>
+<td width="20%" bgcolor="#77BBFF">BSP Settings File:</td><td>settings.bsp</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">BSP Version:</td><td>default</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>21.10.2014 11:36:45</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>28.10.2014 11:25:53</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1413884205290</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1414491953530</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>S:\SoC04\Stepper-Motor-Control\quartus\software\ControlUnit_bsp</td>
@@ -38,19 +38,40 @@
 <th align="left" width="20%">Slave Descriptor</th><th align="left" width="40%">Address Range</th><th align="left" width="20%">Size</th><th align="left" width="20%">Attributes</th>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>jtag_uart</td><td>0x00101038 - 0x0010103F</td><td>8</td><td class="listing">printable</td>
+<td>jtag_uart</td><td>0x001010F8 - 0x001010FF</td><td>8</td><td class="listing">printable</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sysid_qsys_0</td><td>0x00101030 - 0x00101037</td><td>8</td><td class="listing">&nbsp;</td>
+<td>sysid_qsys_0</td><td>0x001010F0 - 0x001010F7</td><td>8</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>RTX_Timer</td><td>0x00101000 - 0x0010101F</td><td>32</td><td class="listing">timer</td>
+<td>lcd</td><td>0x001010E0 - 0x001010EF</td><td>16</td><td class="listing">printable</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pio_led9</td><td>0x001010D0 - 0x001010DF</td><td>16</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pio_key</td><td>0x001010C0 - 0x001010CF</td><td>16</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>RTX_Timer</td><td>0x001010A0 - 0x001010BF</td><td>32</td><td class="listing">timer</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pio_sw</td><td>0x00101080 - 0x0010109F</td><td>32</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pio_hex0</td><td>0x00101060 - 0x0010107F</td><td>32</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pio_hex1</td><td>0x00101040 - 0x0010105F</td><td>32</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pio_hex2</td><td>0x00101020 - 0x0010103F</td><td>32</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>pio_hex3</td><td>0x00101000 - 0x0010101F</td><td>32</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
 <td>SRAM_CVGX</td><td>0x00080000 - 0x000FFFFF</td><td>524288</td><td class="listing">memory</td>
-</tr>
-<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>interface_comp_0</td><td>0x00000000 - 0x0000000F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 </table>
 <br>

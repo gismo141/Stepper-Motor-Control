@@ -30,6 +30,7 @@
 #include "../INC/auxilaryFunctions.h"
 //#include "hardwareAccess.h"
 #include "../INC/heartbeatTask.h"
+#include "../INC/keysIRQhandler.h"
 
 #define CTRL_REG_RS_MSK			(0x1)
 #define CTRL_REG_LR_MSK			(0x2)

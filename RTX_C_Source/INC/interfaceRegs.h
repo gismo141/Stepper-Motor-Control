@@ -55,20 +55,20 @@
   */
 #define INTERFACE_KEY_IR0_MSK          (0x1) /*!< Mask   IR0 */
 #define INTERFACE_KEY_IR0_OFST         (0)   /*!< Offset IR0 */
-#define INTERFACE_KEY_IR1_MSK          (0x2) /*!< Mask   IR1 */
-#define INTERFACE_KEY_IR1_OFST         (1)   /*!< Offset IR1 */
-#define INTERFACE_KEY_IR2_MSK          (0x4) /*!< Mask   IR2 */
-#define INTERFACE_KEY_IR2_OFST         (2)   /*!< Offset IR2 */
+#define INTERFACE_KEY_IR2_MSK          (0x4) /*!< Mask   IR1 */
+#define INTERFACE_KEY_IR2_OFST         (2)   /*!< Offset IR1 */
+#define INTERFACE_KEY_IR3_MSK          (0x8) /*!< Mask   IR2 */
+#define INTERFACE_KEY_IR3_OFST         (3)   /*!< Offset IR2 */
 
 /**
   * @name Key-register: interrupt enable defines
   */
 #define INTERFACE_KEY_IE0_MSK          (0x8)  /*!< Mask   IE0 */
 #define INTERFACE_KEY_IE0_OFST         (3)    /*!< Offset IE0 */
-#define INTERFACE_KEY_IE1_MSK          (0x10) /*!< Mask   IE1 */
-#define INTERFACE_KEY_IE1_OFST         (4)    /*!< Offset IE1 */
-#define INTERFACE_KEY_IE2_MSK          (0x20) /*!< Mask   IE2 */
-#define INTERFACE_KEY_IE2_OFST         (5)    /*!< Offset IE2 */
+#define INTERFACE_KEY_IE2_MSK          (0x20) /*!< Mask   IE1 */
+#define INTERFACE_KEY_IE2_OFST         (5)    /*!< Offset IE1 */
+#define INTERFACE_KEY_IE3_MSK          (0x40) /*!< Mask   IE2 */
+#define INTERFACE_KEY_IE3_OFST         (6)    /*!< Offset IE2 */
 
 /**
   * @name green LEDs

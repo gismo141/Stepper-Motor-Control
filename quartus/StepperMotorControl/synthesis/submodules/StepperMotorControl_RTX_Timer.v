@@ -76,7 +76,7 @@ module StepperMotorControl_RTX_Timer (
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
-          internal_counter <= 32'hF423F;
+          internal_counter <= 32'd999999;
       else if (counter_is_running || force_reload)
           if (counter_is_zero    || force_reload)
               internal_counter <= counter_load_value;

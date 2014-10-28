@@ -41,15 +41,15 @@ agreement for further details.
 	(port
 		(pt 0 272)
 		(input)
-		(text "sw_export[8..0]" (rect 0 0 61 12)(font "Arial" (font_size 8)))
-		(text "sw_export[8..0]" (rect 4 261 94 272)(font "Arial" (font_size 8)))
+		(text "sw_export[9..0]" (rect 0 0 61 12)(font "Arial" (font_size 8)))
+		(text "sw_export[9..0]" (rect 4 261 94 272)(font "Arial" (font_size 8)))
 		(line (pt 0 272)(pt 128 272)(line_width 3))
 	)
 	(port
 		(pt 0 400)
 		(input)
-		(text "key_export[2..0]" (rect 0 0 66 12)(font "Arial" (font_size 8)))
-		(text "key_export[2..0]" (rect 4 389 100 400)(font "Arial" (font_size 8)))
+		(text "key_export[3..0]" (rect 0 0 66 12)(font "Arial" (font_size 8)))
+		(text "key_export[3..0]" (rect 4 389 100 400)(font "Arial" (font_size 8)))
 		(line (pt 0 400)(pt 128 400)(line_width 3))
 	)
 	(port

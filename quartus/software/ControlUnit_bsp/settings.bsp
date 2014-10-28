@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>21.10.2014 11:36:45</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1413884205290</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>28.10.2014 11:25:53</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1414491953530</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>S:\SoC04\Stepper-Motor-Control\quartus\software\ControlUnit_bsp</BspGeneratedLocation>
-        <BspSettingsFile>.\settings.bsp</BspSettingsFile>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\StepperMotorControl.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>CPU</Cpu>
@@ -1703,32 +1703,74 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
-                <slaveDescriptor>interface_comp_0</slaveDescriptor>
-                <addressRange>0x00000000 - 0x0000000F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>SRAM_CVGX</slaveDescriptor>
                 <addressRange>0x00080000 - 0x000FFFFF</addressRange>
                 <addressSpan>524288</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>RTX_Timer</slaveDescriptor>
+                <slaveDescriptor>pio_hex3</slaveDescriptor>
                 <addressRange>0x00101000 - 0x0010101F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pio_hex2</slaveDescriptor>
+                <addressRange>0x00101020 - 0x0010103F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pio_hex1</slaveDescriptor>
+                <addressRange>0x00101040 - 0x0010105F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pio_hex0</slaveDescriptor>
+                <addressRange>0x00101060 - 0x0010107F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pio_sw</slaveDescriptor>
+                <addressRange>0x00101080 - 0x0010109F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>RTX_Timer</slaveDescriptor>
+                <addressRange>0x001010A0 - 0x001010BF</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>pio_key</slaveDescriptor>
+                <addressRange>0x001010C0 - 0x001010CF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pio_led9</slaveDescriptor>
+                <addressRange>0x001010D0 - 0x001010DF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>lcd</slaveDescriptor>
+                <addressRange>0x001010E0 - 0x001010EF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x00101030 - 0x00101037</addressRange>
+                <addressRange>0x001010F0 - 0x001010F7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x00101038 - 0x0010103F</addressRange>
+                <addressRange>0x001010F8 - 0x001010FF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

@@ -18,22 +18,9 @@
 
 #include <sys/alt_irq.h>
 #include "includes.h"
-#include "../INC/hardwareAccess.h"
+#include "../INC/motorIRQhandler.h"
 //#include "../INC/hardwareAccess.h"
 #include "../INC/events.h"
 
 void motorIRQhandler(void *context)
-{
-    uint32_t isrsignals;
-    INT8U err;
-
-    OSIntEnter();
-
-    // Clear Request
-    SetKeyReg(isrsignals & ~(INTERFACE_SWITCH_MSK));
-    isrsignals = isrsignals & (INTERFACE_SWITCH_MSK);
-
-    // Send corresponding Event
-    OSFlagPost(SWITCH_UPDATE_EVENT, isrsignals, OS_FLAG_SET, &err);
-    OSIntExit();
-}
+{}

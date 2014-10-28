@@ -23,8 +23,7 @@
 
 /**
   * @brief      IRQ-Handler for switches
-  * @details    sets an event, when an switch changed and stores all switch values
-  *             in message queue
+  * @details    sends a mailbox-message containing the switches-positions
   * @param      context : pointer to context variable (not used)
   * @retval none
   */

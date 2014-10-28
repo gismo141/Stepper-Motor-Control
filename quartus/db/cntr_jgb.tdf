@@ -1,5 +1,5 @@
 --lpm_counter DEVICE_FAMILY="Cyclone V" lpm_direction="UP" lpm_port_updown="PORT_UNUSED" lpm_width=6 aclr clock cnt_en q sclr
---VERSION_BEGIN 14.0 cbx_cycloneii 2014:06:17:18:06:03:SJ cbx_lpm_add_sub 2014:06:17:18:06:03:SJ cbx_lpm_compare 2014:06:17:18:06:03:SJ cbx_lpm_counter 2014:06:17:18:06:03:SJ cbx_lpm_decode 2014:06:17:18:06:03:SJ cbx_mgl 2014:06:17:18:10:38:SJ cbx_stratix 2014:06:17:18:06:03:SJ cbx_stratixii 2014:06:17:18:06:03:SJ  VERSION_END
+--VERSION_BEGIN 14.0 cbx_cycloneii 2014:09:17:18:55:21:SJ cbx_lpm_add_sub 2014:09:17:18:55:21:SJ cbx_lpm_compare 2014:09:17:18:55:21:SJ cbx_lpm_counter 2014:09:17:18:55:21:SJ cbx_lpm_decode 2014:09:17:18:55:21:SJ cbx_mgl 2014:09:17:19:03:37:SJ cbx_stratix 2014:09:17:18:55:21:SJ cbx_stratixii 2014:09:17:18:55:21:SJ  VERSION_END
 
 
 -- Copyright (C) 1991-2014 Altera Corporation. All rights reserved.

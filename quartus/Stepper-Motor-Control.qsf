@@ -83,7 +83,6 @@ set_location_assignment PIN_Y23 -to HEX3[1]
 set_location_assignment PIN_Y24 -to HEX3[0]
 set_location_assignment PIN_Y16 -to KEY[3]
 set_location_assignment PIN_Y15 -to KEY[2]
-set_location_assignment PIN_P12 -to KEY[1]
 set_location_assignment PIN_P11 -to KEY[0]
 set_location_assignment PIN_H9 -to LEDG[7]
 set_location_assignment PIN_H8 -to LEDG[6]
@@ -138,9 +137,7 @@ set_location_assignment PIN_K23 -to SRAM_D[3]
 set_location_assignment PIN_K24 -to SRAM_D[2]
 set_location_assignment PIN_E25 -to SRAM_D[1]
 set_location_assignment PIN_E24 -to SRAM_D[0]
-set_location_assignment PIN_H25 -to SRAM_LB_N
 set_location_assignment PIN_M22 -to SRAM_OE_N
-set_location_assignment PIN_M25 -to SRAM_UB_N
 set_location_assignment PIN_G25 -to SRAM_WE_N
 set_location_assignment PIN_AE19 -to SW[9]
 set_location_assignment PIN_Y11 -to SW[8]
@@ -290,9 +287,7 @@ set_location_assignment PIN_V8 -to SD_DAT[2]
 set_location_assignment PIN_T7 -to SD_DAT[1]
 set_location_assignment PIN_U7 -to SD_DAT[0]
 set_location_assignment PIN_N23 -to SRAM_CE_n
-set_location_assignment PIN_H25 -to SRAM_LB_n
 set_location_assignment PIN_M22 -to SRAM_OE_n
-set_location_assignment PIN_M25 -to SRAM_UB_n
 set_location_assignment PIN_G25 -to SRAM_WE_n
 set_location_assignment PIN_AE6 -to DDR2LP_CA[0]
 set_location_assignment PIN_AF6 -to DDR2LP_CA[1]
@@ -500,7 +495,6 @@ set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name QIP_FILE StepperMotorControl/synthesis/StepperMotorControl.qip
-set_global_assignment -name CDF_FILE output_files/Chain2.cdf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -738,9 +732,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DAT[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DAT[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DAT[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_CE_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_LB_n
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_OE_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_UB_n
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_WE_n
 set_instance_assignment -name IO_STANDARD "1.2-V HSUL" -to DDR2LP_CA[0]
 set_instance_assignment -name IO_STANDARD "1.2-V HSUL" -to DDR2LP_CA[1]
@@ -809,7 +801,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[6]
+set_instance_assignment -name IO_STANDARD "3.0-V PCI-X" -to GPIO[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[8]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO[9]
@@ -875,4 +867,12 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_EN
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RS
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RW
 set_global_assignment -name SDC_FILE "Stepper-Motor-Control.sdc"
+set_location_assignment PIN_J10 -to LED9
+set_location_assignment PIN_R9 -to LCD_E
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_location_assignment PIN_H25 -to SRAM_BE_N[0]
+set_location_assignment PIN_M25 -to SRAM_BE_N[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_CE_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_BE_N[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_BE_N[1]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -17,9 +17,12 @@
   */
 
 #include <sys/alt_irq.h>
-#include "includes.h" // Wofür ist die?
+#include "includes.h"
+#include "../INC/keysIRQhandler.h"
 #include "../INC/hardwareAccess.h"
 #include "../INC/events.h"
+
+extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 
 void keysIRQhandler(void *context)
 {
@@ -31,18 +34,16 @@ void keysIRQhandler(void *context)
 
     // Clear Request
     SetKeyReg(isrsignals & ~(INTERFACE_KEY_IR0_MSK |
-                             INTERFACE_KEY_IR1_MSK |
-                             INTERFACE_KEY_IR2_MSK));
-    isrsignals = isrsignals & (INTERFACE_KEY_IR0_MSK |
-                               INTERFACE_KEY_IR1_MSK |
-                               INTERFACE_KEY_IR2_MSK);
+                             INTERFACE_KEY_IR2_MSK |
+                             INTERFACE_KEY_IR3_MSK));
     
     // Send corresponding Event
     if(isrsignals & INTERFACE_KEY_IR0_MSK)
-        OSFlagPost(KEY0_RS_EVENT, isrsignals, OS_FLAG_SET, &err);
-    if(isrsignals & INTERFACE_KEY_IR1_MSK)
-        OSFlagPost(KEY2_MINUS_EVENT, isrsignals, OS_FLAG_SET, &err);
+        OSFlagPost(userInputTaskFlagsGrp, KEY0_RS_EVENT, OS_FLAG_SET, &err);
     if(isrsignals & INTERFACE_KEY_IR2_MSK)
-        OSFlagPost(KEY3_PLUS_EVENT, isrsignals, OS_FLAG_SET, &err);
+        OSFlagPost(userInputTaskFlagsGrp, KEY2_MINUS_EVENT, OS_FLAG_SET, &err);
+    if(isrsignals & INTERFACE_KEY_IR3_MSK)
+        OSFlagPost(userInputTaskFlagsGrp, KEY3_PLUS_EVENT, OS_FLAG_SET, &err);
+    printf_term("Key pressed\n");
     OSIntExit();
 }

@@ -28,12 +28,12 @@ module StepperMotorControl (
 	inout	[15:0]	sram_SRAM_D;
 	output	[18:0]	sram_SRAM_A;
 	output	[0:0]	sram_SRAM_WE_N;
-	input	[8:0]	sw_export;
+	input	[9:0]	sw_export;
 	output		lcd_RS;
 	output		lcd_RW;
 	inout	[7:0]	lcd_data;
 	output		lcd_E;
-	input	[2:0]	key_export;
+	input	[3:0]	key_export;
 	output	[6:0]	hex0_export;
 	output	[6:0]	hex1_export;
 	output	[6:0]	hex2_export;

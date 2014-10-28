@@ -28,54 +28,8 @@
   */
 static __inline__ uint32_t getSW(void)
 {
-    return(IORD_INTERFACE_SWITCH(INTERFACE_COMP_0_BASE));
+    return(IORD_INTERFACE_SWITCH(PIO_SW_BASE));
 }
-
-/**
-  * @brief  function to control red leds
-  * @param  redled : Bit 7..0 contain control value for red leds
-  *                   @arg 0 = LED OFF
-  *                   @arg 1 = LED ON
-  * @retval None
-  */
-static __inline__ void SetRedLed(uint32_t redled)
-{
-    IOWR_INTERFACE_REDLED(INTERFACE_COMP_0_BASE, redled);
-}
-
-/**
-  * @brief function to read status of red leds
-  * @retval redledContent : Bit 7..0 contain led status
-  *                           @arg 0 = LED OFF
-  *                           @arg 1 = LED ON
-  */
-static __inline__ uint32_t GetRedLed(void)
-{
-    return(IORD_INTERFACE_REDLED(INTERFACE_COMP_0_BASE));
-}
-
-/**
-  * @brief  function to control green leds
-  * @param  redled : Bit 7..0 contain control value for green leds
-  *                   @arg 0 = LED OFF
-  *                   @arg 1 = LED ON
-  * @retval None
-
- static __inline__ void SetGreenLed(uint32_t greenled)
-{
-    IOWR_INTERFACE_GREENLED(INTERFACE_COMP_0_BASE, greenled);
-}
-
-*
-  * @brief function to read status of green leds
-  * @retval redledContent : Bit 7..0 contain led status
-  *                           @arg 0 = LED OFF
-  *                           @arg 1 = LED ON
-
- static __inline__ uint32_t GetGreenLed(void)
-{
-    return(IORD_INTERFACE_GREENLED(INTERFACE_COMP_0_BASE));
-}*/
 
 /**
   * @brief  function to write to key register
@@ -86,7 +40,7 @@ static __inline__ uint32_t GetRedLed(void)
   */
  static __inline__ void SetKeyReg(uint32_t newkeyval)
 {
-    IOWR_INTERFACE_KEY(INTERFACE_COMP_0_BASE, newkeyval);
+    IOWR_INTERFACE_KEY(PIO_KEY_BASE, newkeyval);
 }
 
 /**
@@ -97,7 +51,7 @@ static __inline__ uint32_t GetRedLed(void)
   */
  static __inline__ uint32_t GetKeyReg(void)
 {
-    return(IORD_INTERFACE_KEY(INTERFACE_COMP_0_BASE));
+    return(IORD_INTERFACE_KEY(PIO_KEY_BASE));
 }
 
 #endif /*__HARDWAREACCESS_H__*/

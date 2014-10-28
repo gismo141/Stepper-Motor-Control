@@ -718,14 +718,14 @@
 																	<placeholder>dock.single.IP\ Catalog</placeholder>
 																</placeholders>
 															</leaf>
-															<leaf id="2" nodeId="1375985011087">
+															<leaf id="3" nodeId="1375985011087">
 																<placeholders>
 																	<placeholder>dock.single.Hierarchy</placeholder>
 																</placeholders>
 															</leaf>
 														</node>
 														<node nodeId="1413278951424" orientation="VERTICAL" divider="0.7340129749768304">
-															<leaf id="3" nodeId="1372710005735">
+															<leaf id="1" nodeId="1372710005735">
 																<placeholders>
 																	<placeholder>dock.single.Domains</placeholder>
 																	<placeholder>dock.single.Instrumentation</placeholder>
@@ -745,7 +745,7 @@
 																	<format>dock.PlaceholderList</format>
 																</placeholder-map>
 															</leaf>
-															<leaf id="1" nodeId="1413278918369">
+															<leaf id="2" nodeId="1413278918369">
 																<placeholders>
 																	<placeholder>dock.single.Messages</placeholder>
 																</placeholders>
@@ -794,26 +794,6 @@
 										<replacement id="dockablesingle IP Catalog"/>
 										<delegate id="delegate_ccontrol backup factory id">
 											<id>IP Catalog</id>
-											<area/>
-										</delegate>
-									</layout>
-									<children ignore="false"/>
-								</child>
-								<child>
-									<layout factory="predefined" placeholder="dock.single.Messages">
-										<replacement id="dockablesingle Messages"/>
-										<delegate id="delegate_ccontrol backup factory id">
-											<id>Messages</id>
-											<area/>
-										</delegate>
-									</layout>
-									<children ignore="false"/>
-								</child>
-								<child>
-									<layout factory="predefined" placeholder="dock.single.Hierarchy">
-										<replacement id="dockablesingle Hierarchy"/>
-										<delegate id="delegate_ccontrol backup factory id">
-											<id>Hierarchy</id>
 											<area/>
 										</delegate>
 									</layout>
@@ -1018,6 +998,26 @@
 										</child>
 									</children>
 								</child>
+								<child>
+									<layout factory="predefined" placeholder="dock.single.Messages">
+										<replacement id="dockablesingle Messages"/>
+										<delegate id="delegate_ccontrol backup factory id">
+											<id>Messages</id>
+											<area/>
+										</delegate>
+									</layout>
+									<children ignore="false"/>
+								</child>
+								<child>
+									<layout factory="predefined" placeholder="dock.single.Hierarchy">
+										<replacement id="dockablesingle Hierarchy"/>
+										<delegate id="delegate_ccontrol backup factory id">
+											<id>Hierarchy</id>
+											<area/>
+										</delegate>
+									</layout>
+									<children ignore="false"/>
+								</child>
 							</children>
 						</root>
 						<root name="external">
@@ -1050,10 +1050,10 @@
 													<item type="s">y</item>
 													<item type="s">x</item>
 												</item>
-												<item key="item.height" type="i">1003</item>
-												<item key="item.width" type="i">1275</item>
-												<item key="item.y" type="i">11</item>
-												<item key="item.x" type="i">1926</item>
+												<item key="item.height" type="i">984</item>
+												<item key="item.width" type="i">1269</item>
+												<item key="item.y" type="i">21</item>
+												<item key="item.x" type="i">1931</item>
 											</entry>
 											<entry>
 												<key shared="false">
@@ -1269,10 +1269,10 @@
 						<child key="single Parameters" root="external" location="true">
 							<location>
 								<property factory="screen dock">
-									<x>1926</x>
-									<y>11</y>
-									<width>1275</width>
-									<height>1003</height>
+									<x>1931</x>
+									<y>21</y>
+									<width>1269</width>
+									<height>984</height>
 									<fullscreen>false</fullscreen>
 									<placeholder>dock.single.Parameters</placeholder>
 								</property>
@@ -1628,14 +1628,10 @@
 									<location>
 										<property factory="screen dock">
 											<x>1933</x>
-											<y>4</y>
-											<width>1281</width>
-											<height>1028</height>
+											<y>24</y>
+											<width>1269</width>
+											<height>984</height>
 											<fullscreen>false</fullscreen>
-											<placeholder>dock.single.Parameters</placeholder>
-										</property>
-										<property factory="StackDockPropertyFactory">
-											<index>0</index>
 											<placeholder>dock.single.Parameters</placeholder>
 										</property>
 									</location>

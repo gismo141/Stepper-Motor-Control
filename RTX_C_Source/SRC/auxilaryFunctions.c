@@ -6,7 +6,6 @@
   * @version   	v0.1
   * @date      	27.10.2014
   * @brief   	Collection of auxilary functions
-  * @todo		Open streams before printing
   ***************************************************************************
   * @par History:
   * @details    v0.1 Riedel & Kossmann
@@ -16,22 +15,35 @@
 
 #include "../INC/auxilaryFunctions.h"
 
+FILE *term;
+FILE *lcd;
+
+void init_term(void){
+	term = fopen(JTAG_UART_NAME, "w");
+}
+
+void init_lcd(void){
+	DOGM162lcd_init(LCD_BASE);
+	lcd = fopen(LCD_NAME, "w");
+}
+
+
 void printf_term(const char *format, ...){
 	va_list args;
 	va_start (args, format);
-	vfprintf ("/dev/jtag_uart", format, args);
+	vfprintf (term, format, args);
 	va_end (args);
 }
 void printf_lcd(const char *format, ...){
 	va_list args;
 	va_start (args, format);
-	vfprintf ("/dev/lcd", format, args);
+	vfprintf (lcd, format, args);
 	va_end (args);
 }
 
 void fflush_term(){
-	fflush("/dev/jtag_uart");
+	fflush(term);
 }
 void fflush_lcd(){
-	fflush("/dev/jtag_uart");
+	fflush(lcd);
 }

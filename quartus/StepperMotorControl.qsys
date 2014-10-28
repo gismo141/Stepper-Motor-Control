@@ -180,35 +180,11 @@
          type = "String";
       }
    }
-   element pio_sw.s1
-   {
-      datum baseAddress
-      {
-         value = "1052800";
-         type = "String";
-      }
-   }
-   element pio_hex0.s1
-   {
-      datum baseAddress
-      {
-         value = "1052768";
-         type = "String";
-      }
-   }
    element pio_led9.s1
    {
       datum baseAddress
       {
          value = "1052880";
-         type = "String";
-      }
-   }
-   element RTX_Timer.s1
-   {
-      datum baseAddress
-      {
-         value = "1052832";
          type = "String";
       }
    }
@@ -225,6 +201,30 @@
       datum baseAddress
       {
          value = "1052736";
+         type = "String";
+      }
+   }
+   element RTX_Timer.s1
+   {
+      datum baseAddress
+      {
+         value = "1052832";
+         type = "String";
+      }
+   }
+   element pio_hex0.s1
+   {
+      datum baseAddress
+      {
+         value = "1052768";
+         type = "String";
+      }
+   }
+   element pio_sw.s1
+   {
+      datum baseAddress
+      {
+         value = "1052800";
          type = "String";
       }
    }
@@ -787,7 +787,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="9" />
+  <parameter name="width" value="10" />
   <parameter name="clockRate" value="100000000" />
  </module>
  <module kind="altera_avalon_pio" version="14.0" enabled="1" name="pio_key">
@@ -801,7 +801,7 @@
   <parameter name="resetValue" value="0" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="3" />
+  <parameter name="width" value="4" />
   <parameter name="clockRate" value="100000000" />
  </module>
  <module kind="altera_avalon_pio" version="14.0" enabled="1" name="pio_hex0">

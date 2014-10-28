@@ -17,13 +17,15 @@
 
 #include <sys/alt_irq.h>
 #include "includes.h"
+#include "../INC/switchesIRQhandler.h"
 #include "../INC/hardwareAccess.h"
 #include "../INC/events.h"
+
+extern OS_EVENT *switchesMailbox;
 
 void switchesIRQhandler(void *context)
 {
     uint32_t isrsignals;
-    INT8U err;
 
     OSIntEnter();
     isrsignals =  getSW();
@@ -32,7 +34,8 @@ void switchesIRQhandler(void *context)
     SetKeyReg(isrsignals & ~(INTERFACE_SWITCH_MSK));
     isrsignals = isrsignals & (INTERFACE_SWITCH_MSK);
 
-    // Send corresponding Event
-    OSFlagPost(SWITCH_UPDATE_EVENT, isrsignals, OS_FLAG_SET, &err);
+    // Create and Send Mailbox-Message
+    OSMboxPost(switchesMailbox, (void*) isrsignals);
+
     OSIntExit();
 }

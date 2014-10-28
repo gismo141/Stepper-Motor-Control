@@ -3,7 +3,7 @@
 # Machine generated for CPU 'CPU' in SOPC Builder design 'StepperMotorControl'
 # SOPC Builder design path: ../../StepperMotorControl.sopcinfo
 #
-# Generated: Tue Oct 21 11:36:46 CEST 2014
+# Generated: Tue Oct 28 09:24:15 CET 2014
 
 # DO NOT MODIFY THIS FILE
 #

@@ -17,17 +17,12 @@
 
 #include "../INC/main.h"
 
-/** @brief Variable for ISR-Context
-  * @details Not used in this program
-  */
-  uint32_t ISRcontext;
-
 /**
   * @brief  Main-Routine
   * @details
   * @retval Errorcode
   */
-int32_t main(void)
+int main(void)
 {
   // -------- Events, Semaphor, Mutex , Mbx  ---------------------------
 
@@ -43,15 +38,15 @@ int32_t main(void)
                   NULL,
                   0);
    
-  OSTaskCreateExt(UserOutputTask,
-                  NULL,
-                    (void *)&UserOutputTask_Stk[TASK_STACKSIZE - 1],
-                  USER_OUTPUT_TASK_PRIORITY,
-                  USER_OUTPUT_TASK_PRIORITY,
-                  UserOutputTask_Stk,
-                  TASK_STACKSIZE,
-                  NULL,
-                  0);
+//  OSTaskCreateExt(UserOutputTask,
+//                  NULL,
+//                    (void *)&UserOutputTask_Stk[TASK_STACKSIZE - 1],
+//                  USER_OUTPUT_TASK_PRIORITY,
+//                  USER_OUTPUT_TASK_PRIORITY,
+//                  UserOutputTask_Stk,
+//                  TASK_STACKSIZE,
+//                  NULL,
+//                  0);
                   
 //  OSTaskCreateExt(HeartbeatDebugTask,
 //                  NULL,
@@ -64,31 +59,29 @@ int32_t main(void)
 //                  0);
 
 //  //init switches ISR
-//  alt_ic_isr_register(..., ..., switchesIRQhandler, (void *) &ISRcontext, NULL);
-//  alt_ic_irq_enable(..., ...);
+//  alt_ic_isr_register(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ,
+//		  switchesIRQhandler, (void *) &ISRcontext, NULL);
+//  alt_ic_irq_enable(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ);
 //  // Enable Interrupt and Reset
-//  SetSwitchReg(...);
-//
-//  //init key ISR
-//  alt_ic_isr_register(..., ..., keysIRQhandler, (void *) &ISRcontext, NULL);
-//  alt_ic_irq_enable(..., ...);
-//  // Enable Interrupt and Reset
-//  SetKeyReg(...);
-//
+//  SetSwitchReg(INTERFACE_KEY_IE0_MSK |
+//          INTERFACE_KEY_IE2_MSK |
+//          INTERFACE_KEY_IE3_MSK);
+
 //  //init motor ISR
 //  alt_ic_isr_register(..., ..., motorIRQhandler, (void *) &ISRcontext, NULL);
 //  alt_ic_irq_enable(..., ...);
 //  // Enable Interrupt and Reset
 //  SetMotorReg(...);
                   
-//  //Show initial terminal msg
+  //Show initial terminal msg
+  init_term();
   printf_term("Stepper Motor - System on a Chip 2014\n");
   printf_term("Michael Riedel & Marc Kossmann\n");
-  printf_term("Version 0.1 - 21.10.2014\n");
-  
-//  //init LC-Display and show initial screen
-//  initLCD();
-  printf_lcd("    SoC 2014    ");
+  printf_term("Version 0.1 - 28.10.2014\n");
+
+  //init LC-Display and show initial screen
+  init_lcd();
+  printf_lcd("    SoC 2014    \n");
   printf_lcd("Stepper-Control ");
   fflush_lcd();
   

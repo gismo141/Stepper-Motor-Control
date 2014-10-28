@@ -26,10 +26,9 @@
 #include "../INC/userInputTask.h"
 #include "../INC/userOutputTask.h"
 //#include "../INC/heartbeatTask.h"
-//#include "../INC/hardwareAccess.h"
-//#include "../INC/switchesIRQhandler.h"
-//#include "../INC/keysIRQhandler.h"
-//#include "../INC/motorIRQhandler.h"
+#include "../INC/hardwareAccess.h"
+#include "../INC/switchesIRQhandler.h"
+#include "../INC/motorIRQhandler.h"
 
 /** @brief Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048

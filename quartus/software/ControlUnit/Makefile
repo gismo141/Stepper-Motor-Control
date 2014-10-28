@@ -142,8 +142,15 @@ ACDS_VERSION := 14.0
 ELF := ControlUnit.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS += ../../../RTX_C_Source/main.c
-C_SRCS += ../../../RTX_C_Source/switchesIRQhandler.c
+C_SRCS += ../../../RTX_C_Source/SRC/auxilaryFunctions.c
+C_SRCS += ../../../RTX_C_Source/SRC/heartbeatTask.c
+C_SRCS += ../../../RTX_C_Source/SRC/keysIRQhandler.c
+C_SRCS += ../../../RTX_C_Source/SRC/main.c
+C_SRCS += ../../../RTX_C_Source/SRC/motorIRQhandler.c
+C_SRCS += ../../../RTX_C_Source/SRC/switchesIRQhandler.c
+C_SRCS += ../../../RTX_C_Source/SRC/userInputTask.c
+C_SRCS += ../../../RTX_C_Source/SRC/userOutputTask.c
+C_SRCS += ../../../RTX_C_Source/SRC/lcdDOGM162.c
 CXX_SRCS :=
 ASM_SRCS :=
 

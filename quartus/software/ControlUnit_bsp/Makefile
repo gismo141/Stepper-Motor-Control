@@ -219,6 +219,18 @@ altera_avalon_jtag_uart_driver_C_LIB_SRCS := \
 	$(altera_avalon_jtag_uart_driver_SRCS_ROOT)/src/altera_avalon_jtag_uart_ioctl.c \
 	$(altera_avalon_jtag_uart_driver_SRCS_ROOT)/src/altera_avalon_jtag_uart_fd.c
 
+# altera_avalon_lcd_16207_driver sources root 
+altera_avalon_lcd_16207_driver_SRCS_ROOT := drivers
+
+# altera_avalon_lcd_16207_driver sources 
+altera_avalon_lcd_16207_driver_C_LIB_SRCS := \
+	$(altera_avalon_lcd_16207_driver_SRCS_ROOT)/src/altera_avalon_lcd_16207.c \
+	$(altera_avalon_lcd_16207_driver_SRCS_ROOT)/src/altera_avalon_lcd_16207_fd.c
+
+# altera_avalon_pio_driver sources root 
+altera_avalon_pio_driver_SRCS_ROOT := drivers
+
+# altera_avalon_pio_driver sources 
 # altera_avalon_sysid_qsys_driver sources root 
 altera_avalon_sysid_qsys_driver_SRCS_ROOT := drivers
 
@@ -353,6 +365,7 @@ ucosii_C_LIB_SRCS := \
 # Assemble all component C source files 
 COMPONENT_C_LIB_SRCS += \
 	$(altera_avalon_jtag_uart_driver_C_LIB_SRCS) \
+	$(altera_avalon_lcd_16207_driver_C_LIB_SRCS) \
 	$(altera_avalon_sysid_qsys_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
 	$(altera_nios2_qsys_ucosii_driver_C_LIB_SRCS) \
