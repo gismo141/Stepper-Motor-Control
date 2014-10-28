@@ -36,7 +36,7 @@ module StepperMotorControl_sysid_qsys_0 (
 
   wire    [ 31: 0] readdata;
   //control_slave, which is an e_avalon_slave
-  assign readdata = address ? 1414487720 : 67108864;
+  assign readdata = address ? 1414518218 : 67108864;
 
 endmodule
 

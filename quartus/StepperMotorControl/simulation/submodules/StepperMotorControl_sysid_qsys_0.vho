@@ -1,5 +1,5 @@
 --IP Functional Simulation Model
---VERSION_BEGIN 14.0 cbx_mgl 2014:09:17:19:03:37:SJ cbx_simgen 2014:09:17:18:55:21:SJ  VERSION_END
+--VERSION_BEGIN 14.0 cbx_mgl 2014:06:17:18:10:38:SJ cbx_simgen 2014:06:17:18:06:03:SJ  VERSION_END
 
 
 -- Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
@@ -44,7 +44,7 @@
 	 ATTRIBUTE synthesis_clearbox OF RTL : ARCHITECTURE IS 1;
  BEGIN
 
-	readdata <= ( "0" & address & "0" & address & "0" & "1" & "0" & "0" & "0" & address & "0" & "0" & address & address & address & address & "0" & address & "0" & address & address & address & address & "0" & "0" & "0" & address & "0" & address & address & address & address);
+	readdata <= ( "0" & address & "0" & address & "0" & "1" & "0" & "0" & "0" & address & "0" & "0" & address & address & address & address & address & address & "0" & address & "0" & address & "0" & address & "0" & address & address & address & "0" & "0" & "0" & "0");
 
  END RTL; --StepperMotorControl_sysid_qsys_0
 --synopsys translate_on

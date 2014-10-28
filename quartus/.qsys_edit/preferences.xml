@@ -10,14 +10,14 @@
   </columns>
  </systemtable>
  <library expandedCategories="Library,Project" />
- <window width="1936" height="1176" x="-8" y="-8" />
+ <window width="1680" height="1010" x="0" y="0" />
  <hdlexample language="VHDL" />
  <generation synthesis="VHDL" path="_PROJECT_NAME_" simulation="VHDL" />
  <clocktable>
   <columns>
-   <clockname preferredWidth="503" />
-   <clocksource preferredWidth="501" />
-   <frequency preferredWidth="488" />
+   <clockname preferredWidth="432" />
+   <clocksource preferredWidth="430" />
+   <frequency preferredWidth="419" />
   </columns>
  </clocktable>
 </preferences>

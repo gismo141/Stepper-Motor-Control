@@ -1,12 +1,12 @@
-# system info StepperMotorControl on 2014.10.28.10:15:13
+# system info StepperMotorControl on 2014.10.28.18:43:32
 system_info:
 name,value
 DEVICE,5CGXFC5C6F27C7
 DEVICE_FAMILY,Cyclone V
-GENERATION_ID,1414487599
+GENERATION_ID,1414518128
 #
 #
-# Files generated for StepperMotorControl on 2014.10.28.10:15:13
+# Files generated for StepperMotorControl on 2014.10.28.18:43:32
 files:
 filepath,kind,attributes,module,is_top
 simulation/StepperMotorControl.vhd,VHDL,,StepperMotorControl,true
