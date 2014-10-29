@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Stepper-Motor-Control
-Tue Oct 28 20:24:59 2014
+Wed Oct 29 17:15:41 2014
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
 
 
@@ -165,9 +165,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------------------------------+--------+--------------------------+
 ; SDC File Path                                                        ; Status ; Read at                  ;
 +----------------------------------------------------------------------+--------+--------------------------+
-; StepperMotorControl/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Tue Oct 28 20:24:41 2014 ;
-; StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.sdc ; OK     ; Tue Oct 28 20:24:41 2014 ;
-; Stepper-Motor-Control.sdc                                            ; OK     ; Tue Oct 28 20:24:41 2014 ;
+; StepperMotorControl/synthesis/submodules/altera_reset_controller.sdc ; OK     ; Wed Oct 29 17:15:07 2014 ;
+; StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.sdc ; OK     ; Wed Oct 29 17:15:07 2014 ;
+; Stepper-Motor-Control.sdc                                            ; OK     ; Wed Oct 29 17:15:07 2014 ;
 +----------------------------------------------------------------------+--------+--------------------------+
 
 
@@ -4326,7 +4326,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
-    Info: Processing started: Tue Oct 28 20:24:37 2014
+    Info: Processing started: Wed Oct 29 17:14:51 2014
 Info: Command: quartus_sta Stepper-Motor-Control -c Stepper-Motor-Control
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -4577,9 +4577,9 @@ Info (332114): Report Metastability: Found 5 synchronizer chains.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 1022 megabytes
-    Info: Processing ended: Tue Oct 28 20:24:59 2014
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Peak virtual memory: 1020 megabytes
+    Info: Processing ended: Wed Oct 29 17:15:41 2014
+    Info: Elapsed time: 00:00:50
+    Info: Total CPU time (on all processors): 00:00:47
 
 
