@@ -8,3 +8,6 @@ build/
 Documentation/.build
 quartus/db
 quartus/incremental_db
+
+quartus/software
+nios-workspace/
