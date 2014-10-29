@@ -10,7 +10,7 @@
   * @todo		introduce error-handling like in User-Output-Task
   *****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    22.10. Kossmann
   *             - first draft for milestone 1b
   *****************************************************************************
   */
@@ -22,11 +22,6 @@ extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
 OS_EVENT *switchesMailbox;
 OS_EVENT *outputTaskMailbox;
-
-/** @brief Variable for ISR-Context
-  * @details Not used in this program
-  */
-  uint32_t ISRcontext;
 
 /**
   * @brief  UserInputTask
@@ -69,15 +64,6 @@ void UserInputTask(void *pdata)
 	};
 	switchesMailbox = OSMboxCreate(NULL);
 	outputTaskMailbox = OSMboxCreate(NULL);
-
-	//init key ISR
-	alt_ic_isr_register(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ,
-			keysIRQhandler, (void *) &ISRcontext, NULL);
-	alt_ic_irq_enable(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ);
-	// Enable Interrupt and Reset
-	SetKeyReg(INTERFACE_KEY_IE0_MSK |
-			  INTERFACE_KEY_IE2_MSK |
-			  INTERFACE_KEY_IE3_MSK);
 
 	while (0)
 	{

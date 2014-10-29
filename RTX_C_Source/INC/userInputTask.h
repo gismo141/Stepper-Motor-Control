@@ -1,19 +1,19 @@
 /**
   *****************************************************************************
-  * @file    	userInputTask.h
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
-  * @version   	v0.1
-  * @date      	22.10.2014
-  * @brief   	Header file for userInputTask.c
-  * @details 	Contains defines, includes, typedefs and declarations needed
-  * 			for this task.
+  * @file    	  userInputTask.h
+  * @author  	  Michael Riedel
+  * @author  	  Marc Kossmann
+  * @version    v0.1
+  * @date       22.10.2014
+  * @brief   	  Header file for userInputTask.c
+  * @details 	  Contains defines, includes, typedefs and declarations needed
+  * 			      for this task.
   *****************************************************************************
   * @par History:
-  * @details 	v0.1 Riedel & Kossmann
-  *				- first draft for milestone 1b
-  *				2014-10-27: Riedel:
-  *				- moved events to events.h for better handling
+  * @details 	  22.10. Riedel & Kossmann
+  *				      - first draft for milestone 1b
+  *				      27.10. Riedel
+  *				      - moved events to events.h for better handling
   *****************************************************************************
   */
 
@@ -28,9 +28,8 @@
 #include "hardwareAccess.h"
 #include "../INC/events.h"
 #include "../INC/auxilaryFunctions.h"
-//#include "hardwareAccess.h"
+#include "hardwareAccess.h"
 #include "../INC/heartbeatTask.h"
-#include "../INC/keysIRQhandler.h"
 
 #define CTRL_REG_RS_MSK			(0x1)
 #define CTRL_REG_LR_MSK			(0x2)

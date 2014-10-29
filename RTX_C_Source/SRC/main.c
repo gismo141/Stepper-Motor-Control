@@ -4,18 +4,24 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       22.10.2014
+  * @date       29.10.2014
   * @brief      Main-Routine for Stepper-Motor-Control
-  * @todo		introduce error-handling like in User-Output-Task
-  * @todo		uncomment isr registration
+  * @todo		    uncomment isr registration
   *****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    22.10. Riedel & Kossmann
   *             - first draft for milestone 1b
+  * @details    29.10. Kossmann
+  *             - edited ISRs inits to work with new pio access concept
   *****************************************************************************
   */
 
 #include "../INC/main.h"
+
+/** @brief Variable for ISR-Context
+  * @details Not used in this program
+  */
+  uint32_t ISRcontext;
 
 /**
   * @brief  Main-Routine
@@ -24,21 +30,36 @@
   */
 int main(void)
 {
-  // -------- Events, Semaphor, Mutex , Mbx  ---------------------------
-
+  uint8_t err;
+  init_term();
 
   // -------------------- Tasks ----------------------------------------
-  OSTaskCreateExt(UserInputTask,
-                  NULL,
-                    (void *)&UserInputTask_Stk[TASK_STACKSIZE - 1],
-                  USER_INPUT_TASK_PRIORITY,
-                  USER_INPUT_TASK_PRIORITY,
-                  UserInputTask_Stk,
-                  TASK_STACKSIZE,
-                  NULL,
-                  0);
-   
-//  OSTaskCreateExt(UserOutputTask,
+  //  err = OSTaskCreateExt(HeartbeatDebugTask,
+  //                  NULL,
+  //                  (void *)&HeartbeatDebugTask_Stk[TASK_STACKSIZE-1],
+  //                  HEARTBEAT_DEBUG_TASK_PRIORITY,
+  //                  HEARTBEAT_DEBUG_TASK_PRIORITY,
+  //                  HeartbeatDebugTask_Stk,
+  //                  TASK_STACKSIZE,
+  //                  NULL,
+  //                  0);
+//  if(OS_NO_ERR != err){
+//    printf_term("Err creating HeartbeatDebugTask: %i\n", err);
+//  }
+
+//  err = OSTaskCreateExt(UserInputTask,
+//                  NULL,
+//                    (void *)&UserInputTask_Stk[TASK_STACKSIZE - 1],
+//                  USER_INPUT_TASK_PRIORITY,
+//                  USER_INPUT_TASK_PRIORITY,
+//                  UserInputTask_Stk,
+//                  TASK_STACKSIZE,
+//                  NULL,
+//                  0);
+//   if(OS_NO_ERR != err){
+//     printf_term("Err creating UserInputTask: %i\n", err);
+//   }
+//  err = OSTaskCreateExt(UserOutputTask,
 //                  NULL,
 //                    (void *)&UserOutputTask_Stk[TASK_STACKSIZE - 1],
 //                  USER_OUTPUT_TASK_PRIORITY,
@@ -47,25 +68,26 @@ int main(void)
 //                  TASK_STACKSIZE,
 //                  NULL,
 //                  0);
-                  
-//  OSTaskCreateExt(HeartbeatDebugTask,
-//                  NULL,
-//                  (void *)&HeartbeatDebugTask_Stk[TASK_STACKSIZE-1],
-//                  HEARTBEAT_DEBUG_TASK_PRIORITY,
-//                  HEARTBEAT_DEBUG_TASK_PRIORITY,
-//                  HeartbeatDebugTask_Stk,
-//                  TASK_STACKSIZE,
-//                  NULL,
-//                  0);
 
-//  //init switches ISR
-//  alt_ic_isr_register(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ,
-//		  switchesIRQhandler, (void *) &ISRcontext, NULL);
-//  alt_ic_irq_enable(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ);
-//  // Enable Interrupt and Reset
-//  SetSwitchReg(INTERFACE_KEY_IE0_MSK |
-//          INTERFACE_KEY_IE2_MSK |
-//          INTERFACE_KEY_IE3_MSK);
+   //init keys ISR
+   alt_ic_isr_register(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ,
+       keysIRQhandler, (void *) &ISRcontext, NULL);
+   alt_ic_irq_enable(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ);
+   //Enable Interrupt in PIO component
+   PIO_KEY_SetIRMsk(PIO_KEY_RS_IR0_MSK |
+                     PIO_KEY_MINUS_IR2_MSK |
+                     PIO_KEY_PLUS_IR3_MSK);
+   //Clear captured edges
+   PIO_KEY_ClearEdgeCptBits(0xF);
+
+  //init switches ISR
+  alt_ic_isr_register(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ,
+		  switchesIRQhandler, (void *) &ISRcontext, NULL);
+  alt_ic_irq_enable(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ);
+  //Enable Interrupt in PIO component
+  PIO_SW_SetIRMsk(PIO_SW_LR_IR0_MSK |
+                  PIO_SW_MODE_IR1234_MSK |
+                  PIO_SW_DEBUG_IR9_MSK);
 
 //  //init motor ISR
 //  alt_ic_isr_register(..., ..., motorIRQhandler, (void *) &ISRcontext, NULL);
@@ -74,7 +96,6 @@ int main(void)
 //  SetMotorReg(...);
                   
   //Show initial terminal msg
-  init_term();
   printf_term("Stepper Motor - System on a Chip 2014\n");
   printf_term("Michael Riedel & Marc Kossmann\n");
   printf_term("Version 0.1 - 28.10.2014\n");

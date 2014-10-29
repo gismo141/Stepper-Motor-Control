@@ -8,18 +8,23 @@
   * @brief      Header file for keysIRQhandler.c
   *****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    21.10. Riedel & Kossmann
   *             - first draft for milestone 1b
-  * @details    2014-10-27 by Riedel:
+  * @details    27.10. Riedel
   *             - added function-documentation
+  * @details    29.10. Kossmann
+  *             - moved all belonging includes in this file
   *****************************************************************************
   */
 
 #ifndef __KEYS_IRQ_HANDLER_H__
 #define __KEYS_IRQ_HANDLER_H__
 
+#include <sys/alt_irq.h>
 #include "includes.h"
-#include "hardwareAccess.h"
+#include "../INC/auxilaryFunctions.h"
+#include "../INC/hardwareAccess.h"
+#include "../INC/events.h"
 
 /**
   * @brief  IRQ-Handler for key-input

@@ -8,7 +8,7 @@
   * @brief      definitions for used events
   *****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    27.10. Riedel
   *             - first draft for milestone 1b
   *****************************************************************************
   */

@@ -10,8 +10,10 @@
   *           auxilary functions.
   ******************************************************************************
   * @par History:
-  * @details  v0.1 Riedel & Kossmann
+  * @details  22.10. Kossmann
   *			      - first draft for milestone 1b
+  * @details  27.10. Riedel & Kossmann
+  *			      - using lcdDOGM162.h        
   ******************************************************************************
   */
 

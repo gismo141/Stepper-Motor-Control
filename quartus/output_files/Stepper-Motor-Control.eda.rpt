@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Stepper-Motor-Control
-Wed Oct 29 17:15:56 2014
+Wed Oct 29 20:53:54 2014
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Oct 29 17:15:56 2014 ;
+; EDA Netlist Writer Status ; Successful - Wed Oct 29 20:53:54 2014 ;
 ; Revision Name             ; Stepper-Motor-Control                 ;
 ; Top-level Entity Name     ; interface_RTX_Base                    ;
 ; Family                    ; Cyclone V                             ;
@@ -67,13 +67,13 @@ agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+----------------------------------------------------------------------------------+
-; Simulation Generated Files                                                       ;
-+----------------------------------------------------------------------------------+
-; Generated Files                                                                  ;
-+----------------------------------------------------------------------------------+
-; Z:/JarrD-M8C/Developer/SoC/quartus/simulation/modelsim/Stepper-Motor-Control.vho ;
-+----------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                        ;
++---------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                   ;
++---------------------------------------------------------------------------------------------------+
+; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/simulation/modelsim/Stepper-Motor-Control.vho ;
++---------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -82,14 +82,14 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
-    Info: Processing started: Wed Oct 29 17:15:46 2014
+    Info: Processing started: Wed Oct 29 20:53:51 2014
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off Stepper-Motor-Control -c Stepper-Motor-Control
 Warning (10905): Generated the EDA functional simulation files although EDA timing simulation option is chosen.
-Info (204019): Generated file Stepper-Motor-Control.vho in folder "Z:/JarrD-M8C/Developer/SoC/quartus/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file Stepper-Motor-Control.vho in folder "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 659 megabytes
-    Info: Processing ended: Wed Oct 29 17:15:57 2014
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 662 megabytes
+    Info: Processing ended: Wed Oct 29 20:53:54 2014
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

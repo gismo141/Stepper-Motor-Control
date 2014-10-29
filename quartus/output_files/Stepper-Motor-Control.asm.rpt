@@ -1,5 +1,5 @@
 Assembler report for Stepper-Motor-Control
-Wed Oct 29 17:14:47 2014
+Wed Oct 29 20:53:24 2014
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
 
 
@@ -11,7 +11,7 @@ Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: Z:/JarrD-M8C/Developer/SoC/quartus/output_files/Stepper-Motor-Control.sof
+  6. Assembler Device Options: C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control.sof
   7. Assembler Messages
 
 
@@ -39,7 +39,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Oct 29 17:14:47 2014 ;
+; Assembler Status      ; Successful - Wed Oct 29 20:53:24 2014 ;
 ; Revision Name         ; Stepper-Motor-Control                 ;
 ; Top-level Entity Name ; interface_RTX_Base                    ;
 ; Family                ; Cyclone V                             ;
@@ -64,24 +64,24 @@ agreement for further details.
 +--------+------------------------+--------------+
 
 
-+---------------------------------------------------------------------------+
-; Assembler Generated Files                                                 ;
-+---------------------------------------------------------------------------+
-; File Name                                                                 ;
-+---------------------------------------------------------------------------+
-; Z:/JarrD-M8C/Developer/SoC/quartus/output_files/Stepper-Motor-Control.sof ;
-+---------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                  ;
++--------------------------------------------------------------------------------------------+
+; File Name                                                                                  ;
++--------------------------------------------------------------------------------------------+
+; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control.sof ;
++--------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Assembler Device Options: Z:/JarrD-M8C/Developer/SoC/quartus/output_files/Stepper-Motor-Control.sof ;
-+----------------+------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                            ;
-+----------------+------------------------------------------------------------------------------------+
-; Device         ; 5CGXFC5C6F27C7                                                                     ;
-; JTAG usercode  ; 0x00B6F07D                                                                         ;
-; Checksum       ; 0x00B6F07D                                                                         ;
-+----------------+------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control.sof ;
++----------------+-----------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                             ;
++----------------+-----------------------------------------------------------------------------------------------------+
+; Device         ; 5CGXFC5C6F27C7                                                                                      ;
+; JTAG usercode  ; 0x00B707A1                                                                                          ;
+; Checksum       ; 0x00B707A1                                                                                          ;
++----------------+-----------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -90,13 +90,13 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
-    Info: Processing started: Wed Oct 29 17:14:26 2014
+    Info: Processing started: Wed Oct 29 20:53:15 2014
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Stepper-Motor-Control -c Stepper-Motor-Control
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 695 megabytes
-    Info: Processing ended: Wed Oct 29 17:14:48 2014
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:19
+    Info: Peak virtual memory: 682 megabytes
+    Info: Processing ended: Wed Oct 29 20:53:24 2014
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
 
 

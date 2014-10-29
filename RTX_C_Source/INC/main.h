@@ -10,7 +10,7 @@
   *             for this task.
   ****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    22.10. Kossmann
   *             - first draft for milestone 1b
   ****************************************************************************
   */
@@ -25,10 +25,13 @@
 #include "../INC/auxilaryFunctions.h"
 #include "../INC/userInputTask.h"
 #include "../INC/userOutputTask.h"
-//#include "../INC/heartbeatTask.h"
+#include "../INC/heartbeatTask.h"
 #include "../INC/hardwareAccess.h"
 #include "../INC/switchesIRQhandler.h"
+#include "../INC/keysIRQhandler.h"
 #include "../INC/motorIRQhandler.h"
+
+#define SOC2014_DEBUG
 
 /** @brief Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048

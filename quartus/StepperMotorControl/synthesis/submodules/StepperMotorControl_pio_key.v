@@ -87,7 +87,7 @@ module StepperMotorControl_pio_key (
       if (reset_n == 0)
           edge_capture[0] <= 0;
       else if (clk_en)
-          if (edge_capture_wr_strobe)
+          if (edge_capture_wr_strobe && writedata[0])
               edge_capture[0] <= 0;
           else if (edge_detect[0])
               edge_capture[0] <= -1;
@@ -99,7 +99,7 @@ module StepperMotorControl_pio_key (
       if (reset_n == 0)
           edge_capture[1] <= 0;
       else if (clk_en)
-          if (edge_capture_wr_strobe)
+          if (edge_capture_wr_strobe && writedata[1])
               edge_capture[1] <= 0;
           else if (edge_detect[1])
               edge_capture[1] <= -1;
@@ -111,7 +111,7 @@ module StepperMotorControl_pio_key (
       if (reset_n == 0)
           edge_capture[2] <= 0;
       else if (clk_en)
-          if (edge_capture_wr_strobe)
+          if (edge_capture_wr_strobe && writedata[2])
               edge_capture[2] <= 0;
           else if (edge_detect[2])
               edge_capture[2] <= -1;
@@ -123,7 +123,7 @@ module StepperMotorControl_pio_key (
       if (reset_n == 0)
           edge_capture[3] <= 0;
       else if (clk_en)
-          if (edge_capture_wr_strobe)
+          if (edge_capture_wr_strobe && writedata[3])
               edge_capture[3] <= 0;
           else if (edge_detect[3])
               edge_capture[3] <= -1;

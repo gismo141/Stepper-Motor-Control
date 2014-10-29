@@ -8,19 +8,15 @@
   * @brief      IRQ-handler for motor stopped
   *****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    21.10. Riedel & Kossmann
   *             - first draft for milestone 1b
-  * @details    2014-10-27 by Riedel:
+  * @details    27.10. by Riedel:
   *             - basic implementation
   *             - moved function-documentation to header-file
   *****************************************************************************
   */
 
-#include <sys/alt_irq.h>
-#include "includes.h"
 #include "../INC/motorIRQhandler.h"
-//#include "../INC/hardwareAccess.h"
-#include "../INC/events.h"
 
 void motorIRQhandler(void *context)
 {}

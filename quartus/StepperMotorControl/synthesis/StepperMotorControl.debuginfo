@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="StepperMotorControl" kind="system" version="14.0" fabric="QSYS">
  <!-- Format version 14.0 200 (Future versions may contain additional information.) -->
- <!-- 2014.10.28.18:43:54 -->
+ <!-- 2014.10.29.20:50:16 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1414518218</value>
+  <value>1414612199</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -3124,7 +3124,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1414518218</value>
+   <value>1414612199</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -3144,7 +3144,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1414518218</value>
+   <value>1414612199</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -3160,7 +3160,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1414518218</value>
+   <value>1414612199</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -12757,7 +12757,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <assignment>
    <name>embeddedsw.CMacro.BIT_CLEARING_EDGE_REGISTER</name>
-   <value>0</value>
+   <value>1</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.BIT_MODIFYING_OUTPUT_REGISTER</name>
@@ -12845,7 +12845,7 @@ the requested settings for a module instance. -->
   </assignment>
   <parameter name="bitClearingEdgeCapReg">
    <type>boolean</type>
-   <value>false</value>
+   <value>true</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -27134,5 +27134,5 @@ parameters are a RESULT of the module parameters. -->
   <version>14.0</version>
  </plugin>
  <reportVersion>14.0 200</reportVersion>
- <uniqueIdentifier>90E6BA15BDD40000014957DB282B</uniqueIdentifier>
+ <uniqueIdentifier>90E6BA15BDD4000001495D75339B</uniqueIdentifier>
 </EnsembleReport>

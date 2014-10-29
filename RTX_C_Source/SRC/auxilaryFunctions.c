@@ -1,15 +1,15 @@
 /**
   ***************************************************************************
   * @file      	auxilaryFunctions.c
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
+  * @author  	  Michael Riedel
+  * @author  	  Marc Kossmann
   * @version   	v0.1
-  * @date      	27.10.2014
-  * @brief   	Collection of auxilary functions
+  * @date      	28.10.2014
+  * @brief   	  Collection of auxilary functions
   ***************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
-  *			    - first draft for milestone 1b
+  * @details    28.10. Riedel & Kossmann
+  *			        - added functions for using printf like lcd and term output
   ****************************************************************************
   */
 

@@ -4,54 +4,90 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       21.10.2014
-  * @brief      functions for HW-access
+  * @date       29.10.2014
+  * @brief      Functions for accessing hardware connected through pio´s and
+  *             registers
   *****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    21.10. Riedel & Kossmann
   *             - first draft for milestone 1b
+  * @details    29.10. Kossmann
+  *             -renewed complete pio access concept
   *****************************************************************************
   */
 
-#ifndef HARDWAREACCESS_H_
-#define HARDWAREACCESS_H_
+#ifndef __HARDWAREACCESS_H__
+#define __HARDWAREACCESS_H__
 
 #include <stdint.h>
-#include "interfaceRegs.h"
 #include <system.h>
+#include <altera_avalon_pio_regs.h>
 
 /**
-  * @brief  function to read position of sliding switches
-  * @retval SWcontent: Bit 7..0 contain read values
-  *                       @arg 0 = Switch OFF
-  *                       @arg 1 = Switch ON
+  * @name Key-register
   */
-static __inline__ uint32_t getSW(void)
-{
-    return(IORD_INTERFACE_SWITCH(PIO_SW_BASE));
-}
 
 /**
-  * @brief  function to write to key register
-  * @param  newkeyval : can be
-  *                      @arg Bit 2..0 interrupt request
-  *                      @arg Bit 5..3 interrupt enable
+  * @name Key-register: interrupt access defines
+  */
+#define PIO_KEY_RS_IR0_MSK      (0x1)
+#define PIO_KEY_MINUS_IR2_MSK   (0x4)
+#define PIO_KEY_PLUS_IR3_MSK    (0x8)
+
+/**
+  * @brief  Function to enable interrupts for pio key
+  * @param  enablebits : set bits to 1 for enable interrupt
   * @retval None
   */
- static __inline__ void SetKeyReg(uint32_t newkeyval)
-{
-    IOWR_INTERFACE_KEY(PIO_KEY_BASE, newkeyval);
+static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits){
+  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_KEY_BASE, enablebits);
 }
 
 /**
-  * @brief function to read content of key register
-  * @retval keyValue : can be
-  *                     @arg Bit 2..0 interrupt request
-  *                     @arg Bit 5..3 interrupt enable
+  * @brief Function to clear bits of edgecapture register
+  * @param clearbits : set bits to 1 for enable interrupt
+  * @retval none
   */
- static __inline__ uint32_t GetKeyReg(void)
-{
-    return(IORD_INTERFACE_KEY(PIO_KEY_BASE));
+static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits){
+  IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE, clearbits);
 }
 
-#endif /*__HARDWAREACCESS_H__*/
+/**
+  * @brief Function to read content of edgecapture register
+  * @retval pressedKeys : When edge was detected, bit is 1
+  */
+static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void){
+    return(IORD_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE));
+}
+
+/**
+  * @name sliding switches
+  */
+
+/**
+  * @name Key-register: interrupt access defines
+  */
+#define PIO_SW_LR_IR0_MSK       (0x1)
+#define PIO_SW_MODE_IR1234_MSK  (0x1E)
+#define PIO_SW_DEBUG_IR9_MSK    (0x100)
+
+/**
+  * @brief  Function to enable interrupts for pio sw
+  * @param  enablebits : set bits to 1 for enable interrupt
+  * @retval None
+ */
+static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits){
+  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_SW_BASE, enablebits);
+}
+
+/**
+  * @brief Function to read content of data register
+  * @retval switchesValues :  Values of all switches
+ *                            @arg 0 = Switch OFF
+ *                            @arg 1 = Switch ON
+ */
+static __inline__ uint32_t PIO_SW_GetValues(void){
+     return(IORD_ALTERA_AVALON_PIO_DATA(PIO_SW_BASE));
+}
+
+#endif

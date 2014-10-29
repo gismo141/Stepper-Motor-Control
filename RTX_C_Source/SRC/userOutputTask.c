@@ -1,19 +1,19 @@
 /**
- ******************************************************************************
- * @file        userOutputTask.c
- * @author      Michael Riedel
- * @author      Marc Kossmann
- * @version     v0.1
- * @date        21.10.2014
- * @brief       Source code for User-Output-Task which communications with
- *              the user and shows him system information
- * @todo		finish hex update
- ******************************************************************************
- * @par History:
- * @details 	v0.1 Riedel & Kossmann
- *          	- first draft for milestone 1b
- ******************************************************************************
- */
+  ******************************************************************************
+  * @file        userOutputTask.c
+  * @author      Michael Riedel
+  * @author      Marc Kossmann
+  * @version     v0.1
+  * @date        21.10.2014
+  * @brief       Source code for User-Output-Task which communications with
+  *              the user and shows him system information
+  * @todo		finish hex update
+  ******************************************************************************
+  * @par History:
+  * @details 	21.10. Kossmann
+  *          	- first draft for milestone 1b
+  ******************************************************************************
+  */
 
 #include "../INC/userOutputTask.h"
 

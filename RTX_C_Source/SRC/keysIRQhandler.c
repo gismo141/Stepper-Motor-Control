@@ -4,46 +4,55 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       21.10.2014
+  * @date       29.10.2014
   * @brief      IRQ-handler for keys
   *****************************************************************************
   * @par History:
-  * @details    v0.1 Riedel & Kossmann
+  * @details    21.10. Riedel & Kossmann
   *             - first draft for milestone 1b
-  * @details    2014-10-27 by Riedel:
+  * @details    27.10. Riedel
   *             - basic implementation
   *             - moved function-documentation to header-file
+  * @details    29.10. Kossmann
+  *             - modified clearing requests and evaluating pressed keys
   *****************************************************************************
   */
 
-#include <sys/alt_irq.h>
-#include "includes.h"
 #include "../INC/keysIRQhandler.h"
-#include "../INC/hardwareAccess.h"
-#include "../INC/events.h"
 
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 
 void keysIRQhandler(void *context)
 {
-    uint32_t isrsignals;
-    INT8U err;
+  uint32_t edgesCaptured = 0;
+  uint32_t capturedBitsToClear = 0;
+  INT8U err;
 
-    OSIntEnter();
-    isrsignals =  GetKeyReg();
+  OSIntEnter();
+  edgesCaptured =  PIO_KEY_GetEdgeCpt();
 
-    // Clear Request
-    SetKeyReg(isrsignals & ~(INTERFACE_KEY_IR0_MSK |
-                             INTERFACE_KEY_IR2_MSK |
-                             INTERFACE_KEY_IR3_MSK));
-    
-    // Send corresponding Event
-    if(isrsignals & INTERFACE_KEY_IR0_MSK)
-        OSFlagPost(userInputTaskFlagsGrp, KEY0_RS_EVENT, OS_FLAG_SET, &err);
-    if(isrsignals & INTERFACE_KEY_IR2_MSK)
-        OSFlagPost(userInputTaskFlagsGrp, KEY2_MINUS_EVENT, OS_FLAG_SET, &err);
-    if(isrsignals & INTERFACE_KEY_IR3_MSK)
-        OSFlagPost(userInputTaskFlagsGrp, KEY3_PLUS_EVENT, OS_FLAG_SET, &err);
-    printf_term("Key pressed\n");
-    OSIntExit();
+  // Send corresponding Event and clear bit in edgecapture reg
+  if(edgesCaptured & PIO_KEY_RS_IR0_MSK){
+    #ifdef SOC2014_DEBUG
+      printf_term("KEY_RS_0 pressed!\n");
+    #endif
+    capturedBitsToClear |= PIO_KEY_RS_IR0_MSK;
+    OSFlagPost(userInputTaskFlagsGrp, KEY0_RS_EVENT, OS_FLAG_SET, &err);
+  }
+  if(edgesCaptured & PIO_KEY_MINUS_IR2_MSK){
+    #ifdef SOC2014_DEBUG
+      printf_term("KEY_MINUS_2 pressed!\n");
+    #endif
+    capturedBitsToClear |= PIO_KEY_MINUS_IR2_MSK;
+    OSFlagPost(userInputTaskFlagsGrp, KEY2_MINUS_EVENT, OS_FLAG_SET, &err);
+  }
+  if(edgesCaptured & PIO_KEY_PLUS_IR3_MSK){
+    #ifdef SOC2014_DEBUG
+      printf_term("KEY_PLUS_3 pressed!\n");
+    #endif
+    capturedBitsToClear |= PIO_KEY_PLUS_IR3_MSK;
+    OSFlagPost(userInputTaskFlagsGrp, KEY3_PLUS_EVENT, OS_FLAG_SET, &err);
+  }
+  PIO_KEY_ClearEdgeCptBits(capturedBitsToClear);
+  OSIntExit();
 }
