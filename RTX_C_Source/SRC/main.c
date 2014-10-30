@@ -16,10 +16,14 @@
   *             - edited ISRs inits to work with new pio access concept
   * @details    30.10. Kossmann
   *             - adopted error handling to new makro call
+  *             - moved all flagsgroups to main and added creating them
   *****************************************************************************
   */
 
 #include "../INC/main.h"
+
+OS_FLAG_GRP *userInputTaskFlagsGrp;
+OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
 /** @brief Variable for ISR-Context
   * @details Not used in this program
@@ -35,6 +39,15 @@ int main(void) {
   uint8_t err;
   init_term();
 
+  // -------------------- Flags creation--------------------------------
+  userInputTaskFlagsGrp = OSFlagCreate(0x0000, &err);
+  if(OS_NO_ERR != err){
+    error("INPUT_FLAG_CREATE_ERR: %i\n", err);
+  }
+  heartbeatTaskFlagsGrp = OSFlagCreate(0x0000, &err);
+  if(OS_NO_ERR != err){
+    error("INPUT_FLAG_CREATE_ERR: %i\n", err);
+  }
   // -------------------- Tasks ----------------------------------------
   //  err = OSTaskCreateExt(HeartbeatDebugTask,
   //                  NULL,

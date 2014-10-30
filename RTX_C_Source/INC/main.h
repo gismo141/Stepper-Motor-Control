@@ -26,15 +26,15 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "includes.h"
-#include "../INC/auxilaryFunctions.h"
-#include "../INC/userInputTask.h"
-#include "../INC/userOutputTask.h"
-#include "../INC/heartbeatTask.h"
-#include "../INC/hardwareAccess.h"
-#include "../INC/switchesIRQhandler.h"
-#include "../INC/keysIRQhandler.h"
-#include "../INC/motorIRQhandler.h"
-#include "../INC/debugAndErrorOutput.h"
+#include "auxilaryFunctions.h"
+#include "userInputTask.h"
+#include "userOutputTask.h"
+//#include "../INC/heartbeatTask.h"
+#include "hardwareAccess.h"
+#include "switchesIRQhandler.h"
+#include "keysIRQhandler.h"
+#include "motorIRQhandler.h"
+#include "debugAndErrorOutput.h"
 
 #define SOC2014_DEBUG
 

@@ -7,6 +7,8 @@
   * @date       22.10.2014
   * @brief      Source code for User-Input-Task which is highest instance,
   *             reacts to user input and controls register and hardware access
+  * @todo       remove virtual control registers and use set/get functions
+  *             of registerAccess.h
   *****************************************************************************
   * @par History:
   * @details    22.10. Kossmann

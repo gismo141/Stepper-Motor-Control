@@ -35,7 +35,8 @@
 #include "events.h"
 
 #include "auxilaryFunctions.h"
-#include "heartbeatTask.h"
+//#include "heartbeatTask.h"
+#include "debugAndErrorOutput.h"
 
 #define CTRL_REG_RS_MSK       (0x1)
 #define CTRL_REG_LR_MSK       (0x2)
