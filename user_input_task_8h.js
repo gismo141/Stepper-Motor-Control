@@ -1,7 +1,6 @@
 var user_input_task_8h =
 [
     [ "systemState", "structsystem_state.html", "structsystem_state" ],
-    [ "motorState", "structmotor_state.html", "structmotor_state" ],
     [ "outputTaskMailbox", "structoutput_task_mailbox.html", "structoutput_task_mailbox" ],
     [ "CTRL_REG_IE_MSK", "user_input_task_8h.html#a16a7950b4cb5cc6abd5169efa849191c", null ],
     [ "CTRL_REG_IR_MSK", "user_input_task_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1", null ],
@@ -18,12 +17,11 @@ var user_input_task_8h =
     [ "SWITCH_DEBUG_MSK", "user_input_task_8h.html#ae1ccbd36272f4f4edd68519b97dd2b63", null ],
     [ "SWITCH_LR_MSK", "user_input_task_8h.html#a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca", null ],
     [ "SWITCH_MODE_MSK", "user_input_task_8h.html#a16924283d60a08c79a5f9ef36e4a436f", null ],
-    [ "direction_t", "user_input_task_8h.html#ab6b5c4d749e234ba2e7eada4203f444b", null ],
-    [ "motorState_t", "user_input_task_8h.html#af15c937ee8def57f83e25fbd46206d5b", null ],
-    [ "outputTaskMailbox_t", "user_input_task_8h.html#ad5b935adfd2a8e634f97147d439be7c1", null ],
-    [ "state_t", "user_input_task_8h.html#ab30035205e49854aaec1e22956c11a41", null ],
-    [ "systemState_t", "user_input_task_8h.html#a166d6e006ce551b6d3ca730e7969950c", null ],
-    [ "useCases_t", "user_input_task_8h.html#a5835e15d5b05a7534bf7afb4b1dc3f23", null ],
+    [ "direction_t", "user_input_task_8h.html#a32f967dcf097fc29993bdb23b6a3fd76", null ],
+    [ "outputTaskMailbox_t", "user_input_task_8h.html#ae6b7c11f607df6a45c8a7b7326379c15", null ],
+    [ "state_t", "user_input_task_8h.html#a9a7e280c3ad79de38060a105d2ba41e1", null ],
+    [ "systemState_t", "user_input_task_8h.html#aca38f58c23973b9be2b2fed27006158d", null ],
+    [ "useCases_t", "user_input_task_8h.html#adbe3d24151c66b6a15833feaa1f20406", null ],
     [ "direction", "user_input_task_8h.html#a99f26e6ee9fcd62f75203b5402df8098", [
       [ "LEFT", "user_input_task_8h.html#a99f26e6ee9fcd62f75203b5402df8098adb45120aafd37a973140edee24708065", null ],
       [ "RIGHT", "user_input_task_8h.html#a99f26e6ee9fcd62f75203b5402df8098aec8379af7490bb9eaaf579cf17876f38", null ]

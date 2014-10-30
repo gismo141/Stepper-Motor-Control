@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['task_5fstacksize',['TASK_STACKSIZE',['../main_8h.html#a29d957dceca9653f89e5190113c09d38',1,'main.h']]]
+  ['motor_5fstop_5fevent',['MOTOR_STOP_EVENT',['../events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e',1,'events.h']]]
 ];

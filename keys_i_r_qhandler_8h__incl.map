@@ -1,6 +1,7 @@
 <map id="keysIRQhandler.h" name="keysIRQhandler.h">
-<area shape="rect" id="node4" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="227,79,401,104"/>
-<area shape="rect" id="node10" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="426,79,595,104"/>
-<area shape="rect" id="node12" href="$events_8h.html" title="definitions for used events " alt="" coords="618,79,728,104"/>
-<area shape="rect" id="node8" href="$lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="239,152,390,177"/>
+<area shape="rect" id="node4" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="425,152,561,177"/>
+<area shape="rect" id="node10" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="175,152,306,177"/>
+<area shape="rect" id="node12" href="$events_8h.html" title="definitions for used events " alt="" coords="329,79,401,104"/>
+<area shape="rect" id="node13" href="$debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="425,79,588,104"/>
+<area shape="rect" id="node8" href="$lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="628,225,742,251"/>
 </map>

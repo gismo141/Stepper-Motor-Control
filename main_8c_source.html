@@ -113,125 +113,144 @@ $(document).ready(function(){initNavTree('main_8c_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       29.10.2014</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       22.10.2014</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      Main-Routine for Stepper-Motor-Control</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  * @todo      uncomment isr registration</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  * @details    22.10. Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  * @details    29.10. Kossmann</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *             - edited ISRs inits to work with new pio access concept</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../INC/main.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/** @brief Variable for ISR-Context</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  * @details Not used in this program</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">   24</a></span>&#160;  uint32_t <a class="code" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">  * @brief  Main-Routine</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">  * @details</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">  * @retval Errorcode</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  * @todo       uncomment tasks creation</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  * @todo       finish motor isr registration</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  * @par History:</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  * @details    22.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  * @details    29.10. Kossmann</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *             - edited ISRs inits to work with new pio access concept</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  * @details    30.10. Kossmann</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  *             - adopted error handling to new makro call</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  *             - moved all flagsgroups to main and added creating them</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../INC/main.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="main_8c.html#a07c87d61e7e620a7f471139d92b2685b">   25</a></span>&#160;OS_FLAG_GRP *<a class="code" href="main_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="main_8c.html#a39faba8eb837cd0a61c8e06506a76810">   26</a></span>&#160;OS_FLAG_GRP *<a class="code" href="main_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/** @brief Variable for ISR-Context</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">  * @details Not used in this program</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">   31</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  uint8_t err;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  init_term();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">// -------------------- Tasks ----------------------------------------</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="comment">//  err = OSTaskCreateExt(HeartbeatDebugTask,</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">//                  NULL,</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">//                  (void *)&amp;HeartbeatDebugTask_Stk[TASK_STACKSIZE-1],</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">//                  HEARTBEAT_DEBUG_TASK_PRIORITY,</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">//                  HEARTBEAT_DEBUG_TASK_PRIORITY,</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">//                  HeartbeatDebugTask_Stk,</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">//                  TASK_STACKSIZE,</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">//                  NULL,</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="comment">//                  0);</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//  if(OS_NO_ERR != err){</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">//    printf_term(&quot;Err creating HeartbeatDebugTask: %i\n&quot;, err);</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">//  }</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//  err = OSTaskCreateExt(UserInputTask,</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//                  NULL,</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//                    (void *)&amp;UserInputTask_Stk[TASK_STACKSIZE - 1],</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">//                  USER_INPUT_TASK_PRIORITY,</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//                  USER_INPUT_TASK_PRIORITY,</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">//                  UserInputTask_Stk,</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//                  TASK_STACKSIZE,</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//                  NULL,</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//                  0);</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">//   if(OS_NO_ERR != err){</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">//     printf_term(&quot;Err creating UserInputTask: %i\n&quot;, err);</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">//   }</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//  err = OSTaskCreateExt(UserOutputTask,</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">//                  NULL,</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//                    (void *)&amp;UserOutputTask_Stk[TASK_STACKSIZE - 1],</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">//                  USER_OUTPUT_TASK_PRIORITY,</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//                  USER_OUTPUT_TASK_PRIORITY,</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//                  UserOutputTask_Stk,</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">//                  TASK_STACKSIZE,</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">//                  NULL,</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//                  0);</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;   <span class="comment">//init keys ISR</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;   alt_ic_isr_register(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;       <a class="code" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a>, (<span class="keywordtype">void</span> *) &amp;<a class="code" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a>, NULL);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;   alt_ic_irq_enable(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   <span class="comment">//Enable Interrupt in PIO component</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   <a class="code" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a>(PIO_KEY_RS_IR0_MSK |</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                     PIO_KEY_MINUS_IR2_MSK |</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                     PIO_KEY_PLUS_IR3_MSK);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   <span class="comment">//Clear captured edges</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;   <a class="code" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a>(0xF);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">//init switches ISR</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  alt_ic_isr_register(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a>, (<span class="keywordtype">void</span> *) &amp;<a class="code" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a>, NULL);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  alt_ic_irq_enable(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">//Enable Interrupt in PIO component</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a>(PIO_SW_LR_IR0_MSK |</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                  PIO_SW_MODE_IR1234_MSK |</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                  PIO_SW_DEBUG_IR9_MSK);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//  //init motor ISR</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//  alt_ic_isr_register(..., ..., motorIRQhandler, (void *) &amp;ISRcontext, NULL);</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//  alt_ic_irq_enable(..., ...);</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//  // Enable Interrupt and Reset</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//  SetMotorReg(...);</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                  </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="comment">//Show initial terminal msg</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  printf_term(<span class="stringliteral">&quot;Stepper Motor - System on a Chip 2014\n&quot;</span>);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  printf_term(<span class="stringliteral">&quot;Michael Riedel &amp; Marc Kossmann\n&quot;</span>);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  printf_term(<span class="stringliteral">&quot;Version 0.1 - 28.10.2014\n&quot;</span>);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">//init LC-Display and show initial screen</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  init_lcd();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  printf_lcd(<span class="stringliteral">&quot;    SoC 2014    \n&quot;</span>);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  printf_lcd(<span class="stringliteral">&quot;Stepper-Control &quot;</span>);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  fflush_lcd();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  OSStart();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">   31</a></span>&#160;uint32_t <a class="code" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">  * @brief  Main-Routine</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">  * @details</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">  * @retval Errorcode</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">   38</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  uint8_t err;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  init_term();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// -------------------- Flags creation--------------------------------</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="main_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a> = OSFlagCreate(0x0000, &amp;err);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    error(<span class="stringliteral">&quot;INPUT_FLAG_CREATE_ERR: %i\n&quot;</span>, err);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="main_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a> = OSFlagCreate(0x0000, &amp;err);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    error(<span class="stringliteral">&quot;INPUT_FLAG_CREATE_ERR: %i\n&quot;</span>, err);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">// -------------------- Tasks ----------------------------------------</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">//  err = OSTaskCreateExt(HeartbeatDebugTask,</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="comment">//                  NULL,</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">//                  (void *)&amp;HeartbeatDebugTask_Stk[TASK_STACKSIZE-1],</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">//                  HEARTBEAT_DEBUG_TASK_PRIORITY,</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="comment">//                  HEARTBEAT_DEBUG_TASK_PRIORITY,</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">//                  HeartbeatDebugTask_Stk,</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">//                  TASK_STACKSIZE,</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="comment">//                  NULL,</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">//                  0);</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">//  if(OS_NO_ERR != err){</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">//    error(&quot;Err creating HeartbeatDebugTask: %i\n&quot;, err);</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">//  }</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">//  err = OSTaskCreateExt(UserInputTask,</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="comment">//                  NULL,</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">//                    (void *)&amp;UserInputTask_Stk[TASK_STACKSIZE - 1],</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">//                  USER_INPUT_TASK_PRIORITY,</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">//                  USER_INPUT_TASK_PRIORITY,</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">//                  UserInputTask_Stk,</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">//                  TASK_STACKSIZE,</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">//                  NULL,</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">//                  0);</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">//   if(OS_NO_ERR != err){</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">//     error(&quot;Err creating UserInputTask: %i\n&quot;, err);</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="comment">//   }</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">//  err = OSTaskCreateExt(UserOutputTask,</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">//                  NULL,</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="comment">//                    (void *)&amp;UserOutputTask_Stk[TASK_STACKSIZE - 1],</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">//                  USER_OUTPUT_TASK_PRIORITY,</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">//                  USER_OUTPUT_TASK_PRIORITY,</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">//                  UserOutputTask_Stk,</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">//                  TASK_STACKSIZE,</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">//                  NULL,</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">//                  0);</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment">//   if(OS_NO_ERR != err){</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">//     error(&quot;Err creating UserInputTask: %i\n&quot;, err);</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">//   }</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">//init keys ISR</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  alt_ic_isr_register(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                      <a class="code" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a>, (<span class="keywordtype">void</span> *) &amp;<a class="code" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a>, NULL);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  alt_ic_irq_enable(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="comment">//Enable Interrupt in PIO component</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <a class="code" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a>(PIO_KEY_RS_IR0_MSK |</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                   PIO_KEY_MINUS_IR2_MSK |</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                   PIO_KEY_PLUS_IR3_MSK);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="comment">//Clear captured edges</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a>(0xF);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">//init switches ISR</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  alt_ic_isr_register(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                      <a class="code" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a>, (<span class="keywordtype">void</span> *) &amp;<a class="code" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a>, NULL);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  alt_ic_irq_enable(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="comment">//Enable Interrupt in PIO component</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a>(PIO_SW_LR_IR0_MSK |</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                  PIO_SW_MODE_IR1234_MSK |</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                  PIO_SW_DEBUG_IR9_MSK);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">//  //init motor ISR</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="comment">//  alt_ic_isr_register(..., ..., motorIRQhandler, (void *) &amp;ISRcontext, NULL);</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">//  alt_ic_irq_enable(..., ...);</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">//  // Enable Interrupt and Reset</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">//  SetMotorReg(...);</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">//Show initial terminal msg</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  printf_term(<span class="stringliteral">&quot;Stepper Motor - System on a Chip 2014\n&quot;</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  printf_term(<span class="stringliteral">&quot;Michael Riedel &amp; Marc Kossmann\n&quot;</span>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  printf_term(<span class="stringliteral">&quot;Version 0.1 - 28.10.2014\n&quot;</span>);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">//init LC-Display and show initial screen</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  init_lcd();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  printf_lcd(<span class="stringliteral">&quot;    SoC 2014    \n&quot;</span>);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  printf_lcd(<span class="stringliteral">&quot;Stepper-Control &quot;</span>);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  fflush_lcd();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  OSStart();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 <div class="ttc" id="hardware_access_8h_html_adf981c6fea97526812a4998299372aa5"><div class="ttname"><a href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio key. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00042">hardwareAccess.h:42</a></div></div>
 <div class="ttc" id="keys_i_r_qhandler_8h_html_a200e6646e9d1d9032bfa64f3df522450"><div class="ttname"><a href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler</a></div><div class="ttdeci">void keysIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for key-input. </div><div class="ttdef"><b>Definition:</b> <a href="keys_i_r_qhandler_8c_source.html#l00029">keysIRQhandler.c:29</a></div></div>
-<div class="ttc" id="main_8c_html_a95bce3f30c5782b913b2b4007fd206f0"><div class="ttname"><a href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a></div><div class="ttdeci">uint32_t ISRcontext</div><div class="ttdoc">Variable for ISR-Context. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00024">main.c:24</a></div></div>
+<div class="ttc" id="main_8c_html_a95bce3f30c5782b913b2b4007fd206f0"><div class="ttname"><a href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a></div><div class="ttdeci">uint32_t ISRcontext</div><div class="ttdoc">Variable for ISR-Context. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00031">main.c:31</a></div></div>
+<div class="ttc" id="main_8c_html_a07c87d61e7e620a7f471139d92b2685b"><div class="ttname"><a href="main_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a></div><div class="ttdeci">OS_FLAG_GRP * userInputTaskFlagsGrp</div><div class="ttdoc">The flags group used in the user-input-task. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00025">main.c:25</a></div></div>
 <div class="ttc" id="hardware_access_8h_html_ad068c5588df0d8decc2095ea4a5d6665"><div class="ttname"><a href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00051">hardwareAccess.h:51</a></div></div>
 <div class="ttc" id="hardware_access_8h_html_a2eca107134198ba52e6379f6adb42ed5"><div class="ttname"><a href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio sw. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00079">hardwareAccess.h:79</a></div></div>
+<div class="ttc" id="main_8c_html_a39faba8eb837cd0a61c8e06506a76810"><div class="ttname"><a href="main_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a></div><div class="ttdeci">OS_FLAG_GRP * heartbeatTaskFlagsGrp</div><div class="ttdoc">The flags group used in the heartbeat-task and user-input-task. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00026">main.c:26</a></div></div>
 <div class="ttc" id="switches_i_r_qhandler_8h_html_ad831687986b7a5fb97291c2c3fd65ff9"><div class="ttname"><a href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a></div><div class="ttdeci">void switchesIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for switches. </div><div class="ttdef"><b>Definition:</b> <a href="switches_i_r_qhandler_8c_source.html#l00028">switchesIRQhandler.c:28</a></div></div>
-<div class="ttc" id="main_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdoc">Main-Routine. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00031">main.c:31</a></div></div>
+<div class="ttc" id="main_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdoc">Main-Routine. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00038">main.c:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
-    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 18:34:52 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

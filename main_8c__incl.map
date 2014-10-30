@@ -1,13 +1,13 @@
 <map id="main.c" name="main.c">
-<area shape="rect" id="node2" href="$main_8h.html" title="Header file for main.c. " alt="" coords="665,79,764,104"/>
-<area shape="rect" id="node7" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="573,299,747,324"/>
-<area shape="rect" id="node11" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="499,225,653,251"/>
-<area shape="rect" id="node13" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="821,299,952,324"/>
-<area shape="rect" id="node16" href="$heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="246,299,400,324"/>
-<area shape="rect" id="node17" href="$user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="394,152,558,177"/>
-<area shape="rect" id="node18" href="$switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="1212,225,1401,251"/>
-<area shape="rect" id="node19" href="$keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="828,225,993,251"/>
-<area shape="rect" id="node20" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="1017,225,1189,251"/>
-<area shape="rect" id="node10" href="$lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="591,372,742,397"/>
-<area shape="rect" id="node15" href="$events_8h.html" title="definitions for used events " alt="" coords="1077,299,1187,324"/>
+<area shape="rect" id="node2" href="$main_8h.html" title="Header file for main.c. " alt="" coords="563,79,662,104"/>
+<area shape="rect" id="node7" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="596,372,732,397"/>
+<area shape="rect" id="node11" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="725,225,841,251"/>
+<area shape="rect" id="node14" href="$debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="551,299,714,324"/>
+<area shape="rect" id="node15" href="$user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="815,152,940,177"/>
+<area shape="rect" id="node16" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="25,299,156,324"/>
+<area shape="rect" id="node18" href="$switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="247,225,398,251"/>
+<area shape="rect" id="node19" href="$keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="422,225,549,251"/>
+<area shape="rect" id="node20" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="89,225,223,251"/>
+<area shape="rect" id="node10" href="$lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="652,445,765,471"/>
+<area shape="rect" id="node13" href="$events_8h.html" title="definitions for used events " alt="" coords="298,299,369,324"/>
 </map>

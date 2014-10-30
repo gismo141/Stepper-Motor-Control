@@ -113,37 +113,83 @@ $(document).ready(function(){initNavTree('heartbeat_task_8c_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       22.10.2014</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       30.10.2014</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  *****************************************************************************</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @details    22.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @details    30.10. Riedel</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../INC/heartbeatTask.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;OS_FLAG_GRP *heartbeatTaskFlagsGrp;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  * @brief  HeartbeatDebugTask</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  * @details </span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  * @param  pdata : Pointer to parameter structure (not used)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">  * @retval None</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="heartbeat_task_8c.html#a00b1b959673cfff6628206a4104dfe02">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="heartbeat_task_8c.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a>(<span class="keywordtype">void</span> *pdata)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  OSTimeDlyHMSM(0, 0, 0, 100);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="ttc" id="heartbeat_task_8c_html_a00b1b959673cfff6628206a4104dfe02"><div class="ttname"><a href="heartbeat_task_8c.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a></div><div class="ttdeci">void HeartbeatTask(void *pdata)</div><div class="ttdoc">HeartbeatDebugTask. </div><div class="ttdef"><b>Definition:</b> <a href="heartbeat_task_8c_source.html#l00026">heartbeatTask.c:26</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  * @todoH      add the hardware-access to state-machine</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../INC/heartbeatTask.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;../INC/debugAndErrorOutput.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> OS_FLAG_GRP *<a class="code" href="heartbeat_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;heartbeatState_t heartbeatState;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="heartbeat_task_8c.html#a00b1b959673cfff6628206a4104dfe02">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="heartbeat_task_8c.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a>(<span class="keywordtype">void</span> *pdata) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  OS_FLAGS heartbeatFlag;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  heartbeatState =  FIRST;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    heartbeatFlag = OSFlagPend(<a class="code" href="heartbeat_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a>,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                               <a class="code" href="events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace">DEBUG_ON_EVENT</a>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                               OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &amp;err);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> (OS_NO_ERR == err) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordflow">if</span> (heartbeatFlag &amp; <a class="code" href="events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace">DEBUG_ON_EVENT</a>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        debugAndHeartbeat();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      nextHeartbeatStep();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      error(<span class="stringliteral">&quot;There was an error while waiting for the event!&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> nextHeartbeatStep() {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">switch</span> (heartbeatState) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordflow">case</span> FIRST:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// line</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// red led9 on</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    heartbeatState = SECOND;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">case</span> SECOND:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// lower o</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// red led9 off</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    heartbeatState = THIRD;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordflow">case</span> THIRD:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// line</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// red led9 on</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    heartbeatState = FOURTH;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">case</span> FOURTH:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// upper o</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// red led9 off</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    heartbeatState = FIRST;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    OSTimeDlyHMSM(0, 0, 0, 250);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> debugAndHeartbeat() {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  nextHeartbeatStep();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">if</span> () {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  nextHeartbeatStep();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  nextHeartbeatStep();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// setIR();</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="ttc" id="events_8h_html_a005e6b62d17024e7bd9ea5ed6b1ceace"><div class="ttname"><a href="events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace">DEBUG_ON_EVENT</a></div><div class="ttdeci">#define DEBUG_ON_EVENT</div><div class="ttdoc">activates the debug-mode via sw_9 </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00037">events.h:37</a></div></div>
+<div class="ttc" id="heartbeat_task_8c_html_a00b1b959673cfff6628206a4104dfe02"><div class="ttname"><a href="heartbeat_task_8c.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a></div><div class="ttdeci">void HeartbeatTask(void *pdata)</div><div class="ttdoc">HeartbeatDebugTask. </div><div class="ttdef"><b>Definition:</b> <a href="heartbeat_task_8c_source.html#l00023">heartbeatTask.c:23</a></div></div>
+<div class="ttc" id="heartbeat_task_8c_html_a39faba8eb837cd0a61c8e06506a76810"><div class="ttname"><a href="heartbeat_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a></div><div class="ttdeci">OS_FLAG_GRP * heartbeatTaskFlagsGrp</div><div class="ttdoc">The flags group used in the heartbeat-task and user-input-task. </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00036">events.h:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="heartbeat_task_8c.html">heartbeatTask.c</a></li>
-    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 18:34:52 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

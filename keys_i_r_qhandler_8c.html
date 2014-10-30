@@ -113,14 +113,13 @@ $(document).ready(function(){initNavTree('keys_i_r_qhandler_8c.html','');});
 
 <p>IRQ-handler for keys.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="debug_and_error_output_8h_source.html">../INC/debugAndErrorOutput.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="keys_i_r_qhandler_8h_source.html">../INC/keysIRQhandler.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="keys_i_r_qhandler_8h_source.html">../INC/keysIRQhandler.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for keysIRQhandler.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="keys_i_r_qhandler_8c__incl.png" border="0" usemap="#keys_i_r_qhandler_8c" alt=""/></div>
 <map name="keys_i_r_qhandler_8c" id="keys_i_r_qhandler_8c">
-<area shape="rect" id="node2" href="debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="39,79,240,104"/><area shape="rect" id="node9" href="keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="294,79,460,104"/><area shape="rect" id="node3" href="auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="38,152,212,177"/><area shape="rect" id="node7" href="lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="184,225,335,251"/><area shape="rect" id="node12" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="458,152,627,177"/><area shape="rect" id="node14" href="events_8h.html" title="definitions for used events " alt="" coords="650,152,760,177"/></map>
+<area shape="rect" id="node2" href="keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="184,79,349,104"/><area shape="rect" id="node5" href="auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="425,225,561,251"/><area shape="rect" id="node11" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="175,225,306,251"/><area shape="rect" id="node13" href="events_8h.html" title="definitions for used events " alt="" coords="329,152,401,177"/><area shape="rect" id="node14" href="debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="425,152,588,177"/><area shape="rect" id="node9" href="lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="628,299,742,324"/></map>
 </div>
 </div>
 <p><a href="keys_i_r_qhandler_8c_source.html">Go to the source code of this file.</a></p>
@@ -133,8 +132,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a07c87d61e7e620a7f471139d92b2685b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07c87d61e7e620a7f471139d92b2685b"></a>
-OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><b>userInputTaskFlagsGrp</b></td></tr>
+<tr class="memitem:a07c87d61e7e620a7f471139d92b2685b"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="keys_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a></td></tr>
+<tr class="memdesc:a07c87d61e7e620a7f471139d92b2685b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the user-input-task.  <a href="#a07c87d61e7e620a7f471139d92b2685b">More...</a><br /></td></tr>
 <tr class="separator:a07c87d61e7e620a7f471139d92b2685b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -143,7 +142,7 @@ OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><b>userInputTas
 <dd>
 Marc Kossmann </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>29.10.2014 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>21.10.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>21.10. Riedel &amp; Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
@@ -154,7 +153,10 @@ Marc Kossmann </dd></dl>
 </ul>
 <p>29.10. Kossmann</p><ul>
 <li>modified clearing requests and evaluating pressed keys 30.10. Riedel</li>
-<li>added Debug and Error-Handling </li>
+</ul>
+<p>added Debug and Error-Handling 30.10. Kossmann</p>
+<ul>
+<li>fixed bug in Debug and Error-Handling </li>
 </ul>
 
 <p>Definition in file <a class="el" href="keys_i_r_qhandler_8c_source.html">keysIRQhandler.c</a>.</p>
@@ -200,13 +202,31 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a07c87d61e7e620a7f471139d92b2685b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OS_FLAG_GRP* userInputTaskFlagsGrp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The flags group used in the user-input-task. </p>
+<p>This group contains all possibly events, which can be triggered by the user. </p>
+
+<p>Definition at line <a class="el" href="events_8h_source.html#l00026">26</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="keys_i_r_qhandler_8c.html">keysIRQhandler.c</a></li>
-    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 18:34:52 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
