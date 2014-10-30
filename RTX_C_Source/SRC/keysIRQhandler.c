@@ -25,7 +25,6 @@ extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 void keysIRQhandler(void *context)
 {
   uint32_t edgesCaptured = 0;
-  uint32_t capturedBitsToClear = 0;
   INT8U err;
 
   OSIntEnter();
@@ -36,23 +35,20 @@ void keysIRQhandler(void *context)
     #ifdef SOC2014_DEBUG
       printf_term("KEY_RS_0 pressed!\n");
     #endif
-    capturedBitsToClear |= PIO_KEY_RS_IR0_MSK;
     OSFlagPost(userInputTaskFlagsGrp, KEY0_RS_EVENT, OS_FLAG_SET, &err);
   }
   if(edgesCaptured & PIO_KEY_MINUS_IR2_MSK){
     #ifdef SOC2014_DEBUG
       printf_term("KEY_MINUS_2 pressed!\n");
     #endif
-    capturedBitsToClear |= PIO_KEY_MINUS_IR2_MSK;
     OSFlagPost(userInputTaskFlagsGrp, KEY2_MINUS_EVENT, OS_FLAG_SET, &err);
   }
   if(edgesCaptured & PIO_KEY_PLUS_IR3_MSK){
     #ifdef SOC2014_DEBUG
       printf_term("KEY_PLUS_3 pressed!\n");
     #endif
-    capturedBitsToClear |= PIO_KEY_PLUS_IR3_MSK;
     OSFlagPost(userInputTaskFlagsGrp, KEY3_PLUS_EVENT, OS_FLAG_SET, &err);
   }
-  PIO_KEY_ClearEdgeCptBits(capturedBitsToClear);
+  PIO_KEY_ClearEdgeCptBits(edgesCaptured);
   OSIntExit();
 }
