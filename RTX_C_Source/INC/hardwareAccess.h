@@ -4,7 +4,7 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       29.10.2014
+  * @date       21.10.2014
   * @brief      Functions for accessing hardware connected through pio´s and
   *             registers
   *****************************************************************************

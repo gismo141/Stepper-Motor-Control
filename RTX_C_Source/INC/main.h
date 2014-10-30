@@ -12,6 +12,10 @@
   * @par History:
   * @details    22.10. Kossmann
   *             - first draft for milestone 1b
+  * @details    29.10. Kossmann
+  *             - introduced SOC2014_DEBUG
+  * @details    30.10. Kossmann
+  *             - added debug and error handling header
   ****************************************************************************
   */
 
@@ -30,6 +34,7 @@
 #include "../INC/switchesIRQhandler.h"
 #include "../INC/keysIRQhandler.h"
 #include "../INC/motorIRQhandler.h"
+#include "../INC/debugAndErrorOutput.h"
 
 #define SOC2014_DEBUG
 

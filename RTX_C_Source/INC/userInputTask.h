@@ -12,8 +12,12 @@
   * @par History:
   * @details 	  22.10. Riedel & Kossmann
   *				      - first draft for milestone 1b
-  *				      27.10. Riedel
+  * @details    27.10. Riedel
   *				      - moved events to events.h for better handling
+  * @details    30.10. Kossmann
+  *             - removed hardwareAccess.h include
+  * @details    30.10. Kossmann
+  *             - added debug and error handling header
   *				      30.10. Riedel
   *				      - cleaned includes
   *****************************************************************************
@@ -29,6 +33,8 @@
 
 #include "includes.h"
 #include "hardwareAccess.h"
+#include "../INC/auxilaryFunctions.h"
+#include "../INC/heartbeatTask.h"
 #include "events.h"
 
 #include "auxilaryFunctions.h"
@@ -76,11 +82,6 @@ typedef enum direction{
 	LEFT = 0,
 	RIGHT = 1
 }direction_t;
-
-typedef struct motorState{
-	bool running;
-	direction_t direction;
-}motorState_t;
 
 typedef struct outputTaskMailbox {
 	systemState_t systemState;

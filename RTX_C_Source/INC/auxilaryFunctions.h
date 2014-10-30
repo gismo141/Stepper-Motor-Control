@@ -4,7 +4,7 @@
   * @author  	Michael Riedel
   * @author  	Marc Kossmann
   * @version  v0.1
-  * @date     27.10.2014
+  * @date     22.10.2014
   * @brief   	Header file for auxilaryFunctions.c
   * @details 	Contains defines, includes, typedefs and declarations needed for
   *           auxilary functions.

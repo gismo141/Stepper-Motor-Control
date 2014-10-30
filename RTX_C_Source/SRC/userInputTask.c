@@ -7,11 +7,13 @@
   * @date       22.10.2014
   * @brief      Source code for User-Input-Task which is highest instance,
   *             reacts to user input and controls register and hardware access
-  * @todo		introduce error-handling like in User-Output-Task
   *****************************************************************************
   * @par History:
   * @details    22.10. Kossmann
   *             - first draft for milestone 1b
+ * @details    30.10. Kossmann
+ *             - added error handling for flags and mailboxes
+ *             - changed IPC with switches ISR to message queue
   *****************************************************************************
   */
 
@@ -20,8 +22,9 @@
 OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
-OS_EVENT *switchesMailbox;
+OS_EVENT *switchesMsgQueue;
 OS_EVENT *outputTaskMailbox;
+
 
 /**
   * @brief  UserInputTask
@@ -42,12 +45,6 @@ void UserInputTask(void *pdata)
 	//variable to store position of switches
 	uint32_t switchesReg = 0;
 
-	//create state variables
-    motorState_t motorState =
-    {
-			.direction = LEFT,
-			.running = false
-	};
     systemState_t systemState =
     {
 			.operationalStatus = FUNCTIONAL,
@@ -62,11 +59,16 @@ void UserInputTask(void *pdata)
 			.stepsReg = 0,
 			.debugState = false
 	};
-	switchesMailbox = OSMboxCreate(NULL);
-	outputTaskMailbox = OSMboxCreate(NULL);
 
-	while (0)
-	{
+  void* msg;
+  void* msgQueue[16];
+
+  switchesMsgQueue = OSQCreate(msgQueue, 16);
+	outputTaskMailbox = OSMboxCreate(NULL);
+  if((OS_EVENT*)0 == switchesMsgQueue || (OS_EVENT*)0 == outputTaskMailbox){
+    error("INPUT_TASK_MBOX_MSGQ_ERR: %i\n", err);
+  }else{
+    while(0){
 		//check for new events
 		newFlag = OSFlagPend(userInputTaskFlagsGrp,
 						(KEY0_RS_EVENT | KEY2_MINUS_EVENT | KEY3_PLUS_EVENT |
@@ -104,13 +106,17 @@ void UserInputTask(void *pdata)
             {
 				ctrlReg &= ~(CTRL_REG_RS_MSK);
 			}
+      }else if(OS_TIMEOUT != err){
+        error("INPUT_TASK_FLAG_ERR: %i\n", err);
 		}
 
 		//check for new switches message
-		OSMboxPend(switchesMailbox, 10, &err);
+      msg = OSQPend(switchesMsgQueue, 10, &err);
         if (OS_NO_ERR == err)
         {
-			switchesReg = (uint32_t)switchesMailbox->OSEventPtr;
+        switchesReg = (uint32_t)msg;
+      }else if(OS_TIMEOUT != err){
+        error("INPUT_TASK_MBOX_ERR: %i\n", err);
 		}
 		//evaluate switch positions
         if (switchesReg & SWITCH_LR_MSK)
@@ -130,7 +136,10 @@ void UserInputTask(void *pdata)
         if (switchesReg & SWITCH_DEBUG_MSK)
         {
 			systemState.operationalStatus = DEBUG;
-			OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET, NULL);
+        err = OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_FLAG, OS_FLAG_SET, NULL);
+        if(OS_NO_ERR != err){
+          error("INPUT_TASK_FLAG_ERR: %i\n", err);
+        }
 		}
 
 		//change systemState when Run-Bit = 1
@@ -175,7 +184,11 @@ void UserInputTask(void *pdata)
         else
         {
 			outputTaskMailboxContent.debugState = false;
+      }
+      err = OSMboxPost(outputTaskMailbox, &outputTaskMailboxContent);
+      if(OS_NO_ERR != err){
+        error("INPUT_TASK_MBOX_ERR: %i\n", err);
+    }
 		}
-		OSMboxPost(outputTaskMailbox, &outputTaskMailboxContent);
 	}
 }

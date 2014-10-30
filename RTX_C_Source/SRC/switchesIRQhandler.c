@@ -4,7 +4,7 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       29.10.2014
+  * @date       21.10.2014
   * @brief      IRQ-handler for switches
   *****************************************************************************
   * @par History:
@@ -14,23 +14,27 @@
   *             - basic implementation
   * @details    29.10. Kossmann
   *             - modified clearing requests and evaluating pressed keys
-  *             30.10. Riedel
+  * @details    30.10. Riedel
   *             - added Debug and Error-Handling
+  * @details    30.10. Kossmann
+  *             - change IPC to message queue because mailbox not needed
   *****************************************************************************
   */
 
-#include "../INC/debugAndErrorOutput.h"
-
 #include "../INC/switchesIRQhandler.h"
 
-extern OS_EVENT *switchesMailbox;
+extern OS_EVENT *switchesMsgQueue;
 
 void switchesIRQhandler(void *context)
 {
+    uint8_t err;
     OSIntEnter();
     debug("Switch moved!\n");
     // Create and Send Mailbox-Message with switches values
-    OSMboxPost(switchesMailbox, (void *) PIO_SW_GetValues());
+    err = OSQPost(switchesMsgQueue, (void *) PIO_SW_GetValues());
+    if(OS_NO_ERR != err){
+      error("SW_ISR_MBOX_ERR: %i\n", err);
+    }
 
     OSIntExit();
 }
