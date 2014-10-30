@@ -14,6 +14,8 @@
  * @details    30.10. Kossmann
  *             - added error handling for flags and mailboxes
  *             - changed IPC with switches ISR to message queue
+ *             30.10. Riedel
+ *             - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
   *****************************************************************************
   */
 
@@ -112,7 +114,7 @@ void UserInputTask(void *pdata) {
 
       if (switchesReg & SWITCH_DEBUG_MSK) {
         systemState.operationalStatus = DEBUG;
-        err = OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_FLAG, OS_FLAG_SET, NULL);
+        err = OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET, NULL);
         if (OS_NO_ERR != err) {
           error("INPUT_TASK_FLAG_ERR: %i\n", err);
         }
