@@ -123,6 +123,64 @@ int main(void) {
   printf_lcd("Stepper-Control ");
   fflush_lcd();
 
+  hardwareTest();
+
   OSStart();
   return 0;
+}
+
+void hardwareTest(void){
+  uint32_t i;
+  uint32_t timeoutMs = 1000;
+  printf_term("Starting hardwareTest!\n");
+  printf_lcd("\nStarting hwTest!");
+
+  printf_term("Begin with LED9 flashing on-off\n");
+  printf_lcd("LED9 on-off");
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+  PIO_LED9_Set(0x1);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+  PIO_LED9_Set(0x0);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+  PIO_LED9_Set(0x1);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+  PIO_LED9_Set(0x0);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+
+  printf_term("HEX-Display 0 all on\n");
+  printf_lcd("\nHEX0 all on");
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+  PIO_HEX0_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+
+  printf_term("HEX-Display 1 all on\n");
+  printf_lcd("\nHEX1 all on");
+  PIO_HEX1_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+
+  printf_term("HEX-Display 2 all on\n");
+  printf_lcd("\nHEX2 all on");
+  PIO_HEX2_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+
+  printf_term("HEX-Display 3 all on\n");
+  printf_lcd("\nHEX1 all on");
+  PIO_HEX3_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs);
+
+  PIO_HEX0_Set(0x0);
+  PIO_HEX1_Set(0x0);
+  PIO_HEX2_Set(0x0);
+  PIO_HEX3_Set(0x0);
+
+  printf_term("HEX-Display 0 shift on-off\n");
+  printf_lcd("\nHEX0 shift test");
+  for(i = 0; i < 7; i++){
+    PIO_HEX0_Set(pow(2, i));
+    OSTimeDlyHMSM(0, 0, 0, timeoutMs / 2);
+    PIO_HEX0_Set(0x0);
+    OSTimeDlyHMSM(0, 0, 0, timeoutMs / 2);
+  }
+  OSTimeDlyHMSM(0, 0, 0, timeoutMs *2);
+  PIO_HEX0_Set(0x0);
 }

@@ -25,6 +25,7 @@
 #include <sys/alt_irq.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <math.h>
 #include "includes.h"
 #include "auxilaryFunctions.h"
 #include "userInputTask.h"
@@ -54,5 +55,7 @@ OS_STK    HeartbeatDebugTask_Stk[TASK_STACKSIZE];
 #define USER_INPUT_TASK_PRIORITY        4  /*!< Priority Task UserInputTask */
 #define USER_OUTPUT_TASK_PRIORITY       5  /*!< Priority Task UserOutputTask */
 #define HEARTBEAT_DEBUG_TASK_PRIORITY   6  /*!< Priority Task HeartbeatDebugTask */
+
+void hardwareTest(void);
 
 #endif /*__MAIN_H__*/
