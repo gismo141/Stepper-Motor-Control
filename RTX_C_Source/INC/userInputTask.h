@@ -14,6 +14,8 @@
   *				      - first draft for milestone 1b
   *				      27.10. Riedel
   *				      - moved events to events.h for better handling
+  *				      30.10. Riedel
+  *				      - cleaned includes
   *****************************************************************************
   */
 
@@ -24,12 +26,13 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
+
 #include "includes.h"
 #include "hardwareAccess.h"
-#include "../INC/events.h"
-#include "../INC/auxilaryFunctions.h"
-#include "hardwareAccess.h"
-#include "../INC/heartbeatTask.h"
+#include "events.h"
+
+#include "auxilaryFunctions.h"
+#include "heartbeatTask.h"
 
 #define CTRL_REG_RS_MSK			(0x1)
 #define CTRL_REG_LR_MSK			(0x2)

@@ -87,13 +87,13 @@ void UserInputTask(void *pdata)
 					ctrlReg |= CTRL_REG_RS_MSK;
 				}
 			}
-			//check for key2 event
+			//check for key2 event (decrease steps)
             if (newFlag & KEY2_MINUS_EVENT)
             {
                 if (!ctrlReg & CTRL_REG_RS_MSK) //allow modification only when motor stopped
 					speedReg--;
 			}
-			//check for key2 event
+			//check for key3 event (increase steps)
             if (newFlag & KEY3_PLUS_EVENT)
             {
                 if (!ctrlReg & CTRL_REG_RS_MSK) //allow modification only when motor stopped
@@ -130,7 +130,7 @@ void UserInputTask(void *pdata)
         if (switchesReg & SWITCH_DEBUG_MSK)
         {
 			systemState.operationalStatus = DEBUG;
-			OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_FLAG, OS_FLAG_SET, NULL);
+			OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET, NULL);
 		}
 
 		//change systemState when Run-Bit = 1

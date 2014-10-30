@@ -12,6 +12,8 @@
   * @par History:
   * @details    22.10. Kossmann
   *             - first draft for milestone 1b
+  *             30.10. Riedel
+  *             - moved DEBUG_ON_EVENT to events.h
   *****************************************************************************
   */
 
@@ -21,9 +23,14 @@
 #include <stdio.h>
 #include <stdint.h>
 #include "includes.h"
+#include "events.h"
 
-#define DEBUG_ON_FLAG       (0x1)
-
+/**
+  * @brief  HeartbeatDebugTask
+  * @details
+  * @param  pdata : Pointer to parameter structure (not used)
+  * @retval None
+  */
 void HeartbeatTask(void *pdata);
 
 #endif /*__HEARTBEAT_TASK_H__*/
