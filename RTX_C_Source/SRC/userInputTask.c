@@ -13,11 +13,11 @@
   * @par History:
   * @details    22.10. Kossmann
   *             - first draft for milestone 1b
-  * @details    30.10. Kossmann
-  *             - added error handling for flags and mailboxes
-  *             - changed IPC with switches ISR to message queue
-  *             30.10. Riedel
-  *             - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
+ * @details    30.10. Kossmann
+ *             - added error handling for flags and mailboxes
+ *             - changed IPC with switches ISR to message queue
+ *             30.10. Riedel
+ *             - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
   *****************************************************************************
   */
 

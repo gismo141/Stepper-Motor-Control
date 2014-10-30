@@ -22,8 +22,16 @@
 
 #include <stdio.h>
 #include <stdint.h>
+
 #include "includes.h"
 #include "events.h"
+
+typedef enum heartbeatState {
+  FIRST  = 0,
+  SECOND = 1,
+  THIRD  = 2,
+  FOURTH = 3;
+} heartbeatState_t;
 
 /**
   * @brief  HeartbeatDebugTask
