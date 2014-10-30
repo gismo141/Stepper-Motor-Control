@@ -4,15 +4,18 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       29.10.2014
+  * @date       22.10.2014
   * @brief      Main-Routine for Stepper-Motor-Control
-  * @todo		    uncomment isr registration
+  * @todo		    uncomment tasks creation
+  * @todo       finish motor isr registration
   *****************************************************************************
   * @par History:
   * @details    22.10. Riedel & Kossmann
   *             - first draft for milestone 1b
   * @details    29.10. Kossmann
   *             - edited ISRs inits to work with new pio access concept
+  * @details    30.10. Kossmann
+  *             - adopted error handling to new makro call
   *****************************************************************************
   */
 
@@ -44,7 +47,7 @@ int main(void)
   //                  NULL,
   //                  0);
 //  if(OS_NO_ERR != err){
-//    printf_term("Err creating HeartbeatDebugTask: %i\n", err);
+//    error("Err creating HeartbeatDebugTask: %i\n", err);
 //  }
 
 //  err = OSTaskCreateExt(UserInputTask,
@@ -57,7 +60,7 @@ int main(void)
 //                  NULL,
 //                  0);
 //   if(OS_NO_ERR != err){
-//     printf_term("Err creating UserInputTask: %i\n", err);
+//     error("Err creating UserInputTask: %i\n", err);
 //   }
 //  err = OSTaskCreateExt(UserOutputTask,
 //                  NULL,
@@ -68,7 +71,9 @@ int main(void)
 //                  TASK_STACKSIZE,
 //                  NULL,
 //                  0);
-
+//   if(OS_NO_ERR != err){
+//     error("Err creating UserInputTask: %i\n", err);
+//   }
    //init keys ISR
    alt_ic_isr_register(PIO_KEY_IRQ_INTERRUPT_CONTROLLER_ID, PIO_KEY_IRQ,
        keysIRQhandler, (void *) &ISRcontext, NULL);

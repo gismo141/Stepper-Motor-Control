@@ -4,7 +4,7 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       29.10.2014
+  * @date       21.10.2014
   * @brief      Header for IRQ-Handler for switches
   *****************************************************************************
   * @par History:
@@ -14,6 +14,8 @@
   *             - added function-documentation
   * @details    29.10. Kossmann
   *             - moved all belonging includes in this file
+  * @details    30.10. Kossmann
+  *             - added debug and error handling header
   *****************************************************************************
   */
 
@@ -24,6 +26,7 @@
 #include "includes.h"
 #include "../INC/hardwareAccess.h"
 #include "../INC/events.h"
+#include "../INC/debugAndErrorOutput.h"
 
 /**
   * @brief      IRQ-Handler for switches

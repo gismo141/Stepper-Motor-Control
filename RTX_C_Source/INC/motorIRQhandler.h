@@ -4,7 +4,7 @@
   * @author     Michael Riedel
   * @author     Marc Kossmann
   * @version    v0.1
-  * @date       29.10.2014
+  * @date       21.10.2014
   * @brief      Header file for motorIRQhandler.c
   *****************************************************************************
   * @par History:

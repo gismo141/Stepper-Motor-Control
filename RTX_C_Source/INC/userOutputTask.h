@@ -12,6 +12,8 @@
   * @par History:
   * @details    21.10. Kossmann
   *             - first draft for milestone 1b
+  * @details    30.10. Kossmann
+  *             - added debug and error handling header
   *****************************************************************************
   */
 
@@ -22,6 +24,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "includes.h"
+#include "../INC/debugAndErrorOutput.h"
 #include "../INC/userInputTask.h"
 
 void UserOutputTask(void *pdata);

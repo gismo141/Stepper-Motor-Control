@@ -14,6 +14,8 @@
   *             - added function-documentation
   * @details    29.10. Kossmann
   *             - moved all belonging includes in this file
+  * @details    30.10. Kossmann
+  *             - added debug and error handling header
   *****************************************************************************
   */
 
@@ -25,6 +27,7 @@
 #include "../INC/auxilaryFunctions.h"
 #include "../INC/hardwareAccess.h"
 #include "../INC/events.h"
+#include "../INC/debugAndErrorOutput.h"
 
 /**
   * @brief  IRQ-Handler for key-input
