@@ -47,8 +47,8 @@ void debugAndHeartbeat(void) {
 
   if (OS_NO_ERR == err) {
     if (runFlag & KEY0_RS_EVENT)
-      
-  }
+
+    }
   nextHeartbeatStep();
   nextHeartbeatStep();
   // setIR();

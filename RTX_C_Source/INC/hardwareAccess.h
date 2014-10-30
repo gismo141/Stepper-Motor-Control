@@ -39,7 +39,7 @@
   * @param  enablebits : set bits to 1 for enable interrupt
   * @retval None
   */
-static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits){
+static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits) {
   IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_KEY_BASE, enablebits);
 }
 
@@ -48,7 +48,7 @@ static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits){
   * @param clearbits : set bits to 1 for enable interrupt
   * @retval none
   */
-static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits){
+static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits) {
   IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE, clearbits);
 }
 
@@ -56,8 +56,8 @@ static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits){
   * @brief Function to read content of edgecapture register
   * @retval pressedKeys : When edge was detected, bit is 1
   */
-static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void){
-    return(IORD_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE));
+static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void) {
+  return (IORD_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE));
 }
 
 /**
@@ -76,7 +76,7 @@ static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void){
   * @param  enablebits : set bits to 1 for enable interrupt
   * @retval None
  */
-static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits){
+static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits) {
   IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_SW_BASE, enablebits);
 }
 
@@ -86,8 +86,8 @@ static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits){
  *                            @arg 0 = Switch OFF
  *                            @arg 1 = Switch ON
  */
-static __inline__ uint32_t PIO_SW_GetValues(void){
-     return(IORD_ALTERA_AVALON_PIO_DATA(PIO_SW_BASE));
+static __inline__ uint32_t PIO_SW_GetValues(void) {
+  return (IORD_ALTERA_AVALON_PIO_DATA(PIO_SW_BASE));
 }
 
 #endif

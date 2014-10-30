@@ -23,12 +23,20 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "includes.h"
-#include "../INC/debugAndErrorOutput.h"
-#include "../INC/userInputTask.h"
 
+#include "includes.h"
+#include "debugAndErrorOutput.h"
+#include "userInputTask.h"
+
+/**
+ * @brief  UserOutputTask
+ * @details
+ * @param  pdata : Pointer to parameter structure (not used)
+ * @retval None
+ */
 void UserOutputTask(void *pdata);
+
 void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
-		void* termMsgCounter);
+                       void *termMsgCounter);
 
 #endif /*__USER_OUTPUT_TASK_H__*/

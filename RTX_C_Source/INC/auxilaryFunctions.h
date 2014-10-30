@@ -1,19 +1,19 @@
 /**
   ******************************************************************************
-  * @file    	auxilaryFunctions.h
-  * @author  	Michael Riedel
-  * @author  	Marc Kossmann
+  * @file     auxilaryFunctions.h
+  * @author   Michael Riedel
+  * @author   Marc Kossmann
   * @version  v0.1
   * @date     22.10.2014
-  * @brief   	Header file for auxilaryFunctions.c
-  * @details 	Contains defines, includes, typedefs and declarations needed for
+  * @brief    Header file for auxilaryFunctions.c
+  * @details  Contains defines, includes, typedefs and declarations needed for
   *           auxilary functions.
   ******************************************************************************
   * @par History:
   * @details  22.10. Kossmann
-  *			      - first draft for milestone 1b
+  *           - first draft for milestone 1b
   * @details  27.10. Riedel & Kossmann
-  *			      - using lcdDOGM162.h        
+  *           - using lcdDOGM162.h
   ******************************************************************************
   */
 

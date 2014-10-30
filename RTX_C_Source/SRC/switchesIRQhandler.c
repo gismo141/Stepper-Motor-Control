@@ -25,16 +25,15 @@
 
 extern OS_EVENT *switchesMsgQueue;
 
-void switchesIRQhandler(void *context)
-{
-    uint8_t err;
-    OSIntEnter();
-    debug("Switch moved!\n");
-    // Create and Send Mailbox-Message with switches values
-    err = OSQPost(switchesMsgQueue, (void *) PIO_SW_GetValues());
-    if(OS_NO_ERR != err){
-      error("SW_ISR_MBOX_ERR: %i\n", err);
-    }
+void switchesIRQhandler(void *context) {
+  uint8_t err;
+  OSIntEnter();
+  debug("Switch moved!\n");
+  // Create and Send Mailbox-Message with switches values
+  err = OSQPost(switchesMsgQueue, (void *) PIO_SW_GetValues());
+  if (OS_NO_ERR != err) {
+    error("SW_ISR_MBOX_ERR: %i\n", err);
+  }
 
-    OSIntExit();
+  OSIntExit();
 }
