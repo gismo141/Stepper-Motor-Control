@@ -14,9 +14,12 @@
   *             - basic implementation
   * @details    29.10. Kossmann
   *             - modified clearing requests and evaluating pressed keys
+  *             30.10. Riedel
+  *             - added Debug and Error-Handling
   *****************************************************************************
   */
 
+#include "../INC/debugAndErrorOutput.h"
 
 #include "../INC/switchesIRQhandler.h"
 
@@ -25,11 +28,9 @@ extern OS_EVENT *switchesMailbox;
 void switchesIRQhandler(void *context)
 {
     OSIntEnter();
-    #ifdef SOC2014_DEBUG
-      printf_term("Switch moved!\n");
-    #endif
+    debug("Switch moved!\n");
     // Create and Send Mailbox-Message with switches values
-    OSMboxPost(switchesMailbox, (void*) PIO_SW_GetValues());
+    OSMboxPost(switchesMailbox, (void *) PIO_SW_GetValues());
 
     OSIntExit();
 }

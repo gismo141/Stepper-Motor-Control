@@ -1,16 +1,16 @@
 /**
-  ***************************************************************************
+  *****************************************************************************
   * @file      	auxilaryFunctions.c
-  * @author  	  Michael Riedel
-  * @author  	  Marc Kossmann
+  * @author  	Michael Riedel
+  * @author  	Marc Kossmann
   * @version   	v0.1
   * @date      	28.10.2014
-  * @brief   	  Collection of auxilary functions
-  ***************************************************************************
+  * @brief   	Collection of auxilary functions
+  *****************************************************************************
   * @par History:
   * @details    28.10. Riedel & Kossmann
   *			        - added functions for using printf like lcd and term output
-  ****************************************************************************
+  *****************************************************************************
   */
 
 #include "../INC/auxilaryFunctions.h"

@@ -12,10 +12,13 @@
   * @par History:
   * @details 	21.10. Kossmann
   *          	- first draft for milestone 1b
+  *             30.10. Riedel
+  *             - added Debug and Error-Handling
   ******************************************************************************
   */
 
 #include "../INC/userOutputTask.h"
+#include "../INC/debugAndErrorOutput.h"
 
 extern OS_EVENT *outputTaskMailbox;
 
@@ -75,7 +78,7 @@ void UserOutputTask(void *pdata)
 			}
 			//END of lcd ouput
 		}else{
-			printf_term("OUTPUT_TASK_MBOX_ERR: %i\n", err);
+			error("OUTPUT_TASK_MBOX_ERR: %i\n", err);
 		}
 		fflush_term();
 		fflush_lcd();
