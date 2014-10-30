@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('switches_i_r_qhandler_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,14 +112,23 @@ $(document).ready(function(){initNavTree('switches_i_r_qhandler_8h.html','');});
 
 <p>Header for IRQ-Handler for switches.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;includes.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;sys/alt_irq.h&gt;</code><br />
+<code>#include &quot;includes.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="hardware_access_8h_source.html">../INC/hardwareAccess.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="events_8h_source.html">../INC/events.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for switchesIRQhandler.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="switches_i_r_qhandler_8h__incl.png" border="0" usemap="#switches_i_r_qhandler_8h" alt=""/></div>
 <map name="switches_i_r_qhandler_8h" id="switches_i_r_qhandler_8h">
-<area shape="rect" id="node3" href="hardware_access_8h.html" title="functions for HW&#45;access " alt="" coords="111,79,242,104"/><area shape="rect" id="node5" href="interface_regs_8h.html" title="Register file for interface&#45;component. " alt="" coords="119,152,234,177"/></map>
+<area shape="rect" id="node4" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,79,396,104"/><area shape="rect" id="node8" href="events_8h.html" title="definitions for used events " alt="" coords="419,79,529,104"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="switches_i_r_qhandler_8h__dep__incl.png" border="0" usemap="#switches_i_r_qhandler_8hdep" alt=""/></div>
+<map name="switches_i_r_qhandler_8hdep" id="switches_i_r_qhandler_8hdep">
+<area shape="rect" id="node2" href="main_8h.html" title="Header file for main.c. " alt="" coords="5,79,67,104"/><area shape="rect" id="node4" href="switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="90,79,240,104"/><area shape="rect" id="node3" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,152,66,177"/></map>
 </div>
 </div>
 <p><a href="switches_i_r_qhandler_8h_source.html">Go to the source code of this file.</a></p>
@@ -135,13 +145,16 @@ Functions</h2></td></tr>
 <dd>
 Marc Kossmann </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21.10.2014 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>29.10.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>v0.1 Riedel &amp; Kossmann</p><ul>
+<p>21.10. Riedel &amp; Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
 </ul>
-<p>2014-10-27 by Riedel:</p><ul>
-<li>added function-documentation </li>
+<p>27.10. Riedel</p><ul>
+<li>added function-documentation</li>
+</ul>
+<p>29.10. Kossmann</p><ul>
+<li>moved all belonging includes in this file </li>
 </ul>
 
 <p>Definition in file <a class="el" href="switches_i_r_qhandler_8h_source.html">switchesIRQhandler.h</a>.</p>
@@ -161,7 +174,7 @@ Marc Kossmann </dd></dl>
 </div><div class="memdoc">
 
 <p>IRQ-Handler for switches. </p>
-<p>sets an event, when an switch changed and stores all switch values in message queue </p><dl class="params"><dt>Parameters</dt><dd>
+<p>sends a mailbox-message containing the switches-positions </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">context</td><td>: pointer to context variable (not used) </td></tr>
   </table>
@@ -174,14 +187,14 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="switches_i_r_qhandler_8c_source.html#l00023">23</a> of file <a class="el" href="switches_i_r_qhandler_8c_source.html">switchesIRQhandler.c</a>.</p>
+<p>Definition at line <a class="el" href="switches_i_r_qhandler_8c_source.html#l00028">28</a> of file <a class="el" href="switches_i_r_qhandler_8c_source.html">switchesIRQhandler.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="switches_i_r_qhandler_8h_ad831687986b7a5fb97291c2c3fd65ff9_cgraph.png" border="0" usemap="#switches_i_r_qhandler_8h_ad831687986b7a5fb97291c2c3fd65ff9_cgraph" alt=""/></div>
 <map name="switches_i_r_qhandler_8h_ad831687986b7a5fb97291c2c3fd65ff9_cgraph" id="switches_i_r_qhandler_8h_ad831687986b7a5fb97291c2c3fd65ff9_cgraph">
-<area shape="rect" id="node2" href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c" title="function to read position of sliding switches " alt="" coords="208,5,269,31"/><area shape="rect" id="node3" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b" title="function to control green leds " alt="" coords="194,55,283,80"/></map>
+<area shape="rect" id="node2" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of data register. " alt="" coords="194,5,336,31"/></map>
 </div>
 </p>
 
@@ -193,7 +206,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="switches_i_r_qhandler_8h.html">switchesIRQhandler.h</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

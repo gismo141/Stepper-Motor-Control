@@ -1,12 +1,14 @@
 <map id="hardwareAccess.h" name="hardwareAccess.h">
-<area shape="rect" id="node2" href="$keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="5,79,133,104"/>
-<area shape="rect" id="node3" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="157,79,272,104"/>
-<area shape="rect" id="node7" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="297,79,431,104"/>
-<area shape="rect" id="node8" href="$switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="455,79,606,104"/>
-<area shape="rect" id="node9" href="$keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="630,79,756,104"/>
-<area shape="rect" id="node10" href="$motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="780,79,913,104"/>
-<area shape="rect" id="node11" href="$switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="937,79,1087,104"/>
-<area shape="rect" id="node4" href="$main_8h.html" title="Header file for main.c. " alt="" coords="128,152,189,177"/>
-<area shape="rect" id="node6" href="$user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="213,152,328,177"/>
-<area shape="rect" id="node5" href="$main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="128,225,189,251"/>
+<area shape="rect" id="node2" href="$keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="256,79,383,104"/>
+<area shape="rect" id="node3" href="$main_8h.html" title="Header file for main.c. " alt="" coords="503,225,565,251"/>
+<area shape="rect" id="node6" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="419,79,534,104"/>
+<area shape="rect" id="node10" href="$switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="805,79,956,104"/>
+<area shape="rect" id="node12" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="583,79,717,104"/>
+<area shape="rect" id="node5" href="$keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="5,152,132,177"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="504,299,564,324"/>
+<area shape="rect" id="node7" href="$user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="156,152,282,177"/>
+<area shape="rect" id="node9" href="$user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="357,152,471,177"/>
+<area shape="rect" id="node8" href="$user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="157,225,282,251"/>
+<area shape="rect" id="node11" href="$switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="855,152,1005,177"/>
+<area shape="rect" id="node13" href="$motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="597,152,730,177"/>
 </map>

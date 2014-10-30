@@ -1,0 +1,9 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="117,5,234,31"/>
+<area shape="rect" id="node4" href="$hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of edgecapture register. " alt="" coords="295,56,487,81"/>
+<area shape="rect" id="node5" href="$hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="104,107,247,132"/>
+<area shape="rect" id="node6" href="$switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="105,156,246,181"/>
+<area shape="rect" id="node8" href="$hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="106,205,245,231"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of edgecapture register. " alt="" coords="311,5,471,31"/>
+<area shape="rect" id="node7" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of data register. " alt="" coords="320,156,462,181"/>
+</map>

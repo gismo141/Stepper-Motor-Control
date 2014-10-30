@@ -1,0 +1,5 @@
+<map id="UserInputTask" name="UserInputTask">
+<area shape="rect" id="node2" href="$keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="160,5,277,31"/>
+<area shape="rect" id="node4" href="$hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b" title="function to write to key register " alt="" coords="326,55,414,80"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9" title="function to read content of key register " alt="" coords="325,5,415,31"/>
+</map>

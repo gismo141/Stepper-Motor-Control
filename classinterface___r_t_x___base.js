@@ -2,9 +2,17 @@ var classinterface___r_t_x___base =
 [
     [ "CLOCK_50_B5B", "classinterface___r_t_x___base.html#a05c598213f64aa37ddd25f2d4e1f445f", null ],
     [ "CPU_RESET_n", "classinterface___r_t_x___base.html#ad71e86a08c4532bb97b4476f3dc16948", null ],
+    [ "HEX0", "classinterface___r_t_x___base.html#aec0e2c12e708be8c009debe4068a5b8e", null ],
+    [ "HEX1", "classinterface___r_t_x___base.html#a2e469131235b2985575cee96cf956e6b", null ],
+    [ "HEX2", "classinterface___r_t_x___base.html#a20401026341176a13ac3e1e32eed7c35", null ],
+    [ "HEX3", "classinterface___r_t_x___base.html#a4ba2523da1ba1658037a3065a79b2340", null ],
     [ "ieee", "classinterface___r_t_x___base.html#a0a6af6eef40212dbaf130d57ce711256", null ],
     [ "KEY", "classinterface___r_t_x___base.html#a5eaa40616970d6ce995eee15fba14015", null ],
-    [ "LEDR", "classinterface___r_t_x___base.html#ace63aa83afde7bc596268541bf31b18a", null ],
+    [ "LCD_DQ", "classinterface___r_t_x___base.html#a89e3c16439731c2b3bf572acc0c62a83", null ],
+    [ "LCD_EN", "classinterface___r_t_x___base.html#a982fc6347640d54a5db6f94541aad8a3", null ],
+    [ "LCD_RS", "classinterface___r_t_x___base.html#a3382bf58ddc73f8b4713ba4d7b2ed649", null ],
+    [ "LCD_RW", "classinterface___r_t_x___base.html#af3d562db9a3543090269668803b6b297", null ],
+    [ "LED9", "classinterface___r_t_x___base.html#acc288117414a22f2137fdde84d7caefb", null ],
     [ "SRAM_A", "classinterface___r_t_x___base.html#adc1eb648dc9bfaba37534afeb580e610", null ],
     [ "SRAM_CE_N", "classinterface___r_t_x___base.html#a1889a5fa3d7b0307ec7c1c074e1029e1", null ],
     [ "SRAM_D", "classinterface___r_t_x___base.html#af5218b438b128942e0dedc1d74fa8709", null ],
@@ -13,6 +21,6 @@ var classinterface___r_t_x___base =
     [ "SRAM_UB_N", "classinterface___r_t_x___base.html#add174a439186050f2485ce93ad857783", null ],
     [ "SRAM_WE_N", "classinterface___r_t_x___base.html#a201022b115b192ff30b882956e8a9f1a", null ],
     [ "std_logic_1164", "classinterface___r_t_x___base.html#acd03516902501cd1c7296a98e22c6fcb", null ],
-    [ "SW", "classinterface___r_t_x___base.html#a50c2b250ae3294fd98bcbe4525019448", null ],
+    [ "SW", "classinterface___r_t_x___base.html#ad4980b960d0e91a9e8d199367887306c", null ],
     [ "work", "classinterface___r_t_x___base.html#a9f49de6f5eed5b4488cba6c9cdd1c215", null ]
 ];

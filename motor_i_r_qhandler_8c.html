@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('motor_i_r_qhandler_8c.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,16 +112,13 @@ $(document).ready(function(){initNavTree('motor_i_r_qhandler_8c.html','');});
 
 <p>IRQ-handler for motor stopped.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;sys/alt_irq.h&gt;</code><br />
-<code>#include &quot;includes.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="hardware_access_8h_source.html">../INC/hardwareAccess.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="events_8h_source.html">../INC/events.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="motor_i_r_qhandler_8h_source.html">../INC/motorIRQhandler.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for motorIRQhandler.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="motor_i_r_qhandler_8c__incl.png" border="0" usemap="#motor_i_r_qhandler_8c" alt=""/></div>
 <map name="motor_i_r_qhandler_8c" id="motor_i_r_qhandler_8c">
-<area shape="rect" id="node4" href="hardware_access_8h.html" title="functions for HW&#45;access " alt="" coords="227,79,396,104"/><area shape="rect" id="node9" href="events_8h.html" title="definitions for used events " alt="" coords="419,79,529,104"/><area shape="rect" id="node6" href="interface_regs_8h.html" title="Register file for interface&#45;component. " alt="" coords="254,152,369,177"/></map>
+<area shape="rect" id="node2" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="151,79,323,104"/><area shape="rect" id="node5" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,152,396,177"/><area shape="rect" id="node9" href="events_8h.html" title="definitions for used events " alt="" coords="419,152,529,177"/></map>
 </div>
 </div>
 <p><a href="motor_i_r_qhandler_8c_source.html">Go to the source code of this file.</a></p>
@@ -139,10 +137,10 @@ Marc Kossmann </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21.10.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>v0.1 Riedel &amp; Kossmann</p><ul>
+<p>21.10. Riedel &amp; Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
 </ul>
-<p>2014-10-27 by Riedel:</p><ul>
+<p>27.10. by Riedel:</p><ul>
 <li>basic implementation</li>
 <li>moved function-documentation to header-file </li>
 </ul>
@@ -177,16 +175,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="motor_i_r_qhandler_8c_source.html#l00024">24</a> of file <a class="el" href="motor_i_r_qhandler_8c_source.html">motorIRQhandler.c</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph.png" border="0" usemap="#motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph" alt=""/></div>
-<map name="motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph" id="motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph">
-<area shape="rect" id="node2" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b" title="function to control green leds " alt="" coords="177,5,266,31"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="motor_i_r_qhandler_8c_source.html#l00021">21</a> of file <a class="el" href="motor_i_r_qhandler_8c_source.html">motorIRQhandler.c</a>.</p>
 
 </div>
 </div>
@@ -196,7 +185,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="motor_i_r_qhandler_8c.html">motorIRQhandler.c</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

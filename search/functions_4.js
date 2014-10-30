@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['setkeyreg',['SetKeyReg',['../hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b',1,'hardwareAccess.h']]],
-  ['setredled',['SetRedLed',['../hardware_access_8h.html#ac9fbb5c42a59effede9cbb13f3584f35',1,'hardwareAccess.h']]],
-  ['switchesirqhandler',['switchesIRQhandler',['../switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9',1,'switchesIRQhandler(void *context):&#160;switchesIRQhandler.c'],['../switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9',1,'switchesIRQhandler(void *context):&#160;switchesIRQhandler.c']]]
+  ['pio_5fkey_5fclearedgecptbits',['PIO_KEY_ClearEdgeCptBits',['../hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665',1,'hardwareAccess.h']]],
+  ['pio_5fkey_5fgetedgecpt',['PIO_KEY_GetEdgeCpt',['../hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d',1,'hardwareAccess.h']]],
+  ['pio_5fkey_5fsetirmsk',['PIO_KEY_SetIRMsk',['../hardware_access_8h.html#adf981c6fea97526812a4998299372aa5',1,'hardwareAccess.h']]],
+  ['pio_5fsw_5fgetvalues',['PIO_SW_GetValues',['../hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21',1,'hardwareAccess.h']]],
+  ['pio_5fsw_5fsetirmsk',['PIO_SW_SetIRMsk',['../hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5',1,'hardwareAccess.h']]]
 ];

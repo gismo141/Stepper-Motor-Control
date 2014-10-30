@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['switchesirqhandler_2ec',['switchesIRQhandler.c',['../switches_i_r_qhandler_8c.html',1,'']]],
-  ['switchesirqhandler_2eh',['switchesIRQhandler.h',['../switches_i_r_qhandler_8h.html',1,'']]]
+  ['keydetect_2evhd',['keyDetect.vhd',['../key_detect_8vhd.html',1,'']]],
+  ['keysirqhandler_2ec',['keysIRQhandler.c',['../keys_i_r_qhandler_8c.html',1,'']]],
+  ['keysirqhandler_2eh',['keysIRQhandler.h',['../keys_i_r_qhandler_8h.html',1,'']]]
 ];

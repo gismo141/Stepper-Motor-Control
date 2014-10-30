@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('main_8c.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,16 +119,16 @@ Include dependency graph for main.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c__incl.png" border="0" usemap="#main_8c" alt=""/></div>
 <map name="main_8c" id="main_8c">
-<area shape="rect" id="node2" href="main_8h.html" title="Header file for main.c. " alt="" coords="179,79,278,104"/><area shape="rect" id="node7" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="506,152,659,177"/><area shape="rect" id="node15" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="249,225,413,251"/><area shape="rect" id="node9" href="hardware_access_8h.html" title="functions for HW&#45;access " alt="" coords="999,225,1130,251"/><area shape="rect" id="node13" href="events_8h.html" title="definitions for used events " alt="" coords="436,225,546,251"/><area shape="rect" id="node14" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="620,225,774,251"/><area shape="rect" id="node10" href="interface_regs_8h.html" title="Register file for interface&#45;component. " alt="" coords="1095,299,1209,324"/></map>
+<area shape="rect" id="node2" href="main_8h.html" title="Header file for main.c. " alt="" coords="665,79,764,104"/><area shape="rect" id="node7" href="auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="573,299,747,324"/><area shape="rect" id="node11" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="499,225,653,251"/><area shape="rect" id="node13" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="821,299,952,324"/><area shape="rect" id="node16" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="246,299,400,324"/><area shape="rect" id="node17" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="394,152,558,177"/><area shape="rect" id="node18" href="switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="1212,225,1401,251"/><area shape="rect" id="node19" href="keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="828,225,993,251"/><area shape="rect" id="node20" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="1017,225,1189,251"/><area shape="rect" id="node10" href="lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="591,372,742,397"/><area shape="rect" id="node15" href="events_8h.html" title="definitions for used events " alt="" coords="1077,299,1187,324"/></map>
 </div>
 </div>
 <p><a href="main_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a52d2cba30e6946c95578be946ac12a65"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a52d2cba30e6946c95578be946ac12a65">main</a> (void)</td></tr>
-<tr class="memdesc:a52d2cba30e6946c95578be946ac12a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main-Routine.  <a href="#a52d2cba30e6946c95578be946ac12a65">More...</a><br /></td></tr>
-<tr class="separator:a52d2cba30e6946c95578be946ac12a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main-Routine.  <a href="#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -141,20 +142,24 @@ Variables</h2></td></tr>
 <dd>
 Marc Kossmann </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>22.10.2014 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>29.10.2014 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>uncomment isr registration</dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>v0.1 Riedel &amp; Kossmann</p><ul>
-<li>first draft for milestone 1b </li>
+<p>22.10. Riedel &amp; Kossmann</p><ul>
+<li>first draft for milestone 1b</li>
+</ul>
+<p>29.10. Kossmann</p><ul>
+<li>edited ISRs inits to work with new pio access concept </li>
 </ul>
 
 <p>Definition in file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a52d2cba30e6946c95578be946ac12a65"></a>
+<a class="anchor" id="a840291bc02cba5474a4cb46a9b9566fe"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t main </td>
+          <td class="memname">int main </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -171,14 +176,14 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="main_8c_source.html#l00028">28</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p>Definition at line <a class="el" href="main_8c_source.html#l00031">31</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8c_a52d2cba30e6946c95578be946ac12a65_cgraph.png" border="0" usemap="#main_8c_a52d2cba30e6946c95578be946ac12a65_cgraph" alt=""/></div>
-<map name="main_8c_a52d2cba30e6946c95578be946ac12a65_cgraph" id="main_8c_a52d2cba30e6946c95578be946ac12a65_cgraph">
-<area shape="rect" id="node2" href="user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb" title="UserInputTask. " alt="" coords="109,5,215,31"/><area shape="rect" id="node3" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5" title="UserOutputTask. " alt="" coords="104,55,220,80"/></map>
+<div class="center"><img src="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png" border="0" usemap="#main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" alt=""/></div>
+<map name="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" id="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph">
+<area shape="rect" id="node2" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="117,5,234,31"/><area shape="rect" id="node4" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of edgecapture register. " alt="" coords="295,56,487,81"/><area shape="rect" id="node5" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="104,107,247,132"/><area shape="rect" id="node6" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="105,156,246,181"/><area shape="rect" id="node8" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="106,205,245,231"/><area shape="rect" id="node3" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of edgecapture register. " alt="" coords="311,5,471,31"/><area shape="rect" id="node7" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of data register. " alt="" coords="320,156,462,181"/></map>
 </div>
 </p>
 
@@ -198,7 +203,7 @@ Here is the call graph for this function:</div>
 <p>Variable for ISR-Context. </p>
 <p>Not used in this program </p>
 
-<p>Definition at line <a class="el" href="main_8c_source.html#l00021">21</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p>Definition at line <a class="el" href="main_8c_source.html#l00024">24</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>
@@ -208,7 +213,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

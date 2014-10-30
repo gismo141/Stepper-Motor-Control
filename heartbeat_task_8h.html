@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('heartbeat_task_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,7 +126,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="heartbeat_task_8h__dep__incl.png" border="0" usemap="#heartbeat_task_8hdep" alt=""/></div>
 <map name="heartbeat_task_8hdep" id="heartbeat_task_8hdep">
-<area shape="rect" id="node2" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="34,79,150,104"/><area shape="rect" id="node6" href="heartbeat_task_8c.html" title="heartbeatTask.c" alt="" coords="174,79,290,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="5,152,67,177"/><area shape="rect" id="node5" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="91,152,205,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,225,66,251"/></map>
+<area shape="rect" id="node2" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="180,79,295,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="276,225,338,251"/><area shape="rect" id="node8" href="heartbeat_task_8c.html" title="heartbeatTask.c" alt="" coords="395,79,510,104"/><area shape="rect" id="node5" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="5,152,131,177"/><area shape="rect" id="node7" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="155,152,270,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="277,299,337,324"/><area shape="rect" id="node6" href="user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="6,225,131,251"/></map>
 </div>
 </div>
 <p><a href="heartbeat_task_8h_source.html">Go to the source code of this file.</a></p>
@@ -151,7 +152,7 @@ Marc Kossmann </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>22.10.2014</dd></dl>
 <p>Contains defines, includes, typedefs and declarations needed for this task.</p>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>v0.1 Riedel &amp; Kossmann</p><ul>
+<p>22.10. Kossmann</p><ul>
 <li>first draft for milestone 1b </li>
 </ul>
 
@@ -195,7 +196,7 @@ Marc Kossmann </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="heartbeat_task_8h.html">heartbeatTask.h</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -100,7 +101,7 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,14 +112,9 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 
 <div class="contents">
 &#160;<ul>
-<li>GetKeyReg()
-: <a class="el" href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">hardwareAccess.h</a>
-</li>
-<li>GetRedLed()
-: <a class="el" href="hardware_access_8h.html#a78083984a05486ea2361cf5a82d2e77a">hardwareAccess.h</a>
-</li>
-<li>getSW()
-: <a class="el" href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c">hardwareAccess.h</a>
+<li>DOGM162lcd_init()
+: <a class="el" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.h</a>
+, <a class="el" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.c</a>
 </li>
 <li>HeartbeatTask()
 : <a class="el" href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02">heartbeatTask.h</a>
@@ -129,17 +125,26 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 , <a class="el" href="keys_i_r_qhandler_8c.html#a200e6646e9d1d9032bfa64f3df522450">keysIRQhandler.c</a>
 </li>
 <li>main()
-: <a class="el" href="main_8c.html#a52d2cba30e6946c95578be946ac12a65">main.c</a>
+: <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a>
 </li>
 <li>motorIRQhandler()
-: <a class="el" href="motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.h</a>
-, <a class="el" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.c</a>
+: <a class="el" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.c</a>
+, <a class="el" href="motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.h</a>
 </li>
-<li>SetKeyReg()
-: <a class="el" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">hardwareAccess.h</a>
+<li>PIO_KEY_ClearEdgeCptBits()
+: <a class="el" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">hardwareAccess.h</a>
 </li>
-<li>SetRedLed()
-: <a class="el" href="hardware_access_8h.html#ac9fbb5c42a59effede9cbb13f3584f35">hardwareAccess.h</a>
+<li>PIO_KEY_GetEdgeCpt()
+: <a class="el" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">hardwareAccess.h</a>
+</li>
+<li>PIO_KEY_SetIRMsk()
+: <a class="el" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">hardwareAccess.h</a>
+</li>
+<li>PIO_SW_GetValues()
+: <a class="el" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">hardwareAccess.h</a>
+</li>
+<li>PIO_SW_SetIRMsk()
+: <a class="el" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">hardwareAccess.h</a>
 </li>
 <li>switchesIRQhandler()
 : <a class="el" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler.h</a>
@@ -159,7 +164,7 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('hardware_access_8h_source.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,121 +113,105 @@ $(document).ready(function(){initNavTree('hardware_access_8h_source.html','');})
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       21.10.2014</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      functions for HW-access</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @details    v0.1 Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef __HARDWAREACCESS_H__</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define __HARDWAREACCESS_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       29.10.2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      Functions for accessing hardware connected through pio´s and</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  *             registers</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @par History:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  * @details    21.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  * @details    29.10. Kossmann</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *             -renewed complete pio access concept</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  */</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interface_regs_8h.html">interfaceRegs.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">  * @brief  function to read position of sliding switches</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  * @retval SWcontent: Bit 7..0 contain read values</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">  *                       @arg 0 = Switch OFF</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">  *                       @arg 1 = Switch ON</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef __HARDWAREACCESS_H__</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define __HARDWAREACCESS_H__</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;altera_avalon_pio_regs.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">  * @name Key-register</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c">   29</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c">getSW</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="interface_regs_8h.html#ad325a71e9541f67a44158dd350b59aa5">IORD_INTERFACE_SWITCH</a>(INTERFACE_COMP_0_BASE));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">  * @brief  function to control red leds</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">  * @param  redled : Bit 7..0 contain control value for red leds</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  *                   @arg 0 = LED OFF</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">  *                   @arg 1 = LED ON</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">  * @retval None</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#ac9fbb5c42a59effede9cbb13f3584f35">   41</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#ac9fbb5c42a59effede9cbb13f3584f35">SetRedLed</a>(uint32_t redled)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="interface_regs_8h.html#a65c99ac17e90413304fb34560693fbc0">IOWR_INTERFACE_REDLED</a>(INTERFACE_COMP_0_BASE, redled);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">  * @name Key-register: interrupt access defines</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define PIO_KEY_RS_IR0_MSK      (0x1)</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define PIO_KEY_MINUS_IR2_MSK   (0x4)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#define PIO_KEY_PLUS_IR3_MSK    (0x8)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">  * @brief  Function to enable interrupts for pio key</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">  * @param  enablebits : set bits to 1 for enable interrupt</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  * @retval None</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">   42</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a>(uint32_t enablebits){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_KEY_BASE, enablebits);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">  * @brief function to read status of red leds</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">  * @retval redledContent : Bit 7..0 contain led status</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">  *                           @arg 0 = LED OFF</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">  *                           @arg 1 = LED ON</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a78083984a05486ea2361cf5a82d2e77a">   52</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a78083984a05486ea2361cf5a82d2e77a">GetRedLed</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="interface_regs_8h.html#af992fb333415f4baec787edb1fd53a8e">IORD_INTERFACE_REDLED</a>(INTERFACE_COMP_0_BASE));</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  * @brief  function to control green leds</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  * @param  redled : Bit 7..0 contain control value for green leds</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">  *                   @arg 0 = LED OFF</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">  *                   @arg 1 = LED ON</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">  * @retval None</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> static __inline__ void SetGreenLed(uint32_t greenled)</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">{</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    IOWR_INTERFACE_GREENLED(INTERFACE_COMP_0_BASE, greenled);</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">}</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">*</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  * @brief function to read status of green leds</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">  * @retval redledContent : Bit 7..0 contain led status</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">  *                           @arg 0 = LED OFF</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">  *                           @arg 1 = LED ON</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> static __inline__ uint32_t GetGreenLed(void)</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">{</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">    return(IORD_INTERFACE_GREENLED(INTERFACE_COMP_0_BASE));</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">}*/</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">  * @brief  function to write to key register</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">  * @param  newkeyval : can be</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">  *                      @arg Bit 2..0 interrupt request</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">  *                      @arg Bit 5..3 interrupt enable</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">  * @retval None</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">   87</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">SetKeyReg</a>(uint32_t newkeyval)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="interface_regs_8h.html#accd562257e3ca02c780e31d548867cb9">IOWR_INTERFACE_KEY</a>(INTERFACE_COMP_0_BASE, newkeyval);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">  * @brief function to read content of key register</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">  * @retval keyValue : can be</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">  *                     @arg Bit 2..0 interrupt request</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">  *                     @arg Bit 5..3 interrupt enable</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">   98</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">GetKeyReg</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="interface_regs_8h.html#a5452e193d14948c13b859325a93d39e6">IORD_INTERFACE_KEY</a>(INTERFACE_COMP_0_BASE));</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*__HARDWAREACCESS_H__*/</span><span class="preprocessor"></span></div>
-<div class="ttc" id="hardware_access_8h_html_a226a59d3c74a7cade8c03c525e003a5c"><div class="ttname"><a href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c">getSW</a></div><div class="ttdeci">static __inline__ uint32_t getSW(void)</div><div class="ttdoc">function to read position of sliding switches </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00029">hardwareAccess.h:29</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a310e4afbd25f15e4e5733034636a0a0b"><div class="ttname"><a href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">SetKeyReg</a></div><div class="ttdeci">static __inline__ void SetKeyReg(uint32_t newkeyval)</div><div class="ttdoc">function to control green leds </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00087">hardwareAccess.h:87</a></div></div>
-<div class="ttc" id="interface_regs_8h_html_a65c99ac17e90413304fb34560693fbc0"><div class="ttname"><a href="interface_regs_8h.html#a65c99ac17e90413304fb34560693fbc0">IOWR_INTERFACE_REDLED</a></div><div class="ttdeci">#define IOWR_INTERFACE_REDLED(base, data)</div><div class="ttdoc">Macro to write key to red LEDS register. </div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00103">interfaceRegs.h:103</a></div></div>
-<div class="ttc" id="interface_regs_8h_html_a5452e193d14948c13b859325a93d39e6"><div class="ttname"><a href="interface_regs_8h.html#a5452e193d14948c13b859325a93d39e6">IORD_INTERFACE_KEY</a></div><div class="ttdeci">#define IORD_INTERFACE_KEY(base)</div><div class="ttdoc">Macro to read key register. </div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00049">interfaceRegs.h:49</a></div></div>
-<div class="ttc" id="interface_regs_8h_html_ad325a71e9541f67a44158dd350b59aa5"><div class="ttname"><a href="interface_regs_8h.html#ad325a71e9541f67a44158dd350b59aa5">IORD_INTERFACE_SWITCH</a></div><div class="ttdeci">#define IORD_INTERFACE_SWITCH(base)</div><div class="ttdoc">Macro to read register for sliding switches. </div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00118">interfaceRegs.h:118</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a8b0a952395f92b19bc5dda6986fec2b9"><div class="ttname"><a href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">GetKeyReg</a></div><div class="ttdeci">static __inline__ uint32_t GetKeyReg(void)</div><div class="ttdoc">function to read content of key register </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00098">hardwareAccess.h:98</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_ac9fbb5c42a59effede9cbb13f3584f35"><div class="ttname"><a href="hardware_access_8h.html#ac9fbb5c42a59effede9cbb13f3584f35">SetRedLed</a></div><div class="ttdeci">static __inline__ void SetRedLed(uint32_t redled)</div><div class="ttdoc">function to control red leds </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00041">hardwareAccess.h:41</a></div></div>
-<div class="ttc" id="interface_regs_8h_html"><div class="ttname"><a href="interface_regs_8h.html">interfaceRegs.h</a></div><div class="ttdoc">Register file for interface-component. </div></div>
-<div class="ttc" id="interface_regs_8h_html_af992fb333415f4baec787edb1fd53a8e"><div class="ttname"><a href="interface_regs_8h.html#af992fb333415f4baec787edb1fd53a8e">IORD_INTERFACE_REDLED</a></div><div class="ttdeci">#define IORD_INTERFACE_REDLED(base)</div><div class="ttdoc">Macro to read red LEDs register. </div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00101">interfaceRegs.h:101</a></div></div>
-<div class="ttc" id="interface_regs_8h_html_accd562257e3ca02c780e31d548867cb9"><div class="ttname"><a href="interface_regs_8h.html#accd562257e3ca02c780e31d548867cb9">IOWR_INTERFACE_KEY</a></div><div class="ttdeci">#define IOWR_INTERFACE_KEY(base, data)</div><div class="ttdoc">Macro to write key register (Set IE, Clr IR) </div><div class="ttdef"><b>Definition:</b> <a href="interface_regs_8h_source.html#l00051">interfaceRegs.h:51</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a78083984a05486ea2361cf5a82d2e77a"><div class="ttname"><a href="hardware_access_8h.html#a78083984a05486ea2361cf5a82d2e77a">GetRedLed</a></div><div class="ttdeci">static __inline__ uint32_t GetRedLed(void)</div><div class="ttdoc">function to read status of red leds </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00052">hardwareAccess.h:52</a></div></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">  * @brief Function to clear bits of edgecapture register</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">  * @param clearbits : set bits to 1 for enable interrupt</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">  * @retval none</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">   51</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a>(uint32_t clearbits){</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE, clearbits);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  * @brief Function to read content of edgecapture register</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">  * @retval pressedKeys : When edge was detected, bit is 1</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">   59</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">PIO_KEY_GetEdgeCpt</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span>(IORD_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">  * @name sliding switches</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">  * @name Key-register: interrupt access defines</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#define PIO_SW_LR_IR0_MSK       (0x1)</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#define PIO_SW_MODE_IR1234_MSK  (0x1E)</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#define PIO_SW_DEBUG_IR9_MSK    (0x100)</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">  * @brief  Function to enable interrupts for pio sw</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">  * @param  enablebits : set bits to 1 for enable interrupt</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">  * @retval None</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">   79</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a>(uint32_t enablebits){</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_SW_BASE, enablebits);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">  * @brief Function to read content of data register</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">  * @retval switchesValues :  Values of all switches</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> *                            @arg 0 = Switch OFF</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> *                            @arg 1 = Switch ON</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">   89</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;     <span class="keywordflow">return</span>(IORD_ALTERA_AVALON_PIO_DATA(PIO_SW_BASE));</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="hardware_access_8h_html_adf981c6fea97526812a4998299372aa5"><div class="ttname"><a href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio key. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00042">hardwareAccess.h:42</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_ad068c5588df0d8decc2095ea4a5d6665"><div class="ttname"><a href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00051">hardwareAccess.h:51</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a2eca107134198ba52e6379f6adb42ed5"><div class="ttname"><a href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio sw. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00079">hardwareAccess.h:79</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a16c412e9385c655ecd16ecf3379eec21"><div class="ttname"><a href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a></div><div class="ttdeci">static __inline__ uint32_t PIO_SW_GetValues(void)</div><div class="ttdoc">Function to read content of data register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00089">hardwareAccess.h:89</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a89492ff1d8b21807006359d5db6c6c9d"><div class="ttname"><a href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">PIO_KEY_GetEdgeCpt</a></div><div class="ttdeci">static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void)</div><div class="ttdoc">Function to read content of edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00059">hardwareAccess.h:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="hardware_access_8h.html">hardwareAccess.h</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

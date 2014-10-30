@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('events_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -116,7 +117,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="events_8h__dep__incl.png" border="0" usemap="#events_8hdep" alt=""/></div>
 <map name="events_8hdep" id="events_8hdep">
-<area shape="rect" id="node2" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="34,79,150,104"/><area shape="rect" id="node6" href="keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="174,79,301,104"/><area shape="rect" id="node7" href="motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="324,79,457,104"/><area shape="rect" id="node8" href="switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="481,79,631,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="5,152,67,177"/><area shape="rect" id="node5" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="91,152,205,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,225,66,251"/></map>
+<area shape="rect" id="node2" href="keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="366,79,493,104"/><area shape="rect" id="node6" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="180,79,295,104"/><area shape="rect" id="node10" href="switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="517,79,668,104"/><area shape="rect" id="node12" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="715,79,849,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="476,225,538,251"/><area shape="rect" id="node5" href="keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="344,152,470,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="477,299,537,324"/><area shape="rect" id="node7" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="5,152,131,177"/><area shape="rect" id="node9" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="206,152,320,177"/><area shape="rect" id="node8" href="user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="6,225,131,251"/><area shape="rect" id="node11" href="switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="594,152,745,177"/><area shape="rect" id="node13" href="motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="819,152,952,177"/></map>
 </div>
 </div>
 <p><a href="events_8h_source.html">Go to the source code of this file.</a></p>
@@ -135,10 +136,6 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">KEY3_PLUS_EVENT</a>&#160;&#160;&#160;(0x4)</td></tr>
 <tr class="memdesc:ae532d4d8072619de3febc69ac6406564"><td class="mdescLeft">&#160;</td><td class="mdescRight">increases the steps to turn via key_3 <br /></td></tr>
 <tr class="separator:ae532d4d8072619de3febc69ac6406564"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7322eda4a819d8262e996615ecc13b05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7322eda4a819d8262e996615ecc13b05"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#a7322eda4a819d8262e996615ecc13b05">SWITCH_UPDATE_EVENT</a>&#160;&#160;&#160;(0x8)</td></tr>
-<tr class="memdesc:a7322eda4a819d8262e996615ecc13b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">something changed, needs to be identified manually <br /></td></tr>
-<tr class="separator:a7322eda4a819d8262e996615ecc13b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af198f5dba61ed9e85516d2b2ecb9d77e"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">MOTOR_STOP_EVENT</a>&#160;&#160;&#160;(0x10)</td></tr>
 <tr class="memdesc:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the interrupt is sent via VHDL-Component, when the motor reached its end-position <br /></td></tr>
@@ -152,7 +149,7 @@ Marc Kossmann </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>27.10.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>v0.1 Riedel &amp; Kossmann</p><ul>
+<p>27.10. Riedel</p><ul>
 <li>first draft for milestone 1b </li>
 </ul>
 
@@ -163,7 +160,7 @@ Marc Kossmann </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

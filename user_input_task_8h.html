@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('user_input_task_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -122,31 +123,32 @@ $(document).ready(function(){initNavTree('user_input_task_8h.html','');});
 <code>#include &quot;includes.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="events_8h_source.html">../INC/events.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="auxilary_functions_8h_source.html">../INC/auxilaryFunctions.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="heartbeat_task_8h_source.html">../INC/heartbeatTask.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for userInputTask.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="user_input_task_8h__incl.png" border="0" usemap="#user_input_task_8h" alt=""/></div>
 <map name="user_input_task_8h" id="user_input_task_8h">
-<area shape="rect" id="node7" href="hardware_access_8h.html" title="functions for HW&#45;access " alt="" coords="453,79,584,104"/><area shape="rect" id="node11" href="events_8h.html" title="definitions for used events " alt="" coords="706,79,816,104"/><area shape="rect" id="node12" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="173,79,327,104"/><area shape="rect" id="node8" href="interface_regs_8h.html" title="Register file for interface&#45;component. " alt="" coords="574,152,689,177"/></map>
+<area shape="rect" id="node7" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="615,79,746,104"/><area shape="rect" id="node10" href="events_8h.html" title="definitions for used events " alt="" coords="1078,79,1188,104"/><area shape="rect" id="node11" href="auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="402,79,576,104"/><area shape="rect" id="node14" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="173,79,327,104"/><area shape="rect" id="node13" href="lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="409,152,560,177"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="user_input_task_8h__dep__incl.png" border="0" usemap="#user_input_task_8hdep" alt=""/></div>
 <map name="user_input_task_8hdep" id="user_input_task_8hdep">
-<area shape="rect" id="node2" href="main_8h.html" title="Header file for main.c. " alt="" coords="5,79,67,104"/><area shape="rect" id="node4" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="91,79,205,104"/><area shape="rect" id="node3" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,152,66,177"/></map>
+<area shape="rect" id="node2" href="main_8h.html" title="Header file for main.c. " alt="" coords="5,152,67,177"/><area shape="rect" id="node4" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="73,79,199,104"/><area shape="rect" id="node6" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="223,79,337,104"/><area shape="rect" id="node3" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,225,66,251"/><area shape="rect" id="node5" href="user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="91,152,216,177"/></map>
 </div>
 </div>
 <p><a href="user_input_task_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoutput_task_mailbox.html">outputTaskMailbox</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsystem_state.html">systemState</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_state.html">motorState</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoutput_task_mailbox.html">outputTaskMailbox</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -199,24 +201,24 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ad5b935adfd2a8e634f97147d439be7c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5b935adfd2a8e634f97147d439be7c1"></a>
-typedef struct <a class="el" href="structoutput_task_mailbox.html">outputTaskMailbox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>outputTaskMailbox_t</b></td></tr>
-<tr class="separator:ad5b935adfd2a8e634f97147d439be7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a166d6e006ce551b6d3ca730e7969950c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a166d6e006ce551b6d3ca730e7969950c"></a>
-typedef struct <a class="el" href="structsystem_state.html">systemState</a>&#160;</td><td class="memItemRight" valign="bottom"><b>systemState_t</b></td></tr>
-<tr class="separator:a166d6e006ce551b6d3ca730e7969950c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30035205e49854aaec1e22956c11a41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab30035205e49854aaec1e22956c11a41"></a>
 typedef enum state&#160;</td><td class="memItemRight" valign="bottom"><b>state_t</b></td></tr>
 <tr class="separator:ab30035205e49854aaec1e22956c11a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5835e15d5b05a7534bf7afb4b1dc3f23"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5835e15d5b05a7534bf7afb4b1dc3f23"></a>
 typedef enum useCases&#160;</td><td class="memItemRight" valign="bottom"><b>useCases_t</b></td></tr>
 <tr class="separator:a5835e15d5b05a7534bf7afb4b1dc3f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a166d6e006ce551b6d3ca730e7969950c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a166d6e006ce551b6d3ca730e7969950c"></a>
+typedef struct <a class="el" href="structsystem_state.html">systemState</a>&#160;</td><td class="memItemRight" valign="bottom"><b>systemState_t</b></td></tr>
+<tr class="separator:a166d6e006ce551b6d3ca730e7969950c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6b5c4d749e234ba2e7eada4203f444b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6b5c4d749e234ba2e7eada4203f444b"></a>
 typedef enum direction&#160;</td><td class="memItemRight" valign="bottom"><b>direction_t</b></td></tr>
 <tr class="separator:ab6b5c4d749e234ba2e7eada4203f444b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af15c937ee8def57f83e25fbd46206d5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af15c937ee8def57f83e25fbd46206d5b"></a>
 typedef struct <a class="el" href="structmotor_state.html">motorState</a>&#160;</td><td class="memItemRight" valign="bottom"><b>motorState_t</b></td></tr>
 <tr class="separator:af15c937ee8def57f83e25fbd46206d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5b935adfd2a8e634f97147d439be7c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5b935adfd2a8e634f97147d439be7c1"></a>
+typedef struct <a class="el" href="structoutput_task_mailbox.html">outputTaskMailbox</a>&#160;</td><td class="memItemRight" valign="bottom"><b>outputTaskMailbox_t</b></td></tr>
+<tr class="separator:ad5b935adfd2a8e634f97147d439be7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -256,8 +258,8 @@ Marc Kossmann </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>22.10.2014</dd></dl>
 <p>Contains defines, includes, typedefs and declarations needed for this task.</p>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>v0.1 Riedel &amp; Kossmann</p><ul>
-<li>first draft for milestone 1b 2014-10-27: Riedel:</li>
+<p>22.10. Riedel &amp; Kossmann</p><ul>
+<li>first draft for milestone 1b 27.10. Riedel</li>
 <li>moved events to <a class="el" href="events_8h.html" title="definitions for used events ">events.h</a> for better handling </li>
 </ul>
 
@@ -291,7 +293,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00028">28</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
+<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00032">32</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
 
 </div>
 </div>
@@ -301,7 +303,7 @@ Marc Kossmann </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="user_input_task_8h.html">userInputTask.h</a></li>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

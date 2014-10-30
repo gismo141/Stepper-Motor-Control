@@ -46,6 +46,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -82,11 +83,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
-      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
       <li class="current"><a href="#index_u"><span>u</span></a></li>
@@ -112,7 +114,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -124,15 +126,10 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <div class="contents">
 <div class="textblock">Here is a list of all documented file members with links to the documentation:</div>
 
-<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
-<li>GetKeyReg()
-: <a class="el" href="hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9">hardwareAccess.h</a>
-</li>
-<li>GetRedLed()
-: <a class="el" href="hardware_access_8h.html#a78083984a05486ea2361cf5a82d2e77a">hardwareAccess.h</a>
-</li>
-<li>getSW()
-: <a class="el" href="hardware_access_8h.html#a226a59d3c74a7cade8c03c525e003a5c">hardwareAccess.h</a>
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>DOGM162lcd_init()
+: <a class="el" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.h</a>
+, <a class="el" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.c</a>
 </li>
 </ul>
 
@@ -152,99 +149,6 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
-<li>INTERFACE_GREENLED_MSK
-: <a class="el" href="interface_regs_8h.html#a6b007e8ebf1f0c50b0b6ddab78b9d5c5">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_GREENLED_REG
-: <a class="el" href="interface_regs_8h.html#a9ea24735419bae9c073094d9141a6f9d">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IE0_MSK
-: <a class="el" href="interface_regs_8h.html#a93406873edb1e62cf5c34c5ce0d58db8">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IE0_OFST
-: <a class="el" href="interface_regs_8h.html#a3a19852fd865f1b7968b16f0690b3982">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IE1_MSK
-: <a class="el" href="interface_regs_8h.html#a233b50f2ab6bbf7e263828f24a7d9820">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IE1_OFST
-: <a class="el" href="interface_regs_8h.html#a1e1a46b408859a7f40c95c1460246004">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IE2_MSK
-: <a class="el" href="interface_regs_8h.html#a5d1e2e7dd46cd63cd346b839726fb8aa">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IE2_OFST
-: <a class="el" href="interface_regs_8h.html#adc69659819432e2f9766386ecb7c66c5">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IR0_MSK
-: <a class="el" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IR0_OFST
-: <a class="el" href="interface_regs_8h.html#a9bda399a73971a20cda6275cf904d7a0">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IR1_MSK
-: <a class="el" href="interface_regs_8h.html#a5f38834866a190c125be7a9a4f8b23fd">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IR1_OFST
-: <a class="el" href="interface_regs_8h.html#ae257fa3714ef49235f96d540c3ef91b5">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IR2_MSK
-: <a class="el" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_IR2_OFST
-: <a class="el" href="interface_regs_8h.html#aae39c5212d9072df23c35b4e2411e467">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_KEY_REG
-: <a class="el" href="interface_regs_8h.html#ab71c69a6c0dc753d7560670ae6e3fa9c">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_REDLED_MSK
-: <a class="el" href="interface_regs_8h.html#a9dc98d716903690d1ea79316e0c084f3">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_REDLED_REG
-: <a class="el" href="interface_regs_8h.html#a9aa658128ecb533f059e38c7ab57b0a7">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_SWITCH_MSK
-: <a class="el" href="interface_regs_8h.html#ab0a3114a64692b840372fafcae1d4966">interfaceRegs.h</a>
-</li>
-<li>INTERFACE_SWITCH_REG
-: <a class="el" href="interface_regs_8h.html#af6d41b6ec43a7233356c307549d2afc9">interfaceRegs.h</a>
-</li>
-<li>IOADDR_INTERFACE_GREENLED
-: <a class="el" href="interface_regs_8h.html#a6513fa7f141844e36db47998c29905a4">interfaceRegs.h</a>
-</li>
-<li>IOADDR_INTERFACE_KEY
-: <a class="el" href="interface_regs_8h.html#a3cd1d39711f6877359a2ee58b3edb35a">interfaceRegs.h</a>
-</li>
-<li>IOADDR_INTERFACE_REDLED
-: <a class="el" href="interface_regs_8h.html#aea3180b6e550c49fc882db4f0eacbad1">interfaceRegs.h</a>
-</li>
-<li>IOADDR_INTERFACE_SWITCH
-: <a class="el" href="interface_regs_8h.html#a678171f08f1092cc1c6497880c2365ca">interfaceRegs.h</a>
-</li>
-<li>IORD_INTERFACE_GREENLED
-: <a class="el" href="interface_regs_8h.html#ada13ab617f753e1c24b2e6572dd2041b">interfaceRegs.h</a>
-</li>
-<li>IORD_INTERFACE_KEY
-: <a class="el" href="interface_regs_8h.html#a5452e193d14948c13b859325a93d39e6">interfaceRegs.h</a>
-</li>
-<li>IORD_INTERFACE_REDLED
-: <a class="el" href="interface_regs_8h.html#af992fb333415f4baec787edb1fd53a8e">interfaceRegs.h</a>
-</li>
-<li>IORD_INTERFACE_SWITCH
-: <a class="el" href="interface_regs_8h.html#ad325a71e9541f67a44158dd350b59aa5">interfaceRegs.h</a>
-</li>
-<li>IOWR_INTERFACE_ADDR
-: <a class="el" href="interface_regs_8h.html#a212e57895cc0f6ce366c402c512287aa">interfaceRegs.h</a>
-</li>
-<li>IOWR_INTERFACE_GREENLED
-: <a class="el" href="interface_regs_8h.html#aa4903a81d857d6a66b583e1a99b4a3c5">interfaceRegs.h</a>
-</li>
-<li>IOWR_INTERFACE_KEY
-: <a class="el" href="interface_regs_8h.html#accd562257e3ca02c780e31d548867cb9">interfaceRegs.h</a>
-</li>
-<li>IOWR_INTERFACE_REDLED
-: <a class="el" href="interface_regs_8h.html#a65c99ac17e90413304fb34560693fbc0">interfaceRegs.h</a>
-</li>
 <li>ISRcontext
 : <a class="el" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">main.c</a>
 </li>
@@ -270,7 +174,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
-: <a class="el" href="main_8c.html#a52d2cba30e6946c95578be946ac12a65">main.c</a>
+: <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a>
 </li>
 <li>MOTOR_STOP_EVENT
 : <a class="el" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">events.h</a>
@@ -282,16 +186,26 @@ $(document).ready(function(){initNavTree('globals.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>PIO_KEY_ClearEdgeCptBits()
+: <a class="el" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">hardwareAccess.h</a>
+</li>
+<li>PIO_KEY_GetEdgeCpt()
+: <a class="el" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">hardwareAccess.h</a>
+</li>
+<li>PIO_KEY_SetIRMsk()
+: <a class="el" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">hardwareAccess.h</a>
+</li>
+<li>PIO_SW_GetValues()
+: <a class="el" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">hardwareAccess.h</a>
+</li>
+<li>PIO_SW_SetIRMsk()
+: <a class="el" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">hardwareAccess.h</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
-<li>SetKeyReg()
-: <a class="el" href="hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b">hardwareAccess.h</a>
-</li>
-<li>SetRedLed()
-: <a class="el" href="hardware_access_8h.html#ac9fbb5c42a59effede9cbb13f3584f35">hardwareAccess.h</a>
-</li>
-<li>SWITCH_UPDATE_EVENT
-: <a class="el" href="events_8h.html#a7322eda4a819d8262e996615ecc13b05">events.h</a>
-</li>
 <li>switchesIRQhandler()
 : <a class="el" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler.h</a>
 , <a class="el" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler.c</a>
@@ -314,15 +228,15 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="main_8h.html#a5a412c0b185f9535b402dc6a052cc7c7">main.h</a>
 </li>
 <li>UserInputTask()
-: <a class="el" href="user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb">userInputTask.h</a>
-, <a class="el" href="user_input_task_8c.html#a33dcaae5b81538ffd1eedb93228b65bb">userInputTask.c</a>
+: <a class="el" href="user_input_task_8c.html#a33dcaae5b81538ffd1eedb93228b65bb">userInputTask.c</a>
+, <a class="el" href="user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb">userInputTask.h</a>
 </li>
 <li>UserInputTask_Stk
 : <a class="el" href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">main.h</a>
 </li>
 <li>UserOutputTask()
-: <a class="el" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.h</a>
-, <a class="el" href="user_output_task_8c.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.c</a>
+: <a class="el" href="user_output_task_8c.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.c</a>
+, <a class="el" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.h</a>
 </li>
 <li>UserOutputTask_Stk
 : <a class="el" href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">main.h</a>
@@ -333,7 +247,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Oct 27 2014 12:46:08 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Oct 30 2014 10:21:54 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
