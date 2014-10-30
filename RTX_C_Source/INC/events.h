@@ -18,12 +18,22 @@
 #ifndef __EVENTS_H__
 #define __EVENTS_H__
 
-#define KEY0_RS_EVENT       (0x1)   //!< runs or stops the motor via key_0
-#define KEY2_MINUS_EVENT    (0x2)   //!< decreases the steps to turn via key_2
-#define KEY3_PLUS_EVENT     (0x4)   //!< increases the steps to turn via key_3
-#define TURN_LEFT_EVENT           (0x8)   //!< the motor turns counter-clockwise when sw_0 == 1
-#define TURN_RIGHT_EVENT          (0x10)  //!< the motor turns clockwise when sw_0 == 0
-#define DEBUG_ON_EVENT      (0x8)   //!< activates the debug-mode via sw_9
-#define MOTOR_STOP_EVENT    (0x10)  //!< the interrupt is sent via VHDL-Component, when the motor reached its end-position
+/**
+ * @brief The flags group used in the user-input-task.
+ * @details This group contains all possibly events, which can be triggered
+ *          by the user.
+ */
+OS_FLAG_GRP *userInputTaskFlagsGrp;
+#define KEY0_RS_EVENT       (0x1) //!< runs or stops the motor via key_0
+#define KEY2_MINUS_EVENT    (0x2) //!< decreases the steps to turn via key_2
+#define KEY3_PLUS_EVENT     (0x4) //!< increases the steps to turn via key_3
+#define MOTOR_STOP_EVENT    (0x8) //!< the interrupt is sent via VHDL-Component, when the motor reached its end-position
+
+/**
+ * @brief The flags group used in the heartbeat-task and user-input-task.
+ * @details This group contains the debug-event that can be triggered via sw_9.
+ */
+OS_FLAG_GRP *heartbeatTaskFlagsGrp;
+#define DEBUG_ON_EVENT      (0x1) //!< activates the debug-mode via sw_9
 
 #endif /*__EVENTS_H__*/

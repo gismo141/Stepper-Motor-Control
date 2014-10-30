@@ -37,37 +37,37 @@
 #include "auxilaryFunctions.h"
 #include "heartbeatTask.h"
 
-#define CTRL_REG_RS_MSK     (0x1)
-#define CTRL_REG_LR_MSK     (0x2)
-#define CTRL_REG_MODE_MSK   (0x3C)
-#define CTRL_REG_IE_MSK     (0x40)
-#define CTRL_REG_IR_MSK     (0x80)
+#define CTRL_REG_RS_MSK       (0x1)
+#define CTRL_REG_LR_MSK       (0x2)
+#define CTRL_REG_MODE_MSK     (0x3C)
+#define CTRL_REG_IE_MSK       (0x40)
+#define CTRL_REG_IR_MSK       (0x80)
 
-#define SWITCH_LR_MSK     (0x1)
-#define SWITCH_MODE_MSK     (0x1E)
-#define SWITCH_DEBUG_MSK    (0x200)
+#define SWITCH_LR_MSK         (0x1)
+#define SWITCH_MODE_MSK       (0x1E)
+#define SWITCH_DEBUG_MSK      (0x200)
 
 #define MODE_STOP_CON_RUN_MSK (0x3)
-#define MODE_STOP       (0x0)
-#define MODE_CON_RUN      (0x1)
-#define MODE_CH_OF_ST_1_4   (0x2)
-#define MODE_CH_OF_ST_1_2   (0x6)
-#define MODE_CH_OF_ST_1     (0xA)
-#define MODE_CH_OF_ST_2     (0xE)
+#define MODE_STOP             (0x0)
+#define MODE_CON_RUN          (0x1)
+#define MODE_CH_OF_ST_1_4     (0x2)
+#define MODE_CH_OF_ST_1_2     (0x6)
+#define MODE_CH_OF_ST_1       (0xA)
+#define MODE_CH_OF_ST_2       (0xE)
 
 typedef enum state {
   ERROR       = 0,
-  FUNCTIONAL      = 1,
+  FUNCTIONAL  = 1,
   DEBUG       = 2,
 } state_t;
 
 typedef enum useCases {
-  STOP        = 0,
+  STOP              = 0,
   QUARTER_ROTATION  = 1,
-  HALF_ROTATION   = 2,
-  FULL_ROTATION   = 3,
+  HALF_ROTATION     = 2,
+  FULL_ROTATION     = 3,
   DOUBLE_ROTATION   = 4,
-  CONTINOUS       = 5
+  CONTINOUS         = 5
 } useCases_t;
 
 typedef struct systemState {
@@ -76,7 +76,7 @@ typedef struct systemState {
 } systemState_t;
 
 typedef enum direction {
-  LEFT = 0,
+  LEFT  = 0,
   RIGHT = 1
 } direction_t;
 

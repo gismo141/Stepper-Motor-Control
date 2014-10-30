@@ -21,7 +21,7 @@
 
 #include "../INC/userInputTask.h"
 
-OS_FLAG_GRP *userInputTaskFlagsGrp;
+extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
 OS_EVENT *switchesMsgQueue;
