@@ -90,4 +90,62 @@ static __inline__ uint32_t PIO_SW_GetValues(void) {
   return (IORD_ALTERA_AVALON_PIO_DATA(PIO_SW_BASE));
 }
 
+/**
+  * @name debug LED9
+  */
+
+/**
+  * @brief Function to set led9 for heartbeat
+  * @retval ledValue :  Value of LED
+ *                            @arg 0 = LED OFF
+ *                            @arg 1 = LED ON
+ */
+static __inline__ void PIO_LED9_Set(ledValue) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED9_BASE, ledValue);
+}
+
+/**
+  * @name 7-segment hex displays
+  */
+
+/**
+  * @brief Function to set segments on hex0 display
+  * @retval segmentValues :  Values for all seven segments
+ *                            @arg 0 = segment OFF
+ *                            @arg 1 = segment ON
+ */
+
+static __inline__ void PIO_HEX0_Set(segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX0_BASE, segmentValues);
+}
+/**
+  * @brief Function to set segments on hex1 display
+  * @retval segmentValues :  Values for all seven segments
+ *                            @arg 0 = segment OFF
+ *                            @arg 1 = segment ON
+ */
+static __inline__ void PIO_HEX1_Set(segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX1_BASE, segmentValues);
+}
+
+/**
+  * @brief Function to set segments on hex2 display
+  * @retval segmentValues :  Values for all seven segments
+ *                            @arg 0 = segment OFF
+ *                            @arg 1 = segment ON
+ */
+static __inline__ void PIO_HEX2_Set(segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX2_BASE, segmentValues);
+}
+
+/**
+  * @brief Function to set segments on hex3 display
+  * @retval segmentValues :  Values for all seven segments
+ *                            @arg 0 = segment OFF
+ *                            @arg 1 = segment ON
+ */
+static __inline__ void PIO_HEX3_Set(segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX3_BASE, segmentValues);
+}
+
 #endif

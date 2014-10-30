@@ -24,10 +24,10 @@
 
 #include <sys/alt_irq.h>
 #include "includes.h"
-#include "../INC/auxilaryFunctions.h"
-#include "../INC/hardwareAccess.h"
-#include "../INC/events.h"
-#include "../INC/debugAndErrorOutput.h"
+#include "auxilaryFunctions.h"
+#include "hardwareAccess.h"
+#include "events.h"
+#include "debugAndErrorOutput.h"
 
 /**
   * @brief  IRQ-Handler for key-input

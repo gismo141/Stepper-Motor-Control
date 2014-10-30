@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <system.h>
-#include "../INC/lcdDOGM162.h"
+#include "lcdDOGM162.h"
 
 void init_term(void);
 void init_lcd(void);

@@ -7,21 +7,23 @@
   * @date       22.10.2014
   * @brief      Source code for User-Input-Task which is highest instance,
   *             reacts to user input and controls register and hardware access
+  * @todo       remove virtual control registers and use set/get functions
+  *             of registerAccess.h
   *****************************************************************************
   * @par History:
   * @details    22.10. Kossmann
   *             - first draft for milestone 1b
- * @details    30.10. Kossmann
- *             - added error handling for flags and mailboxes
- *             - changed IPC with switches ISR to message queue
- *             30.10. Riedel
- *             - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
+  * @details    30.10. Kossmann
+  *             - added error handling for flags and mailboxes
+  *             - changed IPC with switches ISR to message queue
+  *             30.10. Riedel
+  *             - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
   *****************************************************************************
   */
 
 #include "../INC/userInputTask.h"
 
-OS_FLAG_GRP *userInputTaskFlagsGrp;
+extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
 OS_EVENT *switchesMsgQueue;
