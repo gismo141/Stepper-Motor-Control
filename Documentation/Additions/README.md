@@ -9,3 +9,5 @@ The [Images](Images)-folder contains images, that are used for the titlepage of 
 [Titelseite.tex](Titelseite.tex) is the LaTeX-file that defines the look of the docs-titlepage.
 
 [Input.tex](Input.tex) is called by `pandoc` when compiling the docs.
+
+The [Driver_USB-Blaster_x64](http://altera-guide.blogspot.de) can be installed under Windows 8 via the provided link.
