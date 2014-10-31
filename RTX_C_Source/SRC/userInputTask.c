@@ -71,7 +71,7 @@ void UserInputTask(void *pdata) {
   printf_lcd("Stepper-Control ");
   fflush_lcd();
 
-//  hardwareTest();
+  //  hardwareTest();
 
   switchesMsgQueue = OSQCreate(msgQueue, 16);
   outputTaskMailbox = OSMboxCreate(NULL);
@@ -174,7 +174,7 @@ void UserInputTask(void *pdata) {
   }
 }
 
-void hardwareTest(void){
+void hardwareTest(void) {
   uint32_t i;
 
   PIO_HEX0_Set(0x0);
@@ -232,7 +232,7 @@ void hardwareTest(void){
   printf_term("HEX-Display 0 shift on-off\n");
   clear_lcd();
   printf_lcd("HEX0 shift test\n");
-  for(i = 0; i < 7; i++){
+  for (i = 0; i < 7; i++) {
     PIO_HEX0_Set(pow(2, i));
     OSTimeDlyHMSM(0, 0, 0, 500);
     PIO_HEX0_Set(0x0);

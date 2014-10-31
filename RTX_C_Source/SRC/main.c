@@ -44,39 +44,39 @@ int main(void) {
 
   // -------------------- Flags creation--------------------------------
   userInputTaskFlagsGrp = OSFlagCreate(0x0000, &err);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("INPUT_FLAG_CREATE_ERR: %i\n", err);
   }
   heartbeatTaskFlagsGrp = OSFlagCreate(0x0000, &err);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("INPUT_FLAG_CREATE_ERR: %i\n", err);
   }
-    // -------------------- Tasks ----------------------------------------
-    err = OSTaskCreateExt(HeartbeatTask,
-                    NULL,
-                    (void *)&HeartbeatTask_Stk[TASK_STACKSIZE-1],
-                    HEARTBEAT_TASK_PRIORITY,
-                    HEARTBEAT_TASK_PRIORITY,
-                    HeartbeatTask_Stk,
-                    TASK_STACKSIZE,
-                    NULL,
-                    0);
-    if(OS_NO_ERR != err){
-      error("Err creating HeartbeatTask: %i\n", err);
-    }
+  // -------------------- Tasks ----------------------------------------
+  err = OSTaskCreateExt(HeartbeatTask,
+                        NULL,
+                        (void *)&HeartbeatTask_Stk[TASK_STACKSIZE - 1],
+                        HEARTBEAT_TASK_PRIORITY,
+                        HEARTBEAT_TASK_PRIORITY,
+                        HeartbeatTask_Stk,
+                        TASK_STACKSIZE,
+                        NULL,
+                        0);
+  if (OS_NO_ERR != err) {
+    error("Err creating HeartbeatTask: %i\n", err);
+  }
 
-//    err = OSTaskCreateExt(UserInputTask,
-//                    NULL,
-//                      (void *)&UserInputTask_Stk[TASK_STACKSIZE - 1],
-//                    USER_INPUT_TASK_PRIORITY,
-//                    USER_INPUT_TASK_PRIORITY,
-//                    UserInputTask_Stk,
-//                    TASK_STACKSIZE,
-//                    NULL,
-//                    0);
-//     if(OS_NO_ERR != err){
-//       error("Err creating UserInputTask: %i\n", err);
-//     }
+  //    err = OSTaskCreateExt(UserInputTask,
+  //                    NULL,
+  //                      (void *)&UserInputTask_Stk[TASK_STACKSIZE - 1],
+  //                    USER_INPUT_TASK_PRIORITY,
+  //                    USER_INPUT_TASK_PRIORITY,
+  //                    UserInputTask_Stk,
+  //                    TASK_STACKSIZE,
+  //                    NULL,
+  //                    0);
+  //     if(OS_NO_ERR != err){
+  //       error("Err creating UserInputTask: %i\n", err);
+  //     }
   //  err = OSTaskCreateExt(UserOutputTask,
   //                  NULL,
   //                    (void *)&UserOutputTask_Stk[TASK_STACKSIZE - 1],

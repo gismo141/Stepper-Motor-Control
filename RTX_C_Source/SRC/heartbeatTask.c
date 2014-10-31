@@ -32,8 +32,8 @@ void HeartbeatTask(void *pdata) {
                                DEBUG_ON_EVENT,
                                OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
     if (OS_NO_ERR != err && OS_TIMEOUT != err) {
-    	error("There was an error while waiting for the event!");
-    }else{
+      error("There was an error while waiting for the event!");
+    } else {
       if (heartbeatFlag & DEBUG_ON_EVENT)
         debugAndHeartbeat(heartbeatStatePtr);
       nextHeartbeatStep(heartbeatStatePtr);
@@ -41,7 +41,7 @@ void HeartbeatTask(void *pdata) {
   }
 }
 
-void nextHeartbeatStep(heartbeatState_t* heartbeatStatePtr) {
+void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr) {
   switch (*heartbeatStatePtr) {
   case FIRST:
     PIO_HEX3_Set(LINE);
@@ -69,13 +69,13 @@ void nextHeartbeatStep(heartbeatState_t* heartbeatStatePtr) {
   OSTimeDlyHMSM(0, 0, 1, 0);
 }
 
-void debugAndHeartbeat(heartbeatState_t* heartbeatStatePtr) {
+void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr) {
   nextHeartbeatStep(heartbeatStatePtr);
-  
-  
-//  if () {
-//
-//  }
+
+
+  //  if () {
+  //
+  //  }
   nextHeartbeatStep(heartbeatStatePtr);
   nextHeartbeatStep(heartbeatStatePtr);
   // setIR();

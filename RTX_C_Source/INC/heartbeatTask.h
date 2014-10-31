@@ -60,7 +60,7 @@ void HeartbeatTask(void *pdata);
   * @param None
   * @retval None
   */
-void nextHeartbeatStep(heartbeatState_t* heartbeatStatePtr);
+void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr);
 
 /**
   * @brief  This function implements the debug-logic
@@ -69,6 +69,6 @@ void nextHeartbeatStep(heartbeatState_t* heartbeatStatePtr);
   * @param  None
   * @retval None
   */
-void debugAndHeartbeat(heartbeatState_t* heartbeatStatePtr);
+void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr);
 
 #endif /*__HEARTBEAT_TASK_H__*/

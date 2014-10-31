@@ -18,5 +18,5 @@
 
 #include "../INC/motorIRQhandler.h"
 
-void motorIRQhandler(void *context)
-{}
+void motorIRQhandler(void *context) {
+}

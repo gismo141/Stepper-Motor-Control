@@ -90,7 +90,7 @@ static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits) {
  * @retval none
  */
 static __inline__ void PIO_SW_ClearEdgeCptBits(uint32_t clearbits) {
- IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_SW_BASE, clearbits);
+  IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_SW_BASE, clearbits);
 }
 
 /**
