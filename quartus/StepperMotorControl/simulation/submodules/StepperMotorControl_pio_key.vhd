@@ -93,7 +93,7 @@ begin
       edge_capture(0) <= std_logic'('0');
     elsif clk'event and clk = '1' then
       if std_logic'(clk_en) = '1' then 
-        if std_logic'((edge_capture_wr_strobe AND writedata(0))) = '1' then 
+        if std_logic'(edge_capture_wr_strobe) = '1' then 
           edge_capture(0) <= std_logic'('0');
         elsif std_logic'(edge_detect(0)) = '1' then 
           edge_capture(0) <= Vector_To_Std_Logic(-SIGNED(std_logic_vector'("00000000000000000000000000000001")));
@@ -109,7 +109,7 @@ begin
       edge_capture(1) <= std_logic'('0');
     elsif clk'event and clk = '1' then
       if std_logic'(clk_en) = '1' then 
-        if std_logic'((edge_capture_wr_strobe AND writedata(1))) = '1' then 
+        if std_logic'(edge_capture_wr_strobe) = '1' then 
           edge_capture(1) <= std_logic'('0');
         elsif std_logic'(edge_detect(1)) = '1' then 
           edge_capture(1) <= Vector_To_Std_Logic(-SIGNED(std_logic_vector'("00000000000000000000000000000001")));
@@ -125,7 +125,7 @@ begin
       edge_capture(2) <= std_logic'('0');
     elsif clk'event and clk = '1' then
       if std_logic'(clk_en) = '1' then 
-        if std_logic'((edge_capture_wr_strobe AND writedata(2))) = '1' then 
+        if std_logic'(edge_capture_wr_strobe) = '1' then 
           edge_capture(2) <= std_logic'('0');
         elsif std_logic'(edge_detect(2)) = '1' then 
           edge_capture(2) <= Vector_To_Std_Logic(-SIGNED(std_logic_vector'("00000000000000000000000000000001")));
@@ -141,7 +141,7 @@ begin
       edge_capture(3) <= std_logic'('0');
     elsif clk'event and clk = '1' then
       if std_logic'(clk_en) = '1' then 
-        if std_logic'((edge_capture_wr_strobe AND writedata(3))) = '1' then 
+        if std_logic'(edge_capture_wr_strobe) = '1' then 
           edge_capture(3) <= std_logic'('0');
         elsif std_logic'(edge_detect(3)) = '1' then 
           edge_capture(3) <= Vector_To_Std_Logic(-SIGNED(std_logic_vector'("00000000000000000000000000000001")));

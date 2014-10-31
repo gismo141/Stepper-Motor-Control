@@ -20,6 +20,8 @@
   *             - added debug and error handling header
   *             30.10. Riedel
   *             - cleaned includes
+  * @details    31.10. Riedel & Kossmann
+  *             - added hardwareTest() declaration
   *****************************************************************************
   */
 
@@ -30,12 +32,13 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "includes.h"
 #include "events.h"
+#include "hardwareAccess.h"
 
 #include "auxilaryFunctions.h"
-//#include "heartbeatTask.h"
 #include "debugAndErrorOutput.h"
 
 #define CTRL_REG_RS_MSK       (0x1)
@@ -96,5 +99,7 @@ typedef struct outputTaskMailbox {
   * @retval None
   */
 void UserInputTask(void *pdata);
+
+void hardwareTest(void);
 
 #endif /*__USER_INPUT_TASK_H__*/

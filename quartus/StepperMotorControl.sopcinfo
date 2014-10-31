@@ -4,12 +4,12 @@
  kind="StepperMotorControl"
  version="1.0"
  fabric="QSYS">
- <!-- Format version 14.0 200 (Future versions may contain additional information.) -->
- <!-- 2014.10.29.20:49:59 -->
+ <!-- Format version 14.0 209 (Future versions may contain additional information.) -->
+ <!-- 2014.10.31.10:16:32 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1414612199</value>
+  <value>1414746992</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -1557,7 +1557,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="dataSlaveMapParam">
    <type>java.lang.String</type>
-   <value><![CDATA[<address-map><slave name='SRAM_CVGX.uas' start='0x80000' end='0x100000' /><slave name='CPU.jtag_debug_module' start='0x100800' end='0x101000' /><slave name='pio_hex3.s1' start='0x101000' end='0x101020' /><slave name='pio_hex2.s1' start='0x101020' end='0x101040' /><slave name='pio_hex1.s1' start='0x101040' end='0x101060' /><slave name='pio_hex0.s1' start='0x101060' end='0x101080' /><slave name='pio_sw.s1' start='0x101080' end='0x1010A0' /><slave name='RTX_Timer.s1' start='0x1010A0' end='0x1010C0' /><slave name='pio_key.s1' start='0x1010C0' end='0x1010D0' /><slave name='pio_led9.s1' start='0x1010D0' end='0x1010E0' /><slave name='lcd.control_slave' start='0x1010E0' end='0x1010F0' /><slave name='sysid_qsys_0.control_slave' start='0x1010F0' end='0x1010F8' /><slave name='jtag_uart.avalon_jtag_slave' start='0x1010F8' end='0x101100' /></address-map>]]></value>
+   <value><![CDATA[<address-map><slave name='SRAM_CVGX.uas' start='0x80000' end='0x100000' /><slave name='CPU.jtag_debug_module' start='0x100800' end='0x101000' /><slave name='pio_hex3.s1' start='0x101000' end='0x101020' /><slave name='pio_hex2.s1' start='0x101020' end='0x101040' /><slave name='pio_hex1.s1' start='0x101040' end='0x101060' /><slave name='pio_hex0.s1' start='0x101060' end='0x101080' /><slave name='pio_sw.s1' start='0x101080' end='0x1010A0' /><slave name='RTX_Timer.s1' start='0x1010A0' end='0x1010C0' /><slave name='pio_led9.s1' start='0x1010C0' end='0x1010D0' /><slave name='pio_key.s1' start='0x1010D0' end='0x1010E0' /><slave name='lcd.control_slave' start='0x1010E0' end='0x1010F0' /><slave name='sysid_qsys_0.control_slave' start='0x1010F0' end='0x1010F8' /><slave name='jtag_uart.avalon_jtag_slave' start='0x1010F8' end='0x101100' /></address-map>]]></value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -2196,7 +2196,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>pio_key</moduleName>
     <slaveName>s1</slaveName>
     <name>pio_key.s1</name>
-    <baseAddress>1052864</baseAddress>
+    <baseAddress>1052880</baseAddress>
     <span>16</span>
    </memoryBlock>
    <memoryBlock>
@@ -2236,7 +2236,7 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>pio_led9</moduleName>
     <slaveName>s1</slaveName>
     <name>pio_led9.s1</name>
-    <baseAddress>1052880</baseAddress>
+    <baseAddress>1052864</baseAddress>
     <span>16</span>
    </memoryBlock>
   </interface>
@@ -3194,7 +3194,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1414612199</value>
+   <value>1414746992</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -3214,7 +3214,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1414612199</value>
+   <value>1414746992</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -3230,7 +3230,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1414612199</value>
+   <value>1414746992</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -12803,7 +12803,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <assignment>
    <name>embeddedsw.CMacro.BIT_CLEARING_EDGE_REGISTER</name>
-   <value>1</value>
+   <value>0</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.BIT_MODIFYING_OUTPUT_REGISTER</name>
@@ -12891,7 +12891,7 @@ the requested settings for a module instance. -->
   </assignment>
   <parameter name="bitClearingEdgeCapReg">
    <type>boolean</type>
-   <value>true</value>
+   <value>false</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -19047,7 +19047,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x001010c0</value>
+   <value>0x001010d0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -19823,7 +19823,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>java.math.BigInteger</type>
-   <value>0x001010d0</value>
+   <value>0x001010c0</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -20114,6 +20114,6 @@ parameters are a RESULT of the module parameters. -->
   <displayName>Clock Connection</displayName>
   <version>14.0</version>
  </plugin>
- <reportVersion>14.0 200</reportVersion>
+ <reportVersion>14.0 209</reportVersion>
  <uniqueIdentifier></uniqueIdentifier>
 </EnsembleReport>

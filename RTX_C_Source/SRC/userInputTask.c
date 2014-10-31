@@ -57,6 +57,19 @@ void UserInputTask(void *pdata) {
   void *msg;
   void *msgQueue[16];
 
+  //Show initial terminal msg
+  printf_term("Stepper Motor - System on a Chip 2014\n");
+  printf_term("Michael Riedel & Marc Kossmann\n");
+  printf_term("Version 0.1 - 28.10.2014\n");
+
+  //init LC-Display and show initial screen
+  init_lcd();
+  printf_lcd("    SoC 2014    \n");
+  printf_lcd("Stepper-Control ");
+  fflush_lcd();
+
+//  hardwareTest();
+
   switchesMsgQueue = OSQCreate(msgQueue, 16);
   outputTaskMailbox = OSMboxCreate(NULL);
   if ((OS_EVENT *)0 == switchesMsgQueue || (OS_EVENT *)0 == outputTaskMailbox) {
@@ -156,4 +169,73 @@ void UserInputTask(void *pdata) {
       }
     }
   }
+}
+
+void hardwareTest(void){
+  uint32_t i;
+
+  PIO_HEX0_Set(0x0);
+  PIO_HEX1_Set(0x0);
+  PIO_HEX2_Set(0x0);
+  PIO_HEX3_Set(0x0);
+
+  printf_term("Starting hardwareTest!\n");
+  clear_lcd();
+  printf_lcd("Start hwTest!\n");
+
+  printf_term("Begin with LED9 flashing on-off\n");
+  clear_lcd();
+  printf_lcd("LED9 on-off\n");
+  OSTimeDlyHMSM(0, 0, 1, 0);
+  PIO_LED9_Set(0x1);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+  PIO_LED9_Set(0x0);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+  PIO_LED9_Set(0x1);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+  PIO_LED9_Set(0x0);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+
+  printf_term("HEX-Display 0 all on\n");
+  clear_lcd();
+  printf_lcd("HEX0 all on\n");
+  OSTimeDlyHMSM(0, 0, 1, 0);
+  PIO_HEX0_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+
+  printf_term("HEX-Display 1 all on\n");
+  printf_lcd("HEX1 all on");
+  fflush_lcd();
+  PIO_HEX1_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+
+  printf_term("HEX-Display 2 all on\n");
+  clear_lcd();
+  printf_lcd("HEX2 all on\n");
+  PIO_HEX2_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+
+  printf_term("HEX-Display 3 all on\n");
+  printf_lcd("HEX1 all on");
+  fflush_lcd();
+  PIO_HEX3_Set(0x7F);
+  OSTimeDlyHMSM(0, 0, 1, 0);
+
+  PIO_HEX0_Set(0x0);
+  PIO_HEX1_Set(0x0);
+  PIO_HEX2_Set(0x0);
+  PIO_HEX3_Set(0x0);
+
+  printf_term("HEX-Display 0 shift on-off\n");
+  clear_lcd();
+  printf_lcd("HEX0 shift test\n");
+  for(i = 0; i < 7; i++){
+    PIO_HEX0_Set(pow(2, i));
+    OSTimeDlyHMSM(0, 0, 0, 500);
+    PIO_HEX0_Set(0x0);
+    OSTimeDlyHMSM(0, 0, 0, 500);
+  }
+  OSTimeDlyHMSM(0, 0, 0, 500);
+  PIO_HEX0_Set(0x0);
+  clear_lcd();
 }

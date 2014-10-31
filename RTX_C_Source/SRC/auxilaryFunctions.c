@@ -6,11 +6,15 @@
   * @version    v0.1
   * @date       28.10.2014
   * @brief      Collection of auxilary functions
-  ***************************************************************************
+  * @todo       check if timeout are needed and reduce timout value to minimum
+  *****************************************************************************
   * @par History:
   * @details    28.10. Riedel & Kossmann
   *             - added functions for using printf like lcd and term output
-  ****************************************************************************
+  * @details    31.10. Riedel & Kossmann
+  *             - added timeout for clearing display but not sure if needed
+  *             - clear display function added
+  *****************************************************************************
   */
 
 #include "../INC/auxilaryFunctions.h"
@@ -27,6 +31,11 @@ void init_lcd(void) {
   lcd = fopen(LCD_NAME, "w");
 }
 
+void clear_lcd(void) {
+  IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, 0x01);
+  OSTimeDlyHMSM(0, 0, 0, 10);
+  printf_lcd("\r");
+}
 
 void printf_term(const char *format, ...) {
   va_list args;

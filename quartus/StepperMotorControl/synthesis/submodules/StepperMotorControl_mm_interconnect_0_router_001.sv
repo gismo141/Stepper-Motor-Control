@@ -257,14 +257,14 @@ module StepperMotorControl_mm_interconnect_0_router_001
 
     // ( 0x1010c0 .. 0x1010d0 )
     if ( {address[RG:PAD8],{PAD8{1'b0}}} == 21'h1010c0   ) begin
-            src_channel = 13'b0000010000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
+            src_channel = 13'b1000000000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 10;
     end
 
     // ( 0x1010d0 .. 0x1010e0 )
     if ( {address[RG:PAD9],{PAD9{1'b0}}} == 21'h1010d0   ) begin
-            src_channel = 13'b1000000000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 10;
+            src_channel = 13'b0000010000000;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
     end
 
     // ( 0x1010e0 .. 0x1010f0 )

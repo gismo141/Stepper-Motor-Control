@@ -9,66 +9,74 @@
   *****************************************************************************
   * @par History:
   * @details    30.10. Riedel
-  *                  - first draft for milestone 1b
-  *                  31.10. Riedel
-  *                  - added hardware-access to heartbeat
+  *             - first draft for milestone 1b
+  * @details    31.10. Riedel
+  *             - added hardware-access to heartbeat
+  * @details    31.10. Riedel & Kossmann
+  *             - finilized heartbeat functionality
   *****************************************************************************
   */
 
 #include "../INC/heartbeatTask.h"
-#include "../INC/debugAndErrorOutput.h"
 
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
-heartbeatState_t heartbeatState;
 
 void HeartbeatTask(void *pdata) {
+uint8_t err;
   OS_FLAGS heartbeatFlag;
-  heartbeatState =  FIRST;
+  heartbeatState_t heartbeatState = FIRST;
+  heartbeatState_t *heartbeatStatePtr = &heartbeatState;
 
   while (1) {
     heartbeatFlag = OSFlagPend(heartbeatTaskFlagsGrp,
                                DEBUG_ON_EVENT,
                                OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
-    if (OS_NO_ERR == err) {
+    if (OS_NO_ERR != err && OS_TIMEOUT != err) {
+    	error("There was an error while waiting for the event!");
+    }else{
       if (heartbeatFlag & DEBUG_ON_EVENT)
-        debugAndHeartbeat();
-      nextHeartbeatStep();
-    } else
-      error("There was an error while waiting for the event!");
+        debugAndHeartbeat(heartbeatStatePtr);
+      nextHeartbeatStep(heartbeatStatePtr);
+    }
   }
 }
 
-void nextHeartbeatStep(void) {
-  switch (heartbeatState) {
+void nextHeartbeatStep(heartbeatState_t* heartbeatStatePtr) {
+  switch (*heartbeatStatePtr) {
   case FIRST:
     PIO_HEX3_Set(LINE);
     PIO_LED9_Set(0x1);
-    heartbeatState = SECOND;
+    *heartbeatStatePtr = SECOND;
+    break;
   case SECOND:
     PIO_HEX3_Set(LOWER_O);
     PIO_LED9_Set(0x0);
-    heartbeatState = THIRD;
+    *heartbeatStatePtr = THIRD;
+    break;
   case THIRD:
     PIO_HEX3_Set(LINE);
     PIO_LED9_Set(0x1);
-    heartbeatState = FOURTH;
+    *heartbeatStatePtr = FOURTH;
+    break;
   case FOURTH:
     PIO_HEX3_Set(UPPER_O);
     PIO_LED9_Set(0x0);
-    heartbeatState = FIRST;
+    *heartbeatStatePtr = FIRST;
+    break;
   default:
-    OSTimeDlyHMSM(0, 0, 0, 250);
+    break;
   }
+  OSTimeDlyHMSM(0, 0, 1, 0);
 }
 
-void debugAndHeartbeat() {
-  nextHeartbeatStep();
+void debugAndHeartbeat(heartbeatState_t* heartbeatStatePtr) {
+  nextHeartbeatStep(heartbeatStatePtr);
   
   
-  if () {
-
-  }
-  nextHeartbeatStep();
-  nextHeartbeatStep();
+//  if () {
+//
+//  }
+  nextHeartbeatStep(heartbeatStatePtr);
+  nextHeartbeatStep(heartbeatStatePtr);
   // setIR();
 }

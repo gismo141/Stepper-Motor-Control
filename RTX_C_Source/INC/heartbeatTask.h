@@ -12,11 +12,13 @@
   * @par History:
   * @details    22.10. Kossmann
   *             - first draft for milestone 1b
-  *             30.10. Riedel
+  * @details    30.10. Riedel
   *             - moved DEBUG_ON_EVENT to events.h
-  *             31.10. Riedel
+  * @details    31.10. Riedel
   *             - added defines for HEX-segments
   *             - added declaration and documentation for sub-functions.
+  * @details    31.10. Riedel & Kossmann
+  *             - finilized heartbeat functionality
   *****************************************************************************
   */
 
@@ -29,16 +31,17 @@
 #include "includes.h"
 #include "events.h"
 #include "hardwareAccess.h"
+#include "debugAndErrorOutput.h"
 
-#define LOWER_O (0b0001111) \\!< represents the letter o in the lower HEX-segments
-#define UPPER_O  (0b1111000) \\!< represents the letter o in the upper HEX-segments
-#define LINE          (0b0001000) \\!< represents a centered bar in the HEX-segments
+#define LOWER_O (0b1011100) //!< represents the letter o in the lower HEX-segments
+#define UPPER_O (0b1100011) //!< represents the letter o in the upper HEX-segments
+#define LINE    (0b1000000) //!< represents a centered bar in the HEX-segments
 
 typedef enum heartbeatState {
   FIRST  = 0,
   SECOND = 1,
   THIRD  = 2,
-  FOURTH = 3;
+  FOURTH = 3
 } heartbeatState_t;
 
 /**
@@ -57,7 +60,7 @@ void HeartbeatTask(void *pdata);
   * @param None
   * @retval None
   */
-void nextHeartbeatStep(void);
+void nextHeartbeatStep(heartbeatState_t* heartbeatStatePtr);
 
 /**
   * @brief  This function implements the debug-logic
@@ -66,6 +69,6 @@ void nextHeartbeatStep(void);
   * @param  None
   * @retval None
   */
-void debugAndHeartbeat(void);
+void debugAndHeartbeat(heartbeatState_t* heartbeatStatePtr);
 
 #endif /*__HEARTBEAT_TASK_H__*/

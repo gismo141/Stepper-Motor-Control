@@ -16,6 +16,8 @@
   *             - introduced SOC2014_DEBUG
   * @details    30.10. Kossmann
   *             - added debug and error handling header
+  * @details    31.10. Riedel & Kossmann
+  *             - corrected misspelled heartbeatTask
   ****************************************************************************
   */
 
@@ -30,14 +32,14 @@
 #include "auxilaryFunctions.h"
 #include "userInputTask.h"
 #include "userOutputTask.h"
-//#include "../INC/heartbeatTask.h"
+#include "heartbeatTask.h"
 #include "hardwareAccess.h"
 #include "switchesIRQhandler.h"
 #include "keysIRQhandler.h"
 #include "motorIRQhandler.h"
 #include "debugAndErrorOutput.h"
 
-#define SOC2014_DEBUG
+#define SOC2014_DEBUG 1
 
 /** @brief Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
@@ -47,15 +49,13 @@ OS_STK    UserInputTask_Stk[TASK_STACKSIZE];
 /** @brief Stack for Task 2 */
 OS_STK    UserOutputTask_Stk[TASK_STACKSIZE];
 /** @brief Stack for Task 3 */
-OS_STK    HeartbeatDebugTask_Stk[TASK_STACKSIZE];
+OS_STK    HeartbeatTask_Stk[TASK_STACKSIZE];
 
 /** @par Definition of Task Priorities
   * @brief lower numbers mean higher priority
   */
 #define USER_INPUT_TASK_PRIORITY        4  /*!< Priority Task UserInputTask */
 #define USER_OUTPUT_TASK_PRIORITY       5  /*!< Priority Task UserOutputTask */
-#define HEARTBEAT_DEBUG_TASK_PRIORITY   6  /*!< Priority Task HeartbeatDebugTask */
-
-void hardwareTest(void);
+#define HEARTBEAT_TASK_PRIORITY   6  /*!< Priority Task HeartbeatDebugTask */
 
 #endif /*__MAIN_H__*/

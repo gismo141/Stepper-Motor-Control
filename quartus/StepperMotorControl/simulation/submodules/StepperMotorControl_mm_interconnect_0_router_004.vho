@@ -1,5 +1,5 @@
 --IP Functional Simulation Model
---VERSION_BEGIN 14.0 cbx_mgl 2014:06:17:18:10:38:SJ cbx_simgen 2014:06:17:18:06:03:SJ  VERSION_END
+--VERSION_BEGIN 14.0 cbx_mgl 2014:09:17:19:03:37:SJ cbx_simgen 2014:09:17:18:55:21:SJ  VERSION_END
 
 
 -- Copyright (C) 1991-2014 Altera Corporation. All rights reserved.

@@ -14,6 +14,8 @@
   *           - first draft for milestone 1b
   * @details  27.10. Riedel & Kossmann
   *           - using lcdDOGM162.h
+  * @details  27.10. Riedel & Kossmann
+  *           - clear display function added
   ******************************************************************************
   */
 
@@ -23,10 +25,12 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <system.h>
+#include "includes.h"
 #include "lcdDOGM162.h"
 
 void init_term(void);
 void init_lcd(void);
+void clear_lcd(void);
 void printf_term(const char *, ...);
 void printf_lcd(const char *, ...);
 void fflush_term();

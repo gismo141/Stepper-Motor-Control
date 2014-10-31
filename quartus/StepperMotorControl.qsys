@@ -68,19 +68,19 @@
          type = "int";
       }
    }
-   element sysid_qsys_0.control_slave
-   {
-      datum baseAddress
-      {
-         value = "1052912";
-         type = "String";
-      }
-   }
    element lcd.control_slave
    {
       datum baseAddress
       {
          value = "1052896";
+         type = "String";
+      }
+   }
+   element sysid_qsys_0.control_slave
+   {
+      datum baseAddress
+      {
+         value = "1052912";
          type = "String";
       }
    }
@@ -180,11 +180,11 @@
          type = "String";
       }
    }
-   element pio_key.s1
+   element pio_sw.s1
    {
       datum baseAddress
       {
-         value = "1052864";
+         value = "1052800";
          type = "String";
       }
    }
@@ -196,7 +196,7 @@
          type = "String";
       }
    }
-   element pio_led9.s1
+   element pio_key.s1
    {
       datum baseAddress
       {
@@ -204,19 +204,11 @@
          type = "String";
       }
    }
-   element pio_sw.s1
+   element pio_hex3.s1
    {
       datum baseAddress
       {
-         value = "1052800";
-         type = "String";
-      }
-   }
-   element pio_hex2.s1
-   {
-      datum baseAddress
-      {
-         value = "1052704";
+         value = "1052672";
          type = "String";
       }
    }
@@ -228,11 +220,19 @@
          type = "String";
       }
    }
-   element pio_hex3.s1
+   element pio_hex2.s1
    {
       datum baseAddress
       {
-         value = "1052672";
+         value = "1052704";
+         type = "String";
+      }
+   }
+   element pio_led9.s1
+   {
+      datum baseAddress
+      {
+         value = "1052864";
          type = "String";
       }
    }
@@ -429,7 +429,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='SRAM_CVGX.uas' start='0x80000' end='0x100000' /><slave name='CPU.jtag_debug_module' start='0x100800' end='0x101000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM_CVGX.uas' start='0x80000' end='0x100000' /><slave name='CPU.jtag_debug_module' start='0x100800' end='0x101000' /><slave name='pio_hex3.s1' start='0x101000' end='0x101020' /><slave name='pio_hex2.s1' start='0x101020' end='0x101040' /><slave name='pio_hex1.s1' start='0x101040' end='0x101060' /><slave name='pio_hex0.s1' start='0x101060' end='0x101080' /><slave name='pio_sw.s1' start='0x101080' end='0x1010A0' /><slave name='RTX_Timer.s1' start='0x1010A0' end='0x1010C0' /><slave name='pio_key.s1' start='0x1010C0' end='0x1010D0' /><slave name='pio_led9.s1' start='0x1010D0' end='0x1010E0' /><slave name='lcd.control_slave' start='0x1010E0' end='0x1010F0' /><slave name='sysid_qsys_0.control_slave' start='0x1010F0' end='0x1010F8' /><slave name='jtag_uart.avalon_jtag_slave' start='0x1010F8' end='0x101100' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SRAM_CVGX.uas' start='0x80000' end='0x100000' /><slave name='CPU.jtag_debug_module' start='0x100800' end='0x101000' /><slave name='pio_hex3.s1' start='0x101000' end='0x101020' /><slave name='pio_hex2.s1' start='0x101020' end='0x101040' /><slave name='pio_hex1.s1' start='0x101040' end='0x101060' /><slave name='pio_hex0.s1' start='0x101060' end='0x101080' /><slave name='pio_sw.s1' start='0x101080' end='0x1010A0' /><slave name='RTX_Timer.s1' start='0x1010A0' end='0x1010C0' /><slave name='pio_led9.s1' start='0x1010C0' end='0x1010D0' /><slave name='pio_key.s1' start='0x1010D0' end='0x1010E0' /><slave name='lcd.control_slave' start='0x1010E0' end='0x1010F0' /><slave name='sysid_qsys_0.control_slave' start='0x1010F0' end='0x1010F8' /><slave name='jtag_uart.avalon_jtag_slave' start='0x1010F8' end='0x101100' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="100000000" />
   <parameter name="deviceFamilyName" value="Cyclone V" />
   <parameter name="internalIrqMaskSystemInfo" value="2147483655" />
@@ -791,7 +791,7 @@
   <parameter name="clockRate" value="100000000" />
  </module>
  <module kind="altera_avalon_pio" version="14.0" enabled="1" name="pio_key">
-  <parameter name="bitClearingEdgeCapReg" value="true" />
+  <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="true" />
   <parameter name="direction" value="Input" />
@@ -1114,7 +1114,7 @@
  </connection>
  <connection kind="avalon" version="14.0" start="CPU.data_master" end="pio_key.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x001010c0" />
+  <parameter name="baseAddress" value="0x001010d0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1252,7 +1252,7 @@
    start="CPU.data_master"
    end="pio_led9.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x001010d0" />
+  <parameter name="baseAddress" value="0x001010c0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />

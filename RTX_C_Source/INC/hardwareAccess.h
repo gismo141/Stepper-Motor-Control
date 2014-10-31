@@ -13,6 +13,8 @@
   *             - first draft for milestone 1b
   * @details    29.10. Kossmann
   *             -renewed complete pio access concept
+  * @details    31.10. Riedel & Kossmann
+  *             - added missing var type in hex functions
   *****************************************************************************
   */
 
@@ -100,7 +102,7 @@ static __inline__ uint32_t PIO_SW_GetValues(void) {
  *                            @arg 0 = LED OFF
  *                            @arg 1 = LED ON
  */
-static __inline__ void PIO_LED9_Set(ledValue) {
+static __inline__ void PIO_LED9_Set(uint32_t ledValue) {
   IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED9_BASE, ledValue);
 }
 
@@ -115,8 +117,8 @@ static __inline__ void PIO_LED9_Set(ledValue) {
  *                            @arg 1 = segment ON
  */
 
-static __inline__ void PIO_HEX0_Set(segmentValues) {
-  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX0_BASE, segmentValues);
+static __inline__ void PIO_HEX0_Set(uint32_t segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX0_BASE, ~segmentValues);
 }
 /**
   * @brief Function to set segments on hex1 display
@@ -124,8 +126,8 @@ static __inline__ void PIO_HEX0_Set(segmentValues) {
  *                            @arg 0 = segment OFF
  *                            @arg 1 = segment ON
  */
-static __inline__ void PIO_HEX1_Set(segmentValues) {
-  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX1_BASE, segmentValues);
+static __inline__ void PIO_HEX1_Set(uint32_t segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX1_BASE, ~segmentValues);
 }
 
 /**
@@ -134,8 +136,8 @@ static __inline__ void PIO_HEX1_Set(segmentValues) {
  *                            @arg 0 = segment OFF
  *                            @arg 1 = segment ON
  */
-static __inline__ void PIO_HEX2_Set(segmentValues) {
-  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX2_BASE, segmentValues);
+static __inline__ void PIO_HEX2_Set(uint32_t segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX2_BASE, ~segmentValues);
 }
 
 /**
@@ -144,8 +146,8 @@ static __inline__ void PIO_HEX2_Set(segmentValues) {
  *                            @arg 0 = segment OFF
  *                            @arg 1 = segment ON
  */
-static __inline__ void PIO_HEX3_Set(segmentValues) {
-  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX3_BASE, segmentValues);
+static __inline__ void PIO_HEX3_Set(uint32_t segmentValues) {
+  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX3_BASE, ~segmentValues);
 }
 
 #endif
