@@ -9,8 +9,9 @@
   *****************************************************************************
   * @par History:
   * @details    30.10. Riedel
-  *             - first draft for milestone 1b
-  * @todoH      add the hardware-access to state-machine
+  *                  - first draft for milestone 1b
+  *                  31.10. Riedel
+  *                  - added hardware-access to heartbeat
   *****************************************************************************
   */
 
@@ -37,23 +38,23 @@ void HeartbeatTask(void *pdata) {
   }
 }
 
-void nextHeartbeatStep() {
+void nextHeartbeatStep(void) {
   switch (heartbeatState) {
   case FIRST:
-    // line
-    // red led9 on
+    PIO_HEX3_Set(LINE);
+    PIO_LED9_Set(0x1);
     heartbeatState = SECOND;
   case SECOND:
-    // lower o
-    // red led9 off
+    PIO_HEX3_Set(LOWER_O);
+    PIO_LED9_Set(0x0);
     heartbeatState = THIRD;
   case THIRD:
-    // line
-    // red led9 on
+    PIO_HEX3_Set(LINE);
+    PIO_LED9_Set(0x1);
     heartbeatState = FOURTH;
   case FOURTH:
-    // upper o
-    // red led9 off
+    PIO_HEX3_Set(UPPER_O);
+    PIO_LED9_Set(0x0);
     heartbeatState = FIRST;
   default:
     OSTimeDlyHMSM(0, 0, 0, 250);
