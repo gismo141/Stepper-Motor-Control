@@ -27,6 +27,7 @@
 #include <system.h>
 #include "includes.h"
 #include "lcdDOGM162.h"
+#include "altera_avalon_lcd_16207_regs.h"
 
 void init_term(void);
 void init_lcd(void);

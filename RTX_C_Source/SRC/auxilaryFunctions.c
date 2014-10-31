@@ -32,7 +32,7 @@ void init_lcd(void) {
 }
 
 void clear_lcd(void) {
-  IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, 0x01);
+  IOWR_ALTERA_AVALON_LCD_16207_COMMAND(LCD_BASE, 0x01);
   OSTimeDlyHMSM(0, 0, 0, 10);
   printf_lcd("\r");
 }

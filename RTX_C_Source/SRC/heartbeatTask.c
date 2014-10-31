@@ -22,7 +22,7 @@
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
 void HeartbeatTask(void *pdata) {
-uint8_t err;
+  uint8_t err;
   OS_FLAGS heartbeatFlag;
   heartbeatState_t heartbeatState = FIRST;
   heartbeatState_t *heartbeatStatePtr = &heartbeatState;

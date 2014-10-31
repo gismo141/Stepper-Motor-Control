@@ -15,6 +15,8 @@
   *             -renewed complete pio access concept
   * @details    31.10. Riedel & Kossmann
   *             - added missing var type in hex functions
+  * @details    31.10. Kossmann
+  *             - added function to clear edgecapture of switches
   *****************************************************************************
   */
 
@@ -46,7 +48,7 @@ static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits) {
 }
 
 /**
-  * @brief Function to clear bits of edgecapture register
+  * @brief Function to clear bits of keys edgecapture register
   * @param clearbits : set bits to 1 for enable interrupt
   * @retval none
   */
@@ -55,7 +57,7 @@ static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits) {
 }
 
 /**
-  * @brief Function to read content of edgecapture register
+  * @brief Function to read content of keys edgecapture register
   * @retval pressedKeys : When edge was detected, bit is 1
   */
 static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void) {
@@ -83,7 +85,16 @@ static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits) {
 }
 
 /**
-  * @brief Function to read content of data register
+ * @brief Function to clear bits of switches edgecapture register
+ * @param clearbits : set bits to 1 for enable interrupt
+ * @retval none
+ */
+static __inline__ void PIO_SW_ClearEdgeCptBits(uint32_t clearbits) {
+ IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_SW_BASE, clearbits);
+}
+
+/**
+  * @brief Function to read content of switches data register
   * @retval switchesValues :  Values of all switches
  *                            @arg 0 = Switch OFF
  *                            @arg 1 = Switch ON

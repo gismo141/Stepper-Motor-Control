@@ -18,6 +18,8 @@
   *             - added Debug and Error-Handling
   * @details    30.10. Kossmann
   *             - change IPC to message queue because mailbox not needed
+  * @details    31.10. Kossmann
+  *             - fix bug that IRQhandler was called all the time
   *****************************************************************************
   */
 
@@ -34,6 +36,6 @@ void switchesIRQhandler(void *context) {
   if (OS_NO_ERR != err) {
     error("SW_ISR_MBOX_ERR: %i\n", err);
   }
-
+  PIO_SW_ClearEdgeCptBits(0xFFFF);
   OSIntExit();
 }
