@@ -16,6 +16,7 @@
   *             - moved DEBUG_ON_EVENT to events.h
   *             31.10. Riedel
   *             - added defines for HEX-segments
+  *             - added declaration and documentation for sub-functions.
   *****************************************************************************
   */
 
@@ -27,6 +28,7 @@
 
 #include "includes.h"
 #include "events.h"
+#include "hardwareAccess.h"
 
 #define LOWER_O (0b0001111) \\!< represents the letter o in the lower HEX-segments
 #define UPPER_O  (0b1111000) \\!< represents the letter o in the upper HEX-segments
@@ -46,5 +48,24 @@ typedef enum heartbeatState {
   * @retval None
   */
 void HeartbeatTask(void *pdata);
+
+/**
+  * @brief  State machine for the heartbeat.
+  * @details The state machine activates and deactivates the red LED9 and
+  *               shows the defined HEX-values (LOWER_O, UPPER_O and LINE) on
+  *               HEX3 accordingly after 1 second.
+  * @param None
+  * @retval None
+  */
+void nextHeartbeatStep(void);
+
+/**
+  * @brief  This function implements the debug-logic
+  * @details In Debug-mode, the **registers are read and set** in predefined intervals.
+  *               It automatically calls the nextHeartbeatStep-function to move the states.
+  * @param  None
+  * @retval None
+  */
+void debugAndHeartbeat(void);
 
 #endif /*__HEARTBEAT_TASK_H__*/
