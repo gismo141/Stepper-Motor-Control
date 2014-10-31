@@ -18,6 +18,9 @@
  *             - changed IPC with switches ISR to message queue
  *             30.10. Riedel
  *             - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
+  * @details   31.10. Riedel & Kossmann
+  *            - moved hardwareTest() and initial printouts into userInputTask
+  *            because the need OS running
   *****************************************************************************
   */
 
