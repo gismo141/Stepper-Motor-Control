@@ -14,6 +14,8 @@
   *             - first draft for milestone 1b
   *             30.10. Riedel
   *             - moved DEBUG_ON_EVENT to events.h
+  *             31.10. Riedel
+  *             - added defines for HEX-segments
   *****************************************************************************
   */
 
@@ -25,6 +27,10 @@
 
 #include "includes.h"
 #include "events.h"
+
+#define LOWER_O (0b0001111) \\!< represents the letter o in the lower HEX-segments
+#define UPPER_O  (0b1111000) \\!< represents the letter o in the upper HEX-segments
+#define LINE          (0b0001000) \\!< represents a centered bar in the HEX-segments
 
 typedef enum heartbeatState {
   FIRST  = 0,
