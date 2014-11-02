@@ -15,10 +15,10 @@
   *             - moved function-documentation to header-file
   * @details    29.10. Kossmann
   *             - modified clearing requests and evaluating pressed keys
-  *             30.10. Riedel
-  * @details    - added Debug and Error-Handling
-  *             30.10. Kossmann
-  * @details    - fixed bug in Debug and Error-Handling
+  * @details    30.10. Riedel
+  *             - added Debug and Error-Handling
+  * @details    30.10. Kossmann
+  *             - fixed bug in Debug and Error-Handling
   *****************************************************************************
   */
 
