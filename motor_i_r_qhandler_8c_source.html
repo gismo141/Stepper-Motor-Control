@@ -122,21 +122,53 @@ $(document).ready(function(){initNavTree('motor_i_r_qhandler_8c_source.html','')
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  * @details    27.10. by Riedel:</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *             - basic implementation</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *             - moved function-documentation to header-file</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../INC/motorIRQhandler.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  * @details    02.11. Riedel</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  *             - finalized ISR-functionality</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  */</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">   21</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler</a>(<span class="keywordtype">void</span> *context) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="ttc" id="motor_i_r_qhandler_8c_html_aabc0f0f03e310d42c71637d32f996622"><div class="ttname"><a href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler</a></div><div class="ttdeci">void motorIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for motor stopped. </div><div class="ttdef"><b>Definition:</b> <a href="motor_i_r_qhandler_8c_source.html#l00021">motorIRQhandler.c:21</a></div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../INC/motorIRQhandler.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">extern</span> OS_FLAG_GRP *<a class="code" href="motor_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler</a>(<span class="keywordtype">void</span> *context) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  uint32_t ctrlReg = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  INT8U err;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  OSIntEnter();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  ctrlReg = <a class="code" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">ctrlRegGet</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordflow">if</span> (ctrlReg &amp; <a class="code" href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">CTRL_REG_IE_MSK</a>) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Clear request</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ctrlReg &amp;= ~(<a class="code" href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">CTRL_REG_IR_MSK</a>); </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">ctrlRegSet</a>(ctrlReg);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Send the event</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    OSFlagPost(<a class="code" href="motor_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a>, <a class="code" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">MOTOR_STOP_EVENT</a>, OS_FLAG_SET, &amp;err);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (OS_NO_ERR != err) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;MOTOR_ISR_FLAG_ERR: %i\n&quot;</span>, err);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a86ee3ff44c537d94ccbabf941a613688">debug</a>(<span class="stringliteral">&quot;IE not set!&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  OSIntExit();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="ttc" id="register_access_8h_html_a16a7950b4cb5cc6abd5169efa849191c"><div class="ttname"><a href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">CTRL_REG_IE_MSK</a></div><div class="ttdeci">#define CTRL_REG_IE_MSK</div><div class="ttdoc">Interrupt-Enable Bit. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00023">registerAccess.h:23</a></div></div>
+<div class="ttc" id="debug_and_error_output_8h_html_a259aac00ed43fd7ac58196b770963525"><div class="ttname"><a href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a></div><div class="ttdeci">#define error(...)</div><div class="ttdoc">Prints the Error-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00045">debugAndErrorOutput.h:45</a></div></div>
+<div class="ttc" id="events_8h_html_af198f5dba61ed9e85516d2b2ecb9d77e"><div class="ttname"><a href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">MOTOR_STOP_EVENT</a></div><div class="ttdeci">#define MOTOR_STOP_EVENT</div><div class="ttdoc">the interrupt is sent via VHDL-Component, when the motor reached its end-position ...</div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00030">events.h:30</a></div></div>
+<div class="ttc" id="motor_i_r_qhandler_8c_html_aabc0f0f03e310d42c71637d32f996622"><div class="ttname"><a href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler</a></div><div class="ttdeci">void motorIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for motor stopped. </div><div class="ttdef"><b>Definition:</b> <a href="motor_i_r_qhandler_8c_source.html#l00025">motorIRQhandler.c:25</a></div></div>
+<div class="ttc" id="register_access_8h_html_a6ecb6ec8a75e709cab8ebbc3c46774b1"><div class="ttname"><a href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">CTRL_REG_IR_MSK</a></div><div class="ttdeci">#define CTRL_REG_IR_MSK</div><div class="ttdoc">Interrupt-Request Bit. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00024">registerAccess.h:24</a></div></div>
+<div class="ttc" id="debug_and_error_output_8h_html_a86ee3ff44c537d94ccbabf941a613688"><div class="ttname"><a href="debug_and_error_output_8h.html#a86ee3ff44c537d94ccbabf941a613688">debug</a></div><div class="ttdeci">#define debug(...)</div><div class="ttdoc">Prints Debug-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00035">debugAndErrorOutput.h:35</a></div></div>
+<div class="ttc" id="motor_i_r_qhandler_8c_html_a07c87d61e7e620a7f471139d92b2685b"><div class="ttname"><a href="motor_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a></div><div class="ttdeci">OS_FLAG_GRP * userInputTaskFlagsGrp</div><div class="ttdoc">The flags group used in the user-input-task. </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00026">events.h:26</a></div></div>
+<div class="ttc" id="register_access_8h_html_a05c67dbf40f74c58acba6e277315d0cf"><div class="ttname"><a href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">ctrlRegSet</a></div><div class="ttdeci">static __inline__ void ctrlRegSet(uint8_t newCtrlReg)</div><div class="ttdoc">Sets the control-register with the given bits. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00053">registerAccess.h:53</a></div></div>
+<div class="ttc" id="register_access_8h_html_a5793dc3526877ac1481dc95dd5cca5af"><div class="ttname"><a href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">ctrlRegGet</a></div><div class="ttdeci">static __inline__ uint8_t ctrlRegGet(void)</div><div class="ttdoc">Returns the actual content of the control-register. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00062">registerAccess.h:62</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="motor_i_r_qhandler_8c.html">motorIRQhandler.c</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 20:36:25 for Stepper-Motor-Control by
+    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

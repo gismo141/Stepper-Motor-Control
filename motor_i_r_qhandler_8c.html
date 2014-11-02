@@ -104,7 +104,8 @@ $(document).ready(function(){initNavTree('motor_i_r_qhandler_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">motorIRQhandler.c File Reference</div>  </div>
 </div><!--header-->
@@ -118,7 +119,7 @@ Include dependency graph for motorIRQhandler.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="motor_i_r_qhandler_8c__incl.png" border="0" usemap="#motor_i_r_qhandler_8c" alt=""/></div>
 <map name="motor_i_r_qhandler_8c" id="motor_i_r_qhandler_8c">
-<area shape="rect" id="node2" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="151,79,323,104"/><area shape="rect" id="node5" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,152,396,177"/><area shape="rect" id="node9" href="events_8h.html" title="definitions for used events " alt="" coords="419,152,529,177"/></map>
+<area shape="rect" id="node2" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="142,79,313,104"/><area shape="rect" id="node5" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,152,358,177"/><area shape="rect" id="node9" href="events_8h.html" title="definitions for used events " alt="" coords="382,152,454,177"/></map>
 </div>
 </div>
 <p><a href="motor_i_r_qhandler_8c_source.html">Go to the source code of this file.</a></p>
@@ -128,6 +129,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aabc0f0f03e310d42c71637d32f996622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler</a> (void *context)</td></tr>
 <tr class="memdesc:aabc0f0f03e310d42c71637d32f996622"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ-Handler for motor stopped.  <a href="#aabc0f0f03e310d42c71637d32f996622">More...</a><br /></td></tr>
 <tr class="separator:aabc0f0f03e310d42c71637d32f996622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a07c87d61e7e620a7f471139d92b2685b"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="motor_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a></td></tr>
+<tr class="memdesc:a07c87d61e7e620a7f471139d92b2685b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the user-input-task.  <a href="#a07c87d61e7e620a7f471139d92b2685b">More...</a><br /></td></tr>
+<tr class="separator:a07c87d61e7e620a7f471139d92b2685b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>IRQ-handler for motor stopped. </p>
@@ -142,7 +149,10 @@ Marc Kossmann </dd></dl>
 </ul>
 <p>27.10. by Riedel:</p><ul>
 <li>basic implementation</li>
-<li>moved function-documentation to header-file </li>
+<li>moved function-documentation to header-file</li>
+</ul>
+<p>02.11. Riedel</p><ul>
+<li>finalized ISR-functionality </li>
 </ul>
 
 <p>Definition in file <a class="el" href="motor_i_r_qhandler_8c_source.html">motorIRQhandler.c</a>.</p>
@@ -175,7 +185,34 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="motor_i_r_qhandler_8c_source.html#l00021">21</a> of file <a class="el" href="motor_i_r_qhandler_8c_source.html">motorIRQhandler.c</a>.</p>
+<p>Definition at line <a class="el" href="motor_i_r_qhandler_8c_source.html#l00025">25</a> of file <a class="el" href="motor_i_r_qhandler_8c_source.html">motorIRQhandler.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph.png" border="0" usemap="#motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph" alt=""/></div>
+<map name="motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph" id="motor_i_r_qhandler_8c_aabc0f0f03e310d42c71637d32f996622_cgraph">
+<area shape="rect" id="node2" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="177,5,262,31"/><area shape="rect" id="node3" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="178,55,261,80"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a07c87d61e7e620a7f471139d92b2685b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OS_FLAG_GRP* userInputTaskFlagsGrp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The flags group used in the user-input-task. </p>
+<p>This group contains all possibly events, which can be triggered by the user. </p>
+
+<p>Definition at line <a class="el" href="events_8h_source.html#l00026">26</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -185,7 +222,7 @@ Marc Kossmann </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="motor_i_r_qhandler_8c.html">motorIRQhandler.c</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 20:36:25 for Stepper-Motor-Control by
+    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

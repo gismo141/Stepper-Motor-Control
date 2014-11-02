@@ -1,5 +1,5 @@
 <map id="motorIRQhandler.c" name="motorIRQhandler.c">
-<area shape="rect" id="node2" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="151,79,323,104"/>
-<area shape="rect" id="node5" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,152,396,177"/>
-<area shape="rect" id="node9" href="$events_8h.html" title="definitions for used events " alt="" coords="419,152,529,177"/>
+<area shape="rect" id="node2" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="142,79,313,104"/>
+<area shape="rect" id="node5" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,152,358,177"/>
+<area shape="rect" id="node9" href="$events_8h.html" title="definitions for used events " alt="" coords="382,152,454,177"/>
 </map>

@@ -114,14 +114,14 @@ $(document).ready(function(){initNavTree('motor_i_r_qhandler_8h.html','');});
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;sys/alt_irq.h&gt;</code><br />
 <code>#include &quot;includes.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="hardware_access_8h_source.html">../INC/hardwareAccess.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="events_8h_source.html">../INC/events.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="events_8h_source.html">events.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for motorIRQhandler.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="motor_i_r_qhandler_8h__incl.png" border="0" usemap="#motor_i_r_qhandler_8h" alt=""/></div>
 <map name="motor_i_r_qhandler_8h" id="motor_i_r_qhandler_8h">
-<area shape="rect" id="node4" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,79,396,104"/><area shape="rect" id="node8" href="events_8h.html" title="definitions for used events " alt="" coords="419,79,529,104"/></map>
+<area shape="rect" id="node4" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="227,79,358,104"/><area shape="rect" id="node8" href="events_8h.html" title="definitions for used events " alt="" coords="382,79,454,104"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -154,7 +154,8 @@ Marc Kossmann </dd></dl>
 <li>added function-documentation</li>
 </ul>
 <p>29.10. Kossmann</p><ul>
-<li>moved all belonging includes in this file </li>
+<li>moved all belonging includes in this file 02.11. Riedel</li>
+<li>finalized ISR-functionality </li>
 </ul>
 
 <p>Definition in file <a class="el" href="motor_i_r_qhandler_8h_source.html">motorIRQhandler.h</a>.</p>
@@ -187,7 +188,16 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="motor_i_r_qhandler_8c_source.html#l00021">21</a> of file <a class="el" href="motor_i_r_qhandler_8c_source.html">motorIRQhandler.c</a>.</p>
+<p>Definition at line <a class="el" href="motor_i_r_qhandler_8c_source.html#l00025">25</a> of file <a class="el" href="motor_i_r_qhandler_8c_source.html">motorIRQhandler.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="motor_i_r_qhandler_8h_aabc0f0f03e310d42c71637d32f996622_cgraph.png" border="0" usemap="#motor_i_r_qhandler_8h_aabc0f0f03e310d42c71637d32f996622_cgraph" alt=""/></div>
+<map name="motor_i_r_qhandler_8h_aabc0f0f03e310d42c71637d32f996622_cgraph" id="motor_i_r_qhandler_8h_aabc0f0f03e310d42c71637d32f996622_cgraph">
+<area shape="rect" id="node2" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="177,5,262,31"/><area shape="rect" id="node3" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="178,55,261,80"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -197,7 +207,7 @@ Marc Kossmann </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="motor_i_r_qhandler_8h.html">motorIRQhandler.h</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 20:36:25 for Stepper-Motor-Control by
+    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
