@@ -14,6 +14,8 @@
   *             - added hardware-access to heartbeat
   * @details    31.10. Riedel & Kossmann
   *             - finilized heartbeat functionality
+  * @details    02.11. Riedel
+  *             - finalized Debug functionality
   *****************************************************************************
   */
 
@@ -70,13 +72,22 @@ void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr) {
 }
 
 void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr) {
+  uint32_t ctrlReg = ctrlRegGet();
+
   nextHeartbeatStep(heartbeatStatePtr);
 
+  // Is Run-Bit == 1? (RUN)
+  if (ctrlReg & CTRL_REG_RS_MSK) {
+    // Is Dir-Bit == 1? (RIGHT)
+    if (ctrlReg & CTRL_REG_LR_MSK) {
+      stepsRegSet(stepsRegGet() - 10);
+    }
+    stepsRegSet(stepsRegGet() + 10);
+  }
+  nextHeartbeatStep(heartbeatStatePtr);
+  nextHeartbeatStep(heartbeatStatePtr);
 
-  //  if () {
-  //
-  //  }
-  nextHeartbeatStep(heartbeatStatePtr);
-  nextHeartbeatStep(heartbeatStatePtr);
-  // setIR();
+  // Set IR
+  ctrlReg |= CTRL_REG_IR_MSK;
+  ctrlRegSet(ctrlReg);
 }

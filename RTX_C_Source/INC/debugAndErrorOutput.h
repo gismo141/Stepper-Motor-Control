@@ -11,11 +11,21 @@
   * @par History:
   * @details    30.10. Riedel
   *             - first draft for milestone 1b
+  * @details    02.11. Riedel
+  *             - added documentation for defines
   *****************************************************************************
   */
 
-#include "../INC/auxilaryFunctions.h"
+#include "auxilaryFunctions.h"
 
+/**
+ * @brief   Prints Debug-messages in the terminal.
+ * @details This define only works if switch SOC2014_DEBUG is set.
+ *          Otherwise all debug(...)-statements are deleted from the codebase,
+ *          while compilation.
+ * 
+ * @param m Sends the given string directly to the terminal (printf_term()).
+ */
 #ifdef SOC2014_DEBUG
 #ifndef debug
 #define debug(...) printf_term(__VA_ARGS__)
@@ -26,6 +36,11 @@
 #endif // debug
 #endif // SOC2014_DEBUG
 
+/**
+ * @brief Prints the Error-messages in the terminal.
+ * 
+ * @param m Sends the given string directly to the terminal (printf_term()).
+ */
 #ifndef error
 #define error(...) printf_term(__VA_ARGS__)
 #endif // error

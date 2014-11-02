@@ -24,6 +24,8 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#define SOC2014_DEBUG
+
 #include <sys/alt_irq.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -38,8 +40,6 @@
 #include "keysIRQhandler.h"
 #include "motorIRQhandler.h"
 #include "debugAndErrorOutput.h"
-
-#define SOC2014_DEBUG 1
 
 /** @brief Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048
