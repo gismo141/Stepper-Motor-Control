@@ -2,7 +2,6 @@ var NAVTREE =
 [
   [ "Stepper-Motor-Control", "index.html", [
     [ "Todo List", "todo.html", null ],
-    [ "Todo high priority list", "todo1.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],

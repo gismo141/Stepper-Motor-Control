@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['switchesirqhandler',['switchesIRQhandler',['../switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9',1,'switchesIRQhandler(void *context):&#160;switchesIRQhandler.c'],['../switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9',1,'switchesIRQhandler(void *context):&#160;switchesIRQhandler.c']]]
+  ['nextheartbeatstep',['nextHeartbeatStep',['../heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062',1,'nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr):&#160;heartbeatTask.c'],['../heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062',1,'nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr):&#160;heartbeatTask.c']]]
 ];

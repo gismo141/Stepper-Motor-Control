@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motor_5fstop_5fevent',['MOTOR_STOP_EVENT',['../events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e',1,'events.h']]]
+  ['heartbeat_5ftask_5fpriority',['HEARTBEAT_TASK_PRIORITY',['../main_8h.html#aaa8288af0cc342748d2a46cdc4d574be',1,'main.h']]]
 ];

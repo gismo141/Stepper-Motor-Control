@@ -121,45 +121,104 @@ $(document).ready(function(){initNavTree('heartbeat_task_8h_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  * @par History:</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  * @details    22.10. Kossmann</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *             30.10. Riedel</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  * @details    30.10. Riedel</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *             - moved DEBUG_ON_EVENT to events.h</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef __HEARTBEAT_TASK_H__</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define __HEARTBEAT_TASK_H__</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="events_8h.html">events.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> heartbeatState {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  FIRST  = 0,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  SECOND = 1,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  THIRD  = 2,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  FOURTH = 3;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} heartbeatState_t;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  * @brief  HeartbeatDebugTask</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">  * @details</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">  * @param  pdata : Pointer to parameter structure (not used)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  * @retval None</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a>(<span class="keywordtype">void</span> *pdata);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*__HEARTBEAT_TASK_H__*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  * @details    31.10. Riedel</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  *             - added defines for HEX-segments</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  *             - added declaration and documentation for sub-functions</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  * @details    31.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  *             - finilized heartbeat functionality</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  * @details    02.11. Riedel</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  *             - corrected documentation</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">  *****************************************************************************</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifndef __HEARTBEAT_TASK_H__</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define __HEARTBEAT_TASK_H__</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="events_8h.html">events.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hardware_access_8h.html">hardwareAccess.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="register_access_8h.html">registerAccess.h</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="heartbeat_task_8h.html#a3f24c33d7054752f412829fbe91a0ae3">   35</a></span>&#160;<span class="preprocessor">#define LOWER_O (0b1011100) </span><span class="comment">//!&lt; represents the letter **o** in the **lower** HEX-segments</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="heartbeat_task_8h.html#a2867e29e565e5a1e52560be1ea7a169e">   36</a></span>&#160;<span class="comment"></span>#define UPPER_O (0b1100011) <span class="comment">//!&lt; represents the letter **o** in the **upper** HEX-segments</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="heartbeat_task_8h.html#af94cfb03461685fead1fe045d5c96f01">   37</a></span>&#160;<span class="comment"></span>#define LINE    (0b1000000) <span class="comment">//!&lt; represents a centered **bar** in the HEX-segments</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * @brief   The state-machine for the heartbeat.</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> * </span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * @details | state  | red LED9 | HEX3-display |</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> *          | ------ | -------- | ------------ |</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> *          | FIRST  | on       | LINE         |</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> *          | SECOND | off      | LOWER_O      |</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> *          | THIRD  | on       | LINE         |</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> *          | FOURTH | off      | UPPDER_O     |</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="heartbeat_task_8h.html#a85b413b023362889628033c936fc0fc1">   49</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="heartbeat_task_8h.html#a85b413b023362889628033c936fc0fc1">heartbeatState</a> {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  FIRST,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  SECOND,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  THIRD,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  FOURTH</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} heartbeatState_t;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> * @brief   The task for the hearbeat and the debug-mode.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> * @details This task changes its state every second via the</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> *          nextHeartbeatStep()-function. When the UserInputTask() detects,</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> *          that the user activated the Debug-Mode, it sends the</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> *          DEBUG_ON_EVENT. The task then calls the</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> *          debugAndHeartbeat()-function.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * </span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> * @param   pdata : Pointer to parameter structure (not used)</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> <a class="code" href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a>(<span class="keywordtype">void</span> *pdata);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> * @brief   State machine for the heartbeat.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> * @details The state machine activates and deactivates the red LED9 and</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> *          shows the defined HEX-values (LOWER_O, UPPER_O and LINE) on</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"> *          HEX3 accordingly after 1 second.</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"> * @param   heartbeatStatePtr Points to the state-structure containing the</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> *          actual state.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> <a class="code" href="heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062">nextHeartbeatStep</a>(heartbeatState_t *heartbeatStatePtr);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"> * @brief   This function implements the debug-logic</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"> * @details In Debug-mode, the **registers are read and set** in predefined</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"> *          intervals. It automatically calls the</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"> *          nextHeartbeatStep()-function to change the states.</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"> *          | subfunction              | state  | </span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> *          | ------------------------ | :----: |</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> *          | next heartbeat-step      | every  |</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> *          | check Run-Bit in ctrlReg | every  |</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> *          | check Dir-Bit in ctrlReg | every  |</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> *          | set stepsReg (+10 / -10) | every  |</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> *          | set IR-Bit in ctrlReg    | FOURTH |</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> * </span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> * @param   heartbeatStatePtr Points to the state-structure containing the</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> *          actual state.</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">void</span> <a class="code" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920">debugAndHeartbeat</a>(heartbeatState_t *heartbeatStatePtr);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*__HEARTBEAT_TASK_H__*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="hardware_access_8h_html"><div class="ttname"><a href="hardware_access_8h.html">hardwareAccess.h</a></div><div class="ttdoc">Functions for accessing hardware connected through pio´s and registers. </div></div>
+<div class="ttc" id="heartbeat_task_8h_html_a85b413b023362889628033c936fc0fc1"><div class="ttname"><a href="heartbeat_task_8h.html#a85b413b023362889628033c936fc0fc1">heartbeatState</a></div><div class="ttdeci">typedef heartbeatState</div><div class="ttdoc">The state-machine for the heartbeat. </div><div class="ttdef"><b>Definition:</b> <a href="heartbeat_task_8h_source.html#l00049">heartbeatTask.h:49</a></div></div>
 <div class="ttc" id="events_8h_html"><div class="ttname"><a href="events_8h.html">events.h</a></div><div class="ttdoc">definitions for used events </div></div>
-<div class="ttc" id="heartbeat_task_8h_html_a00b1b959673cfff6628206a4104dfe02"><div class="ttname"><a href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a></div><div class="ttdeci">void HeartbeatTask(void *pdata)</div><div class="ttdoc">HeartbeatDebugTask. </div><div class="ttdef"><b>Definition:</b> <a href="heartbeat_task_8c_source.html#l00023">heartbeatTask.c:23</a></div></div>
+<div class="ttc" id="heartbeat_task_8h_html_a5d14e946cd93e1478c02c98a0c6b9920"><div class="ttname"><a href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920">debugAndHeartbeat</a></div><div class="ttdeci">void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr)</div><div class="ttdoc">This function implements the debug-logic. </div><div class="ttdef"><b>Definition:</b> <a href="heartbeat_task_8c_source.html#l00074">heartbeatTask.c:74</a></div></div>
+<div class="ttc" id="register_access_8h_html"><div class="ttname"><a href="register_access_8h.html">registerAccess.h</a></div><div class="ttdoc">Header file with inline functions to access the registers that are used by the Stepper-Motor-Control ...</div></div>
+<div class="ttc" id="heartbeat_task_8h_html_a655f2f5e5b9732fb918fbc61da1f2062"><div class="ttname"><a href="heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062">nextHeartbeatStep</a></div><div class="ttdeci">void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr)</div><div class="ttdoc">State machine for the heartbeat. </div><div class="ttdef"><b>Definition:</b> <a href="heartbeat_task_8c_source.html#l00046">heartbeatTask.c:46</a></div></div>
+<div class="ttc" id="heartbeat_task_8h_html_a00b1b959673cfff6628206a4104dfe02"><div class="ttname"><a href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a></div><div class="ttdeci">void HeartbeatTask(void *pdata)</div><div class="ttdoc">The task for the hearbeat and the debug-mode. </div><div class="ttdef"><b>Definition:</b> <a href="heartbeat_task_8c_source.html#l00026">heartbeatTask.c:26</a></div></div>
+<div class="ttc" id="debug_and_error_output_8h_html"><div class="ttname"><a href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a></div><div class="ttdoc">Defines for Error and Debug-Output Management. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="heartbeat_task_8h.html">heartbeatTask.h</a></li>
-    <li class="footer">Generated on Thu Oct 30 2014 18:34:52 for Stepper-Motor-Control by
+    <li class="footer">Generated on Sun Nov 2 2014 20:36:25 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

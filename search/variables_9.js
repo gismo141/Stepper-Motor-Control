@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['userinputtask_5fstk',['UserInputTask_Stk',['../main_8h.html#a489ef05251ffa460f33c14941d1afcf8',1,'main.h']]],
-  ['userinputtaskflagsgrp',['userInputTaskFlagsGrp',['../events_8h.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;events.h'],['../keys_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;events.h'],['../main_8c.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;main.c'],['../user_input_task_8c.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;events.h']]],
-  ['useroutputtask_5fstk',['UserOutputTask_Stk',['../main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30',1,'main.h']]]
+  ['temporaryctrlreg',['temporaryCtrlReg',['../register_access_8h.html#afa74591fccda8567f08dd7314a1f7087',1,'registerAccess.h']]],
+  ['temporaryspeedreg',['temporarySpeedReg',['../register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0',1,'registerAccess.h']]],
+  ['temporarystepsreg',['temporaryStepsReg',['../register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150',1,'registerAccess.h']]]
 ];

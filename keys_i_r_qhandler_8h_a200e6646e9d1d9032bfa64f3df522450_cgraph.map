@@ -1,4 +1,4 @@
 <map id="keysIRQhandler" name="keysIRQhandler">
-<area shape="rect" id="node2" href="$hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of edgecapture register. " alt="" coords="187,5,346,31"/>
-<area shape="rect" id="node3" href="$hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of edgecapture register. " alt="" coords="170,55,362,80"/>
+<area shape="rect" id="node2" href="$hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of keys edgecapture register. " alt="" coords="187,5,346,31"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of keys edgecapture register. " alt="" coords="170,55,362,80"/>
 </map>

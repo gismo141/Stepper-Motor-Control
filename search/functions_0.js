@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dogm162lcd_5finit',['DOGM162lcd_init',['../lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e',1,'DOGM162lcd_init(uint32_t lcdBase):&#160;lcdDOGM162.c'],['../lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e',1,'DOGM162lcd_init(uint32_t lcdBase):&#160;lcdDOGM162.c']]]
+  ['ctrlregget',['ctrlRegGet',['../register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af',1,'registerAccess.h']]],
+  ['ctrlregset',['ctrlRegSet',['../register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf',1,'registerAccess.h']]]
 ];

@@ -1,0 +1,4 @@
+<map id="nextHeartbeatStep" name="nextHeartbeatStep">
+<area shape="rect" id="node2" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="186,5,300,31"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="187,55,299,80"/>
+</map>

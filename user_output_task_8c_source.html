@@ -150,31 +150,31 @@ $(document).ready(function(){initNavTree('user_output_task_8c_source.html','');}
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (OS_NO_ERR == err &amp;&amp; NULL != outputTaskMboxContentPtr) {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="comment">//BEGIN of terminal output</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">//once when motor is started</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">if</span> ((outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_RS_MSK) &amp;&amp;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">if</span> ((outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a>) &amp;&amp;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;          !oldMotorRunning ) {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        termMsgCounter++;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        oldMotorRunning = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        printTerminalInfo(outputTaskMboxContentPtr, &amp;termMsgCounter);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="comment">//once when motor is stopped</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">if</span> (!(outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_RS_MSK) &amp;&amp;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">if</span> (!(outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a>) &amp;&amp;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          oldMotorRunning ) {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        termMsgCounter++;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        oldMotorRunning = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        printTerminalInfo(outputTaskMboxContentPtr, &amp;termMsgCounter);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">if</span> (outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_RS_MSK) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">if</span> (outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a>) {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        printf_term(<span class="stringliteral">&quot;Steps: %i\n&quot;</span>, outputTaskMboxContentPtr-&gt;stepsReg);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        OSTimeDlyHMSM(0, 0, 0, 100);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">//END of terminal output</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="comment">//BEGIN of lcd ouput</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      uint8_t modeBits = outputTaskMboxContentPtr-&gt;ctrlReg</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                         &amp; CTRL_REG_MODE_MSK;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                         &amp; <a class="code" href="register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93">CTRL_REG_MODE_MSK</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      printf_lcd(<span class="stringliteral">&quot;M:%i%i%i%i      &quot;</span>, modeBits &amp; 0x8, modeBits &amp; 0x4,</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                 modeBits &amp; 0x2, modeBits &amp; 0x1);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      printf_lcd(<span class="stringliteral">&quot;V0.1\n&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">if</span> (outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_RS_MSK) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">if</span> (outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a>) {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        printf_lcd(<span class="stringliteral">&quot;Running    &quot;</span>);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        printf_lcd(<span class="stringliteral">&quot;Stopped    &quot;</span>);</div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('user_output_task_8c_source.html','');}
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="comment">//END of lcd ouput</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      error(<span class="stringliteral">&quot;OUTPUT_TASK_MBOX_ERR: %i\n&quot;</span>, err);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;OUTPUT_TASK_MBOX_ERR: %i\n&quot;</span>, err);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    fflush_term();</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    fflush_lcd();</div>
@@ -195,18 +195,18 @@ $(document).ready(function(){initNavTree('user_output_task_8c_source.html','');}
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">void</span> printTerminalInfo(<a class="code" href="structoutput_task_mailbox.html">outputTaskMailbox_t</a> *outputTaskMboxContentPtr,</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                       <span class="keywordtype">void</span> *termMsgCounter) {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  printf_term(<span class="stringliteral">&quot;Message Nr. #%i\n&quot;</span>, termMsgCounter);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordflow">if</span> (outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_RS_MSK) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordflow">if</span> (outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a>) {</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    printf_term(<span class="stringliteral">&quot;Motor: Running &quot;</span>);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    printf_term(<span class="stringliteral">&quot;Motor: Stopped &quot;</span>);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">if</span> ((outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_LR_MSK)) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">if</span> ((outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#adf33618e430a31a3c34767ee68e91483">CTRL_REG_LR_MSK</a>)) {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    printf_term(<span class="stringliteral">&quot;right\n&quot;</span>);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    printf_term(<span class="stringliteral">&quot;left\n&quot;</span>);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  printf_term(<span class="stringliteral">&quot;Mode: %X, &quot;</span>,</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;              outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_MODE_MSK);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;              outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93">CTRL_REG_MODE_MSK</a>);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">switch</span> (outputTaskMboxContentPtr-&gt;systemState.activeUseCase) {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordflow">case</span> STOP:</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    printf_term(<span class="stringliteral">&quot;Stop\n&quot;</span>);</div>
@@ -231,22 +231,28 @@ $(document).ready(function(){initNavTree('user_output_task_8c_source.html','');}
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  printf_term(<span class="stringliteral">&quot;Interrupt-Enable: %i\n&quot;</span>,</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;              outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_IE_MSK);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;              outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">CTRL_REG_IE_MSK</a>);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  printf_term(<span class="stringliteral">&quot;Interrupt-Request: %i\n&quot;</span>,</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;              outputTaskMboxContentPtr-&gt;ctrlReg &amp; CTRL_REG_IR_MSK);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;              outputTaskMboxContentPtr-&gt;ctrlReg &amp; <a class="code" href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">CTRL_REG_IR_MSK</a>);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  printf_term(<span class="stringliteral">&quot;Speed-Step: %i\n&quot;</span>,</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;              outputTaskMboxContentPtr-&gt;speedReg);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  printf_term(<span class="stringliteral">&quot;Steps: %i\n&quot;</span>, outputTaskMboxContentPtr-&gt;stepsReg);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
+<div class="ttc" id="register_access_8h_html_adf33618e430a31a3c34767ee68e91483"><div class="ttname"><a href="register_access_8h.html#adf33618e430a31a3c34767ee68e91483">CTRL_REG_LR_MSK</a></div><div class="ttdeci">#define CTRL_REG_LR_MSK</div><div class="ttdoc">Left (0) or Right (1)-Bit. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00021">registerAccess.h:21</a></div></div>
+<div class="ttc" id="register_access_8h_html_a16a7950b4cb5cc6abd5169efa849191c"><div class="ttname"><a href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">CTRL_REG_IE_MSK</a></div><div class="ttdeci">#define CTRL_REG_IE_MSK</div><div class="ttdoc">Interrupt-Enable Bit. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00023">registerAccess.h:23</a></div></div>
+<div class="ttc" id="debug_and_error_output_8h_html_a259aac00ed43fd7ac58196b770963525"><div class="ttname"><a href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a></div><div class="ttdeci">#define error(...)</div><div class="ttdoc">Prints the Error-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00045">debugAndErrorOutput.h:45</a></div></div>
+<div class="ttc" id="register_access_8h_html_a4d6eb8fa49195604eee014e2d7a49c93"><div class="ttname"><a href="register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93">CTRL_REG_MODE_MSK</a></div><div class="ttdeci">#define CTRL_REG_MODE_MSK</div><div class="ttdoc">Mode-combination according to ctrlRegSet()-function. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00022">registerAccess.h:22</a></div></div>
 <div class="ttc" id="user_output_task_8c_html_a006aeb085c5dea0247e5c842bf1e92b5"><div class="ttname"><a href="user_output_task_8c.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a></div><div class="ttdeci">void UserOutputTask(void *pdata)</div><div class="ttdoc">UserOutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00030">userOutputTask.c:30</a></div></div>
-<div class="ttc" id="structoutput_task_mailbox_html"><div class="ttname"><a href="structoutput_task_mailbox.html">outputTaskMailbox</a></div><div class="ttdef"><b>Definition:</b> <a href="user_input_task_8h_source.html#l00084">userInputTask.h:84</a></div></div>
+<div class="ttc" id="register_access_8h_html_a6ecb6ec8a75e709cab8ebbc3c46774b1"><div class="ttname"><a href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">CTRL_REG_IR_MSK</a></div><div class="ttdeci">#define CTRL_REG_IR_MSK</div><div class="ttdoc">Interrupt-Request Bit. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00024">registerAccess.h:24</a></div></div>
+<div class="ttc" id="structoutput_task_mailbox_html"><div class="ttname"><a href="structoutput_task_mailbox.html">outputTaskMailbox</a></div><div class="ttdef"><b>Definition:</b> <a href="user_input_task_8h_source.html#l00087">userInputTask.h:87</a></div></div>
+<div class="ttc" id="register_access_8h_html_a1ba2469bf13b53e5629f10f6116656fb"><div class="ttname"><a href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a></div><div class="ttdeci">#define CTRL_REG_RS_MSK</div><div class="ttdoc">Run (1) or Stop (0)-Bit. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00020">registerAccess.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="user_output_task_8c.html">userOutputTask.c</a></li>
-    <li class="footer">Generated on Thu Oct 30 2014 18:34:52 for Stepper-Motor-Control by
+    <li class="footer">Generated on Sun Nov 2 2014 20:36:25 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

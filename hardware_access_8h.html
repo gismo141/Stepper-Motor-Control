@@ -123,7 +123,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="hardware_access_8h__dep__incl.png" border="0" usemap="#hardware_access_8hdep" alt=""/></div>
 <map name="hardware_access_8hdep" id="hardware_access_8hdep">
-<area shape="rect" id="node2" href="keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="405,79,532,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="179,152,240,177"/><area shape="rect" id="node6" href="switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="21,79,172,104"/><area shape="rect" id="node8" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="247,79,381,104"/><area shape="rect" id="node5" href="keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="421,152,548,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="180,225,240,251"/><area shape="rect" id="node7" href="switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="5,152,156,177"/><area shape="rect" id="node9" href="motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="265,152,398,177"/></map>
+<area shape="rect" id="node2" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="429,79,545,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="553,225,615,251"/><area shape="rect" id="node6" href="keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="23,79,150,104"/><area shape="rect" id="node8" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="870,79,986,104"/><area shape="rect" id="node12" href="switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="568,79,720,104"/><area shape="rect" id="node14" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="224,79,358,104"/><area shape="rect" id="node5" href="heartbeat_task_8c.html" title="heartbeatTask.c" alt="" coords="381,152,496,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="554,299,614,324"/><area shape="rect" id="node7" href="keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="23,152,150,177"/><area shape="rect" id="node9" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="1034,152,1160,177"/><area shape="rect" id="node11" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="896,152,1011,177"/><area shape="rect" id="node10" href="user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="1035,225,1160,251"/><area shape="rect" id="node13" href="switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="621,152,771,177"/><area shape="rect" id="node15" href="motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="224,152,357,177"/></map>
 </div>
 </div>
 <p><a href="hardware_access_8h_source.html">Go to the source code of this file.</a></p>
@@ -131,22 +131,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">debug LED9</div></td></tr>
-<tr class="memitem:a180e77d3c8b29eed5a88c30fa2bf50ca"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a180e77d3c8b29eed5a88c30fa2bf50ca">PIO_LED9_Set</a> (ledValue)</td></tr>
-<tr class="memdesc:a180e77d3c8b29eed5a88c30fa2bf50ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set led9 for heartbeat.  <a href="#a180e77d3c8b29eed5a88c30fa2bf50ca">More...</a><br /></td></tr>
-<tr class="separator:a180e77d3c8b29eed5a88c30fa2bf50ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09841ddeebaad23352b820e8e1bc3da1"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1">PIO_LED9_Set</a> (uint32_t ledValue)</td></tr>
+<tr class="memdesc:a09841ddeebaad23352b820e8e1bc3da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set led9 for heartbeat.  <a href="#a09841ddeebaad23352b820e8e1bc3da1">More...</a><br /></td></tr>
+<tr class="separator:a09841ddeebaad23352b820e8e1bc3da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">7-segment hex displays</div></td></tr>
-<tr class="memitem:a5e90f339f51b086a329119a9a33cd466"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a5e90f339f51b086a329119a9a33cd466">PIO_HEX0_Set</a> (segmentValues)</td></tr>
-<tr class="memdesc:a5e90f339f51b086a329119a9a33cd466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex0 display.  <a href="#a5e90f339f51b086a329119a9a33cd466">More...</a><br /></td></tr>
-<tr class="separator:a5e90f339f51b086a329119a9a33cd466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43e4ec4305dc0fdaf5d60b43e2ff63e7"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a43e4ec4305dc0fdaf5d60b43e2ff63e7">PIO_HEX1_Set</a> (segmentValues)</td></tr>
-<tr class="memdesc:a43e4ec4305dc0fdaf5d60b43e2ff63e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex1 display.  <a href="#a43e4ec4305dc0fdaf5d60b43e2ff63e7">More...</a><br /></td></tr>
-<tr class="separator:a43e4ec4305dc0fdaf5d60b43e2ff63e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8384ee2507694180b092a0de17508d49"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a8384ee2507694180b092a0de17508d49">PIO_HEX2_Set</a> (segmentValues)</td></tr>
-<tr class="memdesc:a8384ee2507694180b092a0de17508d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex2 display.  <a href="#a8384ee2507694180b092a0de17508d49">More...</a><br /></td></tr>
-<tr class="separator:a8384ee2507694180b092a0de17508d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c0521865db35bf038065f82a2c3383f"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a1c0521865db35bf038065f82a2c3383f">PIO_HEX3_Set</a> (segmentValues)</td></tr>
-<tr class="memdesc:a1c0521865db35bf038065f82a2c3383f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex3 display.  <a href="#a1c0521865db35bf038065f82a2c3383f">More...</a><br /></td></tr>
-<tr class="separator:a1c0521865db35bf038065f82a2c3383f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff57e01cc0c282a3b4826d805822f484"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484">PIO_HEX0_Set</a> (uint32_t segmentValues)</td></tr>
+<tr class="memdesc:aff57e01cc0c282a3b4826d805822f484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex0 display.  <a href="#aff57e01cc0c282a3b4826d805822f484">More...</a><br /></td></tr>
+<tr class="separator:aff57e01cc0c282a3b4826d805822f484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2243420f7c1c2bc30a18d9b95fc4308"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308">PIO_HEX1_Set</a> (uint32_t segmentValues)</td></tr>
+<tr class="memdesc:ad2243420f7c1c2bc30a18d9b95fc4308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex1 display.  <a href="#ad2243420f7c1c2bc30a18d9b95fc4308">More...</a><br /></td></tr>
+<tr class="separator:ad2243420f7c1c2bc30a18d9b95fc4308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600c270eac68c21d9ca4f698fc0218dd"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd">PIO_HEX2_Set</a> (uint32_t segmentValues)</td></tr>
+<tr class="memdesc:a600c270eac68c21d9ca4f698fc0218dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex2 display.  <a href="#a600c270eac68c21d9ca4f698fc0218dd">More...</a><br /></td></tr>
+<tr class="separator:a600c270eac68c21d9ca4f698fc0218dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c06e6e7b73469bc5358011ff4120a48"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48">PIO_HEX3_Set</a> (uint32_t segmentValues)</td></tr>
+<tr class="memdesc:a2c06e6e7b73469bc5358011ff4120a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set segments on hex3 display.  <a href="#a2c06e6e7b73469bc5358011ff4120a48">More...</a><br /></td></tr>
+<tr class="separator:a2c06e6e7b73469bc5358011ff4120a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Key-register: interrupt access defines</h2></td></tr>
@@ -172,16 +172,19 @@ Key-register: interrupt access defines</h2></td></tr>
 <tr class="memdesc:adf981c6fea97526812a4998299372aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to enable interrupts for pio key.  <a href="#adf981c6fea97526812a4998299372aa5">More...</a><br /></td></tr>
 <tr class="separator:adf981c6fea97526812a4998299372aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad068c5588df0d8decc2095ea4a5d6665"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a> (uint32_t clearbits)</td></tr>
-<tr class="memdesc:ad068c5588df0d8decc2095ea4a5d6665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to clear bits of edgecapture register.  <a href="#ad068c5588df0d8decc2095ea4a5d6665">More...</a><br /></td></tr>
+<tr class="memdesc:ad068c5588df0d8decc2095ea4a5d6665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to clear bits of keys edgecapture register.  <a href="#ad068c5588df0d8decc2095ea4a5d6665">More...</a><br /></td></tr>
 <tr class="separator:ad068c5588df0d8decc2095ea4a5d6665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89492ff1d8b21807006359d5db6c6c9d"><td class="memItemLeft" align="right" valign="top">static __inline__ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">PIO_KEY_GetEdgeCpt</a> (void)</td></tr>
-<tr class="memdesc:a89492ff1d8b21807006359d5db6c6c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to read content of edgecapture register.  <a href="#a89492ff1d8b21807006359d5db6c6c9d">More...</a><br /></td></tr>
+<tr class="memdesc:a89492ff1d8b21807006359d5db6c6c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to read content of keys edgecapture register.  <a href="#a89492ff1d8b21807006359d5db6c6c9d">More...</a><br /></td></tr>
 <tr class="separator:a89492ff1d8b21807006359d5db6c6c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eca107134198ba52e6379f6adb42ed5"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a> (uint32_t enablebits)</td></tr>
 <tr class="memdesc:a2eca107134198ba52e6379f6adb42ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to enable interrupts for pio sw.  <a href="#a2eca107134198ba52e6379f6adb42ed5">More...</a><br /></td></tr>
 <tr class="separator:a2eca107134198ba52e6379f6adb42ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd9aa36a3326dd1655387758edc43be6"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a> (uint32_t clearbits)</td></tr>
+<tr class="memdesc:abd9aa36a3326dd1655387758edc43be6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to clear bits of switches edgecapture register.  <a href="#abd9aa36a3326dd1655387758edc43be6">More...</a><br /></td></tr>
+<tr class="separator:abd9aa36a3326dd1655387758edc43be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c412e9385c655ecd16ecf3379eec21"><td class="memItemLeft" align="right" valign="top">static __inline__ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a> (void)</td></tr>
-<tr class="memdesc:a16c412e9385c655ecd16ecf3379eec21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to read content of data register.  <a href="#a16c412e9385c655ecd16ecf3379eec21">More...</a><br /></td></tr>
+<tr class="memdesc:a16c412e9385c655ecd16ecf3379eec21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to read content of switches data register.  <a href="#a16c412e9385c655ecd16ecf3379eec21">More...</a><br /></td></tr>
 <tr class="separator:a16c412e9385c655ecd16ecf3379eec21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -195,11 +198,17 @@ Marc Kossmann </dd></dl>
 <p>21.10. Riedel &amp; Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
 </ul>
-<p>29.10. Kossmann -renewed complete pio access concept </p>
+<p>29.10. Kossmann -renewed complete pio access concept</p>
+<p>31.10. Riedel &amp; Kossmann</p><ul>
+<li>added missing var type in hex functions</li>
+</ul>
+<p>31.10. Kossmann</p><ul>
+<li>added function to clear edgecapture of switches </li>
+</ul>
 
 <p>Definition in file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5e90f339f51b086a329119a9a33cd466"></a>
+<a class="anchor" id="aff57e01cc0c282a3b4826d805822f484"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -209,8 +218,8 @@ Marc Kossmann </dd></dl>
         <tr>
           <td class="memname">static __inline__ void PIO_HEX0_Set </td>
           <td>(</td>
-          <td class="paramtype">segmentValues&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>segmentValues</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -233,11 +242,11 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00118">118</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00131">131</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a43e4ec4305dc0fdaf5d60b43e2ff63e7"></a>
+<a class="anchor" id="ad2243420f7c1c2bc30a18d9b95fc4308"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -247,8 +256,8 @@ Marc Kossmann </dd></dl>
         <tr>
           <td class="memname">static __inline__ void PIO_HEX1_Set </td>
           <td>(</td>
-          <td class="paramtype">segmentValues&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>segmentValues</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -271,11 +280,11 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00127">127</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00140">140</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8384ee2507694180b092a0de17508d49"></a>
+<a class="anchor" id="a600c270eac68c21d9ca4f698fc0218dd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -285,8 +294,8 @@ Marc Kossmann </dd></dl>
         <tr>
           <td class="memname">static __inline__ void PIO_HEX2_Set </td>
           <td>(</td>
-          <td class="paramtype">segmentValues&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>segmentValues</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -309,11 +318,11 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00137">137</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00150">150</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1c0521865db35bf038065f82a2c3383f"></a>
+<a class="anchor" id="a2c06e6e7b73469bc5358011ff4120a48"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -323,8 +332,8 @@ Marc Kossmann </dd></dl>
         <tr>
           <td class="memname">static __inline__ void PIO_HEX3_Set </td>
           <td>(</td>
-          <td class="paramtype">segmentValues&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>segmentValues</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -347,7 +356,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00147">147</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00160">160</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
@@ -373,7 +382,7 @@ Marc Kossmann </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Function to clear bits of edgecapture register. </p>
+<p>Function to clear bits of keys edgecapture register. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">clearbits</td><td>: set bits to 1 for enable interrupt </td></tr>
@@ -387,7 +396,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00051">51</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00055">55</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
@@ -413,7 +422,7 @@ Marc Kossmann </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Function to read content of edgecapture register. </p>
+<p>Function to read content of keys edgecapture register. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">pressedKeys</td><td>: When edge was detected, bit is 1 </td></tr>
@@ -421,7 +430,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00059">59</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00063">63</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
@@ -461,11 +470,11 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00042">42</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00046">46</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a180e77d3c8b29eed5a88c30fa2bf50ca"></a>
+<a class="anchor" id="a09841ddeebaad23352b820e8e1bc3da1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -475,8 +484,8 @@ Marc Kossmann </dd></dl>
         <tr>
           <td class="memname">static __inline__ void PIO_LED9_Set </td>
           <td>(</td>
-          <td class="paramtype">ledValue&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>ledValue</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -499,7 +508,47 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00103">103</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00116">116</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd9aa36a3326dd1655387758edc43be6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void PIO_SW_ClearEdgeCptBits </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>clearbits</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to clear bits of switches edgecapture register. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clearbits</td><td>: set bits to 1 for enable interrupt </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00092">92</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
@@ -525,7 +574,7 @@ Marc Kossmann </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Function to read content of data register. </p>
+<p>Function to read content of switches data register. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">switchesValues</td><td>: Values of all switches <ul>
@@ -537,7 +586,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00089">89</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00102">102</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
@@ -577,7 +626,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00079">79</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="hardware_access_8h_source.html#l00083">83</a> of file <a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +636,7 @@ Marc Kossmann </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="hardware_access_8h.html">hardwareAccess.h</a></li>
-    <li class="footer">Generated on Thu Oct 30 2014 18:34:52 for Stepper-Motor-Control by
+    <li class="footer">Generated on Sun Nov 2 2014 20:36:25 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

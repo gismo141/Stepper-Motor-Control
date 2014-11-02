@@ -22,6 +22,7 @@ var files =
     [ "main.h", "main_8h.html", "main_8h" ],
     [ "motorIRQhandler.c", "motor_i_r_qhandler_8c.html", "motor_i_r_qhandler_8c" ],
     [ "motorIRQhandler.h", "motor_i_r_qhandler_8h.html", "motor_i_r_qhandler_8h" ],
+    [ "registerAccess.h", "register_access_8h.html", "register_access_8h" ],
     [ "switchesIRQhandler.c", "switches_i_r_qhandler_8c.html", "switches_i_r_qhandler_8c" ],
     [ "switchesIRQhandler.h", "switches_i_r_qhandler_8h.html", "switches_i_r_qhandler_8h" ],
     [ "userInputTask.c", "user_input_task_8c.html", "user_input_task_8c" ],

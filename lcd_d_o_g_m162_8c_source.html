@@ -148,36 +148,35 @@ $(document).ready(function(){initNavTree('lcd_d_o_g_m162_8c_source.html','');});
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">  * @param   lcdBase : Base address of DOGM162 LCD (from system.h)</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  * @retval  None</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">   42</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a>(uint32_t lcdBase)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> uint8_t initCodes[] = {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                  0x39,   <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                          <span class="comment">// instruction table 1</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                  0x39,   <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                          <span class="comment">// instruction table 1</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                  0x14,   <span class="comment">// Bias Set: Bias = 1/5, 2 lines</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                  0x55,   <span class="comment">// Power Control: Icon Display off,</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                          <span class="comment">// Booster on, Internal Contrast C5 off, C4 on</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                  0x6E,   <span class="comment">// Follower Control: Follower on, Rab = 6</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                  0x72,   <span class="comment">// Contrast Set: Contrast = 2</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                  0x38,   <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                          <span class="comment">// instruction table 0</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                  0x0c,   <span class="comment">// Display Set: Display on, Cursor on,</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                          <span class="comment">// Cursor Pos off</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                  0x01,   <span class="comment">// Display Clear</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                  0x06};  <span class="comment">// Entry Mode Set: Increment DDRAM-Addr,</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                          <span class="comment">// ShiftEntireDisplay off</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">   42</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a>(uint32_t lcdBase) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> uint8_t initCodes[] = {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    0x39,   <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// instruction table 1</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    0x39,   <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// instruction table 1</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    0x14,   <span class="comment">// Bias Set: Bias = 1/5, 2 lines</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    0x55,   <span class="comment">// Power Control: Icon Display off,</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Booster on, Internal Contrast C5 off, C4 on</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    0x6E,   <span class="comment">// Follower Control: Follower on, Rab = 6</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    0x72,   <span class="comment">// Contrast Set: Contrast = 2</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    0x38,   <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// instruction table 0</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    0x0c,   <span class="comment">// Display Set: Display on, Cursor on,</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Cursor Pos off</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    0x01,   <span class="comment">// Display Clear</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    0x06</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  };  <span class="comment">// Entry Mode Set: Increment DDRAM-Addr,</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">// ShiftEntireDisplay off</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  uint32_t i;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  uint32_t j;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="comment">// Wait for Power on not required, due to previous initialization by HAL</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">for</span>(j=0;j&lt;<span class="keyword">sizeof</span>(initCodes)/<span class="keyword">sizeof</span>(initCodes[0]);j++)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, initCodes[j]);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">for</span>(i=0;i&lt;50000;i++);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">for</span> (j = 0; j &lt; <span class="keyword">sizeof</span>(initCodes) / <span class="keyword">sizeof</span>(initCodes[0]); j++) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, initCodes[j]);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; 50000; i++);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="ttc" id="lcd_d_o_g_m162_8c_html_a258c1b0dd98d52ca201b371cdadcf72e"><div class="ttname"><a href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a></div><div class="ttdeci">void DOGM162lcd_init(uint32_t lcdBase)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8c_source.html#l00042">lcdDOGM162.c:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -185,7 +184,7 @@ $(document).ready(function(){initNavTree('lcd_d_o_g_m162_8c_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="lcd_d_o_g_m162_8c.html">lcdDOGM162.c</a></li>
-    <li class="footer">Generated on Thu Oct 30 2014 18:34:52 for Stepper-Motor-Control by
+    <li class="footer">Generated on Sun Nov 2 2014 20:36:25 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

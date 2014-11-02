@@ -39,5 +39,6 @@ var user_input_task_8h =
       [ "DOUBLE_ROTATION", "user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba3e63ae67bd7ed6ffd8eae202c1ab1583", null ],
       [ "CONTINOUS", "user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba67bed54be9e134dd063d2eb69618b81d", null ]
     ] ],
+    [ "hardwareTest", "user_input_task_8h.html#a2fdf7e32c853914654f176e45c2a03c7", null ],
     [ "UserInputTask", "user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb", null ]
 ];

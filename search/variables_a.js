@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['work',['work',['../classinterface___r_t_x___base.html#a9f49de6f5eed5b4488cba6c9cdd1c215',1,'interface_RTX_Base']]],
-  ['write_5fdata',['write_data',['../classinterface.html#ab59fb02e12248462a92b5ff2163f8fb6',1,'interface']]],
-  ['write_5fn',['write_n',['../classinterface.html#a56ae6f18f32a15d6d6c80486ecc9667b',1,'interface']]]
+  ['userinputtask_5fstk',['UserInputTask_Stk',['../main_8h.html#a489ef05251ffa460f33c14941d1afcf8',1,'main.h']]],
+  ['userinputtaskflagsgrp',['userInputTaskFlagsGrp',['../events_8h.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;events.h'],['../keys_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;events.h'],['../main_8c.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;events.h'],['../user_input_task_8c.html#a07c87d61e7e620a7f471139d92b2685b',1,'userInputTaskFlagsGrp():&#160;events.h']]],
+  ['useroutputtask_5fstk',['UserOutputTask_Stk',['../main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30',1,'main.h']]]
 ];

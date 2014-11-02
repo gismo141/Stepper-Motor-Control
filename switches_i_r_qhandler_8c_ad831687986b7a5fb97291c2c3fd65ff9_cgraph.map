@@ -1,3 +1,4 @@
 <map id="switchesIRQhandler" name="switchesIRQhandler">
-<area shape="rect" id="node2" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of data register. " alt="" coords="194,5,336,31"/>
+<area shape="rect" id="node2" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="216,5,358,31"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="194,55,381,80"/>
 </map>
