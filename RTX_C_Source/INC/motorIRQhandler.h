@@ -14,6 +14,8 @@
   *             - added function-documentation
   * @details    29.10. Kossmann
   *             - moved all belonging includes in this file
+  *             02.11. Riedel
+  *             - finalized ISR-functionality
   *****************************************************************************
   */
 
@@ -22,15 +24,15 @@
 
 #include <sys/alt_irq.h>
 #include "includes.h"
-#include "../INC/hardwareAccess.h"
-#include "../INC/events.h"
+#include "hardwareAccess.h"
+#include "events.h"
 
 /**
-  * @brief  IRQ-Handler for motor stopped
-  * @details sets an event, when motor stopped
-  * @param  context : pointer to context variable (not used)
-  * @retval none
-  */
+ * @brief   IRQ-Handler for motor stopped
+ * @details sets an event, when motor stopped
+ * @param   context : pointer to context variable (not used)
+ * @retval  none
+ */
 void motorIRQhandler(void *context);
 
 #endif /*__MOTOR_IRQ_HANDLER_H__*/
