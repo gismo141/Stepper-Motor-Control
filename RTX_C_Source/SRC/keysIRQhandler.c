@@ -1,26 +1,26 @@
 /**
-  *****************************************************************************
-  * @file       keysIRQhandler.c
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       21.10.2014
-  * @brief      IRQ-handler for keys
-  *****************************************************************************
-  * @par History:
-  * @details    21.10. Riedel & Kossmann
-  *             - first draft for milestone 1b
-  * @details    27.10. Riedel
-  *             - basic implementation
-  *             - moved function-documentation to header-file
-  * @details    29.10. Kossmann
-  *             - modified clearing requests and evaluating pressed keys
-  * @details    30.10. Riedel
-  *             - added Debug and Error-Handling
-  * @details    30.10. Kossmann
-  *             - fixed bug in Debug and Error-Handling
-  *****************************************************************************
-  */
+ *****************************************************************************
+ * @file       keysIRQhandler.c
+ * @author     Michael Riedel
+ * @author     Marc Kossmann
+ * @version    v0.1
+ * @date       21.10.2014
+ * @brief      IRQ-handler for keys
+ *****************************************************************************
+ * @par History:
+ * @details    21.10. Riedel & Kossmann
+ *             - first draft for milestone 1b
+ * @details    27.10. Riedel
+ *             - basic implementation
+ *             - moved function-documentation to header-file
+ * @details    29.10. Kossmann
+ *             - modified clearing requests and evaluating pressed keys
+ * @details    30.10. Riedel
+ *             - added Debug and Error-Handling
+ * @details    30.10. Kossmann
+ *             - fixed bug in Debug and Error-Handling
+ *****************************************************************************
+ */
 
 #include "../INC/keysIRQhandler.h"
 

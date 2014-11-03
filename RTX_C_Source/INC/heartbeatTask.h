@@ -1,30 +1,30 @@
 /**
-  *****************************************************************************
-  * @file       heartbeatTask.h
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       22.10.2014
-  * @brief      Header file for heartbeatTask.c
-  * @details    Contains defines, includes, typedefs and declarations needed
-  *             for this task.
-  *****************************************************************************
-  * @par History:
-  * @details    22.10. Kossmann
-  *             - first draft for milestone 1b
-  * @details    30.10. Riedel
-  *             - moved DEBUG_ON_EVENT to events.h
-  * @details    31.10. Riedel
-  *             - added defines for HEX-segments
-  *             - added declaration and documentation for sub-functions
-  * @details    31.10. Riedel & Kossmann
-  *             - finilized heartbeat functionality
-  * @details    02.11. Riedel
-  *             - corrected documentation
-  * @details    03.11. Kossmann
-  *             - fixed some minor syntax mistakes to get flawless compile
-  *****************************************************************************
-  */
+ *****************************************************************************
+ * @file       heartbeatTask.h
+ * @author     Michael Riedel
+ * @author     Marc Kossmann
+ * @version    v0.1
+ * @date       22.10.2014
+ * @brief      Header file for heartbeatTask.c
+ * @details    Contains defines, includes, typedefs and declarations needed
+ *             for this task.
+ *****************************************************************************
+ * @par History:
+ * @details    22.10. Kossmann
+ *             - first draft for milestone 1b
+ * @details    30.10. Riedel
+ *             - moved DEBUG_ON_EVENT to events.h
+ * @details    31.10. Riedel
+ *             - added defines for HEX-segments
+ *             - added declaration and documentation for sub-functions
+ * @details    31.10. Riedel & Kossmann
+ *             - finilized heartbeat functionality
+ * @details    02.11. Riedel
+ *             - corrected documentation
+ * @details    03.11. Kossmann
+ *             - fixed some minor syntax mistakes to get flawless compile
+ *****************************************************************************
+ */
 
 #ifndef __HEARTBEAT_TASK_H__
 #define __HEARTBEAT_TASK_H__
@@ -98,4 +98,4 @@ void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr);
  */
 void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr);
 
-#endif /*__HEARTBEAT_TASK_H__*/
+#endif // __HEARTBEAT_TASK_H__

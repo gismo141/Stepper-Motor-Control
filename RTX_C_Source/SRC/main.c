@@ -1,27 +1,27 @@
 /**
-  *****************************************************************************
-  * @file       main.c
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       22.10.2014
-  * @brief      Main-Routine for Stepper-Motor-Control
-  * @todo       uncomment tasks creation
-  * @todo       finish motor isr registration
-  *****************************************************************************
-  * @par History:
-  * @details    22.10. Riedel & Kossmann
-  *             - first draft for milestone 1b
-  * @details    29.10. Kossmann
-  *             - edited ISRs inits to work with new pio access concept
-  * @details    30.10. Kossmann
-  *             - adopted error handling to new makro call
-  *             - moved all flagsgroups to main and added creating them
-  * @details    31.10. Riedel & Kossmann
-  *             - moved hardwareTest() and initial printouts into userInputTask
-  *             because the need OS running
-  *****************************************************************************
-  */
+ *****************************************************************************
+ * @file       main.c
+ * @author     Michael Riedel
+ * @author     Marc Kossmann
+ * @version    v0.1
+ * @date       22.10.2014
+ * @brief      Main-Routine for Stepper-Motor-Control
+ * @todo       uncomment tasks creation
+ * @todo       finish motor isr registration
+ *****************************************************************************
+ * @par History:
+ * @details    22.10. Riedel & Kossmann
+ *             - first draft for milestone 1b
+ * @details    29.10. Kossmann
+ *             - edited ISRs inits to work with new pio access concept
+ * @details    30.10. Kossmann
+ *             - adopted error handling to new makro call
+ *             - moved all flagsgroups to main and added creating them
+ * @details    31.10. Riedel & Kossmann
+ *             - moved hardwareTest() and initial printouts into userInputTask
+ *             because the need OS running
+ *****************************************************************************
+ */
 
 #include "../INC/main.h"
 

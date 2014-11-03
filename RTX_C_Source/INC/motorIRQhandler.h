@@ -1,23 +1,23 @@
 /**
-  *****************************************************************************
-  * @file       motorIRQhandler.h
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       21.10.2014
-  * @brief      Header file for motorIRQhandler.c
-  *****************************************************************************
-  * @par History:
-  * @details    21.10. Riedel & Kossmann
-  *             - first draft for milestone 1b
-  * @details    27.10. Riedel
-  *             - added function-documentation
-  * @details    29.10. Kossmann
-  *             - moved all belonging includes in this file
-  *             02.11. Riedel
-  *             - finalized ISR-functionality
-  *****************************************************************************
-  */
+ *****************************************************************************
+ * @file       motorIRQhandler.h
+ * @author     Michael Riedel
+ * @author     Marc Kossmann
+ * @version    v0.1
+ * @date       21.10.2014
+ * @brief      Header file for motorIRQhandler.c
+ *****************************************************************************
+ * @par History:
+ * @details    21.10. Riedel & Kossmann
+ *             - first draft for milestone 1b
+ * @details    27.10. Riedel
+ *             - added function-documentation
+ * @details    29.10. Kossmann
+ *             - moved all belonging includes in this file
+ *             02.11. Riedel
+ *             - finalized ISR-functionality
+ *****************************************************************************
+ */
 
 #ifndef __MOTOR_IRQ_HANDLER_H__
 #define __MOTOR_IRQ_HANDLER_H__
@@ -36,4 +36,4 @@
  */
 void motorIRQhandler(void *context);
 
-#endif /*__MOTOR_IRQ_HANDLER_H__*/
+#endif // __MOTOR_IRQ_HANDLER_H__

@@ -1,20 +1,23 @@
 /**
-  *****************************************************************************
-  * @file       debugAndErrorOutput.h
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       30.10.2014
-  * @brief      Defines for Error and Debug-Output Management.
-  * @details    Include this header for simplified logging-features.
-  *****************************************************************************
-  * @par History:
-  * @details    30.10. Riedel
-  *             - first draft for milestone 1b
-  * @details    02.11. Riedel
-  *             - added documentation for defines
-  *****************************************************************************
-  */
+ *****************************************************************************
+ * @file       debugAndErrorOutput.h
+ * @author     Michael Riedel
+ * @author     Marc Kossmann
+ * @version    v0.1
+ * @date       30.10.2014
+ * @brief      Defines for Error and Debug-Output Management.
+ * @details    Include this header for simplified logging-features.
+ *****************************************************************************
+ * @par History:
+ * @details    30.10. Riedel
+ *             - first draft for milestone 1b
+ * @details    02.11. Riedel
+ *             - added documentation for defines
+ *****************************************************************************
+ */
+
+#ifndef __DEBUG_AND_ERROR_OUTPUT_H__
+#define __DEBUG_AND_ERROR_OUTPUT_H__
 
 #include "auxilaryFunctions.h"
 
@@ -44,3 +47,5 @@
 #ifndef error
 #define error(...) printf_term(__VA_ARGS__)
 #endif // error
+
+#endif // __DEBUG_AND_ERROR_OUTPUT_H__

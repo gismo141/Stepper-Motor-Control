@@ -1,21 +1,21 @@
 /**
-  ***************************************************************************
-  * @file       auxilaryFunctions.c
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       28.10.2014
-  * @brief      Collection of auxilary functions, mainly output functions
-  * @todo       check if timeout are needed and reduce timout value to minimum
-  *****************************************************************************
-  * @par History:
-  * @details    28.10. Riedel & Kossmann
-  *             - added functions for using printf like lcd and term output
-  * @details    31.10. Riedel & Kossmann
-  *             - added timeout for clearing display but not sure if needed
-  *             - clear display function added
-  *****************************************************************************
-  */
+ ***************************************************************************
+ * @file       auxilaryFunctions.c
+ * @author     Michael Riedel
+ * @author     Marc Kossmann
+ * @version    v0.1
+ * @date       28.10.2014
+ * @brief      Collection of auxilary functions, mainly output functions
+ * @todo       check if timeout are needed and reduce timout value to minimum
+ *****************************************************************************
+ * @par History:
+ * @details    28.10. Riedel & Kossmann
+ *             - added functions for using printf like lcd and term output
+ * @details    31.10. Riedel & Kossmann
+ *             - added timeout for clearing display but not sure if needed
+ *             - clear display function added
+ *****************************************************************************
+ */
 
 #include "../INC/auxilaryFunctions.h"
 

@@ -1,28 +1,28 @@
 /**
-  *****************************************************************************
-  * @file       userInputTask.c
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       22.10.2014
-  * @brief      Source code for User-Input-Task which is highest instance,
-  *             reacts to user input and controls register and hardware access
-  *****************************************************************************
-  * @par History:
-  * @details    22.10. Kossmann
-  *             - first draft for milestone 1b
- * @details    30.10. Kossmann
- *             - added error handling for flags and mailboxes
- *             - changed IPC with switches ISR to message queue
- *             30.10. Riedel
- *             - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
-  * @details   31.10. Riedel & Kossmann
-  *            - moved hardwareTest() and initial printouts into userInputTask
-  *            because the need OS running
- * @details    03.11. Kossmann
- *             - used new register-access via inline functions of registerAccess.h
-  *****************************************************************************
-  */
+ *****************************************************************************
+ * @file    userInputTask.c
+ * @author  Michael Riedel
+ * @author  Marc Kossmann
+ * @version v0.1
+ * @date    22.10.2014
+ * @brief   Source code for User-Input-Task which is highest instance, reacts
+ *          to user input and controls register and hardware access
+ *****************************************************************************
+ * @par History:
+ * @details 22.10. Kossmann
+ *          - first draft for milestone 1b
+ * @details 30.10. Kossmann
+ *          - added error handling for flags and mailboxes
+ *          - changed IPC with switches ISR to message queue
+ * @details 30.10. Riedel
+ *          - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
+ * @details 31.10. Riedel & Kossmann
+ *          - moved hardwareTest() and initial printouts into userInputTask
+ *            because the need OS running
+ * @details 03.11. Kossmann
+ *          - used new register-access via inline functions of registerAccess.h
+ *****************************************************************************
+ */
 
 #include "../INC/userInputTask.h"
 

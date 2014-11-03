@@ -1,31 +1,31 @@
 /**
-  *****************************************************************************
-  * @file       userInputTask.h
-  * @author     Michael Riedel
-  * @author     Marc Kossmann
-  * @version    v0.1
-  * @date       22.10.2014
-  * @brief      Header file for userInputTask.c
-  * @details    Contains defines, includes, typedefs and declarations needed
-  *             for this task.
-  *****************************************************************************
-  * @par History:
-  * @details    22.10. Riedel & Kossmann
-  *             - first draft for milestone 1b
-  * @details    27.10. Riedel
-  *             - moved events to events.h for better handling
-  * @details    30.10. Kossmann
-  *             - removed hardwareAccess.h include
-  * @details    30.10. Kossmann
-  *             - added debug and error handling header
-  *             30.10. Riedel
-  *             - cleaned includes
-  * @details    31.10. Riedel & Kossmann
-  *             - added hardwareTest() declaration
-  * @details    03.11. Kossmann
-  *             - moved all register masks in registerAccess.h
-  *****************************************************************************
-  */
+ *****************************************************************************
+ * @file       userInputTask.h
+ * @author     Michael Riedel
+ * @author     Marc Kossmann
+ * @version    v0.1
+ * @date       22.10.2014
+ * @brief      Header file for userInputTask.c
+ * @details    Contains defines, includes, typedefs and declarations needed
+ *             for this task.
+ *****************************************************************************
+ * @par History:
+ * @details    22.10. Riedel & Kossmann
+ *             - first draft for milestone 1b
+ * @details    27.10. Riedel
+ *             - moved events to events.h for better handling
+ * @details    30.10. Kossmann
+ *             - removed hardwareAccess.h include
+ * @details    30.10. Kossmann
+ *             - added debug and error handling header
+ *             30.10. Riedel
+ *             - cleaned includes
+ * @details    31.10. Riedel & Kossmann
+ *             - added hardwareTest() declaration
+ * @details    03.11. Kossmann
+ *             - moved all register masks in registerAccess.h
+ *****************************************************************************
+ */
 
 #ifndef __USER_INPUT_TASK_H__
 #define __USER_INPUT_TASK_H__
@@ -84,21 +84,21 @@ typedef struct outputTaskMailbox {
 } outputTaskMailbox_t;
 
 /**
-  * @brief    UserInputTask
-  * @details  This task is the control instance for the whole system.
-  *           All register access is done in this Task. It reacts to user input,
-  *           sets needed flags and delivers needed informatino to other tasks.
-  * @param    pdata : Pointer to parameter structure (not used)
-  * @retval   None
-  */
+ * @brief    UserInputTask
+ * @details  This task is the control instance for the whole system.
+ *           All register access is done in this Task. It reacts to user input,
+ *           sets needed flags and delivers needed informatino to other tasks.
+ * @param    pdata : Pointer to parameter structure (not used)
+ * @retval   None
+ */
 void UserInputTask(void *pdata);
 
 /**
-  * @brief    Tests hardware
-  * @details  A functions for just test some hardware features. Has no needed
-  *           functionality for any Milestone
-  * @retval   None
-  */
+ * @brief    Tests hardware
+ * @details  A functions for just test some hardware features. Has no needed
+ *           functionality for any Milestone
+ * @retval   None
+ */
 void hardwareTest(void);
 
-#endif /*__USER_INPUT_TASK_H__*/
+#endif // __USER_INPUT_TASK_H__
