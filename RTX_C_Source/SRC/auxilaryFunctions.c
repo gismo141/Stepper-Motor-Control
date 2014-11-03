@@ -5,7 +5,7 @@
   * @author     Marc Kossmann
   * @version    v0.1
   * @date       28.10.2014
-  * @brief      Collection of auxilary functions
+  * @brief      Collection of auxilary functions, mainly output functions
   * @todo       check if timeout are needed and reduce timout value to minimum
   *****************************************************************************
   * @par History:
@@ -19,8 +19,8 @@
 
 #include "../INC/auxilaryFunctions.h"
 
-FILE *term;
-FILE *lcd;
+FILE *term; //!< stream to write on terminal device
+FILE *lcd;  //!< stream to write lcd device
 
 void init_term(void) {
   term = fopen(JTAG_UART_NAME, "w");
@@ -34,7 +34,6 @@ void init_lcd(void) {
 void clear_lcd(void) {
   IOWR_ALTERA_AVALON_LCD_16207_COMMAND(LCD_BASE, 0x01);
   OSTimeDlyHMSM(0, 0, 0, 10);
-  printf_lcd("\r");
 }
 
 void printf_term(const char *format, ...) {

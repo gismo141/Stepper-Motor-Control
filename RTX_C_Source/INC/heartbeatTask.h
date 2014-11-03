@@ -58,8 +58,9 @@ typedef enum heartbeatState {
 
 /**
  * @brief   The task for the hearbeat and the debug-mode.
- * @details This task changes its state every second via the
- *          nextHeartbeatStep()-function. When the UserInputTask() detects,
+ * @details This task is doing a heartbeat to show scheduling is working.
+ *          Therefore changes its state every second via the
+ *          nextHeartbeatStep()-function. When the UserInputTask detects,
  *          that the user activated the Debug-Mode, it sends the
  *          DEBUG_ON_EVENT. The task then calls the
  *          debugAndHeartbeat()-function.

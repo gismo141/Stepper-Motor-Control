@@ -7,7 +7,6 @@
  * @date        2.10.2014
  * @brief       Source code for User-Output-Task which communications with
  *              the user and shows him system information
- * @todo        finish hex update
  ******************************************************************************
  * @par History:
  * @details     21.10. Kossmann
@@ -64,7 +63,7 @@ void UserOutputTask(void *pdata) {
                          & CTRL_REG_MODE_MSK;
       printf_lcd("M:%i%i%i%i      ", modeBits & 0x8, modeBits & 0x4,
                  modeBits & 0x2, modeBits & 0x1);
-      printf_lcd("v0.1\n");
+      printf_lcd("V0.1\n");
       if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
         printf_lcd("Running    ");
       } else {
@@ -74,6 +73,64 @@ void UserOutputTask(void *pdata) {
         printf_lcd("Debug");
       }
       //END of lcd ouput
+      //BEGIN of hex-display output
+      //display direction on hex0
+      if(outputTaskMboxContentPtr->ctrlReg & CTRL_REG_LR_MSK){
+        PIO_HEX0_Set(HEX_RIGHT);
+      }else{
+        PIO_HEX0_Set(HEX_LEFT);
+      }
+      //display mode on hex1
+      switch(outputTaskMboxContentPtr->systemState.activeUseCase){
+      case QUARTER_ROTATION:
+        PIO_HEX1_Set(HEX_ZERO);
+        break;
+      case HALF_ROTATION:
+        PIO_HEX1_Set(HEX_ONE);
+        break;
+      case FULL_ROTATION:
+        PIO_HEX1_Set(HEX_TWO);
+        break;
+      case DOUBLE_ROTATION:
+        PIO_HEX1_Set(HEX_THREE);
+        break;
+      default:
+        PIO_HEX1_Set(HEX_LINE);
+        break;
+      }
+      switch(outputTaskMboxContentPtr->speedReg){
+        case 1:
+          PIO_HEX2_Set(HEX_ONE);
+          break;
+        case 2:
+          PIO_HEX2_Set(HEX_TWO);
+          break;
+        case 3:
+          PIO_HEX2_Set(HEX_THREE);
+          break;
+        case 4:
+          PIO_HEX2_Set(HEX_FOUR);
+          break;
+        case 5:
+          PIO_HEX2_Set(HEX_FIVE);
+          break;
+        case 6:
+          PIO_HEX2_Set(HEX_SIX);
+          break;
+        case 7:
+          PIO_HEX2_Set(HEX_SEVEN);
+          break;
+        case 8:
+          PIO_HEX2_Set(HEX_EIGHT);
+          break;
+        case 9:
+          PIO_HEX2_Set(HEX_NINE);
+          break;
+        default:
+          PIO_HEX2_Set(HEX_ZERO);
+          break;
+      }
+      //END of hex-display output
     } else {
       error("OUTPUT_TASK_MBOX_ERR: %i\n", err);
     }

@@ -7,8 +7,6 @@
   * @date       22.10.2014
   * @brief      Source code for User-Input-Task which is highest instance,
   *             reacts to user input and controls register and hardware access
-  * @todo       remove virtual control registers and use set/get functions
-  *             of registerAccess.h
   *****************************************************************************
   * @par History:
   * @details    22.10. Kossmann
@@ -31,9 +29,9 @@
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
-OS_EVENT *switchesMsgQueue;
-OS_EVENT *outputTaskMailbox;
-OS_EVENT *registerMutex;
+OS_EVENT *switchesMsgQueue;   //!< Message Queue for transmitting the switches values
+OS_EVENT *outputTaskMailbox;  //!< Mailbox for transmitting information from InputTask to OutputTask
+OS_EVENT *registerMutex;      //!< Mutex for protected access to the registers
 
 void UserInputTask(void *pdata) {
   uint8_t  err;

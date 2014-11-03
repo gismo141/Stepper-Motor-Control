@@ -24,7 +24,7 @@
  *          Otherwise all debug(...)-statements are deleted from the codebase,
  *          while compilation.
  * 
- * @param m Sends the given string directly to the terminal (printf_term()).
+ * @param   ... Sends the given string directly to the terminal (printf_term()).
  */
 #ifdef SOC2014_DEBUG
 #ifndef debug
@@ -39,7 +39,7 @@
 /**
  * @brief Prints the Error-messages in the terminal.
  * 
- * @param m Sends the given string directly to the terminal (printf_term()).
+ * @param ... Sends the given string directly to the terminal (printf_term()).
  */
 #ifndef error
 #define error(...) printf_term(__VA_ARGS__)

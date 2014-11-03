@@ -24,16 +24,16 @@
  *          by the user.
  */
 OS_FLAG_GRP *userInputTaskFlagsGrp;
-#define KEY0_RS_EVENT       (0x1) //!< runs or stops the motor via `key_0`
-#define KEY2_MINUS_EVENT    (0x2) //!< decreases the steps to turn via `key_2`
-#define KEY3_PLUS_EVENT     (0x4) //!< increases the steps to turn via `key_3`
+#define KEY0_RS_EVENT       (0x1) //!< runs or stops the motor via 'key_0'
+#define KEY2_MINUS_EVENT    (0x2) //!< decreases the steps to turn via 'key_2'
+#define KEY3_PLUS_EVENT     (0x4) //!< increases the steps to turn via 'key_3'
 #define MOTOR_STOP_EVENT    (0x8) //!< the interrupt is sent via VHDL-Component, when the motor reached its end-position
 
 /**
  * @brief The flags group used in the heartbeat-task and user-input-task.
- * @details This group contains the debug-event that can be triggered via `sw_9`.
+ * @details This group contains the debug-event that can be triggered via 'sw_9'.
  */
 OS_FLAG_GRP *heartbeatTaskFlagsGrp;
-#define DEBUG_ON_EVENT      (0x1) //!< activates the debug-mode via `sw_9`
+#define DEBUG_ON_EVENT      (0x1) //!< activates the debug-mode via 'sw_9'
 
 #endif /*__EVENTS_H__*/

@@ -8,8 +8,8 @@
   * @brief      IRQ-handler for switches
   *****************************************************************************
   * @par History:
-  * @par @details    21.10. Riedel & Kossmann
-  *                  - first draft for milestone 1b
+  * @details    21.10. Riedel & Kossmann
+  *             - first draft for milestone 1b
   * @details    27.10. Riedel
   *             - basic implementation
   * @details    29.10. Kossmann
@@ -36,6 +36,7 @@ void switchesIRQhandler(void *context) {
   if (OS_NO_ERR != err) {
     error("SW_ISR_MBOX_ERR: %i\n", err);
   }
+  //Reset IR-Bits
   PIO_SW_ClearEdgeCptBits(0xFFFF);
   OSIntExit();
 }

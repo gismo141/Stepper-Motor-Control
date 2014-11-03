@@ -44,47 +44,61 @@
 #include "auxilaryFunctions.h"
 #include "debugAndErrorOutput.h"
 
+ /** @brief    general state of system */
 typedef enum state {
-  ERROR       = 0,
-  FUNCTIONAL  = 1,
-  DEBUG       = 2,
+  ERROR       = 0,  //!< system is not working properly
+  FUNCTIONAL  = 1,  //!< everything is full functional
+  DEBUG       = 2,  //!< debugging is active
 } state_t;
 
+/** @brief    general state of system */
 typedef enum useCases {
-  STOP              = 0,
-  QUARTER_ROTATION  = 1,
-  HALF_ROTATION     = 2,
-  FULL_ROTATION     = 3,
-  DOUBLE_ROTATION   = 4,
-  CONTINOUS         = 5
+  STOP              = 0,  //!< Motor not moving
+  QUARTER_ROTATION  = 1,  //!< Motor turning 1/4 rotation
+  HALF_ROTATION     = 2,  //!< Motor turning 1/2 rotation
+  FULL_ROTATION     = 3,  //!< Motor turning one rotation
+  DOUBLE_ROTATION   = 4,  //!< Motor turning two rotation
+  CONTINOUS         = 5   //!< Motor is continously running
 } useCases_t;
 
+/** @brief  Struct to store state of system and use case information */
 typedef struct systemState {
-  state_t operationalStatus;
-  useCases_t activeUseCase;
+  state_t operationalStatus;  //!< operational status
+  useCases_t activeUseCase;   //!< active use case
 } systemState_t;
 
+/** @brief  Motor direction  */
 typedef enum direction {
   LEFT  = 0,
   RIGHT = 1
 } direction_t;
 
+/** @brief  Datatype of Mailbox for transmitting information from InputTask
+ *  to OutputTask */
 typedef struct outputTaskMailbox {
-  systemState_t systemState;
-  uint32_t ctrlReg;
-  uint32_t speedReg;
-  uint32_t stepsReg;
-  bool debugState;
+  systemState_t systemState;  //!< stores state of system
+  uint32_t stepsReg;          //!< copy of steps register
+  uint8_t ctrlReg;            //!< copy control register
+  uint8_t speedReg;           //!< copy of speed register
+  bool debugState;            //!< Debug mode On/Off
 } outputTaskMailbox_t;
 
 /**
-  * @brief  UserInputTask
-  * @details
-  * @param  pdata : Pointer to parameter structure (not used)
-  * @retval None
+  * @brief    UserInputTask
+  * @details  This task is the control instance for the whole system.
+  *           All register access is done in this Task. It reacts to user input,
+  *           sets needed flags and delivers needed informatino to other tasks.
+  * @param    pdata : Pointer to parameter structure (not used)
+  * @retval   None
   */
 void UserInputTask(void *pdata);
 
+/**
+  * @brief    Tests hardware
+  * @details  A functions for just test some hardware features. Has no needed
+  *           functionality for any Milestone
+  * @retval   None
+  */
 void hardwareTest(void);
 
 #endif /*__USER_INPUT_TASK_H__*/

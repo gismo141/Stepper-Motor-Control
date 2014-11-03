@@ -5,7 +5,8 @@
   * @author     Marc Kossmann
   * @version    v0.1
   * @date       30.10.2014
-  * @brief
+  * @brief      Source code of heartbeatTask which shows that scheduling is
+  *             working. Also used for debuging.
   *****************************************************************************
   * @par History:
   * @details    30.10. Riedel

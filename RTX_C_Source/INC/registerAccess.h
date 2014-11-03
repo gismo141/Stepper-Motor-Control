@@ -32,15 +32,15 @@
 
 #define SWITCH_LR_MSK         (0x1)   //!< Right (1) or LEft (0)-Bit
 #define SWITCH_MODE_MSK       (0x1E)  //!< Bit 1..4 contains motor setup
-#define SWITCH_DEBUG_MSK      (0x200) //!< Debug on if Bit 9 = 1
+#define SWITCH_DEBUG_MSK      (0x200) //!< Debug on if Bit 9 = '1'
 
 #define MODE_STOP_CON_RUN_MSK (0x3)   //!< Bit 0 & 1 only
-#define MODE_STOP             (0x0)   //!< MODE_STOP_CON_RUN_MSK; Must be b00
-#define MODE_CON_RUN          (0x1)   //!< Use MODE_STOP_CON_RUN_MSK; Must be b01
-#define MODE_CH_OF_ST_1_4     (0x2)   //!< Bits muste be `b0010`
-#define MODE_CH_OF_ST_1_2     (0x6)   //!< Bits muste be `b0110`
-#define MODE_CH_OF_ST_1       (0xA)   //!< Bits muste be `b1010`
-#define MODE_CH_OF_ST_2       (0xE)   //!< Bits muste be `b1110`
+#define MODE_STOP             (0x0)   //!< MODE_STOP_CON_RUN_MSK; Must be 'b00'
+#define MODE_CON_RUN          (0x1)   //!< Use "MODE_STOP_CON_RUN_MSK"; Must be 'b01'
+#define MODE_CH_OF_ST_1_4     (0x2)   //!< Bits muste be 'b0010'
+#define MODE_CH_OF_ST_1_2     (0x6)   //!< Bits muste be 'b0110'
+#define MODE_CH_OF_ST_1       (0xA)   //!< Bits muste be 'b1010'
+#define MODE_CH_OF_ST_2       (0xE)   //!< Bits muste be 'b1110'
 
 extern OS_EVENT *registerMutex;
 
@@ -201,4 +201,4 @@ static __inline__ uint8_t speedRegGet(void) {
   return speedReg;
 }
 
-#endif // __REGISTER_ACCESS_H__
+#endif // REGISTER_ACCESS_H

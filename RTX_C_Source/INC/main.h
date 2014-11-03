@@ -24,6 +24,7 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+/** @brief Generates extra debug output on terminal */
 #define SOC2014_DEBUG
 
 #include <sys/alt_irq.h>

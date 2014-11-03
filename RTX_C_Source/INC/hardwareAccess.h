@@ -40,7 +40,7 @@
 
 /**
   * @brief  Function to enable interrupts for pio key
-  * @param  enablebits : set bits to `1` for enable interrupt
+  * @param  enablebits : set bits to '1' for enable interrupt
   * @retval None
   */
 static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits) {
@@ -49,7 +49,7 @@ static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits) {
 
 /**
   * @brief Function to clear bits of keys edgecapture register
-  * @param clearbits : set bits to `1` for enable interrupt
+  * @param clearbits : set bits to '1' for enable interrupt
   * @retval none
   */
 static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits) {
@@ -58,7 +58,7 @@ static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits) {
 
 /**
   * @brief Function to read content of keys edgecapture register
-  * @retval pressedKeys : When edge was detected, bit is `1`
+  * @retval pressedKeys : When edge was detected, bit is '1'
   */
 static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void) {
   return (IORD_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE));
@@ -77,7 +77,7 @@ static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void) {
 
 /**
   * @brief  Function to enable interrupts for pio sw
-  * @param  enablebits : set bits to `1` for enable interrupt
+  * @param  enablebits : set bits to '1' for enable interrupt
   * @retval None
  */
 static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits) {
@@ -86,7 +86,7 @@ static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits) {
 
 /**
  * @brief Function to clear bits of switches edgecapture register
- * @param clearbits : set bits to `1` for enable interrupt
+ * @param clearbits : set bits to '1' for enable interrupt
  * @retval none
  */
 static __inline__ void PIO_SW_ClearEdgeCptBits(uint32_t clearbits) {
@@ -109,9 +109,10 @@ static __inline__ uint32_t PIO_SW_GetValues(void) {
 
 /**
   * @brief Function to set led9 for heartbeat
-  * @retval ledValue :  Value of LED
+  * @param ledValue :  Value for LED9
  *                            @arg 0 = LED OFF
  *                            @arg 1 = LED ON
+ *  @retval none
  */
 static __inline__ void PIO_LED9_Set(uint32_t ledValue) {
   IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED9_BASE, ledValue);
@@ -123,9 +124,10 @@ static __inline__ void PIO_LED9_Set(uint32_t ledValue) {
 
 /**
   * @brief Function to set segments on hex0 display
-  * @retval segmentValues :  Values for all seven segments
+  * @param segmentValues :  Values for all seven segments
  *                            @arg 0 = segment OFF
  *                            @arg 1 = segment ON
+ *  @retval none
  */
 
 static __inline__ void PIO_HEX0_Set(uint32_t segmentValues) {
@@ -133,9 +135,10 @@ static __inline__ void PIO_HEX0_Set(uint32_t segmentValues) {
 }
 /**
   * @brief Function to set segments on hex1 display
-  * @retval segmentValues :  Values for all seven segments
+  * @param segmentValues :  Values for all seven segments
  *                            @arg 0 = segment OFF
  *                            @arg 1 = segment ON
+ *  @retval none
  */
 static __inline__ void PIO_HEX1_Set(uint32_t segmentValues) {
   IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX1_BASE, ~segmentValues);
@@ -143,9 +146,10 @@ static __inline__ void PIO_HEX1_Set(uint32_t segmentValues) {
 
 /**
   * @brief Function to set segments on hex2 display
-  * @retval segmentValues :  Values for all seven segments
+  * @param segmentValues :  Values for all seven segments
  *                            @arg 0 = segment OFF
  *                            @arg 1 = segment ON
+ *  @retval none
  */
 static __inline__ void PIO_HEX2_Set(uint32_t segmentValues) {
   IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX2_BASE, ~segmentValues);
@@ -153,9 +157,10 @@ static __inline__ void PIO_HEX2_Set(uint32_t segmentValues) {
 
 /**
   * @brief Function to set segments on hex3 display
-  * @retval segmentValues :  Values for all seven segments
+  * @param segmentValues :  Values for all seven segments
  *                            @arg 0 = segment OFF
  *                            @arg 1 = segment ON
+ *  @retval none
  */
 static __inline__ void PIO_HEX3_Set(uint32_t segmentValues) {
   IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX3_BASE, ~segmentValues);
