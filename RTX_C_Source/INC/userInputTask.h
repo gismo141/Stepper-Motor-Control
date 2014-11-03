@@ -22,6 +22,8 @@
   *             - cleaned includes
   * @details    31.10. Riedel & Kossmann
   *             - added hardwareTest() declaration
+  * @details    03.11. Kossmann
+  *             - moved all register masks in registerAccess.h
   *****************************************************************************
   */
 
@@ -37,27 +39,10 @@
 #include "includes.h"
 #include "events.h"
 #include "hardwareAccess.h"
+#include "registerAccess.h"
 
 #include "auxilaryFunctions.h"
 #include "debugAndErrorOutput.h"
-
-#define CTRL_REG_RS_MSK       (0x1)
-#define CTRL_REG_LR_MSK       (0x2)
-#define CTRL_REG_MODE_MSK     (0x3C)
-#define CTRL_REG_IE_MSK       (0x40)
-#define CTRL_REG_IR_MSK       (0x80)
-
-#define SWITCH_LR_MSK         (0x1)
-#define SWITCH_MODE_MSK       (0x1E)
-#define SWITCH_DEBUG_MSK      (0x200)
-
-#define MODE_STOP_CON_RUN_MSK (0x3)
-#define MODE_STOP             (0x0)
-#define MODE_CON_RUN          (0x1)
-#define MODE_CH_OF_ST_1_4     (0x2)
-#define MODE_CH_OF_ST_1_2     (0x6)
-#define MODE_CH_OF_ST_1       (0xA)
-#define MODE_CH_OF_ST_2       (0xE)
 
 typedef enum state {
   ERROR       = 0,

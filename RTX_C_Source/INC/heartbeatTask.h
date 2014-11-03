@@ -21,12 +21,15 @@
   *             - finilized heartbeat functionality
   * @details    02.11. Riedel
   *             - corrected documentation
+  * @details    03.11. Kossmann
+  *             - fixed some minor syntax mistakes to get flawless compile
   *****************************************************************************
   */
 
 #ifndef __HEARTBEAT_TASK_H__
 #define __HEARTBEAT_TASK_H__
 
+#include "includes.h"
 #include "events.h"
 #include "hardwareAccess.h"
 #include "registerAccess.h"
@@ -46,11 +49,11 @@
  *          | THIRD  | on       | LINE         |
  *          | FOURTH | off      | UPPDER_O     |
  */
-typedef heartbeatState {
-  FIRST,
-  SECOND,
-  THIRD,
-  FOURTH
+typedef enum heartbeatState {
+  FIRST = 1,
+  SECOND = 2,
+  THIRD = 3,
+  FOURTH = 4
 } heartbeatState_t;
 
 /**

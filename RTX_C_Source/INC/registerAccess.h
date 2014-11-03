@@ -11,17 +11,38 @@
   * @par History:
   * @details    02.11. Riedel
   *             - first draft for milestone 1b
+  * @details    03.11. Kossmann
+  *             - moved all register masks in this file
+  *             - added registerMutex for save access
   *****************************************************************************
   */
 
 #ifndef REGISTER_ACCESS_H
 #define REGISTER_ACCESS_H
 
-#define CTRL_REG_RS_MSK   (0x1)   //!< Run (1) or Stop (0)-Bit
-#define CTRL_REG_LR_MSK   (0x2)   //!< Left (0) or Right (1)-Bit 
-#define CTRL_REG_MODE_MSK (0x3C)  //!< Mode-combination according to ctrlRegSet()-function
-#define CTRL_REG_IE_MSK   (0x40)  //!< Interrupt-Enable Bit
-#define CTRL_REG_IR_MSK   (0x80)  //!< Interrupt-Request Bit
+#include <stdint.h>
+#include "includes.h"
+#include "debugAndErrorOutput.h"
+
+#define CTRL_REG_RS_MSK   (0x1)       //!< Run (1) or Stop (0)-Bit
+#define CTRL_REG_LR_MSK   (0x2)       //!< Left (0) or Right (1)-Bit
+#define CTRL_REG_MODE_MSK (0x3C)      //!< Mode-combination according to ctrlRegSet()-function
+#define CTRL_REG_IE_MSK   (0x40)      //!< Interrupt-Enable Bit
+#define CTRL_REG_IR_MSK   (0x80)      //!< Interrupt-Request Bit
+
+#define SWITCH_LR_MSK         (0x1)   //!< Right (1) or LEft (0)-Bit
+#define SWITCH_MODE_MSK       (0x1E)  //!< Bit 1..4 contains motor setup
+#define SWITCH_DEBUG_MSK      (0x200) //!< Debug on if Bit 9 = '1'
+
+#define MODE_STOP_CON_RUN_MSK (0x3)   //!< Bit 0 & 1 only
+#define MODE_STOP             (0x0)   //!< MODE_STOP_CON_RUN_MSK; Must be 'b00'
+#define MODE_CON_RUN          (0x1)   //!< Use "MODE_STOP_CON_RUN_MSK"; Must be 'b01'
+#define MODE_CH_OF_ST_1_4     (0x2)   //!< Bits muste be 'b0010'
+#define MODE_CH_OF_ST_1_2     (0x6)   //!< Bits muste be 'b0110'
+#define MODE_CH_OF_ST_1       (0xA)   //!< Bits muste be 'b1010'
+#define MODE_CH_OF_ST_2       (0xE)   //!< Bits muste be 'b1110'
+
+extern OS_EVENT *registerMutex;
 
 uint8_t   temporaryCtrlReg;       //!< Temporary control-register (only for milestone 1b)
 uint32_t  temporaryStepsReg;      //!< Temporary steps-register (only for milestone 1b)
@@ -51,7 +72,17 @@ uint8_t   temporarySpeedReg;      //!< Temporary speed-register (only for milest
  * @param   newCtrlReg The new register-content to set
  */
 static __inline__ void ctrlRegSet(uint8_t newCtrlReg) {
-  temporaryCtrlReg = newCtrlReg;
+  uint8_t err;
+  OSMutexPend(registerMutex, 0, &err);
+  if(OS_NO_ERR == err){
+    temporaryCtrlReg = newCtrlReg;
+  }else{
+    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if(OS_NO_ERR != err){
+    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
+  }
 }
 
 /**
@@ -60,7 +91,19 @@ static __inline__ void ctrlRegSet(uint8_t newCtrlReg) {
  * @return  The actual content of the control-register
  */
 static __inline__ uint8_t ctrlRegGet(void) {
-  return temporaryCtrlReg;
+  uint8_t err;
+  uint8_t ctrlReg;
+  OSMutexPend(registerMutex, 0, &err);
+  if(OS_NO_ERR == err){
+    ctrlReg = temporaryCtrlReg;
+  }else{
+    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if(OS_NO_ERR != err){
+    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
+  }
+  return ctrlReg;
 }
 
 /**
@@ -70,7 +113,17 @@ static __inline__ uint8_t ctrlRegGet(void) {
  * @param   newStepCount The number of steps, the motor should turn.
  */
 static __inline__ void stepsRegSet(uint32_t newStepCount) {
-  temporaryStepsReg = newStepCount;
+  uint8_t err;
+  OSMutexPend(registerMutex, 0, &err);
+  if(OS_NO_ERR == err){
+    temporaryStepsReg = newStepCount;
+  }else{
+    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if(OS_NO_ERR != err){
+    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
+  }
 }
 
 /**
@@ -79,7 +132,19 @@ static __inline__ void stepsRegSet(uint32_t newStepCount) {
  * @return  The actual content of steps left.
  */
 static __inline__ uint32_t stepsRegGet(void) {
-  return temporaryStepsReg;
+  uint8_t err;
+  uint32_t stepsReg;
+  OSMutexPend(registerMutex, 0, &err);
+  if(OS_NO_ERR == err){
+    stepsReg = temporaryStepsReg;
+  }else{
+    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if(OS_NO_ERR != err){
+    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
+  }
+  return stepsReg;
 }
 
 /**
@@ -101,7 +166,17 @@ static __inline__ uint32_t stepsRegGet(void) {
  * @param newSpeed The new speed from 0 to 7 (only the first 3 bits are used!).
  */
 static __inline__ void speedRegSet(uint8_t newSpeed) {
-  temporarySpeedReg = newSpeed;
+  uint8_t err;
+  OSMutexPend(registerMutex, 0, &err);
+  if(OS_NO_ERR == err){
+    temporarySpeedReg = newSpeed;
+  }else{
+    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if(OS_NO_ERR != err){
+    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
+  }
 }
 
 /**
@@ -111,7 +186,19 @@ static __inline__ void speedRegSet(uint8_t newSpeed) {
  *          are used ,the rest is reserved!).
  */
 static __inline__ uint8_t speedRegGet(void) {
-  return temporarySpeedReg;
+  uint8_t err;
+  uint8_t speedReg;
+  OSMutexPend(registerMutex, 0, &err);
+  if(OS_NO_ERR == err){
+    speedReg = temporarySpeedReg;
+  }else{
+    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if(OS_NO_ERR != err){
+    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
+  }
+  return speedReg;
 }
 
 #endif // REGISTER_ACCESS_H

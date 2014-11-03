@@ -24,8 +24,9 @@
 
 #include <sys/alt_irq.h>
 #include "includes.h"
-#include "hardwareAccess.h"
+#include "registerAccess.h"
 #include "events.h"
+#include "debugAndErrorOutput.h"
 
 /**
  * @brief   IRQ-Handler for motor stopped
