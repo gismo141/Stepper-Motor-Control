@@ -1,19 +1,20 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02" title="The task for the hearbeat and the debug&#45;mode. " alt="" coords="122,117,229,143"/>
-<area shape="rect" id="node11" href="$keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="117,167,234,192"/>
-<area shape="rect" id="node13" href="$hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of keys edgecapture register. " alt="" coords="295,217,487,243"/>
-<area shape="rect" id="node14" href="$hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="104,268,247,293"/>
-<area shape="rect" id="node15" href="$switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="105,317,246,343"/>
-<area shape="rect" id="node18" href="$hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="106,367,245,392"/>
-<area shape="rect" id="node3" href="$heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="321,117,461,143"/>
-<area shape="rect" id="node5" href="$heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="535,31,667,56"/>
-<area shape="rect" id="node4" href="$register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="559,80,644,105"/>
-<area shape="rect" id="node8" href="$register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="552,129,650,155"/>
-<area shape="rect" id="node9" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="552,179,651,204"/>
-<area shape="rect" id="node10" href="$register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="559,228,643,253"/>
-<area shape="rect" id="node6" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="715,5,829,31"/>
-<area shape="rect" id="node7" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="716,55,829,80"/>
-<area shape="rect" id="node12" href="$hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of keys edgecapture register. " alt="" coords="311,167,471,192"/>
-<area shape="rect" id="node16" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="320,292,462,317"/>
-<area shape="rect" id="node17" href="$hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="298,341,484,367"/>
+<area shape="rect" id="node2" href="$auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e" title="Initializes terminal output. " alt="" coords="139,141,212,167"/>
+<area shape="rect" id="node3" href="$heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02" title="The task for the hearbeat and the debug&#45;mode. " alt="" coords="122,191,229,216"/>
+<area shape="rect" id="node12" href="$keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="117,240,234,265"/>
+<area shape="rect" id="node14" href="$hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of keys edgecapture register. " alt="" coords="295,291,487,316"/>
+<area shape="rect" id="node15" href="$hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="104,341,247,367"/>
+<area shape="rect" id="node16" href="$switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="105,391,246,416"/>
+<area shape="rect" id="node19" href="$hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="106,440,245,465"/>
+<area shape="rect" id="node4" href="$heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="321,116,461,141"/>
+<area shape="rect" id="node8" href="$heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="535,203,667,228"/>
+<area shape="rect" id="node5" href="$register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="559,5,644,31"/>
+<area shape="rect" id="node6" href="$register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="552,55,650,80"/>
+<area shape="rect" id="node7" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="552,104,651,129"/>
+<area shape="rect" id="node11" href="$register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="559,153,643,179"/>
+<area shape="rect" id="node9" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="715,177,829,203"/>
+<area shape="rect" id="node10" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="716,227,829,252"/>
+<area shape="rect" id="node13" href="$hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of keys edgecapture register. " alt="" coords="311,241,471,267"/>
+<area shape="rect" id="node17" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="320,365,462,391"/>
+<area shape="rect" id="node18" href="$hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="298,415,484,440"/>
 </map>

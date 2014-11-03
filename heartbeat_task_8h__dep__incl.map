@@ -1,5 +1,5 @@
 <map id="heartbeatTask.h" name="heartbeatTask.h">
 <area shape="rect" id="node2" href="$main_8h.html" title="Header file for main.c. " alt="" coords="5,79,67,104"/>
-<area shape="rect" id="node4" href="$heartbeat_task_8c.html" title="heartbeatTask.c" alt="" coords="90,79,206,104"/>
+<area shape="rect" id="node4" href="$heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging..." alt="" coords="90,79,206,104"/>
 <area shape="rect" id="node3" href="$main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,152,66,177"/>
 </map>

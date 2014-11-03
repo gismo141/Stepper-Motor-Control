@@ -78,6 +78,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_type.html"><span>Typedefs</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="globals_eval.html"><span>Enumerator</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
@@ -101,7 +104,7 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,9 +115,6 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 
 <div class="contents">
 &#160;<ul>
-<li>heartbeatState
-: <a class="el" href="heartbeat_task_8h.html#a85b413b023362889628033c936fc0fc1">heartbeatTask.h</a>
-</li>
 <li>HeartbeatTask_Stk
 : <a class="el" href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">main.h</a>
 </li>
@@ -127,6 +127,21 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 <li>ISRcontext
 : <a class="el" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">main.c</a>
 </li>
+<li>lcd
+: <a class="el" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">auxilaryFunctions.c</a>
+</li>
+<li>outputTaskMailbox
+: <a class="el" href="user_input_task_8c.html#a3c17b1d58e3e162511d45cb3677956a2">userInputTask.c</a>
+, <a class="el" href="user_output_task_8c.html#a3c17b1d58e3e162511d45cb3677956a2">userOutputTask.c</a>
+</li>
+<li>registerMutex
+: <a class="el" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerAccess.h</a>
+, <a class="el" href="user_input_task_8c.html#a90dd16a245092869e11b02a3bb26b066">userInputTask.c</a>
+</li>
+<li>switchesMsgQueue
+: <a class="el" href="switches_i_r_qhandler_8c.html#ab330cc70cae17b304ee4ebea72ff691b">switchesIRQhandler.c</a>
+, <a class="el" href="user_input_task_8c.html#ab330cc70cae17b304ee4ebea72ff691b">userInputTask.c</a>
+</li>
 <li>temporaryCtrlReg
 : <a class="el" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">registerAccess.h</a>
 </li>
@@ -135,6 +150,9 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 </li>
 <li>temporaryStepsReg
 : <a class="el" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">registerAccess.h</a>
+</li>
+<li>term
+: <a class="el" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">auxilaryFunctions.c</a>
 </li>
 <li>UserInputTask_Stk
 : <a class="el" href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">main.h</a>
@@ -155,7 +173,7 @@ $(document).ready(function(){initNavTree('globals_vars.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

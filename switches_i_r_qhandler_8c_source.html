@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('switches_i_r_qhandler_8c_source.html',
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,58 +108,60 @@ $(document).ready(function(){initNavTree('switches_i_r_qhandler_8c_source.html',
 </div><!--header-->
 <div class="contents">
 <a href="switches_i_r_qhandler_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       switchesIRQhandler.c</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       21.10.2014</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      IRQ-handler for switches</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @details    21.10. Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  * @details    27.10. Riedel</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *             - basic implementation</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  * @details    29.10. Kossmann</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *             - modified clearing requests and evaluating pressed keys</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  * @details    30.10. Riedel</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  *             - added Debug and Error-Handling</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  * @details    30.10. Kossmann</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  *             - change IPC to message queue because mailbox not needed</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  * @details    31.10. Kossmann</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  *             - fix bug that IRQhandler was called all the time</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file       switchesIRQhandler.c</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author     Michael Riedel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author     Marc Kossmann</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v0.1</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       21.10.2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @brief      IRQ-handler for switches</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * @par History:</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @details    21.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *             - first draft for milestone 1b</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * @details    27.10. Riedel</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *             - basic implementation</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * @details    29.10. Kossmann</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *             - modified clearing requests and evaluating pressed keys</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @details    30.10. Riedel</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *             - added Debug and Error-Handling</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * @details    30.10. Kossmann</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *             - change IPC to message queue because mailbox not needed</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * @details    31.10. Kossmann</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *             - fix bug that IRQhandler was called all the time</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../INC/switchesIRQhandler.h&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> OS_EVENT *switchesMsgQueue;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> OS_EVENT *<a class="code" href="switches_i_r_qhandler_8c.html#ab330cc70cae17b304ee4ebea72ff691b">switchesMsgQueue</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a>(<span class="keywordtype">void</span> *context) {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  uint8_t err;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  OSIntEnter();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="debug_and_error_output_8h.html#a86ee3ff44c537d94ccbabf941a613688">debug</a>(<span class="stringliteral">&quot;Switch moved!\n&quot;</span>);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">// Create and Send Mailbox-Message with switches values</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  err = OSQPost(switchesMsgQueue, (<span class="keywordtype">void</span> *) <a class="code" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a>());</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  err = OSQPost(<a class="code" href="switches_i_r_qhandler_8c.html#ab330cc70cae17b304ee4ebea72ff691b">switchesMsgQueue</a>, (<span class="keywordtype">void</span> *) <a class="code" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a>());</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordflow">if</span> (OS_NO_ERR != err) {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;SW_ISR_MBOX_ERR: %i\n&quot;</span>, err);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a>(0xFFFF);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  OSIntExit();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="ttc" id="debug_and_error_output_8h_html_a259aac00ed43fd7ac58196b770963525"><div class="ttname"><a href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a></div><div class="ttdeci">#define error(...)</div><div class="ttdoc">Prints the Error-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00045">debugAndErrorOutput.h:45</a></div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">//Reset IR-Bits</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a>(0xFFFF);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  OSIntExit();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="ttc" id="debug_and_error_output_8h_html_a259aac00ed43fd7ac58196b770963525"><div class="ttname"><a href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a></div><div class="ttdeci">#define error(...)</div><div class="ttdoc">Prints the Error-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00048">debugAndErrorOutput.h:48</a></div></div>
 <div class="ttc" id="switches_i_r_qhandler_8c_html_ad831687986b7a5fb97291c2c3fd65ff9"><div class="ttname"><a href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a></div><div class="ttdeci">void switchesIRQhandler(void *context)</div><div class="ttdoc">IRQ-Handler for switches. </div><div class="ttdef"><b>Definition:</b> <a href="switches_i_r_qhandler_8c_source.html#l00030">switchesIRQhandler.c:30</a></div></div>
-<div class="ttc" id="debug_and_error_output_8h_html_a86ee3ff44c537d94ccbabf941a613688"><div class="ttname"><a href="debug_and_error_output_8h.html#a86ee3ff44c537d94ccbabf941a613688">debug</a></div><div class="ttdeci">#define debug(...)</div><div class="ttdoc">Prints Debug-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00035">debugAndErrorOutput.h:35</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a16c412e9385c655ecd16ecf3379eec21"><div class="ttname"><a href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a></div><div class="ttdeci">static __inline__ uint32_t PIO_SW_GetValues(void)</div><div class="ttdoc">Function to read content of switches data register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00102">hardwareAccess.h:102</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_abd9aa36a3326dd1655387758edc43be6"><div class="ttname"><a href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_SW_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of switches edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00092">hardwareAccess.h:92</a></div></div>
+<div class="ttc" id="debug_and_error_output_8h_html_a86ee3ff44c537d94ccbabf941a613688"><div class="ttname"><a href="debug_and_error_output_8h.html#a86ee3ff44c537d94ccbabf941a613688">debug</a></div><div class="ttdeci">#define debug(...)</div><div class="ttdoc">Prints Debug-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00038">debugAndErrorOutput.h:38</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a16c412e9385c655ecd16ecf3379eec21"><div class="ttname"><a href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a></div><div class="ttdeci">static __inline__ uint32_t PIO_SW_GetValues(void)</div><div class="ttdoc">Function to read content of switches data register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00096">hardwareAccess.h:96</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_abd9aa36a3326dd1655387758edc43be6"><div class="ttname"><a href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_SW_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of switches edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00086">hardwareAccess.h:86</a></div></div>
+<div class="ttc" id="switches_i_r_qhandler_8c_html_ab330cc70cae17b304ee4ebea72ff691b"><div class="ttname"><a href="switches_i_r_qhandler_8c.html#ab330cc70cae17b304ee4ebea72ff691b">switchesMsgQueue</a></div><div class="ttdeci">OS_EVENT * switchesMsgQueue</div><div class="ttdoc">Message Queue for transmitting the switches values. </div><div class="ttdef"><b>Definition:</b> <a href="user_input_task_8c_source.html#l00032">userInputTask.c:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="switches_i_r_qhandler_8c.html">switchesIRQhandler.c</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="switches_i_r_qhandler_8c.html">switchesIRQhandler.c</a></li>
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

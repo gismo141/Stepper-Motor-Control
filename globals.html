@@ -78,6 +78,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
       <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_type.html"><span>Typedefs</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="globals_eval.html"><span>Enumerator</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
@@ -86,13 +89,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_q"><span>q</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
       <li class="current"><a href="#index_u"><span>u</span></a></li>
@@ -118,7 +125,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -131,6 +138,13 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <div class="textblock">Here is a list of all documented file members with links to the documentation:</div>
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>clear_lcd()
+: <a class="el" href="auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b">auxilaryFunctions.h</a>
+, <a class="el" href="auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b">auxilaryFunctions.c</a>
+</li>
+<li>CONTINOUS
+: <a class="el" href="user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba67bed54be9e134dd063d2eb69618b81d">userInputTask.h</a>
+</li>
 <li>CTRL_REG_IE_MSK
 : <a class="el" href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">registerAccess.h</a>
 </li>
@@ -156,6 +170,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>DEBUG
+: <a class="el" href="user_input_task_8h.html#adc6e5733fc3c22f0a7b2914188c49c90a0593585da9181e972974c1274d8f2b4f">userInputTask.h</a>
+</li>
 <li>debug
 : <a class="el" href="debug_and_error_output_8h.html#a86ee3ff44c537d94ccbabf941a613688">debugAndErrorOutput.h</a>
 </li>
@@ -163,29 +180,69 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace">events.h</a>
 </li>
 <li>debugAndHeartbeat()
-: <a class="el" href="heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920">heartbeatTask.c</a>
-, <a class="el" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920">heartbeatTask.h</a>
+: <a class="el" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920">heartbeatTask.h</a>
+, <a class="el" href="heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920">heartbeatTask.c</a>
+</li>
+<li>direction
+: <a class="el" href="user_input_task_8h.html#a99f26e6ee9fcd62f75203b5402df8098">userInputTask.h</a>
+</li>
+<li>direction_t
+: <a class="el" href="user_input_task_8h.html#a32f967dcf097fc29993bdb23b6a3fd76">userInputTask.h</a>
 </li>
 <li>DOGM162lcd_init()
-: <a class="el" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.c</a>
-, <a class="el" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.h</a>
+: <a class="el" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.h</a>
+, <a class="el" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.c</a>
+</li>
+<li>DOUBLE_ROTATION
+: <a class="el" href="user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba3e63ae67bd7ed6ffd8eae202c1ab1583">userInputTask.h</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>ERROR
+: <a class="el" href="user_input_task_8h.html#adc6e5733fc3c22f0a7b2914188c49c90a2fd6f336d08340583bd620a7f5694c90">userInputTask.h</a>
+</li>
 <li>error
 : <a class="el" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">debugAndErrorOutput.h</a>
 </li>
 </ul>
 
 
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>fflush_lcd()
+: <a class="el" href="auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0">auxilaryFunctions.h</a>
+, <a class="el" href="auxilary_functions_8c.html#aef9f99cbe33f5c9b05d0886fef2f05c0">auxilaryFunctions.c</a>
+</li>
+<li>fflush_term()
+: <a class="el" href="auxilary_functions_8c.html#ab6e2427be137543aaf966090e82ad3f4">auxilaryFunctions.c</a>
+, <a class="el" href="auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4">auxilaryFunctions.h</a>
+</li>
+<li>FULL_ROTATION
+: <a class="el" href="user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba05928091d266f92412968466c57c0501">userInputTask.h</a>
+</li>
+<li>FUNCTIONAL
+: <a class="el" href="user_input_task_8h.html#adc6e5733fc3c22f0a7b2914188c49c90a24463dcd32d9750d62d60ac80169abc9">userInputTask.h</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>HALF_ROTATION
+: <a class="el" href="user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba48baadf27b8ecd81c7423523dc3628bc">userInputTask.h</a>
+</li>
+<li>hardwareTest()
+: <a class="el" href="user_input_task_8h.html#a2fdf7e32c853914654f176e45c2a03c7">userInputTask.h</a>
+, <a class="el" href="user_input_task_8c.html#a2fdf7e32c853914654f176e45c2a03c7">userInputTask.c</a>
+</li>
 <li>HEARTBEAT_TASK_PRIORITY
 : <a class="el" href="main_8h.html#aaa8288af0cc342748d2a46cdc4d574be">main.h</a>
 </li>
 <li>heartbeatState
-: <a class="el" href="heartbeat_task_8h.html#a85b413b023362889628033c936fc0fc1">heartbeatTask.h</a>
+: <a class="el" href="heartbeat_task_8h.html#a42e9d338f1264fffdd7f65c3d3702874">heartbeatTask.h</a>
+</li>
+<li>heartbeatState_t
+: <a class="el" href="heartbeat_task_8h.html#aed20c92dd294171dda978cde58cc0fd8">heartbeatTask.h</a>
 </li>
 <li>HeartbeatTask()
 : <a class="el" href="heartbeat_task_8c.html#a00b1b959673cfff6628206a4104dfe02">heartbeatTask.c</a>
@@ -195,15 +252,62 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">main.h</a>
 </li>
 <li>heartbeatTaskFlagsGrp
-: <a class="el" href="main_8c.html#a39faba8eb837cd0a61c8e06506a76810">main.c</a>
-, <a class="el" href="user_input_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">userInputTask.c</a>
+: <a class="el" href="events_8h.html#a39faba8eb837cd0a61c8e06506a76810">events.h</a>
 , <a class="el" href="heartbeat_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTask.c</a>
-, <a class="el" href="events_8h.html#a39faba8eb837cd0a61c8e06506a76810">events.h</a>
+, <a class="el" href="main_8c.html#a39faba8eb837cd0a61c8e06506a76810">main.c</a>
+, <a class="el" href="user_input_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">userInputTask.c</a>
+</li>
+<li>HEX_EIGHT
+: <a class="el" href="user_output_task_8h.html#a1b9031128f9546738562f0d68572b3bd">userOutputTask.h</a>
+</li>
+<li>HEX_FIVE
+: <a class="el" href="user_output_task_8h.html#a0ab2ea35eaf625c5343d028112b82159">userOutputTask.h</a>
+</li>
+<li>HEX_FOUR
+: <a class="el" href="user_output_task_8h.html#af25fe3ad4e66287e2c08476053064bea">userOutputTask.h</a>
+</li>
+<li>HEX_LEFT
+: <a class="el" href="user_output_task_8h.html#aa230361d4595f6e57612c39de5ae645f">userOutputTask.h</a>
+</li>
+<li>HEX_LINE
+: <a class="el" href="user_output_task_8h.html#a41505d117196ca6485cf75157d066b72">userOutputTask.h</a>
+</li>
+<li>HEX_NINE
+: <a class="el" href="user_output_task_8h.html#a75ee1807eb36f4376ba8090d267b3f93">userOutputTask.h</a>
+</li>
+<li>HEX_ONE
+: <a class="el" href="user_output_task_8h.html#ac391a56e672175677b7daad0f73e3aca">userOutputTask.h</a>
+</li>
+<li>HEX_RIGHT
+: <a class="el" href="user_output_task_8h.html#a6bf02d65674c4c9ed56fb66066565651">userOutputTask.h</a>
+</li>
+<li>HEX_SEVEN
+: <a class="el" href="user_output_task_8h.html#aab9172894c98c26280e7e7963385f078">userOutputTask.h</a>
+</li>
+<li>HEX_SIX
+: <a class="el" href="user_output_task_8h.html#a849c29f5863dcc1ba21ad11482bd12bb">userOutputTask.h</a>
+</li>
+<li>HEX_THREE
+: <a class="el" href="user_output_task_8h.html#aaf8738506fa63d5c3e2f343b11b4c573">userOutputTask.h</a>
+</li>
+<li>HEX_TWO
+: <a class="el" href="user_output_task_8h.html#ac215ceacc73308544591939e033e4743">userOutputTask.h</a>
+</li>
+<li>HEX_ZERO
+: <a class="el" href="user_output_task_8h.html#a3c70a68d014bfc1c4bf0f942efb9fe75">userOutputTask.h</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>init_lcd()
+: <a class="el" href="auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2">auxilaryFunctions.h</a>
+, <a class="el" href="auxilary_functions_8c.html#aafed2ade168a085630c2fe8d776432f2">auxilaryFunctions.c</a>
+</li>
+<li>init_term()
+: <a class="el" href="auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e">auxilaryFunctions.c</a>
+, <a class="el" href="auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e">auxilaryFunctions.h</a>
+</li>
 <li>ISRcontext
 : <a class="el" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">main.c</a>
 </li>
@@ -228,6 +332,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>lcd
+: <a class="el" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">auxilaryFunctions.c</a>
+</li>
 <li>LINE
 : <a class="el" href="heartbeat_task_8h.html#af94cfb03461685fead1fe045d5c96f01">heartbeatTask.h</a>
 </li>
@@ -240,6 +347,27 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
 : <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a>
+</li>
+<li>MODE_CH_OF_ST_1
+: <a class="el" href="register_access_8h.html#a4dae33261a2cdc93c4de6115e4e5cb8f">registerAccess.h</a>
+</li>
+<li>MODE_CH_OF_ST_1_2
+: <a class="el" href="register_access_8h.html#a9954f884179f1c11e4973487f48c76b1">registerAccess.h</a>
+</li>
+<li>MODE_CH_OF_ST_1_4
+: <a class="el" href="register_access_8h.html#aad4de87dd243d469de09afdd7e65cb02">registerAccess.h</a>
+</li>
+<li>MODE_CH_OF_ST_2
+: <a class="el" href="register_access_8h.html#a3282200d7b0d8e5fca888bc759af164a">registerAccess.h</a>
+</li>
+<li>MODE_CON_RUN
+: <a class="el" href="register_access_8h.html#a1b924e9a4944f68a4c28a02ec4560aa6">registerAccess.h</a>
+</li>
+<li>MODE_STOP
+: <a class="el" href="register_access_8h.html#a29a7dfd4fec0d672f9690159d70abc0d">registerAccess.h</a>
+</li>
+<li>MODE_STOP_CON_RUN_MSK
+: <a class="el" href="register_access_8h.html#a3bdea57bbed1ce1e8077c1378d64603f">registerAccess.h</a>
 </li>
 <li>MOTOR_STOP_EVENT
 : <a class="el" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">events.h</a>
@@ -255,6 +383,17 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>nextHeartbeatStep()
 : <a class="el" href="heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062">heartbeatTask.h</a>
 , <a class="el" href="heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062">heartbeatTask.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>outputTaskMailbox
+: <a class="el" href="user_input_task_8c.html#a3c17b1d58e3e162511d45cb3677956a2">userInputTask.c</a>
+, <a class="el" href="user_output_task_8c.html#a3c17b1d58e3e162511d45cb3677956a2">userOutputTask.c</a>
+</li>
+<li>outputTaskMailbox_t
+: <a class="el" href="user_input_task_8h.html#ae6b7c11f607df6a45c8a7b7326379c15">userInputTask.h</a>
 </li>
 </ul>
 
@@ -278,6 +417,15 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>PIO_KEY_GetEdgeCpt()
 : <a class="el" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">hardwareAccess.h</a>
 </li>
+<li>PIO_KEY_MINUS_IR2_MSK
+: <a class="el" href="hardware_access_8h.html#af0b9650bf27421d162911c1f4457bb31">hardwareAccess.h</a>
+</li>
+<li>PIO_KEY_PLUS_IR3_MSK
+: <a class="el" href="hardware_access_8h.html#a9809feb056e6f227cd3ef45a26bfb52a">hardwareAccess.h</a>
+</li>
+<li>PIO_KEY_RS_IR0_MSK
+: <a class="el" href="hardware_access_8h.html#adb0c067a4045531d0ab2f2a24bd8ce09">hardwareAccess.h</a>
+</li>
 <li>PIO_KEY_SetIRMsk()
 : <a class="el" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">hardwareAccess.h</a>
 </li>
@@ -287,21 +435,66 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>PIO_SW_ClearEdgeCptBits()
 : <a class="el" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">hardwareAccess.h</a>
 </li>
+<li>PIO_SW_DEBUG_IR9_MSK
+: <a class="el" href="hardware_access_8h.html#ad9bc04deec068d2f5d50a93ff771238d">hardwareAccess.h</a>
+</li>
 <li>PIO_SW_GetValues()
 : <a class="el" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">hardwareAccess.h</a>
 </li>
+<li>PIO_SW_LR_IR0_MSK
+: <a class="el" href="hardware_access_8h.html#a1a8fca812a73b10a942b09183166ed29">hardwareAccess.h</a>
+</li>
+<li>PIO_SW_MODE_IR1234_MSK
+: <a class="el" href="hardware_access_8h.html#a788abfdb4ffb3f07c8d7ec1ae6a69a33">hardwareAccess.h</a>
+</li>
 <li>PIO_SW_SetIRMsk()
 : <a class="el" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">hardwareAccess.h</a>
+</li>
+<li>printf_lcd()
+: <a class="el" href="auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28">auxilaryFunctions.h</a>
+, <a class="el" href="auxilary_functions_8c.html#aed7b3831a70eb14aaf5f85c156a01a2a">auxilaryFunctions.c</a>
+</li>
+<li>printf_term()
+: <a class="el" href="auxilary_functions_8c.html#a4ef071e335e215eb794cb631f59fc9b5">auxilaryFunctions.c</a>
+, <a class="el" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b">auxilaryFunctions.h</a>
+</li>
+<li>printTerminalInfo()
+: <a class="el" href="user_output_task_8c.html#aaa95af5d3f16e2a0c9a0e1f887210fb0">userOutputTask.c</a>
+, <a class="el" href="user_output_task_8h.html#aaa95af5d3f16e2a0c9a0e1f887210fb0">userOutputTask.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_q"></a>- q -</h3><ul>
+<li>QUARTER_ROTATION
+: <a class="el" href="user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba298f3200f8147349de1a8f70c4efbd56">userInputTask.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>registerMutex
+: <a class="el" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerAccess.h</a>
+, <a class="el" href="user_input_task_8c.html#a90dd16a245092869e11b02a3bb26b066">userInputTask.c</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SOC2014_DEBUG
+: <a class="el" href="main_8h.html#ab9711ce0e4efe30b73bd296e03c6c50f">main.h</a>
+</li>
 <li>speedRegGet()
 : <a class="el" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615">registerAccess.h</a>
 </li>
 <li>speedRegSet()
 : <a class="el" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544">registerAccess.h</a>
+</li>
+<li>state
+: <a class="el" href="user_input_task_8h.html#adc6e5733fc3c22f0a7b2914188c49c90">userInputTask.h</a>
+</li>
+<li>state_t
+: <a class="el" href="user_input_task_8h.html#a9a7e280c3ad79de38060a105d2ba41e1">userInputTask.h</a>
 </li>
 <li>stepsRegGet()
 : <a class="el" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8">registerAccess.h</a>
@@ -309,9 +502,28 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>stepsRegSet()
 : <a class="el" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">registerAccess.h</a>
 </li>
+<li>STOP
+: <a class="el" href="user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba679ee5320d66c8322e310daeb2ee99b8">userInputTask.h</a>
+</li>
+<li>SWITCH_DEBUG_MSK
+: <a class="el" href="register_access_8h.html#ae1ccbd36272f4f4edd68519b97dd2b63">registerAccess.h</a>
+</li>
+<li>SWITCH_LR_MSK
+: <a class="el" href="register_access_8h.html#a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca">registerAccess.h</a>
+</li>
+<li>SWITCH_MODE_MSK
+: <a class="el" href="register_access_8h.html#a16924283d60a08c79a5f9ef36e4a436f">registerAccess.h</a>
+</li>
 <li>switchesIRQhandler()
-: <a class="el" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler.h</a>
-, <a class="el" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler.c</a>
+: <a class="el" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler.c</a>
+, <a class="el" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler.h</a>
+</li>
+<li>switchesMsgQueue
+: <a class="el" href="user_input_task_8c.html#ab330cc70cae17b304ee4ebea72ff691b">userInputTask.c</a>
+, <a class="el" href="switches_i_r_qhandler_8c.html#ab330cc70cae17b304ee4ebea72ff691b">switchesIRQhandler.c</a>
+</li>
+<li>systemState_t
+: <a class="el" href="user_input_task_8h.html#aca38f58c23973b9be2b2fed27006158d">userInputTask.h</a>
 </li>
 </ul>
 
@@ -329,12 +541,21 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>temporaryStepsReg
 : <a class="el" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">registerAccess.h</a>
 </li>
+<li>term
+: <a class="el" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">auxilaryFunctions.c</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
 <li>UPPER_O
 : <a class="el" href="heartbeat_task_8h.html#a2867e29e565e5a1e52560be1ea7a169e">heartbeatTask.h</a>
+</li>
+<li>useCases
+: <a class="el" href="user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1b">userInputTask.h</a>
+</li>
+<li>useCases_t
+: <a class="el" href="user_input_task_8h.html#adbe3d24151c66b6a15833feaa1f20406">userInputTask.h</a>
 </li>
 <li>USER_INPUT_TASK_PRIORITY
 : <a class="el" href="main_8h.html#ac7c6511b5c8ad5ca04f8bf6d6aee7c65">main.h</a>
@@ -350,15 +571,15 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">main.h</a>
 </li>
 <li>userInputTaskFlagsGrp
-: <a class="el" href="main_8c.html#a07c87d61e7e620a7f471139d92b2685b">main.c</a>
-, <a class="el" href="user_input_task_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTask.c</a>
+: <a class="el" href="user_input_task_8c.html#a07c87d61e7e620a7f471139d92b2685b">userInputTask.c</a>
+, <a class="el" href="events_8h.html#a07c87d61e7e620a7f471139d92b2685b">events.h</a>
 , <a class="el" href="keys_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b">keysIRQhandler.c</a>
 , <a class="el" href="motor_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b">motorIRQhandler.c</a>
-, <a class="el" href="events_8h.html#a07c87d61e7e620a7f471139d92b2685b">events.h</a>
+, <a class="el" href="main_8c.html#a07c87d61e7e620a7f471139d92b2685b">main.c</a>
 </li>
 <li>UserOutputTask()
-: <a class="el" href="user_output_task_8c.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.c</a>
-, <a class="el" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.h</a>
+: <a class="el" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.h</a>
+, <a class="el" href="user_output_task_8c.html#a006aeb085c5dea0247e5c842bf1e92b5">userOutputTask.c</a>
 </li>
 <li>UserOutputTask_Stk
 : <a class="el" href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">main.h</a>
@@ -369,7 +590,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

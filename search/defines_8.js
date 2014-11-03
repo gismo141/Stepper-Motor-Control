@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['upper_5fo',['UPPER_O',['../heartbeat_task_8h.html#a2867e29e565e5a1e52560be1ea7a169e',1,'heartbeatTask.h']]],
-  ['user_5finput_5ftask_5fpriority',['USER_INPUT_TASK_PRIORITY',['../main_8h.html#ac7c6511b5c8ad5ca04f8bf6d6aee7c65',1,'main.h']]],
-  ['user_5foutput_5ftask_5fpriority',['USER_OUTPUT_TASK_PRIORITY',['../main_8h.html#a5a412c0b185f9535b402dc6a052cc7c7',1,'main.h']]]
+  ['soc2014_5fdebug',['SOC2014_DEBUG',['../main_8h.html#ab9711ce0e4efe30b73bd296e03c6c50f',1,'main.h']]],
+  ['switch_5fdebug_5fmsk',['SWITCH_DEBUG_MSK',['../register_access_8h.html#ae1ccbd36272f4f4edd68519b97dd2b63',1,'registerAccess.h']]],
+  ['switch_5flr_5fmsk',['SWITCH_LR_MSK',['../register_access_8h.html#a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca',1,'registerAccess.h']]],
+  ['switch_5fmode_5fmsk',['SWITCH_MODE_MSK',['../register_access_8h.html#a16924283d60a08c79a5f9ef36e4a436f',1,'registerAccess.h']]]
 ];

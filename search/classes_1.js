@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outputtaskmailbox',['outputTaskMailbox',['../structoutput_task_mailbox.html',1,'']]]
+  ['keydetect',['keyDetect',['../classkey_detect.html',1,'']]]
 ];

@@ -1,5 +1,12 @@
 <map id="UserInputTask" name="UserInputTask">
-<area shape="rect" id="node2" href="$keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="160,5,277,31"/>
-<area shape="rect" id="node4" href="$hardware_access_8h.html#a310e4afbd25f15e4e5733034636a0a0b" title="function to write to key register " alt="" coords="326,55,414,80"/>
-<area shape="rect" id="node3" href="$hardware_access_8h.html#a8b0a952395f92b19bc5dda6986fec2b9" title="function to read content of key register " alt="" coords="325,5,415,31"/>
+<area shape="rect" id="node2" href="$auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="169,5,254,31"/>
+<area shape="rect" id="node3" href="$auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="180,55,243,80"/>
+<area shape="rect" id="node5" href="$auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="174,104,249,129"/>
+<area shape="rect" id="node6" href="$auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="173,153,251,179"/>
+<area shape="rect" id="node7" href="$register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="169,203,254,228"/>
+<area shape="rect" id="node8" href="$register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="160,252,264,277"/>
+<area shape="rect" id="node9" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="162,301,261,327"/>
+<area shape="rect" id="node10" href="$register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="170,351,253,376"/>
+<area shape="rect" id="node11" href="$register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="161,400,263,425"/>
+<area shape="rect" id="node4" href="$lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="DOGM162lcd_init" alt="" coords="312,55,438,80"/>
 </map>

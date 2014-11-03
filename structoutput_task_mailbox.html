@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('structoutput_task_mailbox.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,35 +111,46 @@ $(document).ready(function(){initNavTree('structoutput_task_mailbox.html','');})
 <div class="title">outputTaskMailbox Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Datatype of Mailbox for transmitting information from InputTask to OutputTask.  
+ <a href="structoutput_task_mailbox.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="user_input_task_8h_source.html">userInputTask.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for outputTaskMailbox:</div>
 <div class="dyncontent">
 <div class="center"><img src="structoutput_task_mailbox__coll__graph.png" border="0" usemap="#output_task_mailbox_coll__map" alt="Collaboration graph"/></div>
 <map name="output_task_mailbox_coll__map" id="output_task_mailbox_coll__map">
-<area shape="rect" id="node2" href="structsystem_state.html" title="{systemState\n|+ operationalStatus\l+ activeUseCase\l|}" alt="" coords="5,5,142,92"/></map>
+<area shape="rect" id="node2" href="structsystem_state.html" title="Struct to store state of system and use case information. " alt="" coords="5,5,142,92"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a9ace2d64ec38634d6c45bced399ac78c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ace2d64ec38634d6c45bced399ac78c"></a>
-<a class="el" href="structsystem_state.html">systemState_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>systemState</b></td></tr>
+<a class="el" href="user_input_task_8h.html#aca38f58c23973b9be2b2fed27006158d">systemState_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoutput_task_mailbox.html#a9ace2d64ec38634d6c45bced399ac78c">systemState</a></td></tr>
+<tr class="memdesc:a9ace2d64ec38634d6c45bced399ac78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores state of system <br /></td></tr>
 <tr class="separator:a9ace2d64ec38634d6c45bced399ac78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4758c42c7f7deb4e8d9d52d483d7e4c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4758c42c7f7deb4e8d9d52d483d7e4c3"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ctrlReg</b></td></tr>
-<tr class="separator:a4758c42c7f7deb4e8d9d52d483d7e4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab53a5b935952a36e2c91cff70919626"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab53a5b935952a36e2c91cff70919626"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>speedReg</b></td></tr>
-<tr class="separator:aab53a5b935952a36e2c91cff70919626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeda6f5eef57617437153230702a3e5ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeda6f5eef57617437153230702a3e5ed"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>stepsReg</b></td></tr>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoutput_task_mailbox.html#aeda6f5eef57617437153230702a3e5ed">stepsReg</a></td></tr>
+<tr class="memdesc:aeda6f5eef57617437153230702a3e5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy of steps register <br /></td></tr>
 <tr class="separator:aeda6f5eef57617437153230702a3e5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b54cdb3c9dff25f7ae6f696c583a385"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b54cdb3c9dff25f7ae6f696c583a385"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoutput_task_mailbox.html#a3b54cdb3c9dff25f7ae6f696c583a385">ctrlReg</a></td></tr>
+<tr class="memdesc:a3b54cdb3c9dff25f7ae6f696c583a385"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy control register <br /></td></tr>
+<tr class="separator:a3b54cdb3c9dff25f7ae6f696c583a385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66f3a9ed7ef513cd4473dd32b429acbe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66f3a9ed7ef513cd4473dd32b429acbe"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoutput_task_mailbox.html#a66f3a9ed7ef513cd4473dd32b429acbe">speedReg</a></td></tr>
+<tr class="memdesc:a66f3a9ed7ef513cd4473dd32b429acbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy of speed register <br /></td></tr>
+<tr class="separator:a66f3a9ed7ef513cd4473dd32b429acbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d97a1816f55efd1a2a5eea0c0eef502"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d97a1816f55efd1a2a5eea0c0eef502"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>debugState</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoutput_task_mailbox.html#a4d97a1816f55efd1a2a5eea0c0eef502">debugState</a></td></tr>
+<tr class="memdesc:a4d97a1816f55efd1a2a5eea0c0eef502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug mode On/Off. <br /></td></tr>
 <tr class="separator:a4d97a1816f55efd1a2a5eea0c0eef502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="user_input_task_8h_source.html#l00087">87</a> of file <a class="el" href="user_input_task_8h_source.html">userInputTask.h</a>.</p>
+<div class="textblock"><p>Datatype of Mailbox for transmitting information from InputTask to OutputTask. </p>
+
+<p>Definition at line <a class="el" href="user_input_task_8h_source.html#l00078">78</a> of file <a class="el" href="user_input_task_8h_source.html">userInputTask.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="user_input_task_8h_source.html">userInputTask.h</a></li>
 </ul>
@@ -149,7 +160,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>debugState</b></td></
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structoutput_task_mailbox.html">outputTaskMailbox</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

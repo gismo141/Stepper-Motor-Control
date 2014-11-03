@@ -84,11 +84,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_k"><span>k</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li class="current"><a href="#index_w"><span>w</span></a></li>
@@ -114,7 +116,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,6 +129,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 &#160;
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>activeUseCase
+: <a class="el" href="structsystem_state.html#a7eee734fc3da9b7bc4e0ca5b676c64f5">systemState</a>
+</li>
 <li>addr
 : <a class="el" href="classinterface.html#a871b8b2f74fed11cfc08d1b9c5158513">interface</a>
 </li>
@@ -139,12 +144,23 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </li>
 <li>clock
 : <a class="el" href="classinterface.html#ab5720adee8823fbb2881037df2e189a6">interface</a>
+, <a class="el" href="classkey_detect.html#ab5720adee8823fbb2881037df2e189a6">keyDetect</a>
 </li>
 <li>CLOCK_50_B5B
 : <a class="el" href="classinterface___r_t_x___base.html#a05c598213f64aa37ddd25f2d4e1f445f">interface_RTX_Base</a>
 </li>
 <li>CPU_RESET_n
 : <a class="el" href="classinterface___r_t_x___base.html#ad71e86a08c4532bb97b4476f3dc16948">interface_RTX_Base</a>
+</li>
+<li>ctrlReg
+: <a class="el" href="structoutput_task_mailbox.html#a3b54cdb3c9dff25f7ae6f696c583a385">outputTaskMailbox</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>debugState
+: <a class="el" href="structoutput_task_mailbox.html#a4d97a1816f55efd1a2a5eea0c0eef502">outputTaskMailbox</a>
 </li>
 </ul>
 
@@ -169,6 +185,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>ieee
 : <a class="el" href="classinterface.html#a0a6af6eef40212dbaf130d57ce711256">interface</a>
 , <a class="el" href="classinterface___r_t_x___base.html#a0a6af6eef40212dbaf130d57ce711256">interface_RTX_Base</a>
+, <a class="el" href="classkey_detect.html#a0a6af6eef40212dbaf130d57ce711256">keyDetect</a>
 </li>
 <li>irq
 : <a class="el" href="classinterface.html#ac9b654c757f80f124f02274781e7939c">interface</a>
@@ -179,6 +196,12 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <h3><a class="anchor" id="index_k"></a>- k -</h3><ul>
 <li>KEY
 : <a class="el" href="classinterface___r_t_x___base.html#a5eaa40616970d6ce995eee15fba14015">interface_RTX_Base</a>
+</li>
+<li>key_detect
+: <a class="el" href="classkey_detect.html#a27899b47a2519fdddf3a4d5645f2c73f">keyDetect</a>
+</li>
+<li>key_input
+: <a class="el" href="classkey_detect.html#a33d0193b2bdfbe027437961c85f70ff2">keyDetect</a>
 </li>
 </ul>
 
@@ -207,7 +230,14 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 : <a class="el" href="classinterface.html#a7a8be5c8e8a30b3ad638a30d49fcd718">interface</a>
 </li>
 <li>MyParameter
-: <a class="el" href="classinterface.html#ac3325804f0588ab83ed04fb922a2a73b">interface</a>
+: <a class="el" href="classinterface.html#a0824e328091d5aa8f14126071d721dff">interface</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>operationalStatus
+: <a class="el" href="structsystem_state.html#a0120e28c84b38e75c44af4381eb29fab">systemState</a>
 </li>
 </ul>
 
@@ -224,11 +254,15 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </li>
 <li>reset_n
 : <a class="el" href="classinterface.html#a111031a2e78f01ffa0821f937b97f2ed">interface</a>
+, <a class="el" href="classkey_detect.html#a111031a2e78f01ffa0821f937b97f2ed">keyDetect</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>speedReg
+: <a class="el" href="structoutput_task_mailbox.html#a66f3a9ed7ef513cd4473dd32b429acbe">outputTaskMailbox</a>
+</li>
 <li>SRAM_A
 : <a class="el" href="classinterface___r_t_x___base.html#adc1eb648dc9bfaba37534afeb580e610">interface_RTX_Base</a>
 </li>
@@ -253,15 +287,24 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>std_logic_1164
 : <a class="el" href="classinterface.html#acd03516902501cd1c7296a98e22c6fcb">interface</a>
 , <a class="el" href="classinterface___r_t_x___base.html#acd03516902501cd1c7296a98e22c6fcb">interface_RTX_Base</a>
+, <a class="el" href="classkey_detect.html#acd03516902501cd1c7296a98e22c6fcb">keyDetect</a>
 </li>
 <li>std_logic_arith
 : <a class="el" href="classinterface.html#a0f5ecc6613f63d07f7963a97b1b26095">interface</a>
+, <a class="el" href="classkey_detect.html#a0f5ecc6613f63d07f7963a97b1b26095">keyDetect</a>
 </li>
 <li>std_logic_signed
 : <a class="el" href="classinterface.html#aa9364a3b0c6316da928edf136ae9b8e1">interface</a>
+, <a class="el" href="classkey_detect.html#aa9364a3b0c6316da928edf136ae9b8e1">keyDetect</a>
+</li>
+<li>stepsReg
+: <a class="el" href="structoutput_task_mailbox.html#aeda6f5eef57617437153230702a3e5ed">outputTaskMailbox</a>
 </li>
 <li>SW
 : <a class="el" href="classinterface___r_t_x___base.html#ad4980b960d0e91a9e8d199367887306c">interface_RTX_Base</a>
+</li>
+<li>systemState
+: <a class="el" href="structoutput_task_mailbox.html#a9ace2d64ec38634d6c45bced399ac78c">outputTaskMailbox</a>
 </li>
 </ul>
 
@@ -282,7 +325,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

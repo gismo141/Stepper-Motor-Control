@@ -1,9 +1,9 @@
 <map id="debugAndHeartbeat" name="debugAndHeartbeat">
 <area shape="rect" id="node2" href="$register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="218,5,303,31"/>
-<area shape="rect" id="node3" href="$heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="194,55,327,80"/>
-<area shape="rect" id="node6" href="$register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="211,104,309,129"/>
-<area shape="rect" id="node7" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="211,153,310,179"/>
+<area shape="rect" id="node3" href="$register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="211,55,309,80"/>
+<area shape="rect" id="node4" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="211,104,310,129"/>
+<area shape="rect" id="node5" href="$heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="194,153,327,179"/>
 <area shape="rect" id="node8" href="$register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="218,203,302,228"/>
-<area shape="rect" id="node4" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="375,31,489,56"/>
-<area shape="rect" id="node5" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="375,80,488,105"/>
+<area shape="rect" id="node6" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="375,129,489,155"/>
+<area shape="rect" id="node7" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="375,179,488,204"/>
 </map>

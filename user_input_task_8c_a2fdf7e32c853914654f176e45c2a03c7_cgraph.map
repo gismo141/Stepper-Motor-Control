@@ -1,0 +1,11 @@
+<map id="hardwareTest" name="hardwareTest">
+<area shape="rect" id="node2" href="$hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="155,5,269,31"/>
+<area shape="rect" id="node3" href="$hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="155,55,269,80"/>
+<area shape="rect" id="node4" href="$hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="155,104,269,129"/>
+<area shape="rect" id="node5" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="155,153,269,179"/>
+<area shape="rect" id="node6" href="$auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="169,203,254,228"/>
+<area shape="rect" id="node7" href="$auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="174,252,249,277"/>
+<area shape="rect" id="node8" href="$auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="174,301,249,327"/>
+<area shape="rect" id="node9" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="155,351,268,376"/>
+<area shape="rect" id="node10" href="$auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="173,400,251,425"/>
+</map>

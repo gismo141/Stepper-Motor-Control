@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('events_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,21 +108,21 @@ $(document).ready(function(){initNavTree('events_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="events_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       events.h</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       27.10.2014</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      definitions for used events</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @details    27.10. Riedel</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *             30.10. Riedel</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *             - Moved DEBUG_ON_EVENT from heartbeatTask.h to this header</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file       events.h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author     Michael Riedel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author     Marc Kossmann</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v0.1</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       27.10.2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @brief      definitions for used events</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * @par History:</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @details    27.10. Riedel</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *             - first draft for milestone 1b</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *             30.10. Riedel</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *             - Moved DEBUG_ON_EVENT from heartbeatTask.h to this header</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef __EVENTS_H__</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define __EVENTS_H__</span></div>
@@ -133,19 +133,19 @@ $(document).ready(function(){initNavTree('events_8h_source.html','');});
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *          by the user.</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="user_input_task_8c.html#a07c87d61e7e620a7f471139d92b2685b">   26</a></span>&#160;OS_FLAG_GRP *<a class="code" href="events_8h.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">   27</a></span>&#160;<span class="preprocessor">#define KEY0_RS_EVENT       (0x1) </span><span class="comment">//!&lt; runs or stops the motor via key_0</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="events_8h.html#af84520160425bf02b52498a6ab50b904">   28</a></span>&#160;<span class="comment"></span>#define KEY2_MINUS_EVENT    (0x2) <span class="comment">//!&lt; decreases the steps to turn via key_2</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">   29</a></span>&#160;<span class="comment"></span>#define KEY3_PLUS_EVENT     (0x4) <span class="comment">//!&lt; increases the steps to turn via key_3</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">   27</a></span>&#160;<span class="preprocessor">#define KEY0_RS_EVENT       (0x1) </span><span class="comment">//!&lt; runs or stops the motor via `key_0`</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="events_8h.html#af84520160425bf02b52498a6ab50b904">   28</a></span>&#160;<span class="comment"></span>#define KEY2_MINUS_EVENT    (0x2) <span class="comment">//!&lt; decreases the steps to turn via `key_2`</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">   29</a></span>&#160;<span class="comment"></span>#define KEY3_PLUS_EVENT     (0x4) <span class="comment">//!&lt; increases the steps to turn via `key_3`</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">   30</a></span>&#160;<span class="comment"></span>#define MOTOR_STOP_EVENT    (0x8) <span class="comment">//!&lt; the interrupt is sent via VHDL-Component, when the motor reached its end-position</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * @brief The flags group used in the heartbeat-task and user-input-task.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * @details This group contains the debug-event that can be triggered via sw_9.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * @details This group contains the debug-event that can be triggered via `sw_9`.</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="user_input_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">   36</a></span>&#160;OS_FLAG_GRP *<a class="code" href="events_8h.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace">   37</a></span>&#160;<span class="preprocessor">#define DEBUG_ON_EVENT      (0x1) </span><span class="comment">//!&lt; activates the debug-mode via sw_9</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace">   37</a></span>&#160;<span class="preprocessor">#define DEBUG_ON_EVENT      (0x1) </span><span class="comment">//!&lt; activates the debug-mode via `sw_9`</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*__EVENTS_H__*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif // __EVENTS_H__</span></div>
 <div class="ttc" id="events_8h_html_a39faba8eb837cd0a61c8e06506a76810"><div class="ttname"><a href="events_8h.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a></div><div class="ttdeci">OS_FLAG_GRP * heartbeatTaskFlagsGrp</div><div class="ttdoc">The flags group used in the heartbeat-task and user-input-task. </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00036">events.h:36</a></div></div>
 <div class="ttc" id="events_8h_html_a07c87d61e7e620a7f471139d92b2685b"><div class="ttname"><a href="events_8h.html#a07c87d61e7e620a7f471139d92b2685b">userInputTaskFlagsGrp</a></div><div class="ttdeci">OS_FLAG_GRP * userInputTaskFlagsGrp</div><div class="ttdoc">The flags group used in the user-input-task. </div><div class="ttdef"><b>Definition:</b> <a href="events_8h_source.html#l00026">events.h:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -153,8 +153,8 @@ $(document).ready(function(){initNavTree('events_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

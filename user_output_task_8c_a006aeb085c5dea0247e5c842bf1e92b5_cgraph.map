@@ -1,0 +1,10 @@
+<map id="UserOutputTask" name="UserOutputTask">
+<area shape="rect" id="node2" href="$user_output_task_8c.html#aaa95af5d3f16e2a0c9a0e1f887210fb0" title="Prints Motor information on the terminal. " alt="" coords="170,5,290,31"/>
+<area shape="rect" id="node3" href="$auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="338,31,423,56"/>
+<area shape="rect" id="node4" href="$auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="192,107,268,132"/>
+<area shape="rect" id="node5" href="$hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="173,156,287,181"/>
+<area shape="rect" id="node6" href="$hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="173,205,287,231"/>
+<area shape="rect" id="node7" href="$hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="173,255,287,280"/>
+<area shape="rect" id="node8" href="$auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4" title="Writes buffed data to terminal. " alt="" coords="187,304,274,329"/>
+<area shape="rect" id="node9" href="$auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="191,353,269,379"/>
+</map>

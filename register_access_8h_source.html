@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('register_access_8h_source.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,138 +108,228 @@ $(document).ready(function(){initNavTree('register_access_8h_source.html','');})
 </div><!--header-->
 <div class="contents">
 <a href="register_access_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       registerAccess.h</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       02.11.2014</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      Header file with inline functions to access the registers that</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  *             are used by the Stepper-Motor-Control VHDL-component.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  * @details    02.11. Riedel</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef REGISTER_ACCESS_H</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define REGISTER_ACCESS_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file       registerAccess.h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author     Michael Riedel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author     Marc Kossmann</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v0.1</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       02.11.2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @brief      Header file with inline functions to access the registers that</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *             are used by the Stepper-Motor-Control VHDL-component.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @par History:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * @details    02.11. Riedel</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *             - first draft for milestone 1b</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * @details    03.11. Kossmann</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *             - moved all register masks in this file</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *             - added registerMutex for save access</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">   20</a></span>&#160;<span class="preprocessor">#define CTRL_REG_RS_MSK   (0x1)   </span><span class="comment">//!&lt; Run (1) or Stop (0)-Bit</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="register_access_8h.html#adf33618e430a31a3c34767ee68e91483">   21</a></span>&#160;<span class="comment"></span>#define CTRL_REG_LR_MSK   (0x2)   <span class="comment">//!&lt; Left (0) or Right (1)-Bit </span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93">   22</a></span>&#160;<span class="comment"></span>#define CTRL_REG_MODE_MSK (0x3C)  <span class="comment">//!&lt; Mode-combination according to ctrlRegSet()-function</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">   23</a></span>&#160;<span class="comment"></span>#define CTRL_REG_IE_MSK   (0x40)  <span class="comment">//!&lt; Interrupt-Enable Bit</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">   24</a></span>&#160;<span class="comment"></span>#define CTRL_REG_IR_MSK   (0x80)  <span class="comment">//!&lt; Interrupt-Request Bit</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">   26</a></span>&#160;uint8_t   <a class="code" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a>;       <span class="comment">//!&lt; Temporary control-register (only for milestone 1b)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">   27</a></span>&#160;<span class="comment"></span>uint32_t  <a class="code" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a>;      <span class="comment">//!&lt; Temporary steps-register (only for milestone 1b)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">   28</a></span>&#160;<span class="comment"></span>uint8_t   <a class="code" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a>;      <span class="comment">//!&lt; Temporary speed-register (only for milestone 1b)</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span><span class="comment"></span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * @brief   Sets the control-register with the given bits</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> * @details The bitmask is as follows:</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> *  | Bit  | Function| Usage                                                             |</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> *  | :--: | :-----: | :-----------------------------------------------------------------|</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> *  | 7    | IR      | The Interrupt that will be set via the VHDL Stepper-Motor-Control |</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> *  | 6    | IE      | IE (Interrupt Enable) to enable the interrupt for Chain of Steps  |</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"> *  | 2..5 | MODE    | Mode according to table below                                     |</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> *  | 1    | LR      | Turn the motor Left (0) or Right (1)                              |</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> *  | 0    | RS      | Run (1) or Stop (0) the motor                                     |</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> *  | Modes | Effect                        |</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> *  | :---: | :-----------------------------|</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> *  | xx00  | Stop                          |</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> *  | xx01  | Continuous Run                |</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> *  | 0010  | Chain of Steps (1/4 rotation) |</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> *  | 0110  | Chain of Steps (1/2 rotation) |</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> *  | 1010  | Chain of Steps (1 rotation)   |</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> *  | 1110  | Chain of Steps (2 rotations)  |</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> *  | other | reserved                      |</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> * @param   newCtrlReg The new register-content to set</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">   53</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">ctrlRegSet</a>(uint8_t newCtrlReg) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a> = newCtrlReg;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> * @brief   Returns the actual content of the control-register.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> * @details The bitmask is used accordingly to the ctrlRegSet()-function</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> * @return  The actual content of the control-register</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">   62</a></span>&#160;<span class="keyword">static</span> __inline__ uint8_t <a class="code" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">ctrlRegGet</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> * @brief   Sets the given steps for the Stepper-Motor-Control VHDL-component.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"> * @details The VHDL-component moves the motor according to this step-count.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> * @param   newStepCount The number of steps, the motor should turn.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">   72</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">stepsRegSet</a>(uint32_t newStepCount) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a> = newStepCount;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"> * @brief   Returns the actual content of the steps-register.</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"> * @details The register contains a 32-bit integer value since the last start of the motor.</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"> * @return  The actual content of steps left.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8">   81</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8">stepsRegGet</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> * @brief   Sets the speed, how fast the Stepper-Motor-Control turns the motor.</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * @details The speed ranges from 0 (very slow, used for debugging, each step can be</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> *          monitored with the LEDs) to 7 (maximum speed). See the following table for</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> *          more information:</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> *  | speed | pulse-width (t_pulse) |</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> *  | :---: | :-------------------: |</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> *  | 0     | 2 s                   |</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> *  | 1     | 1 s                   |</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"> *  | 2     | 500 ms                |</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"> *  | 3     | 250 ms                |</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"> *  | 4     | 100 ms                |</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> *  | 5     | 50 ms                 |</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> *  | 6     | 25 ms                 |</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> *  | 7     | 10 ms                 |</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> * @param newSpeed The new speed from 0 to 7 (only the first 3 bits are used!).</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544">  103</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544">speedRegSet</a>(uint8_t newSpeed) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <a class="code" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a> = newSpeed;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"> * @brief   Returns the actual content of the speed-register.</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"> * @details The speed-step is used accordingly to the speedRegSet()-function.</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"> * @return  The actual content of the speed-step which is set (only the first 3 bits</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"> *          are used ,the rest is reserved!).</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615">  113</a></span>&#160;<span class="keyword">static</span> __inline__ uint8_t <a class="code" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615">speedRegGet</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif // REGISTER_ACCESS_H</span></div>
-<div class="ttc" id="register_access_8h_html_a0089d956f2c707e5b5b5afc8c166e2c1"><div class="ttname"><a href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">stepsRegSet</a></div><div class="ttdeci">static __inline__ void stepsRegSet(uint32_t newStepCount)</div><div class="ttdoc">Sets the given steps for the Stepper-Motor-Control VHDL-component. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00072">registerAccess.h:72</a></div></div>
-<div class="ttc" id="register_access_8h_html_afa74591fccda8567f08dd7314a1f7087"><div class="ttname"><a href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a></div><div class="ttdeci">uint8_t temporaryCtrlReg</div><div class="ttdoc">Temporary control-register (only for milestone 1b) </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00026">registerAccess.h:26</a></div></div>
-<div class="ttc" id="register_access_8h_html_ac11f0ef891f7a9c9acd985c3ed083544"><div class="ttname"><a href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544">speedRegSet</a></div><div class="ttdeci">static __inline__ void speedRegSet(uint8_t newSpeed)</div><div class="ttdoc">Sets the speed, how fast the Stepper-Motor-Control turns the motor. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00103">registerAccess.h:103</a></div></div>
-<div class="ttc" id="register_access_8h_html_a36a370abe9bcf373d9bfe2c50ccd3ae8"><div class="ttname"><a href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8">stepsRegGet</a></div><div class="ttdeci">static __inline__ uint32_t stepsRegGet(void)</div><div class="ttdoc">Returns the actual content of the steps-register. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00081">registerAccess.h:81</a></div></div>
-<div class="ttc" id="register_access_8h_html_a14838af61ed14fa73209e8e98a0d3615"><div class="ttname"><a href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615">speedRegGet</a></div><div class="ttdeci">static __inline__ uint8_t speedRegGet(void)</div><div class="ttdoc">Returns the actual content of the speed-register. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00113">registerAccess.h:113</a></div></div>
-<div class="ttc" id="register_access_8h_html_a82b5c271cf9ef4625973d0e53f58d150"><div class="ttname"><a href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a></div><div class="ttdeci">uint32_t temporaryStepsReg</div><div class="ttdoc">Temporary steps-register (only for milestone 1b) </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00027">registerAccess.h:27</a></div></div>
-<div class="ttc" id="register_access_8h_html_a6b34c7fe9c2c96aaa21334cabef3dff0"><div class="ttname"><a href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a></div><div class="ttdeci">uint8_t temporarySpeedReg</div><div class="ttdoc">Temporary speed-register (only for milestone 1b) </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00028">registerAccess.h:28</a></div></div>
-<div class="ttc" id="register_access_8h_html_a05c67dbf40f74c58acba6e277315d0cf"><div class="ttname"><a href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">ctrlRegSet</a></div><div class="ttdeci">static __inline__ void ctrlRegSet(uint8_t newCtrlReg)</div><div class="ttdoc">Sets the control-register with the given bits. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00053">registerAccess.h:53</a></div></div>
-<div class="ttc" id="register_access_8h_html_a5793dc3526877ac1481dc95dd5cca5af"><div class="ttname"><a href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">ctrlRegGet</a></div><div class="ttdeci">static __inline__ uint8_t ctrlRegGet(void)</div><div class="ttdoc">Returns the actual content of the control-register. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00062">registerAccess.h:62</a></div></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef __REGISTER_ACCESS_H__</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define __REGISTER_ACCESS_H__</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">   27</a></span>&#160;<span class="preprocessor">#define CTRL_REG_RS_MSK       (0x1)   </span><span class="comment">//!&lt; Run (1) or Stop (0)-Bit</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="register_access_8h.html#adf33618e430a31a3c34767ee68e91483">   28</a></span>&#160;<span class="comment"></span>#define CTRL_REG_LR_MSK       (0x2)   <span class="comment">//!&lt; Left (0) or Right (1)-Bit</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93">   29</a></span>&#160;<span class="comment"></span>#define CTRL_REG_MODE_MSK     (0x3C)  <span class="comment">//!&lt; Mode-combination according to ctrlRegSet()-function</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">   30</a></span>&#160;<span class="comment"></span>#define CTRL_REG_IE_MSK       (0x40)  <span class="comment">//!&lt; Interrupt-Enable Bit</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">   31</a></span>&#160;<span class="comment"></span>#define CTRL_REG_IR_MSK       (0x80)  <span class="comment">//!&lt; Interrupt-Request Bit</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="register_access_8h.html#a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca">   33</a></span>&#160;<span class="preprocessor">#define SWITCH_LR_MSK         (0x1)   </span><span class="comment">//!&lt; Right (1) or Left (0)-Bit</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="register_access_8h.html#a16924283d60a08c79a5f9ef36e4a436f">   34</a></span>&#160;<span class="comment"></span>#define SWITCH_MODE_MSK       (0x1E)  <span class="comment">//!&lt; Bit 1..4 contains motor setup</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="register_access_8h.html#ae1ccbd36272f4f4edd68519b97dd2b63">   35</a></span>&#160;<span class="comment"></span>#define SWITCH_DEBUG_MSK      (0x200) <span class="comment">//!&lt; Debug on if Bit 9 = `1`</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="register_access_8h.html#a3bdea57bbed1ce1e8077c1378d64603f">   37</a></span>&#160;<span class="preprocessor">#define MODE_STOP_CON_RUN_MSK (0x3)   </span><span class="comment">//!&lt; Bit 0 &amp; 1 only</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="register_access_8h.html#a29a7dfd4fec0d672f9690159d70abc0d">   38</a></span>&#160;<span class="comment"></span>#define MODE_STOP             (0x0)   <span class="comment">//!&lt; MODE_STOP_CON_RUN_MSK; Must be `0b00`</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="register_access_8h.html#a1b924e9a4944f68a4c28a02ec4560aa6">   39</a></span>&#160;<span class="comment"></span>#define MODE_CON_RUN          (0x1)   <span class="comment">//!&lt; Use &quot;MODE_STOP_CON_RUN_MSK&quot;; Must be `0b01`</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="register_access_8h.html#aad4de87dd243d469de09afdd7e65cb02">   40</a></span>&#160;<span class="comment"></span>#define MODE_CH_OF_ST_1_4     (0x2)   <span class="comment">//!&lt; Bits must be `0b0010`</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="register_access_8h.html#a9954f884179f1c11e4973487f48c76b1">   41</a></span>&#160;<span class="comment"></span>#define MODE_CH_OF_ST_1_2     (0x6)   <span class="comment">//!&lt; Bits must be `0b0110`</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="register_access_8h.html#a4dae33261a2cdc93c4de6115e4e5cb8f">   42</a></span>&#160;<span class="comment"></span>#define MODE_CH_OF_ST_1       (0xA)   <span class="comment">//!&lt; Bits must be `0b1010`</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="register_access_8h.html#a3282200d7b0d8e5fca888bc759af164a">   43</a></span>&#160;<span class="comment"></span>#define MODE_CH_OF_ST_2       (0xE)   <span class="comment">//!&lt; Bits must be `0b1110`</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> OS_EVENT *<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">   47</a></span>&#160;uint8_t   <a class="code" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a>;       <span class="comment">//!&lt; Temporary control-register (only for milestone 1b)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">   48</a></span>&#160;<span class="comment"></span>uint32_t  <a class="code" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a>;      <span class="comment">//!&lt; Temporary steps-register (only for milestone 1b)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">   49</a></span>&#160;<span class="comment"></span>uint8_t   <a class="code" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a>;      <span class="comment">//!&lt; Temporary speed-register (only for milestone 1b)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span><span class="comment"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> * @brief   Sets the control-register with the given bits</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * @details The bitmask is as follows:</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> *  | Bit  | Function| Usage                                                             |</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> *  | :--: | :-----: | :-----------------------------------------------------------------|</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> *  | 7    | IR      | The Interrupt that will be set via the VHDL Stepper-Motor-Control |</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> *  | 6    | IE      | IE (Interrupt Enable) to enable the interrupt for Chain of Steps  |</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> *  | 2..5 | MODE    | Mode according to table below                                     |</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> *  | 1    | LR      | Turn the motor Left (0) or Right (1)                              |</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> *  | 0    | RS      | Run (1) or Stop (0) the motor                                     |</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> *  | Modes | Effect                        |</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> *  | :---: | :-----------------------------|</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> *  | xx00  | Stop                          |</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> *  | xx01  | Continuous Run                |</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"> *  | 0010  | Chain of Steps (1/4 rotation) |</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> *  | 0110  | Chain of Steps (1/2 rotation) |</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"> *  | 1010  | Chain of Steps (1 rotation)   |</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> *  | 1110  | Chain of Steps (2 rotations)  |</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> *  | other | reserved                      |</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"> * @param   newCtrlReg The new register-content to set</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">   74</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">ctrlRegSet</a>(uint8_t newCtrlReg) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  uint8_t err;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  OSMutexPend(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>, 0, &amp;err);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR == err){</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a> = newCtrlReg;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;CTRL_REG_MUT_PEND_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  err = OSMutexPost(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;CTRL_REG_MUT_POST_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> * @brief   Returns the actual content of the control-register.</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> * @details The bitmask is used accordingly to the ctrlRegSet()-function</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> * @return  The actual content of the control-register</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">   93</a></span>&#160;<span class="keyword">static</span> __inline__ uint8_t <a class="code" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">ctrlRegGet</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  uint8_t err;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  uint8_t ctrlReg;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  OSMutexPend(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>, 0, &amp;err);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR == err){</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    ctrlReg = <a class="code" href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;CTRL_REG_MUT_PEND_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  err = OSMutexPost(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;CTRL_REG_MUT_POST_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">return</span> ctrlReg;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"> * @brief   Sets the given steps for the Stepper-Motor-Control VHDL-component.</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"> * @details The VHDL-component moves the motor according to this step-count.</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"> * @param   newStepCount The number of steps, the motor should turn.</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">  115</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">stepsRegSet</a>(uint32_t newStepCount) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  uint8_t err;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  OSMutexPend(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>, 0, &amp;err);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR == err){</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a> = newStepCount;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_PEND_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  err = OSMutexPost(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_POST_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"> * @brief   Returns the actual content of the steps-register.</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment"> * @details The register contains a 32-bit integer value since the last start of the motor.</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment"> * @return  The actual content of steps left.</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8">  134</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8">stepsRegGet</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  uint8_t err;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  uint32_t stepsReg;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  OSMutexPend(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>, 0, &amp;err);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR == err){</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    stepsReg = <a class="code" href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_PEND_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  err = OSMutexPost(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_POST_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">return</span> stepsReg;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment"> * @brief   Sets the speed, how fast the Stepper-Motor-Control turns the motor.</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment"> * @details The speed ranges from 0 (very slow, used for debugging, each step can be</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"> *          monitored with the LEDs) to 7 (maximum speed). See the following table for</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment"> *          more information:</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment"> *  | speed | pulse-width (t_pulse) |</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment"> *  | :---: | :-------------------: |</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"> *  | 0     | 2 s                   |</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment"> *  | 1     | 1 s                   |</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment"> *  | 2     | 500 ms                |</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment"> *  | 3     | 250 ms                |</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment"> *  | 4     | 100 ms                |</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"> *  | 5     | 50 ms                 |</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"> *  | 6     | 25 ms                 |</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment"> *  | 7     | 10 ms                 |</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment"> * @param newSpeed The new speed from 0 to 7 (only the first 3 bits are used!).</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544">  168</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544">speedRegSet</a>(uint8_t newSpeed) {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  uint8_t err;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  OSMutexPend(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>, 0, &amp;err);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR == err){</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a> = newSpeed;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_PEND_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  err = OSMutexPost(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_POST_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"> * @brief   Returns the actual content of the speed-register.</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"> * @details The speed-step is used accordingly to the speedRegSet()-function.</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"> * @return  The actual content of the speed-step which is set (only the first 3 bits</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment"> *          are used ,the rest is reserved!).</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615">  188</a></span>&#160;<span class="keyword">static</span> __inline__ uint8_t <a class="code" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615">speedRegGet</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  uint8_t err;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  uint8_t speedReg;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  OSMutexPend(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>, 0, &amp;err);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR == err){</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    speedReg = <a class="code" href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_PEND_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  err = OSMutexPost(<a class="code" href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keywordflow">if</span>(OS_NO_ERR != err){</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <a class="code" href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a>(<span class="stringliteral">&quot;STEPS_REG_MUT_POST_ERR: %i\n&quot;</span>, &amp;err);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keywordflow">return</span> speedReg;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#endif // __REGISTER_ACCESS_H__</span></div>
+<div class="ttc" id="register_access_8h_html_a0089d956f2c707e5b5b5afc8c166e2c1"><div class="ttname"><a href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">stepsRegSet</a></div><div class="ttdeci">static __inline__ void stepsRegSet(uint32_t newStepCount)</div><div class="ttdoc">Sets the given steps for the Stepper-Motor-Control VHDL-component. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00115">registerAccess.h:115</a></div></div>
+<div class="ttc" id="debug_and_error_output_8h_html_a259aac00ed43fd7ac58196b770963525"><div class="ttname"><a href="debug_and_error_output_8h.html#a259aac00ed43fd7ac58196b770963525">error</a></div><div class="ttdeci">#define error(...)</div><div class="ttdoc">Prints the Error-messages in the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="debug_and_error_output_8h_source.html#l00048">debugAndErrorOutput.h:48</a></div></div>
+<div class="ttc" id="register_access_8h_html_a90dd16a245092869e11b02a3bb26b066"><div class="ttname"><a href="register_access_8h.html#a90dd16a245092869e11b02a3bb26b066">registerMutex</a></div><div class="ttdeci">OS_EVENT * registerMutex</div><div class="ttdoc">Mutex for protected access to the registers. </div><div class="ttdef"><b>Definition:</b> <a href="user_input_task_8c_source.html#l00034">userInputTask.c:34</a></div></div>
+<div class="ttc" id="register_access_8h_html_afa74591fccda8567f08dd7314a1f7087"><div class="ttname"><a href="register_access_8h.html#afa74591fccda8567f08dd7314a1f7087">temporaryCtrlReg</a></div><div class="ttdeci">uint8_t temporaryCtrlReg</div><div class="ttdoc">Temporary control-register (only for milestone 1b) </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00047">registerAccess.h:47</a></div></div>
+<div class="ttc" id="register_access_8h_html_ac11f0ef891f7a9c9acd985c3ed083544"><div class="ttname"><a href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544">speedRegSet</a></div><div class="ttdeci">static __inline__ void speedRegSet(uint8_t newSpeed)</div><div class="ttdoc">Sets the speed, how fast the Stepper-Motor-Control turns the motor. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00168">registerAccess.h:168</a></div></div>
+<div class="ttc" id="register_access_8h_html_a36a370abe9bcf373d9bfe2c50ccd3ae8"><div class="ttname"><a href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8">stepsRegGet</a></div><div class="ttdeci">static __inline__ uint32_t stepsRegGet(void)</div><div class="ttdoc">Returns the actual content of the steps-register. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00134">registerAccess.h:134</a></div></div>
+<div class="ttc" id="register_access_8h_html_a14838af61ed14fa73209e8e98a0d3615"><div class="ttname"><a href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615">speedRegGet</a></div><div class="ttdeci">static __inline__ uint8_t speedRegGet(void)</div><div class="ttdoc">Returns the actual content of the speed-register. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00188">registerAccess.h:188</a></div></div>
+<div class="ttc" id="register_access_8h_html_a82b5c271cf9ef4625973d0e53f58d150"><div class="ttname"><a href="register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150">temporaryStepsReg</a></div><div class="ttdeci">uint32_t temporaryStepsReg</div><div class="ttdoc">Temporary steps-register (only for milestone 1b) </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00048">registerAccess.h:48</a></div></div>
+<div class="ttc" id="register_access_8h_html_a6b34c7fe9c2c96aaa21334cabef3dff0"><div class="ttname"><a href="register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0">temporarySpeedReg</a></div><div class="ttdeci">uint8_t temporarySpeedReg</div><div class="ttdoc">Temporary speed-register (only for milestone 1b) </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00049">registerAccess.h:49</a></div></div>
+<div class="ttc" id="register_access_8h_html_a05c67dbf40f74c58acba6e277315d0cf"><div class="ttname"><a href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">ctrlRegSet</a></div><div class="ttdeci">static __inline__ void ctrlRegSet(uint8_t newCtrlReg)</div><div class="ttdoc">Sets the control-register with the given bits. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00074">registerAccess.h:74</a></div></div>
+<div class="ttc" id="register_access_8h_html_a5793dc3526877ac1481dc95dd5cca5af"><div class="ttname"><a href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">ctrlRegGet</a></div><div class="ttdeci">static __inline__ uint8_t ctrlRegGet(void)</div><div class="ttdoc">Returns the actual content of the control-register. </div><div class="ttdef"><b>Definition:</b> <a href="register_access_8h_source.html#l00093">registerAccess.h:93</a></div></div>
+<div class="ttc" id="debug_and_error_output_8h_html"><div class="ttname"><a href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a></div><div class="ttdoc">Defines for Error and Debug-Output Management. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="register_access_8h.html">registerAccess.h</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="register_access_8h.html">registerAccess.h</a></li>
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('heartbeat_task_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,16 +105,18 @@ $(document).ready(function(){initNavTree('heartbeat_task_8h.html','');});
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">heartbeatTask.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for <a class="el" href="heartbeat_task_8c.html">heartbeatTask.c</a>.  
+<p>Header file for <a class="el" href="heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging...">heartbeatTask.c</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="events_8h_source.html">events.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;includes.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="events_8h_source.html">events.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hardware_access_8h_source.html">hardwareAccess.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="register_access_8h_source.html">registerAccess.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="debug_and_error_output_8h_source.html">debugAndErrorOutput.h</a>&quot;</code><br />
@@ -123,14 +125,14 @@ Include dependency graph for heartbeatTask.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="heartbeat_task_8h__incl.png" border="0" usemap="#heartbeat_task_8h" alt=""/></div>
 <map name="heartbeat_task_8h" id="heartbeat_task_8h">
-<area shape="rect" id="node2" href="events_8h.html" title="definitions for used events " alt="" coords="41,79,113,104"/><area shape="rect" id="node3" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="53,152,184,177"/><area shape="rect" id="node7" href="register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper&#45;Motor&#45;Control ..." alt="" coords="188,79,307,104"/><area shape="rect" id="node8" href="debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="347,79,510,104"/><area shape="rect" id="node9" href="auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="370,152,506,177"/><area shape="rect" id="node13" href="lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="603,232,716,257"/></map>
+<area shape="rect" id="node3" href="events_8h.html" title="definitions for used events " alt="" coords="399,79,471,104"/><area shape="rect" id="node4" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="717,225,848,251"/><area shape="rect" id="node8" href="register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper&#45;Motor&#45;Control ..." alt="" coords="75,79,195,104"/><area shape="rect" id="node9" href="debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="162,152,325,177"/><area shape="rect" id="node10" href="auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="214,225,350,251"/><area shape="rect" id="node13" href="lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="535,305,648,331"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="heartbeat_task_8h__dep__incl.png" border="0" usemap="#heartbeat_task_8hdep" alt=""/></div>
 <map name="heartbeat_task_8hdep" id="heartbeat_task_8hdep">
-<area shape="rect" id="node2" href="main_8h.html" title="Header file for main.c. " alt="" coords="5,79,67,104"/><area shape="rect" id="node4" href="heartbeat_task_8c.html" title="heartbeatTask.c" alt="" coords="90,79,206,104"/><area shape="rect" id="node3" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,152,66,177"/></map>
+<area shape="rect" id="node2" href="main_8h.html" title="Header file for main.c. " alt="" coords="5,79,67,104"/><area shape="rect" id="node4" href="heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging..." alt="" coords="90,79,206,104"/><area shape="rect" id="node3" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="6,152,66,177"/></map>
 </div>
 </div>
 <p><a href="heartbeat_task_8h_source.html">Go to the source code of this file.</a></p>
@@ -150,26 +152,36 @@ Macros</h2></td></tr>
 <tr class="memdesc:af94cfb03461685fead1fe045d5c96f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">represents a centered <b>bar</b> in the HEX-segments <br /></td></tr>
 <tr class="separator:af94cfb03461685fead1fe045d5c96f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aed20c92dd294171dda978cde58cc0fd8"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="heartbeat_task_8h.html#a42e9d338f1264fffdd7f65c3d3702874">heartbeatState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#aed20c92dd294171dda978cde58cc0fd8">heartbeatState_t</a></td></tr>
+<tr class="memdesc:aed20c92dd294171dda978cde58cc0fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The state-machine for the heartbeat.  <a href="#aed20c92dd294171dda978cde58cc0fd8">More...</a><br /></td></tr>
+<tr class="separator:aed20c92dd294171dda978cde58cc0fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a42e9d338f1264fffdd7f65c3d3702874"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#a42e9d338f1264fffdd7f65c3d3702874">heartbeatState</a> { <b>FIRST</b> = 1, 
+<b>SECOND</b> = 2, 
+<b>THIRD</b> = 3, 
+<b>FOURTH</b> = 4
+ }</td></tr>
+<tr class="memdesc:a42e9d338f1264fffdd7f65c3d3702874"><td class="mdescLeft">&#160;</td><td class="mdescRight">The state-machine for the heartbeat.  <a href="heartbeat_task_8h.html#a42e9d338f1264fffdd7f65c3d3702874">More...</a><br /></td></tr>
+<tr class="separator:a42e9d338f1264fffdd7f65c3d3702874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a00b1b959673cfff6628206a4104dfe02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02">HeartbeatTask</a> (void *pdata)</td></tr>
 <tr class="memdesc:a00b1b959673cfff6628206a4104dfe02"><td class="mdescLeft">&#160;</td><td class="mdescRight">The task for the hearbeat and the debug-mode.  <a href="#a00b1b959673cfff6628206a4104dfe02">More...</a><br /></td></tr>
 <tr class="separator:a00b1b959673cfff6628206a4104dfe02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a655f2f5e5b9732fb918fbc61da1f2062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062">nextHeartbeatStep</a> (heartbeatState_t *heartbeatStatePtr)</td></tr>
+<tr class="memitem:a655f2f5e5b9732fb918fbc61da1f2062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062">nextHeartbeatStep</a> (<a class="el" href="heartbeat_task_8h.html#aed20c92dd294171dda978cde58cc0fd8">heartbeatState_t</a> *heartbeatStatePtr)</td></tr>
 <tr class="memdesc:a655f2f5e5b9732fb918fbc61da1f2062"><td class="mdescLeft">&#160;</td><td class="mdescRight">State machine for the heartbeat.  <a href="#a655f2f5e5b9732fb918fbc61da1f2062">More...</a><br /></td></tr>
 <tr class="separator:a655f2f5e5b9732fb918fbc61da1f2062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d14e946cd93e1478c02c98a0c6b9920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920">debugAndHeartbeat</a> (heartbeatState_t *heartbeatStatePtr)</td></tr>
+<tr class="memitem:a5d14e946cd93e1478c02c98a0c6b9920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920">debugAndHeartbeat</a> (<a class="el" href="heartbeat_task_8h.html#aed20c92dd294171dda978cde58cc0fd8">heartbeatState_t</a> *heartbeatStatePtr)</td></tr>
 <tr class="memdesc:a5d14e946cd93e1478c02c98a0c6b9920"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function implements the debug-logic.  <a href="#a5d14e946cd93e1478c02c98a0c6b9920">More...</a><br /></td></tr>
 <tr class="separator:a5d14e946cd93e1478c02c98a0c6b9920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a85b413b023362889628033c936fc0fc1"><td class="memItemLeft" align="right" valign="top">typedef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="heartbeat_task_8h.html#a85b413b023362889628033c936fc0fc1">heartbeatState</a></td></tr>
-<tr class="memdesc:a85b413b023362889628033c936fc0fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The state-machine for the heartbeat.  <a href="#a85b413b023362889628033c936fc0fc1">More...</a><br /></td></tr>
-<tr class="separator:a85b413b023362889628033c936fc0fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for <a class="el" href="heartbeat_task_8c.html">heartbeatTask.c</a>. </p>
+<div class="textblock"><p>Header file for <a class="el" href="heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging...">heartbeatTask.c</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Riedel </dd>
 <dd>
 Marc Kossmann </dd></dl>
@@ -191,11 +203,70 @@ Marc Kossmann </dd></dl>
 <li>finilized heartbeat functionality</li>
 </ul>
 <p>02.11. Riedel</p><ul>
-<li>corrected documentation </li>
+<li>corrected documentation</li>
+</ul>
+<p>03.11. Kossmann</p><ul>
+<li>fixed some minor syntax mistakes to get flawless compile </li>
 </ul>
 
 <p>Definition in file <a class="el" href="heartbeat_task_8h_source.html">heartbeatTask.h</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="aed20c92dd294171dda978cde58cc0fd8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="heartbeat_task_8h.html#a42e9d338f1264fffdd7f65c3d3702874">heartbeatState</a>  <a class="el" href="heartbeat_task_8h.html#aed20c92dd294171dda978cde58cc0fd8">heartbeatState_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The state-machine for the heartbeat. </p>
+<table class="doxtable">
+<tr>
+<th>state </th><th>red LED9 </th><th>HEX3-display  </th></tr>
+<tr>
+<td>FIRST </td><td>on </td><td>LINE </td></tr>
+<tr>
+<td>SECOND </td><td>off </td><td>LOWER_O </td></tr>
+<tr>
+<td>THIRD </td><td>on </td><td>LINE </td></tr>
+<tr>
+<td>FOURTH </td><td>off </td><td>UPPDER_O </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a42e9d338f1264fffdd7f65c3d3702874"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="heartbeat_task_8h.html#a42e9d338f1264fffdd7f65c3d3702874">heartbeatState</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The state-machine for the heartbeat. </p>
+<table class="doxtable">
+<tr>
+<th>state </th><th>red LED9 </th><th>HEX3-display  </th></tr>
+<tr>
+<td>FIRST </td><td>on </td><td>LINE </td></tr>
+<tr>
+<td>SECOND </td><td>off </td><td>LOWER_O </td></tr>
+<tr>
+<td>THIRD </td><td>on </td><td>LINE </td></tr>
+<tr>
+<td>FOURTH </td><td>off </td><td>UPPDER_O </td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="heartbeat_task_8h_source.html#l00052">52</a> of file <a class="el" href="heartbeat_task_8h_source.html">heartbeatTask.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a5d14e946cd93e1478c02c98a0c6b9920"></a>
 <div class="memitem">
 <div class="memproto">
@@ -203,7 +274,7 @@ Marc Kossmann </dd></dl>
         <tr>
           <td class="memname">void debugAndHeartbeat </td>
           <td>(</td>
-          <td class="paramtype">heartbeatState_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="heartbeat_task_8h.html#aed20c92dd294171dda978cde58cc0fd8">heartbeatState_t</a> *&#160;</td>
           <td class="paramname"><em>heartbeatStatePtr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -232,14 +303,14 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="heartbeat_task_8c_source.html#l00074">74</a> of file <a class="el" href="heartbeat_task_8c_source.html">heartbeatTask.c</a>.</p>
+<p>Definition at line <a class="el" href="heartbeat_task_8c_source.html#l00075">75</a> of file <a class="el" href="heartbeat_task_8c_source.html">heartbeatTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="heartbeat_task_8h_a5d14e946cd93e1478c02c98a0c6b9920_cgraph.png" border="0" usemap="#heartbeat_task_8h_a5d14e946cd93e1478c02c98a0c6b9920_cgraph" alt=""/></div>
 <map name="heartbeat_task_8h_a5d14e946cd93e1478c02c98a0c6b9920_cgraph" id="heartbeat_task_8h_a5d14e946cd93e1478c02c98a0c6b9920_cgraph">
-<area shape="rect" id="node2" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="218,5,303,31"/><area shape="rect" id="node3" href="heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="194,55,327,80"/><area shape="rect" id="node6" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="211,104,309,129"/><area shape="rect" id="node7" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="211,153,310,179"/><area shape="rect" id="node8" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="218,203,302,228"/><area shape="rect" id="node4" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="375,31,489,56"/><area shape="rect" id="node5" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="375,80,488,105"/></map>
+<area shape="rect" id="node2" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="218,5,303,31"/><area shape="rect" id="node3" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="211,55,309,80"/><area shape="rect" id="node4" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="211,104,310,129"/><area shape="rect" id="node5" href="heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="194,153,327,179"/><area shape="rect" id="node8" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="218,203,302,228"/><area shape="rect" id="node6" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="375,129,489,155"/><area shape="rect" id="node7" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="375,179,488,204"/></map>
 </div>
 </p>
 
@@ -260,7 +331,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The task for the hearbeat and the debug-mode. </p>
-<p>This task changes its state every second via the <a class="el" href="heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. ">nextHeartbeatStep()</a>-function. When the <a class="el" href="user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb" title="UserInputTask. ">UserInputTask()</a> detects, that the user activated the Debug-Mode, it sends the DEBUG_ON_EVENT. The task then calls the <a class="el" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug-logic. ">debugAndHeartbeat()</a>-function.</p>
+<p>This task is doing a heartbeat to show scheduling is working. Therefore changes its state every second via the <a class="el" href="heartbeat_task_8h.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. ">nextHeartbeatStep()</a>-function. When the UserInputTask detects, that the user activated the Debug-Mode, it sends the DEBUG_ON_EVENT. The task then calls the <a class="el" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug-logic. ">debugAndHeartbeat()</a>-function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pdata</td><td>: Pointer to parameter structure (not used) </td></tr>
@@ -268,14 +339,14 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="heartbeat_task_8c_source.html#l00026">26</a> of file <a class="el" href="heartbeat_task_8c_source.html">heartbeatTask.c</a>.</p>
+<p>Definition at line <a class="el" href="heartbeat_task_8c_source.html#l00027">27</a> of file <a class="el" href="heartbeat_task_8c_source.html">heartbeatTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="heartbeat_task_8h_a00b1b959673cfff6628206a4104dfe02_cgraph.png" border="0" usemap="#heartbeat_task_8h_a00b1b959673cfff6628206a4104dfe02_cgraph" alt=""/></div>
 <map name="heartbeat_task_8h_a00b1b959673cfff6628206a4104dfe02_cgraph" id="heartbeat_task_8h_a00b1b959673cfff6628206a4104dfe02_cgraph">
-<area shape="rect" id="node2" href="heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="161,116,301,141"/><area shape="rect" id="node4" href="heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="349,29,482,55"/><area shape="rect" id="node3" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="373,79,458,104"/><area shape="rect" id="node7" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="367,128,464,153"/><area shape="rect" id="node8" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="366,177,465,203"/><area shape="rect" id="node9" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="374,227,457,252"/><area shape="rect" id="node5" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="530,5,644,31"/><area shape="rect" id="node6" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="531,55,643,80"/></map>
+<area shape="rect" id="node2" href="heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="161,116,301,141"/><area shape="rect" id="node6" href="heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="349,203,482,228"/><area shape="rect" id="node3" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="373,5,458,31"/><area shape="rect" id="node4" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="367,55,464,80"/><area shape="rect" id="node5" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="366,104,465,129"/><area shape="rect" id="node9" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="374,153,457,179"/><area shape="rect" id="node7" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="530,177,644,203"/><area shape="rect" id="node8" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="531,227,643,252"/></map>
 </div>
 </p>
 
@@ -288,7 +359,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">void nextHeartbeatStep </td>
           <td>(</td>
-          <td class="paramtype">heartbeatState_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="heartbeat_task_8h.html#aed20c92dd294171dda978cde58cc0fd8">heartbeatState_t</a> *&#160;</td>
           <td class="paramname"><em>heartbeatStatePtr</em></td><td>)</td>
           <td></td>
         </tr>
@@ -304,7 +375,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="heartbeat_task_8c_source.html#l00046">46</a> of file <a class="el" href="heartbeat_task_8c_source.html">heartbeatTask.c</a>.</p>
+<p>Definition at line <a class="el" href="heartbeat_task_8c_source.html#l00047">47</a> of file <a class="el" href="heartbeat_task_8c_source.html">heartbeatTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -317,48 +388,13 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a85b413b023362889628033c936fc0fc1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef heartbeatState</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">  FIRST,</div>
-<div class="line">  SECOND,</div>
-<div class="line">  THIRD,</div>
-<div class="line">  FOURTH</div>
-<div class="line">} heartbeatState_t</div>
-</div><!-- fragment -->
-<p>The state-machine for the heartbeat. </p>
-<table class="doxtable">
-<tr>
-<th>state </th><th>red LED9 </th><th>HEX3-display  </th></tr>
-<tr>
-<td>FIRST </td><td>on </td><td>LINE </td></tr>
-<tr>
-<td>SECOND </td><td>off </td><td>LOWER_O </td></tr>
-<tr>
-<td>THIRD </td><td>on </td><td>LINE </td></tr>
-<tr>
-<td>FOURTH </td><td>off </td><td>UPPDER_O </td></tr>
-</table>
-
-<p>Definition at line <a class="el" href="heartbeat_task_8h_source.html#l00049">49</a> of file <a class="el" href="heartbeat_task_8h_source.html">heartbeatTask.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="heartbeat_task_8h.html">heartbeatTask.h</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="heartbeat_task_8h.html">heartbeatTask.h</a></li>
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

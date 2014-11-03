@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('auxilary_functions_8c_source.html','')
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,71 +108,79 @@ $(document).ready(function(){initNavTree('auxilary_functions_8c_source.html','')
 </div><!--header-->
 <div class="contents">
 <a href="auxilary_functions_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  ***************************************************************************</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       auxilaryFunctions.c</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       28.10.2014</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      Collection of auxilary functions</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  * @todo       check if timeout are needed and reduce timout value to minimum</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  * @details    28.10. Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *             - added functions for using printf like lcd and term output</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  * @details    31.10. Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *             - added timeout for clearing display but not sure if needed</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  *             - clear display function added</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> ***************************************************************************</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file       auxilaryFunctions.c</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author     Michael Riedel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author     Marc Kossmann</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v0.1</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       28.10.2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @brief      Collection of auxilary functions, mainly output functions</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * @todo       check if timeout are needed and reduce timout value to minimum</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @par History:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * @details    28.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *             - added functions for using printf like lcd and term output</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * @details    31.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *             - added timeout for clearing display but not sure if needed</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *             - clear display function added</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../INC/auxilaryFunctions.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;FILE *term;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;FILE *lcd;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> init_term(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  term = fopen(JTAG_UART_NAME, <span class="stringliteral">&quot;w&quot;</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">   22</a></span>&#160;FILE *<a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a>; <span class="comment">//!&lt; stream to write on terminal device</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">   23</a></span>&#160;<span class="comment"></span>FILE *<a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a>;  <span class="comment">//!&lt; stream to write lcd device</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e">init_term</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a> = fopen(JTAG_UART_NAME, <span class="stringliteral">&quot;w&quot;</span>);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> init_lcd(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#aafed2ade168a085630c2fe8d776432f2">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#aafed2ade168a085630c2fe8d776432f2">init_lcd</a>(<span class="keywordtype">void</span>) {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a>(LCD_BASE);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  lcd = fopen(LCD_NAME, <span class="stringliteral">&quot;w&quot;</span>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a> = fopen(LCD_NAME, <span class="stringliteral">&quot;w&quot;</span>);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> clear_lcd(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b">clear_lcd</a>(<span class="keywordtype">void</span>) {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  IOWR_ALTERA_AVALON_LCD_16207_COMMAND(LCD_BASE, 0x01);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  OSTimeDlyHMSM(0, 0, 0, 10);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  printf_lcd(<span class="stringliteral">&quot;\r&quot;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> printf_term(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, ...) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  va_list args;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  va_start (args, format);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  vfprintf (term, format, args);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  va_end (args);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> printf_lcd(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, ...) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  va_list args;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  va_start (args, format);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  vfprintf (lcd, format, args);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  va_end (args);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> fflush_term() {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  fflush(term);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> fflush_lcd() {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  fflush(lcd);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#a4ef071e335e215eb794cb631f59fc9b5">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#a4ef071e335e215eb794cb631f59fc9b5">printf_term</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, ...) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  va_list args;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  va_start (args, format);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  vfprintf (<a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a>, format, args);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  va_end (args);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#aed7b3831a70eb14aaf5f85c156a01a2a">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#aed7b3831a70eb14aaf5f85c156a01a2a">printf_lcd</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, ...) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  va_list args;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  va_start (args, format);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  vfprintf (<a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a>, format, args);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  va_end (args);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#ab6e2427be137543aaf966090e82ad3f4">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#ab6e2427be137543aaf966090e82ad3f4">fflush_term</a>() {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  fflush(<a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#aef9f99cbe33f5c9b05d0886fef2f05c0">   55</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#aef9f99cbe33f5c9b05d0886fef2f05c0">fflush_lcd</a>() {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  fflush(<a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="ttc" id="auxilary_functions_8c_html_ab6e2427be137543aaf966090e82ad3f4"><div class="ttname"><a href="auxilary_functions_8c.html#ab6e2427be137543aaf966090e82ad3f4">fflush_term</a></div><div class="ttdeci">void fflush_term()</div><div class="ttdoc">Writes buffed data to terminal. </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00052">auxilaryFunctions.c:52</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_a81ca74012898e61924f36e780ab08864"><div class="ttname"><a href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a></div><div class="ttdeci">FILE * term</div><div class="ttdoc">stream to write on terminal device </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00022">auxilaryFunctions.c:22</a></div></div>
 <div class="ttc" id="lcd_d_o_g_m162_8h_html_a258c1b0dd98d52ca201b371cdadcf72e"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a></div><div class="ttdeci">void DOGM162lcd_init(uint32_t lcdBase)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8c_source.html#l00042">lcdDOGM162.c:42</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_adab0cd0ff9c3ba11a356e0b6dace535e"><div class="ttname"><a href="auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e">init_term</a></div><div class="ttdeci">void init_term(void)</div><div class="ttdoc">Initializes terminal output. </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00025">auxilaryFunctions.c:25</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_af4f70d436a3ac04784a7c2a0dafd7033"><div class="ttname"><a href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a></div><div class="ttdeci">FILE * lcd</div><div class="ttdoc">stream to write lcd device </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00023">auxilaryFunctions.c:23</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_aed7b3831a70eb14aaf5f85c156a01a2a"><div class="ttname"><a href="auxilary_functions_8c.html#aed7b3831a70eb14aaf5f85c156a01a2a">printf_lcd</a></div><div class="ttdeci">void printf_lcd(const char *format,...)</div><div class="ttdoc">Writes formated string to lcd. </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00045">auxilaryFunctions.c:45</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_aef9f99cbe33f5c9b05d0886fef2f05c0"><div class="ttname"><a href="auxilary_functions_8c.html#aef9f99cbe33f5c9b05d0886fef2f05c0">fflush_lcd</a></div><div class="ttdeci">void fflush_lcd()</div><div class="ttdoc">Writes buffed data to lcd. </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00055">auxilaryFunctions.c:55</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_a4ef071e335e215eb794cb631f59fc9b5"><div class="ttname"><a href="auxilary_functions_8c.html#a4ef071e335e215eb794cb631f59fc9b5">printf_term</a></div><div class="ttdeci">void printf_term(const char *format,...)</div><div class="ttdoc">Writes formated string to terminal. </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00039">auxilaryFunctions.c:39</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_aac33d8b0fb1efae6f9fe889517e1134b"><div class="ttname"><a href="auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b">clear_lcd</a></div><div class="ttdeci">void clear_lcd(void)</div><div class="ttdoc">Clears display. </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00034">auxilaryFunctions.c:34</a></div></div>
+<div class="ttc" id="auxilary_functions_8c_html_aafed2ade168a085630c2fe8d776432f2"><div class="ttname"><a href="auxilary_functions_8c.html#aafed2ade168a085630c2fe8d776432f2">init_lcd</a></div><div class="ttdeci">void init_lcd(void)</div><div class="ttdoc">Initializes lcd output. </div><div class="ttdef"><b>Definition:</b> <a href="auxilary_functions_8c_source.html#l00029">auxilaryFunctions.c:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_c77cd3f51045eb10de9495ebac79a221.html">SRC</a></li><li class="navelem"><a class="el" href="auxilary_functions_8c.html">auxilaryFunctions.c</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="auxilary_functions_8c.html">auxilaryFunctions.c</a></li>
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

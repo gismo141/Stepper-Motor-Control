@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('interface_8vhd.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,16 +129,30 @@ Marc Kossmann </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>21.10.2014</dd></dl>
 <p>Implementation of a NIOS-processor slave-interface</p>
-<p>definition of interface </p><pre class="fragment">     ADDR  width  access   structure                      function
-      0    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlReg
-      1    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlSetReg
-      2    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlClearReg
-      3    3_Bit    RW     SPEED2 SPEED1 SPEED0      speedReg
-      4    32_Bit   RW     step          stepReg
-      5    10_Bit   RW     red LEDs                      red LEDs 
-      6    8_Bit    RW     green LEDs                     green LEDs</pre><dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>V0.1 Riedel &amp; Kossmann</p><ul>
-<li>first draft for milestone 1b </li>
+<p>definition of interface </p><table class="doxtable">
+<tr>
+<th align="center">ADDR </th><th align="left">width </th><th align="center">access </th><th align="left">structure </th><th align="left">function  </th></tr>
+<tr>
+<td align="center">0 </td><td align="left">8_Bit </td><td align="center">RW </td><td align="left">IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S </td><td align="left">ctrlReg </td></tr>
+<tr>
+<td align="center">1 </td><td align="left">8_Bit </td><td align="center">RW </td><td align="left">IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S </td><td align="left">ctrlSetReg </td></tr>
+<tr>
+<td align="center">2 </td><td align="left">8_Bit </td><td align="center">RW </td><td align="left">IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S </td><td align="left">ctrlClearReg </td></tr>
+<tr>
+<td align="center">3 </td><td align="left">3_Bit </td><td align="center">RW </td><td align="left">SPEED2 SPEED1 SPEED0 </td><td align="left">speedReg </td></tr>
+<tr>
+<td align="center">4 </td><td align="left">32_Bit </td><td align="center">RW </td><td align="left">step </td><td align="left">stepReg </td></tr>
+<tr>
+<td align="center">5 </td><td align="left">10_Bit </td><td align="center">RW </td><td align="left">red LEDs </td><td align="left">red LEDs </td></tr>
+<tr>
+<td align="center">6 </td><td align="left">8_Bit </td><td align="center">RW </td><td align="left">green LEDs </td><td align="left">green LEDs </td></tr>
+</table>
+<dl class="section user"><dt>History:</dt><dd></dd></dl>
+<p>21.10. Riedel &amp; Kossmann</p><ul>
+<li>first draft for milestone 1b</li>
+</ul>
+<p>03.11. Riedel</p><ul>
+<li>corrected documentation </li>
 </ul>
 
 <p>Definition in file <a class="el" href="interface_8vhd_source.html">interface.vhd</a>.</p>
@@ -147,8 +161,8 @@ Marc Kossmann </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_08f45fe6822aeb4ce2bc268e3b1361be.html">Components</a></li><li class="navelem"><a class="el" href="interface_8vhd.html">interface.vhd</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_1477d2fbe9962220a4d1979cf9559a05.html">Components</a></li><li class="navelem"><a class="el" href="interface_8vhd.html">interface.vhd</a></li>
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

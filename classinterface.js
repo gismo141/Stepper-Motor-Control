@@ -6,7 +6,7 @@ var classinterface =
     [ "ieee", "classinterface.html#a0a6af6eef40212dbaf130d57ce711256", null ],
     [ "irq", "classinterface.html#ac9b654c757f80f124f02274781e7939c", null ],
     [ "mykey", "classinterface.html#a7a8be5c8e8a30b3ad638a30d49fcd718", null ],
-    [ "MyParameter", "classinterface.html#ac3325804f0588ab83ed04fb922a2a73b", null ],
+    [ "MyParameter", "classinterface.html#a0824e328091d5aa8f14126071d721dff", null ],
     [ "mySwitch", "classinterface.html#a6526eb9e602317da53bcc37ef962c63b", null ],
     [ "read_data", "classinterface.html#a6f5451a539a8ae8d406c1216d19603be", null ],
     [ "read_n", "classinterface.html#aee09948aa353c99fc35279908d663b4e", null ],

@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('hardware_access_8h_source.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,26 +108,26 @@ $(document).ready(function(){initNavTree('hardware_access_8h_source.html','');})
 </div><!--header-->
 <div class="contents">
 <a href="hardware_access_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       hardwareAccess.h</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       21.10.2014</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      Functions for accessing hardware connected through pio´s and</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  *             registers</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">  * @details    21.10. Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">  * @details    29.10. Kossmann</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">  *             -renewed complete pio access concept</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  * @details    31.10. Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">  *             - added missing var type in hex functions</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">  * @details    31.10. Kossmann</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">  *             - added function to clear edgecapture of switches</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file       hardwareAccess.h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author     Michael Riedel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author     Marc Kossmann</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v0.1</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       21.10.2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @brief      Functions for accessing hardware connected through pio´s and</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *             registers</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @par History:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * @details    21.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *             - first draft for milestone 1b</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * @details    29.10. Kossmann</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *             - renewed complete pio access concept</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * @details    31.10. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *             - added missing var type in hex functions</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * @details    31.10. Kossmann</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *             - added function to clear edgecapture of switches</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef __HARDWAREACCESS_H__</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define __HARDWAREACCESS_H__</span></div>
@@ -135,160 +135,159 @@ $(document).ready(function(){initNavTree('hardware_access_8h_source.html','');})
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;altera_avalon_pio_regs.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">  * @name Key-register</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#adb0c067a4045531d0ab2f2a24bd8ce09">   30</a></span>&#160;<span class="preprocessor">#define PIO_KEY_RS_IR0_MSK      (0x1)   </span><span class="comment">//!&lt; Run/Stop mask for PIO-Key</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#af0b9650bf27421d162911c1f4457bb31">   31</a></span>&#160;<span class="comment"></span>#define PIO_KEY_MINUS_IR2_MSK   (0x4)   <span class="comment">//!&lt; Increase steps mask for PIO-Key</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a9809feb056e6f227cd3ef45a26bfb52a">   32</a></span>&#160;<span class="comment"></span>#define PIO_KEY_PLUS_IR3_MSK    (0x8)   <span class="comment">//!&lt; Decreses steps mask for PIO-Key</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">  * @name Key-register: interrupt access defines</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#define PIO_KEY_RS_IR0_MSK      (0x1)</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define PIO_KEY_MINUS_IR2_MSK   (0x4)</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#define PIO_KEY_PLUS_IR3_MSK    (0x8)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">  * @brief  Function to enable interrupts for pio key</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">  * @param  enablebits : set bits to 1 for enable interrupt</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">  * @retval None</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">   46</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a>(uint32_t enablebits) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_KEY_BASE, enablebits);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">  * @brief Function to clear bits of keys edgecapture register</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">  * @param clearbits : set bits to 1 for enable interrupt</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">  * @retval none</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">   55</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a>(uint32_t clearbits) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE, clearbits);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">  * @brief Function to read content of keys edgecapture register</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">  * @retval pressedKeys : When edge was detected, bit is 1</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">   63</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">PIO_KEY_GetEdgeCpt</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordflow">return</span> (IORD_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE));</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">  * @name sliding switches</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">  * @name Key-register: interrupt access defines</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#define PIO_SW_LR_IR0_MSK       (0x1)</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#define PIO_SW_MODE_IR1234_MSK  (0x1E)</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#define PIO_SW_DEBUG_IR9_MSK    (0x100)</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">  * @brief  Function to enable interrupts for pio sw</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">  * @param  enablebits : set bits to 1 for enable interrupt</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">  * @retval None</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">   83</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a>(uint32_t enablebits) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_SW_BASE, enablebits);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> * @brief Function to clear bits of switches edgecapture register</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> * @param clearbits : set bits to 1 for enable interrupt</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> * @retval none</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">   92</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a>(uint32_t clearbits) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_SW_BASE, clearbits);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">  * @brief Function to read content of switches data register</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">  * @retval switchesValues :  Values of all switches</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> *                            @arg 0 = Switch OFF</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> *                            @arg 1 = Switch ON</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">  102</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordflow">return</span> (IORD_ALTERA_AVALON_PIO_DATA(PIO_SW_BASE));</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">  * @name debug LED9</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">  * @brief Function to set led9 for heartbeat</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">  * @retval ledValue :  Value of LED</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"> *                            @arg 0 = LED OFF</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"> *                            @arg 1 = LED ON</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1">  116</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1">PIO_LED9_Set</a>(uint32_t ledValue) {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED9_BASE, ledValue);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">  * @name 7-segment hex displays</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">  * @brief Function to set segments on hex0 display</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">  * @retval segmentValues :  Values for all seven segments</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484">  131</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484">PIO_HEX0_Set</a>(uint32_t segmentValues) {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX0_BASE, ~segmentValues);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}<span class="comment"></span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">  * @brief Function to set segments on hex1 display</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">  * @retval segmentValues :  Values for all seven segments</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308">  140</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308">PIO_HEX1_Set</a>(uint32_t segmentValues) {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX1_BASE, ~segmentValues);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;}</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">  * @brief Function to set segments on hex2 display</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">  * @retval segmentValues :  Values for all seven segments</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd">  150</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd">PIO_HEX2_Set</a>(uint32_t segmentValues) {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX2_BASE, ~segmentValues);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">  * @brief Function to set segments on hex3 display</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">  * @retval segmentValues :  Values for all seven segments</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48">  160</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48">PIO_HEX3_Set</a>(uint32_t segmentValues) {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX3_BASE, ~segmentValues);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="hardware_access_8h_html_adf981c6fea97526812a4998299372aa5"><div class="ttname"><a href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio key. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00046">hardwareAccess.h:46</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_ad2243420f7c1c2bc30a18d9b95fc4308"><div class="ttname"><a href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308">PIO_HEX1_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX1_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex1 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00140">hardwareAccess.h:140</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a600c270eac68c21d9ca4f698fc0218dd"><div class="ttname"><a href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd">PIO_HEX2_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX2_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex2 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00150">hardwareAccess.h:150</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_ad068c5588df0d8decc2095ea4a5d6665"><div class="ttname"><a href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of keys edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00055">hardwareAccess.h:55</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a2c06e6e7b73469bc5358011ff4120a48"><div class="ttname"><a href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48">PIO_HEX3_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX3_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex3 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00160">hardwareAccess.h:160</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a09841ddeebaad23352b820e8e1bc3da1"><div class="ttname"><a href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1">PIO_LED9_Set</a></div><div class="ttdeci">static __inline__ void PIO_LED9_Set(uint32_t ledValue)</div><div class="ttdoc">Function to set led9 for heartbeat. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00116">hardwareAccess.h:116</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a2eca107134198ba52e6379f6adb42ed5"><div class="ttname"><a href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio sw. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00083">hardwareAccess.h:83</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a16c412e9385c655ecd16ecf3379eec21"><div class="ttname"><a href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a></div><div class="ttdeci">static __inline__ uint32_t PIO_SW_GetValues(void)</div><div class="ttdoc">Function to read content of switches data register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00102">hardwareAccess.h:102</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_a89492ff1d8b21807006359d5db6c6c9d"><div class="ttname"><a href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">PIO_KEY_GetEdgeCpt</a></div><div class="ttdeci">static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void)</div><div class="ttdoc">Function to read content of keys edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00063">hardwareAccess.h:63</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_abd9aa36a3326dd1655387758edc43be6"><div class="ttname"><a href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_SW_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of switches edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00092">hardwareAccess.h:92</a></div></div>
-<div class="ttc" id="hardware_access_8h_html_aff57e01cc0c282a3b4826d805822f484"><div class="ttname"><a href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484">PIO_HEX0_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX0_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex0 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00131">hardwareAccess.h:131</a></div></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a1a8fca812a73b10a942b09183166ed29">   34</a></span>&#160;<span class="preprocessor">#define PIO_SW_LR_IR0_MSK       (0x1)   </span><span class="comment">//!&lt; Left/Right mask for PIO-Switches</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a788abfdb4ffb3f07c8d7ec1ae6a69a33">   35</a></span>&#160;<span class="comment"></span>#define PIO_SW_MODE_IR1234_MSK  (0x1E)  <span class="comment">//!&lt; Mode mask for PIO-Switches</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#ad9bc04deec068d2f5d50a93ff771238d">   36</a></span>&#160;<span class="comment"></span>#define PIO_SW_DEBUG_IR9_MSK    (0x100) <span class="comment">//!&lt; Debug mask for PIO-Switches</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> * @name keys</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> * @brief  Function to enable interrupts for pio key</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> * @param  enablebits : set bits to `1` for enable interrupt</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> * @retval None</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">   47</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a>(uint32_t enablebits) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_KEY_BASE, enablebits);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> * @brief Function to clear bits of keys edgecapture register</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * @param clearbits : set bits to `1` for enable interrupt</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> * @retval none</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">   56</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a>(uint32_t clearbits) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE, clearbits);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> * @brief Function to read content of keys edgecapture register</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> * @retval pressedKeys : When edge was detected, bit is `1`</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">   64</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">PIO_KEY_GetEdgeCpt</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">return</span> (IORD_ALTERA_AVALON_PIO_EDGE_CAP(PIO_KEY_BASE));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> * @name sliding switches</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"> * @brief  Function to enable interrupts for pio sw</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"> * @param  enablebits : set bits to `1` for enable interrupt</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> * @retval None</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">   77</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a>(uint32_t enablebits) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  IOWR_ALTERA_AVALON_PIO_IRQ_MASK(PIO_SW_BASE, enablebits);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"> * @brief Function to clear bits of switches edgecapture register</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"> * @param clearbits : set bits to `1` for enable interrupt</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"> * @retval none</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">   86</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a>(uint32_t clearbits) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  IOWR_ALTERA_AVALON_PIO_EDGE_CAP(PIO_SW_BASE, clearbits);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> * @brief Function to read content of switches data register</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> * @retval switchesValues :  Values of all switches</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> *                            @arg 0 = Switch OFF</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"> *                            @arg 1 = Switch ON</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">   96</a></span>&#160;<span class="keyword">static</span> __inline__ uint32_t <a class="code" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">return</span> (IORD_ALTERA_AVALON_PIO_DATA(PIO_SW_BASE));</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> * @name red LED_9 (heartbeat)</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> * @brief Function to set led9 for heartbeat</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"> * @param ledValue :  Value for LED9</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"> *                            @arg 0 = LED OFF</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"> *                            @arg 1 = LED ON</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"> *  @retval none</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1">  111</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1">PIO_LED9_Set</a>(uint32_t ledValue) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_LED9_BASE, ledValue);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment"> * @name 7-segment hex displays</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment"> * @brief Function to set segments on hex0 display</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment"> * @param segmentValues :  Values for all seven segments</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment"> *  @retval none</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484">  126</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484">PIO_HEX0_Set</a>(uint32_t segmentValues) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX0_BASE, ~segmentValues);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment"> * @brief Function to set segments on hex1 display</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment"> * @param segmentValues :  Values for all seven segments</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment"> *  @retval none</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308">  137</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308">PIO_HEX1_Set</a>(uint32_t segmentValues) {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX1_BASE, ~segmentValues);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment"> * @brief Function to set segments on hex2 display</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment"> * @param segmentValues :  Values for all seven segments</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment"> *  @retval none</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd">  148</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd">PIO_HEX2_Set</a>(uint32_t segmentValues) {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX2_BASE, ~segmentValues);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"> * @brief Function to set segments on hex3 display</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment"> * @param segmentValues :  Values for all seven segments</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment"> *                            @arg 0 = segment OFF</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment"> *                            @arg 1 = segment ON</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"> *  @retval none</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48">  159</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48">PIO_HEX3_Set</a>(uint32_t segmentValues) {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  IOWR_ALTERA_AVALON_PIO_DATA(PIO_HEX3_BASE, ~segmentValues);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#endif // __HARDWAREACCESS_H__</span></div>
+<div class="ttc" id="hardware_access_8h_html_adf981c6fea97526812a4998299372aa5"><div class="ttname"><a href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5">PIO_KEY_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_KEY_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio key. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00047">hardwareAccess.h:47</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_ad2243420f7c1c2bc30a18d9b95fc4308"><div class="ttname"><a href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308">PIO_HEX1_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX1_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex1 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00137">hardwareAccess.h:137</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a600c270eac68c21d9ca4f698fc0218dd"><div class="ttname"><a href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd">PIO_HEX2_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX2_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex2 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00148">hardwareAccess.h:148</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_ad068c5588df0d8decc2095ea4a5d6665"><div class="ttname"><a href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665">PIO_KEY_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_KEY_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of keys edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00056">hardwareAccess.h:56</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a2c06e6e7b73469bc5358011ff4120a48"><div class="ttname"><a href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48">PIO_HEX3_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX3_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex3 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00159">hardwareAccess.h:159</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a09841ddeebaad23352b820e8e1bc3da1"><div class="ttname"><a href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1">PIO_LED9_Set</a></div><div class="ttdeci">static __inline__ void PIO_LED9_Set(uint32_t ledValue)</div><div class="ttdoc">Function to set led9 for heartbeat. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00111">hardwareAccess.h:111</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a2eca107134198ba52e6379f6adb42ed5"><div class="ttname"><a href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5">PIO_SW_SetIRMsk</a></div><div class="ttdeci">static __inline__ void PIO_SW_SetIRMsk(uint32_t enablebits)</div><div class="ttdoc">Function to enable interrupts for pio sw. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00077">hardwareAccess.h:77</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a16c412e9385c655ecd16ecf3379eec21"><div class="ttname"><a href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21">PIO_SW_GetValues</a></div><div class="ttdeci">static __inline__ uint32_t PIO_SW_GetValues(void)</div><div class="ttdoc">Function to read content of switches data register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00096">hardwareAccess.h:96</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_a89492ff1d8b21807006359d5db6c6c9d"><div class="ttname"><a href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d">PIO_KEY_GetEdgeCpt</a></div><div class="ttdeci">static __inline__ uint32_t PIO_KEY_GetEdgeCpt(void)</div><div class="ttdoc">Function to read content of keys edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00064">hardwareAccess.h:64</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_abd9aa36a3326dd1655387758edc43be6"><div class="ttname"><a href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6">PIO_SW_ClearEdgeCptBits</a></div><div class="ttdeci">static __inline__ void PIO_SW_ClearEdgeCptBits(uint32_t clearbits)</div><div class="ttdoc">Function to clear bits of switches edgecapture register. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00086">hardwareAccess.h:86</a></div></div>
+<div class="ttc" id="hardware_access_8h_html_aff57e01cc0c282a3b4826d805822f484"><div class="ttname"><a href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484">PIO_HEX0_Set</a></div><div class="ttdeci">static __inline__ void PIO_HEX0_Set(uint32_t segmentValues)</div><div class="ttdoc">Function to set segments on hex0 display. </div><div class="ttdef"><b>Definition:</b> <a href="hardware_access_8h_source.html#l00126">hardwareAccess.h:126</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="hardware_access_8h.html">hardwareAccess.h</a></li>
-    <li class="footer">Generated on Sun Nov 2 2014 21:08:30 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="hardware_access_8h.html">hardwareAccess.h</a></li>
+    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
