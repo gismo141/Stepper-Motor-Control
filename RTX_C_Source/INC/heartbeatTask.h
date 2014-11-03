@@ -50,10 +50,10 @@
  *          | FOURTH | off      | UPPDER_O     |
  */
 typedef enum heartbeatState {
-  FIRST = 1,
-  SECOND = 2,
-  THIRD = 3,
-  FOURTH = 4
+  FIRST   = 1,
+  SECOND  = 2,
+  THIRD   = 3,
+  FOURTH  = 4
 } heartbeatState_t;
 
 /**

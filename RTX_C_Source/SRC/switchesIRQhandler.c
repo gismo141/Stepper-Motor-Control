@@ -8,8 +8,8 @@
   * @brief      IRQ-handler for switches
   *****************************************************************************
   * @par History:
-  * @details    21.10. Riedel & Kossmann
-  *             - first draft for milestone 1b
+  * @par @details    21.10. Riedel & Kossmann
+  *                  - first draft for milestone 1b
   * @details    27.10. Riedel
   *             - basic implementation
   * @details    29.10. Kossmann

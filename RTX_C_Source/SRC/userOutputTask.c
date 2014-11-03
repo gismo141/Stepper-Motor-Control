@@ -64,7 +64,7 @@ void UserOutputTask(void *pdata) {
                          & CTRL_REG_MODE_MSK;
       printf_lcd("M:%i%i%i%i      ", modeBits & 0x8, modeBits & 0x4,
                  modeBits & 0x2, modeBits & 0x1);
-      printf_lcd("V0.1\n");
+      printf_lcd("v0.1\n");
       if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
         printf_lcd("Running    ");
       } else {

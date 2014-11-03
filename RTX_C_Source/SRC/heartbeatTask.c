@@ -72,21 +72,24 @@ void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr) {
 }
 
 void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr) {
-  uint32_t ctrlReg = ctrlRegGet();
+  uint32_t ctrlReg = 0;
+  uint8_t  stepCounter = 0;
 
-  nextHeartbeatStep(heartbeatStatePtr);
-
-  // Is Run-Bit == 1? (RUN)
-  if (ctrlReg & CTRL_REG_RS_MSK) {
-    // Is Dir-Bit == 1? (RIGHT)
-    if (ctrlReg & CTRL_REG_LR_MSK) {
-      stepsRegSet(stepsRegGet() - 10);
+  for(stepCounter < 4) {
+    ctrlReg = ctrlRegGet();
+    // Is Run-Bit == 1? (RUN)
+    if (ctrlReg & CTRL_REG_RS_MSK) {
+      // Is Dir-Bit == 1? (RIGHT)
+      if (ctrlReg & CTRL_REG_LR_MSK) {
+        stepsRegSet(stepsRegGet() - 10);
+      }
+      stepsRegSet(stepsRegGet() + 10);
     }
-    stepsRegSet(stepsRegGet() + 10);
-  }
-  nextHeartbeatStep(heartbeatStatePtr);
-  nextHeartbeatStep(heartbeatStatePtr);
 
+    // Debug things done -> next step of heartbeat-cycle...
+    ++stepCounter;
+    nextHeartbeatStep(heartbeatStatePtr);
+  }
   // Set IR
   ctrlReg |= CTRL_REG_IR_MSK;
   ctrlRegSet(ctrlReg);

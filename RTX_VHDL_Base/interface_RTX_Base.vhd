@@ -43,7 +43,7 @@ ENTITY interface_RTX_Base IS
 		HEX3          :	OUT   	STD_LOGIC_VECTOR(6 DOWNTO 0);                     	--! HEX display 3
 		LCD_RS        :	OUT   	STD_LOGIC;                                        	--! LCD RS
 		LCD_RW        :	OUT   	STD_LOGIC;                                        	--! LCD RW
-		LCD_DQ        :	INOUT 	STD_LOGIC(7 DOWNTO 0)  					:= (OTHERS => '0'); --! LCD data
+		LCD_DQ        :	INOUT 	STD_LOGIC(7 DOWNTO 0)  					:= (OTHERS => `0`); --! LCD data
 		LCD_EN        :	OUT   	STD_LOGIC                                         	--! LCD enable
 	);
 END INterface_RTX_Base;
@@ -53,20 +53,20 @@ ARCHITECTURE a1 OF INterface_RTX_Base IS
 
 component StepperMotorControl is
 	port (
-    reset_reset_n  : IN    STD_LOGIC                     		:= '0';             -- reset.reset_n
-		clk_clk        : IN    STD_LOGIC                     		:= '0';             --   clk.clk
+    reset_reset_n  : IN    STD_LOGIC                     		:= `0`;             -- reset.reset_n
+		clk_clk        : IN    STD_LOGIC                     		:= `0`;             --   clk.clk
 		sram_SRAM_OE_N : OUT   STD_LOGIC_VECTOR(0 DOWNTO 0);                     		--  sram.SRAM_OE_N
 		sram_SRAM_CE_N : OUT   STD_LOGIC_VECTOR(0 DOWNTO 0);                     		--      .SRAM_CE_N
 		sram_SRAM_BE_N : OUT   STD_LOGIC_VECTOR(1 DOWNTO 0);                     		--      .SRAM_BE_N
-		sram_SRAM_D    : INOUT STD_LOGIC_VECTOR(15 DOWNTO 0) 		:= (OTHERS => '0'); --      .SRAM_D
+		sram_SRAM_D    : INOUT STD_LOGIC_VECTOR(15 DOWNTO 0) 		:= (OTHERS => `0`); --      .SRAM_D
 		sram_SRAM_A    : OUT   STD_LOGIC_VECTOR(18 DOWNTO 0);                    		--      .SRAM_A
 		sram_SRAM_WE_N : OUT   STD_LOGIC_VECTOR(0 DOWNTO 0);                     		--      .SRAM_WE_N
-		sw_export      : IN    STD_LOGIC_VECTOR(9 DOWNTO 0)  		:= (OTHERS => '0'); --    sw.export
+		sw_export      : IN    STD_LOGIC_VECTOR(9 DOWNTO 0)  		:= (OTHERS => `0`); --    sw.export
 		lcd_RS         : OUT   STD_LOGIC;                                        		--   lcd.RS
 		lcd_RW         : OUT   STD_LOGIC;                                        		--      .RW
-		lcd_data       : INOUT STD_LOGIC_VECTOR(7 DOWNTO 0)  		:= (OTHERS => '0'); --      .data
+		lcd_data       : INOUT STD_LOGIC_VECTOR(7 DOWNTO 0)  		:= (OTHERS => `0`); --      .data
 		lcd_E          : OUT   STD_LOGIC;                                        		--      .E
-		key_export     : IN    STD_LOGIC_VECTOR(3 DOWNTO 0)  		:= (OTHERS => '0'); --   key.export
+		key_export     : IN    STD_LOGIC_VECTOR(3 DOWNTO 0)  		:= (OTHERS => `0`); --   key.export
 		hex0_export    : OUT   STD_LOGIC_VECTOR(6 DOWNTO 0);                     		--  hex0.export
 		hex1_export    : OUT   STD_LOGIC_VECTOR(6 DOWNTO 0);                     		--  hex1.export
 		hex2_export    : OUT   STD_LOGIC_VECTOR(6 DOWNTO 0);                     		--  hex2.export
