@@ -31,25 +31,22 @@ void keysIRQhandler(void *context) {
   INT8U err;
 
   OSIntEnter();
-  edgesCaptured =  PIO_KEY_GetEdgeCpt();
+  edgesCaptured = PIO_KEY_GetEdgeCpt();
 
   // Send corresponding Event and clear bit in edgecapture reg
   if (edgesCaptured & PIO_KEY_RS_IR0_MSK) {
-    debug("KEY_RS_0 pressed!\n");
     OSFlagPost(userInputTaskFlagsGrp, KEY0_RS_EVENT, OS_FLAG_SET, &err);
     if (OS_NO_ERR != err) {
       error("KEY_ISR_FLAG_ERR: %i\n", err);
     }
   }
   if (edgesCaptured & PIO_KEY_MINUS_IR2_MSK) {
-    debug("KEY_MINUS_2 pressed!\n");
     OSFlagPost(userInputTaskFlagsGrp, KEY2_MINUS_EVENT, OS_FLAG_SET, &err);
     if (OS_NO_ERR != err) {
       error("KEY_ISR_FLAG_ERR: %i\n", err);
     }
   }
   if (edgesCaptured & PIO_KEY_PLUS_IR3_MSK) {
-    debug("KEY_PLUS_3 pressed!\n");
     OSFlagPost(userInputTaskFlagsGrp, KEY3_PLUS_EVENT, OS_FLAG_SET, &err);
     if (OS_NO_ERR != err) {
       error("KEY_ISR_FLAG_ERR: %i\n", err);

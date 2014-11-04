@@ -33,7 +33,7 @@
 #define HEX_ONE   (0b0000110) //!< number `1` on HEX-segments
 #define HEX_TWO   (0b1011011) //!< number `2` on HEX-segments
 #define HEX_THREE (0b1001111) //!< number `3` on HEX-segments
-#define HEX_FOUR  (0b1100100) //!< number `4` on HEX-segments
+#define HEX_FOUR  (0b1100110) //!< number `4` on HEX-segments
 #define HEX_FIVE  (0b1101101) //!< number `5` on HEX-segments
 #define HEX_SIX   (0b1111101) //!< number `6` on HEX-segments
 #define HEX_SEVEN (0b0000111) //!< number `7` on HEX-segments
@@ -42,7 +42,6 @@
 #define HEX_LEFT  (0b0111000) //!< `L` for left on HEX-segments
 #define HEX_RIGHT (0b1010000) //!< `r` for right on HEX-segments
 #define HEX_LINE  (0b1000000) //!< middle line on HEX-segments
-
 /**
  * @brief   UserOutputTask
  * @details Shows the user information about the system.
@@ -64,6 +63,6 @@ void UserOutputTask(void *pdata);
  * @retval  None
  */
 void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
-                       void *termMsgCounter);
+    uint32_t *termMsgCounterPtr);
 
 #endif // __USER_OUTPUT_TASK_H__

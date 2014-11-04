@@ -38,7 +38,6 @@
 #define LOWER_O (0b1011100) //!< represents the letter **o** in the **lower** HEX-segments
 #define UPPER_O (0b1100011) //!< represents the letter **o** in the **upper** HEX-segments
 #define LINE    (0b1000000) //!< represents a centered **bar** in the HEX-segments
-
 /**
  * @brief   The state-machine for the heartbeat.
  * 
@@ -50,10 +49,7 @@
  *          | FOURTH | off      | UPPDER_O     |
  */
 typedef enum heartbeatState {
-  FIRST   = 1,
-  SECOND  = 2,
-  THIRD   = 3,
-  FOURTH  = 4
+  FIRST = 1, SECOND = 2, THIRD = 3, FOURTH = 4
 } heartbeatState_t;
 
 /**

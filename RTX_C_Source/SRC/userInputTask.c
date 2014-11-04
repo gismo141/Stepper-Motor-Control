@@ -7,6 +7,7 @@
  * @date    22.10.2014
  * @brief   Source code for User-Input-Task which is highest instance, reacts
  *          to user input and controls register and hardware access
+ * @todo    Clean up registerAccess mask define chaos
  *****************************************************************************
  * @par History:
  * @details 22.10. Kossmann
@@ -21,6 +22,8 @@
  *            because the need OS running
  * @details 03.11. Kossmann
  *          - used new register-access via inline functions of registerAccess.h
+ * @details 04.11. Riedel & Kossmann
+ *          - reduced messageQueue size to 1
  *****************************************************************************
  */
 
@@ -29,13 +32,15 @@
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
-OS_EVENT *switchesMsgQueue;   //!< Message Queue for transmitting the switches values
-OS_EVENT *outputTaskMailbox;  //!< Mailbox for transmitting information from InputTask to OutputTask
-OS_EVENT *registerMutex;      //!< Mutex for protected access to the registers
+OS_EVENT *switchesMsgQueue; //!< Message Queue for transmitting the switches values
+OS_EVENT *outputTaskMailbox; //!< Mailbox for transmitting information from InputTask to OutputTask
+OS_EVENT *registerMutex; //!< Mutex for protected access to the registers
 
 void UserInputTask(void *pdata) {
-  uint8_t  err;
+  uint8_t err;
   OS_FLAGS newFlag;
+
+  bool newInput = false;
 
   //register copies to work with
   uint8_t ctrlReg = 0;
@@ -45,22 +50,16 @@ void UserInputTask(void *pdata) {
   //variable to store position of switches
   uint32_t switchesReg = 0;
 
-  systemState_t systemState = {
-    .operationalStatus = FUNCTIONAL,
-    .activeUseCase = STOP
-  };
+  systemState_t systemState = { .operationalStatus = FUNCTIONAL,
+      .activeUseCase = STOP };
 
   //declare mailbox
-  outputTaskMailbox_t outputTaskMailboxContent = {
-    .ctrlReg = 0,
-    .speedReg = 0,
-    .stepsReg = 0,
-    .debugState = false
-  };
+  outputTaskMailbox_t outputTaskMailboxContent = { .ctrlReg = 0, .speedReg = 0,
+      .stepsReg = 0, .debugState = false };
 
   //declare message and messageQueue
   void *msg;
-  void *msgQueue[16];
+  void *msgQueue[1];
 
   //Show initial terminal msg
   printf_term("Stepper Motor - System on a Chip 2014\n");
@@ -77,43 +76,52 @@ void UserInputTask(void *pdata) {
 
   //create OS resources
   registerMutex = OSMutexCreate(3, &err);
-  if ((OS_EVENT *)0 == registerMutex || OS_NO_ERR != err){
+  if ((OS_EVENT *) 0 == registerMutex || OS_NO_ERR != err) {
     error("REGISTER_MUTEX_CREATE_ERR: %i\n", err);
-  }else{
-    switchesMsgQueue = OSQCreate(msgQueue, 16);
+  } else {
+    switchesMsgQueue = OSQCreate(msgQueue, 1);
     outputTaskMailbox = OSMboxCreate(NULL);
-    if ((OS_EVENT *)0 == switchesMsgQueue || (OS_EVENT *)0 == outputTaskMailbox) {
+    if ((OS_EVENT *) 0 == switchesMsgQueue
+        || (OS_EVENT *) 0 == outputTaskMailbox) {
       error("INPUT_TASK_MBOX_MSGQ_ERR: %i\n", err);
     } else {
-      while (0) {
+      while (1) {
         //get register copies
         ctrlReg = ctrlRegGet();
         speedReg = speedRegGet();
         stepsReg = stepsRegGet();
         //check for new events
-        newFlag = OSFlagPend(userInputTaskFlagsGrp,
-                             (KEY0_RS_EVENT | KEY2_MINUS_EVENT | KEY3_PLUS_EVENT |
-                              MOTOR_STOP_EVENT),
-                             OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
+        newFlag =
+            OSFlagPend(userInputTaskFlagsGrp,
+                (KEY0_RS_EVENT | KEY2_MINUS_EVENT | KEY3_PLUS_EVENT
+                    | MOTOR_STOP_EVENT), OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME,
+                10, &err);
         if (OS_NO_ERR == err) {
+          newInput = true;
           //check for key0 event
           if (newFlag & KEY0_RS_EVENT) {
             //toogle RS-Bit in ctrlReg
             if (ctrlReg & CTRL_REG_RS_MSK) { //RS-Bit is 1
               ctrlReg &= ~(CTRL_REG_RS_MSK);
-            } else {                        //RS-Bit is 0
+            } else { //RS-Bit is 0
               ctrlReg |= CTRL_REG_RS_MSK;
             }
           }
           //check for key2 event (decrease steps)
           if (newFlag & KEY2_MINUS_EVENT) {
-            if (!ctrlReg & CTRL_REG_RS_MSK) //allow modification only when motor stopped
-              speedReg--;
+            if (!(ctrlReg & CTRL_REG_RS_MSK)){ //allow modification only when motor stopped
+              if (0 != speedReg){
+                speedReg--;
+              }
+            }
           }
           //check for key3 event (increase steps)
           if (newFlag & KEY3_PLUS_EVENT) {
-            if (!ctrlReg & CTRL_REG_RS_MSK) //allow modification only when motor stopped
-              speedReg++;
+            if (!(ctrlReg & CTRL_REG_RS_MSK)){ //allow modification only when motor stopped
+              if (7 != speedReg){
+                speedReg++;
+              }
+            }
           }
           //check for motor stop event
           if (newFlag & MOTOR_STOP_EVENT) {
@@ -126,36 +134,37 @@ void UserInputTask(void *pdata) {
         //check for new switches message
         msg = OSQPend(switchesMsgQueue, 10, &err);
         if (OS_NO_ERR == err) {
-          switchesReg = (uint32_t)msg;
+          newInput = true;
+          switchesReg = (uint32_t) msg;
+          //evaluate switch positions
+          if (switchesReg & SWITCH_LR_MSK) {
+            ctrlReg |= CTRL_REG_LR_MSK;
+          } else {
+            ctrlReg &= ~(CTRL_REG_LR_MSK);
+          }
+          if (!(ctrlReg & CTRL_REG_RS_MSK)) { //allow modification only when motor stopped
+            ctrlReg &= ~(SWITCH_MODE_MSK); //clear mode bits
+            ctrlReg |= (switchesReg & SWITCH_MODE_MSK); //set mode bits
+          }
+          if (switchesReg & SWITCH_DEBUG_MSK) {
+            systemState.operationalStatus = DEBUG;
+            err = OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET,
+                NULL);
+            if (OS_NO_ERR != err) {
+              error("INPUT_TASK_FLAG_ERR: %i\n", err);
+            }
+          }
         } else if (OS_TIMEOUT != err) {
           error("INPUT_TASK_MBOX_ERR: %i\n", err);
-        }
-        //evaluate switch positions
-        if (switchesReg & SWITCH_LR_MSK) {
-          ctrlReg |= CTRL_REG_LR_MSK;
-        } else {
-          ctrlReg &= ~(CTRL_REG_LR_MSK);
-        }
-        if (!ctrlReg & CTRL_REG_RS_MSK) { //allow modification only when motor stopped
-          ctrlReg &= ~(SWITCH_MODE_MSK);              //clear mode bits
-          ctrlReg |= (switchesReg & SWITCH_MODE_MSK); //set mode bits
-        }
-
-        if (switchesReg & SWITCH_DEBUG_MSK) {
-          systemState.operationalStatus = DEBUG;
-          err = OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET, NULL);
-          if (OS_NO_ERR != err) {
-            error("INPUT_TASK_FLAG_ERR: %i\n", err);
-          }
         }
 
         //change systemState when Run-Bit = 1
         if (ctrlReg & CTRL_REG_RS_MSK) {
-          if (((ctrlReg & CTRL_REG_MODE_MSK) & MODE_STOP_CON_RUN_MSK) ==
-              MODE_STOP) {
+          if (((ctrlReg & CTRL_REG_MODE_MSK) & MODE_STOP_CON_RUN_MSK)
+              == MODE_STOP) {
             systemState.activeUseCase = STOP;
-          } else if (((ctrlReg & CTRL_REG_MODE_MSK) & MODE_STOP_CON_RUN_MSK) ==
-                     MODE_CON_RUN) {
+          } else if (((ctrlReg & CTRL_REG_MODE_MSK) & MODE_STOP_CON_RUN_MSK)
+              == MODE_CON_RUN) {
             systemState.activeUseCase = CONTINOUS;
           } else if ((ctrlReg & CTRL_REG_MODE_MSK) == MODE_CH_OF_ST_1_4) {
             systemState.activeUseCase = QUARTER_ROTATION;
@@ -167,23 +176,25 @@ void UserInputTask(void *pdata) {
             systemState.activeUseCase = DOUBLE_ROTATION;
           }
         }
-
-        //update content of mailbox to outputTask
-        outputTaskMailboxContent.ctrlReg = ctrlReg;
-        outputTaskMailboxContent.speedReg = speedReg;
-        outputTaskMailboxContent.stepsReg = stepsReg;
-        if (systemState.operationalStatus == DEBUG) {
-          outputTaskMailboxContent.debugState = true;
-        } else {
-          outputTaskMailboxContent.debugState = false;
+        if (newInput) {
+          //update content of mailbox to outputTask
+          outputTaskMailboxContent.ctrlReg = ctrlReg;
+          outputTaskMailboxContent.speedReg = speedReg;
+          outputTaskMailboxContent.stepsReg = stepsReg;
+          if (systemState.operationalStatus == DEBUG) {
+            outputTaskMailboxContent.debugState = true;
+          } else {
+            outputTaskMailboxContent.debugState = false;
+          }
+          err = OSMboxPost(outputTaskMailbox, &outputTaskMailboxContent);
+          if (OS_NO_ERR != err) {
+            error("INPUT_TASK_MBOX_ERR: %i\n", err);
+          }
+          //write values of register copies into real registers
+          ctrlRegSet(ctrlReg);
+          speedRegSet(speedReg);
+          newInput = false;
         }
-        err = OSMboxPost(outputTaskMailbox, &outputTaskMailboxContent);
-        if (OS_NO_ERR != err) {
-          error("INPUT_TASK_MBOX_ERR: %i\n", err);
-        }
-        //write values of register copies into real registers
-        ctrlRegSet(ctrlReg);
-        speedRegSet(speedReg);
       }
     }
   }

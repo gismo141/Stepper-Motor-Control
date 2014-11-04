@@ -31,9 +31,8 @@ void HeartbeatTask(void *pdata) {
   heartbeatState_t *heartbeatStatePtr = &heartbeatState;
 
   while (1) {
-    heartbeatFlag = OSFlagPend(heartbeatTaskFlagsGrp,
-                               DEBUG_ON_EVENT,
-                               OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
+    heartbeatFlag = OSFlagPend(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT,
+        OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
     if (OS_NO_ERR != err && OS_TIMEOUT != err) {
       error("There was an error while waiting for the event!");
     } else {
@@ -74,9 +73,9 @@ void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr) {
 
 void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr) {
   uint32_t ctrlReg = 0;
-  uint8_t  stepCounter = 0;
+  uint8_t stepCounter = 0;
 
-  for(stepCounter < 4) {
+  while (stepCounter < 4) {
     ctrlReg = ctrlRegGet();
     // Is Run-Bit == 1? (RUN)
     if (ctrlReg & CTRL_REG_RS_MSK) {

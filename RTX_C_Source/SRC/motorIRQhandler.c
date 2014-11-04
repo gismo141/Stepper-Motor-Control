@@ -31,7 +31,7 @@ void motorIRQhandler(void *context) {
 
   if (ctrlReg & CTRL_REG_IE_MSK) {
     // Clear request
-    ctrlReg &= ~(CTRL_REG_IR_MSK); 
+    ctrlReg &= ~(CTRL_REG_IR_MSK);
     ctrlRegSet(ctrlReg);
 
     // Send the event

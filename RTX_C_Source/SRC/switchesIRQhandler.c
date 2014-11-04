@@ -20,6 +20,9 @@
  *             - change IPC to message queue because mailbox not needed
  * @details    31.10. Kossmann
  *             - fix bug that IRQhandler was called all the time
+ * @details    04.11. Riedel & Kossmann
+ *             - removed debug printouts because they are critical
+ *             - added flushing queue before posting
  *****************************************************************************
  */
 
@@ -29,14 +32,21 @@ extern OS_EVENT *switchesMsgQueue;
 
 void switchesIRQhandler(void *context) {
   uint8_t err;
+  uint32_t switches;
   OSIntEnter();
-  debug("Switch moved!\n");
+  switches = PIO_SW_GetValues();
+  //clear messageQueue
+  err = OSQFlush(switchesMsgQueue);
+  if (OS_NO_ERR != err) {
+    error("SW_ISR_MBOX_ERR: %i\n", err);
+  }
   // Create and Send Mailbox-Message with switches values
-  err = OSQPost(switchesMsgQueue, (void *) PIO_SW_GetValues());
+  err = OSQPost(switchesMsgQueue, (void*) switches);
   if (OS_NO_ERR != err) {
     error("SW_ISR_MBOX_ERR: %i\n", err);
   }
   //Reset IR-Bits
-  PIO_SW_ClearEdgeCptBits(0xFFFF);
+  PIO_SW_ClearEdgeCptBits(
+      PIO_SW_LR_IR0_MSK | PIO_SW_MODE_IR1234_MSK | PIO_SW_DEBUG_IR9_MSK);
   OSIntExit();
 }

@@ -29,11 +29,9 @@
 #define CTRL_REG_MODE_MSK     (0x3C)  //!< Mode-combination according to ctrlRegSet()-function
 #define CTRL_REG_IE_MSK       (0x40)  //!< Interrupt-Enable Bit
 #define CTRL_REG_IR_MSK       (0x80)  //!< Interrupt-Request Bit
-
 #define SWITCH_LR_MSK         (0x1)   //!< Right (1) or Left (0)-Bit
 #define SWITCH_MODE_MSK       (0x1E)  //!< Bit 1..4 contains motor setup
 #define SWITCH_DEBUG_MSK      (0x200) //!< Debug on if Bit 9 = `1`
-
 #define MODE_STOP_CON_RUN_MSK (0x3)   //!< Bit 0 & 1 only
 #define MODE_STOP             (0x0)   //!< MODE_STOP_CON_RUN_MSK; Must be `0b00`
 #define MODE_CON_RUN          (0x1)   //!< Use "MODE_STOP_CON_RUN_MSK"; Must be `0b01`
@@ -41,12 +39,11 @@
 #define MODE_CH_OF_ST_1_2     (0x6)   //!< Bits must be `0b0110`
 #define MODE_CH_OF_ST_1       (0xA)   //!< Bits must be `0b1010`
 #define MODE_CH_OF_ST_2       (0xE)   //!< Bits must be `0b1110`
-
 extern OS_EVENT *registerMutex;
 
-uint8_t   temporaryCtrlReg;       //!< Temporary control-register (only for milestone 1b)
-uint32_t  temporaryStepsReg;      //!< Temporary steps-register (only for milestone 1b)
-uint8_t   temporarySpeedReg;      //!< Temporary speed-register (only for milestone 1b)
+uint8_t temporaryCtrlReg; //!< Temporary control-register (only for milestone 1b)
+uint32_t temporaryStepsReg; //!< Temporary steps-register (only for milestone 1b)
+uint8_t temporarySpeedReg; //!< Temporary speed-register (only for milestone 1b)
 
 /**
  * @brief   Sets the control-register with the given bits
@@ -74,13 +71,13 @@ uint8_t   temporarySpeedReg;      //!< Temporary speed-register (only for milest
 static __inline__ void ctrlRegSet(uint8_t newCtrlReg) {
   uint8_t err;
   OSMutexPend(registerMutex, 0, &err);
-  if(OS_NO_ERR == err){
+  if (OS_NO_ERR == err) {
     temporaryCtrlReg = newCtrlReg;
-  }else{
+  } else {
     error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
   }
   err = OSMutexPost(registerMutex);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
   }
 }
@@ -94,13 +91,13 @@ static __inline__ uint8_t ctrlRegGet(void) {
   uint8_t err;
   uint8_t ctrlReg;
   OSMutexPend(registerMutex, 0, &err);
-  if(OS_NO_ERR == err){
+  if (OS_NO_ERR == err) {
     ctrlReg = temporaryCtrlReg;
-  }else{
+  } else {
     error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
   }
   err = OSMutexPost(registerMutex);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
   }
   return ctrlReg;
@@ -115,13 +112,13 @@ static __inline__ uint8_t ctrlRegGet(void) {
 static __inline__ void stepsRegSet(uint32_t newStepCount) {
   uint8_t err;
   OSMutexPend(registerMutex, 0, &err);
-  if(OS_NO_ERR == err){
+  if (OS_NO_ERR == err) {
     temporaryStepsReg = newStepCount;
-  }else{
+  } else {
     error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
   }
   err = OSMutexPost(registerMutex);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
   }
 }
@@ -135,13 +132,13 @@ static __inline__ uint32_t stepsRegGet(void) {
   uint8_t err;
   uint32_t stepsReg;
   OSMutexPend(registerMutex, 0, &err);
-  if(OS_NO_ERR == err){
+  if (OS_NO_ERR == err) {
     stepsReg = temporaryStepsReg;
-  }else{
+  } else {
     error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
   }
   err = OSMutexPost(registerMutex);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
   }
   return stepsReg;
@@ -168,13 +165,13 @@ static __inline__ uint32_t stepsRegGet(void) {
 static __inline__ void speedRegSet(uint8_t newSpeed) {
   uint8_t err;
   OSMutexPend(registerMutex, 0, &err);
-  if(OS_NO_ERR == err){
+  if (OS_NO_ERR == err) {
     temporarySpeedReg = newSpeed;
-  }else{
+  } else {
     error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
   }
   err = OSMutexPost(registerMutex);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
   }
 }
@@ -189,13 +186,13 @@ static __inline__ uint8_t speedRegGet(void) {
   uint8_t err;
   uint8_t speedReg;
   OSMutexPend(registerMutex, 0, &err);
-  if(OS_NO_ERR == err){
+  if (OS_NO_ERR == err) {
     speedReg = temporarySpeedReg;
-  }else{
+  } else {
     error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
   }
   err = OSMutexPost(registerMutex);
-  if(OS_NO_ERR != err){
+  if (OS_NO_ERR != err) {
     error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
   }
   return speedReg;

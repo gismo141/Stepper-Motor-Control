@@ -20,7 +20,7 @@
 #include "../INC/auxilaryFunctions.h"
 
 FILE *term; //!< stream to write on terminal device
-FILE *lcd;  //!< stream to write lcd device
+FILE *lcd; //!< stream to write lcd device
 
 void init_term(void) {
   term = fopen(JTAG_UART_NAME, "w");
@@ -33,20 +33,20 @@ void init_lcd(void) {
 
 void clear_lcd(void) {
   IOWR_ALTERA_AVALON_LCD_16207_COMMAND(LCD_BASE, 0x01);
-  OSTimeDlyHMSM(0, 0, 0, 10);
+  OSTimeDlyHMSM(0, 0, 0, 2);
 }
 
 void printf_term(const char *format, ...) {
   va_list args;
-  va_start (args, format);
-  vfprintf (term, format, args);
-  va_end (args);
+  va_start(args, format);
+  vfprintf(term, format, args);
+  va_end(args);
 }
 void printf_lcd(const char *format, ...) {
   va_list args;
-  va_start (args, format);
-  vfprintf (lcd, format, args);
-  va_end (args);
+  va_start(args, format);
+  vfprintf(lcd, format, args);
+  va_end(args);
 }
 
 void fflush_term() {

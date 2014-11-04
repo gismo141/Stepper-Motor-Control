@@ -24,9 +24,6 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-/** @brief Generates extra debug output on terminal */
-#define SOC2014_DEBUG
-
 #include <sys/alt_irq.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -46,11 +43,11 @@
 #define   TASK_STACKSIZE       2048
 
 /** @brief Stack for Task 1 */
-OS_STK    UserInputTask_Stk[TASK_STACKSIZE];
+OS_STK UserInputTask_Stk[TASK_STACKSIZE];
 /** @brief Stack for Task 2 */
-OS_STK    UserOutputTask_Stk[TASK_STACKSIZE];
+OS_STK UserOutputTask_Stk[TASK_STACKSIZE];
 /** @brief Stack for Task 3 */
-OS_STK    HeartbeatTask_Stk[TASK_STACKSIZE];
+OS_STK HeartbeatTask_Stk[TASK_STACKSIZE];
 
 /** @par Definition of Task Priorities
  * @brief lower numbers mean higher priority
