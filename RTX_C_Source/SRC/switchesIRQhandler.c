@@ -47,6 +47,6 @@ void switchesIRQhandler(void *context) {
   }
   //Reset IR-Bits
   PIO_SW_ClearEdgeCptBits(
-      PIO_SW_LR_IR0_MSK | PIO_SW_MODE_IR1234_MSK | PIO_SW_DEBUG_IR9_MSK);
+      PIO_SW_LR_MSK | PIO_SW_MODE_MSK | PIO_SW_DEBUG_MSK);
   OSIntExit();
 }

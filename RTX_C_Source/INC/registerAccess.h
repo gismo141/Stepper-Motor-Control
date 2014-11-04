@@ -14,6 +14,9 @@
  * @details    03.11. Kossmann
  *             - moved all register masks in this file
  *             - added registerMutex for save access
+ * @details    04.11. Kossmann
+ *             - removed switches masks defines. They already exist in
+ *             hardwareAccess.h
  *****************************************************************************
  */
 
@@ -29,9 +32,6 @@
 #define CTRL_REG_MODE_MSK     (0x3C)  //!< Mode-combination according to ctrlRegSet()-function
 #define CTRL_REG_IE_MSK       (0x40)  //!< Interrupt-Enable Bit
 #define CTRL_REG_IR_MSK       (0x80)  //!< Interrupt-Request Bit
-#define SWITCH_LR_MSK         (0x1)   //!< Right (1) or Left (0)-Bit
-#define SWITCH_MODE_MSK       (0x1E)  //!< Bit 1..4 contains motor setup
-#define SWITCH_DEBUG_MSK      (0x200) //!< Debug on if Bit 9 = `1`
 #define MODE_STOP_CON_RUN_MSK (0x3)   //!< Bit 0 & 1 only
 #define MODE_STOP             (0x0)   //!< MODE_STOP_CON_RUN_MSK; Must be `0b00`
 #define MODE_CON_RUN          (0x1)   //!< Use "MODE_STOP_CON_RUN_MSK"; Must be `0b01`

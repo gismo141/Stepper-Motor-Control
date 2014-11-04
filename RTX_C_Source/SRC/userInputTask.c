@@ -7,7 +7,6 @@
  * @date    22.10.2014
  * @brief   Source code for User-Input-Task which is highest instance, reacts
  *          to user input and controls register and hardware access
- * @todo    Clean up registerAccess mask define chaos
  *****************************************************************************
  * @par History:
  * @details 22.10. Kossmann
@@ -24,6 +23,8 @@
  *          - used new register-access via inline functions of registerAccess.h
  * @details 04.11. Riedel & Kossmann
  *          - reduced messageQueue size to 1
+ * @details 04.11. Kossmann
+ *          - used the right masks for evaluating switches
  *****************************************************************************
  */
 
@@ -137,16 +138,16 @@ void UserInputTask(void *pdata) {
           newInput = true;
           switchesReg = (uint32_t) msg;
           //evaluate switch positions
-          if (switchesReg & SWITCH_LR_MSK) {
+          if (switchesReg & PIO_SW_LR_MSK) {
             ctrlReg |= CTRL_REG_LR_MSK;
           } else {
             ctrlReg &= ~(CTRL_REG_LR_MSK);
           }
           if (!(ctrlReg & CTRL_REG_RS_MSK)) { //allow modification only when motor stopped
-            ctrlReg &= ~(SWITCH_MODE_MSK); //clear mode bits
-            ctrlReg |= (switchesReg & SWITCH_MODE_MSK); //set mode bits
+            ctrlReg &= ~(PIO_SW_MODE_MSK); //clear mode bits
+            ctrlReg |= (switchesReg & PIO_SW_MODE_MSK); //set mode bits
           }
-          if (switchesReg & SWITCH_DEBUG_MSK) {
+          if (switchesReg & PIO_SW_DEBUG_MSK) {
             systemState.operationalStatus = DEBUG;
             err = OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET,
                 NULL);

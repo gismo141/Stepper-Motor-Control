@@ -7,7 +7,7 @@
  * @date        2.10.2014
  * @brief       Source code for User-Output-Task which communications with
  *              the user and shows him system information
- * @todoH       Fix mode positions
+ * @todoH       Fix mode positions and lcd output
  ******************************************************************************
  * @par History:
  * @details     21.10. Kossmann

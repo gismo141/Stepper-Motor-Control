@@ -6,7 +6,6 @@
  * @version    v0.1
  * @date       22.10.2014
  * @brief      Main-Routine for Stepper-Motor-Control
- * @todo       uncomment tasks creation
  * @todo       finish motor isr registration
  *****************************************************************************
  * @par History:
@@ -90,9 +89,9 @@ int main(void) {
   alt_ic_irq_enable(PIO_SW_IRQ_INTERRUPT_CONTROLLER_ID, PIO_SW_IRQ);
   //Enable Interrupt in PIO component
   PIO_SW_SetIRMsk(
-      PIO_SW_LR_IR0_MSK | PIO_SW_MODE_IR1234_MSK | PIO_SW_DEBUG_IR9_MSK);
+      PIO_SW_LR_MSK | PIO_SW_MODE_MSK | PIO_SW_DEBUG_MSK);
   PIO_KEY_ClearEdgeCptBits(
-      PIO_SW_LR_IR0_MSK | PIO_SW_MODE_IR1234_MSK | PIO_SW_DEBUG_IR9_MSK);
+      PIO_SW_LR_MSK | PIO_SW_MODE_MSK | PIO_SW_DEBUG_MSK);
 
   //  //init motor ISR
   //  alt_ic_isr_register(..., ..., motorIRQhandler, (void *) &ISRcontext, NULL);
