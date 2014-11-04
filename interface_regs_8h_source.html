@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,31 +108,31 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="interface_regs_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  * @file       interfaceRegs.h</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  * @author     Michael Riedel</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  * @author     Marc Kossmann</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">  * @date       21.10.2014</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  * @brief      Register file for interface-component</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  * @details    definition of interface</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  * @verbatim</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    Register:</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">     ADDR  width  access   structure                      function</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">      0    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlReg</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">      1    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlSetReg</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">      2    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlClearReg</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">      3    3_Bit    RW     SPEED2 SPEED1 SPEED0      speedReg</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">      4    32_Bit   RW     step          stepReg</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">      5    10_Bit   RW     red LEDs                      red LEDs </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">      6    8_Bit    RW     green LEDs                     green LEDs</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">  @endverbatim</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">  * @par History:</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">  * @details    v0.1 Riedel &amp; Kossmann</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">  *             - first draft for milestone 1b</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">  *****************************************************************************</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file       interfaceRegs.h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author     Michael Riedel</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author     Marc Kossmann</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v0.1</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       21.10.2014</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @brief      Register file for interface-component</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * @details    definition of interface</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * @verbatim</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> Register:</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> ADDR  width  access   structure                      function</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> 0    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlReg</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> 1    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlSetReg</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> 2    8_Bit    RW     IR IE MODE3 MODE2 MODE1 MODE0 L/R R/S ctrlClearReg</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> 3    3_Bit    RW     SPEED2 SPEED1 SPEED0      speedReg</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> 4    32_Bit   RW     step          stepReg</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> 5    10_Bit   RW     red LEDs                      red LEDs </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> 6    8_Bit    RW     green LEDs                     green LEDs</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> @endverbatim</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * @par History:</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * @details    v0.1 Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *             - first draft for milestone 1b</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *****************************************************************************</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef __INTERFACE_REGS_H__</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define __INTERFACE_REGS_H__</span></div>
@@ -140,13 +140,13 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;io.h&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">  * @brief base address of the complete component</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * @brief base address of the complete component</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a212e57895cc0f6ce366c402c512287aa">   36</a></span>&#160;<span class="preprocessor">#define IOWR_INTERFACE_ADDR(base, addr, data)  IOWR(base, addr, data)</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">  * @name Key-register</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  */</span><span class="comment"></span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> * @name Key-register</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/** @brief address offset Key-register  */</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#ab71c69a6c0dc753d7560670ae6e3fa9c">   42</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_REG    0</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span></div>
@@ -160,8 +160,8 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#accd562257e3ca02c780e31d548867cb9">   51</a></span>&#160;<span class="preprocessor">#define IOWR_INTERFACE_KEY(base, data)   IOWR(base, INTERFACE_KEY_REG, data)</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">  * @name Key-register: interrupt request defines</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> * @name Key-register: interrupt request defines</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a38e9ad727c8a99cd0af65f9c09325e15">   56</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IR0_MSK          (0x1) </span><span class="comment">/*!&lt; Mask   IR0 */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a9bda399a73971a20cda6275cf904d7a0">   57</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IR0_OFST         (0)   </span><span class="comment">/*!&lt; Offset IR0 */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a00db043b738b330ab9a2f73b402cf880">   58</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IR2_MSK          (0x4) </span><span class="comment">/*!&lt; Mask   IR1 */</span><span class="preprocessor"></span></div>
@@ -170,8 +170,8 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a0805b19f2ec8903e53ff25cd025cb155">   61</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IR3_OFST         (3)   </span><span class="comment">/*!&lt; Offset IR2 */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">  * @name Key-register: interrupt enable defines</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> * @name Key-register: interrupt enable defines</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a93406873edb1e62cf5c34c5ce0d58db8">   66</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IE0_MSK          (0x8)  </span><span class="comment">/*!&lt; Mask   IE0 */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a3a19852fd865f1b7968b16f0690b3982">   67</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IE0_OFST         (3)    </span><span class="comment">/*!&lt; Offset IE0 */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a5d1e2e7dd46cd63cd346b839726fb8aa">   68</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IE2_MSK          (0x20) </span><span class="comment">/*!&lt; Mask   IE1 */</span><span class="preprocessor"></span></div>
@@ -180,8 +180,8 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a83d1ccd8d668d55a36f469b3ab490f0f">   71</a></span>&#160;<span class="preprocessor">#define INTERFACE_KEY_IE3_OFST         (6)    </span><span class="comment">/*!&lt; Offset IE2 */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">  * @name green LEDs</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">  */</span><span class="comment"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"> * @name green LEDs</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/** @brief Address offset register for green LEDs  */</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a9ea24735419bae9c073094d9141a6f9d">   77</a></span>&#160;<span class="preprocessor">#define INTERFACE_GREENLED_REG               1</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span></div>
@@ -198,8 +198,8 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a6b007e8ebf1f0c50b0b6ddab78b9d5c5">   89</a></span>&#160;<span class="preprocessor">#define INTERFACE_GREENLED_MSK          (0xFF)</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">  * @name red LEDs</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">  */</span><span class="comment"></span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> * @name red LEDs</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">/** @brief Address offset register for red LEDs   */</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a9aa658128ecb533f059e38c7ab57b0a7">   95</a></span>&#160;<span class="preprocessor">#define INTERFACE_REDLED_REG               2</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"></span></div>
@@ -214,8 +214,8 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 <div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#a9dc98d716903690d1ea79316e0c084f3">  105</a></span>&#160;<span class="preprocessor">#define INTERFACE_REDLED_MSK          (0xFF)</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">  * @name sliding switches</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">  */</span><span class="comment"></span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"> * @name sliding switches</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/** @brief Address offset register for sliding switches  */</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="interface_regs_8h.html#af6d41b6ec43a7233356c307549d2afc9">  111</a></span>&#160;<span class="preprocessor">#define INTERFACE_SWITCH_REG               3</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"></span></div>
@@ -234,8 +234,8 @@ $(document).ready(function(){initNavTree('interface_regs_8h_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_615f0c10f9e61bfdd0a45c029b265f87.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_4ec1739076bf7d1c02dae4c5209b1c3e.html">INC</a></li><li class="navelem"><a class="el" href="interface_regs_8h.html">interfaceRegs.h</a></li>
-    <li class="footer">Generated on Tue Oct 28 2014 20:48:58 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="interface_regs_8h.html">interfaceRegs.h</a></li>
+    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

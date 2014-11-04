@@ -5,5 +5,6 @@ var searchData=
   ['temporaryspeedreg',['temporarySpeedReg',['../register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0',1,'registerAccess.h']]],
   ['temporarystepsreg',['temporaryStepsReg',['../register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150',1,'registerAccess.h']]],
   ['term',['term',['../auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864',1,'auxilaryFunctions.c']]],
-  ['todo_20list',['Todo List',['../todo.html',1,'']]]
+  ['todo_20list',['Todo List',['../todo.html',1,'']]],
+  ['todo_20high_20priority_20list',['Todo high priority list',['../todo1.html',1,'']]]
 ];

@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('auxilary_functions_8c_source.html','')
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../INC/auxilaryFunctions.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">   22</a></span>&#160;FILE *<a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a>; <span class="comment">//!&lt; stream to write on terminal device</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">   23</a></span>&#160;<span class="comment"></span>FILE *<a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a>;  <span class="comment">//!&lt; stream to write lcd device</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">   23</a></span>&#160;<span class="comment"></span>FILE *<a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a>; <span class="comment">//!&lt; stream to write lcd device</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e">init_term</a>(<span class="keywordtype">void</span>) {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a> = fopen(JTAG_UART_NAME, <span class="stringliteral">&quot;w&quot;</span>);</div>
@@ -142,20 +142,20 @@ $(document).ready(function(){initNavTree('auxilary_functions_8c_source.html','')
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b">clear_lcd</a>(<span class="keywordtype">void</span>) {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  IOWR_ALTERA_AVALON_LCD_16207_COMMAND(LCD_BASE, 0x01);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  OSTimeDlyHMSM(0, 0, 0, 10);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  OSTimeDlyHMSM(0, 0, 0, 2);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#a4ef071e335e215eb794cb631f59fc9b5">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#a4ef071e335e215eb794cb631f59fc9b5">printf_term</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, ...) {</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  va_list args;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  va_start (args, format);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  vfprintf (<a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a>, format, args);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  va_end (args);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  va_start(args, format);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  vfprintf(<a class="code" href="auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864">term</a>, format, args);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  va_end(args);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#aed7b3831a70eb14aaf5f85c156a01a2a">   45</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#aed7b3831a70eb14aaf5f85c156a01a2a">printf_lcd</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format, ...) {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  va_list args;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  va_start (args, format);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  vfprintf (<a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a>, format, args);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  va_end (args);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  va_start(args, format);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  vfprintf(<a class="code" href="auxilary_functions_8c.html#af4f70d436a3ac04784a7c2a0dafd7033">lcd</a>, format, args);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  va_end(args);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="auxilary_functions_8c.html#ab6e2427be137543aaf966090e82ad3f4">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="auxilary_functions_8c.html#ab6e2427be137543aaf966090e82ad3f4">fflush_term</a>() {</div>
@@ -180,7 +180,7 @@ $(document).ready(function(){initNavTree('auxilary_functions_8c_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="auxilary_functions_8c.html">auxilaryFunctions.c</a></li>
-    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
+    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

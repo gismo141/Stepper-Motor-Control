@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['soc2014_5fdebug',['SOC2014_DEBUG',['../main_8h.html#ab9711ce0e4efe30b73bd296e03c6c50f',1,'main.h']]],
+  ['soc2014_5fdebug',['SOC2014_DEBUG',['../debug_and_error_output_8h.html#ab9711ce0e4efe30b73bd296e03c6c50f',1,'debugAndErrorOutput.h']]],
   ['speedreg',['speedReg',['../structoutput_task_mailbox.html#a66f3a9ed7ef513cd4473dd32b429acbe',1,'outputTaskMailbox']]],
   ['speedregget',['speedRegGet',['../register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615',1,'registerAccess.h']]],
   ['speedregset',['speedRegSet',['../register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544',1,'registerAccess.h']]],

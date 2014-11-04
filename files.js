@@ -13,6 +13,7 @@ var files =
     [ "interface_RTX_Base.vhd", "interface___r_t_x___base_8vhd.html", [
       [ "interface_RTX_Base", "classinterface___r_t_x___base.html", "classinterface___r_t_x___base" ]
     ] ],
+    [ "interfaceRegs.h", "interface_regs_8h.html", "interface_regs_8h" ],
     [ "keyDetect.vhd", "key_detect_8vhd.html", [
       [ "keyDetect", "classkey_detect.html", "classkey_detect" ]
     ] ],

@@ -142,7 +142,7 @@ $(document).ready(function(){initNavTree('user_output_task_8h_source.html','');}
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#ac391a56e672175677b7daad0f73e3aca">   33</a></span>&#160;<span class="comment"></span>#define HEX_ONE   (0b0000110) <span class="comment">//!&lt; number `1` on HEX-segments</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#ac215ceacc73308544591939e033e4743">   34</a></span>&#160;<span class="comment"></span>#define HEX_TWO   (0b1011011) <span class="comment">//!&lt; number `2` on HEX-segments</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#aaf8738506fa63d5c3e2f343b11b4c573">   35</a></span>&#160;<span class="comment"></span>#define HEX_THREE (0b1001111) <span class="comment">//!&lt; number `3` on HEX-segments</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#af25fe3ad4e66287e2c08476053064bea">   36</a></span>&#160;<span class="comment"></span>#define HEX_FOUR  (0b1100100) <span class="comment">//!&lt; number `4` on HEX-segments</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#af25fe3ad4e66287e2c08476053064bea">   36</a></span>&#160;<span class="comment"></span>#define HEX_FOUR  (0b1100110) <span class="comment">//!&lt; number `4` on HEX-segments</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#a0ab2ea35eaf625c5343d028112b82159">   37</a></span>&#160;<span class="comment"></span>#define HEX_FIVE  (0b1101101) <span class="comment">//!&lt; number `5` on HEX-segments</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#a849c29f5863dcc1ba21ad11482bd12bb">   38</a></span>&#160;<span class="comment"></span>#define HEX_SIX   (0b1111101) <span class="comment">//!&lt; number `6` on HEX-segments</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#aab9172894c98c26280e7e7963385f078">   39</a></span>&#160;<span class="comment"></span>#define HEX_SEVEN (0b0000111) <span class="comment">//!&lt; number `7` on HEX-segments</span></div>
@@ -151,36 +151,35 @@ $(document).ready(function(){initNavTree('user_output_task_8h_source.html','');}
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#aa230361d4595f6e57612c39de5ae645f">   42</a></span>&#160;<span class="comment"></span>#define HEX_LEFT  (0b0111000) <span class="comment">//!&lt; `L` for left on HEX-segments</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#a6bf02d65674c4c9ed56fb66066565651">   43</a></span>&#160;<span class="comment"></span>#define HEX_RIGHT (0b1010000) <span class="comment">//!&lt; `r` for right on HEX-segments</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="user_output_task_8h.html#a41505d117196ca6485cf75157d066b72">   44</a></span>&#160;<span class="comment"></span>#define HEX_LINE  (0b1000000) <span class="comment">//!&lt; middle line on HEX-segments</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> * @brief   UserOutputTask</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * @details Shows the user information about the system.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> *          On the lc-display are general information shown.</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> *          The 7-segment displays show additional information to to lcd.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> *          The terminal is a litte bit more specific and shows complete motor</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> *          behavior.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * @param   pdata : Pointer to parameter structure (not used)</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> * @retval  None</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a>(<span class="keywordtype">void</span> *pdata);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> * @brief   Prints Motor information on the terminal</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> * @details Shows all available information about the motor.</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> * @param   [in] outputTaskMboxContentPtr : Pointer to all data which is available</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> *          for UserOuputTask()</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * @param   [in] termMsgCounter : Pointer to actual message counter</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> * @retval  None</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> <a class="code" href="user_output_task_8h.html#aaa95af5d3f16e2a0c9a0e1f887210fb0">printTerminalInfo</a>(<a class="code" href="structoutput_task_mailbox.html">outputTaskMailbox_t</a> *outputTaskMboxContentPtr,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                       <span class="keywordtype">void</span> *termMsgCounter);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif // __USER_OUTPUT_TASK_H__</span></div>
-<div class="ttc" id="user_output_task_8h_html_aaa95af5d3f16e2a0c9a0e1f887210fb0"><div class="ttname"><a href="user_output_task_8h.html#aaa95af5d3f16e2a0c9a0e1f887210fb0">printTerminalInfo</a></div><div class="ttdeci">void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr, void *termMsgCounter)</div><div class="ttdoc">Prints Motor information on the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00143">userOutputTask.c:143</a></div></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span><span class="comment">/**</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> * @brief   UserOutputTask</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> * @details Shows the user information about the system.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> *          On the lc-display are general information shown.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> *          The 7-segment displays show additional information to to lcd.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> *          The terminal is a litte bit more specific and shows complete motor</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> *          behavior.</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> * @param   pdata : Pointer to parameter structure (not used)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * @retval  None</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a>(<span class="keywordtype">void</span> *pdata);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> * @brief   Prints Motor information on the terminal</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> * @details Shows all available information about the motor.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> * @param   [in] outputTaskMboxContentPtr : Pointer to all data which is available</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> *          for UserOuputTask()</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> * @param   [in] termMsgCounter : Pointer to actual message counter</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * @retval  None</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> <a class="code" href="user_output_task_8h.html#aeb64493a6762cba5069aa8577b589574">printTerminalInfo</a>(<a class="code" href="structoutput_task_mailbox.html">outputTaskMailbox_t</a> *outputTaskMboxContentPtr,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    uint32_t *termMsgCounterPtr);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // __USER_OUTPUT_TASK_H__</span></div>
 <div class="ttc" id="hardware_access_8h_html"><div class="ttname"><a href="hardware_access_8h.html">hardwareAccess.h</a></div><div class="ttdoc">Functions for accessing hardware connected through pio´s and registers. </div></div>
 <div class="ttc" id="user_input_task_8h_html"><div class="ttname"><a href="user_input_task_8h.html">userInputTask.h</a></div><div class="ttdoc">Header file for userInputTask.c. </div></div>
-<div class="ttc" id="user_output_task_8h_html_a006aeb085c5dea0247e5c842bf1e92b5"><div class="ttname"><a href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a></div><div class="ttdeci">void UserOutputTask(void *pdata)</div><div class="ttdoc">UserOutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00029">userOutputTask.c:29</a></div></div>
-<div class="ttc" id="structoutput_task_mailbox_html"><div class="ttname"><a href="structoutput_task_mailbox.html">outputTaskMailbox</a></div><div class="ttdoc">Datatype of Mailbox for transmitting information from InputTask to OutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_input_task_8h_source.html#l00078">userInputTask.h:78</a></div></div>
+<div class="ttc" id="user_output_task_8h_html_a006aeb085c5dea0247e5c842bf1e92b5"><div class="ttname"><a href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a></div><div class="ttdeci">void UserOutputTask(void *pdata)</div><div class="ttdoc">UserOutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00030">userOutputTask.c:30</a></div></div>
+<div class="ttc" id="user_output_task_8h_html_aeb64493a6762cba5069aa8577b589574"><div class="ttname"><a href="user_output_task_8h.html#aeb64493a6762cba5069aa8577b589574">printTerminalInfo</a></div><div class="ttdeci">void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr, uint32_t *termMsgCounterPtr)</div><div class="ttdoc">Prints Motor information on the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00145">userOutputTask.c:145</a></div></div>
+<div class="ttc" id="structoutput_task_mailbox_html"><div class="ttname"><a href="structoutput_task_mailbox.html">outputTaskMailbox</a></div><div class="ttdoc">Datatype of Mailbox for transmitting information from InputTask to OutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_input_task_8h_source.html#l00077">userInputTask.h:77</a></div></div>
 <div class="ttc" id="debug_and_error_output_8h_html"><div class="ttname"><a href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a></div><div class="ttdoc">Defines for Error and Debug-Output Management. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -188,7 +187,7 @@ $(document).ready(function(){initNavTree('user_output_task_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="user_output_task_8h.html">userOutputTask.h</a></li>
-    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
+    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

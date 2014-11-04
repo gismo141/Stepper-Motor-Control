@@ -161,6 +161,7 @@ OS_EVENT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 Marc Kossmann </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>22.10.2014 </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Clean up registerAccess mask define chaos</dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>22.10. Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
@@ -176,7 +177,10 @@ Marc Kossmann </dd></dl>
 <li>moved <a class="el" href="user_input_task_8c.html#a2fdf7e32c853914654f176e45c2a03c7" title="Tests hardware. ">hardwareTest()</a> and initial printouts into userInputTask because the need OS running</li>
 </ul>
 <p>03.11. Kossmann</p><ul>
-<li>used new register-access via inline functions of <a class="el" href="register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper-Motor-Control ...">registerAccess.h</a> </li>
+<li>used new register-access via inline functions of <a class="el" href="register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper-Motor-Control ...">registerAccess.h</a></li>
+</ul>
+<p>04.11. Riedel &amp; Kossmann</p><ul>
+<li>reduced messageQueue size to 1 </li>
 </ul>
 
 <p>Definition in file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
@@ -203,7 +207,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00192">192</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
+<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00203">203</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -244,7 +248,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00036">36</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
+<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00039">39</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -271,7 +275,7 @@ Here is the call graph for this function:</div>
 <p>The flags group used in the heartbeat-task and user-input-task. </p>
 <p>This group contains the debug-event that can be triggered via <code>sw_9</code>. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00036">36</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00035">35</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -298,7 +302,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="user_input_task_8c.html">userInputTask.c</a></li>
-    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
+    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

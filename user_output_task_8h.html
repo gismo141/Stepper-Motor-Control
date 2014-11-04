@@ -156,7 +156,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:aaf8738506fa63d5c3e2f343b11b4c573"><td class="mdescLeft">&#160;</td><td class="mdescRight">number <code>3</code> on HEX-segments <br /></td></tr>
 <tr class="separator:aaf8738506fa63d5c3e2f343b11b4c573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af25fe3ad4e66287e2c08476053064bea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af25fe3ad4e66287e2c08476053064bea"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_output_task_8h.html#af25fe3ad4e66287e2c08476053064bea">HEX_FOUR</a>&#160;&#160;&#160;(0b1100100)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_output_task_8h.html#af25fe3ad4e66287e2c08476053064bea">HEX_FOUR</a>&#160;&#160;&#160;(0b1100110)</td></tr>
 <tr class="memdesc:af25fe3ad4e66287e2c08476053064bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">number <code>4</code> on HEX-segments <br /></td></tr>
 <tr class="separator:af25fe3ad4e66287e2c08476053064bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ab2ea35eaf625c5343d028112b82159"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ab2ea35eaf625c5343d028112b82159"></a>
@@ -197,9 +197,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a006aeb085c5dea0247e5c842bf1e92b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a> (void *pdata)</td></tr>
 <tr class="memdesc:a006aeb085c5dea0247e5c842bf1e92b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">UserOutputTask.  <a href="#a006aeb085c5dea0247e5c842bf1e92b5">More...</a><br /></td></tr>
 <tr class="separator:a006aeb085c5dea0247e5c842bf1e92b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa95af5d3f16e2a0c9a0e1f887210fb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_output_task_8h.html#aaa95af5d3f16e2a0c9a0e1f887210fb0">printTerminalInfo</a> (<a class="el" href="user_input_task_8h.html#ae6b7c11f607df6a45c8a7b7326379c15">outputTaskMailbox_t</a> *outputTaskMboxContentPtr, void *termMsgCounter)</td></tr>
-<tr class="memdesc:aaa95af5d3f16e2a0c9a0e1f887210fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints Motor information on the terminal.  <a href="#aaa95af5d3f16e2a0c9a0e1f887210fb0">More...</a><br /></td></tr>
-<tr class="separator:aaa95af5d3f16e2a0c9a0e1f887210fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb64493a6762cba5069aa8577b589574"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_output_task_8h.html#aeb64493a6762cba5069aa8577b589574">printTerminalInfo</a> (<a class="el" href="user_input_task_8h.html#ae6b7c11f607df6a45c8a7b7326379c15">outputTaskMailbox_t</a> *outputTaskMboxContentPtr, uint32_t *termMsgCounterPtr)</td></tr>
+<tr class="memdesc:aeb64493a6762cba5069aa8577b589574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints Motor information on the terminal.  <a href="#aeb64493a6762cba5069aa8577b589574">More...</a><br /></td></tr>
+<tr class="separator:aeb64493a6762cba5069aa8577b589574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for <a class="el" href="user_output_task_8c.html" title="Source code for User-Output-Task which communications with the user and shows him system information...">userOutputTask.c</a>. </p>
@@ -219,7 +219,7 @@ Marc Kossmann </dd></dl>
 
 <p>Definition in file <a class="el" href="user_output_task_8h_source.html">userOutputTask.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="aaa95af5d3f16e2a0c9a0e1f887210fb0"></a>
+<a class="anchor" id="aeb64493a6762cba5069aa8577b589574"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -232,8 +232,8 @@ Marc Kossmann </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>termMsgCounter</em>&#160;</td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>termMsgCounterPtr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -258,13 +258,13 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="user_output_task_8c_source.html#l00143">143</a> of file <a class="el" href="user_output_task_8c_source.html">userOutputTask.c</a>.</p>
+<p>Definition at line <a class="el" href="user_output_task_8c_source.html#l00145">145</a> of file <a class="el" href="user_output_task_8c_source.html">userOutputTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="user_output_task_8h_aaa95af5d3f16e2a0c9a0e1f887210fb0_cgraph.png" border="0" usemap="#user_output_task_8h_aaa95af5d3f16e2a0c9a0e1f887210fb0_cgraph" alt=""/></div>
-<map name="user_output_task_8h_aaa95af5d3f16e2a0c9a0e1f887210fb0_cgraph" id="user_output_task_8h_aaa95af5d3f16e2a0c9a0e1f887210fb0_cgraph">
+<div class="center"><img src="user_output_task_8h_aeb64493a6762cba5069aa8577b589574_cgraph.png" border="0" usemap="#user_output_task_8h_aeb64493a6762cba5069aa8577b589574_cgraph" alt=""/></div>
+<map name="user_output_task_8h_aeb64493a6762cba5069aa8577b589574_cgraph" id="user_output_task_8h_aeb64493a6762cba5069aa8577b589574_cgraph">
 <area shape="rect" id="node2" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="173,5,258,31"/></map>
 </div>
 </p>
@@ -311,14 +311,14 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="user_output_task_8c_source.html#l00029">29</a> of file <a class="el" href="user_output_task_8c_source.html">userOutputTask.c</a>.</p>
+<p>Definition at line <a class="el" href="user_output_task_8c_source.html#l00030">30</a> of file <a class="el" href="user_output_task_8c_source.html">userOutputTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="user_output_task_8h_a006aeb085c5dea0247e5c842bf1e92b5_cgraph.png" border="0" usemap="#user_output_task_8h_a006aeb085c5dea0247e5c842bf1e92b5_cgraph" alt=""/></div>
 <map name="user_output_task_8h_a006aeb085c5dea0247e5c842bf1e92b5_cgraph" id="user_output_task_8h_a006aeb085c5dea0247e5c842bf1e92b5_cgraph">
-<area shape="rect" id="node2" href="user_output_task_8c.html#aaa95af5d3f16e2a0c9a0e1f887210fb0" title="Prints Motor information on the terminal. " alt="" coords="170,5,290,31"/><area shape="rect" id="node3" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="338,31,423,56"/><area shape="rect" id="node4" href="auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="192,107,268,132"/><area shape="rect" id="node5" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="173,156,287,181"/><area shape="rect" id="node6" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="173,205,287,231"/><area shape="rect" id="node7" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="173,255,287,280"/><area shape="rect" id="node8" href="auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4" title="Writes buffed data to terminal. " alt="" coords="187,304,274,329"/><area shape="rect" id="node9" href="auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="191,353,269,379"/></map>
+<area shape="rect" id="node2" href="user_output_task_8c.html#aeb64493a6762cba5069aa8577b589574" title="Prints Motor information on the terminal. " alt="" coords="170,5,290,31"/><area shape="rect" id="node3" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="338,31,423,56"/><area shape="rect" id="node4" href="auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="193,107,268,132"/><area shape="rect" id="node5" href="auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="192,156,268,181"/><area shape="rect" id="node6" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="173,205,287,231"/><area shape="rect" id="node7" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="173,255,287,280"/><area shape="rect" id="node8" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="173,304,287,329"/><area shape="rect" id="node9" href="auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4" title="Writes buffed data to terminal. " alt="" coords="187,353,274,379"/><area shape="rect" id="node10" href="auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="191,403,269,428"/></map>
 </div>
 </p>
 
@@ -330,7 +330,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="user_output_task_8h.html">userOutputTask.h</a></li>
-    <li class="footer">Generated on Mon Nov 3 2014 23:27:29 for Stepper-Motor-Control by
+    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

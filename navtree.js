@@ -2,6 +2,7 @@ var NAVTREE =
 [
   [ "Stepper-Motor-Control", "index.html", [
     [ "Todo List", "todo.html", null ],
+    [ "Todo high priority list", "todo1.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
@@ -28,7 +29,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"user_input_task_8h.html#adc6e5733fc3c22f0a7b2914188c49c90a0593585da9181e972974c1274d8f2b4f"
+"switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
