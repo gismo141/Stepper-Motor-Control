@@ -30,9 +30,10 @@
 #define PIO_KEY_RS_IR0_MSK      (0x1)   //!< Run/Stop mask for PIO-Key
 #define PIO_KEY_MINUS_IR2_MSK   (0x4)   //!< Increase steps mask for PIO-Key
 #define PIO_KEY_PLUS_IR3_MSK    (0x8)   //!< Decreses steps mask for PIO-Key
-#define PIO_SW_LR_IR0_MSK       (0x1)   //!< Left/Right mask for PIO-Switches
-#define PIO_SW_MODE_IR1234_MSK  (0x1E)  //!< Mode mask for PIO-Switches
-#define PIO_SW_DEBUG_IR9_MSK    (0x200) //!< Debug mask for PIO-Switches
+#define PIO_SW_LR_MSK           (0x1)   //!< Left/Right mask for PIO-Switches
+#define PIO_SW_MODE_MSK         (0x1E)  //!< Mode mask for PIO-Switches
+#define PIO_SW_DEBUG_MSK        (0x200) //!< Debug mask for PIO-Switches
+
 /**
  * @name keys
  */
