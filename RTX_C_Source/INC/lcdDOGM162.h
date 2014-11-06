@@ -59,14 +59,14 @@ void DOGM162lcd_init(uint32_t lcdBase);
 
 /**
  * @brief   function erases the screen
- * @param   [in, out] lcd : LCD handle
+ * @param   [in, out] lcdBase : LCD handle
  * @retval  none
  */
 void DOGM162lcd_clear(uint32_t lcdBase);
 
 /**
  * @brief   Function to set a new write position
- * @param   [in, out] lcd : LCD handle
+ * @param   [in, out] lcdBase : LCD handle
  * @param           row : line (1 or 2)
  * @param           col : column (1 to 16)
  * @retval  none
@@ -77,7 +77,7 @@ void DOGM162lcd_setPos(uint32_t lcdBase, int32_t row, int32_t col);
  * @brief   function changes cursor mode
  * @details This function requires an extra wait period
  * @param   lcdBase : Base address of LCD (from system.h)
- * @param   cursormode: new Cursor mode, can be
+ * @param   cursorMode: new Cursor mode, can be
  *                    @arg LCD_CURSOR_OFF
  *                    @arg LCD_CURSOR_ON
  *                    @arg LCD_BLINK
