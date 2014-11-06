@@ -48,7 +48,7 @@
 #define DDRAM_INC_SHIFT0                  (0x06)  //!< Entry Mode Set: Increment DDRAM-Addr, ShiftEntireDisplay off
 
 /**
- * @details Initialization function of LCD DOGM162B-A
+ * @brief 	Initialization function of LCD DOGM162B-A
  * @details This initialization function extends the standard
  *          initialization by DOGM162 specific initialization. This
  *          function has to be called before the display can be used.
