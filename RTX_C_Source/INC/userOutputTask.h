@@ -59,7 +59,7 @@ void UserOutputTask(void *pdata);
  * @details Shows all available information about the motor.
  * @param   [in] outputTaskMboxContentPtr : Pointer to all data which is available
  *          for UserOuputTask()
- * @param   [in] termMsgCounter : Pointer to actual message counter
+ * @param   [in] termMsgCounterPtr : Pointer to actual message counter
  * @retval  None
  */
 void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,

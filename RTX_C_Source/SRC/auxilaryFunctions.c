@@ -1,26 +1,28 @@
 /**
  ***************************************************************************
- * @file       auxilaryFunctions.c
- * @author     Michael Riedel
- * @author     Marc Kossmann
- * @version    v0.1
- * @date       28.10.2014
- * @brief      Collection of auxilary functions, mainly output functions
- * @todo       check if timeout are needed and reduce timout value to minimum
+ * @file        auxilaryFunctions.c
+ * @author      Michael Riedel
+ * @author      Marc Kossmann
+ * @version     v0.1
+ * @date        28.10.2014
+ * @brief       Collection of auxilary functions, mainly output functions
+ * @todo        check if timeout are needed and reduce timout value to minimum
  *****************************************************************************
  * @par History:
- * @details    28.10. Riedel & Kossmann
- *             - added functions for using printf like lcd and term output
- * @details    31.10. Riedel & Kossmann
- *             - added timeout for clearing display but not sure if needed
- *             - clear display function added
+ * @details     28.10. Riedel & Kossmann
+ *              - added functions for using printf like lcd and term output
+ * @details     31.10. Riedel & Kossmann
+ *              - added timeout for clearing display but not sure if needed
+ *              - clear display function added
+ * @details     06.11. Riedel
+ *              - implemented some functions for better display-usage
  *****************************************************************************
  */
 
 #include "../INC/auxilaryFunctions.h"
 
 FILE *term; //!< stream to write on terminal device
-FILE *lcd; //!< stream to write lcd device
+FILE *lcd;  //!< stream to write lcd device
 
 void init_term(void) {
   term = fopen(JTAG_UART_NAME, "w");
@@ -32,8 +34,15 @@ void init_lcd(void) {
 }
 
 void clear_lcd(void) {
-  IOWR_ALTERA_AVALON_LCD_16207_COMMAND(LCD_BASE, 0x01);
-  OSTimeDlyHMSM(0, 0, 0, 2);
+  DOGM162lcd_clear(lcd);
+}
+
+void setPos_lcd(int32_t row, int32_t col) {
+  DOGM162lcd_setPos(lcd, row, col);
+}
+
+void setCursorMode_lcd(int32_t cursorMode) {
+  DOGM162lcd_setCursorMode(lcd, cursorMode);
 }
 
 void printf_term(const char *format, ...) {

@@ -110,7 +110,7 @@
 /** @brief Address offset register for sliding switches  */
 #define INTERFACE_SWITCH_REG               3
 
-/** @briefMacro to calculate the address of register for sliding switches  */
+/** @brief Macro to calculate the address of register for sliding switches  */
 #define IOADDR_INTERFACE_SWITCH(base)    \
                            __IO_CALC_ADDRESS_NATIVE(base, INTERFACE_SWITCH_REG)
 

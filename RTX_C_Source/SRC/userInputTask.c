@@ -1,30 +1,32 @@
 /**
  *****************************************************************************
- * @file    userInputTask.c
- * @author  Michael Riedel
- * @author  Marc Kossmann
- * @version v0.1
- * @date    22.10.2014
- * @brief   Source code for User-Input-Task which is highest instance, reacts
- *          to user input and controls register and hardware access
+ * @file        userInputTask.c
+ * @author      Michael Riedel
+ * @author      Marc Kossmann
+ * @version     v0.1
+ * @date        22.10.2014
+ * @brief       Source code for User-Input-Task which is highest instance, reacts
+ *              to user input and controls register and hardware access
  *****************************************************************************
  * @par History:
- * @details 22.10. Kossmann
- *          - first draft for milestone 1b
- * @details 30.10. Kossmann
- *          - added error handling for flags and mailboxes
- *          - changed IPC with switches ISR to message queue
- * @details 30.10. Riedel
- *          - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
- * @details 31.10. Riedel & Kossmann
- *          - moved hardwareTest() and initial printouts into userInputTask
- *            because the need OS running
- * @details 03.11. Kossmann
- *          - used new register-access via inline functions of registerAccess.h
- * @details 04.11. Riedel & Kossmann
- *          - reduced messageQueue size to 1
- * @details 04.11. Kossmann
- *          - used the right masks for evaluating switches
+ * @details     22.10. Kossmann
+ *              - first draft for milestone 1b
+ * @details     30.10. Kossmann
+ *              - added error handling for flags and mailboxes
+ *              - changed IPC with switches ISR to message queue
+ * @details     30.10. Riedel
+ *              - changed DEBUG_ON_FLAG to DEBUG_ON_EVENT
+ * @details     31.10. Riedel & Kossmann
+ *              - moved hardwareTest() and initial printouts into userInputTask
+ *                because the need OS running
+ * @details     03.11. Kossmann
+ *              - used new register-access via inline functions of registerAccess.h
+ * @details     04.11. Riedel & Kossmann
+ *              - reduced messageQueue size to 1
+ * @details     04.11. Kossmann
+ *              - used the right masks for evaluating switches
+ * @details     06.11. Riedel
+ *              - added usage of new LCD-functions
  *****************************************************************************
  */
 
@@ -69,8 +71,10 @@ void UserInputTask(void *pdata) {
 
   //init LC-Display and show initial screen
   init_lcd();
-  printf_lcd("    SoC 2014    \n");
-  printf_lcd("Stepper-Control ");
+  setPos_lcd(4, 1);
+  printf_lcd("SoC 2014");
+  setPos_lcd(1, 2);
+  printf_lcd("Stepper-Control");
   fflush_lcd();
 
   //  hardwareTest();
@@ -211,11 +215,13 @@ void hardwareTest(void) {
 
   printf_term("Starting hardwareTest!\n");
   clear_lcd();
-  printf_lcd("Start hwTest!\n");
+  setPos_lcd(1, 1);
+  printf_lcd("Start hwTest!");
 
   printf_term("Begin with LED9 flashing on-off\n");
-  clear_lcd();
-  printf_lcd("LED9 on-off\n");
+  setPos_lcd(1, 2);
+  printf_lcd("LED9 on-off");
+  fflush_lcd();
   OSTimeDlyHMSM(0, 0, 1, 0);
   PIO_LED9_Set(0x1);
   OSTimeDlyHMSM(0, 0, 1, 0);
@@ -227,25 +233,30 @@ void hardwareTest(void) {
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 0 all on\n");
-  clear_lcd();
-  printf_lcd("HEX0 all on\n");
+  setPos_lcd(1, 2);
+  printf_lcd("HEX0 all on");
+  fflush_lcd();
   OSTimeDlyHMSM(0, 0, 1, 0);
   PIO_HEX0_Set(0x7F);
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 1 all on\n");
+  setPos_lcd(1, 2);
   printf_lcd("HEX1 all on");
+  fflush_lcd();
   fflush_lcd();
   PIO_HEX1_Set(0x7F);
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 2 all on\n");
-  clear_lcd();
-  printf_lcd("HEX2 all on\n");
+  setPos_lcd(1, 2);
+  printf_lcd("HEX2 all on");
+  fflush_lcd();
   PIO_HEX2_Set(0x7F);
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 3 all on\n");
+  setPos_lcd(1, 2);
   printf_lcd("HEX1 all on");
   fflush_lcd();
   PIO_HEX3_Set(0x7F);
@@ -257,8 +268,9 @@ void hardwareTest(void) {
   PIO_HEX3_Set(0x0);
 
   printf_term("HEX-Display 0 shift on-off\n");
-  clear_lcd();
+  setPos_lcd(1, 2);
   printf_lcd("HEX0 shift test\n");
+  fflush_lcd();
   for (i = 0; i < 7; i++) {
     PIO_HEX0_Set(pow(2, i));
     OSTimeDlyHMSM(0, 0, 0, 500);
