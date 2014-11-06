@@ -23,8 +23,11 @@
  *            - Initial version
  *  @details  V1.0 20.12.2011 Johann Mayr
  *            - Initial version
- *  @details  06.11.2014 Michael Riedel
+ *  @details  06.11.2014 Riedel
  *            - Created defines for init-codes and moved to header
+ *  @details  06.11.2014 Kossmann
+ *            - moved clear, set-position functionality into
+ *              auxilaryFunctions.c because stream not available here
  **************************************************************************
  */
 
@@ -57,19 +60,10 @@ void DOGM162lcd_init(uint32_t lcdBase) {
   }
 }
 
-void DOGM162lcd_clear(uint32_t lcdBase) {
-  fprintf(lcdBase, "\x1B[2J");
-  fflush(lcdBase);
-}
-
-void DOGM162lcd_setPos(uint32_t lcdBase, int32_t row, int32_t col) {
-  fprintf(lcdBase, "\x1B[%d;%dH", (int) row, (int) col);
-  fflush(lcdBase);
-}
-
 void DOGM162lcd_setCursorMode(uint32_t lcdBase, int32_t cursorMode) {
   int32_t i;
   IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, (DISPLAY1_CURSOR1_POS0 | (cursorMode & 0x03)));
-  for (int i = 0; i < 10000; ++i);
+  for (i = 0; i < 10000; ++i){
+    ;
+  }
 }
-

@@ -34,15 +34,17 @@ void init_lcd(void) {
 }
 
 void clear_lcd(void) {
-  DOGM162lcd_clear(lcd);
+  fprintf(lcd, "\x1B[2J");
+  fflush(lcd);
 }
 
 void setPos_lcd(int32_t row, int32_t col) {
-  DOGM162lcd_setPos(lcd, row, col);
+  fprintf(lcd, "\x1B[%d;%dH", (int) row, (int) col);
+  fflush(lcd);
 }
 
 void setCursorMode_lcd(int32_t cursorMode) {
-  DOGM162lcd_setCursorMode(lcd, cursorMode);
+  DOGM162lcd_setCursorMode(LCD_BASE, cursorMode);
 }
 
 void printf_term(const char *format, ...) {
