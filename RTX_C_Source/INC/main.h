@@ -56,4 +56,11 @@ OS_STK HeartbeatTask_Stk[TASK_STACKSIZE];
 #define USER_OUTPUT_TASK_PRIORITY       5  /*!< Priority Task UserOutputTask */
 #define HEARTBEAT_TASK_PRIORITY   6  /*!< Priority Task HeartbeatDebugTask */
 
+/**
+ * @brief  		Main-Routine
+ * @details
+ * @retval 		Errorcode
+ */
+int main(void);
+
 #endif // __MAIN_H__

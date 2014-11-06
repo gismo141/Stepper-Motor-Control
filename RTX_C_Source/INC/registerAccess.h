@@ -39,11 +39,12 @@
 #define MODE_CH_OF_ST_1_2     (0x6)   //!< Bits must be `0b0110`
 #define MODE_CH_OF_ST_1       (0xA)   //!< Bits must be `0b1010`
 #define MODE_CH_OF_ST_2       (0xE)   //!< Bits must be `0b1110`
+
 extern OS_EVENT *registerMutex;
 
-uint8_t temporaryCtrlReg; //!< Temporary control-register (only for milestone 1b)
-uint32_t temporaryStepsReg; //!< Temporary steps-register (only for milestone 1b)
-uint8_t temporarySpeedReg; //!< Temporary speed-register (only for milestone 1b)
+uint8_t   temporaryCtrlReg;           //!< Temporary control-register (only for milestone 1b)
+uint32_t  temporaryStepsReg;          //!< Temporary steps-register (only for milestone 1b)
+uint8_t   temporarySpeedReg;          //!< Temporary speed-register (only for milestone 1b)
 
 /**
  * @brief   Sets the control-register with the given bits

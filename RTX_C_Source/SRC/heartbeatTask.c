@@ -1,22 +1,22 @@
 /**
  *****************************************************************************
- * @file       heartbeatTask.c
- * @author     Michael Riedel
- * @author     Marc Kossmann
- * @version    v0.1
- * @date       30.10.2014
- * @brief      Source code of heartbeatTask which shows that scheduling is
- *             working. Also used for debuging.
+ * @file        heartbeatTask.c
+ * @author      Michael Riedel
+ * @author      Marc Kossmann
+ * @version     v0.1
+ * @date        30.10.2014
+ * @brief       Source code of heartbeatTask which shows that scheduling is
+ *              working. Also used for debuging.
  *****************************************************************************
  * @par History:
- * @details    30.10. Riedel
- *             - first draft for milestone 1b
- * @details    31.10. Riedel
- *             - added hardware-access to heartbeat
- * @details    31.10. Riedel & Kossmann
- *             - finilized heartbeat functionality
- * @details    02.11. Riedel
- *             - finalized Debug functionality
+ * @details     30.10. Riedel
+ *              - first draft for milestone 1b
+ * @details     31.10. Riedel
+ *              - added hardware-access to heartbeat
+ * @details     31.10. Riedel & Kossmann
+ *              - finilized heartbeat functionality
+ * @details     02.11. Riedel
+ *              - finalized Debug functionality
  *****************************************************************************
  */
 
@@ -47,22 +47,22 @@ void nextHeartbeatStep(heartbeatState_t *heartbeatStatePtr) {
   switch (*heartbeatStatePtr) {
   case FIRST:
     PIO_HEX3_Set(LINE);
-    PIO_LED9_Set(0x1);
+    PIO_LED9_Set(LED_ON);
     *heartbeatStatePtr = SECOND;
     break;
   case SECOND:
     PIO_HEX3_Set(LOWER_O);
-    PIO_LED9_Set(0x0);
+    PIO_LED9_Set(LED_OFF);
     *heartbeatStatePtr = THIRD;
     break;
   case THIRD:
     PIO_HEX3_Set(LINE);
-    PIO_LED9_Set(0x1);
+    PIO_LED9_Set(LED_ON);
     *heartbeatStatePtr = FOURTH;
     break;
   case FOURTH:
     PIO_HEX3_Set(UPPER_O);
-    PIO_LED9_Set(0x0);
+    PIO_LED9_Set(LED_OFF);
     *heartbeatStatePtr = FIRST;
     break;
   default:

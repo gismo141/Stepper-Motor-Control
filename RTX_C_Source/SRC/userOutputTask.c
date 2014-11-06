@@ -23,12 +23,6 @@
 
 extern OS_EVENT *outputTaskMailbox;
 
-/**
- * @brief  UserOutputTask
- * @details
- * @param  pdata : Pointer to parameter structure (not used)
- * @retval None
- */
 void UserOutputTask(void *pdata) {
   uint8_t err;
   uint8_t modeBits;
@@ -36,22 +30,23 @@ void UserOutputTask(void *pdata) {
   uint32_t termMsgCounter = 2;
   bool oldMotorRunning = false;
 
-  //Wait 2 seconds before starting
+  // Wait 2 seconds before starting
   OSTimeDlyHMSM(0, 0, 2, 0);
-
 
   while (1) {
     outputTaskMboxContentPtr = OSMboxPend(outputTaskMailbox, 0, &err);
     if (OS_NO_ERR == err && NULL != outputTaskMboxContentPtr) {
 
-      //BEGIN of terminal output
-      //once when motor is started
+      /***********************************************************************/
+      /* terminal output                                                     */
+      /***********************************************************************/
+      // once when motor is started
       if ((outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) &&
           !oldMotorRunning ) {
         oldMotorRunning = true;
         printTerminalInfo(outputTaskMboxContentPtr, &termMsgCounter);
       }
-      //once when motor is stopped
+      // once when motor is stopped
       if (!(outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) &&
           oldMotorRunning ) {
         oldMotorRunning = false;
@@ -61,9 +56,11 @@ void UserOutputTask(void *pdata) {
         printf_term("Steps: %i\n", outputTaskMboxContentPtr->stepsReg);
         OSTimeDlyHMSM(0, 0, 0, 100);
       }
-      //END of terminal output
+      /***********************************************************************/
 
-      //BEGIN of lcd output
+      /***********************************************************************/
+      /* lcd output                                                          */
+      /***********************************************************************/
       clear_lcd();
       modeBits = (outputTaskMboxContentPtr->ctrlReg
                          & CTRL_REG_MODE_MSK) >> 2;
@@ -84,16 +81,18 @@ void UserOutputTask(void *pdata) {
         printf_lcd("Debug");
       }
       fflush_lcd();
-      //END of lcd output
+      /***********************************************************************/
 
-      //BEGIN of hex-display output
-      //display direction on hex0
+      /***********************************************************************/
+      /* hex-display output                                                  */
+      /***********************************************************************/
+      // display direction on hex0
       if(outputTaskMboxContentPtr->ctrlReg & CTRL_REG_LR_MSK){
         PIO_HEX0_Set(HEX_RIGHT);
       }else{
         PIO_HEX0_Set(HEX_LEFT);
       }
-      //display mode on hex1
+      // display mode on hex1
       switch(outputTaskMboxContentPtr->systemState.activeUseCase){
       case QUARTER_ROTATION:
         PIO_HEX1_Set(HEX_ZERO);
@@ -143,7 +142,8 @@ void UserOutputTask(void *pdata) {
           PIO_HEX2_Set(HEX_ZERO);
           break;
       }
-      //END of hex-display output
+      /***********************************************************************/
+
     } else {
       error("OUTPUT_TASK_MBOX_ERR: %i\n", err);
     }

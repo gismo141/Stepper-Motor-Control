@@ -38,6 +38,9 @@
 #define LOWER_O (0b1011100) //!< represents the letter **o** in the **lower** HEX-segments
 #define UPPER_O (0b1100011) //!< represents the letter **o** in the **upper** HEX-segments
 #define LINE    (0b1000000) //!< represents a centered **bar** in the HEX-segments
+#define LED_ON	(0x1)		//!< turn the led on
+#define LED_OFF (0x0)		//!< turn the led off
+
 /**
  * @brief   The state-machine for the heartbeat.
  * 
