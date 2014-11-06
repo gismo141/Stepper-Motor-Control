@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('user_output_task_8h_source.html','');}
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> * @details Shows all available information about the motor.</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> * @param   [in] outputTaskMboxContentPtr : Pointer to all data which is available</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"> *          for UserOuputTask()</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> * @param   [in] termMsgCounter : Pointer to actual message counter</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"> * @param   [in] termMsgCounterPtr : Pointer to actual message counter</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * @retval  None</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> <a class="code" href="user_output_task_8h.html#aeb64493a6762cba5069aa8577b589574">printTerminalInfo</a>(<a class="code" href="structoutput_task_mailbox.html">outputTaskMailbox_t</a> *outputTaskMboxContentPtr,</div>
@@ -177,8 +177,8 @@ $(document).ready(function(){initNavTree('user_output_task_8h_source.html','');}
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // __USER_OUTPUT_TASK_H__</span></div>
 <div class="ttc" id="hardware_access_8h_html"><div class="ttname"><a href="hardware_access_8h.html">hardwareAccess.h</a></div><div class="ttdoc">Functions for accessing hardware connected through pio´s and registers. </div></div>
 <div class="ttc" id="user_input_task_8h_html"><div class="ttname"><a href="user_input_task_8h.html">userInputTask.h</a></div><div class="ttdoc">Header file for userInputTask.c. </div></div>
-<div class="ttc" id="user_output_task_8h_html_a006aeb085c5dea0247e5c842bf1e92b5"><div class="ttname"><a href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a></div><div class="ttdeci">void UserOutputTask(void *pdata)</div><div class="ttdoc">UserOutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00030">userOutputTask.c:30</a></div></div>
-<div class="ttc" id="user_output_task_8h_html_aeb64493a6762cba5069aa8577b589574"><div class="ttname"><a href="user_output_task_8h.html#aeb64493a6762cba5069aa8577b589574">printTerminalInfo</a></div><div class="ttdeci">void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr, uint32_t *termMsgCounterPtr)</div><div class="ttdoc">Prints Motor information on the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00145">userOutputTask.c:145</a></div></div>
+<div class="ttc" id="user_output_task_8h_html_a006aeb085c5dea0247e5c842bf1e92b5"><div class="ttname"><a href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5">UserOutputTask</a></div><div class="ttdeci">void UserOutputTask(void *pdata)</div><div class="ttdoc">UserOutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00032">userOutputTask.c:32</a></div></div>
+<div class="ttc" id="user_output_task_8h_html_aeb64493a6762cba5069aa8577b589574"><div class="ttname"><a href="user_output_task_8h.html#aeb64493a6762cba5069aa8577b589574">printTerminalInfo</a></div><div class="ttdeci">void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr, uint32_t *termMsgCounterPtr)</div><div class="ttdoc">Prints Motor information on the terminal. </div><div class="ttdef"><b>Definition:</b> <a href="user_output_task_8c_source.html#l00154">userOutputTask.c:154</a></div></div>
 <div class="ttc" id="structoutput_task_mailbox_html"><div class="ttname"><a href="structoutput_task_mailbox.html">outputTaskMailbox</a></div><div class="ttdoc">Datatype of Mailbox for transmitting information from InputTask to OutputTask. </div><div class="ttdef"><b>Definition:</b> <a href="user_input_task_8h_source.html#l00077">userInputTask.h:77</a></div></div>
 <div class="ttc" id="debug_and_error_output_8h_html"><div class="ttname"><a href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a></div><div class="ttdoc">Defines for Error and Debug-Output Management. </div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -187,7 +187,7 @@ $(document).ready(function(){initNavTree('user_output_task_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="user_output_task_8h.html">userOutputTask.h</a></li>
-    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

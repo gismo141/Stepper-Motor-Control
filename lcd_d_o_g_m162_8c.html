@@ -129,7 +129,17 @@ Include dependency graph for lcdDOGM162.c:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a258c1b0dd98d52ca201b371cdadcf72e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a> (uint32_t lcdBase)</td></tr>
+<tr class="memdesc:a258c1b0dd98d52ca201b371cdadcf72e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization function of LCD DOGM162B-A.  <a href="#a258c1b0dd98d52ca201b371cdadcf72e">More...</a><br /></td></tr>
 <tr class="separator:a258c1b0dd98d52ca201b371cdadcf72e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af434cbf2aa5d62b734d593cb303c8d83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_d_o_g_m162_8c.html#af434cbf2aa5d62b734d593cb303c8d83">DOGM162lcd_clear</a> (uint32_t lcdBase)</td></tr>
+<tr class="memdesc:af434cbf2aa5d62b734d593cb303c8d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">function erases the screen  <a href="#af434cbf2aa5d62b734d593cb303c8d83">More...</a><br /></td></tr>
+<tr class="separator:af434cbf2aa5d62b734d593cb303c8d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea94cc3cabb08712915ab39dafa380f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_d_o_g_m162_8c.html#aea94cc3cabb08712915ab39dafa380f0">DOGM162lcd_setPos</a> (uint32_t lcdBase, int32_t row, int32_t col)</td></tr>
+<tr class="memdesc:aea94cc3cabb08712915ab39dafa380f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to set a new write position.  <a href="#aea94cc3cabb08712915ab39dafa380f0">More...</a><br /></td></tr>
+<tr class="separator:aea94cc3cabb08712915ab39dafa380f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5063a47da4cf7141009a068bf61d9c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_d_o_g_m162_8c.html#a5063a47da4cf7141009a068bf61d9c84">DOGM162lcd_setCursorMode</a> (uint32_t lcdBase, int32_t cursorMode)</td></tr>
+<tr class="memdesc:a5063a47da4cf7141009a068bf61d9c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">function changes cursor mode  <a href="#a5063a47da4cf7141009a068bf61d9c84">More...</a><br /></td></tr>
+<tr class="separator:a5063a47da4cf7141009a068bf61d9c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initialization program for LCD DOGM162. Qsys uses Altera LCD component "altera_avalon_lcd_16207". </p>
@@ -151,11 +161,46 @@ Prof. Dr.-Ing. Ferdinand Englberger </dd></dl>
 <li>Initial version</li>
 </ul>
 <p>V1.0 20.12.2011 Johann Mayr</p><ul>
-<li>Initial version </li>
+<li>Initial version</li>
+</ul>
+<p>06.11.2014 Michael Riedel</p><ul>
+<li>Created defines for init-codes and moved to header </li>
 </ul>
 
 <p>Definition in file <a class="el" href="lcd_d_o_g_m162_8c_source.html">lcdDOGM162.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="af434cbf2aa5d62b734d593cb303c8d83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DOGM162lcd_clear </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>lcdBase</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function erases the screen </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lcdBase</td><td>: LCD handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="lcd_d_o_g_m162_8c_source.html#l00060">60</a> of file <a class="el" href="lcd_d_o_g_m162_8c_source.html">lcdDOGM162.c</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a258c1b0dd98d52ca201b371cdadcf72e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +214,8 @@ Prof. Dr.-Ing. Ferdinand Englberger </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialization function of LCD DOGM162B-A</p>
+
+<p>Initialization function of LCD DOGM162B-A. </p>
 <p>This initialization function extends the standard initialization by DOGM162 specific initialization. This function has to be called before the display can be used. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lcdBase</td><td>: Base address of DOGM162 LCD (from system.h) </td></tr>
@@ -183,7 +229,105 @@ Prof. Dr.-Ing. Ferdinand Englberger </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="lcd_d_o_g_m162_8c_source.html#l00042">42</a> of file <a class="el" href="lcd_d_o_g_m162_8c_source.html">lcdDOGM162.c</a>.</p>
+<p>Definition at line <a class="el" href="lcd_d_o_g_m162_8c_source.html#l00036">36</a> of file <a class="el" href="lcd_d_o_g_m162_8c_source.html">lcdDOGM162.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5063a47da4cf7141009a068bf61d9c84"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DOGM162lcd_setCursorMode </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>lcdBase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>cursorMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function changes cursor mode </p>
+<p>This function requires an extra wait period </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lcdBase</td><td>: Base address of LCD (from system.h) </td></tr>
+    <tr><td class="paramname">cursorMode</td><td>new Cursor mode, can be <ul>
+<li>LCD_CURSOR_OFF </li>
+<li>LCD_CURSOR_ON </li>
+<li>LCD_BLINK </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="lcd_d_o_g_m162_8c_source.html#l00070">70</a> of file <a class="el" href="lcd_d_o_g_m162_8c_source.html">lcdDOGM162.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aea94cc3cabb08712915ab39dafa380f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DOGM162lcd_setPos </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>lcdBase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function to set a new write position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lcdBase</td><td>: LCD handle </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">row</td><td>: line (1 or 2) </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">col</td><td>: column (1 to 16) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="lcd_d_o_g_m162_8c_source.html#l00065">65</a> of file <a class="el" href="lcd_d_o_g_m162_8c_source.html">lcdDOGM162.c</a>.</p>
 
 </div>
 </div>
@@ -193,7 +337,7 @@ Prof. Dr.-Ing. Ferdinand Englberger </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="lcd_d_o_g_m162_8c.html">lcdDOGM162.c</a></li>
-    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

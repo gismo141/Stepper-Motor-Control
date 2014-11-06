@@ -156,18 +156,6 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">CTRL_REG_IR_MSK</a>&#160;&#160;&#160;(0x80)</td></tr>
 <tr class="memdesc:a6ecb6ec8a75e709cab8ebbc3c46774b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt-Request Bit. <br /></td></tr>
 <tr class="separator:a6ecb6ec8a75e709cab8ebbc3c46774b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca">SWITCH_LR_MSK</a>&#160;&#160;&#160;(0x1)</td></tr>
-<tr class="memdesc:a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right (1) or Left (0)-Bit. <br /></td></tr>
-<tr class="separator:a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16924283d60a08c79a5f9ef36e4a436f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16924283d60a08c79a5f9ef36e4a436f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a16924283d60a08c79a5f9ef36e4a436f">SWITCH_MODE_MSK</a>&#160;&#160;&#160;(0x1E)</td></tr>
-<tr class="memdesc:a16924283d60a08c79a5f9ef36e4a436f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit 1..4 contains motor setup. <br /></td></tr>
-<tr class="separator:a16924283d60a08c79a5f9ef36e4a436f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1ccbd36272f4f4edd68519b97dd2b63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1ccbd36272f4f4edd68519b97dd2b63"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#ae1ccbd36272f4f4edd68519b97dd2b63">SWITCH_DEBUG_MSK</a>&#160;&#160;&#160;(0x200)</td></tr>
-<tr class="memdesc:ae1ccbd36272f4f4edd68519b97dd2b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug on if Bit 9 = <code>1</code> <br /></td></tr>
-<tr class="separator:ae1ccbd36272f4f4edd68519b97dd2b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bdea57bbed1ce1e8077c1378d64603f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bdea57bbed1ce1e8077c1378d64603f"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a3bdea57bbed1ce1e8077c1378d64603f">MODE_STOP_CON_RUN_MSK</a>&#160;&#160;&#160;(0x3)</td></tr>
 <tr class="memdesc:a3bdea57bbed1ce1e8077c1378d64603f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit 0 &amp; 1 only. <br /></td></tr>
@@ -250,7 +238,10 @@ Marc Kossmann </dd></dl>
 </ul>
 <p>03.11. Kossmann</p><ul>
 <li>moved all register masks in this file</li>
-<li>added registerMutex for save access </li>
+<li>added registerMutex for save access</li>
+</ul>
+<p>04.11. Kossmann</p><ul>
+<li>removed switches masks defines. They already exist in <a class="el" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. ">hardwareAccess.h</a> </li>
 </ul>
 
 <p>Definition in file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
@@ -503,7 +494,7 @@ Marc Kossmann </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="register_access_8h.html">registerAccess.h</a></li>
-    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

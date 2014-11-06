@@ -1,12 +1,18 @@
 var searchData=
 [
-  ['debug',['debug',['../debug_and_error_output_8h.html#a86ee3ff44c537d94ccbabf941a613688',1,'debug():&#160;debugAndErrorOutput.h'],['../user_input_task_8h.html#adc6e5733fc3c22f0a7b2914188c49c90a0593585da9181e972974c1274d8f2b4f',1,'DEBUG():&#160;userInputTask.h']]],
-  ['debug_5fon_5fevent',['DEBUG_ON_EVENT',['../events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace',1,'events.h']]],
-  ['debuganderroroutput_2eh',['debugAndErrorOutput.h',['../debug_and_error_output_8h.html',1,'']]],
-  ['debugandheartbeat',['debugAndHeartbeat',['../heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920',1,'debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr):&#160;heartbeatTask.c'],['../heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920',1,'debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr):&#160;heartbeatTask.c']]],
-  ['debugstate',['debugState',['../structoutput_task_mailbox.html#a4d97a1816f55efd1a2a5eea0c0eef502',1,'outputTaskMailbox']]],
-  ['direction',['direction',['../user_input_task_8h.html#a99f26e6ee9fcd62f75203b5402df8098',1,'userInputTask.h']]],
-  ['direction_5ft',['direction_t',['../user_input_task_8h.html#a32f967dcf097fc29993bdb23b6a3fd76',1,'userInputTask.h']]],
-  ['dogm162lcd_5finit',['DOGM162lcd_init',['../lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e',1,'DOGM162lcd_init(uint32_t lcdBase):&#160;lcdDOGM162.c'],['../lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e',1,'DOGM162lcd_init(uint32_t lcdBase):&#160;lcdDOGM162.c']]],
-  ['double_5frotation',['DOUBLE_ROTATION',['../user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba3e63ae67bd7ed6ffd8eae202c1ab1583',1,'userInputTask.h']]]
+  ['ce_5fn',['ce_n',['../classinterface.html#a878a6ffe0f62003b311295575bf69295',1,'interface']]],
+  ['clear_5flcd',['clear_lcd',['../auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b',1,'clear_lcd(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b',1,'clear_lcd(void):&#160;auxilaryFunctions.c']]],
+  ['clock',['clock',['../classinterface.html#ab5720adee8823fbb2881037df2e189a6',1,'interface.clock()'],['../classkey_detect.html#ab5720adee8823fbb2881037df2e189a6',1,'keyDetect.clock()']]],
+  ['clock_5f50_5fb5b',['CLOCK_50_B5B',['../classinterface___r_t_x___base.html#a05c598213f64aa37ddd25f2d4e1f445f',1,'interface_RTX_Base']]],
+  ['continous',['CONTINOUS',['../user_input_task_8h.html#a39d544e1d4f711e9312e286c54431d1ba67bed54be9e134dd063d2eb69618b81d',1,'userInputTask.h']]],
+  ['contrast2',['CONTRAST2',['../lcd_d_o_g_m162_8h.html#a76aecfd4e9cb0474f049b7e14ca95000',1,'lcdDOGM162.h']]],
+  ['cpu_5freset_5fn',['CPU_RESET_n',['../classinterface___r_t_x___base.html#ad71e86a08c4532bb97b4476f3dc16948',1,'interface_RTX_Base']]],
+  ['ctrl_5freg_5fie_5fmsk',['CTRL_REG_IE_MSK',['../register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c',1,'registerAccess.h']]],
+  ['ctrl_5freg_5fir_5fmsk',['CTRL_REG_IR_MSK',['../register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1',1,'registerAccess.h']]],
+  ['ctrl_5freg_5flr_5fmsk',['CTRL_REG_LR_MSK',['../register_access_8h.html#adf33618e430a31a3c34767ee68e91483',1,'registerAccess.h']]],
+  ['ctrl_5freg_5fmode_5fmsk',['CTRL_REG_MODE_MSK',['../register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93',1,'registerAccess.h']]],
+  ['ctrl_5freg_5frs_5fmsk',['CTRL_REG_RS_MSK',['../register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb',1,'registerAccess.h']]],
+  ['ctrlreg',['ctrlReg',['../structoutput_task_mailbox.html#a3b54cdb3c9dff25f7ae6f696c583a385',1,'outputTaskMailbox']]],
+  ['ctrlregget',['ctrlRegGet',['../register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af',1,'registerAccess.h']]],
+  ['ctrlregset',['ctrlRegSet',['../register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf',1,'registerAccess.h']]]
 ];

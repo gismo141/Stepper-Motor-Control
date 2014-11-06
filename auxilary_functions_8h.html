@@ -146,6 +146,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aac33d8b0fb1efae6f9fe889517e1134b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b">clear_lcd</a> (void)</td></tr>
 <tr class="memdesc:aac33d8b0fb1efae6f9fe889517e1134b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears display.  <a href="#aac33d8b0fb1efae6f9fe889517e1134b">More...</a><br /></td></tr>
 <tr class="separator:aac33d8b0fb1efae6f9fe889517e1134b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a368e5496d68661c60eb2cca07524eb18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18">setPos_lcd</a> (int32_t row, int32_t col)</td></tr>
+<tr class="memdesc:a368e5496d68661c60eb2cca07524eb18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor position on display.  <a href="#a368e5496d68661c60eb2cca07524eb18">More...</a><br /></td></tr>
+<tr class="separator:a368e5496d68661c60eb2cca07524eb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e6a06dd2a7b8d9edbcec57628500a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="auxilary_functions_8h.html#a40e6a06dd2a7b8d9edbcec57628500a8">setCursorMode_lcd</a> (int32_t cursorMode)</td></tr>
+<tr class="memdesc:a40e6a06dd2a7b8d9edbcec57628500a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor-mode.  <a href="#a40e6a06dd2a7b8d9edbcec57628500a8">More...</a><br /></td></tr>
+<tr class="separator:a40e6a06dd2a7b8d9edbcec57628500a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a751fdda7ea41d06cce059e6e77f1183b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b">printf_term</a> (const char *,...)</td></tr>
 <tr class="memdesc:a751fdda7ea41d06cce059e6e77f1183b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes formated string to terminal.  <a href="#a751fdda7ea41d06cce059e6e77f1183b">More...</a><br /></td></tr>
 <tr class="separator:a751fdda7ea41d06cce059e6e77f1183b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,7 +184,10 @@ Marc Kossmann </dd></dl>
 <li>clear display function added</li>
 </ul>
 <p>03.11. Kossmann</p><ul>
-<li>finished documentation </li>
+<li>finished documentation</li>
+</ul>
+<p>06.11. Riedel</p><ul>
+<li>added some functions for better display-usage </li>
 </ul>
 
 <p>Definition in file <a class="el" href="auxilary_functions_8h_source.html">auxilaryFunctions.h</a>.</p>
@@ -205,7 +214,16 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00034">34</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00036">36</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="auxilary_functions_8h_aac33d8b0fb1efae6f9fe889517e1134b_cgraph.png" border="0" usemap="#auxilary_functions_8h_aac33d8b0fb1efae6f9fe889517e1134b_cgraph" alt=""/></div>
+<map name="auxilary_functions_8h_aac33d8b0fb1efae6f9fe889517e1134b_cgraph" id="auxilary_functions_8h_aac33d8b0fb1efae6f9fe889517e1134b_cgraph">
+<area shape="rect" id="node2" href="lcd_d_o_g_m162_8h.html#af434cbf2aa5d62b734d593cb303c8d83" title="function erases the screen " alt="" coords="128,5,266,31"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -230,7 +248,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00055">55</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00064">64</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
 
 </div>
 </div>
@@ -255,7 +273,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00052">52</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00061">61</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
 
 </div>
 </div>
@@ -281,14 +299,14 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00029">29</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00031">31</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="auxilary_functions_8h_aafed2ade168a085630c2fe8d776432f2_cgraph.png" border="0" usemap="#auxilary_functions_8h_aafed2ade168a085630c2fe8d776432f2_cgraph" alt=""/></div>
 <map name="auxilary_functions_8h_aafed2ade168a085630c2fe8d776432f2_cgraph" id="auxilary_functions_8h_aafed2ade168a085630c2fe8d776432f2_cgraph">
-<area shape="rect" id="node2" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="DOGM162lcd_init" alt="" coords="116,5,243,31"/></map>
+<area shape="rect" id="node2" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="Initialization function of LCD DOGM162B&#45;A. " alt="" coords="116,5,243,31"/></map>
 </div>
 </p>
 
@@ -316,7 +334,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00025">25</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00027">27</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
 
 </div>
 </div>
@@ -352,7 +370,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00045">45</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00054">54</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
 
 </div>
 </div>
@@ -388,7 +406,95 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00039">39</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00048">48</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40e6a06dd2a7b8d9edbcec57628500a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setCursorMode_lcd </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>cursorMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the cursor-mode. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_...">lcdDOGM162.h</a> for more info</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cursorMode</td><td>new Cursor mode, can be <ul>
+<li>LCD_CURSOR_OFF </li>
+<li>LCD_CURSOR_ON </li>
+<li>LCD_BLINK </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00044">44</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="auxilary_functions_8h_a40e6a06dd2a7b8d9edbcec57628500a8_cgraph.png" border="0" usemap="#auxilary_functions_8h_a40e6a06dd2a7b8d9edbcec57628500a8_cgraph" alt=""/></div>
+<map name="auxilary_functions_8h_a40e6a06dd2a7b8d9edbcec57628500a8_cgraph" id="auxilary_functions_8h_a40e6a06dd2a7b8d9edbcec57628500a8_cgraph">
+<area shape="rect" id="node2" href="lcd_d_o_g_m162_8h.html#a5063a47da4cf7141009a068bf61d9c84" title="function changes cursor mode " alt="" coords="190,5,391,31"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a368e5496d68661c60eb2cca07524eb18"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setPos_lcd </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the cursor position on display. </p>
+<p>The display supports 16 rows and 2 columns where the cursor can be set</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>The number of row to position. </td></tr>
+    <tr><td class="paramname">col</td><td>The number of col to position. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="auxilary_functions_8c_source.html#l00040">40</a> of file <a class="el" href="auxilary_functions_8c_source.html">auxilaryFunctions.c</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="auxilary_functions_8h_a368e5496d68661c60eb2cca07524eb18_cgraph.png" border="0" usemap="#auxilary_functions_8h_a368e5496d68661c60eb2cca07524eb18_cgraph" alt=""/></div>
+<map name="auxilary_functions_8h_a368e5496d68661c60eb2cca07524eb18_cgraph" id="auxilary_functions_8h_a368e5496d68661c60eb2cca07524eb18_cgraph">
+<area shape="rect" id="node2" href="lcd_d_o_g_m162_8h.html#aea94cc3cabb08712915ab39dafa380f0" title="Function to set a new write position. " alt="" coords="140,5,290,31"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -398,7 +504,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="auxilary_functions_8h.html">auxilaryFunctions.h</a></li>
-    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

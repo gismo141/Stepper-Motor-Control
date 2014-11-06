@@ -1,35 +1,38 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e" title="Initializes terminal output. " alt="" coords="139,625,212,651"/>
-<area shape="rect" id="node3" href="$user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb" title="UserInputTask. " alt="" coords="338,577,444,603"/>
-<area shape="rect" id="node14" href="$user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5" title="UserOutputTask. " alt="" coords="333,228,450,253"/>
-<area shape="rect" id="node21" href="$heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02" title="The task for the hearbeat and the debug&#45;mode. " alt="" coords="122,777,229,803"/>
-<area shape="rect" id="node27" href="$keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="117,827,234,852"/>
-<area shape="rect" id="node29" href="$hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of keys edgecapture register. " alt="" coords="295,877,487,903"/>
-<area shape="rect" id="node30" href="$hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="104,928,247,953"/>
-<area shape="rect" id="node31" href="$switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="105,977,246,1003"/>
-<area shape="rect" id="node34" href="$hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="106,1027,245,1052"/>
-<area shape="rect" id="node4" href="$auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="736,304,821,329"/>
-<area shape="rect" id="node5" href="$auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="570,603,633,628"/>
-<area shape="rect" id="node7" href="$auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="563,353,639,379"/>
-<area shape="rect" id="node8" href="$auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="562,403,640,428"/>
-<area shape="rect" id="node9" href="$register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="559,652,644,677"/>
-<area shape="rect" id="node10" href="$register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="549,452,653,477"/>
-<area shape="rect" id="node11" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="552,701,651,727"/>
-<area shape="rect" id="node12" href="$register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="559,751,643,776"/>
-<area shape="rect" id="node13" href="$register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="550,501,652,527"/>
-<area shape="rect" id="node6" href="$lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="DOGM162lcd_init" alt="" coords="715,603,842,628"/>
-<area shape="rect" id="node15" href="$user_output_task_8c.html#aeb64493a6762cba5069aa8577b589574" title="Prints Motor information on the terminal. " alt="" coords="541,304,661,329"/>
-<area shape="rect" id="node16" href="$auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="564,5,639,31"/>
-<area shape="rect" id="node17" href="$hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="544,55,658,80"/>
-<area shape="rect" id="node18" href="$hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="544,104,658,129"/>
-<area shape="rect" id="node19" href="$hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="544,153,658,179"/>
-<area shape="rect" id="node20" href="$auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4" title="Writes buffed data to terminal. " alt="" coords="558,203,645,228"/>
-<area shape="rect" id="node22" href="$heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="321,727,461,752"/>
-<area shape="rect" id="node24" href="$heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="535,849,667,875"/>
-<area shape="rect" id="node23" href="$register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="552,800,650,825"/>
-<area shape="rect" id="node25" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="722,824,836,849"/>
-<area shape="rect" id="node26" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="723,873,835,899"/>
-<area shape="rect" id="node28" href="$hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of keys edgecapture register. " alt="" coords="311,828,471,853"/>
-<area shape="rect" id="node32" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="320,952,462,977"/>
-<area shape="rect" id="node33" href="$hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="298,1001,484,1027"/>
+<area shape="rect" id="node2" href="$auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e" title="Initializes terminal output. " alt="" coords="139,675,212,700"/>
+<area shape="rect" id="node3" href="$user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb" title="UserInputTask. " alt="" coords="338,603,444,628"/>
+<area shape="rect" id="node16" href="$user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5" title="UserOutputTask. " alt="" coords="333,253,450,279"/>
+<area shape="rect" id="node24" href="$heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02" title="The task for the hearbeat and the debug&#45;mode. " alt="" coords="122,827,229,852"/>
+<area shape="rect" id="node30" href="$keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="117,876,234,901"/>
+<area shape="rect" id="node32" href="$hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of keys edgecapture register. " alt="" coords="295,927,487,952"/>
+<area shape="rect" id="node33" href="$hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="104,977,247,1003"/>
+<area shape="rect" id="node34" href="$switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="105,1027,246,1052"/>
+<area shape="rect" id="node37" href="$hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="106,1076,245,1101"/>
+<area shape="rect" id="node4" href="$auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="748,304,833,329"/>
+<area shape="rect" id="node5" href="$auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="570,652,633,677"/>
+<area shape="rect" id="node7" href="$auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18" title="Sets the cursor position on display. " alt="" coords="558,353,644,379"/>
+<area shape="rect" id="node9" href="$auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="563,403,639,428"/>
+<area shape="rect" id="node10" href="$auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="562,452,640,477"/>
+<area shape="rect" id="node11" href="$register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="559,701,644,727"/>
+<area shape="rect" id="node12" href="$register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="549,553,653,579"/>
+<area shape="rect" id="node13" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="552,751,651,776"/>
+<area shape="rect" id="node14" href="$register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control&#45;register with the given bits. " alt="" coords="559,800,643,825"/>
+<area shape="rect" id="node15" href="$register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="550,603,652,628"/>
+<area shape="rect" id="node6" href="$lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="Initialization function of LCD DOGM162B&#45;A. " alt="" coords="727,652,854,677"/>
+<area shape="rect" id="node8" href="$lcd_d_o_g_m162_8h.html#aea94cc3cabb08712915ab39dafa380f0" title="Function to set a new write position. " alt="" coords="715,353,866,379"/>
+<area shape="rect" id="node17" href="$user_output_task_8c.html#aeb64493a6762cba5069aa8577b589574" title="Prints Motor information on the terminal. " alt="" coords="541,304,661,329"/>
+<area shape="rect" id="node18" href="$auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="564,5,639,31"/>
+<area shape="rect" id="node20" href="$hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="544,55,658,80"/>
+<area shape="rect" id="node21" href="$hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="544,104,658,129"/>
+<area shape="rect" id="node22" href="$hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="544,153,658,179"/>
+<area shape="rect" id="node23" href="$auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4" title="Writes buffed data to terminal. " alt="" coords="558,203,645,228"/>
+<area shape="rect" id="node19" href="$lcd_d_o_g_m162_8h.html#af434cbf2aa5d62b734d593cb303c8d83" title="function erases the screen " alt="" coords="721,5,860,31"/>
+<area shape="rect" id="node25" href="$heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="321,776,461,801"/>
+<area shape="rect" id="node27" href="$heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="535,899,667,924"/>
+<area shape="rect" id="node26" href="$register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="552,849,650,875"/>
+<area shape="rect" id="node28" href="$hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="734,873,848,899"/>
+<area shape="rect" id="node29" href="$hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="734,923,847,948"/>
+<area shape="rect" id="node31" href="$hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of keys edgecapture register. " alt="" coords="311,877,471,903"/>
+<area shape="rect" id="node35" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="320,1001,462,1027"/>
+<area shape="rect" id="node36" href="$hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="298,1051,484,1076"/>
 </map>

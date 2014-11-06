@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['soc2014_5fdebug',['SOC2014_DEBUG',['../debug_and_error_output_8h.html#ab9711ce0e4efe30b73bd296e03c6c50f',1,'debugAndErrorOutput.h']]],
-  ['switch_5fdebug_5fmsk',['SWITCH_DEBUG_MSK',['../register_access_8h.html#ae1ccbd36272f4f4edd68519b97dd2b63',1,'registerAccess.h']]],
-  ['switch_5flr_5fmsk',['SWITCH_LR_MSK',['../register_access_8h.html#a01fb21ab2f9d6e7b4d09d5d7dfc7f7ca',1,'registerAccess.h']]],
-  ['switch_5fmode_5fmsk',['SWITCH_MODE_MSK',['../register_access_8h.html#a16924283d60a08c79a5f9ef36e4a436f',1,'registerAccess.h']]]
+  ['mode_5fch_5fof_5fst_5f1',['MODE_CH_OF_ST_1',['../register_access_8h.html#a4dae33261a2cdc93c4de6115e4e5cb8f',1,'registerAccess.h']]],
+  ['mode_5fch_5fof_5fst_5f1_5f2',['MODE_CH_OF_ST_1_2',['../register_access_8h.html#a9954f884179f1c11e4973487f48c76b1',1,'registerAccess.h']]],
+  ['mode_5fch_5fof_5fst_5f1_5f4',['MODE_CH_OF_ST_1_4',['../register_access_8h.html#aad4de87dd243d469de09afdd7e65cb02',1,'registerAccess.h']]],
+  ['mode_5fch_5fof_5fst_5f2',['MODE_CH_OF_ST_2',['../register_access_8h.html#a3282200d7b0d8e5fca888bc759af164a',1,'registerAccess.h']]],
+  ['mode_5fcon_5frun',['MODE_CON_RUN',['../register_access_8h.html#a1b924e9a4944f68a4c28a02ec4560aa6',1,'registerAccess.h']]],
+  ['mode_5fstop',['MODE_STOP',['../register_access_8h.html#a29a7dfd4fec0d672f9690159d70abc0d',1,'registerAccess.h']]],
+  ['mode_5fstop_5fcon_5frun_5fmsk',['MODE_STOP_CON_RUN_MSK',['../register_access_8h.html#a3bdea57bbed1ce1e8077c1378d64603f',1,'registerAccess.h']]],
+  ['motor_5fstop_5fevent',['MOTOR_STOP_EVENT',['../events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e',1,'events.h']]]
 ];

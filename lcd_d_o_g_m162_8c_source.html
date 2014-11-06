@@ -115,75 +115,93 @@ $(document).ready(function(){initNavTree('lcd_d_o_g_m162_8c_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version   V2.0.0</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date      25.03.2014</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @copyright 2011 - 2014 UniBw M - ETTI - WE 4</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * @brief Initialization program for LCD DOGM162. Qsys uses Altera</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *        LCD component &quot;altera_avalon_lcd_16207&quot;.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @remark This initialization function extends the standard</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *        initialization by DOGM162 specific initialization. This</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *        function has to be called before the display can be used.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * @brief     Initialization program for LCD DOGM162. Qsys uses Altera</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *            LCD component &quot;altera_avalon_lcd_16207&quot;.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * @remark    This initialization function extends the standard</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *            initialization by DOGM162 specific initialization. This</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *            function has to be called before the display can be used.</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *************************************************************************</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * @par History:</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *  @details V2.0.0 Ferdinand Englberger</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *           - comments in english</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *           - Remove all functions, but initialization function</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *           - uses component register interface, instead of own access</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *             function.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *           - uses a base parameter to identify lcd.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *  @details V1.1 25.06.2012 Johann Mayr</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> *           - Initial version</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *  @details V1.0 20.12.2011 Johann Mayr</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *           - Initial version</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> **************************************************************************</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;altera_avalon_lcd_16207_regs.h&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;../INC/lcdDOGM162.h&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> * @details Initialization function of LCD DOGM162B-A</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> * @details This initialization function extends the standard</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"> *          initialization by DOGM162 specific initialization. This</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> *          function has to be called before the display can be used.</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> * @param   lcdBase : Base address of DOGM162 LCD (from system.h)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * @retval  None</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">   42</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a>(uint32_t lcdBase) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> uint8_t initCodes[] = { 0x39, <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="comment">// instruction table 1</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      0x39,<span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">// instruction table 1</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      0x14,<span class="comment">// Bias Set: Bias = 1/5, 2 lines</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      0x55, <span class="comment">// Power Control: Icon Display off,</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="comment">// Booster on, Internal Contrast C5 off, C4 on</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      0x6E,<span class="comment">// Follower Control: Follower on, Rab = 6</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      0x72, <span class="comment">// Contrast Set: Contrast = 2</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      0x38, <span class="comment">// Function Set: 8 bit data, 2 lines,</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="comment">// instruction table 0</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      0x0c,<span class="comment">// Display Set: Display on, Cursor on,</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="comment">// Cursor Pos off</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      0x01,<span class="comment">// Display Clear</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      0x06 }; <span class="comment">// Entry Mode Set: Increment DDRAM-Addr,</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">// ShiftEntireDisplay off</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  uint32_t i;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  uint32_t j;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// Wait for Power on not required, due to previous initialization by HAL</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">for</span> (j = 0; j &lt; <span class="keyword">sizeof</span>(initCodes) / <span class="keyword">sizeof</span>(initCodes[0]); j++) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, initCodes[j]);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; 50000; i++)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      ;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *  @details  V2.0.0 Ferdinand Englberger</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *            - comments in english</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *            - Remove all functions, but initialization function</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *            - uses component register interface, instead of own access</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *              function.</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *            - uses a base parameter to identify lcd.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *  @details  V1.1 25.06.2012 Johann Mayr</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> *            - Initial version</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *  @details  V1.0 20.12.2011 Johann Mayr</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *            - Initial version</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> *  @details  06.11.2014 Michael Riedel</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> *            - Created defines for init-codes and moved to header</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> **************************************************************************</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;system.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;altera_avalon_lcd_16207_regs.h&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;../INC/lcdDOGM162.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a>(uint32_t lcdBase) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> uint8_t initCodes[] = {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#a56f625f3f66f37ed8ae08ea1c024bbda">DATA8_LINES2_TABLE1</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#a56f625f3f66f37ed8ae08ea1c024bbda">DATA8_LINES2_TABLE1</a>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#ad4ecd6781a956a785e7688864929599c">BIAS1_2LINES2</a>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#afa30d374d719e81fcc71adc7956d6de5">ICON0_BOOSTER1_CONTRAST_C4_0_C5_1</a>,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#a62fc071033cde8c58a0314b80c17c1af">FOLLOWER1_RAB6</a>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#a76aecfd4e9cb0474f049b7e14ca95000">CONTRAST2</a>,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#ab01d9d86bc9fc9eb5238fab92952d330">DATA8_LINES2_TABLE0</a>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#a7bca5fbb0fda06c3301d2a49bcbaf031">DISPLAY1_CURSOR1_POS0</a>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#a4502380ca8d34b5839154a27dc3827a6">DISPLAY_CLEAR</a>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="lcd_d_o_g_m162_8h.html#a35c7c1054a870d3b751ef5627a747e2f">DDRAM_INC_SHIFT0</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  uint32_t i;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  uint32_t j;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// Wait for Power on not required, due to previous initialization by HAL</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">for</span> (j = 0; j &lt; <span class="keyword">sizeof</span>(initCodes) / <span class="keyword">sizeof</span>(initCodes[0]); j++) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, initCodes[j]);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; 50000; i++)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      ;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="lcd_d_o_g_m162_8c.html#af434cbf2aa5d62b734d593cb303c8d83">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_d_o_g_m162_8c.html#af434cbf2aa5d62b734d593cb303c8d83">DOGM162lcd_clear</a>(uint32_t lcdBase) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  fprintf(lcdBase, <span class="stringliteral">&quot;\x1B[2J&quot;</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  fflush(lcdBase);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="lcd_d_o_g_m162_8c.html#aea94cc3cabb08712915ab39dafa380f0">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_d_o_g_m162_8c.html#aea94cc3cabb08712915ab39dafa380f0">DOGM162lcd_setPos</a>(uint32_t lcdBase, int32_t row, int32_t col) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  fprintf(lcdBase, <span class="stringliteral">&quot;\x1B[%d;%dH&quot;</span>, (<span class="keywordtype">int</span>) row, (<span class="keywordtype">int</span>) col);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  fflush(lcdBase);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="ttc" id="lcd_d_o_g_m162_8c_html_a258c1b0dd98d52ca201b371cdadcf72e"><div class="ttname"><a href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a></div><div class="ttdeci">void DOGM162lcd_init(uint32_t lcdBase)</div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8c_source.html#l00042">lcdDOGM162.c:42</a></div></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="lcd_d_o_g_m162_8c.html#a5063a47da4cf7141009a068bf61d9c84">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_d_o_g_m162_8c.html#a5063a47da4cf7141009a068bf61d9c84">DOGM162lcd_setCursorMode</a>(uint32_t lcdBase, int32_t cursorMode) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  int32_t i;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, (<a class="code" href="lcd_d_o_g_m162_8h.html#a7bca5fbb0fda06c3301d2a49bcbaf031">DISPLAY1_CURSOR1_POS0</a> | (cursorMode &amp; 0x03)));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 10000; ++i);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="ttc" id="lcd_d_o_g_m162_8c_html_a5063a47da4cf7141009a068bf61d9c84"><div class="ttname"><a href="lcd_d_o_g_m162_8c.html#a5063a47da4cf7141009a068bf61d9c84">DOGM162lcd_setCursorMode</a></div><div class="ttdeci">void DOGM162lcd_setCursorMode(uint32_t lcdBase, int32_t cursorMode)</div><div class="ttdoc">function changes cursor mode </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8c_source.html#l00070">lcdDOGM162.c:70</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_a35c7c1054a870d3b751ef5627a747e2f"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#a35c7c1054a870d3b751ef5627a747e2f">DDRAM_INC_SHIFT0</a></div><div class="ttdeci">#define DDRAM_INC_SHIFT0</div><div class="ttdoc">Entry Mode Set: Increment DDRAM-Addr, ShiftEntireDisplay off. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00048">lcdDOGM162.h:48</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8c_html_af434cbf2aa5d62b734d593cb303c8d83"><div class="ttname"><a href="lcd_d_o_g_m162_8c.html#af434cbf2aa5d62b734d593cb303c8d83">DOGM162lcd_clear</a></div><div class="ttdeci">void DOGM162lcd_clear(uint32_t lcdBase)</div><div class="ttdoc">function erases the screen </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8c_source.html#l00060">lcdDOGM162.c:60</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_a7bca5fbb0fda06c3301d2a49bcbaf031"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#a7bca5fbb0fda06c3301d2a49bcbaf031">DISPLAY1_CURSOR1_POS0</a></div><div class="ttdeci">#define DISPLAY1_CURSOR1_POS0</div><div class="ttdoc">Display Set: Display on, Cursor on, Cursor Pos off. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00046">lcdDOGM162.h:46</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_ad4ecd6781a956a785e7688864929599c"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#ad4ecd6781a956a785e7688864929599c">BIAS1_2LINES2</a></div><div class="ttdeci">#define BIAS1_2LINES2</div><div class="ttdoc">Bias Set: Bias = 1/5, 2 lines. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00042">lcdDOGM162.h:42</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_a76aecfd4e9cb0474f049b7e14ca95000"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#a76aecfd4e9cb0474f049b7e14ca95000">CONTRAST2</a></div><div class="ttdeci">#define CONTRAST2</div><div class="ttdoc">Contrast Set: Contrast = 2. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00045">lcdDOGM162.h:45</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_ab01d9d86bc9fc9eb5238fab92952d330"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#ab01d9d86bc9fc9eb5238fab92952d330">DATA8_LINES2_TABLE0</a></div><div class="ttdeci">#define DATA8_LINES2_TABLE0</div><div class="ttdoc">Function Set: 8 bit data, 2 lines, instruction table 0. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00040">lcdDOGM162.h:40</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_a56f625f3f66f37ed8ae08ea1c024bbda"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#a56f625f3f66f37ed8ae08ea1c024bbda">DATA8_LINES2_TABLE1</a></div><div class="ttdeci">#define DATA8_LINES2_TABLE1</div><div class="ttdoc">Function Set: 8 bit data, 2 lines, instruction table 1. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00041">lcdDOGM162.h:41</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_a62fc071033cde8c58a0314b80c17c1af"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#a62fc071033cde8c58a0314b80c17c1af">FOLLOWER1_RAB6</a></div><div class="ttdeci">#define FOLLOWER1_RAB6</div><div class="ttdoc">Follower Control: Follower on, Rab = 6. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00044">lcdDOGM162.h:44</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8c_html_aea94cc3cabb08712915ab39dafa380f0"><div class="ttname"><a href="lcd_d_o_g_m162_8c.html#aea94cc3cabb08712915ab39dafa380f0">DOGM162lcd_setPos</a></div><div class="ttdeci">void DOGM162lcd_setPos(uint32_t lcdBase, int32_t row, int32_t col)</div><div class="ttdoc">Function to set a new write position. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8c_source.html#l00065">lcdDOGM162.c:65</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_a4502380ca8d34b5839154a27dc3827a6"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#a4502380ca8d34b5839154a27dc3827a6">DISPLAY_CLEAR</a></div><div class="ttdeci">#define DISPLAY_CLEAR</div><div class="ttdoc">Display Clear. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00047">lcdDOGM162.h:47</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8h_html_afa30d374d719e81fcc71adc7956d6de5"><div class="ttname"><a href="lcd_d_o_g_m162_8h.html#afa30d374d719e81fcc71adc7956d6de5">ICON0_BOOSTER1_CONTRAST_C4_0_C5_1</a></div><div class="ttdeci">#define ICON0_BOOSTER1_CONTRAST_C4_0_C5_1</div><div class="ttdoc">Power Control: Icon Display off, Booster on, Internal Contrast C5 off, C4 on. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8h_source.html#l00043">lcdDOGM162.h:43</a></div></div>
+<div class="ttc" id="lcd_d_o_g_m162_8c_html_a258c1b0dd98d52ca201b371cdadcf72e"><div class="ttname"><a href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">DOGM162lcd_init</a></div><div class="ttdeci">void DOGM162lcd_init(uint32_t lcdBase)</div><div class="ttdoc">Initialization function of LCD DOGM162B-A. </div><div class="ttdef"><b>Definition:</b> <a href="lcd_d_o_g_m162_8c_source.html#l00036">lcdDOGM162.c:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="lcd_d_o_g_m162_8c.html">lcdDOGM162.c</a></li>
-    <li class="footer">Generated on Tue Nov 4 2014 12:24:42 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

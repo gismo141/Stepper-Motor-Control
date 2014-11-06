@@ -29,7 +29,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9"
+"register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

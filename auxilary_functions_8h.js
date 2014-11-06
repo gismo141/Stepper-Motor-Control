@@ -6,5 +6,7 @@ var auxilary_functions_8h =
     [ "init_lcd", "auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2", null ],
     [ "init_term", "auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e", null ],
     [ "printf_lcd", "auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28", null ],
-    [ "printf_term", "auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b", null ]
+    [ "printf_term", "auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b", null ],
+    [ "setCursorMode_lcd", "auxilary_functions_8h.html#a40e6a06dd2a7b8d9edbcec57628500a8", null ],
+    [ "setPos_lcd", "auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18", null ]
 ];
