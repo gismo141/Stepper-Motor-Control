@@ -1,23 +1,25 @@
 /**
  ******************************************************************************
- * @file     auxilaryFunctions.h
- * @author   Michael Riedel
- * @author   Marc Kossmann
- * @version  v0.1
- * @date     22.10.2014
- * @brief    Header file for auxilaryFunctions.c
- * @details  Contains defines, includes, typedefs and declarations needed for
- *           auxilary functions.
+ * @file        auxilaryFunctions.h
+ * @author      Michael Riedel
+ * @author      Marc Kossmann
+ * @version     v0.1
+ * @date        22.10.2014
+ * @brief       Header file for auxilaryFunctions.c
+ * @details     Contains defines, includes, typedefs and declarations needed for
+ *              auxilary functions.
  ******************************************************************************
  * @par History:
- * @details  22.10. Kossmann
- *           - first draft for milestone 1b
- * @details  27.10. Riedel & Kossmann
- *           - using lcdDOGM162.h
- * @details  27.10. Riedel & Kossmann
- *           - clear display function added
- * @details  03.11. Kossmann
- *           - finished documentation
+ * @details     22.10. Kossmann
+ *              - first draft for milestone 1b
+ * @details     27.10. Riedel & Kossmann
+ *              - using lcdDOGM162.h
+ * @details     27.10. Riedel & Kossmann
+ *              - clear display function added
+ * @details     03.11. Kossmann
+ *              - finished documentation
+ * @details     06.11. Riedel
+ *              - added some functions for better display-usage
  ******************************************************************************
  */
 
@@ -52,6 +54,26 @@ void init_lcd(void);
  * @retval none
  */
 void clear_lcd(void);
+
+/**
+ * @brief Sets the cursor position on display
+ * @details The display supports 16 rows and 2 columns where the cursor can be set
+ *
+ * @param row The number of row to position.
+ * @param col The number of col to position.
+ */
+void setPos_lcd(int32_t row, int32_t col);
+
+/**
+ * @brief Sets the cursor-mode
+ * @details @see lcdDOGM162.h for more info
+ *
+ * @param cursorMode new Cursor mode, can be
+ *                    @arg LCD_CURSOR_OFF
+ *                    @arg LCD_CURSOR_ON
+ *                    @arg LCD_BLINK
+ */
+void setCursorMode_lcd(int32_t cursorMode);
 
 /**
  * @brief  Writes formated string to terminal.

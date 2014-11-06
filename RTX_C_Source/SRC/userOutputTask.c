@@ -14,6 +14,8 @@
  *              - first draft for milestone 1b
  * @details     30.10. Kossmann
  *              - added error handling for flags and mailboxes
+ * @details     06.11. Riedel
+ *              - added usage of new LCD-functions
  ******************************************************************************
  */
 
@@ -41,6 +43,7 @@ void UserOutputTask(void *pdata) {
   while (1) {
     outputTaskMboxContentPtr = OSMboxPend(outputTaskMailbox, 0, &err);
     if (OS_NO_ERR == err && NULL != outputTaskMboxContentPtr) {
+
       //BEGIN of terminal output
       //once when motor is started
       if ((outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) &&
@@ -59,22 +62,30 @@ void UserOutputTask(void *pdata) {
         OSTimeDlyHMSM(0, 0, 0, 100);
       }
       //END of terminal output
+
       //BEGIN of lcd output
       clear_lcd();
       modeBits = (outputTaskMboxContentPtr->ctrlReg
                          & CTRL_REG_MODE_MSK) >> 2;
-      printf_lcd("M:%i%i%i%i     ", (modeBits & 0x8)>> 3, (modeBits & 0x4)>> 2,
+      setPos_lcd(1, 1);
+      printf_lcd("M:%i%i%i%i", (modeBits & 0x8)>> 3, (modeBits & 0x4)>> 2,
                  (modeBits & 0x2)>>1, (modeBits & 0x1));
-      printf_lcd("V0.1\n");
+      setPos_lcd(12, 1);
+      printf_lcd("v0.1");
       if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
-        printf_lcd("Running    ");
+        setPos_lcd(1, 2);
+        printf_lcd("Running");
       } else {
-        printf_lcd("Stopped    ");
+        setPos_lcd(1, 2);
+        printf_lcd("Stopped");
       }
       if (DEBUG == outputTaskMboxContentPtr->systemState.operationalStatus) {
+        setPos_lcd(11, 2);
         printf_lcd("Debug");
       }
+      fflush_lcd();
       //END of lcd output
+
       //BEGIN of hex-display output
       //display direction on hex0
       if(outputTaskMboxContentPtr->ctrlReg & CTRL_REG_LR_MSK){
@@ -137,8 +148,6 @@ void UserOutputTask(void *pdata) {
       error("OUTPUT_TASK_MBOX_ERR: %i\n", err);
     }
     fflush_term();
-    fflush_lcd();
-
   }
 }
 
