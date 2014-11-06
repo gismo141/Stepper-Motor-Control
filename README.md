@@ -29,7 +29,7 @@ The development is devided into 4 so-called *milestones*:
   - interrupt-service-routines;
   - listing of OS-components (events, mutexes, semaphores, message queues, etc).
 
-b) NIOS II/s Base-Software without stepper-component:
+[b) NIOS II/s Base-Software without stepper-component](Documentation/Milestone_1b/Meilenstein_1b.md):
   - Proof-of-Concept with working C-Sources
   - complete Doxygen-documentation
 
