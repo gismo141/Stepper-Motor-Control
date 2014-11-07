@@ -1,0 +1,31 @@
+<interfaceDefinition version='1.2' language='vhdl' kind='component' name='register_interface'>
+  <useClause path='ieee.STD_LOGIC_SIGNED.all' />
+  <useClause path='ieee.STD_LOGIC_SIGNED.all' />
+  <useClause path='ieee.std_logic_1164.all' />
+    <macroList>
+
+      <macro name='MyParameter' type='INTEGER' kind='subtype' library='work' package='register_interface' initializer='42' />
+
+    </macroList>
+    <portList>
+
+      <port name='clock' direction='in' type='STD_LOGIC' kind='' />
+      <port name='reset_n' direction='in' type='STD_LOGIC' kind='' />
+      <port name='ce_n' direction='in' type='STD_LOGIC' kind='' />
+      <port name='read_n' direction='in' type='STD_LOGIC' kind='' />
+      <port name='write_n' direction='in' type='STD_LOGIC' kind='' />
+      <port name='addr' direction='in' type='std_logic_vector (2 downto 0)' kind='array' library='work' package='register_interface' packedDimension='(2 downto 0)' />
+      <port name='write_data' direction='in' type='std_logic_vector (31 downto 0)' kind='array' library='work' package='register_interface' packedDimension='(31 downto 0)' />
+      <port name='debug_n' direction='in' type='STD_LOGIC' kind='' />
+      <port name='read_data' direction='out' type='std_logic_vector (31 downto 0)' kind='array' library='work' package='register_interface' packedDimension='(31 downto 0)' />
+      <port name='irq' direction='out' type='STD_LOGIC' kind='' />
+      <port name='greenleds' direction='out' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='register_interface' packedDimension='(7 downto 0)' />
+      <port name='redleds' direction='out' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='register_interface' packedDimension='(7 downto 0)' />
+
+    </portList>
+
+    <typeDefinition>
+      <type name='_anon' kind='subtype' baseType='integer' range='0 to 100' library='work' package='register_interface' />
+
+    </typeDefinition>
+</interfaceDefinition>

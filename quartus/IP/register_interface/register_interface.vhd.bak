@@ -12,8 +12,6 @@
 --! @par History:
 --! @details 	06.11. Kossmann
 --!          	- first draft
---! @details 	07.11. Kossmann
---!          	- finished reset_n task
 -----------------------------------------------------------------------------
 
 
@@ -144,12 +142,15 @@ begin
 		
 		-- set interrupt
 		irq <= ctrlReg(6) and ctrlReg(7);
-		-- clone ctrlReg to red leds
-	  redleds <= ctrlReg;
-	  -- clone speedReg to green leds
-	  greenleds(2 downto 0) <= speedReg;
-	  greenleds(7 downto 3) <= (others => '0');
+		
 		
 	end process;
-		
+	
+	-- clone ctrlReg to red leds
+	redleds <= ctrlReg;
+	-- clone speedReg to green leds
+	greenleds(2 downto 0) <= speedReg;
+	greenleds(7 downto 3) <= (others => '0');
+
+	
 end my_register_interface;
