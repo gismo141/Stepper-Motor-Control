@@ -55,8 +55,9 @@ void DOGM162lcd_init(uint32_t lcdBase) {
   // Wait for Power on not required, due to previous initialization by HAL
   for (j = 0; j < sizeof(initCodes) / sizeof(initCodes[0]); j++) {
     IOWR_ALTERA_AVALON_LCD_16207_COMMAND(lcdBase, initCodes[j]);
-    for (i = 0; i < 50000; i++)
+    for (i = 0; i < 50000; i++){
       ;
+    }
   }
 }
 

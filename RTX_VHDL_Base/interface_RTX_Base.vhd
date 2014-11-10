@@ -45,7 +45,7 @@ ENTITY interface_RTX_Base IS
     HEX3          : OUT     STD_LOGIC_VECTOR(6 DOWNTO 0);                       --! HEX display 3
     LCD_RS        : OUT     STD_LOGIC;                                          --! LCD RS
     LCD_RW        : OUT     STD_LOGIC;                                          --! LCD RW
-    LCD_DQ        : INOUT   STD_LOGIC(7 DOWNTO 0)           := (OTHERS => '0'); --! LCD data
+    LCD_DQ        : INOUT   STD_LOGIC_VECTOR(7 DOWNTO 0)  := (OTHERS => '0');   --! LCD data
     LCD_EN        : OUT     STD_LOGIC                                           --! LCD enable
   );
 END interface_RTX_Base;

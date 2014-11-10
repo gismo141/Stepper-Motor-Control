@@ -27,12 +27,12 @@
 #include <system.h>
 #include <altera_avalon_pio_regs.h>
 
-#define PIO_KEY_RS_IR0_MSK      (0x1)   //!< Run/Stop mask for PIO-Key
-#define PIO_KEY_MINUS_IR2_MSK   (0x4)   //!< Increase steps mask for PIO-Key
-#define PIO_KEY_PLUS_IR3_MSK    (0x8)   //!< Decreses steps mask for PIO-Key
-#define PIO_SW_LR_MSK           (0x1)   //!< Left/Right mask for PIO-Switches
-#define PIO_SW_MODE_MSK         (0x1E)  //!< Mode mask for PIO-Switches
-#define PIO_SW_DEBUG_MSK        (0x200) //!< Debug mask for PIO-Switches
+#define PIO_KEY_RS_IR0_MSK      (0b0001)        //!< Run/Stop mask for PIO-Key
+#define PIO_KEY_MINUS_IR2_MSK   (0b0100)        //!< Increase steps mask for PIO-Key
+#define PIO_KEY_PLUS_IR3_MSK    (0b1000)        //!< Decreses steps mask for PIO-Key
+#define PIO_SW_LR_MSK           (0b0000000001)  //!< Left/Right mask for PIO-Switches
+#define PIO_SW_MODE_MSK         (0b0000011110)  //!< Mode mask for PIO-Switches
+#define PIO_SW_DEBUG_MSK        (0b1000000000)  //!< Debug mask for PIO-Switches
 
 /**
  * @name keys

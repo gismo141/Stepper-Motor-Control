@@ -57,7 +57,7 @@ void clear_lcd(void);
 
 /**
  * @brief Sets the cursor position on display
- * @details The display supports 16 rows and 2 columns where the cursor can be set
+ * @details The display supports 2 rows and 16 columns where the cursor can be set
  *
  * @param row The number of row to position.
  * @param col The number of col to position.

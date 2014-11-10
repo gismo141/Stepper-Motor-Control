@@ -79,7 +79,6 @@ typedef struct outputTaskMailbox {
   uint32_t stepsReg; //!< copy of steps register
   uint8_t ctrlReg; //!< copy control register
   uint8_t speedReg; //!< copy of speed register
-  bool debugState; //!< Debug mode On/Off
 } outputTaskMailbox_t;
 
 /**

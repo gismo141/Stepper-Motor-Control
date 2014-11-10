@@ -29,6 +29,7 @@
 #ifndef __HEARTBEAT_TASK_H__
 #define __HEARTBEAT_TASK_H__
 
+#include <stdbool.h>
 #include "includes.h"
 #include "events.h"
 #include "hardwareAccess.h"

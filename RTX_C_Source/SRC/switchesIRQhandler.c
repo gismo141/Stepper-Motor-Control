@@ -36,12 +36,12 @@ void switchesIRQhandler(void *context) {
 
   OSIntEnter();
 
-  switches = PIO_SW_GetValues();
   // clear messageQueue
   err = OSQFlush(switchesMsgQueue);
   if (OS_NO_ERR != err) {
     error("SW_ISR_MBOX_ERR: %i\n", err);
   }
+  switches = PIO_SW_GetValues();
   // create and send Mailbox-Message with switches values
   err = OSQPost(switchesMsgQueue, (void*) switches);
   if (OS_NO_ERR != err) {

@@ -27,18 +27,18 @@
 #include "includes.h"
 #include "debugAndErrorOutput.h"
 
-#define CTRL_REG_RS_MSK       (0x1)   //!< Run (1) or Stop (0)-Bit
-#define CTRL_REG_LR_MSK       (0x2)   //!< Left (0) or Right (1)-Bit
-#define CTRL_REG_MODE_MSK     (0x3C)  //!< Mode-combination according to ctrlRegSet()-function
-#define CTRL_REG_IE_MSK       (0x40)  //!< Interrupt-Enable Bit
-#define CTRL_REG_IR_MSK       (0x80)  //!< Interrupt-Request Bit
-#define MODE_STOP_CON_RUN_MSK (0x3)   //!< Bit 0 & 1 only
-#define MODE_STOP             (0x0)   //!< MODE_STOP_CON_RUN_MSK; Must be `0b00`
-#define MODE_CON_RUN          (0x1)   //!< Use "MODE_STOP_CON_RUN_MSK"; Must be `0b01`
-#define MODE_CH_OF_ST_1_4     (0x2)   //!< Bits must be `0b0010`
-#define MODE_CH_OF_ST_1_2     (0x6)   //!< Bits must be `0b0110`
-#define MODE_CH_OF_ST_1       (0xA)   //!< Bits must be `0b1010`
-#define MODE_CH_OF_ST_2       (0xE)   //!< Bits must be `0b1110`
+#define CTRL_REG_RS_MSK       (0b00000001)  //!< Run (1) or Stop (0)-Bit
+#define CTRL_REG_LR_MSK       (0b00000010)  //!< Left (0) or Right (1)-Bit
+#define CTRL_REG_MODE_MSK     (0b00111100)  //!< Mode-combination according to ctrlRegSet()-function
+#define CTRL_REG_IE_MSK       (0b01000000)  //!< Interrupt-Enable Bit
+#define CTRL_REG_IR_MSK       (0b10000000)  //!< Interrupt-Request Bit
+#define MODE_STOP_CON_RUN_MSK (0b0011)      //!< Bit 0 & 1 only
+#define MODE_STOP             (0b0000)      //!< MODE_STOP_CON_RUN_MSK; Must be `0b00`
+#define MODE_CON_RUN          (0b0001)      //!< Use "MODE_STOP_CON_RUN_MSK"; Must be `0b01`
+#define MODE_CH_OF_ST_1_4     (0b0010)      //!< Bits must be `0b0010`
+#define MODE_CH_OF_ST_1_2     (0b0110)      //!< Bits must be `0b0110`
+#define MODE_CH_OF_ST_1       (0b1010)      //!< Bits must be `0b1010`
+#define MODE_CH_OF_ST_2       (0b1110)      //!< Bits must be `0b1110`
 
 extern OS_EVENT *registerMutex;
 

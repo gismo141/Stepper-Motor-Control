@@ -67,17 +67,17 @@ void UserOutputTask(void *pdata) {
       setPos_lcd(1, 1);
       printf_lcd("M:%i%i%i%i", (modeBits & 0x8)>> 3, (modeBits & 0x4)>> 2,
                  (modeBits & 0x2)>>1, (modeBits & 0x1));
-      setPos_lcd(12, 1);
+      setPos_lcd(1, 13);
       printf_lcd("v0.1");
       if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
-        setPos_lcd(1, 2);
+        setPos_lcd(2, 1);
         printf_lcd("Running");
       } else {
-        setPos_lcd(1, 2);
+        setPos_lcd(2, 1);
         printf_lcd("Stopped");
       }
       if (DEBUG == outputTaskMboxContentPtr->systemState.operationalStatus) {
-        setPos_lcd(11, 2);
+        setPos_lcd(2, 12);
         printf_lcd("Debug");
       }
       fflush_lcd();

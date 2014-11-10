@@ -12,6 +12,8 @@
  *             - first draft for milestone 1b
  *             30.10. Riedel
  *             - Moved DEBUG_ON_EVENT from heartbeatTask.h to this header
+ *             07.11. Kossmann
+ *             - added DEBUG_OFF_EVENT
  *****************************************************************************
  */
 
@@ -34,4 +36,5 @@ OS_FLAG_GRP *userInputTaskFlagsGrp;
  */
 OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 #define DEBUG_ON_EVENT      (0x1) //!< activates the debug-mode via `sw_9`
+#define DEBUG_OFF_EVENT     (0x2) //!< deactivates the debug-mode via `sw_9`
 #endif // __EVENTS_H__

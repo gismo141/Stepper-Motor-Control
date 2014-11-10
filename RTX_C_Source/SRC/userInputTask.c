@@ -9,6 +9,7 @@
  *              to user input and controls register and hardware access
  * @todoL       `systemState` should be read by another function to symbolize the
  *              execution of the MCU later in VHDL.
+ * @todoM       react to IR-Bit in ctrlReg ste by heartbeat-Task
  *****************************************************************************
  * @par History:
  * @details     22.10. Kossmann
@@ -29,6 +30,8 @@
  *              - used the right masks for evaluating switches
  * @details     06.11. Riedel
  *              - added usage of new LCD-functions
+ * @details     07.11. Riedel & Kossmann
+ *              - added DEBUG_OFF_EVENT for turning debug on heartbeatTask off
  *****************************************************************************
  */
 
@@ -37,13 +40,15 @@
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
-OS_EVENT *switchesMsgQueue;   //!< Message Queue for transmitting the switches values
-OS_EVENT *outputTaskMailbox;  //!< Mailbox for transmitting information from InputTask to OutputTask
-OS_EVENT *registerMutex;      //!< Mutex for protected access to the registers
+OS_EVENT *switchesMsgQueue; //!< Message Queue for transmitting the switches values
+OS_EVENT *outputTaskMailbox; //!< Mailbox for transmitting information from InputTask to OutputTask
+OS_EVENT *registerMutex; //!< Mutex for protected access to the registers
 
 void UserInputTask(void *pdata) {
   uint8_t err;
+  uint32_t modeBits;
   OS_FLAGS newFlag;
+
 
   bool newInput = false;
 
@@ -55,14 +60,17 @@ void UserInputTask(void *pdata) {
   // variable to store position of switches
   uint32_t switchesReg = 0;
 
-  systemState_t systemState = { .operationalStatus = FUNCTIONAL,
-                                .activeUseCase = STOP
-                              };
+  systemState_t systemState = {
+      .operationalStatus = FUNCTIONAL,
+      .activeUseCase = STOP };
 
   // declare mailbox
-  outputTaskMailbox_t outputTaskMailboxContent = { .ctrlReg = 0, .speedReg = 0,
-                                                   .stepsReg = 0, .debugState = false
-                                                 };
+  outputTaskMailbox_t outputTaskMailboxContent = {
+      .systemState = systemState,
+      .ctrlReg = 0,
+      .speedReg = 0,
+      .stepsReg = 0
+  };
 
   // declare message and messageQueue
   void *msg;
@@ -75,9 +83,9 @@ void UserInputTask(void *pdata) {
 
   // init LC-Display and show initial screen
   init_lcd();
-  setPos_lcd(4, 1);
+  setPos_lcd(1, 5);
   printf_lcd("SoC 2014");
-  setPos_lcd(1, 2);
+  setPos_lcd(2, 1);
   printf_lcd("Stepper-Control");
   fflush_lcd();
 
@@ -89,7 +97,7 @@ void UserInputTask(void *pdata) {
     error("REGISTER_MUTEX_CREATE_ERR: %i\n", err);
   } else {
     switchesMsgQueue = OSQCreate(msgQueue, 1);
-    outputTaskMailbox = OSMboxCreate(NULL);
+    outputTaskMailbox = OSMboxCreate(&outputTaskMailboxContent);
     if ((OS_EVENT *) 0 == switchesMsgQueue
         || (OS_EVENT *) 0 == outputTaskMailbox) {
       error("INPUT_TASK_MBOX_MSGQ_ERR: %i\n", err);
@@ -101,10 +109,10 @@ void UserInputTask(void *pdata) {
         stepsReg = stepsRegGet();
         // check for new events
         newFlag =
-          OSFlagPend(userInputTaskFlagsGrp,
-                     (KEY0_RS_EVENT | KEY2_MINUS_EVENT | KEY3_PLUS_EVENT
-                      | MOTOR_STOP_EVENT),
-                     OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
+            OSFlagPend(userInputTaskFlagsGrp,
+                (KEY0_RS_EVENT | KEY2_MINUS_EVENT | KEY3_PLUS_EVENT
+                    | MOTOR_STOP_EVENT), OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME,
+                10, &err);
         if (OS_NO_ERR == err) {
           newInput = true;
           // check for key0 event
@@ -156,16 +164,25 @@ void UserInputTask(void *pdata) {
           // is motor stopped?
           if (!(ctrlReg & CTRL_REG_RS_MSK)) {
             // then clear mode bits ...
-            ctrlReg &= ~(PIO_SW_MODE_MSK);
+            ctrlReg &= ~(CTRL_REG_MODE_MSK);
             // ... and set mode bits
-            ctrlReg |= (switchesReg & PIO_SW_MODE_MSK);
+            ctrlReg |= ((switchesReg & PIO_SW_MODE_MSK) << 1);
           }
           if (switchesReg & PIO_SW_DEBUG_MSK) {
             systemState.operationalStatus = DEBUG;
-            err = OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET,
-                             NULL);
+            OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET,
+                &err);
             if (OS_NO_ERR != err) {
               error("INPUT_TASK_FLAG_ERR: %i\n", err);
+            }
+          } else {
+            if(systemState.operationalStatus == DEBUG){
+              systemState.operationalStatus = FUNCTIONAL;
+              OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_OFF_EVENT, OS_FLAG_SET,
+                  &err);
+              if (OS_NO_ERR != err) {
+                error("INPUT_TASK_FLAG_ERR: %i\n", err);
+              }
             }
           }
         } else if (OS_TIMEOUT != err) {
@@ -174,19 +191,18 @@ void UserInputTask(void *pdata) {
 
         // change systemState when Run-Bit = 1
         if (ctrlReg & CTRL_REG_RS_MSK) {
-          if (((ctrlReg & CTRL_REG_MODE_MSK) & MODE_STOP_CON_RUN_MSK)
-              == MODE_STOP) {
+          modeBits = ((ctrlReg & CTRL_REG_MODE_MSK)>>2);
+          if ((modeBits & MODE_STOP_CON_RUN_MSK) == MODE_STOP) {
             systemState.activeUseCase = STOP;
-          } else if (((ctrlReg & CTRL_REG_MODE_MSK) & MODE_STOP_CON_RUN_MSK)
-                     == MODE_CON_RUN) {
+          } else if ((modeBits & MODE_STOP_CON_RUN_MSK) == MODE_CON_RUN) {
             systemState.activeUseCase = CONTINOUS;
-          } else if ((ctrlReg & CTRL_REG_MODE_MSK) == MODE_CH_OF_ST_1_4) {
+          } else if (modeBits == MODE_CH_OF_ST_1_4) {
             systemState.activeUseCase = QUARTER_ROTATION;
-          } else if ((ctrlReg & CTRL_REG_MODE_MSK) == MODE_CH_OF_ST_1_2) {
+          } else if (modeBits == MODE_CH_OF_ST_1_2) {
             systemState.activeUseCase = HALF_ROTATION;
-          } else if ((ctrlReg & CTRL_REG_MODE_MSK) == MODE_CH_OF_ST_1) {
+          } else if (modeBits == MODE_CH_OF_ST_1) {
             systemState.activeUseCase = FULL_ROTATION;
-          } else if ((ctrlReg & CTRL_REG_MODE_MSK) == MODE_CH_OF_ST_2) {
+          } else if (modeBits == MODE_CH_OF_ST_2) {
             systemState.activeUseCase = DOUBLE_ROTATION;
           }
         }
@@ -195,11 +211,7 @@ void UserInputTask(void *pdata) {
           outputTaskMailboxContent.ctrlReg = ctrlReg;
           outputTaskMailboxContent.speedReg = speedReg;
           outputTaskMailboxContent.stepsReg = stepsReg;
-          if (systemState.operationalStatus == DEBUG) {
-            outputTaskMailboxContent.debugState = true;
-          } else {
-            outputTaskMailboxContent.debugState = false;
-          }
+          outputTaskMailboxContent.systemState = systemState;
           err = OSMboxPost(outputTaskMailbox, &outputTaskMailboxContent);
           if (OS_NO_ERR != err) {
             error("INPUT_TASK_MBOX_ERR: %i\n", err);
@@ -228,7 +240,7 @@ void hardwareTest(void) {
   printf_lcd("Start hwTest!");
 
   printf_term("Begin with LED9 flashing on-off\n");
-  setPos_lcd(1, 2);
+  setPos_lcd(2, 1);
   printf_lcd("LED9 on-off");
   fflush_lcd();
   OSTimeDlyHMSM(0, 0, 1, 0);
@@ -242,7 +254,7 @@ void hardwareTest(void) {
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 0 all on\n");
-  setPos_lcd(1, 2);
+  setPos_lcd(2, 1);
   printf_lcd("HEX0 all on");
   fflush_lcd();
   OSTimeDlyHMSM(0, 0, 1, 0);
@@ -250,7 +262,7 @@ void hardwareTest(void) {
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 1 all on\n");
-  setPos_lcd(1, 2);
+  setPos_lcd(2, 1);
   printf_lcd("HEX1 all on");
   fflush_lcd();
   fflush_lcd();
@@ -258,14 +270,14 @@ void hardwareTest(void) {
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 2 all on\n");
-  setPos_lcd(1, 2);
+  setPos_lcd(2, 1);
   printf_lcd("HEX2 all on");
   fflush_lcd();
   PIO_HEX2_Set(0x7F);
   OSTimeDlyHMSM(0, 0, 1, 0);
 
   printf_term("HEX-Display 3 all on\n");
-  setPos_lcd(1, 2);
+  setPos_lcd(2, 1);
   printf_lcd("HEX1 all on");
   fflush_lcd();
   PIO_HEX3_Set(0x7F);
@@ -277,7 +289,7 @@ void hardwareTest(void) {
   PIO_HEX3_Set(0x0);
 
   printf_term("HEX-Display 0 shift on-off\n");
-  setPos_lcd(1, 2);
+  setPos_lcd(2, 1);
   printf_lcd("HEX0 shift test\n");
   fflush_lcd();
   for (i = 0; i < 7; i++) {

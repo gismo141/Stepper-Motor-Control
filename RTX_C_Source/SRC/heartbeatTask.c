@@ -27,18 +27,26 @@ extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 void HeartbeatTask(void *pdata) {
   uint8_t err;
   OS_FLAGS heartbeatFlag;
+  bool debug = false;
   heartbeatState_t heartbeatState = FIRST;
   heartbeatState_t *heartbeatStatePtr = &heartbeatState;
 
   while (1) {
-    heartbeatFlag = OSFlagPend(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT,
+    heartbeatFlag = OSFlagPend(heartbeatTaskFlagsGrp, (DEBUG_ON_EVENT | DEBUG_OFF_EVENT),
         OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
     if (OS_NO_ERR != err && OS_TIMEOUT != err) {
       error("There was an error while waiting for the event!");
     } else {
-      if (heartbeatFlag & DEBUG_ON_EVENT)
+      if (heartbeatFlag & DEBUG_ON_EVENT){
+        debug = true;
+      }else if(heartbeatFlag & DEBUG_OFF_EVENT){
+        debug = false;
+      }
+      if(debug){
         debugAndHeartbeat(heartbeatStatePtr);
+      }else{
       nextHeartbeatStep(heartbeatStatePtr);
+      }
     }
   }
 }

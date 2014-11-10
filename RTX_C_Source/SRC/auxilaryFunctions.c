@@ -6,7 +6,6 @@
  * @version     v0.1
  * @date        28.10.2014
  * @brief       Collection of auxilary functions, mainly output functions
- * @todo        check if timeout are needed and reduce timout value to minimum
  *****************************************************************************
  * @par History:
  * @details     28.10. Riedel & Kossmann
