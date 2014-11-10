@@ -1,4 +1,4 @@
-../quartus/IP/register_interface/register_interface.vhd {1 {vcom -work work -2002 -explicit C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/register_interface/register_interface.vhd
+../quartus/IP/register_interface/register_interface.vhd {1 {vcom -work work -2002 -explicit {C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\IP\register_interface\register_interface.vhd}
 Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -8,7 +8,7 @@ Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling entity register_interface
 -- Compiling architecture my_register_interface of register_interface
 
-} {} {}} register_interface_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/mpeg/Desktop/Stepper-Motor-Control/modelsim/register_interface_tb.vhd
+} {} {}} register_interface_tb.vhd {1 {vcom -work work -2002 -explicit {C:\Users\mpeg\Desktop\Stepper-Motor-Control\modelsim\register_interface_tb.vhd}
 Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Loading package STANDARD
 -- Loading package TEXTIO

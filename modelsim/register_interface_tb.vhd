@@ -56,10 +56,24 @@ BEGIN
       
     clock <= not clock after 10 ns;
     ce_n <= '0' after 20 ns;
-    reset_n <= '1' after 40 ns;
-    write_n <= '0' after 80 ns;
-    addr <= "000" after 80 ns;
-    write_data(7 downto 0) <= "11111111" after 80 ns;
+    reset_n <= '1' after 20 ns,
+               '0' after 140 ns,
+               '1' after 150 ns;          
+    write_n <= '0' after 30 ns,
+               '1' after 200 ns;        
+    read_n  <= '0' after 30 ns;
+    addr <= "000" after 30 ns,
+            "001" after 50 ns,
+            "010" after 70 ns,
+            "011" after 90 ns,
+            "100" after 110 ns,
+            "000" after 150 ns,
+            "001" after 170 ns,
+            "010" after 190 ns;
+    write_data(7 downto 0) <= "11111111" after 30 ns,
+                              "10101010" after 150 ns,
+                              "01010101" after 170 ns,
+                              "10101010" after 190 ns;
     
     finish_sim_time :process
     begin
