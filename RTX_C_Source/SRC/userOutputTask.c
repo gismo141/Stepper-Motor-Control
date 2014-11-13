@@ -3,8 +3,8 @@
  * @file        userOutputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0
- * @date        11.11.2014
+ * @version     v1.1
+ * @date        13.11.2014
  * @brief       Source code for User-Output-Task which communications with
  *              the user and shows him system information
  ******************************************************************************
@@ -17,17 +17,19 @@
  *              - added usage of new LCD-functions
  * @details     11.11. Riedel & Kossmann
  *              - moved 1 second wait to userInputTask
+ * @details     13.11. Kossmann
+ *              - removed OutputTaskMailbox and using global var instead
  ******************************************************************************
  */
 
 #include "../INC/userOutputTask.h"
 
-extern OS_EVENT *outputTaskMailbox;
+extern OS_EVENT *outputTaskDataMutex;
 
 void UserOutputTask(void *pdata) {
   uint8_t err;
   uint8_t modeBits;
-  outputTaskMailbox_t *outputTaskMboxContentPtr;
+  outputTaskData_t outputTaskDataLocal;
   uint32_t termMsgCounter = 2;
   bool oldMotorRunning = false;
 
@@ -35,27 +37,27 @@ void UserOutputTask(void *pdata) {
   OSTimeDlyHMSM(0, 0, 2, 0);
 
   while (1) {
-    outputTaskMboxContentPtr = OSMboxPend(outputTaskMailbox, 0, &err);
-    if (OS_NO_ERR == err && NULL != outputTaskMboxContentPtr) {
+    err = outputTaskDataRx(outputTaskDataMutex, &outputTaskDataLocal);
+    if (OS_NO_ERR == err) {
 
       /***********************************************************************/
       /* terminal output                                                     */
       /***********************************************************************/
       // once when motor is started
-      if ((outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) &&
+      if ((outputTaskDataLocal.ctrlReg & CTRL_REG_RS_MSK) &&
           !oldMotorRunning ) {
         oldMotorRunning = true;
-        printTerminalInfo(outputTaskMboxContentPtr, &termMsgCounter);
+        printTerminalInfo(&outputTaskDataLocal, &termMsgCounter);
       }
       // once when motor is stopped
-      if (!(outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) &&
+      if (!(outputTaskDataLocal.ctrlReg & CTRL_REG_RS_MSK) &&
           oldMotorRunning ) {
         oldMotorRunning = false;
-        printTerminalInfo(outputTaskMboxContentPtr, &termMsgCounter);
+        printTerminalInfo(&outputTaskDataLocal, &termMsgCounter);
       }
       // output of stepsReg every second when motor running
-      if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
-        printf_term("Steps: %i\n", outputTaskMboxContentPtr->stepsReg);
+      if (outputTaskDataLocal.ctrlReg & CTRL_REG_RS_MSK) {
+        printf_term("Steps: %i\n", outputTaskDataLocal.stepsReg);
       }
       /***********************************************************************/
 
@@ -63,21 +65,21 @@ void UserOutputTask(void *pdata) {
       /* lcd output                                                          */
       /***********************************************************************/
       clear_lcd();
-      modeBits = (outputTaskMboxContentPtr->ctrlReg
+      modeBits = (outputTaskDataLocal.ctrlReg
                          & CTRL_REG_MODE_MSK) >> 2;
       setPos_lcd(1, 1);
       printf_lcd("M:%i%i%i%i", (modeBits & 0x8)>> 3, (modeBits & 0x4)>> 2,
                  (modeBits & 0x2)>>1, (modeBits & 0x1));
       setPos_lcd(1, 13);
       printf_lcd("v%s", VERSION);
-      if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
+      if (outputTaskDataLocal.ctrlReg & CTRL_REG_RS_MSK) {
         setPos_lcd(2, 1);
         printf_lcd("Running");
       } else {
         setPos_lcd(2, 1);
         printf_lcd("Stopped");
       }
-      if (DEBUG == outputTaskMboxContentPtr->systemState.operationalStatus) {
+      if (DEBUG == outputTaskDataLocal.systemState.operationalStatus) {
         setPos_lcd(2, 12);
         printf_lcd("Debug");
       }
@@ -88,13 +90,13 @@ void UserOutputTask(void *pdata) {
       /* hex-display output                                                  */
       /***********************************************************************/
       // display direction on hex0
-      if(outputTaskMboxContentPtr->ctrlReg & CTRL_REG_LR_MSK){
+      if(outputTaskDataLocal.ctrlReg & CTRL_REG_LR_MSK){
         PIO_HEX0_Set(HEX_RIGHT);
       }else{
         PIO_HEX0_Set(HEX_LEFT);
       }
       // display mode on hex1
-      switch(outputTaskMboxContentPtr->systemState.activeUseCase){
+      switch(outputTaskDataLocal.systemState.activeUseCase){
       case QUARTER_ROTATION:
         PIO_HEX1_Set(HEX_ZERO);
         break;
@@ -111,7 +113,7 @@ void UserOutputTask(void *pdata) {
         PIO_HEX1_Set(HEX_LINE);
         break;
       }
-      switch(outputTaskMboxContentPtr->speedReg){
+      switch(outputTaskDataLocal.speedReg){
         case 1:
           PIO_HEX2_Set(HEX_ONE);
           break;
@@ -152,25 +154,25 @@ void UserOutputTask(void *pdata) {
   }
 }
 
-void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
+void printTerminalInfo(outputTaskData_t *outputTaskDataPtr,
     uint32_t *termMsgCounterPtr) {
   uint8_t modeBits;
   printf_term("Message Nr. #%i\n", *termMsgCounterPtr);
-  if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
+  if (outputTaskDataPtr->ctrlReg & CTRL_REG_RS_MSK) {
     printf_term("Motor: Running ");
   } else {
     printf_term("Motor: Stopped ");
   }
-  if ((outputTaskMboxContentPtr->ctrlReg & CTRL_REG_LR_MSK)) {
+  if ((outputTaskDataPtr->ctrlReg & CTRL_REG_LR_MSK)) {
     printf_term("right\n");
   } else {
     printf_term("left\n");
   }
-  modeBits = (outputTaskMboxContentPtr->ctrlReg
+  modeBits = (outputTaskDataPtr->ctrlReg
                      & CTRL_REG_MODE_MSK) >> 2;
   printf_term("M:%i%i%i%i", (modeBits & 0x8)>> 3, (modeBits & 0x4)>> 2,
              (modeBits & 0x2)>>1, (modeBits & 0x1));
-  switch (outputTaskMboxContentPtr->systemState.activeUseCase) {
+  switch (outputTaskDataPtr->systemState.activeUseCase) {
   case STOP:
     printf_term("Stop\n");
     break;
@@ -194,10 +196,10 @@ void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
     break;
   }
   printf_term("Interrupt-Enable: %i\n",
-      (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_IE_MSK)>> 6);
+      (outputTaskDataPtr->ctrlReg & CTRL_REG_IE_MSK)>> 6);
   printf_term("Interrupt-Request: %i\n",
-      (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_IR_MSK)>> 7);
-  printf_term("Speed-Step: %i\n", outputTaskMboxContentPtr->speedReg);
-  printf_term("Steps: %i\n", outputTaskMboxContentPtr->stepsReg);
+      (outputTaskDataPtr->ctrlReg & CTRL_REG_IR_MSK)>> 7);
+  printf_term("Speed-Step: %i\n", outputTaskDataPtr->speedReg);
+  printf_term("Steps: %i\n", outputTaskDataPtr->stepsReg);
   (*termMsgCounterPtr)++;
 }

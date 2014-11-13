@@ -23,6 +23,64 @@
 FILE *term; //!< stream to write on terminal device
 FILE *lcd;  //!< stream to write lcd device
 
+outputTaskData_t outputTaskData;  //!< Variable for transmitting information from InputTask to OutputTask
+OS_EVENT *outputTaskDataMutex;    //!< Mutex for secured variable acces
+
+uint8_t init_outputTaskDataTxRx(OS_EVENT* mutex, outputTaskData_t* data){
+  uint8_t err;
+  systemState_t systemState = {
+      .operationalStatus = FUNCTIONAL,
+      .activeUseCase = STOP
+  };
+
+  if(NULL == mutex || NULL == data){
+    err = OS_ERR_INVALID_OPT;
+  }else{
+    mutex = OSMutexCreate(3, &err);
+    if(OS_NO_ERR == err){
+      data->ctrlReg = 0;
+      data->stepsReg = 0;
+      data->speedReg = 0;
+      data->systemState = systemState;
+    }
+  }
+  return err;
+}
+
+uint8_t outputTaskDataTx(OS_EVENT* mutex, outputTaskData_t data){
+  uint8_t err;
+
+  if(NULL == mutex){
+    err = OS_ERR_INVALID_OPT;
+  }else
+    OSMutexPend(mutex, 0, &err);
+    if(OS_NO_ERR == err){
+      outputTaskData.ctrlReg = data.ctrlReg;
+      outputTaskData.speedReg = data.speedReg;
+      outputTaskData.stepsReg = data.stepsReg;
+      outputTaskData.systemState = data.systemState;
+      err = OSMutexPost(mutex);
+    }
+    return err;
+}
+
+uint8_t outputTaskDataRx(OS_EVENT* mutex, outputTaskData_t *data){
+  uint8_t err;
+
+  if(NULL == mutex || NULL == data){
+    err = OS_ERR_INVALID_OPT;
+  }else
+    OSMutexPend(mutex, 0, &err);
+    if(OS_NO_ERR == err){
+      data->ctrlReg = outputTaskData.ctrlReg;
+      data->stepsReg = outputTaskData.stepsReg;
+      data->speedReg = outputTaskData.speedReg;
+      data->systemState = outputTaskData.systemState;
+      err = OSMutexPost(mutex);
+    }
+    return err;
+}
+
 void init_term(void) {
   term = fopen(JTAG_UART_NAME, "w");
 }

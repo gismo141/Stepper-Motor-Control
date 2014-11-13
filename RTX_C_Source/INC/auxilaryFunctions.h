@@ -32,9 +32,42 @@
 #include "includes.h"
 #include "lcdDOGM162.h"
 #include "altera_avalon_lcd_16207_regs.h"
+#include "dataTypes.h"
 
 #define VERSION           "1.0"         //!< global version definition
 #define DATE              "11.11.2014"  //!< global date definition
+
+/**
+ * @brief  Initializes the interprocess communication between OutputTask and
+ * InputTask
+ * @details Transmission is done via global variable and secured by mutex.
+ * @param   mutex   Mutex for secured access to variable. Will be created here.
+ * @param   data    Pointer to global var. Just to check if var exists and for
+ *                  initialize it.
+ * @retval  err     System wide error code. "OS_ERR_INVALID_OPT" means param
+ *                  was NULL.
+ */
+uint8_t init_outputTaskDataTxRx(OS_EVENT* mutex, outputTaskData_t* data);
+
+/**
+ * @brief  Sends data to ipc channel
+ * @details Stores data in global variable
+ * @param   mutex   Mutex for secured access to variable. Will be created here.
+ * @param   data    Data to store in global var.
+ * @retval  err     System wide error code. "OS_ERR_INVALID_OPT" means param
+ *                  was NULL.
+ */
+uint8_t outputTaskDataTx(OS_EVENT* mutex, outputTaskData_t data);
+
+/**
+ * @brief  Received data from ipc channel
+ * @details Reads data of global variable
+ * @param   mutex   Mutex for secured access to variable. Will be created here.
+ * @param   data    Pointer to storage for the data of the global var.
+ * @retval  err     System wide error code. "OS_ERR_INVALID_OPT" means param
+ *                  was NULL.
+ */
+uint8_t outputTaskDataRx(OS_EVENT* mutex, outputTaskData_t *data);
 
 /**
  * @brief  Initializes terminal output
