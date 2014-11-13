@@ -3,8 +3,8 @@
  * @file       heartbeatTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
- * @date       11.11.2014
+ * @version    v1.1
+ * @date       13.11.2014
  * @brief      Header file for heartbeatTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
@@ -23,6 +23,8 @@
  *             - corrected documentation
  * @details    03.11. Kossmann
  *             - fixed some minor syntax mistakes to get flawless compile
+ * @details    13.11. Kossmann
+ *             - moved all own data types to dataTypes.h
  *****************************************************************************
  */
 
@@ -35,26 +37,13 @@
 #include "hardwareAccess.h"
 #include "registerAccess.h"
 #include "debugAndErrorOutput.h"
+#include "dataTypes.h"
 
 #define LOWER_O (0b1011100) //!< represents the letter **o** in the **lower** HEX-segments
 #define UPPER_O (0b1100011) //!< represents the letter **o** in the **upper** HEX-segments
 #define LINE    (0b1000000) //!< represents a centered **bar** in the HEX-segments
 #define LED_ON	(0x1)		//!< turn the led on
 #define LED_OFF (0x0)		//!< turn the led off
-
-/**
- * @brief   The state-machine for the heartbeat.
- * 
- * @details | state  | red LED9 | HEX3-display |
- *          | ------ | -------- | ------------ |
- *          | FIRST  | on       | LINE         |
- *          | SECOND | off      | LOWER_O      |
- *          | THIRD  | on       | LINE         |
- *          | FOURTH | off      | UPPDER_O     |
- */
-typedef enum heartbeatState {
-  FIRST = 1, SECOND = 2, THIRD = 3, FOURTH = 4
-} heartbeatState_t;
 
 /**
  * @brief   The task for the hearbeat and the debug-mode.

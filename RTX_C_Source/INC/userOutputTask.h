@@ -3,8 +3,8 @@
  * @file       userOutputTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
- * @date       11.11.2014
+ * @version    v1.1
+ * @date       13.11.2014
  * @brief      Header file for userOutputTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
@@ -14,6 +14,8 @@
  *             - first draft for milestone 1b
  * @details    30.10. Kossmann
  *             - added debug and error handling header
+ * @details    13.11. Kossmann
+ *             - moved all own data types to dataTypes.h
  *****************************************************************************
  */
 
@@ -62,7 +64,7 @@ void UserOutputTask(void *pdata);
  * @param   [in] termMsgCounterPtr : Pointer to actual message counter
  * @retval  None
  */
-void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
+void printTerminalInfo(outputTaskData_t *outputTaskDataPtr,
     uint32_t *termMsgCounterPtr);
 
 #endif // __USER_OUTPUT_TASK_H__
