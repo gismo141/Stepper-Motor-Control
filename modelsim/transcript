@@ -1,0 +1,63 @@
+# Compile of register_interface.vhd was successful.
+# Compile of register_interface_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors. 
+vsim work.register_interface_tb
+# vsim work.register_interface_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_signed(body)
+# Loading work.register_interface_tb(register_interface_tb_arch)
+# Loading work.register_interface(my_register_interface)
+add wave -position insertpoint  \
+sim:/register_interface_tb/MyParameter \
+sim:/register_interface_tb/write_n \
+sim:/register_interface_tb/greenleds \
+sim:/register_interface_tb/addr \
+sim:/register_interface_tb/clock \
+sim:/register_interface_tb/ce_n \
+sim:/register_interface_tb/reset_n \
+sim:/register_interface_tb/read_n \
+sim:/register_interface_tb/redleds \
+sim:/register_interface_tb/write_data \
+sim:/register_interface_tb/debug_n \
+sim:/register_interface_tb/irq \
+sim:/register_interface_tb/read_data
+run
+# Compile of register_interface.vhd was successful.
+# Compile of register_interface_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors. 
+run
+# Compile of register_interface.vhd was successful.
+# Compile of register_interface_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors. 
+# Compile of register_interface.vhd was successful.
+# Compile of register_interface_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors. 
+run
+restart
+# Loading work.register_interface_tb(register_interface_tb_arch)
+# Loading work.register_interface(my_register_interface)
+run
+add wave -position insertpoint  \
+sim:/register_interface_tb/DUT/MyParameter \
+sim:/register_interface_tb/DUT/clock \
+sim:/register_interface_tb/DUT/reset_n \
+sim:/register_interface_tb/DUT/ce_n \
+sim:/register_interface_tb/DUT/read_n \
+sim:/register_interface_tb/DUT/write_n \
+sim:/register_interface_tb/DUT/addr \
+sim:/register_interface_tb/DUT/write_data \
+sim:/register_interface_tb/DUT/debug_n \
+sim:/register_interface_tb/DUT/read_data \
+sim:/register_interface_tb/DUT/irq \
+sim:/register_interface_tb/DUT/greenleds \
+sim:/register_interface_tb/DUT/redleds \
+sim:/register_interface_tb/DUT/ctrlReg \
+sim:/register_interface_tb/DUT/ctrlSetReg \
+sim:/register_interface_tb/DUT/ctrlClrReg \
+sim:/register_interface_tb/DUT/speedReg \
+sim:/register_interface_tb/DUT/stepsReg
+restart
+run
