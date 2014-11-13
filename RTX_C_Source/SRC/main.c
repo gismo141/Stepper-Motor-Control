@@ -3,10 +3,10 @@
  * @file        main.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
- * @date        22.10.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Main-Routine for Stepper-Motor-Control
- * @todoH       finish motor isr registration
+ * @todo        finish motor isr registration for MS2
  *****************************************************************************
  * @par History:
  * @details     22.10. Riedel & Kossmann
@@ -93,8 +93,6 @@ int main(void) {
   //  //init motor ISR
   //  alt_ic_isr_register(..., ..., motorIRQhandler, (void *) &ISRcontext, NULL);
   //  alt_ic_irq_enable(..., ...);
-  //  // Enable Interrupt and Reset
-  //  SetMotorReg(...);
 
   OSStart();
   return 0;

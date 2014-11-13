@@ -3,8 +3,8 @@
  * @file        switchesIRQhandler.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
- * @date        21.10.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       IRQ-handler for switches
  *****************************************************************************
  * @par History:
@@ -23,29 +23,22 @@
  * @details     04.11. Riedel & Kossmann
  *              - removed debug printouts because they are critical
  *              - added flushing queue before posting
+ * @details     11.11. Riedel & Kossmann
+ *              - replaced messageQueue with SW_UPDATE_EVENT
+ *              - moved PIO_SW_GetValues() in InputTask
  *****************************************************************************
  */
 
 #include "../INC/switchesIRQhandler.h"
 
-extern OS_EVENT *switchesMsgQueue;
-
 void switchesIRQhandler(void *context) {
   uint8_t err;
-  uint32_t switches;
 
   OSIntEnter();
 
-  // clear messageQueue
-  err = OSQFlush(switchesMsgQueue);
+  OSFlagPost(userInputTaskFlagsGrp, SW_UPDATE_EVENT, OS_FLAG_SET, &err);
   if (OS_NO_ERR != err) {
-    error("SW_ISR_MBOX_ERR: %i\n", err);
-  }
-  switches = PIO_SW_GetValues();
-  // create and send Mailbox-Message with switches values
-  err = OSQPost(switchesMsgQueue, (void*) switches);
-  if (OS_NO_ERR != err) {
-    error("SW_ISR_MBOX_ERR: %i\n", err);
+    error("SW_ISR_FLAG_ERR: %i\n", err);
   }
   // reset IR-Bits
   PIO_SW_ClearEdgeCptBits(

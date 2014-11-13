@@ -14,7 +14,7 @@
 --!          	- first draft
 --! @details 	07.11. Kossmann
 --!          	- finished reset_n task
------------------------------------------------------------------------------
+-------------------sim:/register_interface_tb----------------------------------------------------------
 
 
 --! Use Standard Library
@@ -86,14 +86,12 @@ begin
 				ctrlClrReg, speedReg, stepsReg) 
 	begin
 	if(reset_n = '0') then
-	  irq                     <= '0';
-	  greenleds(7 downto 0)   <= (others => '0');
-	  redleds(7 downto 0)     <= (others => '0');
 		ctrlReg(7 downto 0)     <= (others => '0');
 		ctrlSetReg(7 downto 0) 	<= (others => '0');
 		ctrlClrReg(7 downto 0) 	<= (others => '0');
 		speedReg(2 downto 0) 	  <= (others => '0');
 		stepsReg(31 downto 0) 	 <= (others => '0');
+		read_data(31 downto 0) 	<= (others => '0');
 	elsif(rising_edge(clock)) then
 		-- Processor writes to Register
 		if (write_n = '0' AND ce_n = '0') then
@@ -111,17 +109,21 @@ begin
 			when others =>
 			end case;
 		end if;
-		
 		-- set and clear functionality for ctrlReg
 		if(CONV_INTEGER(ctrlSetReg) /= 0) then
 			ctrlReg <= ctrlReg or ctrlSetReg;
 			ctrlSetReg <= (others => '0');
-		end if;
+		end if;		-- set interrupt
+		irq <= ctrlReg(6) and ctrlReg(7);
+		-- clone ctrlReg to red leds
+	  redleds <= ctrlReg;
+	  -- clone speedReg to green leds
+	  greenleds(2 downto 0) <= speedReg;
+	  greenleds(7 downto 3) <= (others => '0');
 		if(CONV_INTEGER(ctrlClrReg) /= 0) then
 			ctrlReg <= ctrlReg and ctrlClrReg;
 			ctrlClrReg <= (others => '0');
 		end if;
-		
 	end if;
 		-- Processor reads from Register
 		read_data <= (others => '0'); -- unused bits to 0
@@ -141,15 +143,15 @@ begin
 				read_data(31 downto 0) <= (others => '0');
 			end case;
 		end if;
-		
-		-- set interrupt
-		irq <= ctrlReg(6) and ctrlReg(7);
-		-- clone ctrlReg to red leds
-	  redleds <= ctrlReg;
-	  -- clone speedReg to green leds
-	  greenleds(2 downto 0) <= speedReg;
-	  greenleds(7 downto 3) <= (others => '0');
-		
+				
 	end process;
+	
+	-- set interrupt
+	irq <= ctrlReg(6) and ctrlReg(7);
+	-- clone ctrlReg to red leds
+	redleds <= ctrlReg;
+	-- clone speedReg to green leds
+	greenleds(2 downto 0) <= speedReg;
+	greenleds(7 downto 3) <= (others => '0');
 		
 end my_register_interface;

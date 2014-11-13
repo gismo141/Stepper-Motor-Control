@@ -3,8 +3,8 @@
  * @file       motorIRQhandler.c
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v0.1
- * @date       21.10.2014
+ * @version    v1.0
+ * @date       11.11.2014
  * @brief      IRQ-handler for motor stopped
  *****************************************************************************
  * @par History:
@@ -15,6 +15,8 @@
  *             - moved function-documentation to header-file
  * @details    02.11. Riedel
  *             - finalized ISR-functionality
+ * @details    11.11. Riedel & Kossmann
+ *             - Adapted code to new registerAccess.h (using ctrlRegBitClr/-Set)
  *****************************************************************************
  */
 
@@ -31,8 +33,7 @@ void motorIRQhandler(void *context) {
 
   if (ctrlReg & CTRL_REG_IE_MSK) {
     // Clear request
-    ctrlReg &= ~(CTRL_REG_IR_MSK);
-    ctrlRegSet(ctrlReg);
+    ctrlRegBitClr(CTRL_REG_IR_MSK);
 
     // Send the event
     OSFlagPost(userInputTaskFlagsGrp, MOTOR_STOP_EVENT, OS_FLAG_SET, &err);

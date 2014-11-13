@@ -3,8 +3,8 @@
  * @file       heartbeatTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v0.1
- * @date       22.10.2014
+ * @version    v1.0
+ * @date       11.11.2014
  * @brief      Header file for heartbeatTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.

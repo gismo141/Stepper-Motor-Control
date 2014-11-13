@@ -3,8 +3,8 @@
  * @file       main.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v0.1
- * @date       22.10.2014
+ * @version    v1.0
+ * @date       11.11.2014
  * @brief      Header file for main.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
@@ -18,16 +18,19 @@
  *             - added debug and error handling header
  * @details    31.10. Riedel & Kossmann
  *             - corrected misspelled heartbeatTask
+ * @details    11.11. Riedel & Kossmann
+ *             - added INTERRUPT_ENABLE define to enable motor interrupt
  ****************************************************************************
  */
 
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#define INTERRUPT_ENABLE                //!< global interrupts are enabled (1) or disabled (0)
+
 #include <sys/alt_irq.h>
 #include <stdio.h>
 #include <stdint.h>
-#include <math.h>
 #include "includes.h"
 #include "auxilaryFunctions.h"
 #include "userInputTask.h"
@@ -38,6 +41,7 @@
 #include "keysIRQhandler.h"
 #include "motorIRQhandler.h"
 #include "debugAndErrorOutput.h"
+#include "registerAccess.h"
 
 /** @brief Definition of Task Stacks */
 #define   TASK_STACKSIZE       2048

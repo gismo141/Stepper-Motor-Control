@@ -3,8 +3,8 @@
  * @file       userInputTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v0.1
- * @date       22.10.2014
+ * @version    v1.0
+ * @date       11.11.2014
  * @brief      Header file for userInputTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
@@ -43,6 +43,8 @@
 
 #include "auxilaryFunctions.h"
 #include "debugAndErrorOutput.h"
+
+#define CTRL_REG_0_6_MSK     (0b01111111)  //!< Bits 0..6 in ctrlReg
 
 /** @brief    general state of system */
 typedef enum state {

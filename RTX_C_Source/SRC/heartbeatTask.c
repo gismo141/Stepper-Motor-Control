@@ -3,8 +3,8 @@
  * @file        heartbeatTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
- * @date        30.10.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Source code of heartbeatTask which shows that scheduling is
  *              working. Also used for debuging.
  *****************************************************************************
@@ -17,6 +17,8 @@
  *              - finilized heartbeat functionality
  * @details     02.11. Riedel
  *              - finalized Debug functionality
+ * @details     11.11. Riedel & Kossmann
+ *              - switched stepsReg-inc/dec in debug-mode
  *****************************************************************************
  */
 
@@ -45,7 +47,7 @@ void HeartbeatTask(void *pdata) {
       if(debug){
         debugAndHeartbeat(heartbeatStatePtr);
       }else{
-      nextHeartbeatStep(heartbeatStatePtr);
+        nextHeartbeatStep(heartbeatStatePtr);
       }
     }
   }
@@ -89,9 +91,10 @@ void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr) {
     if (ctrlReg & CTRL_REG_RS_MSK) {
       // Is Dir-Bit == 1? (RIGHT)
       if (ctrlReg & CTRL_REG_LR_MSK) {
+        stepsRegSet(stepsRegGet() + 10);
+      }else{
         stepsRegSet(stepsRegGet() - 10);
       }
-      stepsRegSet(stepsRegGet() + 10);
     }
 
     // Debug things done -> next step of heartbeat-cycle...
@@ -99,6 +102,5 @@ void debugAndHeartbeat(heartbeatState_t *heartbeatStatePtr) {
     nextHeartbeatStep(heartbeatStatePtr);
   }
   // Set IR
-  ctrlReg |= CTRL_REG_IR_MSK;
-  ctrlRegSet(ctrlReg);
+  ctrlRegBitSet(CTRL_REG_IR_MSK);
 }

@@ -3,11 +3,10 @@
  * @file        userOutputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
- * @date        2.10.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Source code for User-Output-Task which communications with
  *              the user and shows him system information
- * @todoH       Fix mode positions and lcd output
  ******************************************************************************
  * @par History:
  * @details     21.10. Kossmann
@@ -16,6 +15,8 @@
  *              - added error handling for flags and mailboxes
  * @details     06.11. Riedel
  *              - added usage of new LCD-functions
+ * @details     11.11. Riedel & Kossmann
+ *              - moved 1 second wait to userInputTask
  ******************************************************************************
  */
 
@@ -52,9 +53,9 @@ void UserOutputTask(void *pdata) {
         oldMotorRunning = false;
         printTerminalInfo(outputTaskMboxContentPtr, &termMsgCounter);
       }
+      // output of stepsReg every second when motor running
       if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
         printf_term("Steps: %i\n", outputTaskMboxContentPtr->stepsReg);
-        OSTimeDlyHMSM(0, 0, 0, 100);
       }
       /***********************************************************************/
 
@@ -68,7 +69,7 @@ void UserOutputTask(void *pdata) {
       printf_lcd("M:%i%i%i%i", (modeBits & 0x8)>> 3, (modeBits & 0x4)>> 2,
                  (modeBits & 0x2)>>1, (modeBits & 0x1));
       setPos_lcd(1, 13);
-      printf_lcd("v0.1");
+      printf_lcd("v%s", VERSION);
       if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
         setPos_lcd(2, 1);
         printf_lcd("Running");
@@ -153,6 +154,7 @@ void UserOutputTask(void *pdata) {
 
 void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
     uint32_t *termMsgCounterPtr) {
+  uint8_t modeBits;
   printf_term("Message Nr. #%i\n", *termMsgCounterPtr);
   if (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_RS_MSK) {
     printf_term("Motor: Running ");
@@ -164,23 +166,25 @@ void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
   } else {
     printf_term("left\n");
   }
-  printf_term("Mode: %X, ",
-      outputTaskMboxContentPtr->ctrlReg & CTRL_REG_MODE_MSK);
+  modeBits = (outputTaskMboxContentPtr->ctrlReg
+                     & CTRL_REG_MODE_MSK) >> 2;
+  printf_term("M:%i%i%i%i", (modeBits & 0x8)>> 3, (modeBits & 0x4)>> 2,
+             (modeBits & 0x2)>>1, (modeBits & 0x1));
   switch (outputTaskMboxContentPtr->systemState.activeUseCase) {
   case STOP:
     printf_term("Stop\n");
     break;
   case QUARTER_ROTATION:
-    printf_term("1/4 Rotation\n");
+    printf_term("Chain of Steps - 1/4 rotation\n");
     break;
   case HALF_ROTATION:
-    printf_term("1/2 Rotation\n");
+    printf_term("Chain of Steps - 1/2 rotation\n");
     break;
   case FULL_ROTATION:
-    printf_term("1 Rotation\n");
+    printf_term("Chain of Steps - 1 rotation\n");
     break;
   case DOUBLE_ROTATION:
-    printf_term("2 Rotations\n");
+    printf_term("Chain of Steps - 2 rotations\n");
     break;
   case CONTINOUS:
     printf_term("Continous Run\n");
@@ -190,9 +194,9 @@ void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
     break;
   }
   printf_term("Interrupt-Enable: %i\n",
-      outputTaskMboxContentPtr->ctrlReg & CTRL_REG_IE_MSK);
+      (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_IE_MSK)>> 6);
   printf_term("Interrupt-Request: %i\n",
-      outputTaskMboxContentPtr->ctrlReg & CTRL_REG_IR_MSK);
+      (outputTaskMboxContentPtr->ctrlReg & CTRL_REG_IR_MSK)>> 7);
   printf_term("Speed-Step: %i\n", outputTaskMboxContentPtr->speedReg);
   printf_term("Steps: %i\n", outputTaskMboxContentPtr->stepsReg);
   (*termMsgCounterPtr)++;

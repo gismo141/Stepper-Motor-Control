@@ -3,10 +3,28 @@
  * @file       registerAccess.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v0.1
- * @date       02.11.2014
+ * @version    v1.0
+ * @date       11.11.2014
  * @brief      Header file with inline functions to access the registers that
  *             are used by the Stepper-Motor-Control VHDL-component.
+ * @details    The bitmask is as follows:
+ *  | Bit  | Function| Usage                                                             |
+ *  | :--: | :-----: | :-----------------------------------------------------------------|
+ *  | 7    | IR      | The Interrupt that will be set via the VHDL Stepper-Motor-Control |
+ *  | 6    | IE      | IE (Interrupt Enable) to enable the interrupt for Chain of Steps  |
+ *  | 2..5 | MODE    | Mode according to table below                                     |
+ *  | 1    | LR      | Turn the motor Left (0) or Right (1)                              |
+ *  | 0    | RS      | Run (1) or Stop (0) the motor                                     |
+ *
+ *  | Modes | Effect                        |
+ *  | :---: | :-----------------------------|
+ *  | xx00  | Stop                          |
+ *  | xx01  | Continuous Run                |
+ *  | 0010  | Chain of Steps (1/4 rotation) |
+ *  | 0110  | Chain of Steps (1/2 rotation) |
+ *  | 1010  | Chain of Steps (1 rotation)   |
+ *  | 1110  | Chain of Steps (2 rotations)  |
+ *  | other | reserved                      |
  *****************************************************************************
  * @par History:
  * @details    02.11. Riedel
@@ -17,6 +35,9 @@
  * @details    04.11. Kossmann
  *             - removed switches masks defines. They already exist in
  *             hardwareAccess.h
+ * @details    11.11. Riedel & Kossmann
+ *             - Moved register masks to headers' documentation
+ *             - Added ctrlRegBitClr and ctrlRegBitSet functions for bitwise control
  *****************************************************************************
  */
 
@@ -47,26 +68,8 @@ uint32_t  temporaryStepsReg;          //!< Temporary steps-register (only for mi
 uint8_t   temporarySpeedReg;          //!< Temporary speed-register (only for milestone 1b)
 
 /**
- * @brief   Sets the control-register with the given bits
- * @details The bitmask is as follows:
- *  | Bit  | Function| Usage                                                             |
- *  | :--: | :-----: | :-----------------------------------------------------------------|
- *  | 7    | IR      | The Interrupt that will be set via the VHDL Stepper-Motor-Control |
- *  | 6    | IE      | IE (Interrupt Enable) to enable the interrupt for Chain of Steps  |
- *  | 2..5 | MODE    | Mode according to table below                                     |
- *  | 1    | LR      | Turn the motor Left (0) or Right (1)                              |
- *  | 0    | RS      | Run (1) or Stop (0) the motor                                     |
- *
- *  | Modes | Effect                        |
- *  | :---: | :-----------------------------|
- *  | xx00  | Stop                          |
- *  | xx01  | Continuous Run                |
- *  | 0010  | Chain of Steps (1/4 rotation) |
- *  | 0110  | Chain of Steps (1/2 rotation) |
- *  | 1010  | Chain of Steps (1 rotation)   |
- *  | 1110  | Chain of Steps (2 rotations)  |
- *  | other | reserved                      |
- *
+ * @brief   Overwrites the complete CtrlReg
+ * @details CtrlReg content is stored in external register interface
  * @param   newCtrlReg The new register-content to set
  */
 static __inline__ void ctrlRegSet(uint8_t newCtrlReg) {
@@ -85,7 +88,7 @@ static __inline__ void ctrlRegSet(uint8_t newCtrlReg) {
 
 /**
  * @brief   Returns the actual content of the control-register.
- * @details The bitmask is used accordingly to the ctrlRegSet()-function
+ * @details CtrlReg content is stored in external register interface
  * @return  The actual content of the control-register
  */
 static __inline__ uint8_t ctrlRegGet(void) {
@@ -102,6 +105,46 @@ static __inline__ uint8_t ctrlRegGet(void) {
     error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
   }
   return ctrlReg;
+}
+
+/**
+ * @brief   Sets the CtrlReg bitwise
+ * @details Writes into ctrlSetReg in register interface which modifies the
+ *          ctrlReg accordingly.
+ * @param   bitsToSet Bits to set in CtrlReg
+ */
+static __inline__ void ctrlRegBitSet(uint8_t bitsToSet) {
+  uint8_t err;
+  OSMutexPend(registerMutex, 0, &err);
+  if (OS_NO_ERR == err) {
+    temporaryCtrlReg |= bitsToSet;
+  } else {
+    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if (OS_NO_ERR != err) {
+    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
+  }
+}
+
+/**
+ * @brief   Clears the CtrlReg bitwise
+ * @details Writes into ctrlClrReg in register interface which modifies the
+ *          ctrlReg accordingly.
+ * @param   bitsToSet Bits to set in CtrlReg
+ */
+static __inline__ void ctrlRegBitClr(uint8_t bitsToClr) {
+  uint8_t err;
+  OSMutexPend(registerMutex, 0, &err);
+  if (OS_NO_ERR == err) {
+    temporaryCtrlReg &= ~(bitsToClr);
+  } else {
+    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
+  }
+  err = OSMutexPost(registerMutex);
+  if (OS_NO_ERR != err) {
+    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
+  }
 }
 
 /**

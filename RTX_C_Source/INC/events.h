@@ -3,8 +3,8 @@
  * @file       events.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v0.1
- * @date       27.10.2014
+ * @version    v1.0
+ * @date       11.11.2014
  * @brief      definitions for used events
  *****************************************************************************
  * @par History:
@@ -26,10 +26,11 @@
  *          by the user.
  */
 OS_FLAG_GRP *userInputTaskFlagsGrp;
-#define KEY0_RS_EVENT       (0x1) //!< runs or stops the motor via `key_0`
-#define KEY2_MINUS_EVENT    (0x2) //!< decreases the steps to turn via `key_2`
-#define KEY3_PLUS_EVENT     (0x4) //!< increases the steps to turn via `key_3`
-#define MOTOR_STOP_EVENT    (0x8) //!< the interrupt is sent via VHDL-Component, when the motor reached its end-position
+#define KEY0_RS_EVENT       (0b00001) //!< runs or stops the motor via `key_0`
+#define KEY2_MINUS_EVENT    (0b00010) //!< decreases the steps to turn via `key_2`
+#define KEY3_PLUS_EVENT     (0b00100) //!< increases the steps to turn via `key_3`
+#define MOTOR_STOP_EVENT    (0b01000) //!< the interrupt is sent via VHDL-Component, when the motor reached its end-position
+#define SW_UPDATE_EVENT     (0b10000) //!< signalizes that switches changed
 /**
  * @brief The flags group used in the heartbeat-task and user-input-task.
  * @details This group contains the debug-event that can be triggered via `sw_9`.

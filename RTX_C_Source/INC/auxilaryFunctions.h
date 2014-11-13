@@ -3,8 +3,8 @@
  * @file        auxilaryFunctions.h
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
- * @date        22.10.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Header file for auxilaryFunctions.c
  * @details     Contains defines, includes, typedefs and declarations needed for
  *              auxilary functions.
@@ -32,6 +32,9 @@
 #include "includes.h"
 #include "lcdDOGM162.h"
 #include "altera_avalon_lcd_16207_regs.h"
+
+#define VERSION           "1.0"         //!< global version definition
+#define DATE              "11.11.2014"  //!< global date definition
 
 /**
  * @brief  Initializes terminal output

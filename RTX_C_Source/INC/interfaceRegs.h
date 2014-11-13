@@ -3,8 +3,8 @@
  * @file       interfaceRegs.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v0.1
- * @date       21.10.2014
+ * @version    v1.0
+ * @date       11.11.2014
  * @brief      Register file for interface-component
  * @details    definition of interface
  * @verbatim

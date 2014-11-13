@@ -3,8 +3,8 @@
  * @file        auxilaryFunctions.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
- * @date        28.10.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Collection of auxilary functions, mainly output functions
  *****************************************************************************
  * @par History:

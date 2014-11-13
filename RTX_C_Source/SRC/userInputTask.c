@@ -3,13 +3,10 @@
  * @file        userInputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
- * @date        22.10.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Source code for User-Input-Task which is highest instance, reacts
  *              to user input and controls register and hardware access
- * @todoL       `systemState` should be read by another function to symbolize the
- *              execution of the MCU later in VHDL.
- * @todoM       react to IR-Bit in ctrlReg ste by heartbeat-Task
  *****************************************************************************
  * @par History:
  * @details     22.10. Kossmann
@@ -32,6 +29,10 @@
  *              - added usage of new LCD-functions
  * @details     07.11. Riedel & Kossmann
  *              - added DEBUG_OFF_EVENT for turning debug on heartbeatTask off
+ * @details     11.11. Riedel & Kossmann
+ *              - replaced messageQueue with SW_UPDATE_EVENT
+ *              - moved PIO_SW_GetValues() in InputTask
+ *              - moved 1 second wait from userOutputTask
  *****************************************************************************
  */
 
@@ -40,7 +41,6 @@
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
-OS_EVENT *switchesMsgQueue; //!< Message Queue for transmitting the switches values
 OS_EVENT *outputTaskMailbox; //!< Mailbox for transmitting information from InputTask to OutputTask
 OS_EVENT *registerMutex; //!< Mutex for protected access to the registers
 
@@ -49,9 +49,10 @@ void UserInputTask(void *pdata) {
   uint32_t modeBits;
   OS_FLAGS newFlag;
 
-
   bool newInput = false;
 
+  // used to check for stepsReg update
+  uint32_t oldStepsReg = 0;
   // register copies to work with
   uint8_t ctrlReg = 0;
   uint8_t speedReg = 0;
@@ -72,14 +73,10 @@ void UserInputTask(void *pdata) {
       .stepsReg = 0
   };
 
-  // declare message and messageQueue
-  void *msg;
-  void *msgQueue[1];
-
   // show initial terminal msg
   printf_term("Stepper Motor - System on a Chip 2014\n");
   printf_term("Michael Riedel & Marc Kossmann\n");
-  printf_term("Version 0.1 - 28.10.2014\n");
+  printf_term("Version %s - %s\n", VERSION, DATE);
 
   // init LC-Display and show initial screen
   init_lcd();
@@ -89,17 +86,18 @@ void UserInputTask(void *pdata) {
   printf_lcd("Stepper-Control");
   fflush_lcd();
 
-  //    hardwareTest();
-
   // create OS resources
   registerMutex = OSMutexCreate(3, &err);
+  // Enable Interrupt
+  #ifdef INTERRUPT_ENABLE
+    ctrlRegBitSet(CTRL_REG_IE_MSK);
+  #endif
+  ctrlRegBitClr(CTRL_REG_IR_MSK);
   if ((OS_EVENT *) 0 == registerMutex || OS_NO_ERR != err) {
     error("REGISTER_MUTEX_CREATE_ERR: %i\n", err);
   } else {
-    switchesMsgQueue = OSQCreate(msgQueue, 1);
     outputTaskMailbox = OSMboxCreate(&outputTaskMailboxContent);
-    if ((OS_EVENT *) 0 == switchesMsgQueue
-        || (OS_EVENT *) 0 == outputTaskMailbox) {
+    if ((OS_EVENT *) 0 == outputTaskMailbox) {
       error("INPUT_TASK_MBOX_MSGQ_ERR: %i\n", err);
     } else {
       while (1) {
@@ -111,7 +109,7 @@ void UserInputTask(void *pdata) {
         newFlag =
             OSFlagPend(userInputTaskFlagsGrp,
                 (KEY0_RS_EVENT | KEY2_MINUS_EVENT | KEY3_PLUS_EVENT
-                    | MOTOR_STOP_EVENT), OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME,
+                    | MOTOR_STOP_EVENT| SW_UPDATE_EVENT), OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME,
                 10, &err);
         if (OS_NO_ERR == err) {
           newInput = true;
@@ -149,12 +147,10 @@ void UserInputTask(void *pdata) {
         } else if (OS_TIMEOUT != err) {
           error("INPUT_TASK_FLAG_ERR: %i\n", err);
         }
-
-        // check for new switches message
-        msg = OSQPend(switchesMsgQueue, 10, &err);
-        if (OS_NO_ERR == err) {
-          newInput = true;
-          switchesReg = (uint32_t) msg;
+        // check for switches event
+        if (newFlag & SW_UPDATE_EVENT) {
+          // get current sw events
+          switchesReg = PIO_SW_GetValues();
           // evaluate switch positions
           if (switchesReg & PIO_SW_LR_MSK) {
             ctrlReg |= CTRL_REG_LR_MSK;
@@ -185,8 +181,6 @@ void UserInputTask(void *pdata) {
               }
             }
           }
-        } else if (OS_TIMEOUT != err) {
-          error("INPUT_TASK_MBOX_ERR: %i\n", err);
         }
 
         // change systemState when Run-Bit = 1
@@ -206,18 +200,25 @@ void UserInputTask(void *pdata) {
             systemState.activeUseCase = DOUBLE_ROTATION;
           }
         }
-        if (newInput) {
+        // new user input or stepsReg updated when motor running
+        if (newInput | ((ctrlReg & CTRL_REG_RS_MSK) & (oldStepsReg != stepsReg))){
           // update content of mailbox to outputTask
           outputTaskMailboxContent.ctrlReg = ctrlReg;
           outputTaskMailboxContent.speedReg = speedReg;
-          outputTaskMailboxContent.stepsReg = stepsReg;
+          // wait 1 second when steps reg updated
+          if((ctrlReg & CTRL_REG_RS_MSK) & (oldStepsReg != stepsReg)){
+            oldStepsReg = stepsReg;
+            outputTaskMailboxContent.stepsReg = stepsReg;
+            OSTimeDlyHMSM(0, 0, 1, 0);
+          }
           outputTaskMailboxContent.systemState = systemState;
           err = OSMboxPost(outputTaskMailbox, &outputTaskMailboxContent);
           if (OS_NO_ERR != err) {
             error("INPUT_TASK_MBOX_ERR: %i\n", err);
           }
           // write values of register copies into real registers
-          ctrlRegSet(ctrlReg);
+          ctrlRegBitClr(CTRL_REG_0_6_MSK);
+          ctrlRegBitSet(ctrlReg & CTRL_REG_0_6_MSK);
           speedRegSet(speedReg);
           newInput = false;
         }
