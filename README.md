@@ -33,7 +33,7 @@ The development is devided into 4 so-called *milestones*:
   - Proof-of-Concept with working C-Sources
   - complete Doxygen-documentation
 
-##### 2. NIOS II/s Base-Software with register-interface
+##### [2. NIOS II/s Base-Software with register-interface](Documentation/Milestone_2/Meilenstein_2.md)
 
 - presenting the solution
     + show control-status (`ctrlReg`) on red-LEDs ([chapter 8.2.4]())
