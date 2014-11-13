@@ -1,11 +1,9 @@
 var searchData=
 [
   ['icon0_5fbooster1_5fcontrast_5fc4_5f0_5fc5_5f1',['ICON0_BOOSTER1_CONTRAST_C4_0_C5_1',['../lcd_d_o_g_m162_8h.html#afa30d374d719e81fcc71adc7956d6de5',1,'lcdDOGM162.h']]],
-  ['ieee',['ieee',['../classinterface___r_t_x___base.html#a0a6af6eef40212dbaf130d57ce711256',1,'interface_RTX_Base.ieee()'],['../classinterface.html#a0a6af6eef40212dbaf130d57ce711256',1,'interface.ieee()'],['../classkey_detect.html#a0a6af6eef40212dbaf130d57ce711256',1,'keyDetect.ieee()']]],
+  ['ieee',['ieee',['../classinterface___r_t_x___base.html#a0a6af6eef40212dbaf130d57ce711256',1,'interface_RTX_Base']]],
   ['init_5flcd',['init_lcd',['../auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2',1,'init_lcd(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#aafed2ade168a085630c2fe8d776432f2',1,'init_lcd(void):&#160;auxilaryFunctions.c']]],
   ['init_5fterm',['init_term',['../auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e',1,'init_term(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e',1,'init_term(void):&#160;auxilaryFunctions.c']]],
-  ['interface',['interface',['../classinterface.html',1,'']]],
-  ['interface_2evhd',['interface.vhd',['../interface_8vhd.html',1,'']]],
   ['interface_5fgreenled_5fmsk',['INTERFACE_GREENLED_MSK',['../interface_regs_8h.html#a6b007e8ebf1f0c50b0b6ddab78b9d5c5',1,'interfaceRegs.h']]],
   ['interface_5fgreenled_5freg',['INTERFACE_GREENLED_REG',['../interface_regs_8h.html#a9ea24735419bae9c073094d9141a6f9d',1,'interfaceRegs.h']]],
   ['interface_5fkey_5fie0_5fmsk',['INTERFACE_KEY_IE0_MSK',['../interface_regs_8h.html#a93406873edb1e62cf5c34c5ce0d58db8',1,'interfaceRegs.h']]],
@@ -28,6 +26,7 @@ var searchData=
   ['interface_5fswitch_5fmsk',['INTERFACE_SWITCH_MSK',['../interface_regs_8h.html#ab0a3114a64692b840372fafcae1d4966',1,'interfaceRegs.h']]],
   ['interface_5fswitch_5freg',['INTERFACE_SWITCH_REG',['../interface_regs_8h.html#af6d41b6ec43a7233356c307549d2afc9',1,'interfaceRegs.h']]],
   ['interfaceregs_2eh',['interfaceRegs.h',['../interface_regs_8h.html',1,'']]],
+  ['interrupt_5fenable',['INTERRUPT_ENABLE',['../main_8h.html#acf43057fc38f77d20456c074909ba772',1,'main.h']]],
   ['ioaddr_5finterface_5fgreenled',['IOADDR_INTERFACE_GREENLED',['../interface_regs_8h.html#a6513fa7f141844e36db47998c29905a4',1,'interfaceRegs.h']]],
   ['ioaddr_5finterface_5fkey',['IOADDR_INTERFACE_KEY',['../interface_regs_8h.html#a3cd1d39711f6877359a2ee58b3edb35a',1,'interfaceRegs.h']]],
   ['ioaddr_5finterface_5fredled',['IOADDR_INTERFACE_REDLED',['../interface_regs_8h.html#aea3180b6e550c49fc882db4f0eacbad1',1,'interfaceRegs.h']]],
@@ -40,6 +39,5 @@ var searchData=
   ['iowr_5finterface_5fgreenled',['IOWR_INTERFACE_GREENLED',['../interface_regs_8h.html#aa4903a81d857d6a66b583e1a99b4a3c5',1,'interfaceRegs.h']]],
   ['iowr_5finterface_5fkey',['IOWR_INTERFACE_KEY',['../interface_regs_8h.html#accd562257e3ca02c780e31d548867cb9',1,'interfaceRegs.h']]],
   ['iowr_5finterface_5fredled',['IOWR_INTERFACE_REDLED',['../interface_regs_8h.html#a65c99ac17e90413304fb34560693fbc0',1,'interfaceRegs.h']]],
-  ['irq',['irq',['../classinterface.html#ac9b654c757f80f124f02274781e7939c',1,'interface']]],
   ['isrcontext',['ISRcontext',['../main_8c.html#a95bce3f30c5782b913b2b4007fd206f0',1,'main.c']]]
 ];

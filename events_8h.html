@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stepper-Motor-Control
-   &#160;<span id="projectnumber">v0.1</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
    <div id="projectbrief">System on a Chip 2014 - Group 04</div>
   </td>
@@ -126,25 +126,33 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:abc6dd41fc67e290a2dfe87e6984c2999"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc6dd41fc67e290a2dfe87e6984c2999"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">KEY0_RS_EVENT</a>&#160;&#160;&#160;(0x1)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#abc6dd41fc67e290a2dfe87e6984c2999">KEY0_RS_EVENT</a>&#160;&#160;&#160;(0b00001)</td></tr>
 <tr class="memdesc:abc6dd41fc67e290a2dfe87e6984c2999"><td class="mdescLeft">&#160;</td><td class="mdescRight">runs or stops the motor via <code>key_0</code> <br /></td></tr>
 <tr class="separator:abc6dd41fc67e290a2dfe87e6984c2999"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af84520160425bf02b52498a6ab50b904"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af84520160425bf02b52498a6ab50b904"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#af84520160425bf02b52498a6ab50b904">KEY2_MINUS_EVENT</a>&#160;&#160;&#160;(0x2)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#af84520160425bf02b52498a6ab50b904">KEY2_MINUS_EVENT</a>&#160;&#160;&#160;(0b00010)</td></tr>
 <tr class="memdesc:af84520160425bf02b52498a6ab50b904"><td class="mdescLeft">&#160;</td><td class="mdescRight">decreases the steps to turn via <code>key_2</code> <br /></td></tr>
 <tr class="separator:af84520160425bf02b52498a6ab50b904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae532d4d8072619de3febc69ac6406564"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae532d4d8072619de3febc69ac6406564"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">KEY3_PLUS_EVENT</a>&#160;&#160;&#160;(0x4)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#ae532d4d8072619de3febc69ac6406564">KEY3_PLUS_EVENT</a>&#160;&#160;&#160;(0b00100)</td></tr>
 <tr class="memdesc:ae532d4d8072619de3febc69ac6406564"><td class="mdescLeft">&#160;</td><td class="mdescRight">increases the steps to turn via <code>key_3</code> <br /></td></tr>
 <tr class="separator:ae532d4d8072619de3febc69ac6406564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af198f5dba61ed9e85516d2b2ecb9d77e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">MOTOR_STOP_EVENT</a>&#160;&#160;&#160;(0x8)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">MOTOR_STOP_EVENT</a>&#160;&#160;&#160;(0b01000)</td></tr>
 <tr class="memdesc:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the interrupt is sent via VHDL-Component, when the motor reached its end-position <br /></td></tr>
 <tr class="separator:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3b6316b13dd8d3c68f8f31fedd8ec3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3b6316b13dd8d3c68f8f31fedd8ec3c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#ac3b6316b13dd8d3c68f8f31fedd8ec3c">SW_UPDATE_EVENT</a>&#160;&#160;&#160;(0b10000)</td></tr>
+<tr class="memdesc:ac3b6316b13dd8d3c68f8f31fedd8ec3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">signalizes that switches changed <br /></td></tr>
+<tr class="separator:ac3b6316b13dd8d3c68f8f31fedd8ec3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a005e6b62d17024e7bd9ea5ed6b1ceace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a005e6b62d17024e7bd9ea5ed6b1ceace"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#a005e6b62d17024e7bd9ea5ed6b1ceace">DEBUG_ON_EVENT</a>&#160;&#160;&#160;(0x1)</td></tr>
 <tr class="memdesc:a005e6b62d17024e7bd9ea5ed6b1ceace"><td class="mdescLeft">&#160;</td><td class="mdescRight">activates the debug-mode via <code>sw_9</code> <br /></td></tr>
 <tr class="separator:a005e6b62d17024e7bd9ea5ed6b1ceace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a036d4ab9c3e5c9e343054268d86a4084"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a036d4ab9c3e5c9e343054268d86a4084"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#a036d4ab9c3e5c9e343054268d86a4084">DEBUG_OFF_EVENT</a>&#160;&#160;&#160;(0x2)</td></tr>
+<tr class="memdesc:a036d4ab9c3e5c9e343054268d86a4084"><td class="mdescLeft">&#160;</td><td class="mdescRight">deactivates the debug-mode via <code>sw_9</code> <br /></td></tr>
+<tr class="separator:a036d4ab9c3e5c9e343054268d86a4084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -160,12 +168,13 @@ Variables</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Michael Riedel </dd>
 <dd>
 Marc Kossmann </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>27.10.2014 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>v1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11.11.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>27.10. Riedel</p><ul>
 <li>first draft for milestone 1b 30.10. Riedel</li>
-<li>Moved DEBUG_ON_EVENT from <a class="el" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. ">heartbeatTask.h</a> to this header </li>
+<li>Moved DEBUG_ON_EVENT from <a class="el" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. ">heartbeatTask.h</a> to this header 07.11. Kossmann</li>
+<li>added DEBUG_OFF_EVENT </li>
 </ul>
 
 <p>Definition in file <a class="el" href="events_8h_source.html">events.h</a>.</p>
@@ -183,7 +192,7 @@ Marc Kossmann </dd></dl>
 <p>The flags group used in the heartbeat-task and user-input-task. </p>
 <p>This group contains the debug-event that can be triggered via <code>sw_9</code>. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00035">35</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00038">38</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -200,7 +209,7 @@ Marc Kossmann </dd></dl>
 <p>The flags group used in the user-input-task. </p>
 <p>This group contains all possibly events, which can be triggered by the user. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00026">26</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00028">28</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -209,8 +218,8 @@ Marc Kossmann </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
-    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_e1960e8036ada45c220ea874dd4d27ba.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
+    <li class="footer">Generated on Thu Nov 13 2014 14:29:58 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

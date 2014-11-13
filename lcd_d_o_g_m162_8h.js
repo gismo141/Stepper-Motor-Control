@@ -12,8 +12,6 @@ var lcd_d_o_g_m162_8h =
     [ "LCD_BLINK", "lcd_d_o_g_m162_8h.html#a662958f3fcc7c1373da93683e585074b", null ],
     [ "LCD_CURSOR_OFF", "lcd_d_o_g_m162_8h.html#a7a6a930d205b2819be910af194576dca", null ],
     [ "LCD_CURSOR_ON", "lcd_d_o_g_m162_8h.html#a8dae7021acb10d4e5f8458a5fba78729", null ],
-    [ "DOGM162lcd_clear", "lcd_d_o_g_m162_8h.html#af434cbf2aa5d62b734d593cb303c8d83", null ],
     [ "DOGM162lcd_init", "lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e", null ],
-    [ "DOGM162lcd_setCursorMode", "lcd_d_o_g_m162_8h.html#a5063a47da4cf7141009a068bf61d9c84", null ],
-    [ "DOGM162lcd_setPos", "lcd_d_o_g_m162_8h.html#aea94cc3cabb08712915ab39dafa380f0", null ]
+    [ "DOGM162lcd_setCursorMode", "lcd_d_o_g_m162_8h.html#a5063a47da4cf7141009a068bf61d9c84", null ]
 ];

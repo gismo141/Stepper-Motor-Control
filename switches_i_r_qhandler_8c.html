@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stepper-Motor-Control
-   &#160;<span id="projectnumber">v0.1</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
    <div id="projectbrief">System on a Chip 2014 - Group 04</div>
   </td>
@@ -104,8 +104,7 @@ $(document).ready(function(){initNavTree('switches_i_r_qhandler_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">switchesIRQhandler.c File Reference</div>  </div>
 </div><!--header-->
@@ -129,21 +128,14 @@ Functions</h2></td></tr>
 <tr class="memitem:ad831687986b7a5fb97291c2c3fd65ff9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="switches_i_r_qhandler_8c.html#ad831687986b7a5fb97291c2c3fd65ff9">switchesIRQhandler</a> (void *context)</td></tr>
 <tr class="memdesc:ad831687986b7a5fb97291c2c3fd65ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ-Handler for switches.  <a href="#ad831687986b7a5fb97291c2c3fd65ff9">More...</a><br /></td></tr>
 <tr class="separator:ad831687986b7a5fb97291c2c3fd65ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ab330cc70cae17b304ee4ebea72ff691b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab330cc70cae17b304ee4ebea72ff691b"></a>
-OS_EVENT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="switches_i_r_qhandler_8c.html#ab330cc70cae17b304ee4ebea72ff691b">switchesMsgQueue</a></td></tr>
-<tr class="memdesc:ab330cc70cae17b304ee4ebea72ff691b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message Queue for transmitting the switches values. <br /></td></tr>
-<tr class="separator:ab330cc70cae17b304ee4ebea72ff691b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>IRQ-handler for switches. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Riedel </dd>
 <dd>
 Marc Kossmann </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>21.10.2014 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>v1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11.11.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>21.10. Riedel &amp; Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
@@ -165,7 +157,11 @@ Marc Kossmann </dd></dl>
 </ul>
 <p>04.11. Riedel &amp; Kossmann</p><ul>
 <li>removed debug printouts because they are critical</li>
-<li>added flushing queue before posting </li>
+<li>added flushing queue before posting</li>
+</ul>
+<p>11.11. Riedel &amp; Kossmann</p><ul>
+<li>replaced messageQueue with SW_UPDATE_EVENT</li>
+<li>moved <a class="el" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. ">PIO_SW_GetValues()</a> in InputTask </li>
 </ul>
 
 <p>Definition in file <a class="el" href="switches_i_r_qhandler_8c_source.html">switchesIRQhandler.c</a>.</p>
@@ -198,14 +194,14 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="switches_i_r_qhandler_8c_source.html#l00033">33</a> of file <a class="el" href="switches_i_r_qhandler_8c_source.html">switchesIRQhandler.c</a>.</p>
+<p>Definition at line <a class="el" href="switches_i_r_qhandler_8c_source.html#l00034">34</a> of file <a class="el" href="switches_i_r_qhandler_8c_source.html">switchesIRQhandler.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="switches_i_r_qhandler_8c_ad831687986b7a5fb97291c2c3fd65ff9_cgraph.png" border="0" usemap="#switches_i_r_qhandler_8c_ad831687986b7a5fb97291c2c3fd65ff9_cgraph" alt=""/></div>
 <map name="switches_i_r_qhandler_8c_ad831687986b7a5fb97291c2c3fd65ff9_cgraph" id="switches_i_r_qhandler_8c_ad831687986b7a5fb97291c2c3fd65ff9_cgraph">
-<area shape="rect" id="node2" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="216,5,358,31"/><area shape="rect" id="node3" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="194,55,381,80"/></map>
+<area shape="rect" id="node2" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="194,5,381,31"/></map>
 </div>
 </p>
 
@@ -216,8 +212,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="switches_i_r_qhandler_8c.html">switchesIRQhandler.c</a></li>
-    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_aec8fa7fe884afaf35d7c5716048936d.html">SRC</a></li><li class="navelem"><a class="el" href="switches_i_r_qhandler_8c.html">switchesIRQhandler.c</a></li>
+    <li class="footer">Generated on Thu Nov 13 2014 14:29:58 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

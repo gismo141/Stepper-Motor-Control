@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stepper-Motor-Control
-   &#160;<span id="projectnumber">v0.1</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
    <div id="projectbrief">System on a Chip 2014 - Group 04</div>
   </td>
@@ -129,7 +129,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="register_access_8h__dep__incl.png" border="0" usemap="#register_access_8hdep" alt=""/></div>
 <map name="register_access_8hdep" id="register_access_8hdep">
-<area shape="rect" id="node2" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="343,79,460,104"/><area shape="rect" id="node6" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="157,79,273,104"/><area shape="rect" id="node10" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="484,79,618,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="310,225,371,251"/><area shape="rect" id="node5" href="heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging..." alt="" coords="344,152,459,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="310,299,371,324"/><area shape="rect" id="node7" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="5,152,131,177"/><area shape="rect" id="node9" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="206,152,320,177"/><area shape="rect" id="node8" href="user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="6,225,131,251"/><area shape="rect" id="node11" href="motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="584,152,718,177"/></map>
+<area shape="rect" id="node2" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="75,79,191,104"/><area shape="rect" id="node3" href="main_8h.html" title="Header file for main.c. " alt="" coords="200,225,261,251"/><area shape="rect" id="node6" href="user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="471,79,587,104"/><area shape="rect" id="node10" href="motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="215,79,349,104"/><area shape="rect" id="node5" href="heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging..." alt="" coords="27,152,143,177"/><area shape="rect" id="node4" href="main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="200,299,261,324"/><area shape="rect" id="node7" href="user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="614,152,740,177"/><area shape="rect" id="node9" href="user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="425,152,540,177"/><area shape="rect" id="node8" href="user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="615,225,740,251"/><area shape="rect" id="node11" href="motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="268,152,401,177"/></map>
 </div>
 </div>
 <p><a href="register_access_8h_source.html">Go to the source code of this file.</a></p>
@@ -137,62 +137,68 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a1ba2469bf13b53e5629f10f6116656fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ba2469bf13b53e5629f10f6116656fb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a>&#160;&#160;&#160;(0x1)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a1ba2469bf13b53e5629f10f6116656fb">CTRL_REG_RS_MSK</a>&#160;&#160;&#160;(0b00000001)</td></tr>
 <tr class="memdesc:a1ba2469bf13b53e5629f10f6116656fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run (1) or Stop (0)-Bit. <br /></td></tr>
 <tr class="separator:a1ba2469bf13b53e5629f10f6116656fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf33618e430a31a3c34767ee68e91483"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf33618e430a31a3c34767ee68e91483"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#adf33618e430a31a3c34767ee68e91483">CTRL_REG_LR_MSK</a>&#160;&#160;&#160;(0x2)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#adf33618e430a31a3c34767ee68e91483">CTRL_REG_LR_MSK</a>&#160;&#160;&#160;(0b00000010)</td></tr>
 <tr class="memdesc:adf33618e430a31a3c34767ee68e91483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left (0) or Right (1)-Bit. <br /></td></tr>
 <tr class="separator:adf33618e430a31a3c34767ee68e91483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d6eb8fa49195604eee014e2d7a49c93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d6eb8fa49195604eee014e2d7a49c93"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93">CTRL_REG_MODE_MSK</a>&#160;&#160;&#160;(0x3C)</td></tr>
-<tr class="memdesc:a4d6eb8fa49195604eee014e2d7a49c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode-combination according to <a class="el" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control-register with the given bits. ">ctrlRegSet()</a>-function. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a4d6eb8fa49195604eee014e2d7a49c93">CTRL_REG_MODE_MSK</a>&#160;&#160;&#160;(0b00111100)</td></tr>
+<tr class="memdesc:a4d6eb8fa49195604eee014e2d7a49c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode-combination according to <a class="el" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Overwrites the complete CtrlReg. ">ctrlRegSet()</a>-function. <br /></td></tr>
 <tr class="separator:a4d6eb8fa49195604eee014e2d7a49c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16a7950b4cb5cc6abd5169efa849191c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16a7950b4cb5cc6abd5169efa849191c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">CTRL_REG_IE_MSK</a>&#160;&#160;&#160;(0x40)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a16a7950b4cb5cc6abd5169efa849191c">CTRL_REG_IE_MSK</a>&#160;&#160;&#160;(0b01000000)</td></tr>
 <tr class="memdesc:a16a7950b4cb5cc6abd5169efa849191c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt-Enable Bit. <br /></td></tr>
 <tr class="separator:a16a7950b4cb5cc6abd5169efa849191c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ecb6ec8a75e709cab8ebbc3c46774b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ecb6ec8a75e709cab8ebbc3c46774b1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">CTRL_REG_IR_MSK</a>&#160;&#160;&#160;(0x80)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a6ecb6ec8a75e709cab8ebbc3c46774b1">CTRL_REG_IR_MSK</a>&#160;&#160;&#160;(0b10000000)</td></tr>
 <tr class="memdesc:a6ecb6ec8a75e709cab8ebbc3c46774b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt-Request Bit. <br /></td></tr>
 <tr class="separator:a6ecb6ec8a75e709cab8ebbc3c46774b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bdea57bbed1ce1e8077c1378d64603f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bdea57bbed1ce1e8077c1378d64603f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a3bdea57bbed1ce1e8077c1378d64603f">MODE_STOP_CON_RUN_MSK</a>&#160;&#160;&#160;(0x3)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a3bdea57bbed1ce1e8077c1378d64603f">MODE_STOP_CON_RUN_MSK</a>&#160;&#160;&#160;(0b0011)</td></tr>
 <tr class="memdesc:a3bdea57bbed1ce1e8077c1378d64603f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit 0 &amp; 1 only. <br /></td></tr>
 <tr class="separator:a3bdea57bbed1ce1e8077c1378d64603f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29a7dfd4fec0d672f9690159d70abc0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29a7dfd4fec0d672f9690159d70abc0d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a29a7dfd4fec0d672f9690159d70abc0d">MODE_STOP</a>&#160;&#160;&#160;(0x0)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a29a7dfd4fec0d672f9690159d70abc0d">MODE_STOP</a>&#160;&#160;&#160;(0b0000)</td></tr>
 <tr class="memdesc:a29a7dfd4fec0d672f9690159d70abc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">MODE_STOP_CON_RUN_MSK; Must be <code>0b00</code> <br /></td></tr>
 <tr class="separator:a29a7dfd4fec0d672f9690159d70abc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b924e9a4944f68a4c28a02ec4560aa6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b924e9a4944f68a4c28a02ec4560aa6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a1b924e9a4944f68a4c28a02ec4560aa6">MODE_CON_RUN</a>&#160;&#160;&#160;(0x1)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a1b924e9a4944f68a4c28a02ec4560aa6">MODE_CON_RUN</a>&#160;&#160;&#160;(0b0001)</td></tr>
 <tr class="memdesc:a1b924e9a4944f68a4c28a02ec4560aa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use "MODE_STOP_CON_RUN_MSK"; Must be <code>0b01</code> <br /></td></tr>
 <tr class="separator:a1b924e9a4944f68a4c28a02ec4560aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad4de87dd243d469de09afdd7e65cb02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad4de87dd243d469de09afdd7e65cb02"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#aad4de87dd243d469de09afdd7e65cb02">MODE_CH_OF_ST_1_4</a>&#160;&#160;&#160;(0x2)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#aad4de87dd243d469de09afdd7e65cb02">MODE_CH_OF_ST_1_4</a>&#160;&#160;&#160;(0b0010)</td></tr>
 <tr class="memdesc:aad4de87dd243d469de09afdd7e65cb02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits must be <code>0b0010</code> <br /></td></tr>
 <tr class="separator:aad4de87dd243d469de09afdd7e65cb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9954f884179f1c11e4973487f48c76b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9954f884179f1c11e4973487f48c76b1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a9954f884179f1c11e4973487f48c76b1">MODE_CH_OF_ST_1_2</a>&#160;&#160;&#160;(0x6)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a9954f884179f1c11e4973487f48c76b1">MODE_CH_OF_ST_1_2</a>&#160;&#160;&#160;(0b0110)</td></tr>
 <tr class="memdesc:a9954f884179f1c11e4973487f48c76b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits must be <code>0b0110</code> <br /></td></tr>
 <tr class="separator:a9954f884179f1c11e4973487f48c76b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dae33261a2cdc93c4de6115e4e5cb8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4dae33261a2cdc93c4de6115e4e5cb8f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a4dae33261a2cdc93c4de6115e4e5cb8f">MODE_CH_OF_ST_1</a>&#160;&#160;&#160;(0xA)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a4dae33261a2cdc93c4de6115e4e5cb8f">MODE_CH_OF_ST_1</a>&#160;&#160;&#160;(0b1010)</td></tr>
 <tr class="memdesc:a4dae33261a2cdc93c4de6115e4e5cb8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits must be <code>0b1010</code> <br /></td></tr>
 <tr class="separator:a4dae33261a2cdc93c4de6115e4e5cb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3282200d7b0d8e5fca888bc759af164a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3282200d7b0d8e5fca888bc759af164a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a3282200d7b0d8e5fca888bc759af164a">MODE_CH_OF_ST_2</a>&#160;&#160;&#160;(0xE)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a3282200d7b0d8e5fca888bc759af164a">MODE_CH_OF_ST_2</a>&#160;&#160;&#160;(0b1110)</td></tr>
 <tr class="memdesc:a3282200d7b0d8e5fca888bc759af164a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits must be <code>0b1110</code> <br /></td></tr>
 <tr class="separator:a3282200d7b0d8e5fca888bc759af164a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a05c67dbf40f74c58acba6e277315d0cf"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf">ctrlRegSet</a> (uint8_t newCtrlReg)</td></tr>
-<tr class="memdesc:a05c67dbf40f74c58acba6e277315d0cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the control-register with the given bits.  <a href="#a05c67dbf40f74c58acba6e277315d0cf">More...</a><br /></td></tr>
+<tr class="memdesc:a05c67dbf40f74c58acba6e277315d0cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites the complete CtrlReg.  <a href="#a05c67dbf40f74c58acba6e277315d0cf">More...</a><br /></td></tr>
 <tr class="separator:a05c67dbf40f74c58acba6e277315d0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5793dc3526877ac1481dc95dd5cca5af"><td class="memItemLeft" align="right" valign="top">static __inline__ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">ctrlRegGet</a> (void)</td></tr>
 <tr class="memdesc:a5793dc3526877ac1481dc95dd5cca5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the actual content of the control-register.  <a href="#a5793dc3526877ac1481dc95dd5cca5af">More...</a><br /></td></tr>
 <tr class="separator:a5793dc3526877ac1481dc95dd5cca5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd08a636b65d8a42e870d55b9f4f034"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#aefd08a636b65d8a42e870d55b9f4f034">ctrlRegBitSet</a> (uint8_t bitsToSet)</td></tr>
+<tr class="memdesc:aefd08a636b65d8a42e870d55b9f4f034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the CtrlReg bitwise.  <a href="#aefd08a636b65d8a42e870d55b9f4f034">More...</a><br /></td></tr>
+<tr class="separator:aefd08a636b65d8a42e870d55b9f4f034"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff261c931dfc629ff9bc0eb572a5ac4"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a1ff261c931dfc629ff9bc0eb572a5ac4">ctrlRegBitClr</a> (uint8_t bitsToClr)</td></tr>
+<tr class="memdesc:a1ff261c931dfc629ff9bc0eb572a5ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the CtrlReg bitwise.  <a href="#a1ff261c931dfc629ff9bc0eb572a5ac4">More...</a><br /></td></tr>
+<tr class="separator:a1ff261c931dfc629ff9bc0eb572a5ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0089d956f2c707e5b5b5afc8c166e2c1"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1">stepsRegSet</a> (uint32_t newStepCount)</td></tr>
 <tr class="memdesc:a0089d956f2c707e5b5b5afc8c166e2c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the given steps for the Stepper-Motor-Control VHDL-component.  <a href="#a0089d956f2c707e5b5b5afc8c166e2c1">More...</a><br /></td></tr>
 <tr class="separator:a0089d956f2c707e5b5b5afc8c166e2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,74 +236,8 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="r
 <dl class="section author"><dt>Author</dt><dd>Michael Riedel </dd>
 <dd>
 Marc Kossmann </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>02.11.2014 </dd></dl>
-<dl class="section user"><dt>History:</dt><dd></dd></dl>
-<p>02.11. Riedel</p><ul>
-<li>first draft for milestone 1b</li>
-</ul>
-<p>03.11. Kossmann</p><ul>
-<li>moved all register masks in this file</li>
-<li>added registerMutex for save access</li>
-</ul>
-<p>04.11. Kossmann</p><ul>
-<li>removed switches masks defines. They already exist in <a class="el" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. ">hardwareAccess.h</a> </li>
-</ul>
-
-<p>Definition in file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a5793dc3526877ac1481dc95dd5cca5af"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static __inline__ uint8_t ctrlRegGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the actual content of the control-register. </p>
-<p>The bitmask is used accordingly to the <a class="el" href="register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf" title="Sets the control-register with the given bits. ">ctrlRegSet()</a>-function </p><dl class="section return"><dt>Returns</dt><dd>The actual content of the control-register </dd></dl>
-
-<p>Definition at line <a class="el" href="register_access_8h_source.html#l00090">90</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a05c67dbf40f74c58acba6e277315d0cf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static __inline__ void ctrlRegSet </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>newCtrlReg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the control-register with the given bits. </p>
+<dl class="section version"><dt>Version</dt><dd>v1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11.11.2014</dd></dl>
 <p>The bitmask is as follows: </p><table class="doxtable">
 <tr>
 <th align="center">Bit </th><th align="center">Function</th><th align="left">Usage  </th></tr>
@@ -330,14 +270,152 @@ Marc Kossmann </dd></dl>
 <tr>
 <td align="center">other </td><td align="left">reserved </td></tr>
 </table>
-<dl class="params"><dt>Parameters</dt><dd>
+<dl class="section user"><dt>History:</dt><dd></dd></dl>
+<p>02.11. Riedel</p><ul>
+<li>first draft for milestone 1b</li>
+</ul>
+<p>03.11. Kossmann</p><ul>
+<li>moved all register masks in this file</li>
+<li>added registerMutex for save access</li>
+</ul>
+<p>04.11. Kossmann</p><ul>
+<li>removed switches masks defines. They already exist in <a class="el" href="hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. ">hardwareAccess.h</a></li>
+</ul>
+<p>11.11. Riedel &amp; Kossmann</p><ul>
+<li>Moved register masks to headers' documentation</li>
+<li>Added ctrlRegBitClr and ctrlRegBitSet functions for bitwise control </li>
+</ul>
+
+<p>Definition in file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a1ff261c931dfc629ff9bc0eb572a5ac4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void ctrlRegBitClr </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bitsToClr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears the CtrlReg bitwise. </p>
+<p>Writes into ctrlClrReg in register interface which modifies the ctrlReg accordingly. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToSet</td><td>Bits to set in CtrlReg </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00136">136</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aefd08a636b65d8a42e870d55b9f4f034"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void ctrlRegBitSet </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bitsToSet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the CtrlReg bitwise. </p>
+<p>Writes into ctrlSetReg in register interface which modifies the ctrlReg accordingly. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToSet</td><td>Bits to set in CtrlReg </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00116">116</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5793dc3526877ac1481dc95dd5cca5af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ uint8_t ctrlRegGet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the actual content of the control-register. </p>
+<p>CtrlReg content is stored in external register interface </p><dl class="section return"><dt>Returns</dt><dd>The actual content of the control-register </dd></dl>
+
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00094">94</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a05c67dbf40f74c58acba6e277315d0cf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void ctrlRegSet </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>newCtrlReg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overwrites the complete CtrlReg. </p>
+<p>CtrlReg content is stored in external register interface </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newCtrlReg</td><td>The new register-content to set </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="register_access_8h_source.html#l00071">71</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00075">75</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
 
 </div>
 </div>
@@ -366,7 +444,7 @@ Marc Kossmann </dd></dl>
 <p>Returns the actual content of the speed-register. </p>
 <p>The speed-step is used accordingly to the <a class="el" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper-Motor-Control turns the motor. ">speedRegSet()</a>-function. </p><dl class="section return"><dt>Returns</dt><dd>The actual content of the speed-step which is set (only the first 3 bits are used ,the rest is reserved!). </dd></dl>
 
-<p>Definition at line <a class="el" href="register_access_8h_source.html#l00185">185</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00229">229</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
 
 </div>
 </div>
@@ -420,7 +498,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="register_access_8h_source.html#l00165">165</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00209">209</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
 
 </div>
 </div>
@@ -449,7 +527,7 @@ Marc Kossmann </dd></dl>
 <p>Returns the actual content of the steps-register. </p>
 <p>The register contains a 32-bit integer value since the last start of the motor. </p><dl class="section return"><dt>Returns</dt><dd>The actual content of steps left. </dd></dl>
 
-<p>Definition at line <a class="el" href="register_access_8h_source.html#l00131">131</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00175">175</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
 
 </div>
 </div>
@@ -484,7 +562,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="register_access_8h_source.html#l00112">112</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
+<p>Definition at line <a class="el" href="register_access_8h_source.html#l00156">156</a> of file <a class="el" href="register_access_8h_source.html">registerAccess.h</a>.</p>
 
 </div>
 </div>
@@ -493,8 +571,8 @@ Marc Kossmann </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="register_access_8h.html">registerAccess.h</a></li>
-    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_e1960e8036ada45c220ea874dd4d27ba.html">INC</a></li><li class="navelem"><a class="el" href="register_access_8h.html">registerAccess.h</a></li>
+    <li class="footer">Generated on Thu Nov 13 2014 14:29:58 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

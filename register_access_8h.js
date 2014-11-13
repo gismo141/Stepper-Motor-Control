@@ -12,6 +12,8 @@ var register_access_8h =
     [ "MODE_CON_RUN", "register_access_8h.html#a1b924e9a4944f68a4c28a02ec4560aa6", null ],
     [ "MODE_STOP", "register_access_8h.html#a29a7dfd4fec0d672f9690159d70abc0d", null ],
     [ "MODE_STOP_CON_RUN_MSK", "register_access_8h.html#a3bdea57bbed1ce1e8077c1378d64603f", null ],
+    [ "ctrlRegBitClr", "register_access_8h.html#a1ff261c931dfc629ff9bc0eb572a5ac4", null ],
+    [ "ctrlRegBitSet", "register_access_8h.html#aefd08a636b65d8a42e870d55b9f4f034", null ],
     [ "ctrlRegGet", "register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af", null ],
     [ "ctrlRegSet", "register_access_8h.html#a05c67dbf40f74c58acba6e277315d0cf", null ],
     [ "speedRegGet", "register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615", null ],

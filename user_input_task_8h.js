@@ -2,6 +2,7 @@ var user_input_task_8h =
 [
     [ "systemState", "structsystem_state.html", "structsystem_state" ],
     [ "outputTaskMailbox", "structoutput_task_mailbox.html", "structoutput_task_mailbox" ],
+    [ "CTRL_REG_0_6_MSK", "user_input_task_8h.html#a79390f129ef0a94504c1cd56902bece2", null ],
     [ "direction_t", "user_input_task_8h.html#a32f967dcf097fc29993bdb23b6a3fd76", null ],
     [ "outputTaskMailbox_t", "user_input_task_8h.html#ae6b7c11f607df6a45c8a7b7326379c15", null ],
     [ "state_t", "user_input_task_8h.html#a9a7e280c3ad79de38060a105d2ba41e1", null ],

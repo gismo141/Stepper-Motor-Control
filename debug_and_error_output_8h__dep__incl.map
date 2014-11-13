@@ -1,17 +1,17 @@
 <map id="debugAndErrorOutput.h" name="debugAndErrorOutput.h">
-<area shape="rect" id="node2" href="$register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper&#45;Motor&#45;Control ..." alt="" coords="608,79,728,104"/>
-<area shape="rect" id="node3" href="$heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="461,152,577,177"/>
-<area shape="rect" id="node4" href="$main_8h.html" title="Header file for main.c. " alt="" coords="393,299,455,324"/>
-<area shape="rect" id="node7" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="764,152,879,177"/>
-<area shape="rect" id="node8" href="$user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="997,225,1123,251"/>
-<area shape="rect" id="node11" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="601,152,735,177"/>
-<area shape="rect" id="node13" href="$keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="127,79,254,104"/>
-<area shape="rect" id="node15" href="$switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="331,79,482,104"/>
-<area shape="rect" id="node6" href="$heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging..." alt="" coords="461,225,576,251"/>
-<area shape="rect" id="node5" href="$main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="394,372,454,397"/>
-<area shape="rect" id="node10" href="$user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="859,225,973,251"/>
-<area shape="rect" id="node9" href="$user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="997,299,1123,324"/>
-<area shape="rect" id="node12" href="$motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="600,225,733,251"/>
-<area shape="rect" id="node14" href="$keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="27,152,154,177"/>
-<area shape="rect" id="node16" href="$switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="228,152,378,177"/>
+<area shape="rect" id="node2" href="$register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper&#45;Motor&#45;Control ..." alt="" coords="604,79,724,104"/>
+<area shape="rect" id="node3" href="$heartbeat_task_8h.html" title="Header file for heartbeatTask.c. " alt="" coords="796,152,913,177"/>
+<area shape="rect" id="node4" href="$main_8h.html" title="Header file for main.c. " alt="" coords="513,299,574,324"/>
+<area shape="rect" id="node7" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="606,152,722,177"/>
+<area shape="rect" id="node8" href="$user_output_task_8h.html" title="Header file for userOutputTask.c. " alt="" coords="846,225,972,251"/>
+<area shape="rect" id="node11" href="$motor_i_r_qhandler_8h.html" title="Header file for motorIRQhandler.c. " alt="" coords="447,152,581,177"/>
+<area shape="rect" id="node13" href="$keys_i_r_qhandler_8h.html" title="Header file for keysIRQhandler.c. " alt="" coords="20,79,147,104"/>
+<area shape="rect" id="node15" href="$switches_i_r_qhandler_8h.html" title="Header for IRQ&#45;Handler for switches. " alt="" coords="272,79,423,104"/>
+<area shape="rect" id="node6" href="$heartbeat_task_8c.html" title="Source code of heartbeatTask which shows that scheduling is working. Also used for debuging..." alt="" coords="995,225,1111,251"/>
+<area shape="rect" id="node5" href="$main_8c.html" title="Main&#45;Routine for Stepper&#45;Motor&#45;Control. " alt="" coords="514,372,574,397"/>
+<area shape="rect" id="node10" href="$user_input_task_8c.html" title="Source code for User&#45;Input&#45;Task which is highest instance, reacts to user input and controls register..." alt="" coords="606,225,721,251"/>
+<area shape="rect" id="node9" href="$user_output_task_8c.html" title="Source code for User&#45;Output&#45;Task which communications with the user and shows him system information..." alt="" coords="847,299,972,324"/>
+<area shape="rect" id="node12" href="$motor_i_r_qhandler_8c.html" title="IRQ&#45;handler for motor stopped. " alt="" coords="348,225,481,251"/>
+<area shape="rect" id="node14" href="$keys_i_r_qhandler_8c.html" title="IRQ&#45;handler for keys. " alt="" coords="22,152,148,177"/>
+<area shape="rect" id="node16" href="$switches_i_r_qhandler_8c.html" title="IRQ&#45;handler for switches. " alt="" coords="273,152,423,177"/>
 </map>

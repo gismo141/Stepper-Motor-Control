@@ -20,6 +20,7 @@ var searchData=
   ['interface_5fredled_5freg',['INTERFACE_REDLED_REG',['../interface_regs_8h.html#a9aa658128ecb533f059e38c7ab57b0a7',1,'interfaceRegs.h']]],
   ['interface_5fswitch_5fmsk',['INTERFACE_SWITCH_MSK',['../interface_regs_8h.html#ab0a3114a64692b840372fafcae1d4966',1,'interfaceRegs.h']]],
   ['interface_5fswitch_5freg',['INTERFACE_SWITCH_REG',['../interface_regs_8h.html#af6d41b6ec43a7233356c307549d2afc9',1,'interfaceRegs.h']]],
+  ['interrupt_5fenable',['INTERRUPT_ENABLE',['../main_8h.html#acf43057fc38f77d20456c074909ba772',1,'main.h']]],
   ['ioaddr_5finterface_5fgreenled',['IOADDR_INTERFACE_GREENLED',['../interface_regs_8h.html#a6513fa7f141844e36db47998c29905a4',1,'interfaceRegs.h']]],
   ['ioaddr_5finterface_5fkey',['IOADDR_INTERFACE_KEY',['../interface_regs_8h.html#a3cd1d39711f6877359a2ee58b3edb35a',1,'interfaceRegs.h']]],
   ['ioaddr_5finterface_5fredled',['IOADDR_INTERFACE_REDLED',['../interface_regs_8h.html#aea3180b6e550c49fc882db4f0eacbad1',1,'interfaceRegs.h']]],

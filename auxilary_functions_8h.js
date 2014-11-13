@@ -1,5 +1,7 @@
 var auxilary_functions_8h =
 [
+    [ "DATE", "auxilary_functions_8h.html#a30b328ca499f27b3d0f8111b495834ca", null ],
+    [ "VERSION", "auxilary_functions_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf", null ],
     [ "clear_lcd", "auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b", null ],
     [ "fflush_lcd", "auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0", null ],
     [ "fflush_term", "auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4", null ],

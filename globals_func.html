@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stepper-Motor-Control
-   &#160;<span id="projectnumber">v0.1</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
    <div id="projectbrief">System on a Chip 2014 - Group 04</div>
   </td>
@@ -136,6 +136,12 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 : <a class="el" href="auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b">auxilaryFunctions.h</a>
 , <a class="el" href="auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b">auxilaryFunctions.c</a>
 </li>
+<li>ctrlRegBitClr()
+: <a class="el" href="register_access_8h.html#a1ff261c931dfc629ff9bc0eb572a5ac4">registerAccess.h</a>
+</li>
+<li>ctrlRegBitSet()
+: <a class="el" href="register_access_8h.html#aefd08a636b65d8a42e870d55b9f4f034">registerAccess.h</a>
+</li>
 <li>ctrlRegGet()
 : <a class="el" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af">registerAccess.h</a>
 </li>
@@ -150,21 +156,13 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 : <a class="el" href="heartbeat_task_8h.html#a5d14e946cd93e1478c02c98a0c6b9920">heartbeatTask.h</a>
 , <a class="el" href="heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920">heartbeatTask.c</a>
 </li>
-<li>DOGM162lcd_clear()
-: <a class="el" href="lcd_d_o_g_m162_8c.html#af434cbf2aa5d62b734d593cb303c8d83">lcdDOGM162.c</a>
-, <a class="el" href="lcd_d_o_g_m162_8h.html#af434cbf2aa5d62b734d593cb303c8d83">lcdDOGM162.h</a>
-</li>
 <li>DOGM162lcd_init()
-: <a class="el" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.h</a>
-, <a class="el" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.c</a>
+: <a class="el" href="lcd_d_o_g_m162_8c.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.c</a>
+, <a class="el" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e">lcdDOGM162.h</a>
 </li>
 <li>DOGM162lcd_setCursorMode()
-: <a class="el" href="lcd_d_o_g_m162_8h.html#a5063a47da4cf7141009a068bf61d9c84">lcdDOGM162.h</a>
-, <a class="el" href="lcd_d_o_g_m162_8c.html#a5063a47da4cf7141009a068bf61d9c84">lcdDOGM162.c</a>
-</li>
-<li>DOGM162lcd_setPos()
-: <a class="el" href="lcd_d_o_g_m162_8c.html#aea94cc3cabb08712915ab39dafa380f0">lcdDOGM162.c</a>
-, <a class="el" href="lcd_d_o_g_m162_8h.html#aea94cc3cabb08712915ab39dafa380f0">lcdDOGM162.h</a>
+: <a class="el" href="lcd_d_o_g_m162_8c.html#a5063a47da4cf7141009a068bf61d9c84">lcdDOGM162.c</a>
+, <a class="el" href="lcd_d_o_g_m162_8h.html#a5063a47da4cf7141009a068bf61d9c84">lcdDOGM162.h</a>
 </li>
 </ul>
 
@@ -215,11 +213,12 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
-: <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a>
+: <a class="el" href="main_8h.html#a840291bc02cba5474a4cb46a9b9566fe">main.h</a>
+, <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a>
 </li>
 <li>motorIRQhandler()
-: <a class="el" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.c</a>
-, <a class="el" href="motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.h</a>
+: <a class="el" href="motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.h</a>
+, <a class="el" href="motor_i_r_qhandler_8c.html#aabc0f0f03e310d42c71637d32f996622">motorIRQhandler.c</a>
 </li>
 </ul>
 
@@ -324,7 +323,7 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
+    <li class="footer">Generated on Thu Nov 13 2014 14:29:59 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

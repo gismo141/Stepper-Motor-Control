@@ -1,8 +1,6 @@
 var annotated =
 [
-    [ "interface", "classinterface.html", "classinterface" ],
     [ "interface_RTX_Base", "classinterface___r_t_x___base.html", "classinterface___r_t_x___base" ],
-    [ "keyDetect", "classkey_detect.html", "classkey_detect" ],
     [ "outputTaskMailbox", "structoutput_task_mailbox.html", "structoutput_task_mailbox" ],
     [ "systemState", "structsystem_state.html", "structsystem_state" ]
 ];

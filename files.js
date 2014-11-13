@@ -7,16 +7,10 @@ var files =
     [ "hardwareAccess.h", "hardware_access_8h.html", "hardware_access_8h" ],
     [ "heartbeatTask.c", "heartbeat_task_8c.html", "heartbeat_task_8c" ],
     [ "heartbeatTask.h", "heartbeat_task_8h.html", "heartbeat_task_8h" ],
-    [ "interface.vhd", "interface_8vhd.html", [
-      [ "interface", "classinterface.html", "classinterface" ]
-    ] ],
     [ "interface_RTX_Base.vhd", "interface___r_t_x___base_8vhd.html", [
       [ "interface_RTX_Base", "classinterface___r_t_x___base.html", "classinterface___r_t_x___base" ]
     ] ],
     [ "interfaceRegs.h", "interface_regs_8h.html", "interface_regs_8h" ],
-    [ "keyDetect.vhd", "key_detect_8vhd.html", [
-      [ "keyDetect", "classkey_detect.html", "classkey_detect" ]
-    ] ],
     [ "keysIRQhandler.c", "keys_i_r_qhandler_8c.html", "keys_i_r_qhandler_8c" ],
     [ "keysIRQhandler.h", "keys_i_r_qhandler_8h.html", "keys_i_r_qhandler_8h" ],
     [ "lcdDOGM162.c", "lcd_d_o_g_m162_8c.html", "lcd_d_o_g_m162_8c" ],

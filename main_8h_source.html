@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stepper-Motor-Control
-   &#160;<span id="projectnumber">v0.1</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
    <div id="projectbrief">System on a Chip 2014 - Group 04</div>
   </td>
@@ -112,8 +112,8 @@ $(document).ready(function(){initNavTree('main_8h_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file       main.h</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author     Michael Riedel</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author     Marc Kossmann</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v0.1</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       22.10.2014</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version    v1.0</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date       11.11.2014</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @brief      Header file for main.c</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * @details    Contains defines, includes, typedefs and declarations needed</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *             for this task.</span></div>
@@ -127,65 +127,78 @@ $(document).ready(function(){initNavTree('main_8h_source.html','');});
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *             - added debug and error handling header</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * @details    31.10. Riedel &amp; Kossmann</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *             - corrected misspelled heartbeatTask</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> ****************************************************************************</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef __MAIN_H__</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define __MAIN_H__</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;sys/alt_irq.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="auxilary_functions_8h.html">auxilaryFunctions.h</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_input_task_8h.html">userInputTask.h</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_output_task_8h.html">userOutputTask.h</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="heartbeat_task_8h.html">heartbeatTask.h</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hardware_access_8h.html">hardwareAccess.h</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="switches_i_r_qhandler_8h.html">switchesIRQhandler.h</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="keys_i_r_qhandler_8h.html">keysIRQhandler.h</a>&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="motor_i_r_qhandler_8h.html">motorIRQhandler.h</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/** @brief Definition of Task Stacks */</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">   43</a></span>&#160;<span class="preprocessor">#define   TASK_STACKSIZE       2048</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/** @brief Stack for Task 1 */</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">   46</a></span>&#160;OS_STK <a class="code" href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">UserInputTask_Stk</a>[<a class="code" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a>];<span class="comment"></span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/** @brief Stack for Task 2 */</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">   48</a></span>&#160;OS_STK <a class="code" href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">UserOutputTask_Stk</a>[<a class="code" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a>];<span class="comment"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/** @brief Stack for Task 3 */</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">   50</a></span>&#160;OS_STK <a class="code" href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">HeartbeatTask_Stk</a>[<a class="code" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a>];</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/** @par Definition of Task Priorities</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * @brief lower numbers mean higher priority</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="main_8h.html#ac7c6511b5c8ad5ca04f8bf6d6aee7c65">   55</a></span>&#160;<span class="preprocessor">#define USER_INPUT_TASK_PRIORITY        4  </span><span class="comment">/*!&lt; Priority Task UserInputTask */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="main_8h.html#a5a412c0b185f9535b402dc6a052cc7c7">   56</a></span>&#160;<span class="preprocessor">#define USER_OUTPUT_TASK_PRIORITY       5  </span><span class="comment">/*!&lt; Priority Task UserOutputTask */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="main_8h.html#aaa8288af0cc342748d2a46cdc4d574be">   57</a></span>&#160;<span class="preprocessor">#define HEARTBEAT_TASK_PRIORITY   6  </span><span class="comment">/*!&lt; Priority Task HeartbeatDebugTask */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif // __MAIN_H__</span></div>
-<div class="ttc" id="main_8h_html_a489ef05251ffa460f33c14941d1afcf8"><div class="ttname"><a href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">UserInputTask_Stk</a></div><div class="ttdeci">OS_STK UserInputTask_Stk[TASK_STACKSIZE]</div><div class="ttdoc">Stack for Task 1. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00046">main.h:46</a></div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * @details    11.11. Riedel &amp; Kossmann</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *             - added INTERRUPT_ENABLE define to enable motor interrupt</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> ****************************************************************************</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef __MAIN_H__</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define __MAIN_H__</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="main_8h.html#acf43057fc38f77d20456c074909ba772">   29</a></span>&#160;<span class="preprocessor">#define INTERRUPT_ENABLE                </span><span class="comment">//!&lt; global interrupts are enabled (1) or disabled (0)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;sys/alt_irq.h&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;includes.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="auxilary_functions_8h.html">auxilaryFunctions.h</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_input_task_8h.html">userInputTask.h</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_output_task_8h.html">userOutputTask.h</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="heartbeat_task_8h.html">heartbeatTask.h</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hardware_access_8h.html">hardwareAccess.h</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="switches_i_r_qhandler_8h.html">switchesIRQhandler.h</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="keys_i_r_qhandler_8h.html">keysIRQhandler.h</a>&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="motor_i_r_qhandler_8h.html">motorIRQhandler.h</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a>&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="register_access_8h.html">registerAccess.h</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/** @brief Definition of Task Stacks */</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">   47</a></span>&#160;<span class="preprocessor">#define   TASK_STACKSIZE       2048</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/** @brief Stack for Task 1 */</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">   50</a></span>&#160;OS_STK <a class="code" href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">UserInputTask_Stk</a>[<a class="code" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a>];<span class="comment"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/** @brief Stack for Task 2 */</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">   52</a></span>&#160;OS_STK <a class="code" href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">UserOutputTask_Stk</a>[<a class="code" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a>];<span class="comment"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/** @brief Stack for Task 3 */</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">   54</a></span>&#160;OS_STK <a class="code" href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">HeartbeatTask_Stk</a>[<a class="code" href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a>];</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/** @par Definition of Task Priorities</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> * @brief lower numbers mean higher priority</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="main_8h.html#ac7c6511b5c8ad5ca04f8bf6d6aee7c65">   59</a></span>&#160;<span class="preprocessor">#define USER_INPUT_TASK_PRIORITY        4  </span><span class="comment">/*!&lt; Priority Task UserInputTask */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="main_8h.html#a5a412c0b185f9535b402dc6a052cc7c7">   60</a></span>&#160;<span class="preprocessor">#define USER_OUTPUT_TASK_PRIORITY       5  </span><span class="comment">/*!&lt; Priority Task UserOutputTask */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="main_8h.html#aaa8288af0cc342748d2a46cdc4d574be">   61</a></span>&#160;<span class="preprocessor">#define HEARTBEAT_TASK_PRIORITY   6  </span><span class="comment">/*!&lt; Priority Task HeartbeatDebugTask */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> * @brief    Main-Routine</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> * @details</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"> * @retval   Errorcode</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8h.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // __MAIN_H__</span></div>
+<div class="ttc" id="main_8h_html_a489ef05251ffa460f33c14941d1afcf8"><div class="ttname"><a href="main_8h.html#a489ef05251ffa460f33c14941d1afcf8">UserInputTask_Stk</a></div><div class="ttdeci">OS_STK UserInputTask_Stk[TASK_STACKSIZE]</div><div class="ttdoc">Stack for Task 1. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00050">main.h:50</a></div></div>
 <div class="ttc" id="auxilary_functions_8h_html"><div class="ttname"><a href="auxilary_functions_8h.html">auxilaryFunctions.h</a></div><div class="ttdoc">Header file for auxilaryFunctions.c. </div></div>
 <div class="ttc" id="motor_i_r_qhandler_8h_html"><div class="ttname"><a href="motor_i_r_qhandler_8h.html">motorIRQhandler.h</a></div><div class="ttdoc">Header file for motorIRQhandler.c. </div></div>
 <div class="ttc" id="hardware_access_8h_html"><div class="ttname"><a href="hardware_access_8h.html">hardwareAccess.h</a></div><div class="ttdoc">Functions for accessing hardware connected through pio´s and registers. </div></div>
 <div class="ttc" id="user_input_task_8h_html"><div class="ttname"><a href="user_input_task_8h.html">userInputTask.h</a></div><div class="ttdoc">Header file for userInputTask.c. </div></div>
 <div class="ttc" id="heartbeat_task_8h_html"><div class="ttname"><a href="heartbeat_task_8h.html">heartbeatTask.h</a></div><div class="ttdoc">Header file for heartbeatTask.c. </div></div>
-<div class="ttc" id="main_8h_html_ae745b8e0e5b8e62b2ba859088876ad30"><div class="ttname"><a href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">UserOutputTask_Stk</a></div><div class="ttdeci">OS_STK UserOutputTask_Stk[TASK_STACKSIZE]</div><div class="ttdoc">Stack for Task 2. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00048">main.h:48</a></div></div>
+<div class="ttc" id="main_8h_html_ae745b8e0e5b8e62b2ba859088876ad30"><div class="ttname"><a href="main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30">UserOutputTask_Stk</a></div><div class="ttdeci">OS_STK UserOutputTask_Stk[TASK_STACKSIZE]</div><div class="ttdoc">Stack for Task 2. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00052">main.h:52</a></div></div>
 <div class="ttc" id="switches_i_r_qhandler_8h_html"><div class="ttname"><a href="switches_i_r_qhandler_8h.html">switchesIRQhandler.h</a></div><div class="ttdoc">Header for IRQ-Handler for switches. </div></div>
 <div class="ttc" id="user_output_task_8h_html"><div class="ttname"><a href="user_output_task_8h.html">userOutputTask.h</a></div><div class="ttdoc">Header file for userOutputTask.c. </div></div>
+<div class="ttc" id="main_8h_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="main_8h.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdoc">Main-Routine. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00035">main.c:35</a></div></div>
 <div class="ttc" id="keys_i_r_qhandler_8h_html"><div class="ttname"><a href="keys_i_r_qhandler_8h.html">keysIRQhandler.h</a></div><div class="ttdoc">Header file for keysIRQhandler.c. </div></div>
-<div class="ttc" id="main_8h_html_ab25d10764db480cf53d8bdd4e68e2dce"><div class="ttname"><a href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">HeartbeatTask_Stk</a></div><div class="ttdeci">OS_STK HeartbeatTask_Stk[TASK_STACKSIZE]</div><div class="ttdoc">Stack for Task 3. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00050">main.h:50</a></div></div>
-<div class="ttc" id="main_8h_html_a29d957dceca9653f89e5190113c09d38"><div class="ttname"><a href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a></div><div class="ttdeci">#define TASK_STACKSIZE</div><div class="ttdoc">Definition of Task Stacks. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00043">main.h:43</a></div></div>
+<div class="ttc" id="register_access_8h_html"><div class="ttname"><a href="register_access_8h.html">registerAccess.h</a></div><div class="ttdoc">Header file with inline functions to access the registers that are used by the Stepper-Motor-Control ...</div></div>
+<div class="ttc" id="main_8h_html_ab25d10764db480cf53d8bdd4e68e2dce"><div class="ttname"><a href="main_8h.html#ab25d10764db480cf53d8bdd4e68e2dce">HeartbeatTask_Stk</a></div><div class="ttdeci">OS_STK HeartbeatTask_Stk[TASK_STACKSIZE]</div><div class="ttdoc">Stack for Task 3. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00054">main.h:54</a></div></div>
+<div class="ttc" id="main_8h_html_a29d957dceca9653f89e5190113c09d38"><div class="ttname"><a href="main_8h.html#a29d957dceca9653f89e5190113c09d38">TASK_STACKSIZE</a></div><div class="ttdeci">#define TASK_STACKSIZE</div><div class="ttdoc">Definition of Task Stacks. </div><div class="ttdef"><b>Definition:</b> <a href="main_8h_source.html#l00047">main.h:47</a></div></div>
 <div class="ttc" id="debug_and_error_output_8h_html"><div class="ttname"><a href="debug_and_error_output_8h.html">debugAndErrorOutput.h</a></div><div class="ttdoc">Defines for Error and Debug-Output Management. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="main_8h.html">main.h</a></li>
-    <li class="footer">Generated on Thu Nov 6 2014 01:39:39 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_e1960e8036ada45c220ea874dd4d27ba.html">INC</a></li><li class="navelem"><a class="el" href="main_8h.html">main.h</a></li>
+    <li class="footer">Generated on Thu Nov 13 2014 14:29:58 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

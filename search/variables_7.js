@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mykey',['mykey',['../classinterface.html#a7a8be5c8e8a30b3ad638a30d49fcd718',1,'interface']]],
-  ['myparameter',['MyParameter',['../classinterface.html#a0824e328091d5aa8f14126071d721dff',1,'interface']]]
+  ['registermutex',['registerMutex',['../register_access_8h.html#a90dd16a245092869e11b02a3bb26b066',1,'registerMutex():&#160;userInputTask.c'],['../user_input_task_8c.html#a90dd16a245092869e11b02a3bb26b066',1,'registerMutex():&#160;userInputTask.c']]]
 ];
