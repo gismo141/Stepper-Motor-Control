@@ -16,7 +16,6 @@ ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
   SIGNAL read_n       :  STD_LOGIC := '1' ; 
   SIGNAL redleds      :  std_logic_vector (7 downto 0) := (others => '0')  ; 
   SIGNAL write_data   :  std_logic_vector (31 downto 0) := (others => '0')  ; 
-  SIGNAL debug_n      :  STD_LOGIC := '1' ; 
   SIGNAL irq          :  STD_LOGIC := '0' ; 
   SIGNAL read_data    :  std_logic_vector (31 downto 0) := (others => '0')  ; 
   COMPONENT register_interface  
@@ -32,7 +31,6 @@ ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
       read_n  : in STD_LOGIC ; 
       redleds  : out std_logic_vector (7 downto 0) ; 
       write_data  : in std_logic_vector (31 downto 0) ; 
-      debug_n  : in STD_LOGIC ; 
       irq  : out STD_LOGIC ; 
       read_data  : out std_logic_vector (31 downto 0) ); 
   END COMPONENT ; 
@@ -50,7 +48,6 @@ BEGIN
       read_n   => read_n  ,
       redleds   => redleds  ,
       write_data   => write_data  ,
-      debug_n   => debug_n  ,
       irq   => irq  ,
       read_data   => read_data   ) ; 
       

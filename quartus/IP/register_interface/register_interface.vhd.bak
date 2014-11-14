@@ -106,10 +106,10 @@ begin
 		if(CONV_INTEGER(ctrlSetReg) /= 0) then
 			ctrlReg <= ctrlReg or ctrlSetReg;
 			ctrlSetReg <= (others => '0');
-		end if;		-- set interrupt
+		end if;
 		
 		if(CONV_INTEGER(ctrlClrReg) /= 0) then
-			ctrlReg <= ctrlReg and (not ctrlClrReg;
+			ctrlReg <= ctrlReg and (not ctrlClrReg);
 			ctrlClrReg <= (others => '0');
 		end if;
 		

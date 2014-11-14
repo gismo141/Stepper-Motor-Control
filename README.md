@@ -39,14 +39,14 @@ The development is devided into 4 so-called *milestones*:
   - Proof-of-Concept with working C-Sources
   - complete Doxygen-documentation
 
-##### [2. NIOS II/s Base-Software with register-interface](Documentation/Milestone_2/Meilenstein_2.md)
+##### 2. NIOS II/s Base-Software with register-interface
 
-- presenting the solution
+- [presenting the solution](Documentation/Milestone_2/Meilenstein_2.md)
     + show control-status (`ctrlReg`) on red-LEDs ([chapter 8.2.4]())
     + show speed-status (`speedReg`) on green-LEDs ([chapter 8.2.4]())
     + show steps-status (`stepsReg`) on NIOS-console (with changing values in debug-mode)
     + testing of the steppermotor-ISR by setting the `requestbit` every 4s
-- development of VHDL-register-interface
+- [development of VHDL-register-interface](Documentation/Milestone_2/Meilenstein_2.md)
     + listing and description of chosen desing-parameters
     + block-diagram of the register-interface showing all signals
     + Proof-of-Concept with working VHDL-Sources

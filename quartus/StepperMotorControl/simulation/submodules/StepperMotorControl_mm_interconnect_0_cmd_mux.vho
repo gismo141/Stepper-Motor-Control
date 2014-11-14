@@ -36,19 +36,19 @@
 	 ( 
 		 clk	:	IN  STD_LOGIC;
 		 reset	:	IN  STD_LOGIC;
-		 sink0_channel	:	IN  STD_LOGIC_VECTOR (12 DOWNTO 0);
+		 sink0_channel	:	IN  STD_LOGIC_VECTOR (13 DOWNTO 0);
 		 sink0_data	:	IN  STD_LOGIC_VECTOR (98 DOWNTO 0);
 		 sink0_endofpacket	:	IN  STD_LOGIC;
 		 sink0_ready	:	OUT  STD_LOGIC;
 		 sink0_startofpacket	:	IN  STD_LOGIC;
 		 sink0_valid	:	IN  STD_LOGIC;
-		 sink1_channel	:	IN  STD_LOGIC_VECTOR (12 DOWNTO 0);
+		 sink1_channel	:	IN  STD_LOGIC_VECTOR (13 DOWNTO 0);
 		 sink1_data	:	IN  STD_LOGIC_VECTOR (98 DOWNTO 0);
 		 sink1_endofpacket	:	IN  STD_LOGIC;
 		 sink1_ready	:	OUT  STD_LOGIC;
 		 sink1_startofpacket	:	IN  STD_LOGIC;
 		 sink1_valid	:	IN  STD_LOGIC;
-		 src_channel	:	OUT  STD_LOGIC_VECTOR (12 DOWNTO 0);
+		 src_channel	:	OUT  STD_LOGIC_VECTOR (13 DOWNTO 0);
 		 src_data	:	OUT  STD_LOGIC_VECTOR (98 DOWNTO 0);
 		 src_endofpacket	:	OUT  STD_LOGIC;
 		 src_ready	:	IN  STD_LOGIC;
@@ -67,6 +67,7 @@
 	 SIGNAL  wire_ni_w690w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w696w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w702w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_ni_w708w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w636w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w642w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w648w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
@@ -178,6 +179,7 @@
 	 SIGNAL  wire_ni_w692w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w698w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w704w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_ni_w710w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w638w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w644w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w650w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
@@ -289,6 +291,7 @@
 	 SIGNAL  wire_ni_w_lg_w690w693w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w_lg_w696w699w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w_lg_w702w705w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_ni_w_lg_w708w711w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w_lg_w636w639w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w_lg_w642w645w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w_lg_w648w651w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
@@ -396,18 +399,18 @@
 	 SIGNAL  wire_ni_w_lg_w617w620w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w_lg_w623w626w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_ni_w_lg_w94w97w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q	:	STD_LOGIC := '0';
+	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q	:	STD_LOGIC := '0';
 	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_zero_flag_30q	:	STD_LOGIC := '0';
-	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_759q	:	STD_LOGIC := '0';
+	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_765q	:	STD_LOGIC := '0';
 	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_0_11q	:	STD_LOGIC := '0';
 	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_1_3q	:	STD_LOGIC := '0';
 	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_21q	:	STD_LOGIC := '0';
 	 SIGNAL	steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_0_22q	:	STD_LOGIC := '0';
 	 SIGNAL  wire_nO_w22w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_754m_dataout	:	STD_LOGIC;
-	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_755m_dataout	:	STD_LOGIC;
-	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_756m_dataout	:	STD_LOGIC;
-	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_757m_dataout	:	STD_LOGIC;
+	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_760m_dataout	:	STD_LOGIC;
+	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_761m_dataout	:	STD_LOGIC;
+	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_762m_dataout	:	STD_LOGIC;
+	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_763m_dataout	:	STD_LOGIC;
 	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_p1_share_count_0_14m_dataout	:	STD_LOGIC;
 	 SIGNAL  wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_p1_share_count_0_14m_w_lg_dataout21w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_10m_dataout	:	STD_LOGIC;
@@ -422,40 +425,41 @@
 	 SIGNAL  wire_gnd	:	STD_LOGIC;
 	 SIGNAL  wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_add0_13_o	:	STD_LOGIC_VECTOR (1 DOWNTO 0);
 	 SIGNAL  wire_w_lg_w4w5w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w_lg_w710w719w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w_lg_w718w726w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w714w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w712w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w721w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w717w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w_lg_w716w725w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w_lg_w724w732w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w720w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w718w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w727w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w723w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w4w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_lg_reset3w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w710w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w718w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w716w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w724w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w23w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w6w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w_lg_w710w713w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w_lg_w710w711w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w_lg_w718w720w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w716w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_783_dataout :	STD_LOGIC;
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_780_dataout :	STD_LOGIC;
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_785_dataout :	STD_LOGIC;
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_751_dataout :	STD_LOGIC;
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_752_dataout :	STD_LOGIC;
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_753_dataout :	STD_LOGIC;
+	 SIGNAL  wire_w_lg_w716w719w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w_lg_w716w717w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w_lg_w724w726w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w722w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_789_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_786_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_791_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_757_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_758_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_759_dataout :	STD_LOGIC;
 	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_last_cycle_8_dataout :	STD_LOGIC;
 	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout :	STD_LOGIC;
 	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout :	STD_LOGIC;
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_269_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_271_dataout :	STD_LOGIC;
 	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_104_dataout :	STD_LOGIC;
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_218_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_219_dataout :	STD_LOGIC;
 	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_wideor1_40_dataout :	STD_LOGIC;
 	 SIGNAL  s_wire_vcc :	STD_LOGIC;
 	 SIGNAL  wire_w_sink0_channel_range628w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink0_channel_range689w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink0_channel_range695w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink0_channel_range701w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w_sink0_channel_range707w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink0_channel_range635w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink0_channel_range641w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink0_channel_range647w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
@@ -567,6 +571,7 @@
 	 SIGNAL  wire_w_sink1_channel_range691w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink1_channel_range697w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink1_channel_range703w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w_sink1_channel_range709w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink1_channel_range637w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink1_channel_range643w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink1_channel_range649w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
@@ -677,49 +682,50 @@
  BEGIN
 
 	wire_gnd <= '0';
-	wire_w_lg_w4w5w(0) <= wire_w4w(0) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_269_dataout;
-	wire_w_lg_w710w719w(0) <= wire_w710w(0) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_785_dataout;
-	wire_w_lg_w718w726w(0) <= wire_w718w(0) AND steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_759q;
-	wire_w714w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout AND wire_w_lg_w710w713w(0);
-	wire_w712w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout AND wire_w_lg_w710w711w(0);
-	wire_w721w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout AND wire_w_lg_w718w720w(0);
-	wire_w717w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout AND wire_w716w(0);
+	wire_w_lg_w4w5w(0) <= wire_w4w(0) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_271_dataout;
+	wire_w_lg_w716w725w(0) <= wire_w716w(0) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_791_dataout;
+	wire_w_lg_w724w732w(0) <= wire_w724w(0) AND steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_765q;
+	wire_w720w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout AND wire_w_lg_w716w719w(0);
+	wire_w718w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout AND wire_w_lg_w716w717w(0);
+	wire_w727w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout AND wire_w_lg_w724w726w(0);
+	wire_w723w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout AND wire_w722w(0);
 	wire_w4w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_wideor1_40_dataout AND src_ready;
 	wire_w_lg_reset3w(0) <= NOT reset;
-	wire_w710w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout;
-	wire_w718w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout;
+	wire_w716w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout;
+	wire_w724w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout;
 	wire_w23w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_wideor1_40_dataout;
-	wire_w6w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_104_dataout OR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_218_dataout;
-	wire_w_lg_w710w713w(0) <= wire_w710w(0) XOR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_785_dataout;
-	wire_w_lg_w710w711w(0) <= wire_w710w(0) XOR steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q;
-	wire_w_lg_w718w720w(0) <= wire_w718w(0) XOR wire_w_lg_w710w719w(0);
-	wire_w716w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_780_dataout XOR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_783_dataout;
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_783_dataout <= (wire_w718w(0) XOR steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_759q);
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_780_dataout <= (wire_w710w(0) AND steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q);
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_785_dataout <= (wire_w_lg_w718w726w(0) OR (s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_780_dataout AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_783_dataout));
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_751_dataout <= (wire_w712w(0) OR wire_w714w(0));
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_752_dataout <= (wire_w717w(0) OR wire_w721w(0));
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_753_dataout <= (s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout OR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout);
+	wire_w6w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_104_dataout OR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_219_dataout;
+	wire_w_lg_w716w719w(0) <= wire_w716w(0) XOR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_791_dataout;
+	wire_w_lg_w716w717w(0) <= wire_w716w(0) XOR steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q;
+	wire_w_lg_w724w726w(0) <= wire_w724w(0) XOR wire_w_lg_w716w725w(0);
+	wire_w722w(0) <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_786_dataout XOR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_789_dataout;
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_789_dataout <= (wire_w724w(0) XOR steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_765q);
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_786_dataout <= (wire_w716w(0) AND steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q);
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_1_791_dataout <= (wire_w_lg_w724w732w(0) OR (s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_full_adder_cout_0_786_dataout AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_altera_merlin_arb_adder_adder_cout_789_dataout));
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_757_dataout <= (wire_w718w(0) OR wire_w720w(0));
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_758_dataout <= (wire_w723w(0) OR wire_w727w(0));
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_759_dataout <= (s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout OR s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout);
 	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_last_cycle_8_dataout <= (wire_w_lg_w4w5w(0) AND (NOT wire_w6w(0)));
 	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_0_33_dataout <= (steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_0_11q OR sink0_valid);
 	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_request_1_34_dataout <= (steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_1_3q OR sink1_valid);
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_269_dataout <= ((steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND sink0_endofpacket) OR (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND sink1_endofpacket));
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_271_dataout <= ((steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND sink0_endofpacket) OR (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND sink1_endofpacket));
 	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_104_dataout <= (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND sink0_data(61));
-	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_218_dataout <= (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND sink1_data(61));
+	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_219_dataout <= (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND sink1_data(61));
 	s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_wideor1_40_dataout <= ((steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND sink0_valid) OR (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND sink1_valid));
 	s_wire_vcc <= '1';
 	sink0_ready <= (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND src_ready);
 	sink1_ready <= (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND src_ready);
-	src_channel <= ( wire_ni_w_lg_w702w705w & wire_ni_w_lg_w696w699w & wire_ni_w_lg_w690w693w & wire_ni_w_lg_w684w687w & wire_ni_w_lg_w678w681w & wire_ni_w_lg_w672w675w & wire_ni_w_lg_w666w669w & wire_ni_w_lg_w660w663w & wire_ni_w_lg_w654w657w & wire_ni_w_lg_w648w651w & wire_ni_w_lg_w642w645w & wire_ni_w_lg_w636w639w & wire_ni_w_lg_w629w632w);
+	src_channel <= ( wire_ni_w_lg_w708w711w & wire_ni_w_lg_w702w705w & wire_ni_w_lg_w696w699w & wire_ni_w_lg_w690w693w & wire_ni_w_lg_w684w687w & wire_ni_w_lg_w678w681w & wire_ni_w_lg_w672w675w & wire_ni_w_lg_w666w669w & wire_ni_w_lg_w660w663w & wire_ni_w_lg_w654w657w & wire_ni_w_lg_w648w651w & wire_ni_w_lg_w642w645w & wire_ni_w_lg_w636w639w & wire_ni_w_lg_w629w632w);
 	src_data <= ( wire_ni_w_lg_w623w626w & wire_ni_w_lg_w617w620w & wire_ni_w_lg_w611w614w & wire_ni_w_lg_w605w608w & wire_ni_w_lg_w599w602w & wire_ni_w_lg_w593w596w & wire_ni_w_lg_w587w590w & wire_ni_w_lg_w581w584w & wire_ni_w_lg_w575w578w & wire_ni_w_lg_w569w572w & wire_ni_w_lg_w563w566w & wire_ni_w_lg_w557w560w & wire_ni_w_lg_w551w554w & wire_ni_w_lg_w545w548w & wire_ni_w_lg_w539w542w & wire_ni_w_lg_w533w536w & wire_ni_w_lg_w527w530w & wire_ni_w_lg_w521w524w & wire_ni_w_lg_w515w518w & wire_ni_w_lg_w509w512w & wire_ni_w_lg_w503w506w & wire_ni_w_lg_w497w500w & wire_ni_w_lg_w491w494w & wire_ni_w_lg_w485w488w & wire_ni_w_lg_w479w482w & wire_ni_w_lg_w473w476w & wire_ni_w_lg_w467w470w & wire_ni_w_lg_w461w464w & wire_ni_w_lg_w455w458w & wire_ni_w_lg_w449w452w & wire_ni_w_lg_w443w446w & wire_ni_w_lg_w437w440w & wire_ni_w_lg_w431w434w & wire_ni_w_lg_w425w428w & wire_ni_w_lg_w419w422w & wire_ni_w_lg_w413w416w & wire_ni_w_lg_w407w410w & wire_w6w & wire_ni_w_lg_w400w403w & wire_ni_w_lg_w394w397w & wire_ni_w_lg_w388w391w & wire_ni_w_lg_w382w385w & wire_ni_w_lg_w376w379w & wire_ni_w_lg_w370w373w & wire_ni_w_lg_w364w367w & wire_ni_w_lg_w358w361w & wire_ni_w_lg_w352w355w & wire_ni_w_lg_w346w349w & wire_ni_w_lg_w340w343w & wire_ni_w_lg_w334w337w & wire_ni_w_lg_w328w331w & wire_ni_w_lg_w322w325w & wire_ni_w_lg_w316w319w & wire_ni_w_lg_w310w313w & wire_ni_w_lg_w304w307w & wire_ni_w_lg_w298w301w & wire_ni_w_lg_w292w295w & wire_ni_w_lg_w286w289w & wire_ni_w_lg_w280w283w & wire_ni_w_lg_w274w277w & wire_ni_w_lg_w268w271w & wire_ni_w_lg_w262w265w & wire_ni_w_lg_w256w259w & wire_ni_w_lg_w250w253w & wire_ni_w_lg_w244w247w & wire_ni_w_lg_w238w241w & wire_ni_w_lg_w232w235w & wire_ni_w_lg_w226w229w & wire_ni_w_lg_w220w223w & wire_ni_w_lg_w214w217w & wire_ni_w_lg_w208w211w & wire_ni_w_lg_w202w205w & wire_ni_w_lg_w196w199w & wire_ni_w_lg_w190w193w & wire_ni_w_lg_w184w187w & wire_ni_w_lg_w178w181w & wire_ni_w_lg_w172w175w & wire_ni_w_lg_w166w169w & wire_ni_w_lg_w160w163w & wire_ni_w_lg_w154w157w & wire_ni_w_lg_w148w151w & wire_ni_w_lg_w142w145w
  & wire_ni_w_lg_w136w139w & wire_ni_w_lg_w130w133w & wire_ni_w_lg_w124w127w & wire_ni_w_lg_w118w121w & wire_ni_w_lg_w112w115w & wire_ni_w_lg_w106w109w & wire_ni_w_lg_w100w103w & wire_ni_w_lg_w94w97w & wire_ni_w_lg_w88w91w & wire_ni_w_lg_w82w85w & wire_ni_w_lg_w76w79w & wire_ni_w_lg_w70w73w & wire_ni_w_lg_w64w67w & wire_ni_w_lg_w58w61w & wire_ni_w_lg_w52w55w & wire_ni_w_lg_w46w49w & wire_ni_w_lg_w39w42w);
-	src_endofpacket <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_269_dataout;
+	src_endofpacket <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_src_payload_0_271_dataout;
 	src_startofpacket <= ((steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND sink0_startofpacket) OR (steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND sink1_startofpacket));
 	src_valid <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_wideor1_40_dataout;
 	wire_w_sink0_channel_range628w(0) <= sink0_channel(0);
 	wire_w_sink0_channel_range689w(0) <= sink0_channel(10);
 	wire_w_sink0_channel_range695w(0) <= sink0_channel(11);
 	wire_w_sink0_channel_range701w(0) <= sink0_channel(12);
+	wire_w_sink0_channel_range707w(0) <= sink0_channel(13);
 	wire_w_sink0_channel_range635w(0) <= sink0_channel(1);
 	wire_w_sink0_channel_range641w(0) <= sink0_channel(2);
 	wire_w_sink0_channel_range647w(0) <= sink0_channel(3);
@@ -831,6 +837,7 @@
 	wire_w_sink1_channel_range691w(0) <= sink1_channel(10);
 	wire_w_sink1_channel_range697w(0) <= sink1_channel(11);
 	wire_w_sink1_channel_range703w(0) <= sink1_channel(12);
+	wire_w_sink1_channel_range709w(0) <= sink1_channel(13);
 	wire_w_sink1_channel_range637w(0) <= sink1_channel(1);
 	wire_w_sink1_channel_range643w(0) <= sink1_channel(2);
 	wire_w_sink1_channel_range649w(0) <= sink1_channel(3);
@@ -945,8 +952,8 @@
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q <= '0';
 		ELSIF (clk = '1' AND clk'event) THEN
 			IF (wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_update_grant_27m_dataout = '1') THEN
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_751_dataout;
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_752_dataout;
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_757_dataout;
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_758_dataout;
 			END IF;
 		END IF;
 	END PROCESS;
@@ -954,6 +961,7 @@
 	wire_ni_w690w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND wire_w_sink0_channel_range689w(0);
 	wire_ni_w696w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND wire_w_sink0_channel_range695w(0);
 	wire_ni_w702w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND wire_w_sink0_channel_range701w(0);
+	wire_ni_w708w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND wire_w_sink0_channel_range707w(0);
 	wire_ni_w636w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND wire_w_sink0_channel_range635w(0);
 	wire_ni_w642w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND wire_w_sink0_channel_range641w(0);
 	wire_ni_w648w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_0_32q AND wire_w_sink0_channel_range647w(0);
@@ -1065,6 +1073,7 @@
 	wire_ni_w692w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND wire_w_sink1_channel_range691w(0);
 	wire_ni_w698w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND wire_w_sink1_channel_range697w(0);
 	wire_ni_w704w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND wire_w_sink1_channel_range703w(0);
+	wire_ni_w710w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND wire_w_sink1_channel_range709w(0);
 	wire_ni_w638w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND wire_w_sink1_channel_range637w(0);
 	wire_ni_w644w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND wire_w_sink1_channel_range643w(0);
 	wire_ni_w650w(0) <= steppermotorcontrol_mm_interconnect_0_cmd_mux_saved_grant_1_31q AND wire_w_sink1_channel_range649w(0);
@@ -1176,6 +1185,7 @@
 	wire_ni_w_lg_w690w693w(0) <= wire_ni_w690w(0) OR wire_ni_w692w(0);
 	wire_ni_w_lg_w696w699w(0) <= wire_ni_w696w(0) OR wire_ni_w698w(0);
 	wire_ni_w_lg_w702w705w(0) <= wire_ni_w702w(0) OR wire_ni_w704w(0);
+	wire_ni_w_lg_w708w711w(0) <= wire_ni_w708w(0) OR wire_ni_w710w(0);
 	wire_ni_w_lg_w636w639w(0) <= wire_ni_w636w(0) OR wire_ni_w638w(0);
 	wire_ni_w_lg_w642w645w(0) <= wire_ni_w642w(0) OR wire_ni_w644w(0);
 	wire_ni_w_lg_w648w651w(0) <= wire_ni_w648w(0) OR wire_ni_w650w(0);
@@ -1286,14 +1296,14 @@
 	PROCESS (clk, reset)
 	BEGIN
 		IF (reset = '1') THEN
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q <= '1';
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q <= '1';
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_zero_flag_30q <= '1';
 		ELSIF (clk = '1' AND clk'event) THEN
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_757m_dataout;
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_763m_dataout;
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_zero_flag_30q <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_zero_flag_20m_dataout;
 		END IF;
 		if (now = 0 ns) then
-			steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q <= '1' after 1 ps;
+			steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q <= '1' after 1 ps;
 		end if;
 		if (now = 0 ns) then
 			steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_zero_flag_30q <= '1' after 1 ps;
@@ -1302,24 +1312,24 @@
 	PROCESS (clk, reset)
 	BEGIN
 		IF (reset = '1') THEN
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_759q <= '0';
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_765q <= '0';
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_0_11q <= '0';
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_1_3q <= '0';
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_21q <= '0';
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_0_22q <= '0';
 		ELSIF (clk = '1' AND clk'event) THEN
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_759q <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_756m_dataout;
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_0_11q <= (sink0_data(61) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_751_dataout);
-				steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_1_3q <= (sink1_data(61) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_752_dataout);
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_765q <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_762m_dataout;
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_0_11q <= (sink0_data(61) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_757_dataout);
+				steppermotorcontrol_mm_interconnect_0_cmd_mux_locked_1_3q <= (sink1_data(61) AND s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_758_dataout);
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_21q <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_10m_dataout;
 				steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_0_22q <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_19m_dataout;
 		END IF;
 	END PROCESS;
 	wire_nO_w22w(0) <= NOT steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_21q;
-	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_754m_dataout <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_751_dataout WHEN s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_753_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_759q;
-	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_755m_dataout <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_752_dataout WHEN s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_753_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q;
-	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_756m_dataout <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_754m_dataout WHEN wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_update_grant_27m_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_759q;
-	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_757m_dataout <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_755m_dataout WHEN wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_update_grant_27m_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_760q;
+	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_760m_dataout <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_0_757_dataout WHEN s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_759_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_765q;
+	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_761m_dataout <= s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_grant_1_758_dataout WHEN s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_wideor0_759_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q;
+	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_762m_dataout <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_760m_dataout WHEN wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_update_grant_27m_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_1_765q;
+	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_763m_dataout <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_761m_dataout WHEN wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_update_grant_27m_dataout = '1'  ELSE steppermotorcontrol_mm_interconnect_0_cmd_mux_altera_merlin_arbitrator_arb_top_priority_reg_0_766q;
 	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_p1_share_count_0_14m_dataout <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_add0_13_o(1) AND NOT(steppermotorcontrol_mm_interconnect_0_cmd_mux_share_count_zero_flag_30q);
 	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_p1_share_count_0_14m_w_lg_dataout21w(0) <= NOT wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_p1_share_count_0_14m_dataout;
 	wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_10m_dataout <= wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_packet_in_progress_9m_dataout AND NOT(s_wire_steppermotorcontrol_mm_interconnect_0_cmd_mux_last_cycle_8_dataout);

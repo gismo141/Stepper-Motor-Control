@@ -38,7 +38,7 @@
 		 sink_ready	:	OUT  STD_LOGIC;
 		 sink_startofpacket	:	IN  STD_LOGIC;
 		 sink_valid	:	IN  STD_LOGIC;
-		 src_channel	:	OUT  STD_LOGIC_VECTOR (12 DOWNTO 0);
+		 src_channel	:	OUT  STD_LOGIC_VECTOR (13 DOWNTO 0);
 		 src_data	:	OUT  STD_LOGIC_VECTOR (98 DOWNTO 0);
 		 src_endofpacket	:	OUT  STD_LOGIC;
 		 src_ready	:	IN  STD_LOGIC;
@@ -51,20 +51,20 @@
 
 	 ATTRIBUTE synthesis_clearbox : natural;
 	 ATTRIBUTE synthesis_clearbox OF RTL : ARCHITECTURE IS 1;
-	 SIGNAL  wire_w_lg_w_sink_data_range142w319w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  wire_w_lg_w_sink_data_range142w321w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w249w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  wire_w_lg_w_sink_data_range145w318w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_319_dataout :	STD_LOGIC;
+	 SIGNAL  wire_w_lg_w_sink_data_range145w320w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_323_dataout :	STD_LOGIC;
 	 SIGNAL  wire_w_sink_data_range142w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
 	 SIGNAL  wire_w_sink_data_range145w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
  BEGIN
 
-	wire_w_lg_w_sink_data_range142w319w(0) <= wire_w_sink_data_range142w(0) AND wire_w_lg_w_sink_data_range145w318w(0);
-	wire_w249w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_319_dataout;
-	wire_w_lg_w_sink_data_range145w318w(0) <= NOT wire_w_sink_data_range145w(0);
-	s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_319_dataout <= ((((((((wire_w_lg_w_sink_data_range142w319w(0) AND (NOT sink_data(49))) AND (NOT sink_data(50))) AND (NOT sink_data(51))) AND (NOT sink_data(52))) AND (NOT sink_data(53))) AND (NOT sink_data(54))) AND (NOT sink_data(55))) AND sink_data(56));
+	wire_w_lg_w_sink_data_range142w321w(0) <= wire_w_sink_data_range142w(0) AND wire_w_lg_w_sink_data_range145w320w(0);
+	wire_w249w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_323_dataout;
+	wire_w_lg_w_sink_data_range145w320w(0) <= NOT wire_w_sink_data_range145w(0);
+	s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_323_dataout <= ((((((((wire_w_lg_w_sink_data_range142w321w(0) AND (NOT sink_data(49))) AND (NOT sink_data(50))) AND (NOT sink_data(51))) AND (NOT sink_data(52))) AND (NOT sink_data(53))) AND (NOT sink_data(54))) AND (NOT sink_data(55))) AND sink_data(56));
 	sink_ready <= src_ready;
-	src_channel <= ( "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & wire_w249w & s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_319_dataout);
+	src_channel <= ( "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & wire_w249w & s_wire_steppermotorcontrol_mm_interconnect_0_router_src_channel_1_323_dataout);
 	src_data <= ( sink_data(98 DOWNTO 86) & "0" & "0" & wire_w249w & "0" & sink_data(81 DOWNTO 0));
 	src_endofpacket <= sink_endofpacket;
 	src_startofpacket <= sink_startofpacket;

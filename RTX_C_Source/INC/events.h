@@ -10,9 +10,9 @@
  * @par History:
  * @details    v0.1.0 27.10.2014 Riedel
  *             - first draft for milestone 1b
- *             v0.1.1 30.10.2014 Riedel
+ * @details    v0.1.1 30.10.2014 Riedel
  *             - Moved DEBUG_ON_EVENT from heartbeatTask.h to this header
- *             v1.0.0 07.11.2014 Kossmann
+ * @details    v1.0.0 07.11.2014 Kossmann
  *             - added DEBUG_OFF_EVENT
  *****************************************************************************
  */

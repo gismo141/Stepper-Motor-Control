@@ -38,7 +38,7 @@
 		 sink_ready	:	OUT  STD_LOGIC;
 		 sink_startofpacket	:	IN  STD_LOGIC;
 		 sink_valid	:	IN  STD_LOGIC;
-		 src_channel	:	OUT  STD_LOGIC_VECTOR (12 DOWNTO 0);
+		 src_channel	:	OUT  STD_LOGIC_VECTOR (13 DOWNTO 0);
 		 src_data	:	OUT  STD_LOGIC_VECTOR (98 DOWNTO 0);
 		 src_endofpacket	:	OUT  STD_LOGIC;
 		 src_ready	:	IN  STD_LOGIC;
@@ -52,13 +52,13 @@
 	 ATTRIBUTE synthesis_clearbox : natural;
 	 ATTRIBUTE synthesis_clearbox OF RTL : ARCHITECTURE IS 1;
 	 SIGNAL  wire_w298w	:	STD_LOGIC_VECTOR (0 DOWNTO 0);
-	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_330_dataout :	STD_LOGIC;
+	 SIGNAL  s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_334_dataout :	STD_LOGIC;
  BEGIN
 
-	wire_w298w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_330_dataout;
-	s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_330_dataout <= ((((NOT sink_data(82)) AND (NOT sink_data(83))) AND (NOT sink_data(84))) AND (NOT sink_data(85)));
+	wire_w298w(0) <= NOT s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_334_dataout;
+	s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_334_dataout <= ((((NOT sink_data(82)) AND (NOT sink_data(83))) AND (NOT sink_data(84))) AND (NOT sink_data(85)));
 	sink_ready <= src_ready;
-	src_channel <= ( "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_330_dataout & wire_w298w);
+	src_channel <= ( "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & "0" & s_wire_steppermotorcontrol_mm_interconnect_0_router_002_src_channel_0_334_dataout & wire_w298w);
 	src_data <= ( sink_data(98 DOWNTO 0));
 	src_endofpacket <= sink_endofpacket;
 	src_startofpacket <= sink_startofpacket;

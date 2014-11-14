@@ -60,7 +60,8 @@ BEGIN
                '0' after 140 ns,
                '1' after 150 ns;          
     write_n <= '0' after 30 ns,
-               '1' after 200 ns;
+               '1' after 200 ns;        
+    read_n  <= '0' after 30 ns;
     addr <= "000" after 30 ns,
             "001" after 50 ns,
             "010" after 70 ns,

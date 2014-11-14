@@ -24,7 +24,7 @@
  *             - added hardwareTest() declaration
  * @details    v1.0.0 03.11.2014 Kossmann
  *             - moved all register masks in registerAccess.h
- * @details    v1.0.1 13.11. Kossmann
+ * @details    v1.0.1 13.11.2014 Kossmann
  *             - moved all own data types to dataTypes.h
  * @details    v1.0.2 14.11.2014 Riedel & Kossmann
  *             - added define for register mutex (see registerAccess.h)

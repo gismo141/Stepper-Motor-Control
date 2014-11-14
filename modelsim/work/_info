@@ -4,35 +4,36 @@ K3
 cModel Technology
 dC:\altera\14.0
 Eregister_interface
-Z0 w1415890078
+Z0 w1415960659
 Z1 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
 Z2 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
 Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z5 dC:\Users\mpeg\Desktop\Stepper-Motor-Control\modelsim
-Z6 8C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\IP\register_interface\register_interface.vhd
-Z7 FC:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\IP\register_interface\register_interface.vhd
+Z5 dS:\SoC04\Stepper-Motor-Control\modelsim
+Z6 8S:/SoC04/Stepper-Motor-Control/quartus/IP/register_interface/register_interface.vhd
+Z7 FS:/SoC04/Stepper-Motor-Control/quartus/IP/register_interface/register_interface.vhd
 l0
 L32
-Ve5H]5hePaJM_WOMjGIo];3
+VV_V91RbM`]IeD?heiZIKX2
 Z8 OV;C;10.1e;51
 32
-Z9 !s108 1415890078.467000
-Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\IP\register_interface\register_interface.vhd|
-Z11 !s107 C:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\IP\register_interface\register_interface.vhd|
+Z9 !s108 1415960690.441000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|S:/SoC04/Stepper-Motor-Control/quartus/IP/register_interface/register_interface.vhd|
+Z11 !s107 S:/SoC04/Stepper-Motor-Control/quartus/IP/register_interface/register_interface.vhd|
 Z12 o-work work -2002 -explicit -O0
 Z13 tExplicit 1
-!s100 jG9?hMVGzi@mk?jadT`];1
+!s100 IWFeCK0<kYF`AeWRTVOzg1
 !i10b 1
 Amy_register_interface
 R1
 R2
 R3
 R4
-DEx4 work 18 register_interface 0 22 e5H]5hePaJM_WOMjGIo];3
-l71
-L61
+DEx4 work 18 register_interface 0 22 V_V91RbM`]IeD?heiZIKX2
+l70
+L60
 VVG4EGk^U7hdnng8nTDN581
+!s100 0gFmd>I5l6K`F<SeNZ1Ld0
 R8
 32
 R9
@@ -40,17 +41,16 @@ R10
 R11
 R12
 R13
-!s100 O=K2zDXXZd4Sb:C=:hTP30
 !i10b 1
 Eregister_interface_tb
-Z14 w1415689084
+Z14 w1415960691
 R1
 R2
 R3
 R4
 R5
-Z15 8C:/Users/mpeg/Desktop/Stepper-Motor-Control/modelsim/register_interface_tb.vhd
-Z16 FC:/Users/mpeg/Desktop/Stepper-Motor-Control/modelsim/register_interface_tb.vhd
+Z15 8S:/SoC04/Stepper-Motor-Control/modelsim/register_interface_tb.vhd
+Z16 FS:/SoC04/Stepper-Motor-Control/modelsim/register_interface_tb.vhd
 l0
 L4
 V;4[Hl`onN:9E]bKV__Y:e1
@@ -58,9 +58,9 @@ V;4[Hl`onN:9E]bKV__Y:e1
 R8
 32
 !i10b 1
-Z17 !s108 1415890078.561000
-Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/mpeg/Desktop/Stepper-Motor-Control/modelsim/register_interface_tb.vhd|
-Z19 !s107 C:/Users/mpeg/Desktop/Stepper-Motor-Control/modelsim/register_interface_tb.vhd|
+Z17 !s108 1415960691.689000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|S:/SoC04/Stepper-Motor-Control/modelsim/register_interface_tb.vhd|
+Z19 !s107 S:/SoC04/Stepper-Motor-Control/modelsim/register_interface_tb.vhd|
 R12
 R13
 Aregister_interface_tb_arch
@@ -69,10 +69,10 @@ R2
 R3
 R4
 Z20 DEx4 work 21 register_interface_tb 0 22 ;4[Hl`onN:9E]bKV__Y:e1
-l39
+l37
 L9
-Z21 V>dPjD0fk7llZ[T;N;4BE92
-Z22 !s100 lGL5zKGU<^J2iYCU1><=e2
+VMUhWchAO>>nGW:n2j7FgL1
+!s100 =WJS]fz;z4kV2UoKdzV481
 R8
 32
 !i10b 1

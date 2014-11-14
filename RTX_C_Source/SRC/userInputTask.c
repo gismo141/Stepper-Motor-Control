@@ -3,8 +3,8 @@
  * @file        userInputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.1
- * @date        13.11.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Source code for User-Input-Task which is highest instance, reacts
  *              to user input and controls register and hardware access
  *****************************************************************************

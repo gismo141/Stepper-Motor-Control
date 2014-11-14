@@ -3,12 +3,12 @@
  * @file        dataTypes.h
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v0.1
+ * @version     v1.0.0
  * @date        13.11.2014
  * @brief       Header file for all own data types
  ******************************************************************************
  * @par History:
- * @details     13.11. Kossmann
+ * @details     v1.0.0 13.11.2014 Kossmann
  *              - put all own data types together in one file
  ******************************************************************************
  */

@@ -18,7 +18,9 @@ module StepperMotorControl (
 	hex1_export,
 	hex2_export,
 	hex3_export,
-	led9_export);	
+	led9_export,
+	leds_redleds,
+	leds_greenleds);	
 
 	input		reset_reset_n;
 	input		clk_clk;
@@ -39,4 +41,6 @@ module StepperMotorControl (
 	output	[6:0]	hex2_export;
 	output	[6:0]	hex3_export;
 	output		led9_export;
+	output	[7:0]	leds_redleds;
+	output	[7:0]	leds_greenleds;
 endmodule

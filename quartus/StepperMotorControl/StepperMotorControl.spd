@@ -331,6 +331,10 @@
    type="VHDL"
    library="mm_interconnect_0" />
  <file
+   path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_registers_register_slave_translator.vhd"
+   type="VHDL"
+   library="mm_interconnect_0" />
+ <file
    path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_cpu_jtag_debug_module_agent.vhd"
    type="VHDL"
    library="mm_interconnect_0" />
@@ -354,6 +358,10 @@
    path="simulation/submodules/steppermotorcontrol_mm_interconnect_0_cpu_data_master_translator.vhd"
    type="VHDL"
    library="mm_interconnect_0" />
+ <file
+   path="simulation/submodules/register_interface.vhd"
+   type="VHDL"
+   library="registers" />
  <file
    path="simulation/submodules/StepperMotorControl_pio_led9.vhd"
    type="VHDL"

@@ -3,8 +3,8 @@
  * @file        userOutputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.1
- * @date        13.11.2014
+ * @version     v1.0
+ * @date        11.11.2014
  * @brief       Source code for User-Output-Task which communications with
  *              the user and shows him system information
  ******************************************************************************

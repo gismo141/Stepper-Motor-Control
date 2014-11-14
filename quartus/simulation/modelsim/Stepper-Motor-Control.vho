@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 14.0.2 Build 209 09/17/2014 SJ Full Version"
 
--- DATE "11/14/2014 09:47:21"
+-- DATE "10/31/2014 10:20:49"
 
 -- 
 -- Device: Altera 5CGXFC5C6F27C7 Package FBGA672
@@ -44,24 +44,24 @@ ENTITY 	interface_RTX_Base IS
 	altera_reserved_tdo : OUT std_logic;
 	CLOCK_50_B5B : IN std_logic;
 	CPU_RESET_n : IN std_logic;
-	SRAM_A : OUT std_logic_vector(17 DOWNTO 0);
-	SRAM_D : INOUT std_logic_vector(15 DOWNTO 0);
-	SRAM_CE_N : OUT std_logic;
-	SRAM_LB_N : OUT std_logic;
-	SRAM_OE_N : OUT std_logic;
-	SRAM_UB_N : OUT std_logic;
-	SRAM_WE_N : OUT std_logic;
+	SRAM_A : BUFFER std_logic_vector(17 DOWNTO 0);
+	SRAM_D : BUFFER std_logic_vector(15 DOWNTO 0);
+	SRAM_CE_N : BUFFER std_logic;
+	SRAM_LB_N : BUFFER std_logic;
+	SRAM_OE_N : BUFFER std_logic;
+	SRAM_UB_N : BUFFER std_logic;
+	SRAM_WE_N : BUFFER std_logic;
 	KEY : IN std_logic_vector(3 DOWNTO 0);
 	SW : IN std_logic_vector(9 DOWNTO 0);
-	LED9 : OUT std_logic;
-	HEX0 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX1 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX2 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX3 : OUT std_logic_vector(6 DOWNTO 0);
-	LCD_RS : OUT std_logic;
-	LCD_RW : OUT std_logic;
-	LCD_DQ : INOUT std_logic_vector(7 DOWNTO 0);
-	LCD_EN : OUT std_logic
+	LED9 : BUFFER std_logic;
+	HEX0 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX1 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX2 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX3 : BUFFER std_logic_vector(6 DOWNTO 0);
+	LCD_RS : BUFFER std_logic;
+	LCD_RW : BUFFER std_logic;
+	LCD_DQ : BUFFER std_logic_vector(7 DOWNTO 0);
+	LCD_EN : BUFFER std_logic
 	);
 END interface_RTX_Base;
 
@@ -184,6 +184,7 @@ SIGNAL ww_altera_reserved_tdo : std_logic;
 SIGNAL ww_CLOCK_50_B5B : std_logic;
 SIGNAL ww_CPU_RESET_n : std_logic;
 SIGNAL ww_SRAM_A : std_logic_vector(17 DOWNTO 0);
+SIGNAL ww_SRAM_D : std_logic_vector(15 DOWNTO 0);
 SIGNAL ww_SRAM_CE_N : std_logic;
 SIGNAL ww_SRAM_LB_N : std_logic;
 SIGNAL ww_SRAM_OE_N : std_logic;
@@ -198,6 +199,7 @@ SIGNAL ww_HEX2 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_HEX3 : std_logic_vector(6 DOWNTO 0);
 SIGNAL ww_LCD_RS : std_logic;
 SIGNAL ww_LCD_RW : std_logic;
+SIGNAL ww_LCD_DQ : std_logic_vector(7 DOWNTO 0);
 SIGNAL ww_LCD_EN : std_logic;
 SIGNAL \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ram_block1a0_PORTADATAIN_bus\ : std_logic_vector(39 DOWNTO 0);
 SIGNAL \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ram_block1a0_PORTAADDR_bus\ : std_logic_vector(4 DOWNTO 0);
@@ -2827,205 +2829,131 @@ SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\ : std_logic_vec
 SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\ : std_logic_vector(3 DOWNTO 0);
 SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\ : std_logic_vector(4 DOWNTO 0);
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~4_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][2]~q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\ : std_logic_vector(37 DOWNTO 0);
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][1]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][0]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~1_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][12]~q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_E_shift_rot_result\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_Add2~113_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~109_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~105_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~101_sumout\ : std_logic;
 SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~0_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][13]~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write_valid~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~1_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write2~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write1~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate2~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate1~q\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~1_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~0_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_period_l_register\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u0|rtx_timer|ALT_INV_period_h_register\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u0|rtx_timer|ALT_INV_always0~0_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_force_reload~q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \u0|rtx_timer|ALT_INV_counter_snapshot\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[3]~7_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_control_register\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[3]~6_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~15_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][10]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[3][51]~q\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_E_invert_arith_src_msb~0_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][6]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~13_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][8]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][14]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~11_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][15]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~10_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][9]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~9_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][7]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~8_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][11]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~7_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][5]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~6_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][4]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][3]~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\ : std_logic_vector(10 DOWNTO 0);
-SIGNAL \u0|rtx_timer|ALT_INV_counter_is_running~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~1_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~0_combout\ : std_logic;
 SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\ : std_logic_vector(37 DOWNTO 0);
-SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_force_xor~3_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_force_xor~2_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_D_wr_dst_reg~1_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_subtract~1_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_D_wr_dst_reg~0_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~7_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~6_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_sink_ready~6_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~1_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_read_accepted~1_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~1_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|pio_hex0_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~5_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|router_001|ALT_INV_src_channel[1]~5_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_data_reg[12]~1_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|pio_key_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|pio_sw_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|pio_led9_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|rtx_timer_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|pio_hex1_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
-SIGNAL \u0|sram_cvgx|tdt|ALT_INV_s0_uav_waitrequest~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|lcd_control_slave_agent|ALT_INV_m0_write~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~2_combout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~1_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~16_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~15_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg[19]~14_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~46_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_DRsize.010~q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~44_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_resetlatch~q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~38_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~37_combout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr[19]~36_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~1_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo_bypass_reg~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~0_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\ : std_logic_vector(6 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_ir_scan_reg~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_clr_reg~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[1]~reg0_q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[2]~reg0_q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][4]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][3]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][2]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][1]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][4]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][3]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][2]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][1]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \ALT_INV_altera_internal_jtag~TDIUTAP\ : std_logic;
-SIGNAL \ALT_INV_altera_internal_jtag~TCKUTAP\ : std_logic;
-SIGNAL \ALT_INV_altera_internal_jtag~TMSUTAP\ : std_logic;
-SIGNAL \ALT_INV_~GND~combout\ : std_logic;
-SIGNAL \u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain[1]~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~0_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_D_ctrl_logic~0_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_force_xor~4_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\ : std_logic_vector(4 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_proc~0_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~0_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\ : std_logic_vector(4 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_clear_signal~combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~3_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~2_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~1_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state~6_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal0~0_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\ : std_logic_vector(9 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_dr_scan_reg~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena~0_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][4]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][3]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][2]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][1]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~9_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][0]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][4]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][3]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][2]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][1]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~2_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_proc~0_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~1_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][0]~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~3_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~2_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal3~0_combout\ : std_logic;
-SIGNAL \ALT_INV_SRAM_D[10]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SRAM_D[9]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SRAM_D[6]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SRAM_D[4]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SRAM_D[3]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SRAM_D[1]~input_o\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~8_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~6_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~5_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~6_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~5_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt~1_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~3_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~3_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~2_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~1_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg~q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~16_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~10_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~9_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~15_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg_proc~0_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~1_combout\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg[1]~0_combout\ : std_logic;
-SIGNAL \ALT_INV_SW[7]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[8]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[9]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[6]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[5]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[4]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[3]~input_o\ : std_logic;
-SIGNAL \ALT_INV_KEY[3]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[2]~input_o\ : std_logic;
-SIGNAL \ALT_INV_KEY[2]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[1]~input_o\ : std_logic;
-SIGNAL \ALT_INV_KEY[1]~input_o\ : std_logic;
-SIGNAL \ALT_INV_SW[0]~input_o\ : std_logic;
-SIGNAL \ALT_INV_KEY[0]~input_o\ : std_logic;
-SIGNAL \ALT_INV_CPU_RESET_n~input_o\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~125_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~121_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~117_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~113_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~109_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~105_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~101_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~97_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~93_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~89_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_Add2~133_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~129_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~125_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~121_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~117_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~61_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_Add0~57_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\ : std_logic_vector(22 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_W_alu_result\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_av_ld_byte3_data\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_Add2~97_sumout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\ : std_logic_vector(31 DOWNTO 9);
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\ : std_logic_vector(29 DOWNTO 0);
+SIGNAL \u0|jtag_uart|ALT_INV_Add0~25_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_Add0~21_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_Add0~17_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_Add0~13_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_Add0~9_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_Add0~5_sumout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_Add0~1_sumout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_internal_counter\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_d_writedata\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\ : std_logic_vector(10 DOWNTO 2);
+SIGNAL \u0|cpu|ALT_INV_Add2~93_sumout\ : std_logic;
+SIGNAL \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\ : std_logic_vector(20 DOWNTO 2);
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\ : std_logic_vector(10 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_av_ld_byte0_data\ : std_logic_vector(7 DOWNTO 0);
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][10]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~5_sumout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_Add0~1_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_E_src1\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_E_src2\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_Add2~89_sumout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][6]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][8]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][14]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][15]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][9]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][7]~q\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_E_shift_rot_cnt\ : std_logic_vector(4 DOWNTO 0);
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][11]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][5]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][4]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][3]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][2]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][1]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][0]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][12]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][13]~q\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_iw\ : std_logic_vector(26 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_Add0~73_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~69_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~65_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~61_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~57_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~53_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~49_sumout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~1_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~45_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~41_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~37_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~33_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~29_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~25_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~21_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~17_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~13_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~9_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~81_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~77_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~5_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add0~1_sumout\ : std_logic;
+SIGNAL \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_F_pc\ : std_logic_vector(18 DOWNTO 0);
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_address_reg\ : std_logic_vector(18 DOWNTO 1);
+SIGNAL \u0|cpu|ALT_INV_Add2~73_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~69_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~65_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~61_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~57_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~53_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~49_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~45_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~41_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~37_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~33_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~29_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~25_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~21_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~17_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~13_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~9_sumout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][48]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][41]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][82]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][19]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][81]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][60]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_byteen_reg\ : std_logic_vector(1 DOWNTO 0);
+SIGNAL \u0|cpu|ALT_INV_Add2~5_sumout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_Add2~1_sumout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\ : std_logic_vector(6 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg[4]~DUPLICATE_q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~DUPLICATE_q\ : std_logic;
 SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~DUPLICATE_q\ : std_logic;
 SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[5]~DUPLICATE_q\ : std_logic;
 SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit[4]~DUPLICATE_q\ : std_logic;
@@ -3090,26 +3018,224 @@ SIGNAL \u0|cpu|ALT_INV_W_alu_result[7]~DUPLICATE_q\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_W_alu_result[6]~DUPLICATE_q\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_W_alu_result[4]~DUPLICATE_q\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_W_alu_result[3]~DUPLICATE_q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg[4]~DUPLICATE_q\ : std_logic;
-SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~DUPLICATE_q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_go~q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_error~q\ : std_logic;
-SIGNAL \u0|pio_key|ALT_INV_d2_data_in\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \u0|pio_key|ALT_INV_d1_data_in\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \u0|pio_key|ALT_INV_edge_capture_wr_strobe~0_combout\ : std_logic;
-SIGNAL \u0|pio_key|ALT_INV_always1~0_combout\ : std_logic;
-SIGNAL \u0|pio_sw|ALT_INV_d2_data_in\ : std_logic_vector(9 DOWNTO 0);
-SIGNAL \u0|pio_sw|ALT_INV_d1_data_in\ : std_logic_vector(9 DOWNTO 0);
-SIGNAL \u0|pio_sw|ALT_INV_edge_capture_wr_strobe~0_combout\ : std_logic;
-SIGNAL \u0|pio_hex3|ALT_INV_Equal2~3_combout\ : std_logic;
-SIGNAL \u0|pio_hex3|ALT_INV_Equal2~2_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_LessThan1~0_combout\ : std_logic;
+SIGNAL \ALT_INV_SW[7]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[8]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[9]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[6]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[5]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[4]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[3]~input_o\ : std_logic;
+SIGNAL \ALT_INV_KEY[3]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[2]~input_o\ : std_logic;
+SIGNAL \ALT_INV_KEY[2]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[1]~input_o\ : std_logic;
+SIGNAL \ALT_INV_KEY[1]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SW[0]~input_o\ : std_logic;
+SIGNAL \ALT_INV_KEY[0]~input_o\ : std_logic;
+SIGNAL \ALT_INV_CPU_RESET_n~input_o\ : std_logic;
+SIGNAL \ALT_INV_SRAM_D[10]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SRAM_D[9]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SRAM_D[6]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SRAM_D[4]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SRAM_D[3]~input_o\ : std_logic;
+SIGNAL \ALT_INV_SRAM_D[1]~input_o\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~8_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~6_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~5_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~6_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~5_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt~1_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~3_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~3_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~2_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~1_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~16_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~10_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~9_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~15_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg_proc~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~1_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg[1]~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\ : std_logic_vector(4 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_proc~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\ : std_logic_vector(4 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_clear_signal~combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~3_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~2_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~1_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\ : std_logic_vector(2 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state~6_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal0~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_dr_scan_reg~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][4]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][3]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][2]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][1]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~9_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][0]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\ : std_logic_vector(6 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][4]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][3]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][2]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][1]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~2_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_proc~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~1_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][0]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~3_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~2_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal3~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~1_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo_bypass_reg~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~0_combout\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_ir_scan_reg~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_clr_reg~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[1]~reg0_q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[2]~reg0_q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][4]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][3]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][2]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][1]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][4]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][3]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][2]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][1]~q\ : std_logic;
+SIGNAL \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~q\ : std_logic;
+SIGNAL \ALT_INV_altera_internal_jtag~TDIUTAP\ : std_logic;
+SIGNAL \ALT_INV_altera_internal_jtag~TCKUTAP\ : std_logic;
+SIGNAL \ALT_INV_altera_internal_jtag~TMSUTAP\ : std_logic;
+SIGNAL \ALT_INV_~GND~combout\ : std_logic;
+SIGNAL \u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain[1]~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~0_combout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_ctrl_logic~0_combout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_force_xor~4_combout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_force_xor~3_combout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_force_xor~2_combout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_wr_dst_reg~1_combout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_ctrl_alu_subtract~1_combout\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_D_wr_dst_reg~0_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~7_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~6_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_sink_ready~6_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~1_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_read_accepted~1_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~1_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|pio_hex0_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~5_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|router_001|ALT_INV_src_channel[1]~5_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_data_reg[12]~1_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|pio_key_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|pio_sw_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|pio_led9_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|rtx_timer_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|pio_hex1_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ : std_logic;
+SIGNAL \u0|sram_cvgx|tdt|ALT_INV_s0_uav_waitrequest~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|lcd_control_slave_agent|ALT_INV_m0_write~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~1_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~16_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~15_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg[19]~14_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~46_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_DRsize.010~q\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~44_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_resetlatch~q\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~38_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~37_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr[19]~36_combout\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\ : std_logic_vector(37 DOWNTO 0);
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~q\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate~q\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_counter_is_running~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~1_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~0_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_counter_snapshot\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~15_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][10]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[3][51]~q\ : std_logic;
+SIGNAL \u0|cpu|ALT_INV_E_invert_arith_src_msb~0_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][6]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~13_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][8]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][14]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~11_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][15]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~10_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][9]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~9_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][7]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~8_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][11]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~7_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][5]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~6_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][4]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][3]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~4_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][2]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][1]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~2_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][0]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~1_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][12]~q\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~0_combout\ : std_logic;
+SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][13]~q\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write_valid~q\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~1_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write2~q\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write1~q\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate2~q\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate1~q\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~1_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~0_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_period_l_register\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u0|rtx_timer|ALT_INV_period_h_register\ : std_logic_vector(15 DOWNTO 0);
+SIGNAL \u0|rtx_timer|ALT_INV_always0~0_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_force_reload~q\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[3]~7_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_control_register\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[3]~6_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[2]~5_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[2]~4_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[1]~3_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_counter_is_running~q\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[1]~2_combout\ : std_logic;
+SIGNAL \u0|rst_controller|rst_controller|alt_rst_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain_out~q\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[0]~1_combout\ : std_logic;
+SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[0]~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_fifo_rd~1_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|rd_ptr_count|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|wr_ptr|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
+SIGNAL \u0|jtag_uart|ALT_INV_wr_rfifo~combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~0_combout\ : std_logic;
 SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_t_pause~reg0_q\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~q\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_ien_AE~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \u0|jtag_uart|ALT_INV_LessThan0~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_t_ena~reg0_q\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_fifo_rd~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|rd_ptr_count|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|wr_ptr|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
+SIGNAL \u0|jtag_uart|ALT_INV_fifo_wr~q\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_read~q\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_r_val~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~q\ : std_logic;
 SIGNAL \u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain_out~q\ : std_logic;
 SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~21_combout\ : std_logic;
 SIGNAL \u0|jtag_uart|ALT_INV_ac~q\ : std_logic;
@@ -3133,33 +3259,28 @@ SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU
 SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_Mux37~0_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_W_control_rd_data\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \u0|cpu|ALT_INV_E_invert_arith_src_msb~q\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[2]~5_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[2]~4_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[1]~3_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_counter_is_running~q\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[1]~2_combout\ : std_logic;
-SIGNAL \u0|rst_controller|rst_controller|alt_rst_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain_out~q\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[0]~1_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_read_mux_out[0]~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_fifo_rd~1_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|rd_ptr_count|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|wr_ptr|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \u0|jtag_uart|ALT_INV_wr_rfifo~combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_t_ena~reg0_q\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_fifo_rd~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|rd_ptr_count|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|wr_ptr|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
-SIGNAL \u0|jtag_uart|ALT_INV_fifo_wr~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_read~q\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_r_val~0_combout\ : std_logic;
-SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~q\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_go~q\ : std_logic;
+SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_error~q\ : std_logic;
+SIGNAL \u0|pio_key|ALT_INV_d2_data_in\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \u0|pio_key|ALT_INV_d1_data_in\ : std_logic_vector(3 DOWNTO 0);
+SIGNAL \u0|pio_key|ALT_INV_edge_capture_wr_strobe~0_combout\ : std_logic;
+SIGNAL \u0|pio_key|ALT_INV_always1~0_combout\ : std_logic;
+SIGNAL \u0|pio_sw|ALT_INV_d2_data_in\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \u0|pio_sw|ALT_INV_d1_data_in\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \u0|pio_sw|ALT_INV_edge_capture_wr_strobe~0_combout\ : std_logic;
+SIGNAL \u0|pio_hex3|ALT_INV_Equal2~3_combout\ : std_logic;
+SIGNAL \u0|pio_hex3|ALT_INV_Equal2~2_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_LessThan1~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_t_pause~reg0_q\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~q\ : std_logic;
+SIGNAL \u0|jtag_uart|ALT_INV_ien_AE~0_combout\ : std_logic;
+SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\ : std_logic_vector(5 DOWNTO 0);
+SIGNAL \u0|jtag_uart|ALT_INV_LessThan0~0_combout\ : std_logic;
 SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~q\ : std_logic;
 SIGNAL \u0|rtx_timer|ALT_INV_control_wr_strobe~combout\ : std_logic;
 SIGNAL \u0|rtx_timer|ALT_INV_Equal0~6_combout\ : std_logic;
 SIGNAL \u0|rtx_timer|ALT_INV_Equal0~5_combout\ : std_logic;
 SIGNAL \u0|rtx_timer|ALT_INV_Equal0~4_combout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_internal_counter\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \u0|rtx_timer|ALT_INV_Equal0~3_combout\ : std_logic;
 SIGNAL \u0|rtx_timer|ALT_INV_Equal0~2_combout\ : std_logic;
 SIGNAL \u0|rtx_timer|ALT_INV_Equal0~1_combout\ : std_logic;
@@ -3173,7 +3294,6 @@ SIGNAL \u0|rtx_timer|ALT_INV_readdata\ : std_logic_vector(2 DOWNTO 2);
 SIGNAL \u0|cpu|ALT_INV_Equal127~1_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_Equal127~0_combout\ : std_logic;
 SIGNAL \u0|jtag_uart|ALT_INV_read_0~q\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_d_writedata\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~q\ : std_logic;
 SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rst2~q\ : std_logic;
 SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_read2~q\ : std_logic;
@@ -3193,7 +3313,6 @@ SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_address\ : std_logi
 SIGNAL \u0|cpu|ALT_INV_av_ld_byte1_data_nxt[1]~21_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_av_ld_byte1_data_nxt[1]~20_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|rtx_timer_s1_translator|ALT_INV_av_readdata_pre\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\ : std_logic_vector(22 DOWNTO 0);
 SIGNAL \u0|mm_interconnect_0|pio_sw_s1_translator|ALT_INV_av_readdata_pre\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \u0|cpu|ALT_INV_av_ld_byte1_data_nxt[2]~19_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_av_ld_byte1_data_nxt[0]~18_combout\ : std_logic;
@@ -3365,7 +3484,6 @@ SIGNAL \u0|cpu|ALT_INV_Equal122~3_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_Equal122~2_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_E_logic_result[22]~28_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_E_logic_result[31]~27_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_E_src2\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \u0|cpu|ALT_INV_Equal122~1_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_Equal122~0_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_E_logic_result[24]~26_combout\ : std_logic;
@@ -3455,11 +3573,9 @@ SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_
 SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_user_saw_rvalid~q\ : std_logic;
 SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_state~q\ : std_logic;
 SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rvalid~q\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|the_altera_std_synchronizer1|ALT_INV_din_s1~q\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_R_src2_hi~1_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_R_ctrl_unsigned_lo_imm16~q\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_D_iw\ : std_logic_vector(26 DOWNTO 0);
 SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_end_begintransfer~0_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent|ALT_INV_cp_ready~0_combout\ : std_logic;
 SIGNAL \u0|sram_cvgx|tdt|ALT_INV_s0_uav_waitrequest~1_combout\ : std_logic;
@@ -3618,7 +3734,6 @@ SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent|ALT_INV_local_read~0_combout\ :
 SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent|ALT_INV_m0_write~1_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|cmd_mux_001|ALT_INV_WideOr1~combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|cmd_mux_001|ALT_INV_src_data\ : std_logic_vector(54 DOWNTO 38);
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_address_reg\ : std_logic_vector(18 DOWNTO 1);
 SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_out_data[19]~2_combout\ : std_logic;
 SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|the_altera_std_synchronizer1|ALT_INV_dreg\ : std_logic_vector(0 DOWNTO 0);
 SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_DRsize.000~q\ : std_logic;
@@ -3630,7 +3745,6 @@ SIGNAL \u0|cpu|ALT_INV_av_ld_waiting_for_data_nxt~0_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_R_ctrl_ld~q\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_av_ld_getting_data~5_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_E_logic_result[9]~18_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_E_src1\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \u0|cpu|ALT_INV_E_logic_result[10]~17_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_E_logic_result[8]~16_combout\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_E_logic_result[11]~15_combout\ : std_logic;
@@ -3739,7 +3853,6 @@ SIGNAL \u0|mm_interconnect_0|router_001|ALT_INV_Equal12~0_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|cmd_mux_001|ALT_INV_src_valid~0_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|router|ALT_INV_Equal1~1_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|router|ALT_INV_Equal1~0_combout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_F_pc\ : std_logic_vector(18 DOWNTO 0);
 SIGNAL \u0|mm_interconnect_0|cpu_instruction_master_translator|ALT_INV_read_accepted~q\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_i_read~q\ : std_logic;
 SIGNAL \u0|sram_cvgx|tdt|ALT_INV_c0_uav_write~0_combout\ : std_logic;
@@ -3808,122 +3921,11 @@ SIGNAL \u0|mm_interconnect_0|router_001|ALT_INV_Equal1~0_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|router_001|ALT_INV_Equal5~0_combout\ : std_logic;
 SIGNAL \u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~q\ : std_logic;
 SIGNAL \u0|cpu|ALT_INV_d_write~q\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_W_alu_result\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \u0|pio_hex3|ALT_INV_data_out\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \u0|pio_hex2|ALT_INV_data_out\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \u0|pio_hex1|ALT_INV_data_out\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \u0|pio_hex0|ALT_INV_data_out\ : std_logic_vector(6 DOWNTO 0);
 SIGNAL \u0|pio_led9|ALT_INV_data_out~q\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \u0|cpu|ALT_INV_E_shift_rot_result\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \u0|cpu|ALT_INV_Add2~113_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~109_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~105_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~101_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~125_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~121_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~117_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~113_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~109_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~105_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~101_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~97_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~93_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~89_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~133_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~129_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~125_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~121_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~117_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~61_sumout\ : std_logic;
-SIGNAL \u0|rtx_timer|ALT_INV_Add0~57_sumout\ : std_logic;
-SIGNAL \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u0|cpu|ALT_INV_av_ld_byte3_data\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u0|cpu|ALT_INV_Add2~97_sumout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\ : std_logic_vector(31 DOWNTO 9);
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\ : std_logic_vector(29 DOWNTO 0);
-SIGNAL \u0|jtag_uart|ALT_INV_Add0~25_sumout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_Add0~21_sumout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_Add0~17_sumout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_Add0~13_sumout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_Add0~9_sumout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_Add0~5_sumout\ : std_logic;
-SIGNAL \u0|jtag_uart|ALT_INV_Add0~1_sumout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\ : std_logic_vector(10 DOWNTO 2);
-SIGNAL \u0|cpu|ALT_INV_Add2~93_sumout\ : std_logic;
-SIGNAL \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\ : std_logic_vector(20 DOWNTO 2);
-SIGNAL \u0|cpu|ALT_INV_av_ld_byte0_data\ : std_logic_vector(7 DOWNTO 0);
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\ : std_logic_vector(15 DOWNTO 0);
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][10]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~5_sumout\ : std_logic;
-SIGNAL \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_Add0~1_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~89_sumout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][6]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][8]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][14]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][15]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][9]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][7]~q\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_E_shift_rot_cnt\ : std_logic_vector(4 DOWNTO 0);
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][11]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][5]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][4]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][3]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][2]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][1]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][0]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][12]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][13]~q\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~73_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~69_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~65_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~61_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~57_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~53_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~49_sumout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~1_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~45_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~41_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~37_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~33_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~29_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~25_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~21_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~17_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~13_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~9_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~81_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~77_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~5_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add0~1_sumout\ : std_logic;
-SIGNAL \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \u0|cpu|ALT_INV_Add2~73_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~69_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~65_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~61_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~57_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~53_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~49_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~45_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~41_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~37_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~33_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~29_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~25_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~21_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~17_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~13_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~9_sumout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][48]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][41]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][82]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][19]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][81]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][60]~q\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_byteen_reg\ : std_logic_vector(1 DOWNTO 0);
-SIGNAL \u0|cpu|ALT_INV_Add2~5_sumout\ : std_logic;
-SIGNAL \u0|cpu|ALT_INV_Add2~1_sumout\ : std_logic;
-SIGNAL \u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\ : std_logic_vector(6 DOWNTO 0);
 
 BEGIN
 
@@ -3934,6 +3936,7 @@ altera_reserved_tdo <= ww_altera_reserved_tdo;
 ww_CLOCK_50_B5B <= CLOCK_50_B5B;
 ww_CPU_RESET_n <= CPU_RESET_n;
 SRAM_A <= ww_SRAM_A;
+SRAM_D <= ww_SRAM_D;
 SRAM_CE_N <= ww_SRAM_CE_N;
 SRAM_LB_N <= ww_SRAM_LB_N;
 SRAM_OE_N <= ww_SRAM_OE_N;
@@ -3948,6 +3951,7 @@ HEX2 <= ww_HEX2;
 HEX3 <= ww_HEX3;
 LCD_RS <= ww_LCD_RS;
 LCD_RW <= ww_LCD_RW;
+LCD_DQ <= ww_LCD_DQ;
 LCD_EN <= ww_LCD_EN;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
@@ -4189,360 +4193,485 @@ gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & \u
 \u0|pll_100mhz|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER_VCO0PH_bus\ <= (\u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH7\ & \u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH6\ & 
 \u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH5\ & \u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH4\ & \u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH3\ & 
 \u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH2\ & \u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH1\ & \u0|pll_100mhz|altera_pll_i|general[0].gpll~FRACTIONAL_PLL_O_VCOPH0\);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~4_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~4_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][2]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][2]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(23);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][1]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][1]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~2_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~2_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][0]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][0]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~1_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~1_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][12]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][12]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(12);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(12);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~0_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~0_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][13]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][13]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(19);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write_valid~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write_valid~q\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~1_combout\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|always2~1_combout\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write2~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write2~q\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write1~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write1~q\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~0_combout\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|always2~0_combout\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate2~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|jupdate2~q\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate1~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|jupdate1~q\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~1_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|_~1_combout\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~0_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|_~0_combout\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~0_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|b_full~0_combout\;
-\u0|rtx_timer|ALT_INV_period_l_register\(14) <= NOT \u0|rtx_timer|period_l_register\(14);
-\u0|rtx_timer|ALT_INV_period_h_register\(10) <= NOT \u0|rtx_timer|period_h_register\(10);
-\u0|rtx_timer|ALT_INV_period_h_register\(9) <= NOT \u0|rtx_timer|period_h_register\(9);
-\u0|rtx_timer|ALT_INV_period_h_register\(8) <= NOT \u0|rtx_timer|period_h_register\(8);
-\u0|rtx_timer|ALT_INV_period_h_register\(7) <= NOT \u0|rtx_timer|period_h_register\(7);
-\u0|rtx_timer|ALT_INV_period_h_register\(11) <= NOT \u0|rtx_timer|period_h_register\(11);
-\u0|rtx_timer|ALT_INV_period_l_register\(9) <= NOT \u0|rtx_timer|period_l_register\(9);
-\u0|rtx_timer|ALT_INV_period_l_register\(8) <= NOT \u0|rtx_timer|period_l_register\(8);
-\u0|rtx_timer|ALT_INV_period_h_register\(14) <= NOT \u0|rtx_timer|period_h_register\(14);
-\u0|rtx_timer|ALT_INV_period_l_register\(7) <= NOT \u0|rtx_timer|period_l_register\(7);
-\u0|rtx_timer|ALT_INV_period_l_register\(15) <= NOT \u0|rtx_timer|period_l_register\(15);
-\u0|rtx_timer|ALT_INV_period_h_register\(13) <= NOT \u0|rtx_timer|period_h_register\(13);
-\u0|rtx_timer|ALT_INV_period_h_register\(12) <= NOT \u0|rtx_timer|period_h_register\(12);
-\u0|rtx_timer|ALT_INV_period_h_register\(15) <= NOT \u0|rtx_timer|period_h_register\(15);
-\u0|rtx_timer|ALT_INV_period_l_register\(13) <= NOT \u0|rtx_timer|period_l_register\(13);
-\u0|rtx_timer|ALT_INV_period_l_register\(12) <= NOT \u0|rtx_timer|period_l_register\(12);
-\u0|rtx_timer|ALT_INV_period_l_register\(11) <= NOT \u0|rtx_timer|period_l_register\(11);
-\u0|rtx_timer|ALT_INV_period_l_register\(10) <= NOT \u0|rtx_timer|period_l_register\(10);
-\u0|rtx_timer|ALT_INV_always0~0_combout\ <= NOT \u0|rtx_timer|always0~0_combout\;
-\u0|rtx_timer|ALT_INV_force_reload~q\ <= NOT \u0|rtx_timer|force_reload~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|byteenable\(1);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(13) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(13);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(6) <= NOT \u0|rtx_timer|counter_snapshot\(6);
-\u0|rtx_timer|ALT_INV_period_l_register\(6) <= NOT \u0|rtx_timer|period_l_register\(6);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(22) <= NOT \u0|rtx_timer|counter_snapshot\(22);
-\u0|rtx_timer|ALT_INV_period_h_register\(6) <= NOT \u0|rtx_timer|period_h_register\(6);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(5) <= NOT \u0|rtx_timer|counter_snapshot\(5);
-\u0|rtx_timer|ALT_INV_period_l_register\(5) <= NOT \u0|rtx_timer|period_l_register\(5);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(21) <= NOT \u0|rtx_timer|counter_snapshot\(21);
-\u0|rtx_timer|ALT_INV_period_h_register\(5) <= NOT \u0|rtx_timer|period_h_register\(5);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(4) <= NOT \u0|rtx_timer|counter_snapshot\(4);
-\u0|rtx_timer|ALT_INV_period_l_register\(4) <= NOT \u0|rtx_timer|period_l_register\(4);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(20) <= NOT \u0|rtx_timer|counter_snapshot\(20);
-\u0|rtx_timer|ALT_INV_period_h_register\(4) <= NOT \u0|rtx_timer|period_h_register\(4);
-\u0|rtx_timer|ALT_INV_read_mux_out[3]~7_combout\ <= NOT \u0|rtx_timer|read_mux_out[3]~7_combout\;
-\u0|rtx_timer|ALT_INV_control_register\(3) <= NOT \u0|rtx_timer|control_register\(3);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(19) <= NOT \u0|rtx_timer|counter_snapshot\(19);
-\u0|rtx_timer|ALT_INV_read_mux_out[3]~6_combout\ <= NOT \u0|rtx_timer|read_mux_out[3]~6_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(21);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|byteenable\(3);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(24);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(17);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(13) <= NOT \u0|rtx_timer|counter_snapshot\(13);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(29) <= NOT \u0|rtx_timer|counter_snapshot\(29);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(19);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(20);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(14) <= NOT \u0|rtx_timer|counter_snapshot\(14);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(30) <= NOT \u0|rtx_timer|counter_snapshot\(30);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(18);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(18);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(7) <= NOT \u0|rtx_timer|counter_snapshot\(7);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(23) <= NOT \u0|rtx_timer|counter_snapshot\(23);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~15_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~15_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][10]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][10]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(10);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(10);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[3][51]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[3][51]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(16);
-\u0|cpu|ALT_INV_E_invert_arith_src_msb~0_combout\ <= NOT \u0|cpu|E_invert_arith_src_msb~0_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][6]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][6]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(6);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~13_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~13_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][8]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][8]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(8);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(8);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][14]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][14]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(14) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(14);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~11_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~11_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][15]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][15]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(15);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~10_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~10_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][9]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][9]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(9);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~9_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~9_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][7]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][7]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(7);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~8_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~8_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][11]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][11]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(11) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(11);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|byteenable\(2);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(16);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~7_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~7_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][5]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][5]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(5);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(5);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~6_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~6_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][4]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][4]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(4);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(4);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][3]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][3]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(12);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(30) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(30);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(29);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(29);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(28) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(28);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(27);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(10);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(14) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(14);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(8);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(7);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(15);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write~q\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|jupdate~q\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(7) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(7);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(6) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(6);
-\u0|rtx_timer|ALT_INV_counter_is_running~0_combout\ <= NOT \u0|rtx_timer|counter_is_running~0_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(24);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(26);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(25);
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~1_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|b_non_empty~1_combout\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~0_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|b_non_empty~0_combout\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(5) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(5);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(33) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(33);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(31) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(31);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(6);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(9) <= NOT \u0|rtx_timer|counter_snapshot\(9);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(25) <= NOT \u0|rtx_timer|counter_snapshot\(25);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(10) <= NOT \u0|rtx_timer|counter_snapshot\(10);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(26) <= NOT \u0|rtx_timer|counter_snapshot\(26);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(8) <= NOT \u0|rtx_timer|counter_snapshot\(8);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(24) <= NOT \u0|rtx_timer|counter_snapshot\(24);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(11) <= NOT \u0|rtx_timer|counter_snapshot\(11);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(27) <= NOT \u0|rtx_timer|counter_snapshot\(27);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(12) <= NOT \u0|rtx_timer|counter_snapshot\(12);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(28) <= NOT \u0|rtx_timer|counter_snapshot\(28);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(15) <= NOT \u0|rtx_timer|counter_snapshot\(15);
-\u0|rtx_timer|ALT_INV_counter_snapshot\(31) <= NOT \u0|rtx_timer|counter_snapshot\(31);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(22) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(22);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(23);
-\u0|cpu|ALT_INV_D_ctrl_alu_force_xor~3_combout\ <= NOT \u0|cpu|D_ctrl_alu_force_xor~3_combout\;
-\u0|cpu|ALT_INV_D_ctrl_alu_force_xor~2_combout\ <= NOT \u0|cpu|D_ctrl_alu_force_xor~2_combout\;
-\u0|cpu|ALT_INV_D_wr_dst_reg~1_combout\ <= NOT \u0|cpu|D_wr_dst_reg~1_combout\;
-\u0|cpu|ALT_INV_D_ctrl_alu_subtract~1_combout\ <= NOT \u0|cpu|D_ctrl_alu_subtract~1_combout\;
-\u0|cpu|ALT_INV_D_wr_dst_reg~0_combout\ <= NOT \u0|cpu|D_wr_dst_reg~0_combout\;
-\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~7_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|WideOr0~7_combout\;
-\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~6_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|WideOr0~6_combout\;
-\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_sink_ready~6_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|sink_ready~6_combout\;
-\u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~2_combout\ <= NOT \u0|mm_interconnect_0|cmd_mux_001|update_grant~2_combout\;
-\u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~1_combout\ <= NOT \u0|mm_interconnect_0|cmd_mux_001|update_grant~1_combout\;
-\u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_read_accepted~1_combout\ <= NOT \u0|mm_interconnect_0|cpu_data_master_translator|read_accepted~1_combout\;
-\u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~2_combout\ <= NOT \u0|mm_interconnect_0|cpu_data_master_translator|write_accepted~2_combout\;
-\u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~1_combout\ <= NOT \u0|mm_interconnect_0|cpu_data_master_translator|write_accepted~1_combout\;
-\u0|mm_interconnect_0|pio_hex0_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_hex0_s1_translator|read_latency_shift_reg~2_combout\;
-\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~5_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|WideOr0~5_combout\;
-\u0|mm_interconnect_0|router_001|ALT_INV_src_channel[1]~5_combout\ <= NOT \u0|mm_interconnect_0|router_001|src_channel[1]~5_combout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_data_reg[12]~1_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|data_reg[12]~1_combout\;
-\u0|mm_interconnect_0|pio_key_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_key_s1_translator|read_latency_shift_reg~2_combout\;
-\u0|mm_interconnect_0|pio_sw_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_sw_s1_translator|read_latency_shift_reg~2_combout\;
-\u0|mm_interconnect_0|pio_led9_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_led9_s1_translator|read_latency_shift_reg~2_combout\;
-\u0|mm_interconnect_0|rtx_timer_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|rtx_timer_s1_translator|read_latency_shift_reg~2_combout\;
-\u0|mm_interconnect_0|pio_hex1_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_hex1_s1_translator|read_latency_shift_reg~2_combout\;
-\u0|sram_cvgx|tdt|ALT_INV_s0_uav_waitrequest~2_combout\ <= NOT \u0|sram_cvgx|tdt|s0_uav_waitrequest~2_combout\;
-\u0|mm_interconnect_0|lcd_control_slave_agent|ALT_INV_m0_write~2_combout\ <= NOT \u0|mm_interconnect_0|lcd_control_slave_agent|m0_write~2_combout\;
-\u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~2_combout\ <= NOT \u0|mm_interconnect_0|rsp_mux_001|WideOr1~2_combout\;
-\u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~1_combout\ <= NOT \u0|mm_interconnect_0|rsp_mux_001|WideOr1~1_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~16_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg~16_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~15_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg~15_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg[19]~14_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg[19]~14_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~46_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~46_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_DRsize.010~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|DRsize.010~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~44_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~44_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(15);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_resetlatch~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|resetlatch~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~38_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~38_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~37_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~37_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr[19]~36_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr[19]~36_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(7);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(13) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(13);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(9);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(11) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(11);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~1_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo_bypass_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo_bypass_reg~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(6) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(6);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(5) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(5);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(15) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(15);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(14) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(14);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(12) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(12);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(10) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(10);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(9) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(9);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(8) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(8);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(7) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(7);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(5) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(5);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_ir_scan_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|virtual_ir_scan_reg~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_clr_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|clr_reg~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[1]~reg0_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|node_ena[1]~reg0_q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[2]~reg0_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|node_ena[2]~reg0_q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][4]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][3]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][2]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][0]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][1]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][4]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][3]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][2]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][1]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(13) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(13);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(11) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(11);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(6) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(6);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(4);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(1);
-\ALT_INV_altera_internal_jtag~TDIUTAP\ <= NOT \altera_internal_jtag~TDIUTAP\;
-\ALT_INV_altera_internal_jtag~TCKUTAP\ <= NOT \altera_internal_jtag~TCKUTAP\;
-\ALT_INV_altera_internal_jtag~TMSUTAP\ <= NOT \altera_internal_jtag~TMSUTAP\;
-\ALT_INV_~GND~combout\ <= NOT \~GND~combout\;
-\u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain[1]~0_combout\ <= NOT \u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|altera_reset_synchronizer_int_chain[1]~0_combout\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~0_combout\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write~0_combout\;
-\u0|cpu|ALT_INV_D_ctrl_logic~0_combout\ <= NOT \u0|cpu|D_ctrl_logic~0_combout\;
-\u0|cpu|ALT_INV_D_ctrl_alu_force_xor~4_combout\ <= NOT \u0|cpu|D_ctrl_alu_force_xor~4_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_proc~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_proc~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_clear_signal~combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|clear_signal~combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(4);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[0]~3_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[0]~2_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[0]~1_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state~6_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state~6_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal0~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|Equal0~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(5) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(5);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(6) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(6);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(7) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(7);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(8) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(8);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(9) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(9);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(4);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_dr_scan_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|virtual_dr_scan_reg~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|node_ena~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][4]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][3]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][2]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][1]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~9_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][0]~9_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][0]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(4);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][4]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][3]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][2]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][1]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~2_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_proc~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_proc~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~1_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][0]~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~3_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~2_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal3~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|Equal3~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(0);
-\ALT_INV_SRAM_D[10]~input_o\ <= NOT \SRAM_D[10]~input_o\;
-\ALT_INV_SRAM_D[9]~input_o\ <= NOT \SRAM_D[9]~input_o\;
-\ALT_INV_SRAM_D[6]~input_o\ <= NOT \SRAM_D[6]~input_o\;
-\ALT_INV_SRAM_D[4]~input_o\ <= NOT \SRAM_D[4]~input_o\;
-\ALT_INV_SRAM_D[3]~input_o\ <= NOT \SRAM_D[3]~input_o\;
-\ALT_INV_SRAM_D[1]~input_o\ <= NOT \SRAM_D[1]~input_o\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~8_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~8_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~6_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~6_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~5_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~5_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~6_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~6_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~5_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~5_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt~1_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~3_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~3_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(2);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg[2]~2_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg[2]~1_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|reset_ena_reg~q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~16_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][0]~16_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~10_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[4]~10_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~9_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[4]~9_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~15_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~15_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg_proc~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|reset_ena_reg_proc~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(1);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~1_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg[1]~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[1]~0_combout\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(3);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(0);
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(4);
-\ALT_INV_SW[7]~input_o\ <= NOT \SW[7]~input_o\;
-\ALT_INV_SW[8]~input_o\ <= NOT \SW[8]~input_o\;
-\ALT_INV_SW[9]~input_o\ <= NOT \SW[9]~input_o\;
-\ALT_INV_SW[6]~input_o\ <= NOT \SW[6]~input_o\;
-\ALT_INV_SW[5]~input_o\ <= NOT \SW[5]~input_o\;
-\ALT_INV_SW[4]~input_o\ <= NOT \SW[4]~input_o\;
-\ALT_INV_SW[3]~input_o\ <= NOT \SW[3]~input_o\;
-\ALT_INV_KEY[3]~input_o\ <= NOT \KEY[3]~input_o\;
-\ALT_INV_SW[2]~input_o\ <= NOT \SW[2]~input_o\;
-\ALT_INV_KEY[2]~input_o\ <= NOT \KEY[2]~input_o\;
-\ALT_INV_SW[1]~input_o\ <= NOT \SW[1]~input_o\;
-\ALT_INV_KEY[1]~input_o\ <= NOT \KEY[1]~input_o\;
-\ALT_INV_SW[0]~input_o\ <= NOT \SW[0]~input_o\;
-\ALT_INV_KEY[0]~input_o\ <= NOT \KEY[0]~input_o\;
-\ALT_INV_CPU_RESET_n~input_o\ <= NOT \CPU_RESET_n~input_o\;
+\u0|cpu|ALT_INV_E_shift_rot_result\(26) <= NOT \u0|cpu|E_shift_rot_result\(26);
+\u0|cpu|ALT_INV_Add2~113_sumout\ <= NOT \u0|cpu|Add2~113_sumout\;
+\u0|cpu|ALT_INV_E_shift_rot_result\(27) <= NOT \u0|cpu|E_shift_rot_result\(27);
+\u0|cpu|ALT_INV_Add2~109_sumout\ <= NOT \u0|cpu|Add2~109_sumout\;
+\u0|cpu|ALT_INV_Add2~105_sumout\ <= NOT \u0|cpu|Add2~105_sumout\;
+\u0|cpu|ALT_INV_Add2~101_sumout\ <= NOT \u0|cpu|Add2~101_sumout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(6);
+\u0|cpu|ALT_INV_E_shift_rot_result\(29) <= NOT \u0|cpu|E_shift_rot_result\(29);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(14) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(14);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(15);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(9);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(11) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(11);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(7);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(19);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(19);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(20);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(20);
+\u0|rtx_timer|ALT_INV_Add0~125_sumout\ <= NOT \u0|rtx_timer|Add0~125_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~121_sumout\ <= NOT \u0|rtx_timer|Add0~121_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~117_sumout\ <= NOT \u0|rtx_timer|Add0~117_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~113_sumout\ <= NOT \u0|rtx_timer|Add0~113_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~109_sumout\ <= NOT \u0|rtx_timer|Add0~109_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~105_sumout\ <= NOT \u0|rtx_timer|Add0~105_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~101_sumout\ <= NOT \u0|rtx_timer|Add0~101_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~97_sumout\ <= NOT \u0|rtx_timer|Add0~97_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~93_sumout\ <= NOT \u0|rtx_timer|Add0~93_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~89_sumout\ <= NOT \u0|rtx_timer|Add0~89_sumout\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(5) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(5);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(32) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(32);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(30) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(30);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(25);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(25);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(26);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(26);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(27);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(27);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(29);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(4);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(6);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(24);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(22) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(22);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(23);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(24);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(17);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(17);
+\u0|cpu|ALT_INV_Add2~133_sumout\ <= NOT \u0|cpu|Add2~133_sumout\;
+\u0|cpu|ALT_INV_E_shift_rot_result\(28) <= NOT \u0|cpu|E_shift_rot_result\(28);
+\u0|cpu|ALT_INV_Add2~129_sumout\ <= NOT \u0|cpu|Add2~129_sumout\;
+\u0|cpu|ALT_INV_Add2~125_sumout\ <= NOT \u0|cpu|Add2~125_sumout\;
+\u0|cpu|ALT_INV_Add2~121_sumout\ <= NOT \u0|cpu|Add2~121_sumout\;
+\u0|cpu|ALT_INV_E_shift_rot_result\(25) <= NOT \u0|cpu|E_shift_rot_result\(25);
+\u0|cpu|ALT_INV_Add2~117_sumout\ <= NOT \u0|cpu|Add2~117_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~61_sumout\ <= NOT \u0|rtx_timer|Add0~61_sumout\;
+\u0|rtx_timer|ALT_INV_Add0~57_sumout\ <= NOT \u0|rtx_timer|Add0~57_sumout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(13) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(13);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(21);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(21);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(23);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(6) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(6);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(1) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(1);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(2) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(2);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(3) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(3);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(4) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(4);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(5) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(5);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(6) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(6);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(7) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(7);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(0) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(0);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(26);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(27);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(28) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(28);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(3);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(3);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(5);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(25);
+\u0|cpu|ALT_INV_E_shift_rot_result\(24) <= NOT \u0|cpu|E_shift_rot_result\(24);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(21) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(21);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(22) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(22);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(16);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(16);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(18);
+\u0|cpu|ALT_INV_W_alu_result\(28) <= NOT \u0|cpu|W_alu_result\(28);
+\u0|cpu|ALT_INV_W_alu_result\(30) <= NOT \u0|cpu|W_alu_result\(30);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(6) <= NOT \u0|cpu|av_ld_byte3_data\(6);
+\u0|cpu|ALT_INV_W_alu_result\(29) <= NOT \u0|cpu|W_alu_result\(29);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(5) <= NOT \u0|cpu|av_ld_byte3_data\(5);
+\u0|cpu|ALT_INV_W_alu_result\(22) <= NOT \u0|cpu|W_alu_result\(22);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(7) <= NOT \u0|cpu|av_ld_byte3_data\(7);
+\u0|cpu|ALT_INV_W_alu_result\(31) <= NOT \u0|cpu|W_alu_result\(31);
+\u0|cpu|ALT_INV_W_alu_result\(24) <= NOT \u0|cpu|W_alu_result\(24);
+\u0|cpu|ALT_INV_W_alu_result\(25) <= NOT \u0|cpu|W_alu_result\(25);
+\u0|cpu|ALT_INV_W_alu_result\(26) <= NOT \u0|cpu|W_alu_result\(26);
+\u0|cpu|ALT_INV_W_alu_result\(27) <= NOT \u0|cpu|W_alu_result\(27);
+\u0|cpu|ALT_INV_W_alu_result\(21) <= NOT \u0|cpu|W_alu_result\(21);
+\u0|cpu|ALT_INV_W_alu_result\(23) <= NOT \u0|cpu|W_alu_result\(23);
+\u0|cpu|ALT_INV_Add2~97_sumout\ <= NOT \u0|cpu|Add2~97_sumout\;
+\u0|cpu|ALT_INV_E_shift_rot_result\(30) <= NOT \u0|cpu|E_shift_rot_result\(30);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\(31) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|readdata\(31);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(18);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(19);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(29);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(20);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(21);
+\u0|jtag_uart|ALT_INV_Add0~25_sumout\ <= NOT \u0|jtag_uart|Add0~25_sumout\;
+\u0|jtag_uart|ALT_INV_Add0~21_sumout\ <= NOT \u0|jtag_uart|Add0~21_sumout\;
+\u0|jtag_uart|ALT_INV_Add0~17_sumout\ <= NOT \u0|jtag_uart|Add0~17_sumout\;
+\u0|jtag_uart|ALT_INV_Add0~13_sumout\ <= NOT \u0|jtag_uart|Add0~13_sumout\;
+\u0|jtag_uart|ALT_INV_Add0~9_sumout\ <= NOT \u0|jtag_uart|Add0~9_sumout\;
+\u0|jtag_uart|ALT_INV_Add0~5_sumout\ <= NOT \u0|jtag_uart|Add0~5_sumout\;
+\u0|jtag_uart|ALT_INV_Add0~1_sumout\ <= NOT \u0|jtag_uart|Add0~1_sumout\;
+\u0|rtx_timer|ALT_INV_internal_counter\(26) <= NOT \u0|rtx_timer|internal_counter\(26);
+\u0|rtx_timer|ALT_INV_internal_counter\(25) <= NOT \u0|rtx_timer|internal_counter\(25);
+\u0|rtx_timer|ALT_INV_internal_counter\(24) <= NOT \u0|rtx_timer|internal_counter\(24);
+\u0|rtx_timer|ALT_INV_internal_counter\(23) <= NOT \u0|rtx_timer|internal_counter\(23);
+\u0|rtx_timer|ALT_INV_internal_counter\(6) <= NOT \u0|rtx_timer|internal_counter\(6);
+\u0|rtx_timer|ALT_INV_internal_counter\(27) <= NOT \u0|rtx_timer|internal_counter\(27);
+\u0|rtx_timer|ALT_INV_internal_counter\(8) <= NOT \u0|rtx_timer|internal_counter\(8);
+\u0|rtx_timer|ALT_INV_internal_counter\(30) <= NOT \u0|rtx_timer|internal_counter\(30);
+\u0|rtx_timer|ALT_INV_internal_counter\(7) <= NOT \u0|rtx_timer|internal_counter\(7);
+\u0|rtx_timer|ALT_INV_internal_counter\(15) <= NOT \u0|rtx_timer|internal_counter\(15);
+\u0|rtx_timer|ALT_INV_internal_counter\(29) <= NOT \u0|rtx_timer|internal_counter\(29);
+\u0|rtx_timer|ALT_INV_internal_counter\(28) <= NOT \u0|rtx_timer|internal_counter\(28);
+\u0|rtx_timer|ALT_INV_internal_counter\(31) <= NOT \u0|rtx_timer|internal_counter\(31);
+\u0|rtx_timer|ALT_INV_internal_counter\(13) <= NOT \u0|rtx_timer|internal_counter\(13);
+\u0|rtx_timer|ALT_INV_internal_counter\(12) <= NOT \u0|rtx_timer|internal_counter\(12);
+\u0|rtx_timer|ALT_INV_internal_counter\(11) <= NOT \u0|rtx_timer|internal_counter\(11);
+\u0|rtx_timer|ALT_INV_internal_counter\(10) <= NOT \u0|rtx_timer|internal_counter\(10);
+\u0|rtx_timer|ALT_INV_internal_counter\(22) <= NOT \u0|rtx_timer|internal_counter\(22);
+\u0|rtx_timer|ALT_INV_internal_counter\(21) <= NOT \u0|rtx_timer|internal_counter\(21);
+\u0|rtx_timer|ALT_INV_internal_counter\(20) <= NOT \u0|rtx_timer|internal_counter\(20);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(22) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(22);
+\u0|cpu|ALT_INV_d_writedata\(23) <= NOT \u0|cpu|d_writedata\(23);
+\u0|cpu|ALT_INV_d_writedata\(22) <= NOT \u0|cpu|d_writedata\(22);
+\u0|cpu|ALT_INV_d_writedata\(21) <= NOT \u0|cpu|d_writedata\(21);
+\u0|cpu|ALT_INV_d_writedata\(20) <= NOT \u0|cpu|d_writedata\(20);
+\u0|cpu|ALT_INV_d_writedata\(19) <= NOT \u0|cpu|d_writedata\(19);
+\u0|cpu|ALT_INV_d_writedata\(18) <= NOT \u0|cpu|d_writedata\(18);
+\u0|cpu|ALT_INV_d_writedata\(17) <= NOT \u0|cpu|d_writedata\(17);
+\u0|cpu|ALT_INV_d_writedata\(16) <= NOT \u0|cpu|d_writedata\(16);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(9);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(8);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(7);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(6);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(5);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(2);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(4);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(0) <= NOT \u0|cpu|av_ld_byte3_data\(0);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(16) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(16);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(1) <= NOT \u0|cpu|av_ld_byte3_data\(1);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(17) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(17);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(2) <= NOT \u0|cpu|av_ld_byte3_data\(2);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(18) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(18);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(3) <= NOT \u0|cpu|av_ld_byte3_data\(3);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(19) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(19);
+\u0|cpu|ALT_INV_av_ld_byte3_data\(4) <= NOT \u0|cpu|av_ld_byte3_data\(4);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(20) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(20);
+\u0|cpu|ALT_INV_E_shift_rot_result\(23) <= NOT \u0|cpu|E_shift_rot_result\(23);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|readdata\(20);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(7) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(7);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(10);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(17);
+\u0|cpu|ALT_INV_Add2~93_sumout\ <= NOT \u0|cpu|Add2~93_sumout\;
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(2) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(2);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(3) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(3);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(4) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(4);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(5) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(5);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(6) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(6);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(7) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(7);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(8) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(8);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(9) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(9);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(10) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(10);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(11) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(11);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(12) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(12);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(13) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(13);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(14) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(14);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(15) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(15);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(16) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(16);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(17) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(17);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(18) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(18);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(19) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(19);
+\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(20) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(20);
+\u0|cpu|ALT_INV_E_shift_rot_result\(31) <= NOT \u0|cpu|E_shift_rot_result\(31);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|readdata\(9);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(6) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(6);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(5) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(5);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(4) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(4);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(3) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(3);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(2) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(2);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(1) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(1);
+\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(0) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(0);
+\u0|cpu|ALT_INV_d_writedata\(15) <= NOT \u0|cpu|d_writedata\(15);
+\u0|cpu|ALT_INV_d_writedata\(14) <= NOT \u0|cpu|d_writedata\(14);
+\u0|cpu|ALT_INV_d_writedata\(13) <= NOT \u0|cpu|d_writedata\(13);
+\u0|cpu|ALT_INV_d_writedata\(12) <= NOT \u0|cpu|d_writedata\(12);
+\u0|cpu|ALT_INV_d_writedata\(11) <= NOT \u0|cpu|d_writedata\(11);
+\u0|cpu|ALT_INV_d_writedata\(10) <= NOT \u0|cpu|d_writedata\(10);
+\u0|cpu|ALT_INV_d_writedata\(9) <= NOT \u0|cpu|d_writedata\(9);
+\u0|cpu|ALT_INV_d_writedata\(8) <= NOT \u0|cpu|d_writedata\(8);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(10) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(10);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(8) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(8);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(0) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(0);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(1);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(2);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(4);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(5);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(8);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(10);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(12);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(0);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(2);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(3);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(4);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(1);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(1);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(3);
+\u0|cpu|ALT_INV_E_shift_rot_result\(22) <= NOT \u0|cpu|E_shift_rot_result\(22);
+\u0|cpu|ALT_INV_av_ld_byte0_data\(7) <= NOT \u0|cpu|av_ld_byte0_data\(7);
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(10) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(10);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][10]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][10]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~5_sumout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|Add2~5_sumout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_Add0~1_sumout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|Add0~1_sumout\;
+\u0|cpu|ALT_INV_E_src1\(28) <= NOT \u0|cpu|E_src1\(28);
+\u0|cpu|ALT_INV_E_src2\(28) <= NOT \u0|cpu|E_src2\(28);
+\u0|cpu|ALT_INV_E_src1\(30) <= NOT \u0|cpu|E_src1\(30);
+\u0|cpu|ALT_INV_E_src2\(30) <= NOT \u0|cpu|E_src2\(30);
+\u0|cpu|ALT_INV_E_src1\(29) <= NOT \u0|cpu|E_src1\(29);
+\u0|cpu|ALT_INV_E_src2\(29) <= NOT \u0|cpu|E_src2\(29);
+\u0|cpu|ALT_INV_E_src1\(22) <= NOT \u0|cpu|E_src1\(22);
+\u0|cpu|ALT_INV_E_src2\(22) <= NOT \u0|cpu|E_src2\(22);
+\u0|cpu|ALT_INV_E_src1\(31) <= NOT \u0|cpu|E_src1\(31);
+\u0|cpu|ALT_INV_E_src1\(24) <= NOT \u0|cpu|E_src1\(24);
+\u0|cpu|ALT_INV_E_src2\(24) <= NOT \u0|cpu|E_src2\(24);
+\u0|cpu|ALT_INV_E_src1\(25) <= NOT \u0|cpu|E_src1\(25);
+\u0|cpu|ALT_INV_E_src2\(25) <= NOT \u0|cpu|E_src2\(25);
+\u0|cpu|ALT_INV_E_src1\(26) <= NOT \u0|cpu|E_src1\(26);
+\u0|cpu|ALT_INV_E_src2\(26) <= NOT \u0|cpu|E_src2\(26);
+\u0|cpu|ALT_INV_E_src1\(27) <= NOT \u0|cpu|E_src1\(27);
+\u0|cpu|ALT_INV_E_src2\(27) <= NOT \u0|cpu|E_src2\(27);
+\u0|cpu|ALT_INV_E_src1\(21) <= NOT \u0|cpu|E_src1\(21);
+\u0|cpu|ALT_INV_E_src2\(21) <= NOT \u0|cpu|E_src2\(21);
+\u0|cpu|ALT_INV_E_src1\(23) <= NOT \u0|cpu|E_src1\(23);
+\u0|cpu|ALT_INV_E_src2\(23) <= NOT \u0|cpu|E_src2\(23);
+\u0|cpu|ALT_INV_Add2~89_sumout\ <= NOT \u0|cpu|Add2~89_sumout\;
+\u0|cpu|ALT_INV_E_src1\(0) <= NOT \u0|cpu|E_src1\(0);
+\u0|cpu|ALT_INV_E_src2\(0) <= NOT \u0|cpu|E_src2\(0);
+\u0|cpu|ALT_INV_E_src2\(1) <= NOT \u0|cpu|E_src2\(1);
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(6) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(6);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][6]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][6]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(8) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(8);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][8]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][8]~q\;
+\u0|cpu|ALT_INV_E_src1\(1) <= NOT \u0|cpu|E_src1\(1);
+\u0|cpu|ALT_INV_E_shift_rot_result\(0) <= NOT \u0|cpu|E_shift_rot_result\(0);
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(14) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(14);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][14]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][14]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(15) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(15);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][15]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][15]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(9) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(9);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][9]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][9]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(7) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(7);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][7]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][7]~q\;
+\u0|cpu|ALT_INV_E_shift_rot_cnt\(0) <= NOT \u0|cpu|E_shift_rot_cnt\(0);
+\u0|cpu|ALT_INV_E_shift_rot_cnt\(1) <= NOT \u0|cpu|E_shift_rot_cnt\(1);
+\u0|cpu|ALT_INV_E_shift_rot_cnt\(2) <= NOT \u0|cpu|E_shift_rot_cnt\(2);
+\u0|cpu|ALT_INV_E_shift_rot_cnt\(3) <= NOT \u0|cpu|E_shift_rot_cnt\(3);
+\u0|cpu|ALT_INV_E_shift_rot_cnt\(4) <= NOT \u0|cpu|E_shift_rot_cnt\(4);
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(11) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(11);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][11]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][11]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(5) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(5);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][5]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][5]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(4) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(4);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][4]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][4]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(3) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(3);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][3]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][3]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(2) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(2);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][2]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][2]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(1) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(1);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][1]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][1]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(0) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(0);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][0]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][0]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(12) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(12);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][12]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][12]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(13) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(13);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][13]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][13]~q\;
+\u0|cpu|ALT_INV_av_ld_byte0_data\(6) <= NOT \u0|cpu|av_ld_byte0_data\(6);
+\u0|cpu|ALT_INV_av_ld_byte0_data\(5) <= NOT \u0|cpu|av_ld_byte0_data\(5);
+\u0|cpu|ALT_INV_av_ld_byte0_data\(4) <= NOT \u0|cpu|av_ld_byte0_data\(4);
+\u0|cpu|ALT_INV_av_ld_byte0_data\(3) <= NOT \u0|cpu|av_ld_byte0_data\(3);
+\u0|cpu|ALT_INV_av_ld_byte0_data\(2) <= NOT \u0|cpu|av_ld_byte0_data\(2);
+\u0|cpu|ALT_INV_av_ld_byte0_data\(1) <= NOT \u0|cpu|av_ld_byte0_data\(1);
+\u0|cpu|ALT_INV_W_alu_result\(1) <= NOT \u0|cpu|W_alu_result\(1);
+\u0|cpu|ALT_INV_D_iw\(26) <= NOT \u0|cpu|D_iw\(26);
+\u0|cpu|ALT_INV_D_iw\(25) <= NOT \u0|cpu|D_iw\(25);
+\u0|cpu|ALT_INV_W_alu_result\(0) <= NOT \u0|cpu|W_alu_result\(0);
+\u0|cpu|ALT_INV_av_ld_byte0_data\(0) <= NOT \u0|cpu|av_ld_byte0_data\(0);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(9) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(9);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(1) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(1);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(0);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(2);
+\u0|cpu|ALT_INV_Add0~73_sumout\ <= NOT \u0|cpu|Add0~73_sumout\;
+\u0|cpu|ALT_INV_Add0~69_sumout\ <= NOT \u0|cpu|Add0~69_sumout\;
+\u0|cpu|ALT_INV_Add0~65_sumout\ <= NOT \u0|cpu|Add0~65_sumout\;
+\u0|cpu|ALT_INV_D_iw\(22) <= NOT \u0|cpu|D_iw\(22);
+\u0|cpu|ALT_INV_D_iw\(23) <= NOT \u0|cpu|D_iw\(23);
+\u0|cpu|ALT_INV_D_iw\(24) <= NOT \u0|cpu|D_iw\(24);
+\u0|cpu|ALT_INV_E_shift_rot_result\(21) <= NOT \u0|cpu|E_shift_rot_result\(21);
+\u0|cpu|ALT_INV_D_iw\(17) <= NOT \u0|cpu|D_iw\(17);
+\u0|cpu|ALT_INV_Add0~61_sumout\ <= NOT \u0|cpu|Add0~61_sumout\;
+\u0|cpu|ALT_INV_Add0~57_sumout\ <= NOT \u0|cpu|Add0~57_sumout\;
+\u0|cpu|ALT_INV_Add0~53_sumout\ <= NOT \u0|cpu|Add0~53_sumout\;
+\u0|cpu|ALT_INV_D_iw\(10) <= NOT \u0|cpu|D_iw\(10);
+\u0|cpu|ALT_INV_Add0~49_sumout\ <= NOT \u0|cpu|Add0~49_sumout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~1_sumout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|Add2~1_sumout\;
+\u0|cpu|ALT_INV_Add0~45_sumout\ <= NOT \u0|cpu|Add0~45_sumout\;
+\u0|cpu|ALT_INV_Add0~41_sumout\ <= NOT \u0|cpu|Add0~41_sumout\;
+\u0|cpu|ALT_INV_Add0~37_sumout\ <= NOT \u0|cpu|Add0~37_sumout\;
+\u0|cpu|ALT_INV_Add0~33_sumout\ <= NOT \u0|cpu|Add0~33_sumout\;
+\u0|cpu|ALT_INV_Add0~29_sumout\ <= NOT \u0|cpu|Add0~29_sumout\;
+\u0|cpu|ALT_INV_Add0~25_sumout\ <= NOT \u0|cpu|Add0~25_sumout\;
+\u0|cpu|ALT_INV_Add0~21_sumout\ <= NOT \u0|cpu|Add0~21_sumout\;
+\u0|cpu|ALT_INV_Add0~17_sumout\ <= NOT \u0|cpu|Add0~17_sumout\;
+\u0|cpu|ALT_INV_Add0~13_sumout\ <= NOT \u0|cpu|Add0~13_sumout\;
+\u0|cpu|ALT_INV_Add0~9_sumout\ <= NOT \u0|cpu|Add0~9_sumout\;
+\u0|cpu|ALT_INV_Add2~81_sumout\ <= NOT \u0|cpu|Add2~81_sumout\;
+\u0|cpu|ALT_INV_Add2~77_sumout\ <= NOT \u0|cpu|Add2~77_sumout\;
+\u0|cpu|ALT_INV_D_iw\(6) <= NOT \u0|cpu|D_iw\(6);
+\u0|cpu|ALT_INV_Add0~5_sumout\ <= NOT \u0|cpu|Add0~5_sumout\;
+\u0|cpu|ALT_INV_D_iw\(8) <= NOT \u0|cpu|D_iw\(8);
+\u0|cpu|ALT_INV_E_shift_rot_result\(1) <= NOT \u0|cpu|E_shift_rot_result\(1);
+\u0|cpu|ALT_INV_D_iw\(14) <= NOT \u0|cpu|D_iw\(14);
+\u0|cpu|ALT_INV_D_iw\(9) <= NOT \u0|cpu|D_iw\(9);
+\u0|cpu|ALT_INV_D_iw\(7) <= NOT \u0|cpu|D_iw\(7);
+\u0|cpu|ALT_INV_Add0~1_sumout\ <= NOT \u0|cpu|Add0~1_sumout\;
+\u0|cpu|ALT_INV_D_iw\(2) <= NOT \u0|cpu|D_iw\(2);
+\u0|cpu|ALT_INV_D_iw\(12) <= NOT \u0|cpu|D_iw\(12);
+\u0|cpu|ALT_INV_D_iw\(0) <= NOT \u0|cpu|D_iw\(0);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(1) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(1);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(2) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(2);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(3) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(3);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(4) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(4);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(5) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(5);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(6) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(6);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(7) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(7);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(8) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(8);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(9) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(9);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(10) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(10);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(11) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(11);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(12) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(12);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(13) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(13);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(14) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(14);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(15) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(15);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(16) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(16);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(17) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(17);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(18) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(18);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(19) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(19);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(20) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(20);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(21) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(21);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(22) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(22);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(23) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(23);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(24) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(24);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(25) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(25);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(26) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(26);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(27) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(27);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(28) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(28);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(29) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(29);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(30) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(30);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(31) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(31);
+\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(0) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(0);
+\u0|cpu|ALT_INV_F_pc\(8) <= NOT \u0|cpu|F_pc\(8);
+\u0|cpu|ALT_INV_F_pc\(7) <= NOT \u0|cpu|F_pc\(7);
+\u0|cpu|ALT_INV_F_pc\(6) <= NOT \u0|cpu|F_pc\(6);
+\u0|cpu|ALT_INV_F_pc\(5) <= NOT \u0|cpu|F_pc\(5);
+\u0|cpu|ALT_INV_F_pc\(4) <= NOT \u0|cpu|F_pc\(4);
+\u0|cpu|ALT_INV_F_pc\(3) <= NOT \u0|cpu|F_pc\(3);
+\u0|cpu|ALT_INV_F_pc\(2) <= NOT \u0|cpu|F_pc\(2);
+\u0|cpu|ALT_INV_F_pc\(1) <= NOT \u0|cpu|F_pc\(1);
+\u0|cpu|ALT_INV_F_pc\(0) <= NOT \u0|cpu|F_pc\(0);
+\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_address_reg\(1) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|address_reg\(1);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(0) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(0);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(1);
+\u0|cpu|ALT_INV_Add2~73_sumout\ <= NOT \u0|cpu|Add2~73_sumout\;
+\u0|cpu|ALT_INV_E_src2\(9) <= NOT \u0|cpu|E_src2\(9);
+\u0|cpu|ALT_INV_E_shift_rot_result\(9) <= NOT \u0|cpu|E_shift_rot_result\(9);
+\u0|cpu|ALT_INV_Add2~69_sumout\ <= NOT \u0|cpu|Add2~69_sumout\;
+\u0|cpu|ALT_INV_E_src2\(10) <= NOT \u0|cpu|E_src2\(10);
+\u0|cpu|ALT_INV_E_shift_rot_result\(10) <= NOT \u0|cpu|E_shift_rot_result\(10);
+\u0|cpu|ALT_INV_Add2~65_sumout\ <= NOT \u0|cpu|Add2~65_sumout\;
+\u0|cpu|ALT_INV_E_src2\(8) <= NOT \u0|cpu|E_src2\(8);
+\u0|cpu|ALT_INV_E_shift_rot_result\(8) <= NOT \u0|cpu|E_shift_rot_result\(8);
+\u0|cpu|ALT_INV_Add2~61_sumout\ <= NOT \u0|cpu|Add2~61_sumout\;
+\u0|cpu|ALT_INV_E_src2\(11) <= NOT \u0|cpu|E_src2\(11);
+\u0|cpu|ALT_INV_E_shift_rot_result\(11) <= NOT \u0|cpu|E_shift_rot_result\(11);
+\u0|cpu|ALT_INV_Add2~57_sumout\ <= NOT \u0|cpu|Add2~57_sumout\;
+\u0|cpu|ALT_INV_E_src2\(12) <= NOT \u0|cpu|E_src2\(12);
+\u0|cpu|ALT_INV_E_shift_rot_result\(12) <= NOT \u0|cpu|E_shift_rot_result\(12);
+\u0|cpu|ALT_INV_Add2~53_sumout\ <= NOT \u0|cpu|Add2~53_sumout\;
+\u0|cpu|ALT_INV_E_src2\(15) <= NOT \u0|cpu|E_src2\(15);
+\u0|cpu|ALT_INV_E_shift_rot_result\(15) <= NOT \u0|cpu|E_shift_rot_result\(15);
+\u0|cpu|ALT_INV_Add2~49_sumout\ <= NOT \u0|cpu|Add2~49_sumout\;
+\u0|cpu|ALT_INV_E_src2\(16) <= NOT \u0|cpu|E_src2\(16);
+\u0|cpu|ALT_INV_E_shift_rot_result\(16) <= NOT \u0|cpu|E_shift_rot_result\(16);
+\u0|cpu|ALT_INV_Add2~45_sumout\ <= NOT \u0|cpu|Add2~45_sumout\;
+\u0|cpu|ALT_INV_E_src2\(17) <= NOT \u0|cpu|E_src2\(17);
+\u0|cpu|ALT_INV_E_shift_rot_result\(17) <= NOT \u0|cpu|E_shift_rot_result\(17);
+\u0|cpu|ALT_INV_Add2~41_sumout\ <= NOT \u0|cpu|Add2~41_sumout\;
+\u0|cpu|ALT_INV_E_src2\(18) <= NOT \u0|cpu|E_src2\(18);
+\u0|cpu|ALT_INV_E_shift_rot_result\(18) <= NOT \u0|cpu|E_shift_rot_result\(18);
+\u0|cpu|ALT_INV_Add2~37_sumout\ <= NOT \u0|cpu|Add2~37_sumout\;
+\u0|cpu|ALT_INV_E_src2\(19) <= NOT \u0|cpu|E_src2\(19);
+\u0|cpu|ALT_INV_E_shift_rot_result\(19) <= NOT \u0|cpu|E_shift_rot_result\(19);
+\u0|cpu|ALT_INV_Add2~33_sumout\ <= NOT \u0|cpu|Add2~33_sumout\;
+\u0|cpu|ALT_INV_E_src2\(20) <= NOT \u0|cpu|E_src2\(20);
+\u0|cpu|ALT_INV_E_shift_rot_result\(20) <= NOT \u0|cpu|E_shift_rot_result\(20);
+\u0|cpu|ALT_INV_Add2~29_sumout\ <= NOT \u0|cpu|Add2~29_sumout\;
+\u0|cpu|ALT_INV_E_src2\(13) <= NOT \u0|cpu|E_src2\(13);
+\u0|cpu|ALT_INV_E_shift_rot_result\(13) <= NOT \u0|cpu|E_shift_rot_result\(13);
+\u0|cpu|ALT_INV_Add2~25_sumout\ <= NOT \u0|cpu|Add2~25_sumout\;
+\u0|cpu|ALT_INV_E_src2\(14) <= NOT \u0|cpu|E_src2\(14);
+\u0|cpu|ALT_INV_E_shift_rot_result\(14) <= NOT \u0|cpu|E_shift_rot_result\(14);
+\u0|cpu|ALT_INV_Add2~21_sumout\ <= NOT \u0|cpu|Add2~21_sumout\;
+\u0|cpu|ALT_INV_E_src2\(7) <= NOT \u0|cpu|E_src2\(7);
+\u0|cpu|ALT_INV_E_shift_rot_result\(7) <= NOT \u0|cpu|E_shift_rot_result\(7);
+\u0|cpu|ALT_INV_Add2~17_sumout\ <= NOT \u0|cpu|Add2~17_sumout\;
+\u0|cpu|ALT_INV_E_src2\(5) <= NOT \u0|cpu|E_src2\(5);
+\u0|cpu|ALT_INV_E_shift_rot_result\(5) <= NOT \u0|cpu|E_shift_rot_result\(5);
+\u0|cpu|ALT_INV_Add2~13_sumout\ <= NOT \u0|cpu|Add2~13_sumout\;
+\u0|cpu|ALT_INV_E_src2\(6) <= NOT \u0|cpu|E_src2\(6);
+\u0|cpu|ALT_INV_E_shift_rot_result\(6) <= NOT \u0|cpu|E_shift_rot_result\(6);
+\u0|cpu|ALT_INV_Add2~9_sumout\ <= NOT \u0|cpu|Add2~9_sumout\;
+\u0|cpu|ALT_INV_E_src2\(4) <= NOT \u0|cpu|E_src2\(4);
+\u0|cpu|ALT_INV_E_shift_rot_result\(4) <= NOT \u0|cpu|E_shift_rot_result\(4);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][48]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][48]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][41]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][41]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][82]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][82]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][19]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][19]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][81]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][81]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][60]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][60]~q\;
+\u0|cpu|ALT_INV_F_pc\(10) <= NOT \u0|cpu|F_pc\(10);
+\u0|cpu|ALT_INV_F_pc\(9) <= NOT \u0|cpu|F_pc\(9);
+\u0|cpu|ALT_INV_F_pc\(15) <= NOT \u0|cpu|F_pc\(15);
+\u0|cpu|ALT_INV_F_pc\(18) <= NOT \u0|cpu|F_pc\(18);
+\u0|cpu|ALT_INV_F_pc\(14) <= NOT \u0|cpu|F_pc\(14);
+\u0|cpu|ALT_INV_F_pc\(12) <= NOT \u0|cpu|F_pc\(12);
+\u0|cpu|ALT_INV_F_pc\(11) <= NOT \u0|cpu|F_pc\(11);
+\u0|cpu|ALT_INV_F_pc\(13) <= NOT \u0|cpu|F_pc\(13);
+\u0|cpu|ALT_INV_F_pc\(16) <= NOT \u0|cpu|F_pc\(16);
+\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_byteen_reg\(1) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|byteen_reg\(1);
+\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_byteen_reg\(0) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|byteen_reg\(0);
+\u0|cpu|ALT_INV_Add2~5_sumout\ <= NOT \u0|cpu|Add2~5_sumout\;
+\u0|cpu|ALT_INV_E_src2\(2) <= NOT \u0|cpu|E_src2\(2);
+\u0|cpu|ALT_INV_E_shift_rot_result\(2) <= NOT \u0|cpu|E_shift_rot_result\(2);
+\u0|cpu|ALT_INV_Add2~1_sumout\ <= NOT \u0|cpu|Add2~1_sumout\;
+\u0|cpu|ALT_INV_E_src2\(3) <= NOT \u0|cpu|E_src2\(3);
+\u0|cpu|ALT_INV_E_shift_rot_result\(3) <= NOT \u0|cpu|E_shift_rot_result\(3);
+\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(0) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(0);
+\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(1) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(1);
+\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(2) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(2);
+\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(3) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(3);
+\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(4) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(4);
+\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(6) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(6);
+\u0|cpu|ALT_INV_W_alu_result\(9) <= NOT \u0|cpu|W_alu_result\(9);
+\u0|cpu|ALT_INV_W_alu_result\(10) <= NOT \u0|cpu|W_alu_result\(10);
+\u0|cpu|ALT_INV_W_alu_result\(8) <= NOT \u0|cpu|W_alu_result\(8);
+\u0|cpu|ALT_INV_W_alu_result\(11) <= NOT \u0|cpu|W_alu_result\(11);
+\u0|cpu|ALT_INV_W_alu_result\(12) <= NOT \u0|cpu|W_alu_result\(12);
+\u0|cpu|ALT_INV_W_alu_result\(15) <= NOT \u0|cpu|W_alu_result\(15);
+\u0|cpu|ALT_INV_W_alu_result\(16) <= NOT \u0|cpu|W_alu_result\(16);
+\u0|cpu|ALT_INV_W_alu_result\(17) <= NOT \u0|cpu|W_alu_result\(17);
+\u0|cpu|ALT_INV_W_alu_result\(18) <= NOT \u0|cpu|W_alu_result\(18);
+\u0|cpu|ALT_INV_W_alu_result\(19) <= NOT \u0|cpu|W_alu_result\(19);
+\u0|cpu|ALT_INV_W_alu_result\(20) <= NOT \u0|cpu|W_alu_result\(20);
+\u0|cpu|ALT_INV_W_alu_result\(13) <= NOT \u0|cpu|W_alu_result\(13);
+\u0|cpu|ALT_INV_W_alu_result\(14) <= NOT \u0|cpu|W_alu_result\(14);
+\u0|cpu|ALT_INV_W_alu_result\(7) <= NOT \u0|cpu|W_alu_result\(7);
+\u0|cpu|ALT_INV_W_alu_result\(5) <= NOT \u0|cpu|W_alu_result\(5);
+\u0|cpu|ALT_INV_W_alu_result\(6) <= NOT \u0|cpu|W_alu_result\(6);
+\u0|cpu|ALT_INV_W_alu_result\(4) <= NOT \u0|cpu|W_alu_result\(4);
+\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(5) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(5);
+\u0|cpu|ALT_INV_W_alu_result\(3) <= NOT \u0|cpu|W_alu_result\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg[4]~DUPLICATE_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg[4]~DUPLICATE_q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~DUPLICATE_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg[2]~DUPLICATE_q\;
 \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~DUPLICATE_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[0]~DUPLICATE_q\;
 \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[5]~DUPLICATE_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[5]~DUPLICATE_q\;
 \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit[4]~DUPLICATE_q\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit[4]~DUPLICATE_q\;
@@ -4607,89 +4736,360 @@ gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & \u
 \u0|cpu|ALT_INV_W_alu_result[6]~DUPLICATE_q\ <= NOT \u0|cpu|W_alu_result[6]~DUPLICATE_q\;
 \u0|cpu|ALT_INV_W_alu_result[4]~DUPLICATE_q\ <= NOT \u0|cpu|W_alu_result[4]~DUPLICATE_q\;
 \u0|cpu|ALT_INV_W_alu_result[3]~DUPLICATE_q\ <= NOT \u0|cpu|W_alu_result[3]~DUPLICATE_q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg[4]~DUPLICATE_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg[4]~DUPLICATE_q\;
-\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~DUPLICATE_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg[2]~DUPLICATE_q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_go~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|monitor_go~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_error~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|monitor_error~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(3);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(18);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(19);
-\u0|pio_key|ALT_INV_d2_data_in\(2) <= NOT \u0|pio_key|d2_data_in\(2);
-\u0|pio_key|ALT_INV_d1_data_in\(2) <= NOT \u0|pio_key|d1_data_in\(2);
-\u0|pio_key|ALT_INV_d2_data_in\(1) <= NOT \u0|pio_key|d2_data_in\(1);
-\u0|pio_key|ALT_INV_d1_data_in\(1) <= NOT \u0|pio_key|d1_data_in\(1);
-\u0|pio_key|ALT_INV_d1_data_in\(0) <= NOT \u0|pio_key|d1_data_in\(0);
-\u0|pio_key|ALT_INV_d2_data_in\(0) <= NOT \u0|pio_key|d2_data_in\(0);
-\u0|pio_key|ALT_INV_d2_data_in\(3) <= NOT \u0|pio_key|d2_data_in\(3);
-\u0|pio_key|ALT_INV_d1_data_in\(3) <= NOT \u0|pio_key|d1_data_in\(3);
-\u0|pio_key|ALT_INV_edge_capture_wr_strobe~0_combout\ <= NOT \u0|pio_key|edge_capture_wr_strobe~0_combout\;
-\u0|pio_key|ALT_INV_always1~0_combout\ <= NOT \u0|pio_key|always1~0_combout\;
-\u0|pio_sw|ALT_INV_d2_data_in\(4) <= NOT \u0|pio_sw|d2_data_in\(4);
-\u0|pio_sw|ALT_INV_d1_data_in\(4) <= NOT \u0|pio_sw|d1_data_in\(4);
-\u0|pio_sw|ALT_INV_d2_data_in\(3) <= NOT \u0|pio_sw|d2_data_in\(3);
-\u0|pio_sw|ALT_INV_d1_data_in\(3) <= NOT \u0|pio_sw|d1_data_in\(3);
-\u0|pio_sw|ALT_INV_d2_data_in\(1) <= NOT \u0|pio_sw|d2_data_in\(1);
-\u0|pio_sw|ALT_INV_d1_data_in\(1) <= NOT \u0|pio_sw|d1_data_in\(1);
-\u0|pio_sw|ALT_INV_d1_data_in\(0) <= NOT \u0|pio_sw|d1_data_in\(0);
-\u0|pio_sw|ALT_INV_d2_data_in\(0) <= NOT \u0|pio_sw|d2_data_in\(0);
-\u0|pio_sw|ALT_INV_d2_data_in\(5) <= NOT \u0|pio_sw|d2_data_in\(5);
-\u0|pio_sw|ALT_INV_d1_data_in\(5) <= NOT \u0|pio_sw|d1_data_in\(5);
-\u0|pio_sw|ALT_INV_d2_data_in\(2) <= NOT \u0|pio_sw|d2_data_in\(2);
-\u0|pio_sw|ALT_INV_d1_data_in\(2) <= NOT \u0|pio_sw|d1_data_in\(2);
-\u0|pio_sw|ALT_INV_d2_data_in\(7) <= NOT \u0|pio_sw|d2_data_in\(7);
-\u0|pio_sw|ALT_INV_d1_data_in\(7) <= NOT \u0|pio_sw|d1_data_in\(7);
-\u0|pio_sw|ALT_INV_d2_data_in\(6) <= NOT \u0|pio_sw|d2_data_in\(6);
-\u0|pio_sw|ALT_INV_d1_data_in\(6) <= NOT \u0|pio_sw|d1_data_in\(6);
-\u0|pio_sw|ALT_INV_d2_data_in\(8) <= NOT \u0|pio_sw|d2_data_in\(8);
-\u0|pio_sw|ALT_INV_d1_data_in\(8) <= NOT \u0|pio_sw|d1_data_in\(8);
-\u0|pio_sw|ALT_INV_d2_data_in\(9) <= NOT \u0|pio_sw|d2_data_in\(9);
-\u0|pio_sw|ALT_INV_d1_data_in\(9) <= NOT \u0|pio_sw|d1_data_in\(9);
-\u0|pio_sw|ALT_INV_edge_capture_wr_strobe~0_combout\ <= NOT \u0|pio_sw|edge_capture_wr_strobe~0_combout\;
-\u0|pio_hex3|ALT_INV_Equal2~3_combout\ <= NOT \u0|pio_hex3|Equal2~3_combout\;
-\u0|pio_hex3|ALT_INV_Equal2~2_combout\ <= NOT \u0|pio_hex3|Equal2~2_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(1);
-\u0|jtag_uart|ALT_INV_LessThan1~0_combout\ <= NOT \u0|jtag_uart|LessThan1~0_combout\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(0) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(0);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_t_pause~reg0_q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|t_pause~reg0_q\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~q\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|b_non_empty~q\;
-\u0|jtag_uart|ALT_INV_ien_AE~0_combout\ <= NOT \u0|jtag_uart|ien_AE~0_combout\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(4) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(4);
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(5) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(5);
-\u0|jtag_uart|ALT_INV_LessThan0~0_combout\ <= NOT \u0|jtag_uart|LessThan0~0_combout\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(1) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(1);
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(2) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(2);
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(0) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(31) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(31);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(30) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(30);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(29);
-\u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain_out~q\ <= NOT \u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|altera_reset_synchronizer_int_chain_out~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~21_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~21_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(5);
-\u0|jtag_uart|ALT_INV_ac~q\ <= NOT \u0|jtag_uart|ac~q\;
-\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[7]~18_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[7]~18_combout\;
-\u0|jtag_uart|ALT_INV_rvalid~q\ <= NOT \u0|jtag_uart|rvalid~q\;
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(1) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(1);
-\u0|mm_interconnect_0|rsp_mux_001|ALT_INV_src_payload~46_combout\ <= NOT \u0|mm_interconnect_0|rsp_mux_001|src_payload~46_combout\;
-\u0|mm_interconnect_0|sysid_qsys_0_control_slave_translator|ALT_INV_av_readdata_pre\(26) <= NOT \u0|mm_interconnect_0|sysid_qsys_0_control_slave_translator|av_readdata_pre\(26);
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(2) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(2);
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(3) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(3);
-\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(4) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(4);
-\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[5]~16_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[5]~16_combout\;
-\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[5]~15_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[5]~15_combout\;
-\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[6]~14_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[6]~14_combout\;
-\u0|jtag_uart|ALT_INV_woverflow~q\ <= NOT \u0|jtag_uart|woverflow~q\;
-\u0|pio_sw|ALT_INV_readdata\(7) <= NOT \u0|pio_sw|readdata\(7);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[2][51]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[2][51]~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~15_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~15_combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|StepperMotorControl_CPU_jtag_debug_module_phy|ALT_INV_virtual_state_cdr~combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|StepperMotorControl_CPU_jtag_debug_module_phy|virtual_state_cdr~combout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_DRsize.100~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|DRsize.100~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_sync2_uir~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|sync2_uir~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer4|ALT_INV_dreg\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer4|dreg\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_sync2_udr~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|sync2_udr~q\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer3|ALT_INV_dreg\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer3|dreg\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_Mux37~0_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|Mux37~0_combout\;
-\u0|cpu|ALT_INV_W_control_rd_data\(31) <= NOT \u0|cpu|W_control_rd_data\(31);
-\u0|cpu|ALT_INV_E_invert_arith_src_msb~q\ <= NOT \u0|cpu|E_invert_arith_src_msb~q\;
+\ALT_INV_SW[7]~input_o\ <= NOT \SW[7]~input_o\;
+\ALT_INV_SW[8]~input_o\ <= NOT \SW[8]~input_o\;
+\ALT_INV_SW[9]~input_o\ <= NOT \SW[9]~input_o\;
+\ALT_INV_SW[6]~input_o\ <= NOT \SW[6]~input_o\;
+\ALT_INV_SW[5]~input_o\ <= NOT \SW[5]~input_o\;
+\ALT_INV_SW[4]~input_o\ <= NOT \SW[4]~input_o\;
+\ALT_INV_SW[3]~input_o\ <= NOT \SW[3]~input_o\;
+\ALT_INV_KEY[3]~input_o\ <= NOT \KEY[3]~input_o\;
+\ALT_INV_SW[2]~input_o\ <= NOT \SW[2]~input_o\;
+\ALT_INV_KEY[2]~input_o\ <= NOT \KEY[2]~input_o\;
+\ALT_INV_SW[1]~input_o\ <= NOT \SW[1]~input_o\;
+\ALT_INV_KEY[1]~input_o\ <= NOT \KEY[1]~input_o\;
+\ALT_INV_SW[0]~input_o\ <= NOT \SW[0]~input_o\;
+\ALT_INV_KEY[0]~input_o\ <= NOT \KEY[0]~input_o\;
+\ALT_INV_CPU_RESET_n~input_o\ <= NOT \CPU_RESET_n~input_o\;
+\ALT_INV_SRAM_D[10]~input_o\ <= NOT \SRAM_D[10]~input_o\;
+\ALT_INV_SRAM_D[9]~input_o\ <= NOT \SRAM_D[9]~input_o\;
+\ALT_INV_SRAM_D[6]~input_o\ <= NOT \SRAM_D[6]~input_o\;
+\ALT_INV_SRAM_D[4]~input_o\ <= NOT \SRAM_D[4]~input_o\;
+\ALT_INV_SRAM_D[3]~input_o\ <= NOT \SRAM_D[3]~input_o\;
+\ALT_INV_SRAM_D[1]~input_o\ <= NOT \SRAM_D[1]~input_o\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~8_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~8_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~6_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~6_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~5_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~5_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~6_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~6_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~5_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~5_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt~1_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_shift_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_shift_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~3_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~3_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg[2]~2_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg[2]~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg[2]~1_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|reset_ena_reg~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~16_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][0]~16_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~10_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[4]~10_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[4]~9_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[4]~9_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~15_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~15_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_reset_ena_reg_proc~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|reset_ena_reg_proc~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_identity_contrib_update_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|identity_contrib_update_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg~1_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg[1]~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[1]~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(4);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_mixer_addr_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_proc~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_proc~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_clear_signal~combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|clear_signal~combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_word_counter\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|word_counter\(4);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[0]~3_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[0]~2_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg[0]~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[0]~1_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state~6_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state~6_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal0~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|Equal0~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(5) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(5);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(6) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(6);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(7) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(7);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(8) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(8);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(9) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(9);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(4);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_jtag_ir_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|jtag_ir_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_dr_scan_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|virtual_dr_scan_reg~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|node_ena~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][4]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][3]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][2]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][1]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~9_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][0]~9_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[2][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[2][0]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(4);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][4]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][3]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][2]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][1]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~2_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_proc~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_proc~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~1_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_mode_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_mode_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_shadow_irf_reg[1][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_irf_reg[1][0]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~3_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~3_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_design_hash_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~2_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~2_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_Equal3~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|Equal3~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|ALT_INV_WORD_SR\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_info_reg|WORD_SR\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~1_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~1_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo_bypass_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo_bypass_reg~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_hub_minor_ver_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~0_combout\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~0_combout\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(6) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(6);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(5) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(5);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(15) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(15);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(14) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(14);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(12) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(12);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(10) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(10);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(9) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(9);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(8) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(8);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(7) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(7);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(5) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(5);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_virtual_ir_scan_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|virtual_ir_scan_reg~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_clr_reg~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|clr_reg~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[1]~reg0_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|node_ena[1]~reg0_q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_node_ena[2]~reg0_q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|node_ena[2]~reg0_q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][4]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][3]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][2]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][0]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[2][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[2][1]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][4]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][4]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][3]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][3]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][2]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][2]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][0]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][0]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irf_reg[1][1]~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][1]~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_tdo~q\ <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|tdo~q\;
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_tms_cnt\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|tms_cnt\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(2) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(2);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(1);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(3) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(3);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|ALT_INV_irsr_reg\(0) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irsr_reg\(0);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(13) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(13);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(11) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(11);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(6) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(6);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(4) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(4);
+\auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|ALT_INV_state\(1) <= NOT \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|shadow_jsm|state\(1);
+\ALT_INV_altera_internal_jtag~TDIUTAP\ <= NOT \altera_internal_jtag~TDIUTAP\;
+\ALT_INV_altera_internal_jtag~TCKUTAP\ <= NOT \altera_internal_jtag~TCKUTAP\;
+\ALT_INV_altera_internal_jtag~TMSUTAP\ <= NOT \altera_internal_jtag~TMSUTAP\;
+\ALT_INV_~GND~combout\ <= NOT \~GND~combout\;
+\u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain[1]~0_combout\ <= NOT \u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|altera_reset_synchronizer_int_chain[1]~0_combout\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~0_combout\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write~0_combout\;
+\u0|cpu|ALT_INV_D_ctrl_logic~0_combout\ <= NOT \u0|cpu|D_ctrl_logic~0_combout\;
+\u0|cpu|ALT_INV_D_ctrl_alu_force_xor~4_combout\ <= NOT \u0|cpu|D_ctrl_alu_force_xor~4_combout\;
+\u0|cpu|ALT_INV_D_ctrl_alu_force_xor~3_combout\ <= NOT \u0|cpu|D_ctrl_alu_force_xor~3_combout\;
+\u0|cpu|ALT_INV_D_ctrl_alu_force_xor~2_combout\ <= NOT \u0|cpu|D_ctrl_alu_force_xor~2_combout\;
+\u0|cpu|ALT_INV_D_wr_dst_reg~1_combout\ <= NOT \u0|cpu|D_wr_dst_reg~1_combout\;
+\u0|cpu|ALT_INV_D_ctrl_alu_subtract~1_combout\ <= NOT \u0|cpu|D_ctrl_alu_subtract~1_combout\;
+\u0|cpu|ALT_INV_D_wr_dst_reg~0_combout\ <= NOT \u0|cpu|D_wr_dst_reg~0_combout\;
+\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~7_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|WideOr0~7_combout\;
+\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~6_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|WideOr0~6_combout\;
+\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_sink_ready~6_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|sink_ready~6_combout\;
+\u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~2_combout\ <= NOT \u0|mm_interconnect_0|cmd_mux_001|update_grant~2_combout\;
+\u0|mm_interconnect_0|cmd_mux_001|ALT_INV_update_grant~1_combout\ <= NOT \u0|mm_interconnect_0|cmd_mux_001|update_grant~1_combout\;
+\u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_read_accepted~1_combout\ <= NOT \u0|mm_interconnect_0|cpu_data_master_translator|read_accepted~1_combout\;
+\u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~2_combout\ <= NOT \u0|mm_interconnect_0|cpu_data_master_translator|write_accepted~2_combout\;
+\u0|mm_interconnect_0|cpu_data_master_translator|ALT_INV_write_accepted~1_combout\ <= NOT \u0|mm_interconnect_0|cpu_data_master_translator|write_accepted~1_combout\;
+\u0|mm_interconnect_0|pio_hex0_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_hex0_s1_translator|read_latency_shift_reg~2_combout\;
+\u0|mm_interconnect_0|cmd_demux_001|ALT_INV_WideOr0~5_combout\ <= NOT \u0|mm_interconnect_0|cmd_demux_001|WideOr0~5_combout\;
+\u0|mm_interconnect_0|router_001|ALT_INV_src_channel[1]~5_combout\ <= NOT \u0|mm_interconnect_0|router_001|src_channel[1]~5_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_data_reg[12]~1_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|data_reg[12]~1_combout\;
+\u0|mm_interconnect_0|pio_key_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_key_s1_translator|read_latency_shift_reg~2_combout\;
+\u0|mm_interconnect_0|pio_sw_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_sw_s1_translator|read_latency_shift_reg~2_combout\;
+\u0|mm_interconnect_0|pio_led9_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_led9_s1_translator|read_latency_shift_reg~2_combout\;
+\u0|mm_interconnect_0|rtx_timer_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|rtx_timer_s1_translator|read_latency_shift_reg~2_combout\;
+\u0|mm_interconnect_0|pio_hex1_s1_translator|ALT_INV_read_latency_shift_reg~2_combout\ <= NOT \u0|mm_interconnect_0|pio_hex1_s1_translator|read_latency_shift_reg~2_combout\;
+\u0|sram_cvgx|tdt|ALT_INV_s0_uav_waitrequest~2_combout\ <= NOT \u0|sram_cvgx|tdt|s0_uav_waitrequest~2_combout\;
+\u0|mm_interconnect_0|lcd_control_slave_agent|ALT_INV_m0_write~2_combout\ <= NOT \u0|mm_interconnect_0|lcd_control_slave_agent|m0_write~2_combout\;
+\u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~2_combout\ <= NOT \u0|mm_interconnect_0|rsp_mux_001|WideOr1~2_combout\;
+\u0|mm_interconnect_0|rsp_mux_001|ALT_INV_WideOr1~1_combout\ <= NOT \u0|mm_interconnect_0|rsp_mux_001|WideOr1~1_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~16_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg~16_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg~15_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg~15_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg[19]~14_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg[19]~14_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~46_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~46_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_DRsize.010~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|DRsize.010~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~44_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~44_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(15);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_resetlatch~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|resetlatch~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~38_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~38_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~37_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~37_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr[19]~36_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr[19]~36_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(7);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(13) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(13);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(9);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(11) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(11);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(12);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(30) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(30);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(29);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(29);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(28) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(28);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(27);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(10);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(14) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(14);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(8);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(7);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(15);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write~q\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|jupdate~q\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(7) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(7);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(6) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(6);
+\u0|rtx_timer|ALT_INV_counter_is_running~0_combout\ <= NOT \u0|rtx_timer|counter_is_running~0_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(24);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(26);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(25);
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~1_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|b_non_empty~1_combout\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~0_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|b_non_empty~0_combout\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(5) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(5);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(33) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(33);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(31) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(31);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(6);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(9) <= NOT \u0|rtx_timer|counter_snapshot\(9);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(25) <= NOT \u0|rtx_timer|counter_snapshot\(25);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(10) <= NOT \u0|rtx_timer|counter_snapshot\(10);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(26) <= NOT \u0|rtx_timer|counter_snapshot\(26);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(8) <= NOT \u0|rtx_timer|counter_snapshot\(8);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(24) <= NOT \u0|rtx_timer|counter_snapshot\(24);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(11) <= NOT \u0|rtx_timer|counter_snapshot\(11);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(27) <= NOT \u0|rtx_timer|counter_snapshot\(27);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(12) <= NOT \u0|rtx_timer|counter_snapshot\(12);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(28) <= NOT \u0|rtx_timer|counter_snapshot\(28);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(15) <= NOT \u0|rtx_timer|counter_snapshot\(15);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(31) <= NOT \u0|rtx_timer|counter_snapshot\(31);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(22) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(22);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(23);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(21);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|byteenable\(3);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(24);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(17);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(13) <= NOT \u0|rtx_timer|counter_snapshot\(13);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(29) <= NOT \u0|rtx_timer|counter_snapshot\(29);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(19);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(20);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(14) <= NOT \u0|rtx_timer|counter_snapshot\(14);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(30) <= NOT \u0|rtx_timer|counter_snapshot\(30);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(18);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(18);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(7) <= NOT \u0|rtx_timer|counter_snapshot\(7);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(23) <= NOT \u0|rtx_timer|counter_snapshot\(23);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~15_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~15_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][10]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][10]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(10);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(10);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[3][51]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[3][51]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(16);
+\u0|cpu|ALT_INV_E_invert_arith_src_msb~0_combout\ <= NOT \u0|cpu|E_invert_arith_src_msb~0_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][6]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][6]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(6);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~13_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~13_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][8]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][8]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(8);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(8);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][14]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][14]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(14) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(14);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~11_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~11_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][15]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][15]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(15);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~10_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~10_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][9]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][9]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(9);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~9_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~9_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][7]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][7]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(7);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~8_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~8_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][11]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][11]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(11) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(11);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|byteenable\(2);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(16);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~7_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~7_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][5]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][5]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(5);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(5);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~6_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~6_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][4]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][4]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(4);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(4);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][3]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][3]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~4_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~4_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][2]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][2]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(23);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][1]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][1]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~2_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~2_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][0]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][0]~q\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~1_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~1_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][12]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][12]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(12);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(12);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem~0_combout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem~0_combout\;
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[3][13]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[3][13]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(19);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write_valid~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write_valid~q\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~1_combout\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|always2~1_combout\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write2~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write2~q\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_write1~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|write1~q\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_always2~0_combout\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|always2~0_combout\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate2~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|jupdate2~q\;
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_jupdate1~q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|jupdate1~q\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~1_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|_~1_combout\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV__~0_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|_~0_combout\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~0_combout\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|b_full~0_combout\;
+\u0|rtx_timer|ALT_INV_period_l_register\(14) <= NOT \u0|rtx_timer|period_l_register\(14);
+\u0|rtx_timer|ALT_INV_period_h_register\(10) <= NOT \u0|rtx_timer|period_h_register\(10);
+\u0|rtx_timer|ALT_INV_period_h_register\(9) <= NOT \u0|rtx_timer|period_h_register\(9);
+\u0|rtx_timer|ALT_INV_period_h_register\(8) <= NOT \u0|rtx_timer|period_h_register\(8);
+\u0|rtx_timer|ALT_INV_period_h_register\(7) <= NOT \u0|rtx_timer|period_h_register\(7);
+\u0|rtx_timer|ALT_INV_period_h_register\(11) <= NOT \u0|rtx_timer|period_h_register\(11);
+\u0|rtx_timer|ALT_INV_period_l_register\(9) <= NOT \u0|rtx_timer|period_l_register\(9);
+\u0|rtx_timer|ALT_INV_period_l_register\(8) <= NOT \u0|rtx_timer|period_l_register\(8);
+\u0|rtx_timer|ALT_INV_period_h_register\(14) <= NOT \u0|rtx_timer|period_h_register\(14);
+\u0|rtx_timer|ALT_INV_period_l_register\(7) <= NOT \u0|rtx_timer|period_l_register\(7);
+\u0|rtx_timer|ALT_INV_period_l_register\(15) <= NOT \u0|rtx_timer|period_l_register\(15);
+\u0|rtx_timer|ALT_INV_period_h_register\(13) <= NOT \u0|rtx_timer|period_h_register\(13);
+\u0|rtx_timer|ALT_INV_period_h_register\(12) <= NOT \u0|rtx_timer|period_h_register\(12);
+\u0|rtx_timer|ALT_INV_period_h_register\(15) <= NOT \u0|rtx_timer|period_h_register\(15);
+\u0|rtx_timer|ALT_INV_period_l_register\(13) <= NOT \u0|rtx_timer|period_l_register\(13);
+\u0|rtx_timer|ALT_INV_period_l_register\(12) <= NOT \u0|rtx_timer|period_l_register\(12);
+\u0|rtx_timer|ALT_INV_period_l_register\(11) <= NOT \u0|rtx_timer|period_l_register\(11);
+\u0|rtx_timer|ALT_INV_period_l_register\(10) <= NOT \u0|rtx_timer|period_l_register\(10);
+\u0|rtx_timer|ALT_INV_always0~0_combout\ <= NOT \u0|rtx_timer|always0~0_combout\;
+\u0|rtx_timer|ALT_INV_force_reload~q\ <= NOT \u0|rtx_timer|force_reload~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_byteenable\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|byteenable\(1);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(13) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(13);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(6) <= NOT \u0|rtx_timer|counter_snapshot\(6);
+\u0|rtx_timer|ALT_INV_period_l_register\(6) <= NOT \u0|rtx_timer|period_l_register\(6);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(22) <= NOT \u0|rtx_timer|counter_snapshot\(22);
+\u0|rtx_timer|ALT_INV_period_h_register\(6) <= NOT \u0|rtx_timer|period_h_register\(6);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(5) <= NOT \u0|rtx_timer|counter_snapshot\(5);
+\u0|rtx_timer|ALT_INV_period_l_register\(5) <= NOT \u0|rtx_timer|period_l_register\(5);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(21) <= NOT \u0|rtx_timer|counter_snapshot\(21);
+\u0|rtx_timer|ALT_INV_period_h_register\(5) <= NOT \u0|rtx_timer|period_h_register\(5);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(4) <= NOT \u0|rtx_timer|counter_snapshot\(4);
+\u0|rtx_timer|ALT_INV_period_l_register\(4) <= NOT \u0|rtx_timer|period_l_register\(4);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(20) <= NOT \u0|rtx_timer|counter_snapshot\(20);
+\u0|rtx_timer|ALT_INV_period_h_register\(4) <= NOT \u0|rtx_timer|period_h_register\(4);
+\u0|rtx_timer|ALT_INV_read_mux_out[3]~7_combout\ <= NOT \u0|rtx_timer|read_mux_out[3]~7_combout\;
+\u0|rtx_timer|ALT_INV_control_register\(3) <= NOT \u0|rtx_timer|control_register\(3);
+\u0|rtx_timer|ALT_INV_counter_snapshot\(19) <= NOT \u0|rtx_timer|counter_snapshot\(19);
+\u0|rtx_timer|ALT_INV_read_mux_out[3]~6_combout\ <= NOT \u0|rtx_timer|read_mux_out[3]~6_combout\;
 \u0|rtx_timer|ALT_INV_counter_snapshot\(3) <= NOT \u0|rtx_timer|counter_snapshot\(3);
 \u0|rtx_timer|ALT_INV_period_l_register\(3) <= NOT \u0|rtx_timer|period_l_register\(3);
 \u0|rtx_timer|ALT_INV_period_h_register\(3) <= NOT \u0|rtx_timer|period_h_register\(3);
@@ -4752,6 +5152,87 @@ gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & \u
 \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(4) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(4);
 \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(32) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(32);
 \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(33) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(33);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(31) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(31);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(30) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(30);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(29);
+\u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|ALT_INV_altera_reset_synchronizer_int_chain_out~q\ <= NOT \u0|rst_controller|rst_controller|alt_rst_req_sync_uq1|altera_reset_synchronizer_int_chain_out~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~21_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~21_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(5);
+\u0|jtag_uart|ALT_INV_ac~q\ <= NOT \u0|jtag_uart|ac~q\;
+\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[7]~18_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[7]~18_combout\;
+\u0|jtag_uart|ALT_INV_rvalid~q\ <= NOT \u0|jtag_uart|rvalid~q\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(1) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(1);
+\u0|mm_interconnect_0|rsp_mux_001|ALT_INV_src_payload~46_combout\ <= NOT \u0|mm_interconnect_0|rsp_mux_001|src_payload~46_combout\;
+\u0|mm_interconnect_0|sysid_qsys_0_control_slave_translator|ALT_INV_av_readdata_pre\(26) <= NOT \u0|mm_interconnect_0|sysid_qsys_0_control_slave_translator|av_readdata_pre\(26);
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(2) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(2);
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(3) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(3);
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(4) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(4);
+\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[5]~16_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[5]~16_combout\;
+\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[5]~15_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[5]~15_combout\;
+\u0|cpu|ALT_INV_av_ld_byte2_data_nxt[6]~14_combout\ <= NOT \u0|cpu|av_ld_byte2_data_nxt[6]~14_combout\;
+\u0|jtag_uart|ALT_INV_woverflow~q\ <= NOT \u0|jtag_uart|woverflow~q\;
+\u0|pio_sw|ALT_INV_readdata\(7) <= NOT \u0|pio_sw|readdata\(7);
+\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[2][51]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[2][51]~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr~15_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr~15_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|StepperMotorControl_CPU_jtag_debug_module_phy|ALT_INV_virtual_state_cdr~combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|StepperMotorControl_CPU_jtag_debug_module_phy|virtual_state_cdr~combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_DRsize.100~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|DRsize.100~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_sync2_uir~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|sync2_uir~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer4|ALT_INV_dreg\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer4|dreg\(0);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_sync2_udr~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|sync2_udr~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer3|ALT_INV_dreg\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|the_altera_std_synchronizer3|dreg\(0);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_Mux37~0_combout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|Mux37~0_combout\;
+\u0|cpu|ALT_INV_W_control_rd_data\(31) <= NOT \u0|cpu|W_control_rd_data\(31);
+\u0|cpu|ALT_INV_E_invert_arith_src_msb~q\ <= NOT \u0|cpu|E_invert_arith_src_msb~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_go~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|monitor_go~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|ALT_INV_monitor_error~q\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_debug|monitor_error~q\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(3);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(18);
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|ALT_INV_jdo\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_sysclk|jdo\(19);
+\u0|pio_key|ALT_INV_d2_data_in\(2) <= NOT \u0|pio_key|d2_data_in\(2);
+\u0|pio_key|ALT_INV_d1_data_in\(2) <= NOT \u0|pio_key|d1_data_in\(2);
+\u0|pio_key|ALT_INV_d2_data_in\(1) <= NOT \u0|pio_key|d2_data_in\(1);
+\u0|pio_key|ALT_INV_d1_data_in\(1) <= NOT \u0|pio_key|d1_data_in\(1);
+\u0|pio_key|ALT_INV_d1_data_in\(0) <= NOT \u0|pio_key|d1_data_in\(0);
+\u0|pio_key|ALT_INV_d2_data_in\(0) <= NOT \u0|pio_key|d2_data_in\(0);
+\u0|pio_key|ALT_INV_d2_data_in\(3) <= NOT \u0|pio_key|d2_data_in\(3);
+\u0|pio_key|ALT_INV_d1_data_in\(3) <= NOT \u0|pio_key|d1_data_in\(3);
+\u0|pio_key|ALT_INV_edge_capture_wr_strobe~0_combout\ <= NOT \u0|pio_key|edge_capture_wr_strobe~0_combout\;
+\u0|pio_key|ALT_INV_always1~0_combout\ <= NOT \u0|pio_key|always1~0_combout\;
+\u0|pio_sw|ALT_INV_d2_data_in\(4) <= NOT \u0|pio_sw|d2_data_in\(4);
+\u0|pio_sw|ALT_INV_d1_data_in\(4) <= NOT \u0|pio_sw|d1_data_in\(4);
+\u0|pio_sw|ALT_INV_d2_data_in\(3) <= NOT \u0|pio_sw|d2_data_in\(3);
+\u0|pio_sw|ALT_INV_d1_data_in\(3) <= NOT \u0|pio_sw|d1_data_in\(3);
+\u0|pio_sw|ALT_INV_d2_data_in\(1) <= NOT \u0|pio_sw|d2_data_in\(1);
+\u0|pio_sw|ALT_INV_d1_data_in\(1) <= NOT \u0|pio_sw|d1_data_in\(1);
+\u0|pio_sw|ALT_INV_d1_data_in\(0) <= NOT \u0|pio_sw|d1_data_in\(0);
+\u0|pio_sw|ALT_INV_d2_data_in\(0) <= NOT \u0|pio_sw|d2_data_in\(0);
+\u0|pio_sw|ALT_INV_d2_data_in\(5) <= NOT \u0|pio_sw|d2_data_in\(5);
+\u0|pio_sw|ALT_INV_d1_data_in\(5) <= NOT \u0|pio_sw|d1_data_in\(5);
+\u0|pio_sw|ALT_INV_d2_data_in\(2) <= NOT \u0|pio_sw|d2_data_in\(2);
+\u0|pio_sw|ALT_INV_d1_data_in\(2) <= NOT \u0|pio_sw|d1_data_in\(2);
+\u0|pio_sw|ALT_INV_d2_data_in\(7) <= NOT \u0|pio_sw|d2_data_in\(7);
+\u0|pio_sw|ALT_INV_d1_data_in\(7) <= NOT \u0|pio_sw|d1_data_in\(7);
+\u0|pio_sw|ALT_INV_d2_data_in\(6) <= NOT \u0|pio_sw|d2_data_in\(6);
+\u0|pio_sw|ALT_INV_d1_data_in\(6) <= NOT \u0|pio_sw|d1_data_in\(6);
+\u0|pio_sw|ALT_INV_d2_data_in\(8) <= NOT \u0|pio_sw|d2_data_in\(8);
+\u0|pio_sw|ALT_INV_d1_data_in\(8) <= NOT \u0|pio_sw|d1_data_in\(8);
+\u0|pio_sw|ALT_INV_d2_data_in\(9) <= NOT \u0|pio_sw|d2_data_in\(9);
+\u0|pio_sw|ALT_INV_d1_data_in\(9) <= NOT \u0|pio_sw|d1_data_in\(9);
+\u0|pio_sw|ALT_INV_edge_capture_wr_strobe~0_combout\ <= NOT \u0|pio_sw|edge_capture_wr_strobe~0_combout\;
+\u0|pio_hex3|ALT_INV_Equal2~3_combout\ <= NOT \u0|pio_hex3|Equal2~3_combout\;
+\u0|pio_hex3|ALT_INV_Equal2~2_combout\ <= NOT \u0|pio_hex3|Equal2~2_combout\;
+\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(1);
+\u0|jtag_uart|ALT_INV_LessThan1~0_combout\ <= NOT \u0|jtag_uart|LessThan1~0_combout\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(0) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(0);
+\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_t_pause~reg0_q\ <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|t_pause~reg0_q\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_non_empty~q\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_r|rfifo|auto_generated|dpfifo|fifo_state|b_non_empty~q\;
+\u0|jtag_uart|ALT_INV_ien_AE~0_combout\ <= NOT \u0|jtag_uart|ien_AE~0_combout\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(4) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(4);
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(5) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(5);
+\u0|jtag_uart|ALT_INV_LessThan0~0_combout\ <= NOT \u0|jtag_uart|LessThan0~0_combout\;
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(1) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(1);
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(2) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(2);
+\u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(0) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(0);
 \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|ALT_INV_counter_reg_bit\(3) <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|count_usedw|counter_reg_bit\(3);
 \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|ALT_INV_b_full~q\ <= NOT \u0|jtag_uart|the_StepperMotorControl_jtag_uart_scfifo_w|wfifo|auto_generated|dpfifo|fifo_state|b_full~q\;
 \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_writedata\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|writedata\(2);
@@ -5804,483 +6285,6 @@ gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & gnd & \u
 \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(22) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(22);
 \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(8) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(8);
 \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(24);
-\u0|cpu|ALT_INV_E_shift_rot_result\(26) <= NOT \u0|cpu|E_shift_rot_result\(26);
-\u0|cpu|ALT_INV_Add2~113_sumout\ <= NOT \u0|cpu|Add2~113_sumout\;
-\u0|cpu|ALT_INV_E_shift_rot_result\(27) <= NOT \u0|cpu|E_shift_rot_result\(27);
-\u0|cpu|ALT_INV_Add2~109_sumout\ <= NOT \u0|cpu|Add2~109_sumout\;
-\u0|cpu|ALT_INV_Add2~105_sumout\ <= NOT \u0|cpu|Add2~105_sumout\;
-\u0|cpu|ALT_INV_Add2~101_sumout\ <= NOT \u0|cpu|Add2~101_sumout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(6);
-\u0|cpu|ALT_INV_E_shift_rot_result\(29) <= NOT \u0|cpu|E_shift_rot_result\(29);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(14) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(14);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(15) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(15);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(9);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(11) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(11);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(7);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(19);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(19);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(20);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(20);
-\u0|rtx_timer|ALT_INV_Add0~125_sumout\ <= NOT \u0|rtx_timer|Add0~125_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~121_sumout\ <= NOT \u0|rtx_timer|Add0~121_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~117_sumout\ <= NOT \u0|rtx_timer|Add0~117_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~113_sumout\ <= NOT \u0|rtx_timer|Add0~113_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~109_sumout\ <= NOT \u0|rtx_timer|Add0~109_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~105_sumout\ <= NOT \u0|rtx_timer|Add0~105_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~101_sumout\ <= NOT \u0|rtx_timer|Add0~101_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~97_sumout\ <= NOT \u0|rtx_timer|Add0~97_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~93_sumout\ <= NOT \u0|rtx_timer|Add0~93_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~89_sumout\ <= NOT \u0|rtx_timer|Add0~89_sumout\;
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(5) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(5);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(32) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(32);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(30) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(30);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(25);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(25);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(26);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(26);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(27);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(27);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(29);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(4);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(6);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(24);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(22) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(22);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(23);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(24) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(24);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(17);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(17);
-\u0|cpu|ALT_INV_Add2~133_sumout\ <= NOT \u0|cpu|Add2~133_sumout\;
-\u0|cpu|ALT_INV_E_shift_rot_result\(28) <= NOT \u0|cpu|E_shift_rot_result\(28);
-\u0|cpu|ALT_INV_Add2~129_sumout\ <= NOT \u0|cpu|Add2~129_sumout\;
-\u0|cpu|ALT_INV_Add2~125_sumout\ <= NOT \u0|cpu|Add2~125_sumout\;
-\u0|cpu|ALT_INV_Add2~121_sumout\ <= NOT \u0|cpu|Add2~121_sumout\;
-\u0|cpu|ALT_INV_E_shift_rot_result\(25) <= NOT \u0|cpu|E_shift_rot_result\(25);
-\u0|cpu|ALT_INV_Add2~117_sumout\ <= NOT \u0|cpu|Add2~117_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~61_sumout\ <= NOT \u0|rtx_timer|Add0~61_sumout\;
-\u0|rtx_timer|ALT_INV_Add0~57_sumout\ <= NOT \u0|rtx_timer|Add0~57_sumout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(13) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(13);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(21);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(21);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(23) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(23);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(6) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(6);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(1) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(1);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(2) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(2);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(3) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(3);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(4) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(4);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(5) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(5);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(6) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(6);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(7) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(7);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_rdata\(0) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|rdata\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(26) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(26);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(27) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(27);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(28) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(28);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(3);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(3);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(5);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(25) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(25);
-\u0|cpu|ALT_INV_E_shift_rot_result\(24) <= NOT \u0|cpu|E_shift_rot_result\(24);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(21) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(21);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(22) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(22);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(16);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(16) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(16);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(18);
-\u0|cpu|ALT_INV_W_alu_result\(28) <= NOT \u0|cpu|W_alu_result\(28);
-\u0|cpu|ALT_INV_W_alu_result\(30) <= NOT \u0|cpu|W_alu_result\(30);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(6) <= NOT \u0|cpu|av_ld_byte3_data\(6);
-\u0|cpu|ALT_INV_W_alu_result\(29) <= NOT \u0|cpu|W_alu_result\(29);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(5) <= NOT \u0|cpu|av_ld_byte3_data\(5);
-\u0|cpu|ALT_INV_W_alu_result\(22) <= NOT \u0|cpu|W_alu_result\(22);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(7) <= NOT \u0|cpu|av_ld_byte3_data\(7);
-\u0|cpu|ALT_INV_W_alu_result\(31) <= NOT \u0|cpu|W_alu_result\(31);
-\u0|cpu|ALT_INV_W_alu_result\(24) <= NOT \u0|cpu|W_alu_result\(24);
-\u0|cpu|ALT_INV_W_alu_result\(25) <= NOT \u0|cpu|W_alu_result\(25);
-\u0|cpu|ALT_INV_W_alu_result\(26) <= NOT \u0|cpu|W_alu_result\(26);
-\u0|cpu|ALT_INV_W_alu_result\(27) <= NOT \u0|cpu|W_alu_result\(27);
-\u0|cpu|ALT_INV_W_alu_result\(21) <= NOT \u0|cpu|W_alu_result\(21);
-\u0|cpu|ALT_INV_W_alu_result\(23) <= NOT \u0|cpu|W_alu_result\(23);
-\u0|cpu|ALT_INV_Add2~97_sumout\ <= NOT \u0|cpu|Add2~97_sumout\;
-\u0|cpu|ALT_INV_E_shift_rot_result\(30) <= NOT \u0|cpu|E_shift_rot_result\(30);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\(31) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|readdata\(31);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(18) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(18);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(19) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(19);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(29) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(29);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(20);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(21) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(21);
-\u0|jtag_uart|ALT_INV_Add0~25_sumout\ <= NOT \u0|jtag_uart|Add0~25_sumout\;
-\u0|jtag_uart|ALT_INV_Add0~21_sumout\ <= NOT \u0|jtag_uart|Add0~21_sumout\;
-\u0|jtag_uart|ALT_INV_Add0~17_sumout\ <= NOT \u0|jtag_uart|Add0~17_sumout\;
-\u0|jtag_uart|ALT_INV_Add0~13_sumout\ <= NOT \u0|jtag_uart|Add0~13_sumout\;
-\u0|jtag_uart|ALT_INV_Add0~9_sumout\ <= NOT \u0|jtag_uart|Add0~9_sumout\;
-\u0|jtag_uart|ALT_INV_Add0~5_sumout\ <= NOT \u0|jtag_uart|Add0~5_sumout\;
-\u0|jtag_uart|ALT_INV_Add0~1_sumout\ <= NOT \u0|jtag_uart|Add0~1_sumout\;
-\u0|rtx_timer|ALT_INV_internal_counter\(26) <= NOT \u0|rtx_timer|internal_counter\(26);
-\u0|rtx_timer|ALT_INV_internal_counter\(25) <= NOT \u0|rtx_timer|internal_counter\(25);
-\u0|rtx_timer|ALT_INV_internal_counter\(24) <= NOT \u0|rtx_timer|internal_counter\(24);
-\u0|rtx_timer|ALT_INV_internal_counter\(23) <= NOT \u0|rtx_timer|internal_counter\(23);
-\u0|rtx_timer|ALT_INV_internal_counter\(6) <= NOT \u0|rtx_timer|internal_counter\(6);
-\u0|rtx_timer|ALT_INV_internal_counter\(27) <= NOT \u0|rtx_timer|internal_counter\(27);
-\u0|rtx_timer|ALT_INV_internal_counter\(8) <= NOT \u0|rtx_timer|internal_counter\(8);
-\u0|rtx_timer|ALT_INV_internal_counter\(30) <= NOT \u0|rtx_timer|internal_counter\(30);
-\u0|rtx_timer|ALT_INV_internal_counter\(7) <= NOT \u0|rtx_timer|internal_counter\(7);
-\u0|rtx_timer|ALT_INV_internal_counter\(15) <= NOT \u0|rtx_timer|internal_counter\(15);
-\u0|rtx_timer|ALT_INV_internal_counter\(29) <= NOT \u0|rtx_timer|internal_counter\(29);
-\u0|rtx_timer|ALT_INV_internal_counter\(28) <= NOT \u0|rtx_timer|internal_counter\(28);
-\u0|rtx_timer|ALT_INV_internal_counter\(31) <= NOT \u0|rtx_timer|internal_counter\(31);
-\u0|rtx_timer|ALT_INV_internal_counter\(13) <= NOT \u0|rtx_timer|internal_counter\(13);
-\u0|rtx_timer|ALT_INV_internal_counter\(12) <= NOT \u0|rtx_timer|internal_counter\(12);
-\u0|rtx_timer|ALT_INV_internal_counter\(11) <= NOT \u0|rtx_timer|internal_counter\(11);
-\u0|rtx_timer|ALT_INV_internal_counter\(10) <= NOT \u0|rtx_timer|internal_counter\(10);
-\u0|rtx_timer|ALT_INV_internal_counter\(22) <= NOT \u0|rtx_timer|internal_counter\(22);
-\u0|rtx_timer|ALT_INV_internal_counter\(21) <= NOT \u0|rtx_timer|internal_counter\(21);
-\u0|rtx_timer|ALT_INV_internal_counter\(20) <= NOT \u0|rtx_timer|internal_counter\(20);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(22) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(22);
-\u0|cpu|ALT_INV_d_writedata\(23) <= NOT \u0|cpu|d_writedata\(23);
-\u0|cpu|ALT_INV_d_writedata\(22) <= NOT \u0|cpu|d_writedata\(22);
-\u0|cpu|ALT_INV_d_writedata\(21) <= NOT \u0|cpu|d_writedata\(21);
-\u0|cpu|ALT_INV_d_writedata\(20) <= NOT \u0|cpu|d_writedata\(20);
-\u0|cpu|ALT_INV_d_writedata\(19) <= NOT \u0|cpu|d_writedata\(19);
-\u0|cpu|ALT_INV_d_writedata\(18) <= NOT \u0|cpu|d_writedata\(18);
-\u0|cpu|ALT_INV_d_writedata\(17) <= NOT \u0|cpu|d_writedata\(17);
-\u0|cpu|ALT_INV_d_writedata\(16) <= NOT \u0|cpu|d_writedata\(16);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(9);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(8);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(7) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(7);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(6) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(6);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(5);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(2);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(4);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(0) <= NOT \u0|cpu|av_ld_byte3_data\(0);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(16) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(16);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(1) <= NOT \u0|cpu|av_ld_byte3_data\(1);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(17) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(17);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(2) <= NOT \u0|cpu|av_ld_byte3_data\(2);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(18) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(18);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(3) <= NOT \u0|cpu|av_ld_byte3_data\(3);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(19) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(19);
-\u0|cpu|ALT_INV_av_ld_byte3_data\(4) <= NOT \u0|cpu|av_ld_byte3_data\(4);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(20) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(20);
-\u0|cpu|ALT_INV_E_shift_rot_result\(23) <= NOT \u0|cpu|E_shift_rot_result\(23);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\(20) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|readdata\(20);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(7) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(7);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(10);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(17) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(17);
-\u0|cpu|ALT_INV_Add2~93_sumout\ <= NOT \u0|cpu|Add2~93_sumout\;
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(2) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(2);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(3) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(3);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(4) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(4);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(5) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(5);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(6) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(6);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(7) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(7);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(8) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(8);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(9) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(9);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(10) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(10);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(11) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(11);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(12) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(12);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(13) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(13);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(14) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(14);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(15) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(15);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(16) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(16);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(17) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(17);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(18) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(18);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(19) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(19);
-\u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|ALT_INV_q_b\(20) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_a|the_altsyncram|auto_generated|q_b\(20);
-\u0|cpu|ALT_INV_E_shift_rot_result\(31) <= NOT \u0|cpu|E_shift_rot_result\(31);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|ALT_INV_readdata\(9) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|readdata\(9);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(6) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(6);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(5) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(5);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(4) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(4);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(3) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(3);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(2) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(2);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(1) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(1);
-\u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|ALT_INV_av_readdata_pre\(0) <= NOT \u0|mm_interconnect_0|jtag_uart_avalon_jtag_slave_translator|av_readdata_pre\(0);
-\u0|cpu|ALT_INV_d_writedata\(15) <= NOT \u0|cpu|d_writedata\(15);
-\u0|cpu|ALT_INV_d_writedata\(14) <= NOT \u0|cpu|d_writedata\(14);
-\u0|cpu|ALT_INV_d_writedata\(13) <= NOT \u0|cpu|d_writedata\(13);
-\u0|cpu|ALT_INV_d_writedata\(12) <= NOT \u0|cpu|d_writedata\(12);
-\u0|cpu|ALT_INV_d_writedata\(11) <= NOT \u0|cpu|d_writedata\(11);
-\u0|cpu|ALT_INV_d_writedata\(10) <= NOT \u0|cpu|d_writedata\(10);
-\u0|cpu|ALT_INV_d_writedata\(9) <= NOT \u0|cpu|d_writedata\(9);
-\u0|cpu|ALT_INV_d_writedata\(8) <= NOT \u0|cpu|d_writedata\(8);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(10) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(10);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(8) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(8);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(0) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(1);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(2);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(4);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(5) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(5);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(8) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(8);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(10) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(10);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(12) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(12);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|ALT_INV_q_a\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|StepperMotorControl_CPU_ociram_sp_ram|the_altsyncram|auto_generated|q_a\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(2);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(3);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonAReg\(4) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonAReg\(4);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(1);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_MonDReg\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|MonDReg\(1);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(3) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(3);
-\u0|cpu|ALT_INV_E_shift_rot_result\(22) <= NOT \u0|cpu|E_shift_rot_result\(22);
-\u0|cpu|ALT_INV_av_ld_byte0_data\(7) <= NOT \u0|cpu|av_ld_byte0_data\(7);
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(10) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(10);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][10]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][10]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~5_sumout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|Add2~5_sumout\;
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|ALT_INV_Add0~1_sumout\ <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_ocimem|Add0~1_sumout\;
-\u0|cpu|ALT_INV_E_src1\(28) <= NOT \u0|cpu|E_src1\(28);
-\u0|cpu|ALT_INV_E_src2\(28) <= NOT \u0|cpu|E_src2\(28);
-\u0|cpu|ALT_INV_E_src1\(30) <= NOT \u0|cpu|E_src1\(30);
-\u0|cpu|ALT_INV_E_src2\(30) <= NOT \u0|cpu|E_src2\(30);
-\u0|cpu|ALT_INV_E_src1\(29) <= NOT \u0|cpu|E_src1\(29);
-\u0|cpu|ALT_INV_E_src2\(29) <= NOT \u0|cpu|E_src2\(29);
-\u0|cpu|ALT_INV_E_src1\(22) <= NOT \u0|cpu|E_src1\(22);
-\u0|cpu|ALT_INV_E_src2\(22) <= NOT \u0|cpu|E_src2\(22);
-\u0|cpu|ALT_INV_E_src1\(31) <= NOT \u0|cpu|E_src1\(31);
-\u0|cpu|ALT_INV_E_src1\(24) <= NOT \u0|cpu|E_src1\(24);
-\u0|cpu|ALT_INV_E_src2\(24) <= NOT \u0|cpu|E_src2\(24);
-\u0|cpu|ALT_INV_E_src1\(25) <= NOT \u0|cpu|E_src1\(25);
-\u0|cpu|ALT_INV_E_src2\(25) <= NOT \u0|cpu|E_src2\(25);
-\u0|cpu|ALT_INV_E_src1\(26) <= NOT \u0|cpu|E_src1\(26);
-\u0|cpu|ALT_INV_E_src2\(26) <= NOT \u0|cpu|E_src2\(26);
-\u0|cpu|ALT_INV_E_src1\(27) <= NOT \u0|cpu|E_src1\(27);
-\u0|cpu|ALT_INV_E_src2\(27) <= NOT \u0|cpu|E_src2\(27);
-\u0|cpu|ALT_INV_E_src1\(21) <= NOT \u0|cpu|E_src1\(21);
-\u0|cpu|ALT_INV_E_src2\(21) <= NOT \u0|cpu|E_src2\(21);
-\u0|cpu|ALT_INV_E_src1\(23) <= NOT \u0|cpu|E_src1\(23);
-\u0|cpu|ALT_INV_E_src2\(23) <= NOT \u0|cpu|E_src2\(23);
-\u0|cpu|ALT_INV_Add2~89_sumout\ <= NOT \u0|cpu|Add2~89_sumout\;
-\u0|cpu|ALT_INV_E_src1\(0) <= NOT \u0|cpu|E_src1\(0);
-\u0|cpu|ALT_INV_E_src2\(0) <= NOT \u0|cpu|E_src2\(0);
-\u0|cpu|ALT_INV_E_src2\(1) <= NOT \u0|cpu|E_src2\(1);
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(6) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(6);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][6]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][6]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(8) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(8);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][8]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][8]~q\;
-\u0|cpu|ALT_INV_E_src1\(1) <= NOT \u0|cpu|E_src1\(1);
-\u0|cpu|ALT_INV_E_shift_rot_result\(0) <= NOT \u0|cpu|E_shift_rot_result\(0);
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(14) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(14);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][14]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][14]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(15) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(15);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][15]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][15]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(9) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(9);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][9]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][9]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(7) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(7);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][7]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][7]~q\;
-\u0|cpu|ALT_INV_E_shift_rot_cnt\(0) <= NOT \u0|cpu|E_shift_rot_cnt\(0);
-\u0|cpu|ALT_INV_E_shift_rot_cnt\(1) <= NOT \u0|cpu|E_shift_rot_cnt\(1);
-\u0|cpu|ALT_INV_E_shift_rot_cnt\(2) <= NOT \u0|cpu|E_shift_rot_cnt\(2);
-\u0|cpu|ALT_INV_E_shift_rot_cnt\(3) <= NOT \u0|cpu|E_shift_rot_cnt\(3);
-\u0|cpu|ALT_INV_E_shift_rot_cnt\(4) <= NOT \u0|cpu|E_shift_rot_cnt\(4);
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(11) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(11);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][11]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][11]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(5) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(5);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][5]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][5]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(4) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(4);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][4]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][4]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(3) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(3);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][3]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][3]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(2) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(2);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][2]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][2]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(1) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(1);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][1]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][1]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(0) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(0);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][0]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][0]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(12) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(12);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][12]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][12]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|ALT_INV_data_reg\(13) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_rsp_width_adapter|data_reg\(13);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|ALT_INV_mem[0][13]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rdata_fifo|mem[0][13]~q\;
-\u0|cpu|ALT_INV_av_ld_byte0_data\(6) <= NOT \u0|cpu|av_ld_byte0_data\(6);
-\u0|cpu|ALT_INV_av_ld_byte0_data\(5) <= NOT \u0|cpu|av_ld_byte0_data\(5);
-\u0|cpu|ALT_INV_av_ld_byte0_data\(4) <= NOT \u0|cpu|av_ld_byte0_data\(4);
-\u0|cpu|ALT_INV_av_ld_byte0_data\(3) <= NOT \u0|cpu|av_ld_byte0_data\(3);
-\u0|cpu|ALT_INV_av_ld_byte0_data\(2) <= NOT \u0|cpu|av_ld_byte0_data\(2);
-\u0|cpu|ALT_INV_av_ld_byte0_data\(1) <= NOT \u0|cpu|av_ld_byte0_data\(1);
-\u0|cpu|ALT_INV_W_alu_result\(1) <= NOT \u0|cpu|W_alu_result\(1);
-\u0|cpu|ALT_INV_D_iw\(26) <= NOT \u0|cpu|D_iw\(26);
-\u0|cpu|ALT_INV_D_iw\(25) <= NOT \u0|cpu|D_iw\(25);
-\u0|cpu|ALT_INV_W_alu_result\(0) <= NOT \u0|cpu|W_alu_result\(0);
-\u0|cpu|ALT_INV_av_ld_byte0_data\(0) <= NOT \u0|cpu|av_ld_byte0_data\(0);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(9) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(9);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_count\(1) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|count\(1);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|ALT_INV_break_readreg\(0) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_nios2_oci_break|break_readreg\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(2) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(2);
-\u0|cpu|ALT_INV_Add0~73_sumout\ <= NOT \u0|cpu|Add0~73_sumout\;
-\u0|cpu|ALT_INV_Add0~69_sumout\ <= NOT \u0|cpu|Add0~69_sumout\;
-\u0|cpu|ALT_INV_Add0~65_sumout\ <= NOT \u0|cpu|Add0~65_sumout\;
-\u0|cpu|ALT_INV_D_iw\(22) <= NOT \u0|cpu|D_iw\(22);
-\u0|cpu|ALT_INV_D_iw\(23) <= NOT \u0|cpu|D_iw\(23);
-\u0|cpu|ALT_INV_D_iw\(24) <= NOT \u0|cpu|D_iw\(24);
-\u0|cpu|ALT_INV_E_shift_rot_result\(21) <= NOT \u0|cpu|E_shift_rot_result\(21);
-\u0|cpu|ALT_INV_D_iw\(17) <= NOT \u0|cpu|D_iw\(17);
-\u0|cpu|ALT_INV_Add0~61_sumout\ <= NOT \u0|cpu|Add0~61_sumout\;
-\u0|cpu|ALT_INV_Add0~57_sumout\ <= NOT \u0|cpu|Add0~57_sumout\;
-\u0|cpu|ALT_INV_Add0~53_sumout\ <= NOT \u0|cpu|Add0~53_sumout\;
-\u0|cpu|ALT_INV_D_iw\(10) <= NOT \u0|cpu|D_iw\(10);
-\u0|cpu|ALT_INV_Add0~49_sumout\ <= NOT \u0|cpu|Add0~49_sumout\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|ALT_INV_Add2~1_sumout\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent|uncompressor|Add2~1_sumout\;
-\u0|cpu|ALT_INV_Add0~45_sumout\ <= NOT \u0|cpu|Add0~45_sumout\;
-\u0|cpu|ALT_INV_Add0~41_sumout\ <= NOT \u0|cpu|Add0~41_sumout\;
-\u0|cpu|ALT_INV_Add0~37_sumout\ <= NOT \u0|cpu|Add0~37_sumout\;
-\u0|cpu|ALT_INV_Add0~33_sumout\ <= NOT \u0|cpu|Add0~33_sumout\;
-\u0|cpu|ALT_INV_Add0~29_sumout\ <= NOT \u0|cpu|Add0~29_sumout\;
-\u0|cpu|ALT_INV_Add0~25_sumout\ <= NOT \u0|cpu|Add0~25_sumout\;
-\u0|cpu|ALT_INV_Add0~21_sumout\ <= NOT \u0|cpu|Add0~21_sumout\;
-\u0|cpu|ALT_INV_Add0~17_sumout\ <= NOT \u0|cpu|Add0~17_sumout\;
-\u0|cpu|ALT_INV_Add0~13_sumout\ <= NOT \u0|cpu|Add0~13_sumout\;
-\u0|cpu|ALT_INV_Add0~9_sumout\ <= NOT \u0|cpu|Add0~9_sumout\;
-\u0|cpu|ALT_INV_Add2~81_sumout\ <= NOT \u0|cpu|Add2~81_sumout\;
-\u0|cpu|ALT_INV_Add2~77_sumout\ <= NOT \u0|cpu|Add2~77_sumout\;
-\u0|cpu|ALT_INV_D_iw\(6) <= NOT \u0|cpu|D_iw\(6);
-\u0|cpu|ALT_INV_Add0~5_sumout\ <= NOT \u0|cpu|Add0~5_sumout\;
-\u0|cpu|ALT_INV_D_iw\(8) <= NOT \u0|cpu|D_iw\(8);
-\u0|cpu|ALT_INV_E_shift_rot_result\(1) <= NOT \u0|cpu|E_shift_rot_result\(1);
-\u0|cpu|ALT_INV_D_iw\(14) <= NOT \u0|cpu|D_iw\(14);
-\u0|cpu|ALT_INV_D_iw\(9) <= NOT \u0|cpu|D_iw\(9);
-\u0|cpu|ALT_INV_D_iw\(7) <= NOT \u0|cpu|D_iw\(7);
-\u0|cpu|ALT_INV_Add0~1_sumout\ <= NOT \u0|cpu|Add0~1_sumout\;
-\u0|cpu|ALT_INV_D_iw\(2) <= NOT \u0|cpu|D_iw\(2);
-\u0|cpu|ALT_INV_D_iw\(12) <= NOT \u0|cpu|D_iw\(12);
-\u0|cpu|ALT_INV_D_iw\(0) <= NOT \u0|cpu|D_iw\(0);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(1) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(1);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(2) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(2);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(3) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(3);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(4) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(4);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(5) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(5);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(6) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(6);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(7) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(7);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(8) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(8);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(9) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(9);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(10) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(10);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(11) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(11);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(12) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(12);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(13) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(13);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(14) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(14);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(15) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(15);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(16) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(16);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(17) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(17);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(18) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(18);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(19) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(19);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(20) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(20);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(21) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(21);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(22) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(22);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(23) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(23);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(24) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(24);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(25) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(25);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(26) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(26);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(27) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(27);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(28) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(28);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(29) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(29);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(30) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(30);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(31) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(31);
-\u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|ALT_INV_q_b\(0) <= NOT \u0|cpu|StepperMotorControl_CPU_register_bank_b|the_altsyncram|auto_generated|q_b\(0);
-\u0|cpu|ALT_INV_F_pc\(8) <= NOT \u0|cpu|F_pc\(8);
-\u0|cpu|ALT_INV_F_pc\(7) <= NOT \u0|cpu|F_pc\(7);
-\u0|cpu|ALT_INV_F_pc\(6) <= NOT \u0|cpu|F_pc\(6);
-\u0|cpu|ALT_INV_F_pc\(5) <= NOT \u0|cpu|F_pc\(5);
-\u0|cpu|ALT_INV_F_pc\(4) <= NOT \u0|cpu|F_pc\(4);
-\u0|cpu|ALT_INV_F_pc\(3) <= NOT \u0|cpu|F_pc\(3);
-\u0|cpu|ALT_INV_F_pc\(2) <= NOT \u0|cpu|F_pc\(2);
-\u0|cpu|ALT_INV_F_pc\(1) <= NOT \u0|cpu|F_pc\(1);
-\u0|cpu|ALT_INV_F_pc\(0) <= NOT \u0|cpu|F_pc\(0);
-\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_address_reg\(1) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|address_reg\(1);
-\u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|ALT_INV_td_shift\(0) <= NOT \u0|jtag_uart|StepperMotorControl_jtag_uart_alt_jtag_atlantic|td_shift\(0);
-\u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|ALT_INV_sr\(1) <= NOT \u0|cpu|the_StepperMotorControl_CPU_nios2_oci|the_StepperMotorControl_CPU_jtag_debug_module_wrapper|the_StepperMotorControl_CPU_jtag_debug_module_tck|sr\(1);
-\u0|cpu|ALT_INV_Add2~73_sumout\ <= NOT \u0|cpu|Add2~73_sumout\;
-\u0|cpu|ALT_INV_E_src2\(9) <= NOT \u0|cpu|E_src2\(9);
-\u0|cpu|ALT_INV_E_shift_rot_result\(9) <= NOT \u0|cpu|E_shift_rot_result\(9);
-\u0|cpu|ALT_INV_Add2~69_sumout\ <= NOT \u0|cpu|Add2~69_sumout\;
-\u0|cpu|ALT_INV_E_src2\(10) <= NOT \u0|cpu|E_src2\(10);
-\u0|cpu|ALT_INV_E_shift_rot_result\(10) <= NOT \u0|cpu|E_shift_rot_result\(10);
-\u0|cpu|ALT_INV_Add2~65_sumout\ <= NOT \u0|cpu|Add2~65_sumout\;
-\u0|cpu|ALT_INV_E_src2\(8) <= NOT \u0|cpu|E_src2\(8);
-\u0|cpu|ALT_INV_E_shift_rot_result\(8) <= NOT \u0|cpu|E_shift_rot_result\(8);
-\u0|cpu|ALT_INV_Add2~61_sumout\ <= NOT \u0|cpu|Add2~61_sumout\;
-\u0|cpu|ALT_INV_E_src2\(11) <= NOT \u0|cpu|E_src2\(11);
-\u0|cpu|ALT_INV_E_shift_rot_result\(11) <= NOT \u0|cpu|E_shift_rot_result\(11);
-\u0|cpu|ALT_INV_Add2~57_sumout\ <= NOT \u0|cpu|Add2~57_sumout\;
-\u0|cpu|ALT_INV_E_src2\(12) <= NOT \u0|cpu|E_src2\(12);
-\u0|cpu|ALT_INV_E_shift_rot_result\(12) <= NOT \u0|cpu|E_shift_rot_result\(12);
-\u0|cpu|ALT_INV_Add2~53_sumout\ <= NOT \u0|cpu|Add2~53_sumout\;
-\u0|cpu|ALT_INV_E_src2\(15) <= NOT \u0|cpu|E_src2\(15);
-\u0|cpu|ALT_INV_E_shift_rot_result\(15) <= NOT \u0|cpu|E_shift_rot_result\(15);
-\u0|cpu|ALT_INV_Add2~49_sumout\ <= NOT \u0|cpu|Add2~49_sumout\;
-\u0|cpu|ALT_INV_E_src2\(16) <= NOT \u0|cpu|E_src2\(16);
-\u0|cpu|ALT_INV_E_shift_rot_result\(16) <= NOT \u0|cpu|E_shift_rot_result\(16);
-\u0|cpu|ALT_INV_Add2~45_sumout\ <= NOT \u0|cpu|Add2~45_sumout\;
-\u0|cpu|ALT_INV_E_src2\(17) <= NOT \u0|cpu|E_src2\(17);
-\u0|cpu|ALT_INV_E_shift_rot_result\(17) <= NOT \u0|cpu|E_shift_rot_result\(17);
-\u0|cpu|ALT_INV_Add2~41_sumout\ <= NOT \u0|cpu|Add2~41_sumout\;
-\u0|cpu|ALT_INV_E_src2\(18) <= NOT \u0|cpu|E_src2\(18);
-\u0|cpu|ALT_INV_E_shift_rot_result\(18) <= NOT \u0|cpu|E_shift_rot_result\(18);
-\u0|cpu|ALT_INV_Add2~37_sumout\ <= NOT \u0|cpu|Add2~37_sumout\;
-\u0|cpu|ALT_INV_E_src2\(19) <= NOT \u0|cpu|E_src2\(19);
-\u0|cpu|ALT_INV_E_shift_rot_result\(19) <= NOT \u0|cpu|E_shift_rot_result\(19);
-\u0|cpu|ALT_INV_Add2~33_sumout\ <= NOT \u0|cpu|Add2~33_sumout\;
-\u0|cpu|ALT_INV_E_src2\(20) <= NOT \u0|cpu|E_src2\(20);
-\u0|cpu|ALT_INV_E_shift_rot_result\(20) <= NOT \u0|cpu|E_shift_rot_result\(20);
-\u0|cpu|ALT_INV_Add2~29_sumout\ <= NOT \u0|cpu|Add2~29_sumout\;
-\u0|cpu|ALT_INV_E_src2\(13) <= NOT \u0|cpu|E_src2\(13);
-\u0|cpu|ALT_INV_E_shift_rot_result\(13) <= NOT \u0|cpu|E_shift_rot_result\(13);
-\u0|cpu|ALT_INV_Add2~25_sumout\ <= NOT \u0|cpu|Add2~25_sumout\;
-\u0|cpu|ALT_INV_E_src2\(14) <= NOT \u0|cpu|E_src2\(14);
-\u0|cpu|ALT_INV_E_shift_rot_result\(14) <= NOT \u0|cpu|E_shift_rot_result\(14);
-\u0|cpu|ALT_INV_Add2~21_sumout\ <= NOT \u0|cpu|Add2~21_sumout\;
-\u0|cpu|ALT_INV_E_src2\(7) <= NOT \u0|cpu|E_src2\(7);
-\u0|cpu|ALT_INV_E_shift_rot_result\(7) <= NOT \u0|cpu|E_shift_rot_result\(7);
-\u0|cpu|ALT_INV_Add2~17_sumout\ <= NOT \u0|cpu|Add2~17_sumout\;
-\u0|cpu|ALT_INV_E_src2\(5) <= NOT \u0|cpu|E_src2\(5);
-\u0|cpu|ALT_INV_E_shift_rot_result\(5) <= NOT \u0|cpu|E_shift_rot_result\(5);
-\u0|cpu|ALT_INV_Add2~13_sumout\ <= NOT \u0|cpu|Add2~13_sumout\;
-\u0|cpu|ALT_INV_E_src2\(6) <= NOT \u0|cpu|E_src2\(6);
-\u0|cpu|ALT_INV_E_shift_rot_result\(6) <= NOT \u0|cpu|E_shift_rot_result\(6);
-\u0|cpu|ALT_INV_Add2~9_sumout\ <= NOT \u0|cpu|Add2~9_sumout\;
-\u0|cpu|ALT_INV_E_src2\(4) <= NOT \u0|cpu|E_src2\(4);
-\u0|cpu|ALT_INV_E_shift_rot_result\(4) <= NOT \u0|cpu|E_shift_rot_result\(4);
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][48]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][48]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][41]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][41]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][82]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][82]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][19]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][19]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][81]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][81]~q\;
-\u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|ALT_INV_mem[0][60]~q\ <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_agent_rsp_fifo|mem[0][60]~q\;
-\u0|cpu|ALT_INV_F_pc\(10) <= NOT \u0|cpu|F_pc\(10);
-\u0|cpu|ALT_INV_F_pc\(9) <= NOT \u0|cpu|F_pc\(9);
-\u0|cpu|ALT_INV_F_pc\(15) <= NOT \u0|cpu|F_pc\(15);
-\u0|cpu|ALT_INV_F_pc\(18) <= NOT \u0|cpu|F_pc\(18);
-\u0|cpu|ALT_INV_F_pc\(14) <= NOT \u0|cpu|F_pc\(14);
-\u0|cpu|ALT_INV_F_pc\(12) <= NOT \u0|cpu|F_pc\(12);
-\u0|cpu|ALT_INV_F_pc\(11) <= NOT \u0|cpu|F_pc\(11);
-\u0|cpu|ALT_INV_F_pc\(13) <= NOT \u0|cpu|F_pc\(13);
-\u0|cpu|ALT_INV_F_pc\(16) <= NOT \u0|cpu|F_pc\(16);
-\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_byteen_reg\(1) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|byteen_reg\(1);
-\u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|ALT_INV_byteen_reg\(0) <= NOT \u0|mm_interconnect_0|sram_cvgx_uas_cmd_width_adapter|byteen_reg\(0);
-\u0|cpu|ALT_INV_Add2~5_sumout\ <= NOT \u0|cpu|Add2~5_sumout\;
-\u0|cpu|ALT_INV_E_src2\(2) <= NOT \u0|cpu|E_src2\(2);
-\u0|cpu|ALT_INV_E_shift_rot_result\(2) <= NOT \u0|cpu|E_shift_rot_result\(2);
-\u0|cpu|ALT_INV_Add2~1_sumout\ <= NOT \u0|cpu|Add2~1_sumout\;
-\u0|cpu|ALT_INV_E_src2\(3) <= NOT \u0|cpu|E_src2\(3);
-\u0|cpu|ALT_INV_E_shift_rot_result\(3) <= NOT \u0|cpu|E_shift_rot_result\(3);
-\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(0) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(0);
-\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(1) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(1);
-\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(2) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(2);
-\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(3) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(3);
-\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(4) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(4);
-\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(6) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(6);
-\u0|cpu|ALT_INV_W_alu_result\(9) <= NOT \u0|cpu|W_alu_result\(9);
-\u0|cpu|ALT_INV_W_alu_result\(10) <= NOT \u0|cpu|W_alu_result\(10);
-\u0|cpu|ALT_INV_W_alu_result\(8) <= NOT \u0|cpu|W_alu_result\(8);
-\u0|cpu|ALT_INV_W_alu_result\(11) <= NOT \u0|cpu|W_alu_result\(11);
-\u0|cpu|ALT_INV_W_alu_result\(12) <= NOT \u0|cpu|W_alu_result\(12);
-\u0|cpu|ALT_INV_W_alu_result\(15) <= NOT \u0|cpu|W_alu_result\(15);
-\u0|cpu|ALT_INV_W_alu_result\(16) <= NOT \u0|cpu|W_alu_result\(16);
-\u0|cpu|ALT_INV_W_alu_result\(17) <= NOT \u0|cpu|W_alu_result\(17);
-\u0|cpu|ALT_INV_W_alu_result\(18) <= NOT \u0|cpu|W_alu_result\(18);
-\u0|cpu|ALT_INV_W_alu_result\(19) <= NOT \u0|cpu|W_alu_result\(19);
-\u0|cpu|ALT_INV_W_alu_result\(20) <= NOT \u0|cpu|W_alu_result\(20);
-\u0|cpu|ALT_INV_W_alu_result\(13) <= NOT \u0|cpu|W_alu_result\(13);
-\u0|cpu|ALT_INV_W_alu_result\(14) <= NOT \u0|cpu|W_alu_result\(14);
-\u0|cpu|ALT_INV_W_alu_result\(7) <= NOT \u0|cpu|W_alu_result\(7);
-\u0|cpu|ALT_INV_W_alu_result\(5) <= NOT \u0|cpu|W_alu_result\(5);
-\u0|cpu|ALT_INV_W_alu_result\(6) <= NOT \u0|cpu|W_alu_result\(6);
-\u0|cpu|ALT_INV_W_alu_result\(4) <= NOT \u0|cpu|W_alu_result\(4);
-\u0|mm_interconnect_0|lcd_control_slave_translator|ALT_INV_wait_latency_counter\(5) <= NOT \u0|mm_interconnect_0|lcd_control_slave_translator|wait_latency_counter\(5);
-\u0|cpu|ALT_INV_W_alu_result\(3) <= NOT \u0|cpu|W_alu_result\(3);
 
 -- Location: FF_X6_Y2_N1
 \auto_hub|jtag_hub_gen:sld_jtag_hub_inst|irf_reg[1][2]\ : dffeas
@@ -7452,7 +7456,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(0),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(0));
+	o => ww_SRAM_D(0));
 
 -- Location: IOOBUF_X68_Y40_N96
 \SRAM_D[1]~output\ : cyclonev_io_obuf
@@ -7466,7 +7470,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(1),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(1));
+	o => ww_SRAM_D(1));
 
 -- Location: IOOBUF_X68_Y41_N5
 \SRAM_D[2]~output\ : cyclonev_io_obuf
@@ -7480,7 +7484,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(2),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(2));
+	o => ww_SRAM_D(2));
 
 -- Location: IOOBUF_X68_Y41_N22
 \SRAM_D[3]~output\ : cyclonev_io_obuf
@@ -7494,7 +7498,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(3),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(3));
+	o => ww_SRAM_D(3));
 
 -- Location: IOOBUF_X68_Y41_N39
 \SRAM_D[4]~output\ : cyclonev_io_obuf
@@ -7508,7 +7512,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(4),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(4));
+	o => ww_SRAM_D(4));
 
 -- Location: IOOBUF_X68_Y41_N56
 \SRAM_D[5]~output\ : cyclonev_io_obuf
@@ -7522,7 +7526,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(5),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(5));
+	o => ww_SRAM_D(5));
 
 -- Location: IOOBUF_X68_Y43_N5
 \SRAM_D[6]~output\ : cyclonev_io_obuf
@@ -7536,7 +7540,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(6),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(6));
+	o => ww_SRAM_D(6));
 
 -- Location: IOOBUF_X68_Y43_N22
 \SRAM_D[7]~output\ : cyclonev_io_obuf
@@ -7550,7 +7554,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(7),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(7));
+	o => ww_SRAM_D(7));
 
 -- Location: IOOBUF_X68_Y43_N39
 \SRAM_D[8]~output\ : cyclonev_io_obuf
@@ -7564,7 +7568,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(8),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(8));
+	o => ww_SRAM_D(8));
 
 -- Location: IOOBUF_X68_Y43_N56
 \SRAM_D[9]~output\ : cyclonev_io_obuf
@@ -7578,7 +7582,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(9),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(9));
+	o => ww_SRAM_D(9));
 
 -- Location: IOOBUF_X68_Y45_N5
 \SRAM_D[10]~output\ : cyclonev_io_obuf
@@ -7592,7 +7596,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(10),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(10));
+	o => ww_SRAM_D(10));
 
 -- Location: IOOBUF_X68_Y45_N22
 \SRAM_D[11]~output\ : cyclonev_io_obuf
@@ -7606,7 +7610,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(11),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(11));
+	o => ww_SRAM_D(11));
 
 -- Location: IOOBUF_X68_Y45_N39
 \SRAM_D[12]~output\ : cyclonev_io_obuf
@@ -7620,7 +7624,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(12),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(12));
+	o => ww_SRAM_D(12));
 
 -- Location: IOOBUF_X68_Y45_N56
 \SRAM_D[13]~output\ : cyclonev_io_obuf
@@ -7634,7 +7638,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(13),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(13));
+	o => ww_SRAM_D(13));
 
 -- Location: IOOBUF_X68_Y47_N45
 \SRAM_D[14]~output\ : cyclonev_io_obuf
@@ -7648,7 +7652,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(14),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(14));
+	o => ww_SRAM_D(14));
 
 -- Location: IOOBUF_X68_Y47_N62
 \SRAM_D[15]~output\ : cyclonev_io_obuf
@@ -7662,7 +7666,7 @@ PORT MAP (
 	i => \u0|sram_conduit|SRAM_D_reg\(15),
 	oe => \u0|sram_conduit|SRAM_D_outen_reg~q\,
 	devoe => ww_devoe,
-	o => SRAM_D(15));
+	o => ww_SRAM_D(15));
 
 -- Location: IOOBUF_X68_Y10_N45
 \LCD_DQ[0]~output\ : cyclonev_io_obuf
@@ -7676,7 +7680,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata\(0),
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(0));
+	o => ww_LCD_DQ(0));
 
 -- Location: IOOBUF_X68_Y13_N5
 \LCD_DQ[1]~output\ : cyclonev_io_obuf
@@ -7690,7 +7694,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata\(1),
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(1));
+	o => ww_LCD_DQ(1));
 
 -- Location: IOOBUF_X68_Y14_N62
 \LCD_DQ[2]~output\ : cyclonev_io_obuf
@@ -7704,7 +7708,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata\(2),
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(2));
+	o => ww_LCD_DQ(2));
 
 -- Location: IOOBUF_X68_Y22_N62
 \LCD_DQ[3]~output\ : cyclonev_io_obuf
@@ -7718,7 +7722,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata\(3),
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(3));
+	o => ww_LCD_DQ(3));
 
 -- Location: IOOBUF_X68_Y32_N62
 \LCD_DQ[4]~output\ : cyclonev_io_obuf
@@ -7732,7 +7736,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata\(4),
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(4));
+	o => ww_LCD_DQ(4));
 
 -- Location: IOOBUF_X68_Y37_N22
 \LCD_DQ[5]~output\ : cyclonev_io_obuf
@@ -7746,7 +7750,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata\(5),
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(5));
+	o => ww_LCD_DQ(5));
 
 -- Location: IOOBUF_X68_Y40_N62
 \LCD_DQ[6]~output\ : cyclonev_io_obuf
@@ -7760,7 +7764,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata[6]~DUPLICATE_q\,
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(6));
+	o => ww_LCD_DQ(6));
 
 -- Location: IOOBUF_X68_Y37_N56
 \LCD_DQ[7]~output\ : cyclonev_io_obuf
@@ -7774,7 +7778,7 @@ PORT MAP (
 	i => \u0|cpu|d_writedata\(7),
 	oe => \u0|cpu|ALT_INV_W_alu_result\(2),
 	devoe => ww_devoe,
-	o => LCD_DQ(7));
+	o => ww_LCD_DQ(7));
 
 -- Location: IOOBUF_X11_Y0_N2
 \altera_reserved_tdo~output\ : cyclonev_io_obuf
@@ -9195,7 +9199,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(5),
+	i => ww_SRAM_D(5),
 	o => \SRAM_D[5]~input_o\);
 
 -- Location: FF_X37_Y16_N53
@@ -10897,7 +10901,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(15),
+	i => ww_SRAM_D(15),
 	o => \SRAM_D[15]~input_o\);
 
 -- Location: FF_X36_Y16_N35
@@ -11476,7 +11480,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(1),
+	i => ww_SRAM_D(1),
 	o => \SRAM_D[1]~input_o\);
 
 -- Location: LABCELL_X38_Y16_N15
@@ -11759,7 +11763,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(10),
+	i => ww_SRAM_D(10),
 	o => \SRAM_D[10]~input_o\);
 
 -- Location: MLABCELL_X42_Y19_N27
@@ -12256,7 +12260,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(8),
+	i => ww_SRAM_D(8),
 	o => \SRAM_D[8]~input_o\);
 
 -- Location: FF_X40_Y18_N53
@@ -12581,7 +12585,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(3),
+	i => ww_SRAM_D(3),
 	o => \SRAM_D[3]~input_o\);
 
 -- Location: LABCELL_X43_Y19_N57
@@ -14720,7 +14724,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(4),
+	i => ww_LCD_DQ(4),
 	o => \LCD_DQ[4]~input_o\);
 
 -- Location: FF_X33_Y13_N47
@@ -22113,7 +22117,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(6),
+	i => ww_LCD_DQ(6),
 	o => \LCD_DQ[6]~input_o\);
 
 -- Location: FF_X28_Y14_N35
@@ -23404,7 +23408,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(6),
+	i => ww_SRAM_D(6),
 	o => \SRAM_D[6]~input_o\);
 
 -- Location: LABCELL_X38_Y15_N36
@@ -24879,7 +24883,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(12),
+	i => ww_SRAM_D(12),
 	o => \SRAM_D[12]~input_o\);
 
 -- Location: FF_X45_Y17_N41
@@ -25086,7 +25090,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(13),
+	i => ww_SRAM_D(13),
 	o => \SRAM_D[13]~input_o\);
 
 -- Location: FF_X43_Y19_N26
@@ -25348,7 +25352,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(14),
+	i => ww_SRAM_D(14),
 	o => \SRAM_D[14]~input_o\);
 
 -- Location: FF_X41_Y16_N35
@@ -25644,7 +25648,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(7),
+	i => ww_SRAM_D(7),
 	o => \SRAM_D[7]~input_o\);
 
 -- Location: FF_X36_Y16_N11
@@ -26431,7 +26435,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(11),
+	i => ww_SRAM_D(11),
 	o => \SRAM_D[11]~input_o\);
 
 -- Location: FF_X41_Y19_N26
@@ -28032,7 +28036,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(0),
+	i => ww_SRAM_D(0),
 	o => \SRAM_D[0]~input_o\);
 
 -- Location: FF_X38_Y16_N20
@@ -28323,7 +28327,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(9),
+	i => ww_SRAM_D(9),
 	o => \SRAM_D[9]~input_o\);
 
 -- Location: LABCELL_X41_Y16_N51
@@ -29063,7 +29067,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(4),
+	i => ww_SRAM_D(4),
 	o => \SRAM_D[4]~input_o\);
 
 -- Location: LABCELL_X45_Y17_N30
@@ -34637,7 +34641,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => SRAM_D(2),
+	i => ww_SRAM_D(2),
 	o => \SRAM_D[2]~input_o\);
 
 -- Location: FF_X38_Y16_N41
@@ -39082,7 +39086,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(7),
+	i => ww_LCD_DQ(7),
 	o => \LCD_DQ[7]~input_o\);
 
 -- Location: FF_X25_Y13_N47
@@ -39989,7 +39993,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(5),
+	i => ww_LCD_DQ(5),
 	o => \LCD_DQ[5]~input_o\);
 
 -- Location: FF_X28_Y13_N59
@@ -46626,7 +46630,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(3),
+	i => ww_LCD_DQ(3),
 	o => \LCD_DQ[3]~input_o\);
 
 -- Location: FF_X30_Y14_N41
@@ -49176,7 +49180,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(2),
+	i => ww_LCD_DQ(2),
 	o => \LCD_DQ[2]~input_o\);
 
 -- Location: FF_X30_Y14_N29
@@ -51058,7 +51062,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(1),
+	i => ww_LCD_DQ(1),
 	o => \LCD_DQ[1]~input_o\);
 
 -- Location: FF_X33_Y13_N17
@@ -57643,7 +57647,7 @@ GENERIC MAP (
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => LCD_DQ(0),
+	i => ww_LCD_DQ(0),
 	o => \LCD_DQ[0]~input_o\);
 
 -- Location: FF_X36_Y14_N59

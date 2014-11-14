@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 14.0 209 win32 2014.11.14.10:59:02
+# ACDS 14.0 209 win32 2014.11.14.11:50:19
 
 # ----------------------------------------
 # vcsmx - auto-generated simulation script
@@ -78,6 +78,7 @@ mkdir -p ./libraries/tda/
 mkdir -p ./libraries/tdt/
 mkdir -p ./libraries/irq_mapper/
 mkdir -p ./libraries/mm_interconnect_0/
+mkdir -p ./libraries/registers/
 mkdir -p ./libraries/pio_led9/
 mkdir -p ./libraries/pio_hex0/
 mkdir -p ./libraries/pio_key/
@@ -170,12 +171,14 @@ if [ $SKIP_COM -eq 0 ]; then
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_lcd_control_slave_translator.vhd"           -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_pio_sw_s1_translator.vhd"                   -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_pio_key_s1_translator.vhd"                  -work mm_interconnect_0                   
+  vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_registers_register_slave_translator.vhd"    -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_cpu_jtag_debug_module_agent.vhd"            -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_agent.vhd"                    -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_rsp_width_adapter.vhd"        -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_cmd_width_adapter.vhd"        -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_cpu_instruction_master_translator.vhd"      -work mm_interconnect_0                   
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_cpu_data_master_translator.vhd"             -work mm_interconnect_0                   
+  vhdlan -xlrm "$QSYS_SIMDIR/submodules/register_interface.vhd"                                                           -work registers                           
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_pio_led9.vhd"                                                 -work pio_led9                            
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_pio_hex0.vhd"                                                 -work pio_hex0                            
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_pio_key.vhd"                                                  -work pio_key                             

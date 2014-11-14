@@ -24,6 +24,7 @@ tda:                                  ./libraries/tda/
 tdt:                                  ./libraries/tdt/                                 
 irq_mapper:                           ./libraries/irq_mapper/                          
 mm_interconnect_0:                    ./libraries/mm_interconnect_0/                   
+registers:                            ./libraries/registers/                           
 pio_led9:                             ./libraries/pio_led9/                            
 pio_hex0:                             ./libraries/pio_hex0/                            
 pio_key:                              ./libraries/pio_key/                             

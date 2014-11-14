@@ -18,7 +18,9 @@
 			hex1_export    : out   std_logic_vector(6 downto 0);                     -- export
 			hex2_export    : out   std_logic_vector(6 downto 0);                     -- export
 			hex3_export    : out   std_logic_vector(6 downto 0);                     -- export
-			led9_export    : out   std_logic                                         -- export
+			led9_export    : out   std_logic;                                        -- export
+			leds_redleds   : out   std_logic_vector(7 downto 0);                     -- redleds
+			leds_greenleds : out   std_logic_vector(7 downto 0)                      -- greenleds
 		);
 	end component StepperMotorControl;
 
