@@ -14,6 +14,8 @@
 --!          	- first draft
 --! @details 	07.11. Kossmann
 --!          	- finished reset_n task
+--! @details 	07.11. Kossmann
+--!          	- finished reset_n task
 -------------------sim:/register_interface_tb----------------------------------------------------------
 
 
@@ -52,22 +54,13 @@ end register_interface;
 
 --! @brief Architecture of register_interface
 --! @details realized components:
---!			- all five registers
---!         - 8 green LEDs showing speedReg with 0 .. 2
+--!			      - all five registers
+--!         - 3 green LEDs showing speedReg with 0 .. 2
 --!         - 8 red LEDs showing ctrlReg
---!			- generating motor interrupt
+--!			      - generating motor interrupt
 architecture my_register_interface of register_interface is
-   --! @brief Component Declaration for 32-bit register 
-	component register_32bit is
-		port
-		(
-			clock	   : in  std_logic;  							--! clock
-			reset_n	: in  std_logic;  							--! low active reset: clears data
-			data_in	: in 	std_logic_vector(31 downto 0);	--! data input
-			data_out	: out std_logic_vector(31 downto 0)		--! data output
-		);
-	end component;
-	
+
+  --! internal signal representing the registers	
 	signal ctrlReg 			: std_logic_vector(7 downto 0);
 	signal ctrlSetReg 		: std_logic_vector(7 downto 0);
 	signal ctrlClrReg 		: std_logic_vector(7 downto 0);
@@ -78,10 +71,9 @@ architecture my_register_interface of register_interface is
 begin
 	 --! @brief processing the tasks:
 	 --!        - interface to NIOS-processor
-	 --!        - output speedReg to green Leds
-	 --!        - output ctrlReg to red Leds
 	 --!        - writing registers
-	 --!			- reading registers
+	 --!			    - reading registers
+	 --!        - implementing set and clear functionality
 	process(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ctrlSetReg, 
 				ctrlClrReg, speedReg, stepsReg) 
 	begin
@@ -109,22 +101,18 @@ begin
 			when others =>
 			end case;
 		end if;
+		
 		-- set and clear functionality for ctrlReg
 		if(CONV_INTEGER(ctrlSetReg) /= 0) then
 			ctrlReg <= ctrlReg or ctrlSetReg;
 			ctrlSetReg <= (others => '0');
 		end if;		-- set interrupt
-		irq <= ctrlReg(6) and ctrlReg(7);
-		-- clone ctrlReg to red leds
-	  redleds <= ctrlReg;
-	  -- clone speedReg to green leds
-	  greenleds(2 downto 0) <= speedReg;
-	  greenleds(7 downto 3) <= (others => '0');
+		
 		if(CONV_INTEGER(ctrlClrReg) /= 0) then
-			ctrlReg <= ctrlReg and ctrlClrReg;
+			ctrlReg <= ctrlReg and (not ctrlClrReg;
 			ctrlClrReg <= (others => '0');
 		end if;
-		ctrlReg
+		
 	end if;
 		-- Processor reads from Register
 		read_data <= (others => '0'); -- unused bits to 0

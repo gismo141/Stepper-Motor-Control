@@ -14,6 +14,8 @@
  *             - first draft for milestone 1b
  * @details    v1.0.0 30.10.2014 Kossmann
  *             - added debug and error handling header
+ * @details    13.11. Kossmann
+ *             - moved all own data types to dataTypes.h
  *****************************************************************************
  */
 
@@ -62,7 +64,7 @@ void UserOutputTask(void *pdata);
  * @param   [in] termMsgCounterPtr : Pointer to actual message counter
  * @retval  None
  */
-void printTerminalInfo(outputTaskMailbox_t *outputTaskMboxContentPtr,
+void printTerminalInfo(outputTaskData_t *outputTaskDataPtr,
     uint32_t *termMsgCounterPtr);
 
 #endif // __USER_OUTPUT_TASK_H__

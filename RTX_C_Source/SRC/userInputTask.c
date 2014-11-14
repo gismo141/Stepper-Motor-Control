@@ -3,8 +3,8 @@
  * @file        userInputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0
- * @date        11.11.2014
+ * @version     v1.1
+ * @date        13.11.2014
  * @brief       Source code for User-Input-Task which is highest instance, reacts
  *              to user input and controls register and hardware access
  *****************************************************************************
@@ -33,6 +33,8 @@
  *              - replaced messageQueue with SW_UPDATE_EVENT
  *              - moved PIO_SW_GetValues() in InputTask
  *              - moved 1 second wait from userOutputTask
+ * @details     13.11. Kossmann
+ *              - removed OutputTaskMailbox and using global var instead
  *****************************************************************************
  */
 
@@ -41,8 +43,10 @@
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 
-OS_EVENT *outputTaskMailbox; //!< Mailbox for transmitting information from InputTask to OutputTask
 OS_EVENT *registerMutex; //!< Mutex for protected access to the registers
+
+extern outputTaskData_t outputTaskData;
+extern OS_EVENT *outputTaskDataMutex;
 
 void UserInputTask(void *pdata) {
   uint8_t err;
@@ -58,20 +62,17 @@ void UserInputTask(void *pdata) {
   uint8_t speedReg = 0;
   uint32_t stepsReg = 0;
 
-  // variable to store position of switches
-  uint32_t switchesReg = 0;
-
+  //declare and initialize local systemState
   systemState_t systemState = {
       .operationalStatus = FUNCTIONAL,
-      .activeUseCase = STOP };
-
-  // declare mailbox
-  outputTaskMailbox_t outputTaskMailboxContent = {
-      .systemState = systemState,
-      .ctrlReg = 0,
-      .speedReg = 0,
-      .stepsReg = 0
+      .activeUseCase = STOP
   };
+
+  //local outputTaskData
+  outputTaskData_t outputTaskDataLocal;
+
+  // variable to store position of switches
+  uint32_t switchesReg = 0;
 
   // show initial terminal msg
   printf_term("Stepper Motor - System on a Chip 2014\n");
@@ -96,9 +97,9 @@ void UserInputTask(void *pdata) {
   if ((OS_EVENT *) 0 == registerMutex || OS_NO_ERR != err) {
     error("REGISTER_MUTEX_CREATE_ERR: %i\n", err);
   } else {
-    outputTaskMailbox = OSMboxCreate(&outputTaskMailboxContent);
-    if ((OS_EVENT *) 0 == outputTaskMailbox) {
-      error("INPUT_TASK_MBOX_MSGQ_ERR: %i\n", err);
+    err = init_outputTaskDataTxRx(outputTaskDataMutex, &outputTaskData);
+    if (OS_NO_ERR != err) {
+      error("OUTPUT_TASK_GLOB_VAR_ERR: %i\n", err);
     } else {
       while (1) {
         // get register copies
@@ -203,18 +204,18 @@ void UserInputTask(void *pdata) {
         // new user input or stepsReg updated when motor running
         if (newInput | ((ctrlReg & CTRL_REG_RS_MSK) & (oldStepsReg != stepsReg))){
           // update content of mailbox to outputTask
-          outputTaskMailboxContent.ctrlReg = ctrlReg;
-          outputTaskMailboxContent.speedReg = speedReg;
+          outputTaskDataLocal.ctrlReg = ctrlReg;
+          outputTaskDataLocal.speedReg = speedReg;
           // wait 1 second when steps reg updated
           if((ctrlReg & CTRL_REG_RS_MSK) & (oldStepsReg != stepsReg)){
             oldStepsReg = stepsReg;
-            outputTaskMailboxContent.stepsReg = stepsReg;
+            outputTaskDataLocal.stepsReg = stepsReg;
             OSTimeDlyHMSM(0, 0, 1, 0);
           }
-          outputTaskMailboxContent.systemState = systemState;
-          err = OSMboxPost(outputTaskMailbox, &outputTaskMailboxContent);
+          outputTaskDataLocal.systemState = systemState;
+          outputTaskDataTx(outputTaskDataMutex, outputTaskDataLocal);
           if (OS_NO_ERR != err) {
-            error("INPUT_TASK_MBOX_ERR: %i\n", err);
+            error("INPUT_TASK_GLOB_VAR_ERR: %i\n", err);
           }
           // write values of register copies into real registers
           ctrlRegBitClr(CTRL_REG_0_6_MSK);
