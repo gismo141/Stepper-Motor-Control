@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outputtaskmailbox',['outputTaskMailbox',['../structoutput_task_mailbox.html',1,'']]]
+  ['outputtaskdata',['outputTaskData',['../structoutput_task_data.html',1,'']]]
 ];

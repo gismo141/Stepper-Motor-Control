@@ -3,6 +3,7 @@ var searchData=
   ['icon0_5fbooster1_5fcontrast_5fc4_5f0_5fc5_5f1',['ICON0_BOOSTER1_CONTRAST_C4_0_C5_1',['../lcd_d_o_g_m162_8h.html#afa30d374d719e81fcc71adc7956d6de5',1,'lcdDOGM162.h']]],
   ['ieee',['ieee',['../classinterface___r_t_x___base.html#a0a6af6eef40212dbaf130d57ce711256',1,'interface_RTX_Base']]],
   ['init_5flcd',['init_lcd',['../auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2',1,'init_lcd(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#aafed2ade168a085630c2fe8d776432f2',1,'init_lcd(void):&#160;auxilaryFunctions.c']]],
+  ['init_5foutputtaskdatatxrx',['init_outputTaskDataTxRx',['../auxilary_functions_8h.html#a9268043032ffc639ce55808a56f9bb8b',1,'init_outputTaskDataTxRx(OS_EVENT *mutex, outputTaskData_t *data):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#a9268043032ffc639ce55808a56f9bb8b',1,'init_outputTaskDataTxRx(OS_EVENT *mutex, outputTaskData_t *data):&#160;auxilaryFunctions.c']]],
   ['init_5fterm',['init_term',['../auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e',1,'init_term(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e',1,'init_term(void):&#160;auxilaryFunctions.c']]],
   ['interface_5fgreenled_5fmsk',['INTERFACE_GREENLED_MSK',['../interface_regs_8h.html#a6b007e8ebf1f0c50b0b6ddab78b9d5c5',1,'interfaceRegs.h']]],
   ['interface_5fgreenled_5freg',['INTERFACE_GREENLED_REG',['../interface_regs_8h.html#a9ea24735419bae9c073094d9141a6f9d',1,'interfaceRegs.h']]],

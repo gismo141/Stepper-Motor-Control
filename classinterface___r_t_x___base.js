@@ -13,6 +13,8 @@ var classinterface___r_t_x___base =
     [ "LCD_RS", "classinterface___r_t_x___base.html#a52f5482a80af27442f8fd516cae5e76f", null ],
     [ "LCD_RW", "classinterface___r_t_x___base.html#ab74e4e3a8860294e3cb4950b8b42a188", null ],
     [ "LED9", "classinterface___r_t_x___base.html#acc288117414a22f2137fdde84d7caefb", null ],
+    [ "LEDG", "classinterface___r_t_x___base.html#aa07c674af9258cb957fd6d65b4f3f7ed", null ],
+    [ "LEDR", "classinterface___r_t_x___base.html#ace63aa83afde7bc596268541bf31b18a", null ],
     [ "SRAM_A", "classinterface___r_t_x___base.html#adc1eb648dc9bfaba37534afeb580e610", null ],
     [ "SRAM_CE_N", "classinterface___r_t_x___base.html#a1889a5fa3d7b0307ec7c1c074e1029e1", null ],
     [ "SRAM_D", "classinterface___r_t_x___base.html#af5218b438b128942e0dedc1d74fa8709", null ],

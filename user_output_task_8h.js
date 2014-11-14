@@ -13,6 +13,6 @@ var user_output_task_8h =
     [ "HEX_THREE", "user_output_task_8h.html#aaf8738506fa63d5c3e2f343b11b4c573", null ],
     [ "HEX_TWO", "user_output_task_8h.html#ac215ceacc73308544591939e033e4743", null ],
     [ "HEX_ZERO", "user_output_task_8h.html#a3c70a68d014bfc1c4bf0f942efb9fe75", null ],
-    [ "printTerminalInfo", "user_output_task_8h.html#aeb64493a6762cba5069aa8577b589574", null ],
+    [ "printTerminalInfo", "user_output_task_8h.html#a1ece67a90bea58a04e4f70cb751a274d", null ],
     [ "UserOutputTask", "user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5", null ]
 ];

@@ -2,6 +2,7 @@
 <area shape="rect" id="node4" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="185,152,316,177"/>
 <area shape="rect" id="node8" href="$events_8h.html" title="definitions for used events " alt="" coords="615,79,687,104"/>
 <area shape="rect" id="node9" href="$debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="428,79,591,104"/>
-<area shape="rect" id="node10" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="444,152,580,177"/>
+<area shape="rect" id="node10" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="501,152,638,177"/>
 <area shape="rect" id="node13" href="$lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="456,232,569,257"/>
+<area shape="rect" id="node15" href="$data_types_8h.html" title="Header file for all own data types. " alt="" coords="881,232,975,257"/>
 </map>

@@ -2,6 +2,7 @@ var files =
 [
     [ "auxilaryFunctions.c", "auxilary_functions_8c.html", "auxilary_functions_8c" ],
     [ "auxilaryFunctions.h", "auxilary_functions_8h.html", "auxilary_functions_8h" ],
+    [ "dataTypes.h", "data_types_8h.html", "data_types_8h" ],
     [ "debugAndErrorOutput.h", "debug_and_error_output_8h.html", "debug_and_error_output_8h" ],
     [ "events.h", "events_8h.html", "events_8h" ],
     [ "hardwareAccess.h", "hardware_access_8h.html", "hardware_access_8h" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outputtaskmailbox_5ft',['outputTaskMailbox_t',['../user_input_task_8h.html#ae6b7c11f607df6a45c8a7b7326379c15',1,'userInputTask.h']]]
+  ['outputtaskdata_5ft',['outputTaskData_t',['../data_types_8h.html#a87575b1c79c6feb2c6391ef67d8f8f95',1,'dataTypes.h']]]
 ];
