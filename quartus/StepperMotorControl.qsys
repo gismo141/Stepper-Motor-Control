@@ -68,19 +68,19 @@
          type = "int";
       }
    }
-   element lcd.control_slave
-   {
-      datum baseAddress
-      {
-         value = "1052896";
-         type = "String";
-      }
-   }
    element sysid_qsys_0.control_slave
    {
       datum baseAddress
       {
          value = "1052912";
+         type = "String";
+      }
+   }
+   element lcd.control_slave
+   {
+      datum baseAddress
+      {
+         value = "1052896";
          type = "String";
       }
    }
@@ -188,19 +188,19 @@
          type = "String";
       }
    }
-   element pio_hex1.s1
+   element pio_hex2.s1
    {
       datum baseAddress
       {
-         value = "1052736";
+         value = "1052704";
          type = "String";
       }
    }
-   element pio_key.s1
+   element pio_led9.s1
    {
       datum baseAddress
       {
-         value = "1052880";
+         value = "1052864";
          type = "String";
       }
    }
@@ -220,19 +220,19 @@
          type = "String";
       }
    }
-   element pio_hex2.s1
+   element pio_hex1.s1
    {
       datum baseAddress
       {
-         value = "1052704";
+         value = "1052736";
          type = "String";
       }
    }
-   element pio_led9.s1
+   element pio_key.s1
    {
       datum baseAddress
       {
-         value = "1052864";
+         value = "1052880";
          type = "String";
       }
    }
@@ -391,7 +391,7 @@
   <parameter name="mmu_tlbPtrSz" value="7" />
   <parameter name="mmu_tlbNumWays" value="16" />
   <parameter name="mmu_processIDNumBits" value="8" />
-  <parameter name="impl" value="Tiny" />
+  <parameter name="impl" value="Small" />
   <parameter name="icache_size" value="4096" />
   <parameter name="icache_tagramBlockType" value="Automatic" />
   <parameter name="icache_ramBlockType" value="Automatic" />

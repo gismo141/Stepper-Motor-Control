@@ -43,6 +43,10 @@
    type="VHDL"
    library="rsp_demux_002" />
  <file
+   path="simulation/submodules/StepperMotorControl_mm_interconnect_0_rsp_demux.vho"
+   type="VHDL"
+   library="rsp_demux" />
+ <file
    path="simulation/submodules/StepperMotorControl_mm_interconnect_0_cmd_mux_002.vho"
    type="VHDL"
    library="cmd_mux_002" />
@@ -147,6 +151,26 @@
    path="simulation/submodules/aldec/altera_merlin_address_alignment.sv"
    type="SYSTEM_VERILOG_ENCRYPT"
    library="SRAM_CVGX_uas_burst_adapter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/mentor/altera_merlin_traffic_limiter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_limiter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/mentor/altera_avalon_st_pipeline_base.v"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_limiter"
+   simulator="modelsim" />
+ <file
+   path="simulation/submodules/aldec/altera_merlin_traffic_limiter.sv"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_limiter"
+   simulator="riviera" />
+ <file
+   path="simulation/submodules/aldec/altera_avalon_st_pipeline_base.v"
+   type="SYSTEM_VERILOG_ENCRYPT"
+   library="CPU_instruction_master_limiter"
    simulator="riviera" />
  <file
    path="simulation/submodules/StepperMotorControl_mm_interconnect_0_router_004.vho"
@@ -379,12 +403,32 @@
    type="VHDL"
    library="sysid_qsys_0" />
  <file
+   path="simulation/submodules/StepperMotorControl_CPU.ocp"
+   type="OTHER"
+   library="CPU" />
+ <file
    path="simulation/submodules/StepperMotorControl_CPU.sdc"
    type="SDC"
    library="CPU" />
  <file
    path="simulation/submodules/StepperMotorControl_CPU.vhd"
+   type="VHDL_ENCRYPT"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU.vho"
    type="VHDL"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_ic_tag_ram.dat"
+   type="DAT"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_ic_tag_ram.hex"
+   type="HEX"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_ic_tag_ram.mif"
+   type="MIF"
    library="CPU" />
  <file
    path="simulation/submodules/StepperMotorControl_CPU_jtag_debug_module_sysclk.vhd"
@@ -396,6 +440,10 @@
    library="CPU" />
  <file
    path="simulation/submodules/StepperMotorControl_CPU_jtag_debug_module_wrapper.vhd"
+   type="VHDL"
+   library="CPU" />
+ <file
+   path="simulation/submodules/StepperMotorControl_CPU_mult_cell.vhd"
    type="VHDL"
    library="CPU" />
  <file

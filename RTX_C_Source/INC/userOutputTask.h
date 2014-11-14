@@ -3,16 +3,16 @@
  * @file       userOutputTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Header file for userOutputTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
  *****************************************************************************
  * @par History:
- * @details    21.10. Kossmann
+ * @details    v0.1.0 21.10.2014 Kossmann
  *             - first draft for milestone 1b
- * @details    30.10. Kossmann
+ * @details    v1.0.0 30.10.2014 Kossmann
  *             - added debug and error handling header
  *****************************************************************************
  */

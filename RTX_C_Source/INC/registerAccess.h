@@ -3,7 +3,7 @@
  * @file       registerAccess.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Header file with inline functions to access the registers that
  *             are used by the Stepper-Motor-Control VHDL-component.
@@ -27,15 +27,15 @@
  *  | other | reserved                      |
  *****************************************************************************
  * @par History:
- * @details    02.11. Riedel
+ * @details    v0.1.0 02.11.2014 Riedel
  *             - first draft for milestone 1b
- * @details    03.11. Kossmann
+ * @details    v0.1.1 03.11.2014 Kossmann
  *             - moved all register masks in this file
  *             - added registerMutex for save access
- * @details    04.11. Kossmann
+ * @details    v0.1.2 04.11.2014 Kossmann
  *             - removed switches masks defines. They already exist in
  *             hardwareAccess.h
- * @details    11.11. Riedel & Kossmann
+ * @details    v1.0.0 11.11.2014 Riedel & Kossmann
  *             - Moved register masks to headers' documentation
  *             - Added ctrlRegBitClr and ctrlRegBitSet functions for bitwise control
  *****************************************************************************

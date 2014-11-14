@@ -5,6 +5,7 @@ work:                                 ./libraries/work/
 rsp_mux_001:                          ./libraries/rsp_mux_001/                         
 rsp_mux:                              ./libraries/rsp_mux/                             
 rsp_demux_002:                        ./libraries/rsp_demux_002/                       
+rsp_demux:                            ./libraries/rsp_demux/                           
 cmd_mux_002:                          ./libraries/cmd_mux_002/                         
 cmd_mux:                              ./libraries/cmd_mux/                             
 cmd_demux_001:                        ./libraries/cmd_demux_001/                       

@@ -3,16 +3,16 @@
  * @file       events.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      definitions for used events
  *****************************************************************************
  * @par History:
- * @details    27.10. Riedel
+ * @details    v0.1.0 27.10.2014 Riedel
  *             - first draft for milestone 1b
- *             30.10. Riedel
+ *             v0.1.1 30.10.2014 Riedel
  *             - Moved DEBUG_ON_EVENT from heartbeatTask.h to this header
- *             07.11. Kossmann
+ *             v1.0.0 07.11.2014 Kossmann
  *             - added DEBUG_OFF_EVENT
  *****************************************************************************
  */

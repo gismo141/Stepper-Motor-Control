@@ -2,6 +2,12 @@
 
 **System on a Chip - HT-2014**
 
+## Documentation History
+
+v1.0.0 Marc Kossmann & Michael Riedel:
+
+- finalized milestone 1b
+
 ## Overview
 
 This project is an example for a system-on-a-chip-design of a stepper-motor-control using the NIOS II/s Processor on the development boards from [terasIC](http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=163#Category165).

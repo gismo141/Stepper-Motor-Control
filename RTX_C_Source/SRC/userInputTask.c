@@ -87,7 +87,7 @@ void UserInputTask(void *pdata) {
   fflush_lcd();
 
   // create OS resources
-  registerMutex = OSMutexCreate(3, &err);
+  registerMutex = OSMutexCreate(REGISTER_MUTEX_PRIORITY, &err);
   // Enable Interrupt
   #ifdef INTERRUPT_ENABLE
     ctrlRegBitSet(CTRL_REG_IE_MSK);

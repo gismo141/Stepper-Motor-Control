@@ -38,7 +38,7 @@
 		 sink_endofpacket	:	IN  STD_LOGIC;
 		 sink_ready	:	OUT  STD_LOGIC;
 		 sink_startofpacket	:	IN  STD_LOGIC;
-		 sink_valid	:	IN  STD_LOGIC_VECTOR (0 DOWNTO 0);
+		 sink_valid	:	IN  STD_LOGIC_VECTOR (12 DOWNTO 0);
 		 src0_channel	:	OUT  STD_LOGIC_VECTOR (12 DOWNTO 0);
 		 src0_data	:	OUT  STD_LOGIC_VECTOR (98 DOWNTO 0);
 		 src0_endofpacket	:	OUT  STD_LOGIC;
@@ -76,7 +76,7 @@
 	src1_data <= ( sink_data(98 DOWNTO 0));
 	src1_endofpacket <= sink_endofpacket;
 	src1_startofpacket <= sink_startofpacket;
-	src1_valid <= (sink_valid(0) AND sink_channel(1));
+	src1_valid <= (sink_valid(1) AND sink_channel(1));
 	wire_w_sink_channel_range1w(0) <= sink_channel(0);
 	wire_w_sink_channel_range3w(0) <= sink_channel(1);
 

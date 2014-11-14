@@ -3,15 +3,15 @@
  * @file       debugAndErrorOutput.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Defines for Error and Debug-Output Management.
  * @details    Include this header for simplified logging-features.
  *****************************************************************************
  * @par History:
- * @details    30.10. Riedel
+ * @details    v0.1.0 30.10.2014 Riedel
  *             - first draft for milestone 1b
- * @details    02.11. Riedel
+ * @details    v1.0.0 02.11.2014 Riedel
  *             - added documentation for defines
  *****************************************************************************
  */
@@ -43,6 +43,6 @@
  * @param ... Sends the given string directly to the terminal (printf_term()).
  */
 #ifndef error
-#define error(...) printf_term(__VA_ARGS__)
+#define error(...) //printf_term(__VA_ARGS__)
 #endif // error
 #endif // __DEBUG_AND_ERROR_OUTPUT_H__

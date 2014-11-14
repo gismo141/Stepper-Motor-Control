@@ -3,19 +3,19 @@
  * @file       hardwareAccess.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Functions for accessing hardware connected through pio´s and
  *             registers
  *****************************************************************************
  * @par History:
- * @details    21.10. Riedel & Kossmann
+ * @details    v0.1.0 21.10.2014 Riedel & Kossmann
  *             - first draft for milestone 1b
- * @details    29.10. Kossmann
+ * @details    v0.1.1 29.10.2014 Kossmann
  *             - renewed complete pio access concept
- * @details    31.10. Riedel & Kossmann
+ * @details    v0.1.2 31.10.2014 Riedel & Kossmann
  *             - added missing var type in hex functions
- * @details    31.10. Kossmann
+ * @details    v1.0.0 31.10.2014 Kossmann
  *             - added function to clear edgecapture of switches
  *****************************************************************************
  */

@@ -3,7 +3,7 @@
  * @file       interfaceRegs.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Register file for interface-component
  * @details    definition of interface
@@ -20,7 +20,7 @@
  @endverbatim
  *****************************************************************************
  * @par History:
- * @details    v0.1 Riedel & Kossmann
+ * @details    v1.0.0 22.10.2014 Riedel & Kossmann
  *             - first draft for milestone 1b
  *****************************************************************************
  */

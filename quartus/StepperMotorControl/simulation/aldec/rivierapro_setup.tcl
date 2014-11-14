@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 14.0 209 win32 2014.10.31.10:16:28
+# ACDS 14.0 209 win32 2014.11.14.10:59:03
 
 # ----------------------------------------
 # Auto-generated simulation script
@@ -60,6 +60,9 @@ if { [ string match "Active" $Aldec ] } {
 # Copy ROM/RAM files to simulation directory
 alias file_copy {
   echo "\[exec\] file_copy"
+  file copy -force $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ic_tag_ram.dat ./
+  file copy -force $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ic_tag_ram.hex ./
+  file copy -force $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ic_tag_ram.mif ./
   file copy -force $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ociram_default_contents.dat ./
   file copy -force $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ociram_default_contents.hex ./
   file copy -force $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ociram_default_contents.mif ./
@@ -113,6 +116,8 @@ ensure_lib                                      ./libraries/rsp_mux
 vmap       rsp_mux                              ./libraries/rsp_mux                             
 ensure_lib                                      ./libraries/rsp_demux_002                       
 vmap       rsp_demux_002                        ./libraries/rsp_demux_002                       
+ensure_lib                                      ./libraries/rsp_demux                           
+vmap       rsp_demux                            ./libraries/rsp_demux                           
 ensure_lib                                      ./libraries/cmd_mux_002                         
 vmap       cmd_mux_002                          ./libraries/cmd_mux_002                         
 ensure_lib                                      ./libraries/cmd_mux                             
@@ -123,6 +128,8 @@ ensure_lib                                      ./libraries/cmd_demux
 vmap       cmd_demux                            ./libraries/cmd_demux                           
 ensure_lib                                      ./libraries/SRAM_CVGX_uas_burst_adapter         
 vmap       SRAM_CVGX_uas_burst_adapter          ./libraries/SRAM_CVGX_uas_burst_adapter         
+ensure_lib                                      ./libraries/CPU_instruction_master_limiter      
+vmap       CPU_instruction_master_limiter       ./libraries/CPU_instruction_master_limiter      
 ensure_lib                                      ./libraries/router_004                          
 vmap       router_004                           ./libraries/router_004                          
 ensure_lib                                      ./libraries/router_003                          
@@ -231,6 +238,7 @@ alias com {
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_mux_001.vho"                            -work rsp_mux_001                         
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_mux.vho"                                -work rsp_mux                             
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_demux_002.vho"                          -work rsp_demux_002                       
+  vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_demux.vho"                              -work rsp_demux                           
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_cmd_mux_002.vho"                            -work cmd_mux_002                         
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_cmd_mux.vho"                                -work cmd_mux                             
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_cmd_demux_001.vho"                          -work cmd_demux_001                       
@@ -244,6 +252,8 @@ alias com {
   vlog  "$QSYS_SIMDIR/submodules/aldec/altera_avalon_st_pipeline_base.v"                                           -work SRAM_CVGX_uas_burst_adapter         
   vlog  "$QSYS_SIMDIR/submodules/aldec/altera_avalon_st_pipeline_stage.sv"                                         -work SRAM_CVGX_uas_burst_adapter         
   vlog  "$QSYS_SIMDIR/submodules/aldec/altera_merlin_address_alignment.sv"                                         -work SRAM_CVGX_uas_burst_adapter         
+  vlog  "$QSYS_SIMDIR/submodules/aldec/altera_merlin_traffic_limiter.sv"                                           -work CPU_instruction_master_limiter      
+  vlog  "$QSYS_SIMDIR/submodules/aldec/altera_avalon_st_pipeline_base.v"                                           -work CPU_instruction_master_limiter      
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_router_004.vho"                             -work router_004                          
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_router_003.vho"                             -work router_003                          
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_router_002.vho"                             -work router_002                          
@@ -291,10 +301,11 @@ alias com {
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_RTX_Timer.vhd"                                                -work RTX_Timer                           
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_jtag_uart.vhd"                                                -work jtag_uart                           
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_sysid_qsys_0.vho"                                             -work sysid_qsys_0                        
-  vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU.vhd"                                                      -work CPU                                 
+  vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU.vho"                                                      -work CPU                                 
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_jtag_debug_module_sysclk.vhd"                             -work CPU                                 
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_jtag_debug_module_tck.vhd"                                -work CPU                                 
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_jtag_debug_module_wrapper.vhd"                            -work CPU                                 
+  vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_mult_cell.vhd"                                            -work CPU                                 
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_oci_test_bench.vhd"                                       -work CPU                                 
   vcom  "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_test_bench.vhd"                                           -work CPU                                 
   vcom  "$QSYS_SIMDIR/StepperMotorControl.vhd"                                                                                                               
@@ -306,14 +317,14 @@ alias com {
 # Elaborate top level design
 alias elab {
   echo "\[exec\] elab"
-  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L SRAM_CVGX_uas_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L SRAM_CVGX_uas_burst_adapter -L router_004 -L router_003 -L router_002 -L router_001 -L router -L SRAM_CVGX_uas_agent_rdata_fifo -L SRAM_CVGX_uas_agent_rsp_fifo -L CPU_jtag_debug_module_agent_rsp_fifo -L CPU_jtag_debug_module_agent -L CPU_instruction_master_agent -L CPU_instruction_master_translator -L arbiter -L pin_sharer -L tda -L slave_translator -L tdt -L rst_controller -L irq_mapper -L mm_interconnect_0 -L pio_led9 -L pio_hex0 -L pio_key -L pio_sw -L lcd -L SRAM_PinSharer -L pll_100MHz -L SRAM_Conduit -L SRAM_CVGX -L RTX_Timer -L jtag_uart -L sysid_qsys_0 -L CPU -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev $TOP_LEVEL_NAME
+  eval vsim +access +r -t ps $ELAB_OPTIONS -L work -L SRAM_CVGX_uas_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L SRAM_CVGX_uas_burst_adapter -L CPU_instruction_master_limiter -L router_004 -L router_003 -L router_002 -L router_001 -L router -L SRAM_CVGX_uas_agent_rdata_fifo -L SRAM_CVGX_uas_agent_rsp_fifo -L CPU_jtag_debug_module_agent_rsp_fifo -L CPU_jtag_debug_module_agent -L CPU_instruction_master_agent -L CPU_instruction_master_translator -L arbiter -L pin_sharer -L tda -L slave_translator -L tdt -L rst_controller -L irq_mapper -L mm_interconnect_0 -L pio_led9 -L pio_hex0 -L pio_key -L pio_sw -L lcd -L SRAM_PinSharer -L pll_100MHz -L SRAM_Conduit -L SRAM_CVGX -L RTX_Timer -L jtag_uart -L sysid_qsys_0 -L CPU -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------
 # Elaborate the top level design with -dbg -O2 option
 alias elab_debug {
   echo "\[exec\] elab_debug"
-  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L SRAM_CVGX_uas_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L SRAM_CVGX_uas_burst_adapter -L router_004 -L router_003 -L router_002 -L router_001 -L router -L SRAM_CVGX_uas_agent_rdata_fifo -L SRAM_CVGX_uas_agent_rsp_fifo -L CPU_jtag_debug_module_agent_rsp_fifo -L CPU_jtag_debug_module_agent -L CPU_instruction_master_agent -L CPU_instruction_master_translator -L arbiter -L pin_sharer -L tda -L slave_translator -L tdt -L rst_controller -L irq_mapper -L mm_interconnect_0 -L pio_led9 -L pio_hex0 -L pio_key -L pio_sw -L lcd -L SRAM_PinSharer -L pll_100MHz -L SRAM_Conduit -L SRAM_CVGX -L RTX_Timer -L jtag_uart -L sysid_qsys_0 -L CPU -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev $TOP_LEVEL_NAME
+  eval vsim -dbg -O2 +access +r -t ps $ELAB_OPTIONS -L work -L SRAM_CVGX_uas_rsp_width_adapter -L rsp_mux_001 -L rsp_mux -L rsp_demux_002 -L rsp_demux -L cmd_mux_002 -L cmd_mux -L cmd_demux_001 -L cmd_demux -L SRAM_CVGX_uas_burst_adapter -L CPU_instruction_master_limiter -L router_004 -L router_003 -L router_002 -L router_001 -L router -L SRAM_CVGX_uas_agent_rdata_fifo -L SRAM_CVGX_uas_agent_rsp_fifo -L CPU_jtag_debug_module_agent_rsp_fifo -L CPU_jtag_debug_module_agent -L CPU_instruction_master_agent -L CPU_instruction_master_translator -L arbiter -L pin_sharer -L tda -L slave_translator -L tdt -L rst_controller -L irq_mapper -L mm_interconnect_0 -L pio_led9 -L pio_hex0 -L pio_key -L pio_sw -L lcd -L SRAM_PinSharer -L pll_100MHz -L SRAM_Conduit -L SRAM_CVGX -L RTX_Timer -L jtag_uart -L sysid_qsys_0 -L CPU -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev $TOP_LEVEL_NAME
 }
 
 # ----------------------------------------

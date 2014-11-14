@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 14.0 209 win32 2014.10.31.10:16:28
+# ACDS 14.0 209 win32 2014.11.14.10:59:02
 
 # ----------------------------------------
 # vcsmx - auto-generated simulation script
@@ -59,6 +59,7 @@ mkdir -p ./libraries/work/
 mkdir -p ./libraries/rsp_mux_001/
 mkdir -p ./libraries/rsp_mux/
 mkdir -p ./libraries/rsp_demux_002/
+mkdir -p ./libraries/rsp_demux/
 mkdir -p ./libraries/cmd_mux_002/
 mkdir -p ./libraries/cmd_mux/
 mkdir -p ./libraries/cmd_demux_001/
@@ -100,6 +101,9 @@ mkdir -p ./libraries/cyclonev/
 # ----------------------------------------
 # copy RAM/ROM files to simulation directory
 if [ $SKIP_FILE_COPY -eq 0 ]; then
+  cp -f $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ic_tag_ram.dat ./
+  cp -f $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ic_tag_ram.hex ./
+  cp -f $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ic_tag_ram.mif ./
   cp -f $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ociram_default_contents.dat ./
   cp -f $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ociram_default_contents.hex ./
   cp -f $QSYS_SIMDIR/submodules/StepperMotorControl_CPU_ociram_default_contents.mif ./
@@ -139,6 +143,7 @@ if [ $SKIP_COM -eq 0 ]; then
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_mux_001.vho"                            -work rsp_mux_001                         
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_mux.vho"                                -work rsp_mux                             
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_demux_002.vho"                          -work rsp_demux_002                       
+  vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_rsp_demux.vho"                              -work rsp_demux                           
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_cmd_mux_002.vho"                            -work cmd_mux_002                         
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_cmd_mux.vho"                                -work cmd_mux                             
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_mm_interconnect_0_cmd_demux_001.vho"                          -work cmd_demux_001                       
@@ -183,10 +188,11 @@ if [ $SKIP_COM -eq 0 ]; then
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_RTX_Timer.vhd"                                                -work RTX_Timer                           
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_jtag_uart.vhd"                                                -work jtag_uart                           
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_sysid_qsys_0.vho"                                             -work sysid_qsys_0                        
-  vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU.vhd"                                                      -work CPU                                 
+  vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU.vho"                                                      -work CPU                                 
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_jtag_debug_module_sysclk.vhd"                             -work CPU                                 
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_jtag_debug_module_tck.vhd"                                -work CPU                                 
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_jtag_debug_module_wrapper.vhd"                            -work CPU                                 
+  vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_mult_cell.vhd"                                            -work CPU                                 
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_oci_test_bench.vhd"                                       -work CPU                                 
   vhdlan -xlrm "$QSYS_SIMDIR/submodules/StepperMotorControl_CPU_test_bench.vhd"                                           -work CPU                                 
   vhdlan -xlrm "$QSYS_SIMDIR/StepperMotorControl.vhd"                                                                                                               

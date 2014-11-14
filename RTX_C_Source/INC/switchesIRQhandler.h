@@ -3,18 +3,18 @@
  * @file       switchesIRQhandler.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Header for IRQ-Handler for switches
  *****************************************************************************
  * @par History:
- * @details    21.10. Riedel & Kossmann
+ * @details    v0.1.0 21.10.2014 Riedel & Kossmann
  *             - first draft for milestone 1b
- * @details    27.10. Riedel
+ * @details    v0.1.1 27.10.2014 Riedel
  *             - added function-documentation
- * @details    29.10. Kossmann
+ * @details    v0.1.2 29.10.2014 Kossmann
  *             - moved all belonging includes in this file
- * @details    30.10. Kossmann
+ * @details    v1.0.0 30.10.2014 Kossmann
  *             - added debug and error handling header
  *****************************************************************************
  */

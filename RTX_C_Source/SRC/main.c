@@ -9,14 +9,14 @@
  * @todo        finish motor isr registration for MS2
  *****************************************************************************
  * @par History:
- * @details     22.10. Riedel & Kossmann
+ * @details     22.10.2014 Riedel & Kossmann
  *              - first draft for milestone 1b
- * @details     29.10. Kossmann
+ * @details     29.10.2014 Kossmann
  *              - edited ISRs inits to work with new pio access concept
- * @details     30.10. Kossmann
+ * @details     30.10.2014 Kossmann
  *              - adopted error handling to new makro call
  *              - moved all flagsgroups to main and added creating them
- * @details     31.10. Riedel & Kossmann
+ * @details     31.10.2014 Riedel & Kossmann
  *              - moved hardwareTest() and initial printouts into userInputTask
  *                because the need OS running
  *****************************************************************************

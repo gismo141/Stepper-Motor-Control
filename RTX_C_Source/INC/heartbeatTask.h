@@ -3,25 +3,25 @@
  * @file       heartbeatTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Header file for heartbeatTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
  *****************************************************************************
  * @par History:
- * @details    22.10. Kossmann
+ * @details    v0.1.0 22.10.2014 Kossmann
  *             - first draft for milestone 1b
- * @details    30.10. Riedel
+ * @details    v0.1.1 30.10.2014 Riedel
  *             - moved DEBUG_ON_EVENT to events.h
- * @details    31.10. Riedel
+ * @details    v0.1.2 31.10.2014 Riedel
  *             - added defines for HEX-segments
  *             - added declaration and documentation for sub-functions
- * @details    31.10. Riedel & Kossmann
+ * @details    v0.1.3 31.10.2014 Riedel & Kossmann
  *             - finilized heartbeat functionality
- * @details    02.11. Riedel
+ * @details    v0.1.4 02.11.2014 Riedel
  *             - corrected documentation
- * @details    03.11. Kossmann
+ * @details    v1.0.0 03.11.2014 Kossmann
  *             - fixed some minor syntax mistakes to get flawless compile
  *****************************************************************************
  */

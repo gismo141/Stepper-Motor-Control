@@ -16,8 +16,8 @@
  <clocktable>
   <columns>
    <clockname preferredWidth="432" />
-   <clocksource preferredWidth="430" />
-   <frequency preferredWidth="419" />
+   <clocksource preferredWidth="429" />
+   <frequency preferredWidth="420" />
   </columns>
  </clocktable>
 </preferences>

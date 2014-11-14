@@ -3,27 +3,29 @@
  * @file       userInputTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      Header file for userInputTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
  *****************************************************************************
  * @par History:
- * @details    22.10. Riedel & Kossmann
+ * @details    v0.1.0 22.10.2014 Riedel & Kossmann
  *             - first draft for milestone 1b
- * @details    27.10. Riedel
+ * @details    v0.1.1 27.10.2014 Riedel
  *             - moved events to events.h for better handling
- * @details    30.10. Kossmann
+ * @details    v0.1.2 30.10.2014 Kossmann
  *             - removed hardwareAccess.h include
- * @details    30.10. Kossmann
+ * @details    v0.1.3 30.10.2014 Kossmann
  *             - added debug and error handling header
- *             30.10. Riedel
+ * @details    v0.1.4 30.10.2014 Riedel
  *             - cleaned includes
- * @details    31.10. Riedel & Kossmann
+ * @details    v0.1.5 31.10.2014 Riedel & Kossmann
  *             - added hardwareTest() declaration
- * @details    03.11. Kossmann
+ * @details    v1.0.0 03.11.2014 Kossmann
  *             - moved all register masks in registerAccess.h
+ * @details    v1.0.1 14.11.2014 Riedel & Kossmann
+ *             - added define for register mutex (see registerAccess.h)
  *****************************************************************************
  */
 
@@ -43,6 +45,8 @@
 
 #include "auxilaryFunctions.h"
 #include "debugAndErrorOutput.h"
+
+#define REGISTER_MUTEX_PRIORITY         4  /*!< Priority for Register Mutex */
 
 #define CTRL_REG_0_6_MSK     (0b01111111)  //!< Bits 0..6 in ctrlReg
 

@@ -12,6 +12,7 @@ DEFINE work                                 ./libraries/work/
 DEFINE rsp_mux_001                          ./libraries/rsp_mux_001/                         
 DEFINE rsp_mux                              ./libraries/rsp_mux/                             
 DEFINE rsp_demux_002                        ./libraries/rsp_demux_002/                       
+DEFINE rsp_demux                            ./libraries/rsp_demux/                           
 DEFINE cmd_mux_002                          ./libraries/cmd_mux_002/                         
 DEFINE cmd_mux                              ./libraries/cmd_mux/                             
 DEFINE cmd_demux_001                        ./libraries/cmd_demux_001/                       
