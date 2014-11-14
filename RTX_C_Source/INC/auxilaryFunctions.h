@@ -18,8 +18,9 @@
  *              - clear display function added
  * @details     v0.1.3 03.11.2014 Kossmann
  *              - finished documentation
- * @details     v1.0.0 06.11.2014 Riedel
- *              - added some functions for better display-usage
+ * @details     v1.1.0 14.11.2014 Kossmann
+ *              - added init rx,tx functions for access to global ipc var
+ *              for transmitting data between UserInput- and UserOuputTask
  ******************************************************************************
  */
 
@@ -34,7 +35,7 @@
 #include "altera_avalon_lcd_16207_regs.h"
 #include "dataTypes.h"
 
-#define VERSION           "1.0"         //!< global version definition
+#define VERSION           "1.0.0"         //!< global version definition
 #define DATE              "11.11.2014"  //!< global date definition
 
 /**

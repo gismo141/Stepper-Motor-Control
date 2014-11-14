@@ -1,6 +1,6 @@
 # Planung des Projekts
 
-In das Gantt-Diagramm in Abbildung \ref{fig:gantt} wurden die gewonnenen Erkenntnisse in Meilensteins 2 eingepflegt.
+Das Gantt-Diagramm in Abbildung \ref{fig:gantt} wurden auf eingetretene Verzögerungen angepasst, wobei die Deadline Mitte Dezember berücksichtigt wurde.
  
 Abbildung \ref{fig:projektplanung} zeigt den geplanten und benötigten Zeitaufwand für die Erstellung des Meilenstein 2 unterteilt in folgende Aufgabenbereiche:
 
@@ -19,91 +19,27 @@ Die Darstellung wird gesondert für die Studenten Marc Kossmann und Michael Ried
 
 ![Zeitbedarfsübersicht für das gesamte Projekt\label{fig:zeitbedarf}][fig:zeitbedarf]
 
-# Beschreibung der Anwendungsfälle
+# Design Register-Interface Komponente
 
-An den Anwendungsfällen wurden leichte strukturelle Änderungen aufgrund der Implementierung vorgenommen. Die zugrundeliegende Logik ist gleich geblieben.[^1] Zur Nachvollziehbarkeit ist das Anwendungsfalldiagramm in Abbildung \ref{fig:anwendungsfaelle} dargestellt.
+Aufgrund der geringen Komplexität diese Komponente wurde kein spezieller Designprozess wie z.B. in Meilenstein 1 durchlaufen.
+Nach einer kurzen Einarbeitung in die Aufgabenstellung und unter Berücksichtigung der Erkenntnisse aus der Tutorial Komponente, wurde drt Quellcode direkt entworfen.
+Anschließenden wurde das gewünschte Verhalten mithilfe einer Simulation in Modelsim verifiziert.
 
-![Anwendungsfälle\label{fig:anwendungsfaelle}][fig:anwendungsfaelle]
+Abbildung \ref{fig:register_interface} zeigt die daraus entstandene Komponente, die jetzt in Quartus zur Verfügung steht.
 
-# Beschreibung und Darstellung der einzelnen Aktivitäten
+![Block Diagramm des Register Interface\label{fig:register_interface}][fig:register_interface]
 
-Der Entwurf des Steuerprogramms wurde weitestgehend umgesetzt. Natürlich wurden kleinere Anpassungen während der Umsetzung vorgenommen. Genauere Informationen zur Funktionalität sind in der Dokumentation zum Meilenstein 1a zu finden.
+# Änderungen an der Steuersoftware
 
-## benötigte Tasks
+Weil es nur einen gültigen Informationsstand der Register und des Systemzustandes gibt, wurde die Interprozess-Kommunikation (IPC) zwischen UserInput- und UserOutput-Task angepasst.
+Es wurde zur Übertragung der akutellen Registerinhalte und des Systemstatus eine Mailbox-Queue benutzt, die als FIFO-Speicher implementiert ist und somit einen Puffer darstellt.
+Dieser Puffer ist für diese Art von Informationen nicht gewünscht, weil er die beiden Tasks zeitlich entkoppelt. Somit kann es vorkommen, dass die UserOutput-Task nicht mit nicht-aktuellen Daten arbeitet.
+Aufgrund dieser Problematik wird jetzt zur IPC eine globale Variable mit Mutex-Schutz benutzt.
 
-Die benötigten Tasks wurden im Ablauf nicht geändert. In den folgenden Abschnitten werden die Änderungen einzeln benannt und erläutert. 
+Zugunsten der Übersichtlichkeit wurden alle eigens eingeführten Datentypen in einer Datei (dataTypes.h) zusammengefasst.
 
-### Änderungen an der Heartbeat und Debug-Task
-
-Es wurden gemäß Abbildung \ref{fig:heartbeat_debug} keine Änderungen im Diagramm vorgenommen.
-
-### Änderungen an der User-Input-Task
-
-Die User-Input-Task stellt gemäß Abbildung \ref{fig:user_input} die Haupttask der Steuersoftware dar. Die initialen Ausgaben des LC-Displays und des Terminals wurden aus der Main-Funktion in die User-Input-Task verlegt. Ebenfalls wurden die Event-Bezeichnungen angepasst, um eine Kontinuität im Gesamtprojekt zu ermöglichen.
-
-### Änderungen an der User-Output-Task
-
-In der User-Output-Task wurden gemäß Abbildung \ref{fig:user_output} die Anmerkungen zur gewünschten Ausgabe angepasst, um Deckungsgleichheit mit der Aufgabenstellung herzustellen.
-
-## benötigte Interrupt-Service-Routinen
-
-### Änderungen an der Key-ISR
-
-In der Key-ISR wurden gemäß Abbildung \ref{fig:key_isr} die Event-Bezeichnungen angepasst, um eine Kontinuität im Gesamtprojekt zu ermöglichen.
-
-### Änderungen an der Switch-ISR
-
-Die Abfrage der Schalter in der `Switch-ISR` wurde gemäß Abbildung \ref{fig:switch_isr} vereinfacht. Das `Switch-Update-Flag` wurde eingespart. Stattdessen werden die aktuellen Schalterstellungen ausgelesen und per Mailbox an die User-Output-Task weitergeleitet.
-
-### Änderungen an der Motor-ISR
-
-In der Motor-ISR wurde gemäß Abbildung \ref{fig:motor_isr} die Abfrage, ob das `Interrupt-Enable`-Bit gesetzt ist, hinzugefügt, bevor das entsprechende Event gesendet wird. Des Weiteren wurde die Event-Bezeichnung angepasst.
-
-## benötigte Funktionen
-
-Grundsätzlich ist der Ablauf der Aktivitäten gleich geblieben. Es wurden einige Aktivitäten in Tasks verschoben, um einen homogeneren Ablauf zu ermöglichen. Auf eine eigene Init-Funktion wurde verzichtet und die Aktivitäten in die Main-Funktion sowie die User-Input-Task integriert.
-
-### Änderungen an der Main-Funktion
-
-Die Main-Funktion führt gemäß Abbildung \ref{fig:main} nun die nötigen Initialisierungen des Betriebssystems, der Tasks und ISRs durch. Der letzte Aufruf der Main-Funktion ist das Starten des Betriebssystems.
-
-### Änderungen an der Init-Funktion
-
-Auf die Implementierung einer eigenen Init-Funktion wurde verzichtet. Das Diagramm wird aus diesem Grund für die folgende Entwicklung nicht weiter betrachtet.
-
-### Änderungen an der Heartbeat-Funktion
-
-Es wurden gemäß Abbildung \ref{fig:heartbeat} keine Änderungen im Diagramm vorgenommen.
-
-### Änderungen an der Chain of Steps-Funktion
-
-Es wurden gemäß Abbildung \ref{fig:chain_of_steps} keine Änderungen im Diagramm vorgenommen.
-
-### Änderungen an der Continuous Run-Funktion
-
-Es wurden gemäß Abbildung \ref{fig:continuous_run} keine Änderungen im Diagramm vorgenommen.
-
-# Darstellung der verschiedenen Aktivitätsdiagramme
-
-![Heartbeat-Debug Task\label{fig:heartbeat_debug}][fig:heartbeat_debug]
-
-![User-Input Task\label{fig:user_input}][fig:user_input]
-
-![User-Output Task\label{fig:user_output}][fig:user_output]
-
-![Key ISR\label{fig:key_isr}][fig:key_isr]
-
-![Switch ISR\label{fig:switch_isr}][fig:switch_isr]
-
-![Motor ISR\label{fig:motor_isr}][fig:motor_isr]
-
-![Main Funktion\label{fig:main}][fig:main]
-
-![Heartbeat Funktion\label{fig:heartbeat}][fig:heartbeat]
-
-![Chain of Steps Funktion\label{fig:chain_of_steps}][fig:chain_of_steps]
-
-![Continuous Run Funktion\label{fig:continuous_run}][fig:continuous_run]
+Wie für diesen Meilenstein verlangt wird jetzt auf die tatsächlichen in der "Register Interface" VHDL-Komponente befindlichen Register zugegriffen.
+Dazu wurden Zugriffs-Makros eingeführt und die zugehörigen Zugriffsfunktionen in der Datei "registerAcces.h" angepasst.
 
 # Weitere Darstellungen zur Erläuterung der internen Kommunikation
 
@@ -112,6 +48,8 @@ Es wurden gemäß Abbildung \ref{fig:continuous_run} keine Änderungen im Diagra
 ![Übersicht der Komponenten und Kommunikation\label{fig:kommunikation}][fig:kommunikation]
 
 <!-- Links -->
+
+[fig:register_interface]: ../Milestone_2/Diagrams/block_diagramm-register_interface.png "Block Diagramm - Register Interface"
 
 [fig:gantt]: ../Planning/Gantt-Diagramm.png "Gantt-Diagramm zur kompletten Zeitplanung"
 
@@ -146,5 +84,3 @@ Es wurden gemäß Abbildung \ref{fig:continuous_run} keine Änderungen im Diagra
 [fig:kommunikation]: ../Milestone_2/Diagrams/Uebersicht_Komponenten_und_Kommunikation.png "Übersicht der Komponenten und Kommunikation"
 
 <!-- Footnotes -->
-
-[^1]: Für weitere Details zur allgemeinen Implementierung wird auf die Dokumenation zu Meilenstein 1a verwiesen, da im Folgenden nur auf die Änderungen eingegangen wird.

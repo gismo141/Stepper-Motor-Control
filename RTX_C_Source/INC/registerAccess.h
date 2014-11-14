@@ -45,6 +45,7 @@
 #define __REGISTER_ACCESS_H__
 
 #include <stdint.h>
+#include <io.h>
 #include "includes.h"
 #include "debugAndErrorOutput.h"
 
@@ -61,11 +62,25 @@
 #define MODE_CH_OF_ST_1       (0b1010)      //!< Bits must be `0b1010`
 #define MODE_CH_OF_ST_2       (0b1110)      //!< Bits must be `0b1110`
 
-extern OS_EVENT *registerMutex;
 
-uint8_t   temporaryCtrlReg;           //!< Temporary control-register (only for milestone 1b)
-uint32_t  temporaryStepsReg;          //!< Temporary steps-register (only for milestone 1b)
-uint8_t   temporarySpeedReg;          //!< Temporary speed-register (only for milestone 1b)
+/**
+  * @brief base address of the complete register interface component
+  */
+#define IOWR_REGS_ADDR(base, addr, data)  IOWR(base, addr, data)
+
+/**
+  * @name Ctrl-Register
+  */
+/** @brief address offset Ctrl-Register  */
+#define REGS_CTRL    0
+
+/** @brief Macro to calculate the address of the Ctrl-Register */
+#define IOADDR_REGS_CTRL(base)       \
+                              __IO_CALC_ADDRESS_NATIVE(base, REGS_CTRL)
+/** @brief Macro to read Ctrl-Register */
+#define IORD_REGS_CTRL(base)         IORD(base, REGS_CTRL)
+/** @brief  Macro to write Ctrl-Register  */
+#define IOWR_REGS_CTRL(base, data)   IOWR(base, REGS_CTRL, data)
 
 /**
  * @brief   Overwrites the complete CtrlReg
@@ -73,17 +88,7 @@ uint8_t   temporarySpeedReg;          //!< Temporary speed-register (only for mi
  * @param   newCtrlReg The new register-content to set
  */
 static __inline__ void ctrlRegSet(uint8_t newCtrlReg) {
-  uint8_t err;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    temporaryCtrlReg = newCtrlReg;
-  } else {
-    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
-  }
+  IOWR_REGS_CTRL(REGISTERS_BASE , newCtrlReg);
 }
 
 /**
@@ -92,20 +97,22 @@ static __inline__ void ctrlRegSet(uint8_t newCtrlReg) {
  * @return  The actual content of the control-register
  */
 static __inline__ uint8_t ctrlRegGet(void) {
-  uint8_t err;
-  uint8_t ctrlReg;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    ctrlReg = temporaryCtrlReg;
-  } else {
-    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
-  }
-  return ctrlReg;
+  return IORD_REGS_CTRL(REGISTERS_BASE);
 }
+
+/**
+  * @name CtrlSet-Register
+  */
+/** @brief address offset CtrlSet-Register  */
+#define REGS_CTRL_SET    1
+
+/** @brief Macro to calculate the address of the CtrlSet-Register */
+#define IOADDR_REGS_CTRL_SET(base)       \
+                              __IO_CALC_ADDRESS_NATIVE(base, REGS_CTRL_SET)
+/** @brief Macro to read CtrlSet-Register */
+#define IORD_REGS_CTRL_SET(base)         IORD(base, REGS_CTRL_SET)
+/** @brief  Macro to write CtrlSet-Register  */
+#define IOWR_REGS_CTRL_SET(base, data)   IOWR(base, REGS_CTRL_SET, data)
 
 /**
  * @brief   Sets the CtrlReg bitwise
@@ -114,38 +121,46 @@ static __inline__ uint8_t ctrlRegGet(void) {
  * @param   bitsToSet Bits to set in CtrlReg
  */
 static __inline__ void ctrlRegBitSet(uint8_t bitsToSet) {
-  uint8_t err;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    temporaryCtrlReg |= bitsToSet;
-  } else {
-    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
-  }
+  IOWR_REGS_CTRL_SET(REGISTERS_BASE, bitsToSet);
 }
+
+/**
+  * @name CtrlClr-Register
+  */
+/** @brief address offset CtrlClr-Register  */
+#define REGS_CTRL_CLR    2
+
+/** @brief Macro to calculate the address of the CtrlClr-Register */
+#define IOADDR_REGS_CTRL_CLR(base)       \
+                              __IO_CALC_ADDRESS_NATIVE(base, REGS_CTRL_CLR)
+/** @brief Macro to read CtrlClr-Register */
+#define IORD_REGS_CTRL_CLR(base)         IORD(base, REGS_CTRL_CLR)
+/** @brief  Macro to write CtrlClr-Register  */
+#define IOWR_REGS_CTRL_CLR(base, data)   IOWR(base, REGS_CTRL_CLR, data)
 
 /**
  * @brief   Clears the CtrlReg bitwise
  * @details Writes into ctrlClrReg in register interface which modifies the
  *          ctrlReg accordingly.
- * @param   bitsToSet Bits to set in CtrlReg
+ * @param   bitsToClr Bits to clear in CtrlReg
  */
 static __inline__ void ctrlRegBitClr(uint8_t bitsToClr) {
-  uint8_t err;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    temporaryCtrlReg &= ~(bitsToClr);
-  } else {
-    error("CTRL_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("CTRL_REG_MUT_POST_ERR: %i\n", &err);
-  }
+  IOWR_REGS_CTRL_CLR(REGISTERS_BASE, bitsToClr);
 }
+
+/**
+  * @name Steps-Register
+  */
+/** @brief address offset Steps-Register  */
+#define REGS_STEPS    3
+
+/** @brief Macro to calculate the address of the Steps-Register */
+#define IOADDR_REGS_STEPS(base)       \
+                              __IO_CALC_ADDRESS_NATIVE(base, REGS_STEPS)
+/** @brief Macro to read Steps-Register */
+#define IORD_REGS_STEPS(base)         IORD(base, REGS_STEPS)
+/** @brief  Macro to write Steps-Register  */
+#define IOWR_REGS_STEPS(base, data)   IOWR(base, REGS_STEPS, data)
 
 /**
  * @brief   Sets the given steps for the Stepper-Motor-Control VHDL-component.
@@ -154,17 +169,7 @@ static __inline__ void ctrlRegBitClr(uint8_t bitsToClr) {
  * @param   newStepCount The number of steps, the motor should turn.
  */
 static __inline__ void stepsRegSet(uint32_t newStepCount) {
-  uint8_t err;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    temporaryStepsReg = newStepCount;
-  } else {
-    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
-  }
+  IOWR_REGS_STEPS(REGISTERS_BASE, newStepCount);
 }
 
 /**
@@ -173,20 +178,22 @@ static __inline__ void stepsRegSet(uint32_t newStepCount) {
  * @return  The actual content of steps left.
  */
 static __inline__ uint32_t stepsRegGet(void) {
-  uint8_t err;
-  uint32_t stepsReg;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    stepsReg = temporaryStepsReg;
-  } else {
-    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
-  }
-  return stepsReg;
+  return IORD_REGS_STEPS(REGISTERS_BASE);
 }
+
+/**
+  * @name Speed-Register
+  */
+/** @brief address offset Speed-Register  */
+#define REGS_SPEED    4
+
+/** @brief Macro to calculate the address of the Speed-Register */
+#define IOADDR_REGS_SPEED(base)       \
+                              __IO_CALC_ADDRESS_NATIVE(base, REGS_SPEED)
+/** @brief Macro to read Speed-Register */
+#define IORD_REGS_SPEED(base)         IORD(base, REGS_SPEED)
+/** @brief  Macro to write Speed-Register  */
+#define IOWR_REGS_SPEED(base, data)   IOWR(base, REGS_SPEED, data)
 
 /**
  * @brief   Sets the speed, how fast the Stepper-Motor-Control turns the motor.
@@ -207,17 +214,7 @@ static __inline__ uint32_t stepsRegGet(void) {
  * @param newSpeed The new speed from 0 to 7 (only the first 3 bits are used!).
  */
 static __inline__ void speedRegSet(uint8_t newSpeed) {
-  uint8_t err;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    temporarySpeedReg = newSpeed;
-  } else {
-    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
-  }
+  IOWR_REGS_SPEED(REGISTERS_BASE, newSpeed);
 }
 
 /**
@@ -227,19 +224,7 @@ static __inline__ void speedRegSet(uint8_t newSpeed) {
  *          are used ,the rest is reserved!).
  */
 static __inline__ uint8_t speedRegGet(void) {
-  uint8_t err;
-  uint8_t speedReg;
-  OSMutexPend(registerMutex, 0, &err);
-  if (OS_NO_ERR == err) {
-    speedReg = temporarySpeedReg;
-  } else {
-    error("STEPS_REG_MUT_PEND_ERR: %i\n", &err);
-  }
-  err = OSMutexPost(registerMutex);
-  if (OS_NO_ERR != err) {
-    error("STEPS_REG_MUT_POST_ERR: %i\n", &err);
-  }
-  return speedReg;
+  return IORD_REGS_SPEED(REGISTERS_BASE);
 }
 
 #endif // __REGISTER_ACCESS_H__

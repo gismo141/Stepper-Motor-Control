@@ -39,8 +39,8 @@ ENTITY interface_RTX_Base IS
     KEY           : IN      STD_LOGIC_VECTOR(3 DOWNTO 0);                       --! key-definition
     SW            : IN      STD_LOGIC_VECTOR(9 DOWNTO 0);                       --! slidINg switches
     LED9          : OUT     STD_LOGIC;                                          --! debug LEDs
-	 LEDG				: OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);
-	 LEDR				: OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);
+    LEDG				  : OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);                        --! green leds
+    LEDR				  : OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);							          --! red leds
     HEX0          : OUT     STD_LOGIC_VECTOR(6 DOWNTO 0);                       --! HEX display 0
     HEX1          : OUT     STD_LOGIC_VECTOR(6 DOWNTO 0);                       --! HEX display 1
     HEX2          : OUT     STD_LOGIC_VECTOR(6 DOWNTO 0);                       --! HEX display 2
@@ -75,9 +75,9 @@ component StepperMotorControl is
     hex1_export    : OUT   STD_LOGIC_VECTOR(6 DOWNTO 0);                        --  hex1.export
     hex2_export    : OUT   STD_LOGIC_VECTOR(6 DOWNTO 0);                        --  hex2.export
     hex3_export    : OUT   STD_LOGIC_VECTOR(6 DOWNTO 0);                        --  hex3.export
-    led9_export    : OUT   STD_LOGIC;                                            --  led9.export
-    leds_redleds    	: OUT   STD_LOGIC_VECTOR(7 DOWNTO 0);             --  redleds.export
-    leds_greenleds    	: OUT   STD_LOGIC_VECTOR(7 DOWNTO 0)              --  greenleds.export
+    led9_export    : OUT   STD_LOGIC;                                           --  led9.export
+    leds_redleds   : OUT   STD_LOGIC_VECTOR(7 DOWNTO 0);                        --  redleds.export
+    leds_greenleds : OUT   STD_LOGIC_VECTOR(7 DOWNTO 0)                         --  greenleds.export
   );
     end component StepperMotorControl;
 

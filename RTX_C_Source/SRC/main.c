@@ -3,22 +3,24 @@
  * @file        main.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0
+ * @version     v1.0.0
  * @date        11.11.2014
  * @brief       Main-Routine for Stepper-Motor-Control
- * @todo        finish motor isr registration for MS2
  *****************************************************************************
  * @par History:
- * @details     22.10.2014 Riedel & Kossmann
+ * @details     v0.1.0 22.10.2014 Riedel & Kossmann
  *              - first draft for milestone 1b
- * @details     29.10.2014 Kossmann
+ * @details     v0.1.1 29.10.2014 Kossmann
  *              - edited ISRs inits to work with new pio access concept
- * @details     30.10.2014 Kossmann
+ * @details     v0.1.2 30.10.2014 Kossmann
  *              - adopted error handling to new makro call
  *              - moved all flagsgroups to main and added creating them
- * @details     31.10.2014 Riedel & Kossmann
+ * @details     v1.0.0 31.10.2014 Riedel & Kossmann
  *              - moved hardwareTest() and initial printouts into userInputTask
  *                because the need OS running
+ * @details     v1.0.1 14.11.2014 Kossmann
+ *              - finished motor isr registration
+ *              -moved init IPC global var to main
  *****************************************************************************
  */
 
@@ -26,6 +28,9 @@
 
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
+
+extern OS_EVENT *outputTaskDataMutex;
+extern outputTaskData_t outputTaskData;
 
 /** @brief Variable for ISR-Context
  * @details Not used in this program
@@ -90,10 +95,17 @@ int main(void) {
   PIO_KEY_ClearEdgeCptBits(
     PIO_SW_LR_MSK | PIO_SW_MODE_MSK | PIO_SW_DEBUG_MSK);
 
-  //  //init motor ISR
-  //  alt_ic_isr_register(..., ..., motorIRQhandler, (void *) &ISRcontext, NULL);
-  //  alt_ic_irq_enable(..., ...);
+  //init motor ISR
+  alt_ic_isr_register(REGISTERS_IRQ_INTERRUPT_CONTROLLER_ID, REGISTERS_IRQ,
+      motorIRQhandler, (void *) &ISRcontext, NULL);
+  alt_ic_irq_enable(REGISTERS_IRQ_INTERRUPT_CONTROLLER_ID, REGISTERS_IRQ);
 
-  OSStart();
+  //initialize global var and mutex
+  err = init_outputTaskDataTxRx(outputTaskDataMutex, &outputTaskData);
+  if (OS_NO_ERR != err) {
+    error("IPC_GLOB_VAR_ERR: %i\n", err);
+  } else {
+    OSStart();
+  }
   return 0;
 }

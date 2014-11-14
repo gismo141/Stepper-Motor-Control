@@ -3,21 +3,21 @@
  * @file        userOutputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0
+ * @version     v1.0.0
  * @date        11.11.2014
  * @brief       Source code for User-Output-Task which communications with
  *              the user and shows him system information
  ******************************************************************************
  * @par History:
- * @details     21.10. Kossmann
+ * @details     v0.1.0 21.10.2014 Kossmann
  *              - first draft for milestone 1b
- * @details     30.10. Kossmann
+ * @details     v0.1.1 30.10.2014 Kossmann
  *              - added error handling for flags and mailboxes
- * @details     06.11. Riedel
+ * @details     v0.1.2 06.11.2014 Riedel
  *              - added usage of new LCD-functions
- * @details     11.11. Riedel & Kossmann
+ * @details     v1.0.0 11.11.2014 Riedel & Kossmann
  *              - moved 1 second wait to userInputTask
- * @details     13.11. Kossmann
+ * @details     v1.0.1 13.11.2014 Kossmann
  *              - removed OutputTaskMailbox and using global var instead
  ******************************************************************************
  */
@@ -151,6 +151,7 @@ void UserOutputTask(void *pdata) {
       error("OUTPUT_TASK_MBOX_ERR: %i\n", err);
     }
     fflush_term();
+    OSTimeDlyHMSM(0, 0, 0, 100);
   }
 }
 

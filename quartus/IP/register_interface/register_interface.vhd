@@ -2,29 +2,23 @@
 --! @file register_interface.vhd
 --! @author  	Marc Kossmann
 --! @author  	Michael Riedel
---! @version 	V0.1
+--! @version 	v0.1.0
 --! @date    	06.11.2014
 --!
 --! @brief 		Register component
 --! @details 	Provides the five registers CtrlReg, CtrlSetReg, 
 --!				CtrlClrReg, speedReg, stepsReg
---! @details 	definition of interface
 --! @par History:
---! @details 	06.11. Kossmann
+--! @details 	v0.1.0 06.11.2014 Kossmann
 --!          	- first draft
---! @details 	07.11. Kossmann
+--! @details 	v0.1.1 07.11.2014 Kossmann
 --!          	- finished reset_n task
---! @details 	07.11. Kossmann
---!          	- finished reset_n task
--------------------sim:/register_interface_tb----------------------------------------------------------
-
+-----------------------------------------------------------------------------
 
 --! Use Standard Library
 LIBRARY ieee; 
 --! Use Logic Elements
 USE ieee.std_logic_1164.all;
---! Use Conversion Functions
-USE ieee.std_logic_signed.all;
 --! Use Conversion Functions
 USE ieee.std_logic_signed.all;
 
@@ -71,7 +65,7 @@ begin
 	 --! @brief processing the tasks:
 	 --!        - interface to NIOS-processor
 	 --!        - writing registers
-	 --!			    - reading registers
+	 --!			  - reading registers
 	 --!        - implementing set and clear functionality
 	process(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ctrlSetReg, 
 				ctrlClrReg, speedReg, stepsReg) 
@@ -81,7 +75,7 @@ begin
 		ctrlSetReg(7 downto 0) 	<= (others => '0');
 		ctrlClrReg(7 downto 0) 	<= (others => '0');
 		speedReg(2 downto 0) 	  <= (others => '0');
-		stepsReg(31 downto 0) 	 <= (others => '0');
+		stepsReg(31 downto 0) 	<= (others => '0');
 		read_data(31 downto 0) 	<= (others => '0');
 	elsif(rising_edge(clock)) then
 		-- Processor writes to Register

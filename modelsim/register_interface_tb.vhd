@@ -1,9 +1,28 @@
+-----------------------------------------------------------------------------
+--! @file register_interface_tb.vhd
+--! @author  	Marc Kossmann
+--! @author  	Michael Riedel
+--! @version 	v0.1.0
+--! @date    	07.11.2014
+--!
+--! @brief 		Testbench for Register Component
+--! @details 	Tests full functionality of component
+--! @par History:
+--! @details 	v0.1.0 06.11.2014 Kossmann
+--!          	- first draft
+--! @details 	v0.1.1 07.11.2014 Kossmann
+--!          	- finished reset_n task
+-----------------------------------------------------------------------------
+
+--! Use Standard Library
 LIBRARY ieee  ; 
+--! Use Logic Elements
 USE ieee.std_logic_1164.all  ; 
+--! Use Conversion Functions
 USE ieee.STD_LOGIC_SIGNED.all  ; 
 ENTITY register_interface_tb  IS 
   GENERIC (
-    MyParameter  : INTEGER   := 42 ); 
+    MyParameter  : INTEGER   := 42 );  --! Dummyparameter (Demo)
 END ; 
  
 ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
@@ -51,6 +70,10 @@ BEGIN
       irq   => irq  ,
       read_data   => read_data   ) ; 
       
+    
+    -- first test if all registers can be written
+    -- then reset everything
+    -- test if set and clear is working the right way
     clock <= not clock after 10 ns;
     ce_n <= '0' after 20 ns;
     reset_n <= '1' after 20 ns,
@@ -59,15 +82,16 @@ BEGIN
     write_n <= '0' after 30 ns,
                '1' after 200 ns;        
     read_n  <= '0' after 30 ns;
-    addr <= "000" after 30 ns,
-            "001" after 50 ns,
-            "010" after 70 ns,
-            "011" after 90 ns,
-            "100" after 110 ns,
-            "000" after 150 ns,
-            "001" after 170 ns,
-            "010" after 190 ns;
-    write_data(7 downto 0) <= "11111111" after 30 ns,
+    addr <= "000" after 30 ns,    -- ctrlReg
+            "001" after 50 ns,    -- ctrlSetReg
+            "010" after 70 ns,    -- ctrlClrReg
+            "011" after 90 ns,    -- speedReg
+            "100" after 110 ns,   -- stepsReg
+                                  -- reset
+            "000" after 150 ns,   -- ctrlReg
+            "001" after 170 ns,   -- ctrlSetReg
+            "010" after 190 ns;   -- ctrlClrReg
+    write_data(7 downto 0) <= "11111111" after 30 ns,   
                               "10101010" after 150 ns,
                               "01010101" after 170 ns,
                               "10101010" after 190 ns;

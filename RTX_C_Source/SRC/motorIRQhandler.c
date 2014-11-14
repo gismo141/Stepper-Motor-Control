@@ -3,19 +3,19 @@
  * @file       motorIRQhandler.c
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0
+ * @version    v1.0.0
  * @date       11.11.2014
  * @brief      IRQ-handler for motor stopped
  *****************************************************************************
  * @par History:
- * @details    21.10. Riedel & Kossmann
+ * @details    v0.1.0 21.10.2014 Riedel & Kossmann
  *             - first draft for milestone 1b
- * @details    27.10. by Riedel:
+ * @details    v0.1.1 27.10.2014 by Riedel:
  *             - basic implementation
  *             - moved function-documentation to header-file
- * @details    02.11. Riedel
+ * @details    v0.1.2 02.11.2014 Riedel
  *             - finalized ISR-functionality
- * @details    11.11. Riedel & Kossmann
+ * @details    v1.0.0 11.11.2014 Riedel & Kossmann
  *             - Adapted code to new registerAccess.h (using ctrlRegBitClr/-Set)
  *****************************************************************************
  */

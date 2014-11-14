@@ -3,18 +3,23 @@
  * @file        auxilaryFunctions.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0
+ * @version     v1.0.0
  * @date        11.11.2014
  * @brief       Collection of auxilary functions, mainly output functions
  *****************************************************************************
  * @par History:
- * @details     28.10. Riedel & Kossmann
+ * @details     v0.1.0 28.10.2014 Riedel & Kossmann
  *              - added functions for using printf like lcd and term output
- * @details     31.10. Riedel & Kossmann
+ * @details     v0.1.1 31.10.2014 Riedel & Kossmann
  *              - added timeout for clearing display but not sure if needed
  *              - clear display function added
- * @details     06.11. Riedel
+ * @details     v0.1.2 06.11.2014 Riedel
  *              - implemented some functions for better display-usage
+ * @details     v1.0.0 06.11.2014 Riedel
+ *              - implemented some functions for better display-usage
+ * @details     v1.1.0 14.11.2014 Kossmann
+ *              - implemented init rx,tx functions for access to global ipc var
+ *              for transmitting data between UserInput- and UserOuputTask
  *****************************************************************************
  */
 

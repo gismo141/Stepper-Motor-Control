@@ -3,21 +3,21 @@
  * @file        heartbeatTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0
+ * @version     v1.0.0
  * @date        11.11.2014
  * @brief       Source code of heartbeatTask which shows that scheduling is
  *              working. Also used for debuging.
  *****************************************************************************
  * @par History:
- * @details     30.10. Riedel
+ * @details     v0.1.0 30.10.2014 Riedel
  *              - first draft for milestone 1b
- * @details     31.10. Riedel
+ * @details     v0.1.1 31.10.2014 Riedel
  *              - added hardware-access to heartbeat
- * @details     31.10. Riedel & Kossmann
+ * @details     v0.1.2 31.10.2014 Riedel & Kossmann
  *              - finilized heartbeat functionality
- * @details     02.11. Riedel
+ * @details     v0.1.3 02.11.2014 Riedel
  *              - finalized Debug functionality
- * @details     11.11. Riedel & Kossmann
+ * @details     v1.0.0 11.11.2014 Riedel & Kossmann
  *              - switched stepsReg-inc/dec in debug-mode
  *****************************************************************************
  */
