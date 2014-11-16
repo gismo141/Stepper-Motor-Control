@@ -1,6 +1,6 @@
 # Planung des Projekts
 
-Das Gantt-Diagramm in Abbildung \ref{fig:gantt} wurden auf eingetretene Verzögerungen angepasst, wobei die Deadline Mitte Dezember berücksichtigt wurde.
+Das Gantt-Diagramm in Abbildung \ref{fig:gantt} wurde auf eingetretene Verzögerungen angepasst, sodass die Deadline Mitte Dezember eingehalten werden kann.
  
 Abbildung \ref{fig:projektplanung} zeigt den geplanten und benötigten Zeitaufwand für die Erstellung des Meilenstein 2 unterteilt in folgende Aufgabenbereiche:
 
@@ -19,29 +19,50 @@ Die Darstellung wird gesondert für die Studenten Marc Kossmann und Michael Ried
 
 ![Zeitbedarfsübersicht für das gesamte Projekt\label{fig:zeitbedarf}][fig:zeitbedarf]
 
-# Design Register-Interface Komponente
+# Design der Komponente *Register-Interface*
 
-Aufgrund der geringen Komplexität diese Komponente wurde kein spezieller Designprozess wie z.B. in Meilenstein 1 durchlaufen.
-Nach einer kurzen Einarbeitung in die Aufgabenstellung und unter Berücksichtigung der Erkenntnisse aus der Tutorial Komponente, wurde drt Quellcode direkt entworfen.
-Anschließenden wurde das gewünschte Verhalten mithilfe einer Simulation in Modelsim verifiziert.
+Aufgrund der geringen Komplexität wurde für diese Komponente kein expliziter Designprozess wie z. B. in Meilenstein 1 durchlaufen. Nach einer kurzen Einarbeitung in die Aufgabenstellung und unter Berücksichtigung der Erkenntnisse aus dem Tutorial, wurde der Quellcode direkt entworfen. Anschließend wurde das gewünschte Verhalten mithilfe einer Modelsim-Simulation verifiziert.
 
-Abbildung \ref{fig:register_interface} zeigt die daraus entstandene Komponente, die jetzt in Quartus zur Verfügung steht.
+Abbildung \ref{fig:register_interface} zeigt die daraus entstandene Komponente `register_interface`, die jetzt in Quartus zur Verfügung steht.
 
 ![Block Diagramm des Register Interface\label{fig:register_interface}][fig:register_interface]
 
+Gemäß Aufgabenstellung ermöglicht sie das Lesen und Schreiben über einen 3-Bit Adressbus. Dabei können die Register `stepsReg` und `speedReg` direkt, das `ctrlReg`-Register direkt sowie über sogenannte *Set* und *Clear*-Register beschrieben werden. Durch die `ctrlSetReg` und `ctrlClrReg`-Register können einzelne auf `1` gesetzte Bits verändert werden, die mit `0` maskierten Bits behalten den bisherigen Wert. Die Tabelle \ref{adressbeschaltung_zum_registerzugriff} zeigt die notwendige Beschaltung für den Registerzugriff.
+
+| Adresse | Register   |
+|:-------:|:-----------|
+|   000   | ctrlReg    |
+|   001   | ctrlSetReg |
+|   010   | ctrlClrReg |
+|   011   | speedReg   |
+|   100   | stepsReg   |
+
+Table: Adressbeschaltung zum Registerzugriff \label{adressbeschaltung_zum_registerzugriff}
+
+Tabelle \ref{beschaltung_der_eingaenge_zur_einstellung_des_zugriffsmodus} beschreibt die notwendige Beschaltung des `register_interface` um lesend oder schreibend auf die Register zugreifen zu können.
+
+| ce_n | read_n | write_n | Zugriff       |
+|:----:|:------:|:-------:|:--------------|
+|   0  |    0   |    0    | *keiner*      |
+|   0  |    0   |    1    | *keiner*      |
+|   0  |    1   |    0    | *keiner*      |
+|   0  |    1   |    1    | *keiner*      |
+|   1  |    0   |    0    | undefiniert   |
+| **1**|  **0** |  **1**  | **lesend**    |
+| **1**|  **1** |  **0**  | **schreibend**|
+|   1  |    1   |    1    | undefiniert   |
+
+Table: Beschaltung der Eingänge zur Einstellung des Zugriffsmodus \label{beschaltung_der_eingaenge_zur_einstellung_des_zugriffsmodus}
+
 # Änderungen an der Steuersoftware
 
-Weil es nur einen gültigen Informationsstand der Register und des Systemzustandes gibt, wurde die Interprozess-Kommunikation (IPC) zwischen UserInput- und UserOutput-Task angepasst.
-Es wurde zur Übertragung der akutellen Registerinhalte und des Systemstatus eine Mailbox-Queue benutzt, die als FIFO-Speicher implementiert ist und somit einen Puffer darstellt.
-Dieser Puffer ist für diese Art von Informationen nicht gewünscht, weil er die beiden Tasks zeitlich entkoppelt. Somit kann es vorkommen, dass die UserOutput-Task nicht mit nicht-aktuellen Daten arbeitet.
-Aufgrund dieser Problematik wird jetzt zur IPC eine globale Variable mit Mutex-Schutz benutzt.
+Zugunsten der Übersichtlichkeit wurden alle definierten Datentypen in dem Header `dataTypes.h` zusammengefasst.
 
-Zugunsten der Übersichtlichkeit wurden alle eigens eingeführten Datentypen in einer Datei (dataTypes.h) zusammengefasst.
+Wie für diesen Meilenstein verlangt, verwendet die Steuersoftware nun die tatsächlichen Register der VHDL-Komponente `register_interface`. Dazu wurden Makros für den Hardwarezugriff eingeführt und die entsprechenden Funktionen im Header `registerAcces.h` angepasst.
 
-Wie für diesen Meilenstein verlangt wird jetzt auf die tatsächlichen in der "Register Interface" VHDL-Komponente befindlichen Register zugegriffen.
-Dazu wurden Zugriffs-Makros eingeführt und die zugehörigen Zugriffsfunktionen in der Datei "registerAcces.h" angepasst.
+# Darstellung der internen Kommunikation
 
-# Weitere Darstellungen zur Erläuterung der internen Kommunikation
+Die `UserInput`- und `UserOutput`-Task hat bisher über eine Mailbox die Daten der Registerinhalte ausgetauscht. Diese Mailbox wurde in eine globale Variablenstruktur umgewandelt, da es in der Steuersoftware nur einen aktuellen Inhalt in den Registern gibt. Es ist nicht notwendig, vorherige Inhalte zwischenzuspeichern. Der geregelte Zugriff auf die globale Struktur wird durch die Verwendung eines Mutexes sichergestellt. Die Anpassungen sind in Abbildung \ref{fig:kommunikation} ersichtlich.
 
 ![Auflistung Betriebssystemkomponenten\label{fig:auflistung}][fig:auflistung]
 
@@ -49,13 +70,13 @@ Dazu wurden Zugriffs-Makros eingeführt und die zugehörigen Zugriffsfunktionen 
 
 <!-- Links -->
 
-[fig:register_interface]: ../Milestone_2/Diagrams/block_diagramm-register_interface.png "Block Diagramm - Register Interface"
-
 [fig:gantt]: ../Planning/Gantt-Diagramm.png "Gantt-Diagramm zur kompletten Zeitplanung"
 
 [fig:projektplanung]: ../Planning/Planung_Meilenstein1b.png "Projektplanung für Meilenstein 2" 
 
 [fig:zeitbedarf]: ../Planning/Zeitbedarf.png "Zeitbedarfsübersicht für das gesamte Projekt"
+
+[fig:register_interface]: ../Milestone_2/Diagrams/bd_register_interface.png "Block Diagramm des Register Interface"
 
 [fig:anwendungsfaelle]: ../Milestone_2/Diagrams/UseCases.png "Anwendungsfälle"
 
