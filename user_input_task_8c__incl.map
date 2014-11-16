@@ -1,10 +1,10 @@
 <map id="userInputTask.c" name="userInputTask.c">
-<area shape="rect" id="node2" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="495,79,648,104"/>
-<area shape="rect" id="node9" href="$events_8h.html" title="definitions for used events " alt="" coords="938,152,1010,177"/>
-<area shape="rect" id="node10" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="966,299,1097,324"/>
-<area shape="rect" id="node13" href="$register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper&#45;Motor&#45;Control ..." alt="" coords="361,152,481,177"/>
-<area shape="rect" id="node14" href="$debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="414,225,577,251"/>
-<area shape="rect" id="node15" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="491,299,628,324"/>
-<area shape="rect" id="node19" href="$data_types_8h.html" title="Header file for all own data types. " alt="" coords="839,379,933,404"/>
-<area shape="rect" id="node17" href="$lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="702,379,815,404"/>
+<area shape="rect" id="node2" href="$user_input_task_8h.html" title="Header file for userInputTask.c. " alt="" coords="499,79,652,104"/>
+<area shape="rect" id="node9" href="$events_8h.html" title="definitions for used events " alt="" coords="942,152,1014,177"/>
+<area shape="rect" id="node10" href="$hardware_access_8h.html" title="Functions for accessing hardware connected through pio´s and registers. " alt="" coords="987,299,1118,324"/>
+<area shape="rect" id="node13" href="$register_access_8h.html" title="Header file with inline functions to access the registers that are used by the Stepper&#45;Motor&#45;Control ..." alt="" coords="122,152,242,177"/>
+<area shape="rect" id="node15" href="$debug_and_error_output_8h.html" title="Defines for Error and Debug&#45;Output Management. " alt="" coords="418,225,581,251"/>
+<area shape="rect" id="node16" href="$auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. " alt="" coords="495,299,632,324"/>
+<area shape="rect" id="node20" href="$data_types_8h.html" title="Header file for all own data types. " alt="" coords="861,379,955,404"/>
+<area shape="rect" id="node18" href="$lcd_d_o_g_m162_8h.html" title="Header for Initialization program for LCD DOGM162. Qsys uses Altera LCD component &quot;altera_avalon_lcd_..." alt="" coords="723,379,836,404"/>
 </map>

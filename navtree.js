@@ -1,7 +1,6 @@
 var NAVTREE =
 [
   [ "Stepper-Motor-Control", "index.html", [
-    [ "Todo List", "todo.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
@@ -13,7 +12,7 @@ var NAVTREE =
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
+        [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -28,7 +27,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"motor_i_r_qhandler_8c.html#a07c87d61e7e620a7f471139d92b2685b"
+"register_access_8h.html#a52fe772da03be82ed900ecb26599875c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

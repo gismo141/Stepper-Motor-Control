@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['temporaryctrlreg',['temporaryCtrlReg',['../register_access_8h.html#afa74591fccda8567f08dd7314a1f7087',1,'registerAccess.h']]],
-  ['temporaryspeedreg',['temporarySpeedReg',['../register_access_8h.html#a6b34c7fe9c2c96aaa21334cabef3dff0',1,'registerAccess.h']]],
-  ['temporarystepsreg',['temporaryStepsReg',['../register_access_8h.html#a82b5c271cf9ef4625973d0e53f58d150',1,'registerAccess.h']]],
-  ['term',['term',['../auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864',1,'auxilaryFunctions.c']]]
+  ['read_5fdata',['read_data',['../classregister__interface.html#a4f8a3b503626a1d905e6de04381dd2b0',1,'register_interface']]],
+  ['read_5fn',['read_n',['../classregister__interface.html#ada486946f1a7a1657ceec20e04323fde',1,'register_interface']]],
+  ['redleds',['redleds',['../classregister__interface.html#af0b26985743d7aadf2e36107e51b70fc',1,'register_interface']]],
+  ['reset_5fn',['reset_n',['../classregister__interface.html#a0076b9a37416bbca700f0f84bc23f5ee',1,'register_interface']]]
 ];

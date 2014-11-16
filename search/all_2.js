@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['ce_5fn',['ce_n',['../classregister__interface.html#a6cd4f7424b7cd76f1eca8308805fd2d6',1,'register_interface']]],
   ['clear_5flcd',['clear_lcd',['../auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b',1,'clear_lcd(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#aac33d8b0fb1efae6f9fe889517e1134b',1,'clear_lcd(void):&#160;auxilaryFunctions.c']]],
+  ['clock',['clock',['../classregister__interface.html#aadce530a01f35021320819f7c7ecd95e',1,'register_interface']]],
   ['clock_5f50_5fb5b',['CLOCK_50_B5B',['../classinterface___r_t_x___base.html#a05c598213f64aa37ddd25f2d4e1f445f',1,'interface_RTX_Base']]],
   ['continous',['CONTINOUS',['../data_types_8h.html#a39d544e1d4f711e9312e286c54431d1ba67bed54be9e134dd063d2eb69618b81d',1,'dataTypes.h']]],
   ['contrast2',['CONTRAST2',['../lcd_d_o_g_m162_8h.html#a76aecfd4e9cb0474f049b7e14ca95000',1,'lcdDOGM162.h']]],
