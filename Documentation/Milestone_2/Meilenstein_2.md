@@ -27,32 +27,32 @@ Abbildung \ref{fig:register_interface} zeigt die daraus entstandene Komponente `
 
 ![Block Diagramm des Register Interface\label{fig:register_interface}][fig:register_interface]
 
-Gemäß Aufgabenstellung ermöglicht sie das Lesen und Schreiben über einen 3-Bit Adressbus. Dabei können die Register `stepsReg` und `speedReg` direkt, das `ctrlReg`-Register direkt sowie über sogenannte *Set* und *Clear*-Register beschrieben werden. Durch die `ctrlSetReg` und `ctrlClrReg`-Register können einzelne auf `1` gesetzte Bits verändert werden, die mit `0` maskierten Bits behalten den bisherigen Wert. Die Tabelle \ref{adressbeschaltung_zum_registerzugriff} zeigt die notwendige Beschaltung für den Registerzugriff.
+Gemäß Aufgabenstellung ermöglicht sie das Lesen und Schreiben über einen 3-Bit Adressbus. Dabei können die Register `stepsReg` und `speedReg` direkt, das `ctrlReg`-Register direkt sowie über sogenannte *Set* und *Clear*-Register beschrieben werden. Durch die `ctrlSetReg` und `ctrlClrReg`-Register können einzelne auf `1` gesetzte Bits verändert werden, die mit `0` maskierten Bits behalten den bisherigen Wert.
 
-| Adresse | Register   |
-|:-------:|:-----------|
+Die Tabelle \ref{tab:adressen} zeigt die notwendige Beschaltung für den Registerzugriff. Tabelle \ref{tab:beschaltung} beschreibt die notwendige Beschaltung des `register_interface` um lesend oder schreibend auf die Register zugreifen zu können.
+
+| Adresse |  Register  |
+| :-----: | :--------- |
 |   000   | ctrlReg    |
 |   001   | ctrlSetReg |
 |   010   | ctrlClrReg |
 |   011   | speedReg   |
 |   100   | stepsReg   |
 
-Table: Adressbeschaltung zum Registerzugriff \label{adressbeschaltung_zum_registerzugriff}
+Table: Adressbeschaltung zum Registerzugriff \label{tab:adressen}
 
-Tabelle \ref{beschaltung_der_eingaenge_zur_einstellung_des_zugriffsmodus} beschreibt die notwendige Beschaltung des `register_interface` um lesend oder schreibend auf die Register zugreifen zu können.
+|  ce_n | read_n | write_n |    Zugriff     |
+| :---: | :----: | :-----: | :------------- |
+|   0   |   0    |    0    | *keiner*       |
+|   0   |   0    |    1    | *keiner*       |
+|   0   |   1    |    0    | *keiner*       |
+|   0   |   1    |    1    | *keiner*       |
+|   1   |   0    |    0    | undefiniert    |
+| **1** | **0**  |  **1**  | **lesend**     |
+| **1** | **1**  |  **0**  | **schreibend** |
+|   1   |   1    |    1    | undefiniert    |
 
-| ce_n | read_n | write_n | Zugriff       |
-|:----:|:------:|:-------:|:--------------|
-|   0  |    0   |    0    | *keiner*      |
-|   0  |    0   |    1    | *keiner*      |
-|   0  |    1   |    0    | *keiner*      |
-|   0  |    1   |    1    | *keiner*      |
-|   1  |    0   |    0    | undefiniert   |
-| **1**|  **0** |  **1**  | **lesend**    |
-| **1**|  **1** |  **0**  | **schreibend**|
-|   1  |    1   |    1    | undefiniert   |
-
-Table: Beschaltung der Eingänge zur Einstellung des Zugriffsmodus \label{beschaltung_der_eingaenge_zur_einstellung_des_zugriffsmodus}
+Table: Beschaltung der Eingänge zur Einstellung des Zugriffsmodus \label{tab:beschaltung}
 
 # Änderungen an der Steuersoftware
 
@@ -72,7 +72,7 @@ Die `UserInput`- und `UserOutput`-Task hat bisher über eine Mailbox die Daten d
 
 [fig:gantt]: ../Planning/Gantt-Diagramm.png "Gantt-Diagramm zur kompletten Zeitplanung"
 
-[fig:projektplanung]: ../Planning/Planung_Meilenstein1b.png "Projektplanung für Meilenstein 2" 
+[fig:projektplanung]: ../Planning/Planung_Meilenstein2.png "Projektplanung für Meilenstein 2" 
 
 [fig:zeitbedarf]: ../Planning/Zeitbedarf.png "Zeitbedarfsübersicht für das gesamte Projekt"
 
