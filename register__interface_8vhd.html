@@ -128,26 +128,6 @@ Michael Riedel </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>v0.1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>06.11.2014</dd></dl>
 <p>Provides the <code>ctrlReg</code>, <code>speedReg</code>, <code>stepsReg</code> registers. The <code>ctrlReg</code> can be set and cleared bitwise with the <code>ctrlSetReg</code> and <code>ctrlClrReg</code>.</p>
-<p>Combinations for register-access-mode: </p><table class="doxtable">
-<tr>
-<th align="center"><code>ce_n</code></th><th align="center"><code>read_n</code></th><th align="center"><code>write_n</code></th><th align="left">Access  </th></tr>
-<tr>
-<td align="center"><code>0</code> </td><td align="center"><code>0</code> </td><td align="center"><code>0</code> </td><td align="left"><em>none</em> </td></tr>
-<tr>
-<td align="center"><code>0</code> </td><td align="center"><code>0</code> </td><td align="center"><code>1</code> </td><td align="left"><em>none</em> </td></tr>
-<tr>
-<td align="center"><code>0</code> </td><td align="center"><code>1</code> </td><td align="center"><code>0</code> </td><td align="left"><em>none</em> </td></tr>
-<tr>
-<td align="center"><code>0</code> </td><td align="center"><code>1</code> </td><td align="center"><code>1</code> </td><td align="left"><em>none</em> </td></tr>
-<tr>
-<td align="center"><code>1</code> </td><td align="center"><code>0</code> </td><td align="center"><code>0</code> </td><td align="left">undefined </td></tr>
-<tr>
-<td align="center"><b>1</b></td><td align="center"><b>0</b> </td><td align="center"><b>1</b> </td><td align="left"><b>readable</b> </td></tr>
-<tr>
-<td align="center"><b>1</b></td><td align="center"><b>1</b> </td><td align="center"><b>0</b> </td><td align="left"><b>writeable</b> </td></tr>
-<tr>
-<td align="center"><code>1</code> </td><td align="center"><code>1</code> </td><td align="center"><code>1</code> </td><td align="left">undefined </td></tr>
-</table>
 <p>Addesses for register-access: </p><table class="doxtable">
 <tr>
 <th align="center">address </th><th align="left">register  </th></tr>
@@ -171,8 +151,7 @@ Michael Riedel </dd></dl>
 </ul>
 <p>v0.1.2 17.11.2014 Riedel</p><ul>
 <li>corrected formatting</li>
-<li>improved documentation</li>
-<li>added counter-check for write_n and read_n </li>
+<li>improved documentation </li>
 </ul>
 
 <p>Definition in file <a class="el" href="register__interface_8vhd_source.html">register_interface.vhd</a>.</p>
@@ -182,7 +161,7 @@ Michael Riedel </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_00cac0feaae6111d24dacec2b7f1bf08.html">quartus</a></li><li class="navelem"><a class="el" href="dir_4b068f959e605963ee1b7667c7eefcb9.html">IP</a></li><li class="navelem"><a class="el" href="dir_fb351ab913874aedd13d89e94aef27c7.html">register_interface</a></li><li class="navelem"><a class="el" href="register__interface_8vhd.html">register_interface.vhd</a></li>
-    <li class="footer">Generated on Mon Nov 17 2014 00:16:30 for Stepper-Motor-Control by
+    <li class="footer">Generated on Mon Nov 17 2014 12:19:38 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
