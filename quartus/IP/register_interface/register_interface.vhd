@@ -9,19 +9,6 @@
 --! @details      Provides the `ctrlReg`, `speedReg`, `stepsReg` registers.
 --!               The `ctrlReg` can be set and cleared bitwise with the
 --!               `ctrlSetReg` and `ctrlClrReg`.
---!
---! @details      Combinations for register-access-mode:
---!               |`ce_n`|`read_n`|`write_n`| Access       |
---!               |:----:|:------:|:-------:|:-------------|
---!               |  `0` |   `0`  |   `0`   | *none*       |
---!               |  `0` |   `0`  |   `1`   | *none*       |
---!               |  `0` |   `1`  |   `0`   | *none*       |
---!               |  `0` |   `1`  |   `1`   | *none*       |
---!               |  `1` |   `0`  |   `0`   | undefined    |
---!               | **1**|  **0** |  **1**  | **readable** |
---!               | **1**|  **1** |  **0**  | **writeable**|
---!               |  `1` |   `1`  |   `1`   | undefined    |
---! 
 --! @details      Addesses for register-access:
 --!               | address | register   |
 --!               |:-------:|:-----------|
@@ -39,7 +26,6 @@
 --! @details      v0.1.2 17.11.2014 Riedel
 --!               - corrected formatting
 --!               - improved documentation
---!               - added counter-check for write_n and read_n
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -106,7 +92,7 @@ begin
     read_data(31 downto 0)  <= (others => '0');
   elsif (rising_edge(clock)) then
     -- Processor writes to Register
-    if (write_n = '0' AND read_n = '1' AND ce_n = '0') then
+    if (write_n = '0' AND ce_n = '0') then
       case addr is
       when B"000" =>
         ctrlReg <= write_data(7 downto 0);
@@ -136,7 +122,7 @@ begin
   end if;
 
   -- Processor reads from Register
-  if (write_n = '1' AND read_n = '0' AND ce_n = '0') then
+  if (read_n = '0' AND ce_n = '0') then
     read_data <= (others => '0'); -- unused bits to 0
     case addr is
     when B"000" =>

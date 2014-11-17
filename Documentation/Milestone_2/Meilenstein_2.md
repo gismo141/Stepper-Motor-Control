@@ -21,15 +21,9 @@ Die Darstellung wird gesondert für die Studenten Marc Kossmann und Michael Ried
 
 # Design der Komponente *Register-Interface*
 
-Aufgrund der geringen Komplexität wurde für diese Komponente kein expliziter Designprozess wie z. B. in Meilenstein 1 durchlaufen. Nach einer kurzen Einarbeitung in die Aufgabenstellung und unter Berücksichtigung der Erkenntnisse aus dem Tutorial, wurde der Quellcode direkt entworfen. Anschließend wurde das gewünschte Verhalten mithilfe einer Modelsim-Simulation verifiziert.
-
-Abbildung \ref{fig:register_interface} zeigt die daraus entstandene Komponente `register_interface`, die jetzt in Quartus zur Verfügung steht.
+Aufgrund der geringen Komplexität wurde für diese Komponente kein expliziter Designprozess wie z. B. in Meilenstein 1 durchlaufen. Nach einer kurzen Einarbeitung in die Aufgabenstellung und unter Berücksichtigung der Erkenntnisse aus dem Tutorial, wurde der Quellcode direkt entworfen. Anschließend wurde das gewünschte Verhalten mithilfe einer Modelsim-Simulation verifiziert. Abbildung \ref{fig:register_interface} zeigt die daraus entstandene Komponente `register_interface`, die jetzt in Quartus zur Verfügung steht.
 
 ![Block Diagramm des Register Interface\label{fig:register_interface}][fig:register_interface]
-
-Gemäß Aufgabenstellung ermöglicht sie das Lesen und Schreiben über einen 3-Bit Adressbus. Dabei können die Register `stepsReg` und `speedReg` direkt, das `ctrlReg`-Register direkt sowie über sogenannte *Set* und *Clear*-Register beschrieben werden. Durch die `ctrlSetReg` und `ctrlClrReg`-Register können einzelne auf `1` gesetzte Bits verändert werden, die mit `0` maskierten Bits behalten den bisherigen Wert.
-
-Die Tabelle \ref{tab:adressen} zeigt die notwendige Beschaltung für den Registerzugriff. Tabelle \ref{tab:beschaltung} beschreibt die notwendige Beschaltung des `register_interface` um lesend oder schreibend auf die Register zugreifen zu können.
 
 | Adresse |  Register  |
 | :-----: | :--------- |
@@ -41,18 +35,9 @@ Die Tabelle \ref{tab:adressen} zeigt die notwendige Beschaltung für den Registe
 
 Table: Adressbeschaltung zum Registerzugriff \label{tab:adressen}
 
-|  ce_n | read_n | write_n |    Zugriff     |
-| :---: | :----: | :-----: | :------------- |
-|   0   |   0    |    0    | *keiner*       |
-|   0   |   0    |    1    | *keiner*       |
-|   0   |   1    |    0    | *keiner*       |
-|   0   |   1    |    1    | *keiner*       |
-|   1   |   0    |    0    | undefiniert    |
-| **1** | **0**  |  **1**  | **lesend**     |
-| **1** | **1**  |  **0**  | **schreibend** |
-|   1   |   1    |    1    | undefiniert    |
+Gemäß Aufgabenstellung ermöglicht sie das Lesen und Schreiben über einen 3-Bit Adressbus. Dabei können die Register `stepsReg` und `speedReg` direkt, das `ctrlReg`-Register direkt sowie über sogenannte *Set* und *Clear*-Register beschrieben werden. Durch die `ctrlSetReg` und `ctrlClrReg`-Register können einzelne auf `1` gesetzte Bits verändert werden, die mit `0` maskierten Bits behalten den bisherigen Wert.
 
-Table: Beschaltung der Eingänge zur Einstellung des Zugriffsmodus \label{tab:beschaltung}
+Die Tabelle \ref{tab:adressen} zeigt die notwendige Beschaltung für den Registerzugriff.
 
 # Änderungen an der Steuersoftware
 
@@ -62,7 +47,7 @@ Wie für diesen Meilenstein verlangt, verwendet die Steuersoftware nun die tats�
 
 # Darstellung der internen Kommunikation
 
-Die `UserInput`- und `UserOutput`-Task hat bisher über eine Mailbox die Daten der Registerinhalte ausgetauscht. Diese Mailbox wurde in eine globale Variablenstruktur umgewandelt, da es in der Steuersoftware nur einen aktuellen Inhalt in den Registern gibt. Es ist nicht notwendig, vorherige Inhalte zwischenzuspeichern. Der geregelte Zugriff auf die globale Struktur wird durch die Verwendung eines Mutexes sichergestellt. Die Anpassungen sind in Abbildung \ref{fig:kommunikation} ersichtlich.
+Die `UserInput`- und `UserOutput`-Tasks haben bisher über eine Mailbox die Daten der Registerinhalte ausgetauscht. Diese Mailbox wurde in eine globale Variablenstruktur umgewandelt, da es in der Steuersoftware nur einen aktuellen Inhalt in den Registern gibt. Es ist nicht notwendig, vorherige Inhalte zwischenzuspeichern. Der geregelte Zugriff auf die globale Struktur wird durch die Verwendung eines Mutexes sichergestellt. Die Anpassungen sind in Abbildung \ref{fig:kommunikation} ersichtlich.
 
 ![Auflistung Betriebssystemkomponenten\label{fig:auflistung}][fig:auflistung]
 

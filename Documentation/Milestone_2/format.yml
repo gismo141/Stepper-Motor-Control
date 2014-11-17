@@ -22,7 +22,7 @@ geometry: |
     , a4paper
 lang: ngerman
 title: Dokumentation zur Schrittmotorsteuerung
-subtitle: Meilenstein 2 - NIOS II-Basissoftware mit Stepperkomponente
+subtitle: Meilenstein 2 - NIOS II-Basissoftware mit Registerinterface
 author: Marc Kossmann und Michael Riedel, Gruppe 04
 date: 18.11.2014
 biblio-title: Literaturverzeichnis
