@@ -25,6 +25,11 @@ ENTITY register_interface_tb  IS
     MyParameter  : INTEGER   := 42 );  --! Dummyparameter (Demo)
 END ; 
  
+ 
+--! @brief    Architecture of testbench for register_interface
+--! @details  first test if all registers can be written
+--!           then resets everything
+--!           test if set and clear is working the right way
 ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
   SIGNAL write_n      :  STD_LOGIC  := '1' ; 
   SIGNAL greenleds    :  std_logic_vector (7 downto 0) := (others => '0') ; 
@@ -72,7 +77,7 @@ BEGIN
       
     
     -- first test if all registers can be written
-    -- then reset everything
+    -- then resets everything
     -- test if set and clear is working the right way
     clock <= not clock after 10 ns;
     ce_n <= '0' after 20 ns;
