@@ -3,8 +3,8 @@
  * @file        main.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0.0
- * @date        11.11.2014
+ * @version     v2.0.0
+ * @date        18.11.2014
  * @brief       Main-Routine for Stepper-Motor-Control
  *****************************************************************************
  * @par History:
@@ -20,7 +20,11 @@
  *                because the need OS running
  * @details     v1.0.1 14.11.2014 Kossmann
  *              - finished motor isr registration
- *              -moved init IPC global var to main
+ *              - moved init IPC global var to main
+ * @details     v2.0.0 18.11.2014 Riedel & Kossmann
+ *              - adapted function call init_outputTaskDataTxRx
+ *              @see auxilaryFunctions.h
+ *              - verified functionality -> release MS2
  *****************************************************************************
  */
 
@@ -28,9 +32,7 @@
 
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
-
-extern OS_EVENT *outputTaskDataMutex;
-extern outputTaskData_t outputTaskData;
+extern OS_FLAG_GRP *userOutputTaskFlagsGrp;
 
 /** @brief Variable for ISR-Context
  * @details Not used in this program
@@ -48,7 +50,11 @@ int main(void) {
   }
   heartbeatTaskFlagsGrp = OSFlagCreate(0x0000, &err);
   if (OS_NO_ERR != err) {
-    error("INPUT_FLAG_CREATE_ERR: %i\n", err);
+    error("HEARTBEAT_FLAG_CREATE_ERR: %i\n", err);
+  }
+  userOutputTaskFlagsGrp = OSFlagCreate(0x0000, &err);
+  if (OS_NO_ERR != err) {
+    error("OUTPUT_FLAG_CREATE_ERR: %i\n", err);
   }
   // -------------------- Tasks ----------------------------------------
   err = OSTaskCreateExt(UserInputTask, NULL,
@@ -101,7 +107,7 @@ int main(void) {
   alt_ic_irq_enable(REGISTERS_IRQ_INTERRUPT_CONTROLLER_ID, REGISTERS_IRQ);
 
   //initialize global var and mutex
-  err = init_outputTaskDataTxRx(outputTaskDataMutex, &outputTaskData);
+  err = init_outputTaskDataTxRx();
   if (OS_NO_ERR != err) {
     error("IPC_GLOB_VAR_ERR: %i\n", err);
   } else {

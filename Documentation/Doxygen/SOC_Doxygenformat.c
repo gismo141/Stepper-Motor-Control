@@ -8,12 +8,13 @@
   * @image     html SOC2014.png
   * @author    Marc Kossmann
   * @author    Michael Riedel
-  * @author    Prof. Dr.-Ing. Ferdinand Englberger
-  * @date      11.11.2014
+  * @date      18.11.2014
   * @copyright 2012 - 2014 UniBw M - ETTI - WE 4
   ******************************************************************************
   * @page History Documentation History
-  * @details V1.0 Marc Kossmann & Michael Riedel
+  * @details V1.0.0 Marc Kossmann & Michael Riedel
   *     - finalized milestone 1b
+  * @details V2.0.0 Marc Kossmann & Michael Riedel
+  *     - finalized milestone 2
   ********************************************************************************
   */

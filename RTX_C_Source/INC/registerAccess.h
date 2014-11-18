@@ -3,8 +3,8 @@
  * @file       registerAccess.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0.0
- * @date       11.11.2014
+ * @version    v2.0.0
+ * @date       18.11.2014
  * @brief      Header file with inline functions to access the registers that
  *             are used by the Stepper-Motor-Control VHDL-component.
  * @details    The bitmask is as follows:
@@ -38,6 +38,11 @@
  * @details    v1.0.0 11.11.2014 Riedel & Kossmann
  *             - Moved register masks to headers' documentation
  *             - Added ctrlRegBitClr and ctrlRegBitSet functions for bitwise control
+ * @details    v1.0.1 15.11.2014 Kossmann
+ *             - adopted all functions to use real register interface
+ * @details    v2.0.0 18.11.2014 Riedel & Kossmann
+ *             - fixed mistake in register addressing offset
+ *             - verified functionality -> release MS2
  *****************************************************************************
  */
 
@@ -72,7 +77,7 @@
   * @name Ctrl-Register
   */
 /** @brief address offset Ctrl-Register  */
-#define REGS_CTRL    0
+#define REGS_CTRL    0b000
 
 /** @brief Macro to calculate the address of the Ctrl-Register */
 #define IOADDR_REGS_CTRL(base)       \
@@ -104,7 +109,7 @@ static __inline__ uint8_t ctrlRegGet(void) {
   * @name CtrlSet-Register
   */
 /** @brief address offset CtrlSet-Register  */
-#define REGS_CTRL_SET    1
+#define REGS_CTRL_SET    0b001
 
 /** @brief Macro to calculate the address of the CtrlSet-Register */
 #define IOADDR_REGS_CTRL_SET(base)       \
@@ -128,7 +133,7 @@ static __inline__ void ctrlRegBitSet(uint8_t bitsToSet) {
   * @name CtrlClr-Register
   */
 /** @brief address offset CtrlClr-Register  */
-#define REGS_CTRL_CLR    2
+#define REGS_CTRL_CLR    0b010
 
 /** @brief Macro to calculate the address of the CtrlClr-Register */
 #define IOADDR_REGS_CTRL_CLR(base)       \
@@ -149,43 +154,10 @@ static __inline__ void ctrlRegBitClr(uint8_t bitsToClr) {
 }
 
 /**
-  * @name Steps-Register
-  */
-/** @brief address offset Steps-Register  */
-#define REGS_STEPS    3
-
-/** @brief Macro to calculate the address of the Steps-Register */
-#define IOADDR_REGS_STEPS(base)       \
-                              __IO_CALC_ADDRESS_NATIVE(base, REGS_STEPS)
-/** @brief Macro to read Steps-Register */
-#define IORD_REGS_STEPS(base)         IORD(base, REGS_STEPS)
-/** @brief  Macro to write Steps-Register  */
-#define IOWR_REGS_STEPS(base, data)   IOWR(base, REGS_STEPS, data)
-
-/**
- * @brief   Sets the given steps for the Stepper-Motor-Control VHDL-component.
- * @details The VHDL-component moves the motor according to this step-count.
- *
- * @param   newStepCount The number of steps, the motor should turn.
- */
-static __inline__ void stepsRegSet(uint32_t newStepCount) {
-  IOWR_REGS_STEPS(REGISTERS_BASE, newStepCount);
-}
-
-/**
- * @brief   Returns the actual content of the steps-register.
- * @details The register contains a 32-bit integer value since the last start of the motor.
- * @return  The actual content of steps left.
- */
-static __inline__ uint32_t stepsRegGet(void) {
-  return IORD_REGS_STEPS(REGISTERS_BASE);
-}
-
-/**
   * @name Speed-Register
   */
 /** @brief address offset Speed-Register  */
-#define REGS_SPEED    4
+#define REGS_SPEED    0b011
 
 /** @brief Macro to calculate the address of the Speed-Register */
 #define IOADDR_REGS_SPEED(base)       \
@@ -225,6 +197,39 @@ static __inline__ void speedRegSet(uint8_t newSpeed) {
  */
 static __inline__ uint8_t speedRegGet(void) {
   return IORD_REGS_SPEED(REGISTERS_BASE);
+}
+
+/**
+  * @name Steps-Register
+  */
+/** @brief address offset Steps-Register  */
+#define REGS_STEPS    0b100
+
+/** @brief Macro to calculate the address of the Steps-Register */
+#define IOADDR_REGS_STEPS(base)       \
+                              __IO_CALC_ADDRESS_NATIVE(base, REGS_STEPS)
+/** @brief Macro to read Steps-Register */
+#define IORD_REGS_STEPS(base)         IORD(base, REGS_STEPS)
+/** @brief  Macro to write Steps-Register  */
+#define IOWR_REGS_STEPS(base, data)   IOWR(base, REGS_STEPS, data)
+
+/**
+ * @brief   Sets the given steps for the Stepper-Motor-Control VHDL-component.
+ * @details The VHDL-component moves the motor according to this step-count.
+ *
+ * @param   newStepCount The number of steps, the motor should turn.
+ */
+static __inline__ void stepsRegSet(uint32_t newStepCount) {
+  IOWR_REGS_STEPS(REGISTERS_BASE, newStepCount);
+}
+
+/**
+ * @brief   Returns the actual content of the steps-register.
+ * @details The register contains a 32-bit integer value since the last start of the motor.
+ * @return  The actual content of steps left.
+ */
+static __inline__ uint32_t stepsRegGet(void) {
+  return IORD_REGS_STEPS(REGISTERS_BASE);
 }
 
 #endif // __REGISTER_ACCESS_H__

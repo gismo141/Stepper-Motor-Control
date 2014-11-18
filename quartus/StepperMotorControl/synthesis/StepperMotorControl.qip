@@ -2,7 +2,7 @@ set_global_assignment -entity "StepperMotorControl" -library "StepperMotorContro
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_TOOL_VERSION "14.0"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "StepperMotorControl" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../StepperMotorControl.sopcinfo"]
-set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name SLD_INFO "QSYS_NAME StepperMotorControl HAS_SOPCINFO 1 GENERATION_ID 1415962224"
+set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name SLD_INFO "QSYS_NAME StepperMotorControl HAS_SOPCINFO 1 GENERATION_ID 1416301245"
 set_global_assignment -library "StepperMotorControl" -name MISC_FILE [file join $::quartus(qip_path) "../StepperMotorControl.cmp"]
 set_global_assignment -library "StepperMotorControl" -name SLD_FILE [file join $::quartus(qip_path) "StepperMotorControl.regmap"]
 set_global_assignment -library "StepperMotorControl" -name SLD_FILE [file join $::quartus(qip_path) "StepperMotorControl.debuginfo"]
@@ -16,7 +16,7 @@ set_global_assignment -entity "StepperMotorControl" -library "StepperMotorContro
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQxNTk2MjIyNA==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQxNjMwMTI0NQ==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBW::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::NUNHWEZDNUM2RjI3Qzc=::QXV0byBERVZJQ0U="
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19DTEtfQ0xPQ0tfUkFURQ==::LTE=::QXV0byBDTE9DS19SQVRF"
@@ -1474,12 +1474,12 @@ set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorCo
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "c2V0dGluZ19iaHRQdHJTeg==::OA==::TnVtYmVyIG9mIGVudHJpZXM="
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "bXVsZGl2X211bHRpcGxpZXJUeXBl::RW1iZWRkZWRNdWxGYXN0::SGFyZHdhcmUgbXVsdGlwbGljYXRpb24gdHlwZQ=="
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "aW1wbA==::U21hbGw=::TmlvcyBJSSBDb3Jl"
-set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "aWNhY2hlX3NpemU=::NDA5Ng==::SW5zdHJ1Y3Rpb24gY2FjaGU="
+set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "aWNhY2hlX3NpemU=::MTAyNA==::SW5zdHJ1Y3Rpb24gY2FjaGU="
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "aWNhY2hlX3RhZ3JhbUJsb2NrVHlwZQ==::QXV0b21hdGlj::VGFnIFJBTSBibG9jayB0eXBl"
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "aWNhY2hlX3JhbUJsb2NrVHlwZQ==::QXV0b21hdGlj::RGF0YSBSQU0gYmxvY2sgdHlwZQ=="
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "aWNhY2hlX251bVRDSU0=::MA==::TnVtYmVyIG9mIHRpZ2h0bHkgY291cGxlZCBpbnN0cnVjdGlvbiBtYXN0ZXIgcG9ydChzKQ=="
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "aWNhY2hlX2J1cnN0VHlwZQ==::Tm9uZQ==::QnVyc3QgdHJhbnNmZXJzIChidXJzdCBzaXplID0gMzIgYnl0ZXMp"
-set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "ZGVidWdfbGV2ZWw=::TGV2ZWwx::RGVidWcgbGV2ZWw="
+set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "ZGVidWdfbGV2ZWw=::TGV2ZWwy::RGVidWcgbGV2ZWw="
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "ZGNhY2hlX3RhZ3JhbUJsb2NrVHlwZQ==::QXV0b21hdGlj::VGFnIFJBTSBibG9jayB0eXBl"
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "ZGNhY2hlX3JhbUJsb2NrVHlwZQ==::QXV0b21hdGlj::RGF0YSBSQU0gYmxvY2sgdHlwZQ=="
 set_global_assignment -entity "StepperMotorControl_CPU" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "c2V0dGluZ19leHBvcnR2ZWN0b3Jz::ZmFsc2U=::RXhwb3J0IFZlY3RvcnM="

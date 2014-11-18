@@ -43,6 +43,6 @@
  * @param ... Sends the given string directly to the terminal (printf_term()).
  */
 #ifndef error
-#define error(...) //printf_term(__VA_ARGS__)
+#define error(...) printf_term(__VA_ARGS__)
 #endif // error
 #endif // __DEBUG_AND_ERROR_OUTPUT_H__

@@ -68,19 +68,19 @@
          type = "int";
       }
    }
-   element lcd.control_slave
-   {
-      datum baseAddress
-      {
-         value = "1052928";
-         type = "String";
-      }
-   }
    element sysid_qsys_0.control_slave
    {
       datum baseAddress
       {
          value = "1052944";
+         type = "String";
+      }
+   }
+   element lcd.control_slave
+   {
+      datum baseAddress
+      {
+         value = "1052928";
          type = "String";
       }
    }
@@ -206,6 +206,14 @@
          type = "String";
       }
    }
+   element pio_hex1.s1
+   {
+      datum baseAddress
+      {
+         value = "1052768";
+         type = "String";
+      }
+   }
    element pio_sw.s1
    {
       datum baseAddress
@@ -230,11 +238,11 @@
          type = "String";
       }
    }
-   element pio_hex1.s1
+   element pio_hex0.s1
    {
       datum baseAddress
       {
-         value = "1052768";
+         value = "1052800";
          type = "String";
       }
    }
@@ -243,14 +251,6 @@
       datum baseAddress
       {
          value = "1052704";
-         type = "String";
-      }
-   }
-   element pio_hex0.s1
-   {
-      datum baseAddress
-      {
-         value = "1052800";
          type = "String";
       }
    }
@@ -419,14 +419,14 @@
   <parameter name="mmu_tlbNumWays" value="16" />
   <parameter name="mmu_processIDNumBits" value="8" />
   <parameter name="impl" value="Small" />
-  <parameter name="icache_size" value="4096" />
+  <parameter name="icache_size" value="1024" />
   <parameter name="icache_tagramBlockType" value="Automatic" />
   <parameter name="icache_ramBlockType" value="Automatic" />
   <parameter name="icache_numTCIM" value="0" />
   <parameter name="icache_burstType" value="None" />
   <parameter name="dcache_bursts" value="false" />
   <parameter name="dcache_victim_buf_impl" value="ram" />
-  <parameter name="debug_level" value="Level1" />
+  <parameter name="debug_level" value="Level2" />
   <parameter name="debug_OCIOnchipTrace" value="_128" />
   <parameter name="dcache_size" value="2048" />
   <parameter name="dcache_tagramBlockType" value="Automatic" />
@@ -1316,6 +1316,11 @@
    version="14.0"
    start="pll_100MHz.outclk0"
    end="registers.clock" />
+ <connection
+   kind="reset"
+   version="14.0"
+   start="clk_50MHz.clk_reset"
+   end="registers.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

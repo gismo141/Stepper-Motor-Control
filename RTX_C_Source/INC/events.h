@@ -3,8 +3,8 @@
  * @file       events.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0.0
- * @date       11.11.2014
+ * @version    v2.0.0
+ * @date       18.11.2014
  * @brief      definitions for used events
  *****************************************************************************
  * @par History:
@@ -14,6 +14,10 @@
  *             - Moved DEBUG_ON_EVENT from heartbeatTask.h to this header
  * @details    v1.0.0 07.11.2014 Kossmann
  *             - added DEBUG_OFF_EVENT
+ * @details    v2.0.0 18.11.2014 Riedel & Kossmann
+ *             - introduced userOutputTaskFlagsGrp and GLOB_VAR_UPDATE event for
+ *             signaling changed data in global IPC variable
+ *             - verified functionality -> release MS2
  *****************************************************************************
  */
 
@@ -39,3 +43,11 @@ OS_FLAG_GRP *heartbeatTaskFlagsGrp;
 #define DEBUG_ON_EVENT      (0x1) //!< activates the debug-mode via `sw_9`
 #define DEBUG_OFF_EVENT     (0x2) //!< deactivates the debug-mode via `sw_9`
 #endif // __EVENTS_H__
+
+/**
+ * @brief The flags group used in the user-output-task.
+ * @details This group contains all possibly events.
+ */
+OS_FLAG_GRP *userOutputTaskFlagsGrp;
+#define MOTOR_STOP_EVENT    (0b01000) //!< the interrupt is sent via VHDL-Component, when the motor reached its end-position
+#define GLOB_VAR_UPDATE     (0b00001) //!< signals that data changed

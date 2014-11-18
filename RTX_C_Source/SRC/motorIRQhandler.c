@@ -17,6 +17,8 @@
  *             - finalized ISR-functionality
  * @details    v1.0.0 11.11.2014 Riedel & Kossmann
  *             - Adapted code to new registerAccess.h (using ctrlRegBitClr/-Set)
+ * @details    v1.0.1 18.11.2014 Riedel & Kossmann
+ *             - added MOTOR_STOP_EVENT post to UserOutputTask
  *****************************************************************************
  */
 
@@ -37,6 +39,10 @@ void motorIRQhandler(void *context) {
 
     // Send the event
     OSFlagPost(userInputTaskFlagsGrp, MOTOR_STOP_EVENT, OS_FLAG_SET, &err);
+    if (OS_NO_ERR != err) {
+      error("MOTOR_ISR_FLAG_ERR: %i\n", err);
+    }
+    OSFlagPost(userOutputTaskFlagsGrp, MOTOR_STOP_EVENT, OS_FLAG_SET, &err);
     if (OS_NO_ERR != err) {
       error("MOTOR_ISR_FLAG_ERR: %i\n", err);
     }

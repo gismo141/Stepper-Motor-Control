@@ -2,14 +2,14 @@
 --! @file       interface_RTX_Base.vhd
 --! @author     Michael Riedel
 --! @author     Marc Kossmann
---! @version    v0.1
---! @date       28.10.2014
+--! @version    v1.0.0
+--! @date       11.11.2014
 --! @brief      Interface Base-File (RTX) to embed Qsys-outputAssignments->))
 --!
 --! @par        History:
---! @details    28.10. Kossmann
+--! @details    v0.1.0 28.10.2014 Kossmann
 --!             - initial setup
---! @details    03.11. Riedel
+--! @details   	v1.0.0 03.11.2014 Riedel
 --!             - corrected documentation and indention
 -------------------------------------------------------------------------------
 
@@ -39,8 +39,8 @@ ENTITY interface_RTX_Base IS
     KEY           : IN      STD_LOGIC_VECTOR(3 DOWNTO 0);                       --! key-definition
     SW            : IN      STD_LOGIC_VECTOR(9 DOWNTO 0);                       --! slidINg switches
     LED9          : OUT     STD_LOGIC;                                          --! debug LEDs
-    LEDG				  : OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);                        --! green leds
-    LEDR				  : OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);							          --! red leds
+    LEDG				: OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);                       --! green leds
+    LEDR				: OUT		 STD_LOGIC_VECTOR(7 DOWNTO 0);							  --! red leds
     HEX0          : OUT     STD_LOGIC_VECTOR(6 DOWNTO 0);                       --! HEX display 0
     HEX1          : OUT     STD_LOGIC_VECTOR(6 DOWNTO 0);                       --! HEX display 1
     HEX2          : OUT     STD_LOGIC_VECTOR(6 DOWNTO 0);                       --! HEX display 2
@@ -108,7 +108,7 @@ BEGIN
       hex2_export               => HEX2,
       hex3_export               => HEX3,
       led9_export               => LED9,
-		leds_redleds		  => LEDR,
-		leds_greenleds	  => LEDG
+		leds_redleds		  		  => LEDR,
+		leds_greenleds	  			  => LEDG
     );
 END a1;

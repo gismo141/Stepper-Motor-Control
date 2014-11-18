@@ -3,8 +3,8 @@
  * @file       userInputTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0.0
- * @date       11.11.2014
+ * @version    v2.0.0
+ * @date       18.11.2014
  * @brief      Header file for userInputTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
@@ -28,6 +28,9 @@
  *             - moved all own data types to dataTypes.h
  * @details    v1.0.2 14.11.2014 Riedel & Kossmann
  *             - added define for register mutex (see registerAccess.h)
+ * @details    v2.0.0 18.11.2014 Riedel & Kossmann
+ *             - removed define for register mutex for real register_interface
+ *             - verified functionality -> release MS2
  *****************************************************************************
  */
 
@@ -49,7 +52,7 @@
 #include "auxilaryFunctions.h"
 #include "debugAndErrorOutput.h"
 
-#define REGISTER_MUTEX_PRIORITY         4  /*!< Priority for Register Mutex */
+#define INTERRUPT_ENABLE //!< global interrupts are enabled
 
 #define CTRL_REG_0_6_MSK     (0b01111111)  //!< Bits 0..6 in ctrlReg
 

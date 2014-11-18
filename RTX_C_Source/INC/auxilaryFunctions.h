@@ -3,8 +3,8 @@
  * @file        auxilaryFunctions.h
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0.0
- * @date        11.11.2014
+ * @version     v2.0.0
+ * @date        18.11.2014
  * @brief       Header file for auxilaryFunctions.c
  * @details     Contains defines, includes, typedefs and declarations needed for
  *              auxilary functions.
@@ -18,9 +18,11 @@
  *              - clear display function added
  * @details     v0.1.3 03.11.2014 Kossmann
  *              - finished documentation
- * @details     v1.1.0 14.11.2014 Kossmann
+ * @details     v1.0.1 14.11.2014 Kossmann
  *              - added init rx,tx functions for access to global ipc var
  *              for transmitting data between UserInput- and UserOuputTask
+ * @details     v2.0.0 18.11.2014 Riedel & Kossmann
+ *              - verified functionality -> release MS2
  ******************************************************************************
  */
 
@@ -35,40 +37,38 @@
 #include "altera_avalon_lcd_16207_regs.h"
 #include "dataTypes.h"
 
-#define VERSION           "1.0.0"         //!< global version definition
-#define DATE              "11.11.2014"  //!< global date definition
+#define VERSION           "2.0.0"       //!< global version definition
+#define DATE              "18.11.2014"  //!< global date definition
+
+#define MUTEX_PRIORITY         4  /*!< Priority for Mutexes */
 
 /**
  * @brief  Initializes the interprocess communication between OutputTask and
  * InputTask
  * @details Transmission is done via global variable and secured by mutex.
- * @param   mutex   Mutex for secured access to variable. Will be created here.
- * @param   data    Pointer to global var. Just to check if var exists and for
- *                  initialize it.
- * @retval  err     System wide error code. "OS_ERR_INVALID_OPT" means param
- *                  was NULL.
+ * @retval  err     System wide error code
  */
-uint8_t init_outputTaskDataTxRx(OS_EVENT* mutex, outputTaskData_t* data);
+uint8_t init_outputTaskDataTxRx(void);
 
 /**
  * @brief  Sends data to ipc channel
- * @details Stores data in global variable
- * @param   mutex   Mutex for secured access to variable. Will be created here.
+ * @details Stores data in global variable. `outputTaskDataMutex` must be
+ *          initialized before.
  * @param   data    Data to store in global var.
  * @retval  err     System wide error code. "OS_ERR_INVALID_OPT" means param
  *                  was NULL.
  */
-uint8_t outputTaskDataTx(OS_EVENT* mutex, outputTaskData_t data);
+uint8_t outputTaskDataTx(outputTaskData_t data);
 
 /**
  * @brief  Received data from ipc channel
- * @details Reads data of global variable
- * @param   mutex   Mutex for secured access to variable. Will be created here.
- * @param   data    Pointer to storage for the data of the global var.
+ * @details Reads data of global variable. `outputTaskDataMutex` must be
+ *          initialized before.
+ * @param   [out] data   Pointer to the content of the global var.
  * @retval  err     System wide error code. "OS_ERR_INVALID_OPT" means param
  *                  was NULL.
  */
-uint8_t outputTaskDataRx(OS_EVENT* mutex, outputTaskData_t *data);
+uint8_t outputTaskDataRx(outputTaskData_t *data);
 
 /**
  * @brief  Initializes terminal output

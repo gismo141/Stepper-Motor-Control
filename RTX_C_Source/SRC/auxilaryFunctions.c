@@ -3,8 +3,8 @@
  * @file        auxilaryFunctions.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0.0
- * @date        11.11.2014
+ * @version     v2.0.0
+ * @date        18.11.2014
  * @brief       Collection of auxilary functions, mainly output functions
  *****************************************************************************
  * @par History:
@@ -20,6 +20,9 @@
  * @details     v1.1.0 14.11.2014 Kossmann
  *              - implemented init rx,tx functions for access to global ipc var
  *              for transmitting data between UserInput- and UserOuputTask
+ * @details     v2.0.0 18.11.2014 Riedel & Kossmann
+ *              - fixed all global var function parameters
+ *              - verified functionality -> release MS2
  *****************************************************************************
  */
 
@@ -31,57 +34,53 @@ FILE *lcd;  //!< stream to write lcd device
 outputTaskData_t outputTaskData;  //!< Variable for transmitting information from InputTask to OutputTask
 OS_EVENT *outputTaskDataMutex;    //!< Mutex for secured variable acces
 
-uint8_t init_outputTaskDataTxRx(OS_EVENT* mutex, outputTaskData_t* data){
+uint8_t init_outputTaskDataTxRx(void){
   uint8_t err;
   systemState_t systemState = {
       .operationalStatus = FUNCTIONAL,
       .activeUseCase = STOP
   };
 
-  if(NULL == mutex || NULL == data){
-    err = OS_ERR_INVALID_OPT;
-  }else{
-    mutex = OSMutexCreate(3, &err);
-    if(OS_NO_ERR == err){
-      data->ctrlReg = 0;
-      data->stepsReg = 0;
-      data->speedReg = 0;
-      data->systemState = systemState;
-    }
+  outputTaskDataMutex = OSMutexCreate(MUTEX_PRIORITY, &err);
+  if(OS_NO_ERR == err){
+    outputTaskData.ctrlReg = 0;
+    outputTaskData.stepsReg = 0;
+    outputTaskData.speedReg = 0;
+    outputTaskData.systemState = systemState;
   }
   return err;
 }
 
-uint8_t outputTaskDataTx(OS_EVENT* mutex, outputTaskData_t data){
+uint8_t outputTaskDataTx(outputTaskData_t data){
   uint8_t err;
 
-  if(NULL == mutex){
+  if(NULL == outputTaskDataMutex){
     err = OS_ERR_INVALID_OPT;
   }else
-    OSMutexPend(mutex, 0, &err);
+    OSMutexPend(outputTaskDataMutex, 0, &err);
     if(OS_NO_ERR == err){
       outputTaskData.ctrlReg = data.ctrlReg;
       outputTaskData.speedReg = data.speedReg;
       outputTaskData.stepsReg = data.stepsReg;
       outputTaskData.systemState = data.systemState;
-      err = OSMutexPost(mutex);
+      err = OSMutexPost(outputTaskDataMutex);
     }
     return err;
 }
 
-uint8_t outputTaskDataRx(OS_EVENT* mutex, outputTaskData_t *data){
+uint8_t outputTaskDataRx(outputTaskData_t *data){
   uint8_t err;
 
-  if(NULL == mutex || NULL == data){
+  if(NULL == outputTaskDataMutex || NULL == data){
     err = OS_ERR_INVALID_OPT;
   }else
-    OSMutexPend(mutex, 0, &err);
+    OSMutexPend(outputTaskDataMutex, 0, &err);
     if(OS_NO_ERR == err){
       data->ctrlReg = outputTaskData.ctrlReg;
       data->stepsReg = outputTaskData.stepsReg;
       data->speedReg = outputTaskData.speedReg;
       data->systemState = outputTaskData.systemState;
-      err = OSMutexPost(mutex);
+      err = OSMutexPost(outputTaskDataMutex);
     }
     return err;
 }

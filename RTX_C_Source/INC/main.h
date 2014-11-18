@@ -3,8 +3,8 @@
  * @file       main.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0.0
- * @date       11.11.2014
+ * @version    v2.0.0
+ * @date       18.11.2014
  * @brief      Header file for main.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
@@ -20,13 +20,13 @@
  *             - corrected misspelled heartbeatTask
  * @details    v1.0.0 11.11.2014 Riedel & Kossmann
  *             - added INTERRUPT_ENABLE define to enable motor interrupt
+ * @details    v2.0.0 18.11.2014 Riedel & Kossmann
+ *             - moved INTERRUPT_ENABLE to userInputTask.h
  ****************************************************************************
  */
 
 #ifndef __MAIN_H__
 #define __MAIN_H__
-
-#define INTERRUPT_ENABLE                //!< global interrupts are enabled (1) or disabled (0)
 
 #include <sys/alt_irq.h>
 #include <stdio.h>

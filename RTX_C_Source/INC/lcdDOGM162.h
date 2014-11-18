@@ -3,8 +3,8 @@
  * @file      lcdDOGM162.h
  * @author    Johann Mayr
  * @author    Prof. Dr.-Ing. Ferdinand Englberger
- * @version   V2.0.0
- * @date      25.03.2014
+ * @version   V2.0.1
+ * @date      05.11.2014
  * @copyright 2011 - 2014 UniBw M - ETTI - WE 4
  * @brief     Header for Initialization program for LCD DOGM162.
  *            Qsys uses Altera LCD component "altera_avalon_lcd_16207".
@@ -13,6 +13,8 @@
  *            function has to be called before the display can be used.
  *************************************************************************
  * @par History:
+ *  @details  V2.0.1 05.11.2014 Michael Riedel
+ *            - added functions for better lcd-usage from script (p. 1-122)
  *  @details  V2.0.0 Ferdinand Englberger
  *            - comments in english
  *            - Remove all functions, but initialization function
@@ -23,8 +25,6 @@
  *            - Initial version
  *  @details  V1.0 20.12.2011 Johann Mayr
  *            - Initial version
- *  @details  05.11.2014 Michael Riedel
- *            - added functions for better lcd-usage from script (p. 1-122)
  **************************************************************************
  */
 

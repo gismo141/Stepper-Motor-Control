@@ -2,8 +2,8 @@
 --! @file register_interface_tb.vhd
 --! @author  	Marc Kossmann
 --! @author  	Michael Riedel
---! @version 	v0.1.0
---! @date    	07.11.2014
+--! @version 	v1.0.0
+--! @date    	18.11.2014
 --!
 --! @brief 		Testbench for Register Component
 --! @details 	Tests full functionality of component
@@ -12,6 +12,8 @@
 --!          	- first draft
 --! @details 	v0.1.1 07.11.2014 Kossmann
 --!          	- finished reset_n task
+--! @details    v1.0.0 18.11.2014 Riedel & Kossmann
+--!				- verified functionality -> release MS2
 -----------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -20,9 +22,9 @@ LIBRARY ieee  ;
 USE ieee.std_logic_1164.all  ; 
 --! Use Conversion Functions
 USE ieee.STD_LOGIC_SIGNED.all  ; 
+
+--! @brief    Entity of testbench for register_interface
 ENTITY register_interface_tb  IS 
-  GENERIC (
-    MyParameter  : INTEGER   := 42 );  --! Dummyparameter (Demo)
 END ; 
  
  

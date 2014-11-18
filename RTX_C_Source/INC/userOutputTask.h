@@ -3,8 +3,8 @@
  * @file       userOutputTask.h
  * @author     Michael Riedel
  * @author     Marc Kossmann
- * @version    v1.0.0
- * @date       11.11.2014
+ * @version    v2.0.0
+ * @date       18.11.2014
  * @brief      Header file for userOutputTask.c
  * @details    Contains defines, includes, typedefs and declarations needed
  *             for this task.
@@ -16,6 +16,8 @@
  *             - added debug and error handling header
  * @details    v1.0.1 13.11. Kossmann
  *             - moved all own data types to dataTypes.h
+ * @details    v2.0.0 18.11.2014 Riedel & Kossmann
+ *             - verified functionality -> release MS2
  *****************************************************************************
  */
 

@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 14.0 209 (Future versions may contain additional information.) -->
- <!-- 2014.11.14.11:50:24 -->
+ <!-- 2014.11.18.10:00:45 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1415962224</value>
+  <value>1416301245</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -483,7 +483,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.ICACHE_SIZE</name>
-   <value>4096</value>
+   <value>1024</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.INST_ADDR_WIDTH</name>
@@ -571,7 +571,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.icache-size</name>
-   <value>4096</value>
+   <value>1024</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -1171,7 +1171,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="icache_size">
    <type>int</type>
-   <value>4096</value>
+   <value>1024</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -1227,7 +1227,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="debug_level">
    <type>java.lang.String</type>
-   <value>Level1</value>
+   <value>Level2</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -3219,7 +3219,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1415962224</value>
+   <value>1416301245</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -3239,7 +3239,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1415962224</value>
+   <value>1416301245</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -3255,7 +3255,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1415962224</value>
+   <value>1416301245</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -20684,6 +20684,33 @@ parameters are a RESULT of the module parameters. -->
   <endModule>registers</endModule>
   <endConnectionPoint>clock</endConnectionPoint>
  </connection>
+ <connection
+   name="clk_50MHz.clk_reset/registers.reset"
+   kind="reset"
+   version="14.0"
+   start="clk_50MHz.clk_reset"
+   end="registers.reset">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>clk_50MHz</startModule>
+  <startConnectionPoint>clk_reset</startConnectionPoint>
+  <endModule>registers</endModule>
+  <endConnectionPoint>reset</endConnectionPoint>
+ </connection>
  <plugin>
   <instanceCount>1</instanceCount>
   <name>clock_source</name>
@@ -20917,7 +20944,7 @@ parameters are a RESULT of the module parameters. -->
   <version>14.0</version>
  </plugin>
  <plugin>
-  <instanceCount>33</instanceCount>
+  <instanceCount>34</instanceCount>
   <name>reset</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>

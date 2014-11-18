@@ -3,8 +3,8 @@
  * @file        userInputTask.c
  * @author      Michael Riedel
  * @author      Marc Kossmann
- * @version     v1.0.0
- * @date        11.11.2014
+ * @version     v2.0.0
+ * @date        18.11.2014
  * @brief       Source code for User-Input-Task which is highest instance, reacts
  *              to user input and controls register and hardware access
  *****************************************************************************
@@ -39,6 +39,10 @@
  *              - removed registerMutex because no longer needed with real
  *              registers
  *              - moved init IPC global var to main
+ * @details     v2.0.0 18.11.2014 Riedel & Kossmann
+ *              - removed unnecessary wait
+ *              - added flag posting for GLOB_VAR_UPDATE @see events.h
+ *              - verified functionality -> release MS2
  *****************************************************************************
  */
 
@@ -46,15 +50,14 @@
 
 extern OS_FLAG_GRP *userInputTaskFlagsGrp;
 extern OS_FLAG_GRP *heartbeatTaskFlagsGrp;
-
-extern OS_EVENT *outputTaskDataMutex;
+extern OS_FLAG_GRP *userOutputTaskFlagsGrp;
 
 void UserInputTask(void *pdata) {
   uint8_t err;
   uint32_t modeBits;
   OS_FLAGS newFlag;
 
-  bool newInput = false;
+  bool newInput = true;
 
   // used to check for stepsReg update
   uint32_t oldStepsReg = 0;
@@ -64,18 +67,12 @@ void UserInputTask(void *pdata) {
   uint32_t stepsReg = 0;
 
   //declare and initialize local systemState
-  systemState_t systemState = {
-      .operationalStatus = FUNCTIONAL,
-      .activeUseCase = STOP
-  };
+  systemState_t systemState = { .operationalStatus = FUNCTIONAL,
+      .activeUseCase = STOP };
 
   //local outputTaskData
-  outputTaskData_t outputTaskDataLocal = {
-      .ctrlReg = 0,
-      .speedReg = 0,
-      .stepsReg = 0,
-      .systemState = systemState
-  };
+  outputTaskData_t outputTaskDataLocal = { .ctrlReg = 0, .speedReg = 0,
+      .stepsReg = 0, .systemState = systemState };
 
   // variable to store position of switches
   uint32_t switchesReg = 0;
@@ -94,9 +91,9 @@ void UserInputTask(void *pdata) {
   fflush_lcd();
 
   // Enable Interrupt
-  #ifdef INTERRUPT_ENABLE
-    ctrlRegBitSet(CTRL_REG_IE_MSK);
-  #endif
+#ifdef INTERRUPT_ENABLE
+  ctrlRegBitSet(CTRL_REG_IE_MSK);
+#endif
   ctrlRegBitClr(CTRL_REG_IR_MSK);
 
   while (1) {
@@ -108,8 +105,8 @@ void UserInputTask(void *pdata) {
     newFlag =
         OSFlagPend(userInputTaskFlagsGrp,
             (KEY0_RS_EVENT | KEY2_MINUS_EVENT | KEY3_PLUS_EVENT
-                | MOTOR_STOP_EVENT| SW_UPDATE_EVENT), OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME,
-            10, &err);
+                | MOTOR_STOP_EVENT | SW_UPDATE_EVENT),
+            OS_FLAG_WAIT_SET_ANY + OS_FLAG_CONSUME, 10, &err);
     if (OS_NO_ERR == err) {
       newInput = true;
       // check for key0 event
@@ -165,16 +162,14 @@ void UserInputTask(void *pdata) {
       }
       if (switchesReg & PIO_SW_DEBUG_MSK) {
         systemState.operationalStatus = DEBUG;
-        OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET,
-            &err);
+        OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_ON_EVENT, OS_FLAG_SET, &err);
         if (OS_NO_ERR != err) {
           error("INPUT_TASK_FLAG_ERR: %i\n", err);
         }
       } else {
-        if(systemState.operationalStatus == DEBUG){
+        if (systemState.operationalStatus == DEBUG) {
           systemState.operationalStatus = FUNCTIONAL;
-          OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_OFF_EVENT, OS_FLAG_SET,
-              &err);
+          OSFlagPost(heartbeatTaskFlagsGrp, DEBUG_OFF_EVENT, OS_FLAG_SET, &err);
           if (OS_NO_ERR != err) {
             error("INPUT_TASK_FLAG_ERR: %i\n", err);
           }
@@ -184,7 +179,7 @@ void UserInputTask(void *pdata) {
 
     // change systemState when Run-Bit = 1
     if (ctrlReg & CTRL_REG_RS_MSK) {
-      modeBits = ((ctrlReg & CTRL_REG_MODE_MSK)>>2);
+      modeBits = ((ctrlReg & CTRL_REG_MODE_MSK) >> 2);
       if ((modeBits & MODE_STOP_CON_RUN_MSK) == MODE_STOP) {
         systemState.activeUseCase = STOP;
       } else if ((modeBits & MODE_STOP_CON_RUN_MSK) == MODE_CON_RUN) {
@@ -200,19 +195,21 @@ void UserInputTask(void *pdata) {
       }
     }
     // new user input or stepsReg updated when motor running
-    if (newInput | ((ctrlReg & CTRL_REG_RS_MSK) & (oldStepsReg != stepsReg))){
+    if (newInput | ((ctrlReg & CTRL_REG_RS_MSK) & (oldStepsReg != stepsReg))) {
       // update content of mailbox to outputTask
       outputTaskDataLocal.ctrlReg = ctrlReg;
       outputTaskDataLocal.speedReg = speedReg;
-      // wait 1 second when steps reg updated
-      if((ctrlReg & CTRL_REG_RS_MSK) & (oldStepsReg != stepsReg)){
-        oldStepsReg = stepsReg;
-        outputTaskDataLocal.stepsReg = stepsReg;
-      }
+      oldStepsReg = stepsReg;
+      outputTaskDataLocal.stepsReg = stepsReg;
       outputTaskDataLocal.systemState = systemState;
-      outputTaskDataTx(outputTaskDataMutex, outputTaskDataLocal);
+      err = outputTaskDataTx(outputTaskDataLocal);
       if (OS_NO_ERR != err) {
         error("INPUT_TASK_GLOB_VAR_ERR: %i\n", err);
+      } else {
+        OSFlagPost(userOutputTaskFlagsGrp, GLOB_VAR_UPDATE, OS_FLAG_SET, &err);
+        if (OS_NO_ERR != err) {
+          error("INPUT_TASK_FLAG_ERR: %i\n", err);
+        }
       }
       // write values of register copies into real registers
       ctrlRegBitClr(CTRL_REG_0_6_MSK);

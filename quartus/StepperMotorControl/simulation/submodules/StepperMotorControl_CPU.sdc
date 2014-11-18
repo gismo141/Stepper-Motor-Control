@@ -51,3 +51,6 @@ set_false_path -from [get_keepers *$StepperMotorControl_CPU_ocimem_path|*MonDReg
 set_false_path -from *$StepperMotorControl_CPU_jtag_sr*    -to *$StepperMotorControl_CPU_jtag_sysclk_path|*jdo*
 set_false_path -from sld_hub:*|irf_reg* -to *$StepperMotorControl_CPU_jtag_sysclk_path|ir*
 set_false_path -from sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1] -to *$StepperMotorControl_CPU_oci_debug_path|monitor_go
+set_false_path -from [get_keepers *$StepperMotorControl_CPU_oci_break_path|dbrk_hit?_latch] -to [get_keepers *$StepperMotorControl_CPU_jtag_sr*]
+set_false_path -from [get_keepers *$StepperMotorControl_CPU_oci_break_path|trigbrktype] -to [get_keepers *$StepperMotorControl_CPU_jtag_sr*]
+set_false_path -from [get_keepers *$StepperMotorControl_CPU_oci_break_path|trigger_state] -to [get_keepers *$StepperMotorControl_CPU_jtag_sr*]

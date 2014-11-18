@@ -2,8 +2,8 @@
 --! @file         register_interface.vhd
 --! @author       Marc Kossmann
 --! @author       Michael Riedel
---! @version      v0.1.0
---! @date         06.11.2014
+--! @version      v1.0.0
+--! @date         18.11.2014
 --!
 --! @brief        Register component
 --! @details      Provides the `ctrlReg`, `speedReg`, `stepsReg` registers.
@@ -26,6 +26,8 @@
 --! @details      v0.1.2 17.11.2014 Riedel
 --!               - corrected formatting
 --!               - improved documentation
+--! @details      v1.0.0 18.11.2014 Riedel & Kossmann
+--!				  - verified functionality -> release MS2
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -37,11 +39,6 @@ USE ieee.std_logic_signed.all;
 
 --! @brief Register Interfact-Component
 entity register_interface is
-  generic
-  (
-    MyParameter : integer RANGE 0 TO 100  := 42       --! Dummyparameter (Demo)
-  );
-
   port
   (
     clock       : in  std_logic;                      --! Avalon clock

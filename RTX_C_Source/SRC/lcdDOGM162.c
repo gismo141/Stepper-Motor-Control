@@ -3,8 +3,8 @@
  * @file      lcdDOGM162.c
  * @author    Johann Mayr
  * @author    Prof. Dr.-Ing. Ferdinand Englberger
- * @version   V2.0.0
- * @date      25.03.2014
+ * @version   V2.0.2
+ * @date      06.11.2014
  * @copyright 2011 - 2014 UniBw M - ETTI - WE 4
  * @brief     Initialization program for LCD DOGM162. Qsys uses Altera
  *            LCD component "altera_avalon_lcd_16207".
@@ -13,6 +13,11 @@
  *            function has to be called before the display can be used.
  *************************************************************************
  * @par History:
+ *  @details  V2.0.2 06.11.2014 Kossmann
+ *            - moved clear, set-position functionality into
+ *              auxilaryFunctions.c because stream not available here
+ *  @details  V2.0.1 06.11.2014 Riedel
+ *            - Created defines for init-codes and moved to header
  *  @details  V2.0.0 Ferdinand Englberger
  *            - comments in english
  *            - Remove all functions, but initialization function
@@ -23,11 +28,6 @@
  *            - Initial version
  *  @details  V1.0 20.12.2011 Johann Mayr
  *            - Initial version
- *  @details  06.11.2014 Riedel
- *            - Created defines for init-codes and moved to header
- *  @details  06.11.2014 Kossmann
- *            - moved clear, set-position functionality into
- *              auxilaryFunctions.c because stream not available here
  **************************************************************************
  */
 

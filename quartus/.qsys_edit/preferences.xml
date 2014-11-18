@@ -9,15 +9,15 @@
    <name preferredWidth="216" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project/User Components,Project" />
+ <library expandedCategories="Project,Library,Project/User Components" />
  <window width="1936" height="1176" x="-8" y="-8" />
  <hdlexample language="VHDL" />
  <generation synthesis="VHDL" path="_PROJECT_NAME_" simulation="VHDL" />
  <clocktable>
   <columns>
-   <clockname preferredWidth="498" />
-   <clocksource preferredWidth="495" />
-   <frequency preferredWidth="486" />
+   <clockname preferredWidth="495" />
+   <clocksource preferredWidth="494" />
+   <frequency preferredWidth="490" />
   </columns>
  </clocktable>
 </preferences>
