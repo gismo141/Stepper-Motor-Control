@@ -80,44 +80,76 @@ begin
   process(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ctrlSetReg, 
         ctrlClrReg, speedReg, stepsReg) 
   begin
+  
+  -- ctrlSetReg Register Write
   if (reset_n = '0') then
-    ctrlReg(7 downto 0)     <= (others => '0');
-    ctrlSetReg(7 downto 0)  <= (others => '0');
-    ctrlClrReg(7 downto 0)  <= (others => '0');
-    speedReg(2 downto 0)    <= (others => '0');
-    stepsReg(31 downto 0)   <= (others => '0');
-    read_data(31 downto 0)  <= (others => '0');
+    ctrlSetReg <= (others => '0');
   elsif (rising_edge(clock)) then
-    -- Processor writes to Register
-    if (write_n = '0' AND ce_n = '0') then
-      case addr is
-      when B"000" =>
-        ctrlReg <= write_data(7 downto 0);
-      when B"001" =>
-        ctrlSetReg <= write_data(7 downto 0);
-      when B"010" =>
-        ctrlClrReg <= write_data(7 downto 0);
-      when B"011" =>
-        speedReg <= write_data(2 downto 0);
-      when B"100" =>
-        stepsReg <= write_data(31 downto 0);
-      when others =>
-      end case;
+	  if (addr = B"001" AND write_n = '0' AND ce_n = '0') then
+      ctrlSetReg <= write_data(7 downto 0);
+    else
+      ctrlSetReg <= ctrlSetReg;
     end if;
-    
+  end if; 
+  
+  -- ctrlClrReg Register Write
+  if (reset_n = '0') then
+    ctrlClrReg <= (others => '0');
+  elsif (rising_edge(clock)) then
+	  if (addr = B"010" AND write_n = '0' AND ce_n = '0') then
+      ctrlClrReg <= write_data(7 downto 0);
+    else
+      ctrlClrReg <= ctrlClrReg;
+    end if;
+  end if;
+  
+  -- ctrlReg Register Write
+  if (reset_n = '0') then
+    ctrlReg <= (others => '0');
+  elsif (rising_edge(clock)) then
+	  if (addr = B"000" AND write_n = '0' AND ce_n = '0') then
+      ctrlReg <= write_data(7 downto 0);
+    else
+      ctrlReg <= ctrlReg;
+    end if;
     -- set and clear functionality for ctrlReg
     if (CONV_INTEGER(ctrlSetReg) /= 0) then
       ctrlReg <= ctrlReg or ctrlSetReg;
       ctrlSetReg <= (others => '0');
     end if;
-    
+      
     if (CONV_INTEGER(ctrlClrReg) /= 0) then
       ctrlReg <= ctrlReg and (not ctrlClrReg);
       ctrlClrReg <= (others => '0');
     end if;
-    
+  end if; 
+  
+  -- speedReg Register Write
+  if (reset_n = '0') then
+    speedReg <= (others => '0');
+  elsif (rising_edge(clock)) then
+	  if (addr = B"011" AND write_n = '0' AND ce_n = '0') then
+      speedReg <= write_data(2 downto 0);
+    else
+      speedReg <= speedReg;
+    end if;
+  end if; 
+  
+  -- stepsReg Register Write
+  if (reset_n = '0') then
+    stepsReg <= (others => '0');
+  elsif (rising_edge(clock)) then
+	  if (addr = B"100" AND write_n = '0' AND ce_n = '0') then
+      stepsReg <= write_data(31 downto 0);
+    else
+      stepsReg <= stepsReg;
+    end if;
   end if;
-
+  
+  if(reset_n = '0') then
+    read_data <= (others => '0');
+  end if;
+  
   -- Processor reads from Register
   if (read_n = '0' AND ce_n = '0') then
     read_data <= (others => '0'); -- unused bits to 0
