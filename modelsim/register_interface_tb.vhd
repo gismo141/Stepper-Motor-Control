@@ -44,19 +44,33 @@ ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
   SIGNAL write_data   :  std_logic_vector (31 downto 0) := (others => '0')  ; 
   SIGNAL irq          :  STD_LOGIC := '0' ; 
   SIGNAL read_data    :  std_logic_vector (31 downto 0) := (others => '0')  ; 
+  SIGNAL run		        :  std_logic := '0' ;						          
+  SIGNAL direction    :  std_logic := '0' ;						         
+  SIGNAL mode         :  std_logic_vector(3 downto 0) := (others => '0') ;  
+  SIGNAL speed        :  std_logic_vector(2 downto 0) := (others => '0') ;
+  SIGNAL steps        :  std_logic_vector(31 downto 0) := (others => '0') ;
+  SIGNAL ir           :  std_logic := '0' ;
+  
   COMPONENT register_interface  
     PORT ( 
-      write_n  : in STD_LOGIC ; 
-      greenleds  : out std_logic_vector (7 downto 0) ; 
-      addr  : in std_logic_vector (2 downto 0) ; 
-      clock  : in STD_LOGIC ; 
-      ce_n  : in STD_LOGIC ; 
-      reset_n  : in STD_LOGIC ; 
-      read_n  : in STD_LOGIC ; 
-      redleds  : out std_logic_vector (7 downto 0) ; 
-      write_data  : in std_logic_vector (31 downto 0) ; 
-      irq  : out STD_LOGIC ; 
-      read_data  : out std_logic_vector (31 downto 0) ); 
+      clock         : in  std_logic;                      --! Avalon clock
+      reset_n       : in  std_logic;                      --! Avalon reset the component
+      ce_n          : in  std_logic;                      --! Avalon chip enable
+      read_n        : in  std_logic;                      --! Avalon set read-request
+      write_n       : in  std_logic;                      --! Avalon set write-request
+      addr          : in  std_logic_vector (2 downto 0);  --! Avalon address bus (selects the register)
+      write_data    : in  std_logic_vector (31 downto 0); --! Avalon write data to selected register
+      read_data     : out std_logic_vector (31 downto 0); --! Avalon read data from selected register       
+      irq           : out std_logic;                      --! Avalon IRQ line
+      greenleds     : out std_logic_vector (7 downto 0);  --! external: green leds
+      redleds       : out std_logic_vector (7 downto 0);  --! external: red leds
+      run		         : out std_logic;						                --! enable signal for mcu
+      direction     : out std_logic;						                --! direction signal for mcu
+      mode          : out std_logic_vector(3 downto 0);   --! output of Mode bits for mcu
+      speed         : out std_logic_vector(2 downto 0);   --! output of speedReg for mcu
+      steps         : in std_logic_vector(31 downto 0);   --! input for stepsReg for mcu
+      ir            : in std_logic                        --! input request of mcu
+      );
   END COMPONENT ; 
 BEGIN
   DUT  : register_interface  
@@ -71,7 +85,12 @@ BEGIN
       redleds   => redleds  ,
       write_data   => write_data  ,
       irq   => irq  ,
-      read_data   => read_data   ) ; 
+      run   => run,
+      direction   => direction,
+      mode   => mode,
+      speed   => speed,
+      steps   => steps,
+      ir   => ir   ) ; 
       
     
     -- first test if all registers can be written
@@ -92,11 +111,16 @@ BEGIN
                                   -- reset; now testing set and clear functionality
             "000" after 150 ns,   -- ctrlReg
             "001" after 170 ns,   -- ctrlSetReg
-            "010" after 190 ns;   -- ctrlClrReg
+            "010" after 190 ns,   -- ctrlClrReg
+            "000" after 200 ns,   -- ctrlReg
+            "111" after 230 ns;   -- reserved
     write_data(7 downto 0) <= "11111111" after 30 ns,   
                               "10101010" after 150 ns,
                               "01010101" after 170 ns,
-                              "10101010" after 190 ns;
+                              "10101010" after 190 ns,
+                              "00000000" after 210 ns;
+    steps(15 downto 8)     <= "11111111" after 130 ns;
+    ir                     <= '1' after 130 ns;
     
     finish_sim_time :process
     begin

@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 14.0 209 (Future versions may contain additional information.) -->
- <!-- 2014.11.18.10:00:45 -->
+ <!-- 2014.11.21.11:55:58 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1416301245</value>
+  <value>1416567358</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -3219,7 +3219,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1416301245</value>
+   <value>1416567358</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -3239,7 +3239,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1416301245</value>
+   <value>1416567358</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -3255,7 +3255,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1416301245</value>
+   <value>1416567358</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -17641,14 +17641,6 @@ parameters are a RESULT of the module parameters. -->
    path="registers">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
-  <parameter name="MyParameter">
-   <type>int</type>
-   <value>42</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
   <parameter name="AUTO_CLOCK_CLOCK_RATE">
    <type>java.lang.Long</type>
    <value>100000000</value>
@@ -18209,6 +18201,42 @@ parameters are a RESULT of the module parameters. -->
     <direction>Output</direction>
     <width>8</width>
     <role>greenleds</role>
+   </port>
+   <port>
+    <name>speed</name>
+    <direction>Output</direction>
+    <width>3</width>
+    <role>speed</role>
+   </port>
+   <port>
+    <name>steps</name>
+    <direction>Input</direction>
+    <width>32</width>
+    <role>steps</role>
+   </port>
+   <port>
+    <name>ir</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>ir</role>
+   </port>
+   <port>
+    <name>run</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>run</role>
+   </port>
+   <port>
+    <name>direction</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>direction</role>
+   </port>
+   <port>
+    <name>mode</name>
+    <direction>Output</direction>
+    <width>4</width>
+    <role>mode</role>
    </port>
   </interface>
   <interface name="interrupt_request" kind="interrupt_sender" version="14.0">

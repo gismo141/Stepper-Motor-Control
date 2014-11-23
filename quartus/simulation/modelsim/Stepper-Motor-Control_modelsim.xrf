@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, S:/SoC04/Stepper-Motor-Control/modelsim/register_interface_tb.vhd
 source_file = 1, S:/SoC04/Stepper-Motor-Control/quartus/IP/register_interface/register_interface.vhd
 source_file = 1, S:/SoC04/Stepper-Motor-Control/RTX_VHDL_Base/interface_RTX_Base.vhd
 source_file = 1, S:/SoC04/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/StepperMotorControl.qip

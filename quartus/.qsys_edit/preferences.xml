@@ -9,7 +9,7 @@
    <name preferredWidth="216" />
   </columns>
  </systemtable>
- <library expandedCategories="Project,Library,Project/User Components" />
+ <library expandedCategories="Library,Project,Project/User Components" />
  <window width="1936" height="1176" x="-8" y="-8" />
  <hdlexample language="VHDL" />
  <generation synthesis="VHDL" path="_PROJECT_NAME_" simulation="VHDL" />
