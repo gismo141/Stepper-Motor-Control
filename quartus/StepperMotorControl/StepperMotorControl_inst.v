@@ -19,12 +19,6 @@
 		.hex3_export    (<connected-to-hex3_export>),    //  hex3.export
 		.led9_export    (<connected-to-led9_export>),    //  led9.export
 		.leds_redleds   (<connected-to-leds_redleds>),   //  leds.redleds
-		.leds_greenleds (<connected-to-leds_greenleds>), //      .greenleds
-		.leds_speed     (<connected-to-leds_speed>),     //      .speed
-		.leds_steps     (<connected-to-leds_steps>),     //      .steps
-		.leds_ir        (<connected-to-leds_ir>),        //      .ir
-		.leds_run       (<connected-to-leds_run>),       //      .run
-		.leds_direction (<connected-to-leds_direction>), //      .direction
-		.leds_mode      (<connected-to-leds_mode>)       //      .mode
+		.leds_greenleds (<connected-to-leds_greenleds>)  //      .greenleds
 	);
 

@@ -1,0 +1,21 @@
+<interfaceDefinition version='1.2' language='vhdl' kind='component' name='count_5ms'>
+  <useClause path='ieee.std_logic_1164.all' />
+    <macroList>
+
+      <macro name='max' type='INTEGER' kind='' baseType='integer' initializer='250000' />
+
+    </macroList>
+    <portList>
+
+      <port name='clock' direction='in' type='STD_LOGIC' kind='' />
+      <port name='reset_n' direction='in' type='STD_LOGIC' kind='' />
+      <port name='enable' direction='in' type='STD_LOGIC' kind='' />
+      <port name='clock5ms' direction='out' type='INTEGER' kind='subtype' library='work' package='count_5ms' />
+
+    </portList>
+
+    <typeDefinition>
+      <type name='_anon' kind='subtype' baseType='integer' range='0 to max' library='work' package='count_5ms' />
+
+    </typeDefinition>
+</interfaceDefinition>

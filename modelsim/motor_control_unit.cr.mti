@@ -1,0 +1,17 @@
+C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/count_5ms/count_5ms.vhd {1 {vcom -work work -2002 -explicit C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/count_5ms/count_5ms.vhd
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity count_5ms
+-- Compiling architecture my_count_5ms of count_5ms
+
+} {} {}} count_5ms_tb.vhd {1 {vcom -work work -2002 -explicit C:/Users/mpeg/Desktop/Stepper-Motor-Control/modelsim/count_5ms_tb.vhd
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity count_5ms_tb
+-- Compiling architecture count_5ms_tb_arch of count_5ms_tb
+
+} {} {}}

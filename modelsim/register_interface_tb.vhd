@@ -14,6 +14,8 @@
 --!          	- finished reset_n task
 --! @details    v1.0.0 18.11.2014 Riedel & Kossmann
 --!				- verified functionality -> release MS2
+--! @details    v1.0.1 23.11.2014 Riedel & Kossmann
+--!				- added test of reserved mode
 -----------------------------------------------------------------------------
 
 --! Use Standard Library

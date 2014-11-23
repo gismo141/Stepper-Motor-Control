@@ -20,13 +20,7 @@
 			hex3_export    : out   std_logic_vector(6 downto 0);                     -- export
 			led9_export    : out   std_logic;                                        -- export
 			leds_redleds   : out   std_logic_vector(7 downto 0);                     -- redleds
-			leds_greenleds : out   std_logic_vector(7 downto 0);                     -- greenleds
-			leds_speed     : out   std_logic_vector(2 downto 0);                     -- speed
-			leds_steps     : in    std_logic_vector(31 downto 0) := (others => 'X'); -- steps
-			leds_ir        : in    std_logic                     := 'X';             -- ir
-			leds_run       : out   std_logic;                                        -- run
-			leds_direction : out   std_logic;                                        -- direction
-			leds_mode      : out   std_logic_vector(3 downto 0)                      -- mode
+			leds_greenleds : out   std_logic_vector(7 downto 0)                      -- greenleds
 		);
 	end component StepperMotorControl;
 
@@ -52,12 +46,6 @@
 			hex3_export    => CONNECTED_TO_hex3_export,    --  hex3.export
 			led9_export    => CONNECTED_TO_led9_export,    --  led9.export
 			leds_redleds   => CONNECTED_TO_leds_redleds,   --  leds.redleds
-			leds_greenleds => CONNECTED_TO_leds_greenleds, --      .greenleds
-			leds_speed     => CONNECTED_TO_leds_speed,     --      .speed
-			leds_steps     => CONNECTED_TO_leds_steps,     --      .steps
-			leds_ir        => CONNECTED_TO_leds_ir,        --      .ir
-			leds_run       => CONNECTED_TO_leds_run,       --      .run
-			leds_direction => CONNECTED_TO_leds_direction, --      .direction
-			leds_mode      => CONNECTED_TO_leds_mode       --      .mode
+			leds_greenleds => CONNECTED_TO_leds_greenleds  --      .greenleds
 		);
 

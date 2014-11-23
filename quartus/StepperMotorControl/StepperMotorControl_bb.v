@@ -20,13 +20,7 @@ module StepperMotorControl (
 	hex3_export,
 	led9_export,
 	leds_redleds,
-	leds_greenleds,
-	leds_speed,
-	leds_steps,
-	leds_ir,
-	leds_run,
-	leds_direction,
-	leds_mode);	
+	leds_greenleds);	
 
 	input		reset_reset_n;
 	input		clk_clk;
@@ -49,10 +43,4 @@ module StepperMotorControl (
 	output		led9_export;
 	output	[7:0]	leds_redleds;
 	output	[7:0]	leds_greenleds;
-	output	[2:0]	leds_speed;
-	input	[31:0]	leds_steps;
-	input		leds_ir;
-	output		leds_run;
-	output		leds_direction;
-	output	[3:0]	leds_mode;
 endmodule
