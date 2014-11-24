@@ -17,8 +17,6 @@
 --!               |  `010`  |`ctrlClrReg`|
 --!               |  `011`  |`speedReg`  |
 --!               |  `100`  |`stepsReg`  |     
---!
---! @par History:
 --! @par History:
 --! @details      v0.1.0 06.11.2014 Kossmann
 --!               - first draft
