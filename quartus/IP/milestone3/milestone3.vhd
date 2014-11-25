@@ -14,6 +14,8 @@
 --!               - corrected formatting
 --!               - corrected directions for `debug_key_detect`-component
 --!               - added signals and connected the three components
+--! @details      v0.1.2 25.11.2014 Riedel & Kossmann
+--!               - changed entitiy according to pin-assignments
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -22,20 +24,20 @@ LIBRARY ieee;
 USE ieee.STD_LOGIC_1164.all;
 
 --! @brief Milestone 3
-entity milestone3 is
+ENTITY milestone3 is
   port(
     CLOCK_50_B5B      : IN  STD_LOGIC;                      --! component clock
     CPU_RESET_n       : IN  STD_LOGIC;                      --! resets the component
-    SW		          : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);          
+    SW                : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);          
     KEY               : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);                   
-    HSMC_RX_P         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);	--! Motor_pwm1( bit 0 ) and Motor_pwm2( bit 1 )
-	 HSMC_RX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);	--! Motor_pwm3( bit 0 ) and Motor_pwm4( bit 1 )
-    HSMC_TX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0); 	--! Motor_en_a( bit 2 )
+    HSMC_RX_P         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_pwm1( bit 0 ) and Motor_pwm2( bit 1 )
+    HSMC_RX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0); --! Motor_pwm3( bit 0 ) and Motor_pwm4( bit 1 )
+    HSMC_TX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_en_a( bit 2 )
     HSMC_TX_P         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_en_b( bit 3 )
-    LEDG         		 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-    LEDR		          : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)           
+    LEDG              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    LEDR              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)           
   );
-end milestone3;
+END milestone3;
 
 --! @brief    Architecture of milestone3
 --! @details  used components:
@@ -45,8 +47,8 @@ end milestone3;
 --!           - motor_control_unit
 architecture my_milestone3 of milestone3 is
 
-component debug_key_detect is
-  port(
+COMPONENT debug_key_detect is
+  PORT(
     clock             : IN  STD_LOGIC;                      --! component clock
     reset_n           : IN  STD_LOGIC;                      --! reset of component
     switches          : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);   --! Switches to set registers in register_interface
@@ -56,10 +58,10 @@ component debug_key_detect is
     addr              : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);   --! selects the register to write
     data              : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)   --! data to write to selected register
   );
-end component;
+END COMPONENT;
 
-component register_interface is
-  port
+COMPONENT register_interface is
+  PORT
   (
     clock             : IN  STD_LOGIC;                      --! Avalon clock
     reset_n           : IN  STD_LOGIC;                      --! Avalon reset the component
@@ -79,10 +81,10 @@ component register_interface is
     steps             : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! input for `stepsReg` for mcu
     ir                : IN  STD_LOGIC                       --! input request of mcu
   );
-end component;
+END COMPONENT;
 
-component motor_control_unit is
-  port(
+COMPONENT motor_control_unit is
+  PORT(
     clock             : IN  STD_LOGIC;                      --! component clock
     reset_n           : IN  STD_LOGIC;                      --! resets the component
     run               : IN  STD_LOGIC;                      --! chip enable
@@ -94,7 +96,7 @@ component motor_control_unit is
     steps             : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);  --! number of steps motor did 
     ir                : OUT STD_LOGIC                       --! IR signal set when motor stopped
   );
-end component;
+END COMPONENT;
 
 SIGNAL ce_n_wire      : STD_LOGIC;
 SIGNAL write_n_wire   : STD_LOGIC;
@@ -109,15 +111,15 @@ SIGNAL ir_wire        : STD_LOGIC;
 
 SIGNAL read_n_wire    : STD_LOGIC := '1';                   -- not used
 -- SIGNAL read_data_wire : STD_LOGIC_VECTOR(31 DOWNTO 0)
---								:= (others => 'Z');  					-- not used 
--- SIGNAL irq_wire       : STD_LOGIC := '0';                   -- not used
+--                := (others => 'Z');                       -- not used 
+-- SIGNAL irq_wire       : STD_LOGIC := '0';                -- not used
 
-signal motor_pwm_wire : std_logic_vector(3 downto 0);
-signal motor_en_wire : std_logic_vector(1 downto 0);
+SIGNAL motor_pwm_wire : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL motor_en_wire  : STD_LOGIC_VECTOR(1 DOWNTO 0);
 
-begin
-   debug_inst : component debug_key_detect
-    port map (
+BEGIN
+   debug_inst : COMPONENT debug_key_detect
+    PORT MAP (
       clock           => CLOCK_50_B5B,
       reset_n         => CPU_RESET_n,
       switches        => SW,
@@ -128,8 +130,8 @@ begin
       data            => data_wire
     );
 
-  register_interface_inst : component register_interface
-    port map (
+  register_interface_inst : COMPONENT register_interface
+    PORT MAP (
       clock           => CLOCK_50_B5B,
       reset_n         => CPU_RESET_n,
       ce_n            => ce_n_wire,
@@ -149,8 +151,8 @@ begin
       ir              => ir_wire
     );
 
-  motor_control_unit_inst : component motor_control_unit
-    port map(
+  motor_control_unit_inst : COMPONENT motor_control_unit
+    PORT MAP(
       clock           => CLOCK_50_B5B,
       reset_n         => CPU_RESET_n,
       run             => run_wire,
@@ -162,12 +164,12 @@ begin
       steps           => steps_wire,
       ir              => ir_wire
     );
-	 
-	 HSMC_RX_P(0) 	<= motor_pwm_wire(0);
-	 HSMC_RX_P(1) 	<= motor_pwm_wire(1);
-	 HSMC_RX_N(0) 	<= motor_pwm_wire(2);
-	 HSMC_RX_N(1) 	<= motor_pwm_wire(3);
-	 HSMC_TX_N(2)	<= motor_en_wire(0);
-	 HSMC_TX_P(3)	<= motor_en_wire(1);
-	 
-end my_milestone3;
+   
+   HSMC_RX_P(0)       <= motor_pwm_wire(0);
+   HSMC_RX_P(1)       <= motor_pwm_wire(1);
+   HSMC_RX_N(0)       <= motor_pwm_wire(2);
+   HSMC_RX_N(1)       <= motor_pwm_wire(3);
+   HSMC_TX_N(2)       <= motor_en_wire(0);
+   HSMC_TX_P(3)       <= motor_en_wire(1);
+   
+END my_milestone3;

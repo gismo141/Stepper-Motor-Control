@@ -32,9 +32,9 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
 --! @brief Motor Control Unit 
-entity motor_control_unit is
-  generic ( divider : integer := 250000 ); -- clock(Hz) / clk_out(Hz)
-  port(
+ENTITY motor_control_unit is
+  GENERIC ( divider : integer := 250000 ); -- clock(Hz) / clk_out(Hz)
+  PORT(
     clock           : IN  STD_LOGIC;                      --! component clock
     reset_n         : IN  STD_LOGIC;                      --! resets the component
     run             : IN  STD_LOGIC;                      --! chip enable
@@ -54,19 +54,19 @@ end motor_control_unit;
 --!           - signal_generator
 architecture my_motor_control_unit of motor_control_unit is
 
-component counter is
-  generic ( divider : integer );
-   port
+COMPONENT counter is
+  GENERIC ( divider : integer );
+   PORT
    (
     clock     : IN  STD_LOGIC;
     reset_n   : IN  STD_LOGIC;
     enable    : IN  STD_LOGIC;
     clk_out   : OUT STD_LOGIC
   );
-end component;
+end COMPONENT;
 
-component signal_generator is
-  port
+COMPONENT signal_generator is
+  PORT
   (
     clock     : IN  STD_LOGIC;
     enable    : IN  STD_LOGIC;
@@ -79,36 +79,35 @@ component signal_generator is
     motor_pwm : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     motor_en  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
   );
-end component;
+end COMPONENT;
 
-	signal prescaler_wire : std_logic;
+	SIGNAL prescaler_wire : std_logic;
 
-begin
+BEGIN
 
-	prescaler_inst : component counter
-	generic map ( divider => divider )
-   port map
+	prescaler_inst : COMPONENT counter
+	GENERIC MAP ( divider => divider )
+   PORT MAP
    (
-    clock => clock,
-    reset_n => reset_n,
-    enable => run,
-    clk_out => prescaler_wire
+    clock     => clock,
+    reset_n   => reset_n,
+    enable    => run,
+    clk_out   => prescaler_wire
 	);
 	
-	signal_generator_inst : component signal_generator
-	port map
+	signal_generator_inst : COMPONENT signal_generator
+	PORT MAP
    (
-    clock => clock,
-    enable => prescaler_wire,
-    reset_n => reset_n,
-    mode => mode,
-    speed => speed,
+    clock     => clock,
+    enable    => prescaler_wire,
+    reset_n   => reset_n,
+    mode      => mode,
+    speed     => speed,
     direction => direction,
-    ir => ir,
-    steps => steps,
+    ir        => ir,
+    steps     => steps,
     motor_pwm => motor_pwm,
-    motor_en => motor_en
+    motor_en  => motor_en
    );
-	
     
 end my_motor_control_unit;

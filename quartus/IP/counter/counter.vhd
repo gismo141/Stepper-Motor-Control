@@ -34,7 +34,7 @@ END counter;
 
 architecture counter_arch of counter is
   SIGNAL counter : INTEGER := 0;
-begin
+BEGIN
   count: PROCESS(reset_n, clock, enable)
   BEGIN
     IF(reset_n = '0') THEN
