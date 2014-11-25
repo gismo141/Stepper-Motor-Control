@@ -33,6 +33,7 @@ USE ieee.std_logic_1164.all;
 
 --! @brief Motor Control Unit 
 entity motor_control_unit is
+  generic ( divider : integer := 250000 ); -- clock(Hz) / clk_out(Hz)
   port(
     clock           : IN  STD_LOGIC;                      --! component clock
     reset_n         : IN  STD_LOGIC;                      --! resets the component
@@ -44,7 +45,7 @@ entity motor_control_unit is
     motor_en        : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);   --! both enable signals for the motor
     steps           : OUT STD_LOGIC_VECTOR (31 DOWNTO 0); --! number of steps motor did 
     ir              : OUT STD_LOGIC                       --! IR signal set when motor stopped
-  
+	);
 end motor_control_unit;
 
 --! @brief    Architecture of motor control unit
@@ -54,7 +55,7 @@ end motor_control_unit;
 architecture my_motor_control_unit of motor_control_unit is
 
 component counter is
-  generic ( max : integer := 125000 );
+  generic ( divider : integer );
    port
    (
     clock     : IN  STD_LOGIC;
@@ -78,6 +79,36 @@ component signal_generator is
     motor_pwm : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     motor_en  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
   );
+end component;
+
+	signal prescaler_wire : std_logic;
+
 begin
+
+	prescaler_inst : component counter
+	generic map ( divider => divider )
+   port map
+   (
+    clock => clock,
+    reset_n => reset_n,
+    enable => run,
+    clk_out => prescaler_wire
+	);
+	
+	signal_generator_inst : component signal_generator
+	port map
+   (
+    clock => clock,
+    enable => prescaler_wire,
+    reset_n => reset_n,
+    mode => mode,
+    speed => speed,
+    direction => direction,
+    ir => ir,
+    steps => steps,
+    motor_pwm => motor_pwm,
+    motor_en => motor_en
+   );
+	
     
 end my_motor_control_unit;

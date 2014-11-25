@@ -54,12 +54,12 @@ The development is devided into 4 so-called *milestones*:
 
 ##### 3. Motor-Control-Unit
 
-a) Idea of Design
+[a) Idea of Design](Documentation/Milestone_3a/Meilenstein_3a.md)
   - block-diagram for every component
   - state-diagrams (if necessary)
   - textual representation of the design-idea
 
-b) Isolated Control via DE0 / DE2 - Board-Switches
+[b) Isolated Control via DE0 / DE2 - Board-Switches](Documentation/Milestone_3b/Meilenstein_3b.md)
   - presenting the solution
       + metering of the important speedsteps 0, 1 and 7
       + qualitative presentation of every other speedsteps

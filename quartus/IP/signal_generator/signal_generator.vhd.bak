@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------
+--! @file         signal_generator.vhd
+--! @author       Marc Kossmann
+--! @author       Michael Riedel
+--! @version      v0.1.0
+--! @date         25.11.2014
+--!
+--! @brief        Motor Control Unit
+--! @details      Controls the stepper motor. Communication with NIOS-Processor
+--!               is done via register_interface component.
+--! @details      Motor State-Machine
+--! @par History:
+--! @details      v0.1.0 25.11.2014 Riedel & Kossmann
+--!               - first draft
+-------------------------------------------------------------------------------
+
+--! Use Standard Library
+LIBRARY ieee; 
+--! Use Logic Elements
+USE ieee.std_logic_1164.all;
+
+--! @brief Motor Control Unit 
+entity signal_generator is
+  generic ( divider : integer := 250000 ); -- clock(Hz) / clk_out(Hz)
+  port(
+	clock     : IN  STD_LOGIC;
+	enable    : IN  STD_LOGIC;
+	reset_n   : IN  STD_LOGIC;
+	mode      : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
+	speed     : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+	direction : IN  STD_LOGIC;
+	ir        : OUT STD_LOGIC;
+	steps     : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+	motor_pwm : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	motor_en  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+ );
+end signal_generator;

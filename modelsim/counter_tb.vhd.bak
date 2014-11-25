@@ -1,32 +1,32 @@
 LIBRARY ieee  ; 
 USE ieee.std_logic_1164.all  ; 
-ENTITY count_5ms_tb  IS 
+ENTITY counter_tb  IS 
   GENERIC (
-    max  : INTEGER   := 125000 ); 
+    divider  : INTEGER   := 125000 ); 
 END ; 
  
-ARCHITECTURE count_5ms_tb_arch OF count_5ms_tb IS
+ARCHITECTURE counter_tb_arch OF counter_tb IS
   SIGNAL reset_n    :  STD_LOGIC    := '0'; 
   SIGNAL clock      :  STD_LOGIC    := '0'; 
-  SIGNAL clock5ms   :  STD_LOGIC    := '0'; 
+  SIGNAL clk_out   :  STD_LOGIC    := '0'; 
   SIGNAL enable     :  STD_LOGIC    := '0'; 
-  COMPONENT count_5ms  
+  COMPONENT counter
     GENERIC ( 
-      max  : INTEGER  );  
+      divider  : INTEGER  );  
     PORT ( 
       reset_n  : in STD_LOGIC ; 
       clock  : in STD_LOGIC ; 
-      clock5ms  : out STD_LOGIC ; 
+      clk_out  : out STD_LOGIC ; 
       enable  : in STD_LOGIC ); 
   END COMPONENT ; 
 BEGIN
-  DUT  : count_5ms  
+  DUT  : counter
     GENERIC MAP ( 
-      max  => max   )
+      divider  => divider   )
     PORT MAP ( 
       reset_n   => reset_n  ,
       clock   => clock  ,
-      clock5ms   => clock5ms  ,
+      clk_out   => clk_out  ,
       enable   => enable   ) ;
       
     clock <= not clock after 10 ns;

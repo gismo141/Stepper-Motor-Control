@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+--! @file         debug_key_detect.vhd
+--! @author       Marc Kossmann
+--! @author       Michael Riedel
+--! @version      v0.1.0
+--! @date         25.11.2014
+--!
+--! @brief        Register component
+--! @details      Provides the `ctrlReg`, `speedReg`, `stepsReg` registers.
+--!               The `ctrlReg` can be set and cleared bitwise with the
+--!               `ctrlSetReg` and `ctrlClrReg`.
+--! @par History:
+--! @details      v0.1.0 25.11.2014 Riedel & Kossmann
+--!               - first draft
+-------------------------------------------------------------------------------

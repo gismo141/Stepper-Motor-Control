@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pin_planner>
+	<pin_info>
+		<pin name="DDR2LP_CK_n" source="Assignments" diff_pair_node="DDR2LP_CK_p" >
+		</pin>
+		<pin name="DDR2LP_CK_p" source="Assignments" diff_pair_node="DDR2LP_CK_n" >
+		</pin>
+		<pin name="DDR2LP_DQS_n[0]" source="Assignments" diff_pair_node="DDR2LP_DQS_p[0]" >
+		</pin>
+		<pin name="DDR2LP_DQS_n[1]" source="Assignments" diff_pair_node="DDR2LP_DQS_p[1]" >
+		</pin>
+		<pin name="DDR2LP_DQS_n[2]" source="Assignments" diff_pair_node="DDR2LP_DQS_p[2]" >
+		</pin>
+		<pin name="DDR2LP_DQS_n[3]" source="Assignments" diff_pair_node="DDR2LP_DQS_p[3]" >
+		</pin>
+		<pin name="DDR2LP_DQS_p[0]" source="Assignments" diff_pair_node="DDR2LP_DQS_n[0]" >
+		</pin>
+		<pin name="DDR2LP_DQS_p[1]" source="Assignments" diff_pair_node="DDR2LP_DQS_n[1]" >
+		</pin>
+		<pin name="DDR2LP_DQS_p[2]" source="Assignments" diff_pair_node="DDR2LP_DQS_n[2]" >
+		</pin>
+		<pin name="DDR2LP_DQS_p[3]" source="Assignments" diff_pair_node="DDR2LP_DQS_n[3]" >
+		</pin>
+	</pin_info>
+	<buses>
+	</buses>
+	<group_file_association>
+	</group_file_association>
+	<pin_planner_file_specifies>
+	</pin_planner_file_specifies>
+</pin_planner>

@@ -1,7 +1,7 @@
 #************************************************************
 # THIS IS A WIZARD-GENERATED FILE.                           
 #
-# Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+# Version 14.0.2 Build 209 09/17/2014 SJ Full Version
 #
 #************************************************************
 
@@ -24,7 +24,7 @@
 
 # Clock constraints
 
-create_clock -name "clock" -period 20.000ns [get_ports {clock}]
+create_clock -name "clock" -period 20.000ns [get_ports {CLOCK_50_B5B}]
 
 
 # Automatically constrain PLL and other generated clocks

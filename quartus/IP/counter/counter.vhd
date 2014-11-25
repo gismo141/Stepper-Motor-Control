@@ -13,7 +13,7 @@
 --! @details      v0.1.1 25.11.2014 Riedel
 --!               - corrected formatting
 --!               - renamed component to counter
---!               - re-implemented according to 5th-trimester counter
+--!               - re-implemented counter according to digital ciruit design
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -22,7 +22,7 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
 ENTITY counter is
-  GENERIC ( divider : INTEGER := 125000 );
+  GENERIC ( divider : INTEGER ); -- clock(Hz) / clk_out(Hz)
   PORT
   (
     clock     : IN  STD_LOGIC;
@@ -48,7 +48,7 @@ begin
   END PROCESS;
   
   output: PROCESS(counter)
-  BEGIN
+  BEGIN 
     IF(counter = 0) THEN
       clk_out <= '1';
     ELSE

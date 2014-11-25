@@ -9,7 +9,7 @@
 --! @details      Provides the `ctrlReg`, `speedReg`, `stepsReg` registers.
 --!               The `ctrlReg` can be set and cleared bitwise with the
 --!               `ctrlSetReg` and `ctrlClrReg`.
---! @details      Addesses for register-access:
+--! @details      Addresses for register-access:
 --!               | address | register   |
 --!               |:-------:|:-----------|
 --!               |  `000`  | `ctrlReg`  |
@@ -127,14 +127,10 @@ begin
       stepsReg <= write_data(31 downto 0);
     end if;
   end if;
-  
-  if(reset_n = '0') then
-    read_data <= (others => '0');
-  end if;
-  
+   
   -- Processor reads from Register
+  read_data <= (others => '0'); -- unused bits to 0
   if (read_n = '0' AND ce_n = '0') then
-    read_data <= (others => '0'); -- unused bits to 0
     case addr is
     when B"000" =>
       read_data(7 downto 0) <= ctrlReg;
