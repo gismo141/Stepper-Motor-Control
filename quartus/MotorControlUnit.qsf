@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC5C6F27C7
-set_global_assignment -name TOP_LEVEL_ENTITY motor_control_unit
+set_global_assignment -name TOP_LEVEL_ENTITY milestone3
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 14.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:33:16  NOVEMBER 23, 2014"
 set_global_assignment -name LAST_QUARTUS_VERSION 14.0
@@ -502,6 +502,7 @@ set_location_assignment PIN_U19 -to LCD_DQ[0]
 set_location_assignment PIN_R9 -to LCD_EN
 set_location_assignment PIN_F26 -to LCD_RS
 set_location_assignment PIN_R10 -to LCD_RW
+set_global_assignment -name VHDL_FILE IP/signal_generator/signal_generator.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -875,5 +876,4 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_DQ[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_EN
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RS
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RW
-set_global_assignment -name VHDL_FILE IP/signal_generator/signal_generator.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
