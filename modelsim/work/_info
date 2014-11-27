@@ -1,0 +1,153 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\14.0
+Ecounter
+Z0 w1416916915
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 d\\vmware-host\Shared Folders\SoC\modelsim
+Z4 8//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd
+Z5 F//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd
+l0
+L24
+VSIFidRzH[V8PMoenk:b3n1
+Z6 OV;C;10.1e;51
+32
+Z7 !s108 1417129579.722000
+Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd|
+Z9 !s107 //vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd|
+Z10 o-work work -2002 -explicit -O0
+Z11 tExplicit 1
+!s100 Mn41fF72mPDBQYN0jGRNF1
+!i10b 1
+Acounter_arch
+R1
+R2
+DEx4 work 7 counter 0 22 SIFidRzH[V8PMoenk:b3n1
+l37
+L35
+VG>Xi3]lmZkmj`3Z<nbCmJ0
+!s100 :S6lR5[fbg]JfzQX6hXWW1
+R6
+32
+R7
+R8
+R9
+R10
+R11
+!i10b 1
+Emotor_control_unit
+Z12 w1417125790
+R1
+R2
+R3
+Z13 8Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
+Z14 FZ:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
+l0
+L38
+VRDc>4MkITghFg@eAW0:lg0
+R6
+32
+Z15 !s108 1417129579.222000
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd|
+Z17 !s107 Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd|
+R10
+R11
+!s100 oI`k5`Y1@DeNPkl1ZUbEM2
+!i10b 1
+Amy_motor_control_unit
+R1
+R2
+DEx4 work 18 motor_control_unit 0 22 RDc>4MkITghFg@eAW0:lg0
+l89
+L58
+VfSLiH:eQ2l9^Km[A<EG7z1
+R6
+32
+R15
+R16
+R17
+R10
+R11
+!s100 bc378Uzg7K`zU<0dihBB[1
+!i10b 1
+Emotor_control_unit_tb
+Z18 w1417127726
+Z19 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
+Z20 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+R1
+R2
+R3
+Z21 8//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd
+Z22 F//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd
+l0
+L27
+VTA=j5ZJ<V6H7QX0T2SVGi0
+R6
+32
+Z23 !s108 1417129579.457000
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd|
+Z25 !s107 //vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd|
+R10
+R11
+!s100 ^VWdYVeDVNE?E3lVVf]Ii3
+!i10b 1
+Amotor_control_unit_tb_arch
+R19
+R20
+R1
+R2
+DEx4 work 21 motor_control_unit_tb 0 22 TA=j5ZJ<V6H7QX0T2SVGi0
+l151
+L116
+VebN;nTGA<IdR4h1BCYDI?1
+R6
+32
+R23
+R24
+R25
+R10
+R11
+!s100 zRId7b465Az9@O_iB89do3
+!i10b 1
+Esignal_generator
+Z26 w1417129575
+R19
+R20
+R1
+R2
+R3
+Z27 8//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd
+Z28 F//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd
+l0
+L34
+VU_WdjA:HX>@CJ2=zLQzbP0
+!s100 cYA]>O@HmcjT87=EBcPn?1
+R6
+32
+!i10b 1
+Z29 !s108 1417129579.988000
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd|
+Z31 !s107 //vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd|
+R10
+R11
+Amy_signal_generator
+R19
+R20
+R1
+R2
+Z32 DEx4 work 16 signal_generator 0 22 U_WdjA:HX>@CJ2=zLQzbP0
+l69
+L50
+VUkaGBW_J^E3F1hIdBlXQg1
+!s100 6V9kmEVjE:T_zhPJB]_:m0
+R6
+32
+!i10b 1
+R29
+R30
+R31
+R10
+R11

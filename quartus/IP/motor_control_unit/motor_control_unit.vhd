@@ -24,6 +24,9 @@
 --! @details      v0.1.1 24.11.2014 Riedel
 --!               - corrected formatting
 --!               - renamed component count_5ms to counter
+--! @details      v0.1.2 27.11.2014 Riedel
+--!               - renamed the input `enable` to `prescaler` in
+--!                 `signal_generator` and adapted the wires
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -69,7 +72,7 @@ COMPONENT signal_generator is
   PORT
   (
     clock     : IN  STD_LOGIC;
-    enable    : IN  STD_LOGIC;
+    prescaler : IN  STD_LOGIC;
     reset_n   : IN  STD_LOGIC;
     mode      : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
     speed     : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -99,7 +102,7 @@ BEGIN
 	PORT MAP
    (
     clock     => clock,
-    enable    => prescaler_wire,
+    prescaler => prescaler_wire,
     reset_n   => reset_n,
     mode      => mode,
     speed     => speed,

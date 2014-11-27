@@ -6,6 +6,16 @@ Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling entity counter_tb
 -- Compiling architecture counter_tb_arch of counter_tb
 
+} {} {}} motor_control_unit_tb.vhd {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd}
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity motor_control_unit_tb
+-- Compiling architecture motor_control_unit_tb_arch of motor_control_unit_tb
+
 } {} {}} S:/SoC04/Stepper-Motor-Control/quartus/IP/counter/counter.vhd {1 {vcom -work work -2002 -explicit S:/SoC04/Stepper-Motor-Control/quartus/IP/counter/counter.vhd
 Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Loading package STANDARD
@@ -14,4 +24,36 @@ Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling entity counter
 -- Compiling architecture counter_arch of counter
 
-} {} {}}
+} {} {}} {//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd}
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity signal_generator
+-- Compiling architecture my_signal_generator of signal_generator
+
+} {} {}} Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity motor_control_unit
+-- Compiling architecture my_motor_control_unit of motor_control_unit
+
+} {} {}} {//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd}
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity counter
+-- Compiling architecture counter_arch of counter
+
+} {} {}} Z:/SoC/quartus/IP/signal_generator/signal_generator.vhd {0 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/signal_generator/signal_generator.vhd
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+** Error: (vcom-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}}

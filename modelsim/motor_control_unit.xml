@@ -1,0 +1,22 @@
+<interfaceDefinition version='1.2' language='vhdl' kind='component' name='motor_control_unit'>
+  <useClause path='ieee.std_logic_1164.all' />
+    <macroList>
+
+      <macro name='divider' type='INTEGER' kind='' baseType='integer' initializer='250000' />
+
+    </macroList>
+    <portList>
+
+      <port name='clock' direction='in' type='STD_LOGIC' kind='' />
+      <port name='reset_n' direction='in' type='STD_LOGIC' kind='' />
+      <port name='run' direction='in' type='STD_LOGIC' kind='' />
+      <port name='direction' direction='in' type='STD_LOGIC' kind='' />
+      <port name='mode' direction='in' type='std_logic_vector (3 downto 0)' kind='array' library='work' package='motor_control_unit' packedDimension='(3 downto 0)' />
+      <port name='speed' direction='in' type='std_logic_vector (2 downto 0)' kind='array' library='work' package='motor_control_unit' packedDimension='(2 downto 0)' />
+      <port name='motor_pwm' direction='out' type='std_logic_vector (3 downto 0)' kind='array' library='work' package='motor_control_unit' packedDimension='(3 downto 0)' />
+      <port name='motor_en' direction='out' type='std_logic_vector (1 downto 0)' kind='array' library='work' package='motor_control_unit' packedDimension='(1 downto 0)' />
+      <port name='steps' direction='out' type='std_logic_vector (31 downto 0)' kind='array' library='work' package='motor_control_unit' packedDimension='(31 downto 0)' />
+      <port name='ir' direction='out' type='STD_LOGIC' kind='' />
+
+    </portList>
+</interfaceDefinition>
