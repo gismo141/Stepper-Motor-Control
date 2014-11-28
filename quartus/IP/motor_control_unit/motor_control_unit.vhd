@@ -27,6 +27,8 @@
 --! @details      v0.1.2 27.11.2014 Riedel
 --!               - renamed the input `enable` to `prescaler` in
 --!                 `signal_generator` and adapted the wires
+--! @details      v0.1.2 27.11.2014 Riedel
+--!               - added documentation for GENERIC divider
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -36,7 +38,17 @@ USE ieee.std_logic_1164.all;
 
 --! @brief Motor Control Unit 
 ENTITY motor_control_unit is
-  GENERIC ( divider : integer := 250000 ); -- clock(Hz) / clk_out(Hz)
+  GENERIC
+  (
+    --! @brief		Prescaler for PWM-signal.
+    --! @details	For this purpose 5 ms are used as minimal pulse-width.
+    --!	@details	The prescaler is calculated with the given and desired frequency
+    --!			via the following formula:
+    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!			e.g.:	f_prescaler = 1/5 ms = 200 Hz
+    --!					prescaler = 50 Mhz / 200 Hz = 250000
+    divider : integer := 250000
+  );
   PORT(
     clock           : IN  STD_LOGIC;                      --! component clock
     reset_n         : IN  STD_LOGIC;                      --! resets the component
