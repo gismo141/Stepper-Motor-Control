@@ -7,41 +7,7 @@
 --!
 --! @brief        Testbench for Motor-Control-Unit Component
 --! @details      Tests full functionality of component
---! @par History:
---! @details      v0.1.0 26.11.2014 Riedel
---!               - first draft
---! @details      v0.1.1 27.11.2014 Riedel
---!               - implemented first test-procedures
---! @details      v0.1.2 28.11.2014 Riedel
---!               - added documentation for GENERIC divider
--------------------------------------------------------------------------------
-
---! Use Standard Library
-LIBRARY ieee;
---! Use Logic Elements
-USE ieee.STD_LOGIC_1164.all;
---! Use Arithmetic Functions
-USE ieee.STD_LOGIC_arith.all;
---! Use Conversion Functions
-USE ieee.STD_LOGIC_SIGNED.all;
-
---! @brief    Entity of testbench for motor_control_unit
-ENTITY motor_control_unit_tb  IS 
-  GENERIC
-  (
-    --! @brief		Prescaler for PWM-signal.
-    --! @details	For this purpose 5 ms are used as minimal pulse-width.
-    --!	@details	The prescaler is calculated with the given and desired frequency
-    --!			via the following formula:
-    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
-    --!			e.g.:	f_prescaler = 1/5 ms = 200 Hz
-    --!					prescaler = 50 Mhz / 200 Hz = 250000
-    --! @details	For simulation purpose the best value to use is 2.
-    divider : integer := 2
-  );
-END; 
- 
---! @brief    Architecture of testbench for motor_control_unit
+--!
 --! @details  Test-procedure (1): reset_n
 --!           | signal         | desired output |
 --!           | :------------- | :--------------|
@@ -123,6 +89,43 @@ END;
 --!           | motor_pwm      | `0000`                                |
 --!           | motor_en       | `00`                                  |
 --!           | ir             | `0`                                   |
+--!
+--! @par History:
+--! @details      v0.1.0 26.11.2014 Riedel
+--!               - first draft
+--! @details      v0.1.1 27.11.2014 Riedel
+--!               - implemented first test-procedures
+--! @details      v0.1.2 28.11.2014 Riedel
+--!               - added documentation for GENERIC divider
+--!               - moved test-procedure-documentation to doxygen-header
+-------------------------------------------------------------------------------
+
+--! Use Standard Library
+LIBRARY ieee;
+--! Use Logic Elements
+USE ieee.STD_LOGIC_1164.all;
+--! Use Arithmetic Functions
+USE ieee.STD_LOGIC_arith.all;
+--! Use Conversion Functions
+USE ieee.STD_LOGIC_SIGNED.all;
+
+--! @brief    Entity of testbench for motor_control_unit
+ENTITY motor_control_unit_tb  IS 
+  GENERIC
+  (
+    --! @brief		Prescaler for PWM-signal.
+    --! @details	For this purpose 5 ms are used as minimal pulse-width.
+    --!	@details	The prescaler is calculated with the given and desired frequency
+    --!			via the following formula:
+    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!			e.g.:	f_prescaler = 1/5 ms = 200 Hz
+    --!					prescaler = 50 Mhz / 200 Hz = 250000
+    --! @details	For simulation purpose the best value to use is 2.
+    divider : integer := 2
+  );
+END; 
+ 
+--! @brief    Architecture of testbench for motor_control_unit
 ARCHITECTURE motor_control_unit_tb_arch OF motor_control_unit_tb IS
 
   SIGNAL    motor_pwm : STD_LOGIC_VECTOR (3 DOWNTO 0);
