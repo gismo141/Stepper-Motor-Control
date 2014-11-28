@@ -12,6 +12,8 @@
 --!               - first draft
 --! @details      v0.1.1 27.11.2014 Riedel
 --!               - implemented first test-procedures
+--! @details      v0.1.2 28.11.2014 Riedel
+--!               - added documentation for GENERIC divider
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -27,8 +29,16 @@ USE ieee.STD_LOGIC_SIGNED.all;
 ENTITY motor_control_unit_tb  IS 
   GENERIC
   (
-    divider  : INTEGER   := 2
-  ); 
+    --! @brief		Prescaler for PWM-signal.
+    --! @details	For this purpose 5 ms are used as minimal pulse-width.
+    --!	@details	The prescaler is calculated with the given and desired frequency
+    --!			via the following formula:
+    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!			e.g.:	f_prescaler = 1/5 ms = 200 Hz
+    --!					prescaler = 50 Mhz / 200 Hz = 250000
+    --! @details	For simulation purpose the best value to use is 2.
+    divider : integer := 2
+  );
 END; 
  
 --! @brief    Architecture of testbench for motor_control_unit
