@@ -14,6 +14,8 @@
 --!               - corrected formatting
 --!               - renamed component to counter
 --!               - re-implemented counter according to digital ciruit design
+--! @details      v0.1.2 28.11.2014 Kossmann
+--!               - improved documentation
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -21,6 +23,7 @@ LIBRARY ieee;
 --! Use Logic Elements
 USE ieee.std_logic_1164.all;
 
+--! @brief Counter-Component
 ENTITY counter is
   GENERIC ( divider : INTEGER ); -- clock(Hz) / clk_out(Hz)
   PORT
@@ -32,9 +35,13 @@ ENTITY counter is
   );
 END counter;
 
+--! @brief    Architecture of counter
+--! @details  realized functionality:
+--!           - divides clock with generic clock divider
 architecture counter_arch of counter is
   SIGNAL counter : INTEGER := 0;
 BEGIN
+  --! @brief counting process incrementing internal signal value
   count: PROCESS(reset_n, clock, enable)
   BEGIN
     IF(reset_n = '0') THEN
@@ -46,7 +53,7 @@ BEGIN
       END IF;
     END IF; 
   END PROCESS;
-  
+  --! @brief process to output the divided clock
   output: PROCESS(counter)
   BEGIN 
     IF(counter = 0) THEN

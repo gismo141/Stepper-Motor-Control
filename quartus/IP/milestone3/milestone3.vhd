@@ -16,6 +16,8 @@
 --!               - added signals and connected the three components
 --! @details      v0.1.2 25.11.2014 Riedel & Kossmann
 --!               - changed entitiy according to pin-assignments
+--! @details      v0.1.0 28.11.2014 Kossmann
+--!               - improved documemtation
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -28,14 +30,14 @@ ENTITY milestone3 is
   port(
     CLOCK_50_B5B      : IN  STD_LOGIC;                      --! component clock
     CPU_RESET_n       : IN  STD_LOGIC;                      --! resets the component
-    SW                : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);          
-    KEY               : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);                   
+    SW                : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);   --! switch input  
+    KEY               : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);   --! key input
     HSMC_RX_P         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_pwm1( bit 0 ) and Motor_pwm2( bit 1 )
     HSMC_RX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0); --! Motor_pwm3( bit 0 ) and Motor_pwm4( bit 1 )
     HSMC_TX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_en_a( bit 2 )
     HSMC_TX_P         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_en_b( bit 3 )
-    LEDG              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-    LEDR              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)           
+    LEDG              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); --! green leds
+    LEDR              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)  --! red leds
   );
 END milestone3;
 
@@ -91,8 +93,8 @@ COMPONENT motor_control_unit is
     direction         : IN  STD_LOGIC;                      --! motor direction (`0` is left)
     mode              : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);   --! mode to run motor with
     speed             : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);   --! speed to run moter with                   
-    motor_pwm         : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-    motor_en          : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    motor_pwm         : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);	   --! pwm signalto control motor
+    motor_en          : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);   --! enables motor driver
     steps             : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);  --! number of steps motor did 
     ir                : OUT STD_LOGIC                       --! IR signal set when motor stopped
   );

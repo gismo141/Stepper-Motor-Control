@@ -1,10 +1,29 @@
+-------------------------------------------------------------------------------
+--! @file         counter_tb.vhd
+--! @author       Marc Kossmann
+--! @author       Michael Riedel
+--! @version      v0.1.0
+--! @date         23.11.2014
+--!
+--! @brief        Testbench for counter component
+--! @par History:
+--! @details      v0.1.0 23.11.2014 Kossmann
+--!               - first draft
+--! @details      v0.1.2 28.11.2014 Kossmann
+--!               - improved documentation
+-------------------------------------------------------------------------------
+
 LIBRARY ieee  ; 
 USE ieee.std_logic_1164.all  ; 
+
+--! @brief Testbench entity
 ENTITY counter_tb  IS 
   GENERIC (
-    divider  : INTEGER   := 250000 ); 
+    divider  : INTEGER   := 250000 ); --! divider for counter
 END ; 
- 
+
+--! @brief    Architecture of testbench
+--! @details  Just to test if counter works like expected
 ARCHITECTURE counter_tb_arch OF counter_tb IS
   SIGNAL reset_n    :  STD_LOGIC    := '0'; 
   SIGNAL clock      :  STD_LOGIC    := '0'; 
