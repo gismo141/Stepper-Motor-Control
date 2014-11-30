@@ -25,6 +25,11 @@
 --!               - removed wrong synchronization statements
 --! @details      v0.1.4 28.11.2014 Riedel
 --!               - removed `prescaler`-dependency in `pwm_generation`-process
+--! @details      v0.1.5 30.11.2014 Kossmann
+--!               - changed speed to speed_wire transfering process to async
+--!               - changed speed_wire /= old_speed_wire check to async
+--!               - fixed bug of t_pulse (pwm width) being systematical to long 
+--!               (have to set pwm_5ms_counter to (speed_wire - 1))
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -108,10 +113,12 @@ BEGIN
     END IF; 
   END PROCESS;
 
-  speed_state_machine : PROCESS (clock, speed, pwm_5ms_counter)
+  speed_state_machine : PROCESS (reset_n, clock, speed)
   BEGIN
-    IF(rising_edge(clock)) THEN
-	   old_speed_wire <= speed_wire;
+--    IF(reset_n = '0') THEN
+--        speed_wire <= 400;
+    --ELSIF(rising_edge(clock)) THEN
+    old_speed_wire <= speed_wire;
 		CASE speed IS
       WHEN "000" =>
         speed_wire <= 400;
@@ -132,7 +139,7 @@ BEGIN
       WHEN others =>
         speed_wire <= 400;
       END CASE;
-    END IF;
+ --   END IF;
   END PROCESS;
 
   pwm_state_machine : PROCESS (reset_n, prescaler, pwm_5ms_counter, direction, pwm_state)
@@ -198,18 +205,15 @@ BEGIN
   pulse_generation : PROCESS (reset_n, clock, prescaler, speed_wire)
   BEGIN
     IF(reset_n = '0') THEN
-      pwm_5ms_counter <= speed_wire;
-    ELSIF(rising_edge(clock) THEN
-      IF(speed_wire /= old_speed_wire) THEN
-        pwm_5ms_counter <= speed_wire;
-      END IF;
-      IF(prescaler = '1') THEN
-		    IF(pwm_5ms_counter = 0) THEN
-          pwm_5ms_counter <= speed_wire;
-		    ELSE
-          pwm_5ms_counter <= pwm_5ms_counter - 1;
-		    END IF;
-      END IF;
+      pwm_5ms_counter <= (speed_wire - 1);
+    ELSIF(speed_wire /= old_speed_wire) THEN
+        pwm_5ms_counter <= (speed_wire - 1);
+    ELSIF(rising_edge(clock) and prescaler = '1') THEN
+		  IF(pwm_5ms_counter = 0) THEN
+        pwm_5ms_counter <= (speed_wire - 1);
+		  ELSE
+        pwm_5ms_counter <= pwm_5ms_counter - 1;
+		  END IF;
     END IF;
   END PROCESS;
 

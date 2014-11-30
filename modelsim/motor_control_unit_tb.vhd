@@ -13,56 +13,36 @@
 --!           | :------------- | :--------------|
 --!           | mode_state     | `IDLE`         |
 --!           | pwm_state      | `ONE`          |
---!           | steps_counter  | `0`            |
---!           | motor_pwm      | `0000`         | 
---!           | motor_en       | `00`           |
---!           | ir             | `0`            |
 --! @details  Test-procedure (2): Continuous Run with speed = 0, direction = left
---!           | signal         | desired output |
---!           | :------------- | :--------------|
---!           | mode_state     | `CR`           |
---!           | pwm_state      | `ONE`          |
---!           | steps_counter  | `0`            |
---!           | motor_pwm      | `0000`         |
---!           | motor_en       | `00`           |
---!           | ir             | `0`            |
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `CR`                                  |
+--!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
 --! @details  Test-procedure (3): Continuous Run with speed = 1, direction = left
 --!           | signal         | desired output                        |
 --!           | :------------- | :-------------------------------------|
 --!           | mode_state     | `CR`                                  |
 --!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `0`                                   |
---!           | motor_pwm      | `0000`                                |
---!           | motor_en       | `00`                                  |
---!           | ir             | `0`                                   |
 --! @details  Test-procedure (4): Continuous Run with speed = 7, direction = left
 --!           | signal         | desired output                        |
 --!           | :------------- | :-------------------------------------|
 --!           | mode_state     | `CR`                                  |
 --!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `0`                                   |
---!           | motor_pwm      | `0000`                                |
---!           | motor_en       | `00`                                  |
---!           | ir             | `0`                                   |
 --! @details  Test-procedure (5): Continuous Run with speed = 7, direction = right
 --!           | signal         | desired output                        |
 --!           | :------------- | :-------------------------------------|
 --!           | mode_state     | `CR`                                  |
 --!           | pwm_state      | cycling `FOUR`, `THREE`, `TWO`, `ONE` |
---!           | steps_counter  | `0`                                   |
 --!           | motor_pwm      | `0000`                                |
 --!           | motor_en       | `00`                                  |
---!           | ir             | `0`                                   |
---! @details  Test-procedure (6): Chain of Steps - 1/4 rotation with speed = 0, direction = left
+--! @details  Test-procedure (6): Chain of Steps - 1/4 rotation with speed = 7, direction = left
 --!           | signal         | desired output                        |
 --!           | :------------- | :-------------------------------------|
 --!           | mode_state     | `COS_1_4`                             |
 --!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `0`                                   |
---!           | motor_pwm      | `0000`                                |
---!           | motor_en       | `00`                                  |
---!           | ir             | `0`                                   |
---! @details  Test-procedure (7): Chain of Steps - 1/2 rotation with speed = 0, direction = left
+--!           | steps_counter  | `100`                                 |
+--!           | ir             | `1`                                   |
+--! @details  Test-procedure (7): Chain of Steps - 1/2 rotation with speed = 7, direction = left
 --!           | signal         | desired output                        |
 --!           | :------------- | :-------------------------------------|
 --!           | mode_state     | `COS_1_2`                             |
@@ -71,7 +51,7 @@
 --!           | motor_pwm      | `0000`                                |
 --!           | motor_en       | `00`                                  |
 --!           | ir             | `0`                                   |
---! @details  Test-procedure (8): Chain of Steps - 1 rotation with speed = 0, direction = left
+--! @details  Test-procedure (8): Chain of Steps - 1 rotation with speed = 7, direction = left
 --!           | signal         | desired output                        |
 --!           | :------------- | :-------------------------------------|
 --!           | mode_state     | `COS_1`                               |
@@ -80,7 +60,7 @@
 --!           | motor_pwm      | `0000`                                |
 --!           | motor_en       | `00`     motor_control_unit_tb.vhd                             |
 --!           | ir             | `0`                                   |
---! @details  Test-procedure (9): Chain of Steps - 2 rotations with speed = 0, direction = left
+--! @details  Test-procedure (9): Chain of Steps - 2 rotations with speed = 7, direction = left
 --!           | signal         | desired output                        |
 --!           | :------------- | :-------------------------------------|
 --!           | mode_state     | `COS_2`                               |
@@ -97,7 +77,12 @@
 --!               - implemented first test-procedures
 --! @details      v0.1.2 28.11.2014 Riedel
 --!               - added documentation for GENERIC divider
---!               - moved test-procedure-documentation to doxygen-header
+--!               - moved test-procedure-documentation to doxygen-heade
+--! @details      v0.1.3 30.11.2014 Kossmann
+--!               - changed divider to 250 to get 1 ms in simulation for 1 s 
+--!               in real. Simulation takes longer but easier to measure
+--!               - Test-procedure must no commented in or out for easier readability
+--!               - initialized every signal
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -121,24 +106,23 @@ ENTITY motor_control_unit_tb  IS
     --!			e.g.:	f_prescaler = 1/5 ms = 200 Hz
     --!					prescaler = 50 Mhz / 200 Hz = 250000
     --! @details	For simulation purpose the best value to use is 2.
-    divider : integer := 2
+    divider : integer := 250
   );
 END; 
  
 --! @brief    Architecture of testbench for motor_control_unit
 ARCHITECTURE motor_control_unit_tb_arch OF motor_control_unit_tb IS
 
-  SIGNAL    motor_pwm : STD_LOGIC_VECTOR (3 DOWNTO 0);
+  SIGNAL    motor_pwm : STD_LOGIC_VECTOR (3 DOWNTO 0)   := "0000";
   SIGNAL    reset_n   : STD_LOGIC                       := '1';
   SIGNAL    clock     : STD_LOGIC                       := '0';
-  SIGNAL    speed     : STD_LOGIC_VECTOR (2 DOWNTO 0);
-  SIGNAL    mode      : STD_LOGIC_VECTOR (3 DOWNTO 0);
-  SIGNAL    direction : STD_LOGIC;
-  SIGNAL    run       : STD_LOGIC;
-  SIGNAL    ir        : STD_LOGIC;
-  SIGNAL    steps     : STD_LOGIC_VECTOR (31 DOWNTO 0);
-  SIGNAL    motor_en  : STD_LOGIC_VECTOR (1 DOWNTO 0);
-
+  SIGNAL    speed     : STD_LOGIC_VECTOR (2 DOWNTO 0)   := "000";
+  SIGNAL    mode      : STD_LOGIC_VECTOR (3 DOWNTO 0)   := "0000";
+  SIGNAL    direction : STD_LOGIC                       := '0';
+  SIGNAL    run       : STD_LOGIC                       := '0';
+  SIGNAL    ir        : STD_LOGIC                       := '0';
+  SIGNAL    steps     : STD_LOGIC_VECTOR (31 DOWNTO 0)  := (others => '0');
+  SIGNAL    motor_en  : STD_LOGIC_VECTOR (1 DOWNTO 0)   := "00";
   CONSTANT  left      : STD_LOGIC                       := '0';
   CONSTANT  right     : STD_LOGIC                       := NOT left;
 
@@ -184,42 +168,50 @@ BEGIN
   -- creates the clock
   clock     <= not clock after 10 ns;
 
-    -- Test-procedure (1)
+  -- Test-procedure (1), reset_n
   reset_n   <= '0',
-               '1' after 100 ns;
+               '1' after 20 ns;
+               
+  -- Test-procedure (2), Continuous Run with speed = 0, direction = left
+  -- 5 ms sim time for two pulses
+--  run       <= '1' after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
+--  direction <= left;
+--  speed     <= "000";
 
-  run       <= -- Test-procedure (2)
-               '1',
-               '0' after 200 ns,
-               '1' after 400 ns,
-               -- Test-procedure (3)
-               '1' after 1000 ns,
-               '0' after 1200 ns,
-               '1' after 1400 ns,
-               -- Test-procedure (4)
-               '1' after 2000 ns,
-               '0' after 2200 ns,
-               '1' after 2400 ns,
-               -- Test-procedure (5)
-               '1' after 3000 ns,
-               '0' after 3200 ns,
-               '1' after 3400 ns;
-  
-  mode      <= -- Test-procedure (2)
-               "0001";
-  direction <= -- Test-procedure (2,3,4)
-               left,
-               right after 3000 ns;
-  speed     <= -- Test-procedure (2)
-               "000",
-                -- Test-procedure (3)
-               "001" after 1000 ns,
-               -- Test-procedure (4,5)
-               "111" after 2000 ns;
+  -- Test-procedure (3), Continuous Run with speed = 1, direction = left
+  -- 3 ms sim time for two pulses
+--  run       <= '1' after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
+--  direction <= left;
+--  speed     <= "001"; 
+
+  -- Test-procedure (4), Continuous Run with speed = 7, direction = left
+  -- 30 us sim time for two pulses
+--  run       <= '1' after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
+--  direction <= left;
+--  speed     <= "111";
+               
+  -- Test-procedure (2), Continuous Run with speed = 7, direction = right
+  -- 30 us sim time for two pulses
+--  run       <= '1' after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
+--  direction <= right;
+--  speed     <= "111";
+               
+  -- Test-procedure (2), Chain of Steps - 1/4 rotation with speed = 7, direction = left
+  -- 1020 us sim time for 1/4 rotation
+  run       <= '1' after 20 ns;
+  mode    	 <= "0010" after 20 ns;
+  direction <= right;
+  speed     <= "111";
+
+
 
   finish_sim_time : PROCESS
     BEGIN
-      WAIT FOR 50 ms;
+      WAIT FOR 10 ms;
       ASSERT false
         REPORT "simulation finished"
         SEVERITY failure;

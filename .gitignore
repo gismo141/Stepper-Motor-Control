@@ -15,3 +15,4 @@ nios-workspace/
 /quartus/IP/register_interface/register_interface.vhd.bak
 /RTX_C_Source/INC/interfaceRegs.h
 /modelsim/register_interface_tb.vhd.bak
+/modelsim/*.bak
