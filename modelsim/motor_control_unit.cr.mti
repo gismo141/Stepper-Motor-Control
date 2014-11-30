@@ -34,14 +34,6 @@ Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling entity signal_generator
 -- Compiling architecture my_signal_generator of signal_generator
 
-} {} {}} Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity motor_control_unit
--- Compiling architecture my_motor_control_unit of motor_control_unit
-
 } {} {}} {//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd}
 Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Loading package STANDARD
@@ -49,6 +41,14 @@ Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Loading package std_logic_1164
 -- Compiling entity counter
 -- Compiling architecture counter_arch of counter
+
+} {} {}} Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
+Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity motor_control_unit
+-- Compiling architecture my_motor_control_unit of motor_control_unit
 
 } {} {}} Z:/SoC/quartus/IP/signal_generator/signal_generator.vhd {0 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/signal_generator/signal_generator.vhd
 Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013

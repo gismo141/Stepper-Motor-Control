@@ -2,7 +2,7 @@
 
 Das Gantt-Diagramm in Abbildung \ref{fig:gantt} wurde auf eingetretene Verzögerungen angepasst, sodass die Deadline Mitte Dezember eingehalten werden kann.
  
-Abbildung \ref{fig:projektplanung} zeigt den geplanten und benötigten Zeitaufwand für die Erstellung des Meilenstein 3a unterteilt in folgende Aufgabenbereiche:
+Abbildung \ref{fig:projektplanung} zeigt den geplanten und benötigten Zeitaufwand für die Erstellung des Meilenstein 3b unterteilt in folgende Aufgabenbereiche:
 
 - Einarbeitung
 - Zeitplanung
@@ -13,6 +13,8 @@ Abbildung \ref{fig:projektplanung} zeigt den geplanten und benötigten Zeitaufwa
 
 Die Darstellung wird gesondert für die Studenten Marc Kossmann und Michael Riedel betrachtet. Diese Zeiten sind unabhängig von gemeinsam bearbeiteten Aufgaben. Die Abbildung \ref{fig:zeitbedarf} zeigt die komplette geplante und benötigte Zeit, die durch Aufsummierung der einzelnen Meilensteine entsteht.
 
+Die Gesamtzeiten berechnen sich aus der Aufsummierung der einzelnen Zeiten der Studenten Marc Kossmann und Michael Riedel sowie der gemeinsam zusätzlich aufgewendeten Zeit.
+
 ![Gantt-Diagramm zur kompletten Zeitplanung\label{fig:gantt}][fig:gantt]
 
 ![Projektplanung für Meilenstein 3a\label{fig:projektplanung}][fig:projektplanung]
@@ -21,7 +23,7 @@ Die Darstellung wird gesondert für die Studenten Marc Kossmann und Michael Ried
 
 # Anpassungen an der Komponente register_interface
 
-Die Entity dieser Komponente wurde gemäß Abbildung \ref{fig:register_interface_bd} für die Verwendung mit der Motor-Control-Unit angepasst und bietet nun die zusätzlichen Dateneingänge der `steps` (Anzahl der verfahrenen Schritte) sowie einem `ir`-Eingang, der das stoppen des Motors markiert. Ebenfalls wurden die Datenausgänge `mode` (der vom Benutzer eingestellte Betriebsmodus), die `direction` (die vom Benutzer gewählte Drehrichtung), `speed` (die vom Benutzer gewählte Verfahrgeschwindigkeit) sowie `run` (die Eingabe durch den Benutzer, den Motor zu starten oder zu stoppen). Die Architektur wurde gemäß Kundenwunsch angepasst und korrigiert.
+Für diesen Meilenstein wurden keine Veränderungen an dieser Komponente vorgenommen. Abbildung \ref{fig:register_interface_bd} zeigt das Block-Diagramm des `register_interface`.
 
 ![Block-Diagramm der register_interface-Komponente\label{fig:register_interface_bd}][fig:register_interface_bd]
 
@@ -45,13 +47,9 @@ Gemäß Kundenwunsch werden die Betriebsmodi gemäß Tabelle \ref{tab:modi} durc
 
 ## Überblick
 
-Gemäß Abbildung \ref{fig:motor_control_unit_bd} besteht die Komponente `motor_control_unit` aus den zwei Teilkomponenten `counter` und `signal_generator`. Der Signalgenerator wird dabei durch das `clk_out`-Signal des Taktteilers gespeist.
-
-Die `motor_control_unit` wird gemäß Abbildung \ref{fig:motor_control_unit_sm} in Form einer State-Machine realisiert. In ihr sind die Übergänge zwischen den verschiedenen Betriebsmodi, sowie der Anzahl der zu zählenden Schritte für die entsprechenden Rotationen dargestellt. Der Übergang wird nur dann gewechselt, sofern ein `clk`-Signal, ein gültiger Mode sowie der Benutzer den Motor starten möchte.
+Gemäß Abbildung \ref{fig:motor_control_unit_bd} besteht die Komponente `motor_control_unit` aus den zwei Teilkomponenten `counter` und `signal_generator`. Der Signalgenerator wird dabei durch das `clk_out`-Signal des Taktteilers in den `prescaler`-Eingang gespeist.
 
 ![Block-Diagramm der Motor-Control-Unit-Komponente\label{fig:motor_control_unit_bd}][fig:motor_control_unit_bd]
-
-![State-Machine zu den Mode-Übergängen der Motor-Control-Unit-Komponente\label{fig:motor_control_unit_sm}][fig:motor_control_unit_sm]
 
 ## Design der Komponente counter
 
@@ -70,7 +68,23 @@ Der einzustellende Taktteiler berechnet sich wie folgt:
 
 ## Design der Komponente signal_generator
 
-Der Signalgenerator wird gemäß Abbildung \ref{fig:motor_phases_sm} in Form einer State-Machine realisiert, um die Windungen des Motors in korrekter Reihenfolge anzusteuern.
+Der Signalgenerator wird in Form mehrerer State-Machines realisiert, um die Windungen des Motors in korrekter Reihenfolge und gemäß Eingaben durch den Anwender anzusteuern. Um dies zu ermöglichen, werden verschiedene Sub-State-Machines verwendet, die in den folgenden Abschnitten erläutert werden.
+
+### Die Mode-State-Machine
+
+Die `motor_control_unit` wird gemäß Abbildung \ref{fig:motor_control_unit_sm} in Form einer State-Machine realisiert. In ihr sind die Übergänge zwischen den verschiedenen Betriebsmodi, sowie der Anzahl der zu zählenden Schritte für die entsprechenden Rotationen dargestellt. Der Übergang wird nur dann gewechselt, sofern ein `prescaler`-Signal, ein gültiger Mode, ein interrupt-request (`IR`) durch die Steuerung selbst oder der Benutzer einen `reset_n` ausgelöst hat.
+
+![State-Machine zu den Mode-Übergängen der Motor-Control-Unit-Komponente\label{fig:motor_control_unit_sm}][fig:motor_control_unit_sm]
+
+### Die Speed-State-Machine
+
+Gemäß Abbildung \ref{fig:speed_sm} wird der 3-bit Eingang `speed`auf die zu zählenden Pulsweiten abgebildet. In der vorliegenden Arbeit, wird mit einer Pulsweiten-Auflösung von 5 ms gearbeitet. Die `speed`-Einstellung wird `clock`-synchron übernommen.
+
+![State-Machine zur Verknüpfung der speed-Einstellung mit dem Pulsweiten-Zähler\label{fig:speed_sm}][fig:speed_sm]
+
+### Die PWM-State-Machine
+
+Gemäß Abbildung \ref{fig:motor_phases_sm} ist ersichtlich, wie die Motorwindungen in Abhängigkeit zur `direction` geschaltet werden. Die Umschaltung der Zustände erfolgt nur, wenn eine steigende Flanke des `prescaler`-Eingangs anliegt und der `pwm_5ms_counter = 0` ist. Der `pwm_5ms_counter` wird auf `0` zurückgesetzt, wenn er den eingestellten `speed`-Wert erreicht hat. Im Falle eines `reset_n`-Signals wird er mit `-1` initialisiert. Dieser Wert wird ebenfalls verwendet, wenn sich der `signal_generator` im `IDLE` oder `CR`-Modus befindet, um unendlich viele Schritte zu symbolisieren.
 
 ![State-Machine zu Beschaltung der Wicklungen des Schrittmotors\label{fig:motor_phases_sm}][fig:motor_phases_sm]
 
@@ -85,6 +99,23 @@ Gemäß Abbildung \ref{fig:uebersicht-der-komponenten-und-rollen} können die ei
 ![Block-Diagramm der Testumgebung\label{fig:milestone3a}][fig:milestone3a]
 
 ![Überblick der Komponenten und Rollen\label{fig:uebersicht-der-komponenten-und-rollen}][fig:uebersicht-der-komponenten-und-rollen]
+
+# Test der Motor-Control-Unit
+
+Um die korrekte Funktion der `motor_control_unit` sicherzustellen, wurde eine Testbench gemäß folgender Testverfahren erstellt.
+
+## Test-Prozedur 1 - Reset-Funktionalität
+
+| signal         | desired output |
+| :------------- | :--------------|
+| mode_state     | `IDLE`         |
+--!    | pwm_state      | `ONE`          |
+--!           | steps_counter  | `0`            |
+--!           | motor_pwm      | `0000`         | 
+--!           | motor_en       | `00`           |
+--!           | ir             | `0`            |
+
+## Test Prozedur 2
 
 <!-- Links -->
 

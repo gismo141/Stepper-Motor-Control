@@ -78,7 +78,7 @@
 --!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
 --!           | steps_counter  | `0`                                   |
 --!           | motor_pwm      | `0000`                                |
---!           | motor_en       | `00`                                  |
+--!           | motor_en       | `00`     motor_control_unit_tb.vhd                             |
 --!           | ir             | `0`                                   |
 --! @details  Test-procedure (9): Chain of Steps - 2 rotations with speed = 0, direction = left
 --!           | signal         | desired output                        |

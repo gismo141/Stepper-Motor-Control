@@ -143,7 +143,7 @@ BEGIN
       write_data      => data_wire,
 --      read_data       => read_data_wire,
 --      irq             => irq_wire,
-      greenleds       => LEDG,
+--      greenleds       => LEDG,
       redleds         => LEDR,
       run             => run_wire,
       direction       => direction_wire,
@@ -167,6 +167,9 @@ BEGIN
       ir              => ir_wire
     );
    
+	LEDG(3 DOWNTO 0)	 <= motor_pwm_wire;
+	LEDG(5 DOWNTO 4)	 <= motor_en_wire;
+	
    HSMC_RX_P(0)       <= motor_pwm_wire(0);
    HSMC_RX_P(1)       <= motor_pwm_wire(1);
    HSMC_RX_N(0)       <= motor_pwm_wire(2);

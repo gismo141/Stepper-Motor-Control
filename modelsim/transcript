@@ -1,0 +1,32 @@
+# Reading C:/altera/14.0/modelsim_ase/tcl/vsim/pref.tcl 
+# OpenFile {//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit.mpf} 
+# Loading project motor_control_unit
+# Compile of motor_control_unit.vhd was successful.
+# Compile of motor_control_unit_tb.vhd was successful.
+# Compile of counter.vhd was successful.
+# Compile of signal_generator.vhd was successful.
+# 4 compiles, 0 failed with no errors. 
+vsim work.motor_control_unit_tb
+# vsim work.motor_control_unit_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_signed(body)
+# Loading work.motor_control_unit_tb(motor_control_unit_tb_arch)
+# Loading work.motor_control_unit(my_motor_control_unit)
+# Loading work.counter(counter_arch)
+# Loading work.signal_generator(my_signal_generator)
+add wave -position insertpoint sim:/motor_control_unit_tb/DUT/prescaler_inst/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Michael Riedel  Hostname: WIN-E9N7V1GT378  ProcessID: 3540
+# 
+#           Attempting to use alternate WLF file "./wlftiamhc8".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftiamhc8
+# 
+add wave -position insertpoint sim:/motor_control_unit_tb/DUT/signal_generator_inst/*
+restart
+run

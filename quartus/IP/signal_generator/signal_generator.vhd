@@ -12,13 +12,19 @@
 --! @details      v0.1.0 25.11.2014 Riedel & Kossmann
 --!               - first draft
 --! @details      v0.1.1 26.11.2014 Riedel
---!               - implemented completed signal-generator logic
+--!               - implemented signal-generator logic
 --! @details      v0.1.2 27.11.2014 Riedel
 --!               - added speed-statemachine to determine the correct
---!                 speed-integer when changes occur
+--!                 speed-integer when changes occur on the speed-bus
 --!               - added new CONSTANT `UNLIMITED_STEPS` for CR and IDLE, now
 --!                 the IR won't be triggered everytime
 --!               - renamed the input `enable` to `prescaler`
+--! @details      v0.1.3 28.11.2014 Riedel & Kossmann
+--!               - fixed speed'Event, now the user can change the speed and
+--!                 the signal_generator directly uses the new value
+--!               - removed wrong synchronization statements
+--! @details      v0.1.4 28.11.2014 Riedel
+--!               - removed `prescaler`-dependency in `pwm_generation`-process
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -59,6 +65,7 @@ TYPE      PWM_STATE_TYPE  IS (ONE, TWO, THREE, FOUR);
 SIGNAL    mode_state      : MODE_STATE_TYPE;
 SIGNAL    pwm_state       : PWM_STATE_TYPE;
 SIGNAL    speed_wire      : INTEGER RANGE 0 TO 400;
+SIGNAL    old_speed_wire  : INTEGER RANGE 0 TO 400;
 SIGNAL    pwm_5ms_counter : INTEGER RANGE 0 TO 400;
 SIGNAL    steps_to_run    : INTEGER;
 SIGNAL    steps_counter   : INTEGER;
@@ -101,10 +108,11 @@ BEGIN
     END IF; 
   END PROCESS;
 
-  speed_state_machine : PROCESS (clock, speed)
+  speed_state_machine : PROCESS (clock, speed, pwm_5ms_counter)
   BEGIN
     IF(rising_edge(clock)) THEN
-    CASE speed IS
+	   old_speed_wire <= speed_wire;
+		CASE speed IS
       WHEN "000" =>
         speed_wire <= 400;
       WHEN "001" =>
@@ -187,22 +195,25 @@ BEGIN
     END CASE;
   END PROCESS;
   
-  pulse_generation : PROCESS (reset_n, prescaler, speed_wire)
+  pulse_generation : PROCESS (reset_n, clock, prescaler, speed_wire)
   BEGIN
     IF(reset_n = '0') THEN
       pwm_5ms_counter <= speed_wire;
-    ELSIF(speed_wire'Event) THEN
+    ELSIF(rising_edge(clock) THEN
+      IF(speed_wire /= old_speed_wire) THEN
         pwm_5ms_counter <= speed_wire;
-    ELSIF(rising_edge(prescaler)) THEN
-      IF(pwm_5ms_counter = 0) THEN
-        pwm_5ms_counter <= speed_wire;
-      ELSE
-        pwm_5ms_counter <= pwm_5ms_counter - 1;
+      END IF;
+      IF(prescaler = '1') THEN
+		    IF(pwm_5ms_counter = 0) THEN
+          pwm_5ms_counter <= speed_wire;
+		    ELSE
+          pwm_5ms_counter <= pwm_5ms_counter - 1;
+		    END IF;
       END IF;
     END IF;
   END PROCESS;
 
-  pwm_generation : PROCESS (reset_n, clock, prescaler, steps_counter, steps_to_run, pwm_state)
+  pwm_generation : PROCESS (reset_n, steps_counter, steps_to_run, pwm_state)
   BEGIN
     IF(reset_n = '0') THEN
       motor_pwm_wire <= "0000";
@@ -210,7 +221,7 @@ BEGIN
     ELSIF(steps_counter = steps_to_run) THEN -- motor reached final position
       motor_pwm_wire <= "0000";
       ir_wire <= '1';
-    ELSIF(rising_edge(prescaler)) THEN
+    ELSE
       CASE pwm_state IS
       WHEN ONE =>
         motor_pwm_wire <= "1100";
@@ -221,8 +232,6 @@ BEGIN
       WHEN FOUR =>
         motor_pwm_wire <= "1001";
       END CASE;
-      ir_wire <= '0';
-    ELSE
       ir_wire <= '0';
     END IF;
   END PROCESS;
