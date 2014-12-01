@@ -13,8 +13,10 @@
 --!               - improved documentation
 -------------------------------------------------------------------------------
 
-LIBRARY ieee  ; 
-USE ieee.std_logic_1164.all  ; 
+--! Use Standard Library
+LIBRARY ieee; 
+--! Use Logic Elements
+USE ieee.std_logic_1164.all; 
 
 --! @brief Testbench entity
 ENTITY counter_tb  IS 
