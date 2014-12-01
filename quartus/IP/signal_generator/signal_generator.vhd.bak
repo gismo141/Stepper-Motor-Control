@@ -80,7 +80,7 @@ SIGNAL    motor_pwm_wire  : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL    ir_wire         : STD_LOGIC;
 
 BEGIN
-  mode_state_machine : PROCESS (reset_n, clock, run, mode, steps_counter, steps_to_run)
+  mode_state_machine : PROCESS (reset_n, clock, mode, steps_counter, steps_to_run)
   BEGIN
     IF(reset_n = '0') THEN
       mode_state <= IDLE;
@@ -113,7 +113,7 @@ BEGIN
     END IF; 
   END PROCESS;
 
-  speed_state_machine : PROCESS (reset_n, clock, speed, speed_wire)
+  speed_state_machine : PROCESS (speed)
   BEGIN
     old_speed_wire <= speed_wire;
 		CASE speed IS
@@ -198,7 +198,7 @@ BEGIN
     END CASE;
   END PROCESS;
   
-  pulse_generation : PROCESS (reset_n, clock, prescaler, speed_wire, old_speed_wire)
+  pulse_generation : PROCESS (reset_n, clock, prescaler, speed_wire)
   BEGIN
     IF(reset_n = '0') THEN
       pwm_5ms_counter <= (speed_wire - 1);

@@ -84,6 +84,7 @@ COMPONENT signal_generator is
   PORT
   (
     clock     : IN  STD_LOGIC;
+    run       : IN  STD_LOGIC;
     prescaler : IN  STD_LOGIC;
     reset_n   : IN  STD_LOGIC;
     mode      : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -114,6 +115,7 @@ BEGIN
 	PORT MAP
    (
     clock     => clock,
+    run       => run,
     prescaler => prescaler_wire,
     reset_n   => reset_n,
     mode      => mode,

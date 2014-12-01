@@ -202,12 +202,12 @@ BEGIN
                
   -- Test-procedure (2), Chain of Steps - 1/4 rotation with speed = 7, direction = left
   -- 1020 us sim time for 1/4 rotation
-  run       <= '1' after 20 ns;
   mode    	 <= "0010" after 20 ns;
   direction <= right;
-  speed     <= "111";
+  speed     <= "111" after 20 ns;
 
-
+  run <= '0' WHEN ir = '1' ELSE
+         '1';
 
   finish_sim_time : PROCESS
     BEGIN

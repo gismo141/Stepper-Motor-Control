@@ -1,5 +1,5 @@
 Flow report for MotorControlUnit
-Wed Nov 26 01:28:17 2014
+Mon Dec 01 21:14:24 2014
 Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
 
 
@@ -41,16 +41,16 @@ agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------------+--------------------------------------------+
-; Flow Status                     ; Successful - Wed Nov 26 01:28:17 2014      ;
+; Flow Status                     ; Successful - Mon Dec 01 21:14:24 2014      ;
 ; Quartus II 64-Bit Version       ; 14.0.2 Build 209 09/17/2014 SJ Web Edition ;
 ; Revision Name                   ; MotorControlUnit                           ;
-; Top-level Entity Name           ; milestone3                                 ;
+; Top-level Entity Name           ; signal_generator                           ;
 ; Family                          ; Cyclone V                                  ;
 ; Device                          ; 5CGXFC5C6F27C7                             ;
 ; Timing Models                   ; Final                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 105                                        ;
-; Total pins                      ; 100                                        ;
+; Total registers                 ; 52                                         ;
+; Total pins                      ; 51                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
 ; Total DSP Blocks                ; 0                                          ;
@@ -68,28 +68,28 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/26/2014 01:28:13 ;
+; Start date & time ; 12/01/2014 21:14:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MotorControlUnit    ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                        ;
-+-------------------------------------+---------------------------------+------------------+-------------+----------------+
-; Assignment Name                     ; Value                           ; Default Value    ; Entity Name ; Section Id     ;
-+-------------------------------------+---------------------------------+------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 110749638807297.141696169202800 ; --               ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                            ; --               ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)          ; <None>           ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --               ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --               ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                        ; --               ; milestone3  ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --               ; milestone3  ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --               ; milestone3  ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --               ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; milestone3                      ; MotorControlUnit ; --          ; --             ;
-+-------------------------------------+---------------------------------+------------------+-------------+----------------+
++------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                             ;
++-------------------------------------+---------------------------------+------------------+------------------+----------------+
+; Assignment Name                     ; Value                           ; Default Value    ; Entity Name      ; Section Id     ;
++-------------------------------------+---------------------------------+------------------+------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 110749638807297.141746485900608 ; --               ; --               ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                            ; --               ; --               ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)          ; <None>           ; --               ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --               ; --               ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --               ; --               ; --             ;
+; PARTITION_COLOR                     ; 16764057                        ; --               ; signal_generator ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --               ; signal_generator ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --               ; signal_generator ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --               ; --               ; --             ;
+; TOP_LEVEL_ENTITY                    ; signal_generator                ; MotorControlUnit ; --               ; --             ;
++-------------------------------------+---------------------------------+------------------+------------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -97,8 +97,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 627 MB              ; 00:00:05                           ;
-; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:05                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 625 MB              ; 00:00:06                           ;
+; Total                ; 00:00:06     ; --                      ; --                  ; 00:00:06                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
