@@ -1,8 +1,8 @@
 *.sublime-project
 *.sublime-workspace
+*.bak
 .DS_Store
 Thumbs.db
-
 
 build/
 Documentation/.build
@@ -11,8 +11,4 @@ quartus/incremental_db
 
 quartus/software
 nios-workspace/
-/commit_message.txt
-/quartus/IP/register_interface/register_interface.vhd.bak
-/RTX_C_Source/INC/interfaceRegs.h
-/modelsim/register_interface_tb.vhd.bak
-/modelsim/*.bak
+commit_message.txt

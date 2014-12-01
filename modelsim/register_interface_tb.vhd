@@ -46,7 +46,7 @@ ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
   SIGNAL write_data   :  std_logic_vector (31 downto 0) := (others => '0')  ; 
   SIGNAL irq          :  STD_LOGIC := '0' ; 
   SIGNAL read_data    :  std_logic_vector (31 downto 0) := (others => '0')  ; 
-  SIGNAL run		        :  std_logic := '0' ;						          
+  SIGNAL run		      :  std_logic := '0' ;						          
   SIGNAL direction    :  std_logic := '0' ;						         
   SIGNAL mode         :  std_logic_vector(3 downto 0) := (others => '0') ;  
   SIGNAL speed        :  std_logic_vector(2 downto 0) := (others => '0') ;
@@ -66,8 +66,8 @@ ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
       irq           : out std_logic;                      --! Avalon IRQ line
       greenleds     : out std_logic_vector (7 downto 0);  --! external: green leds
       redleds       : out std_logic_vector (7 downto 0);  --! external: red leds
-      run		         : out std_logic;						                --! enable signal for mcu
-      direction     : out std_logic;						                --! direction signal for mcu
+      run		        : out std_logic;						          --! enable signal for mcu
+      direction     : out std_logic;						          --! direction signal for mcu
       mode          : out std_logic_vector(3 downto 0);   --! output of Mode bits for mcu
       speed         : out std_logic_vector(2 downto 0);   --! output of speedReg for mcu
       steps         : in std_logic_vector(31 downto 0);   --! input for stepsReg for mcu

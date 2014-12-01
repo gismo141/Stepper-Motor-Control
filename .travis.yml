@@ -1,0 +1,11 @@
+before_install:
+    - sudo apt-get install python-software-properties 
+    - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2
+    - sudo apt-get update
+    - sudo apt-get install doxygen
+
+after_success:
+   - chmod 600 .travis/deploy_key.pem # this key should have push access
+   - ssh-add .travis/deploy_key.pem
+   - git remote add deploy DEPLOY_REPO_URI_GOES_HERE
+   - git push deploy

@@ -1,6 +1,6 @@
-SOURCE_FOLDER	:= Milestone_3a
+SOURCE_FOLDER	:= Milestone_3b
 BUILD_FOLDER	:= ../.build
-FILE			:= Meilenstein_3a
+FILE			:= Meilenstein_3b
 TEMPLATE 		:= template.latex
 
 all: pandoc

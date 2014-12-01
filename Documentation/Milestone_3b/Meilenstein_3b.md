@@ -17,7 +17,7 @@ Die Gesamtzeiten berechnen sich aus der Aufsummierung der einzelnen Zeiten der S
 
 ![Gantt-Diagramm zur kompletten Zeitplanung\label{fig:gantt}][fig:gantt]
 
-![Projektplanung für Meilenstein 3a\label{fig:projektplanung}][fig:projektplanung]
+![Projektplanung für Meilenstein 3b\label{fig:projektplanung}][fig:projektplanung]
 
 ![Zeitbedarfsübersicht für das gesamte Projekt\label{fig:zeitbedarf}][fig:zeitbedarf]
 
@@ -90,49 +90,36 @@ Gemäß Abbildung \ref{fig:motor_phases_sm} ist ersichtlich, wie die Motorwindun
 
 ## Integration in eine Testumgebung durch die Komponente debug_key_detect
 
-Damit die `motor_control_unit` unabhängig vom NIOS-II Prozessor getestet werden kann, wird im Meilenstein 3b eine eigene Komponente erstellt, die gemäß Abbildung \ref{fig:milestone3a} das `register_interface` und die `motor_control_unit` mit einer `debug_key_detect`-Komponente verbindet.
+Damit die `motor_control_unit` unabhängig vom NIOS-II Prozessor getestet werden kann, wird im Meilenstein 3b eine eigene Komponente erstellt, die gemäß Abbildung \ref{fig:milestone3b} das `register_interface` und die `motor_control_unit` mit einer `debug_key_detect`-Komponente verbindet.
 
 Diese Komponente ermöglicht das gezielte Simulieren der Prozessoranfragen an die Motor-Control-Unit. Sie beschreibt das `register_interface` mit den gewünschten Daten und initiiert das Verfahren des Schrittmotors.
 
 Gemäß Abbildung \ref{fig:uebersicht-der-komponenten-und-rollen} können die einzelnen Aufgaben, die die jeweiligen Komponenten übernehmen. 
 
-![Block-Diagramm der Testumgebung\label{fig:milestone3a}][fig:milestone3a]
+![Block-Diagramm der Testumgebung\label{fig:milestone3b}][fig:milestone3b]
 
 ![Überblick der Komponenten und Rollen\label{fig:uebersicht-der-komponenten-und-rollen}][fig:uebersicht-der-komponenten-und-rollen]
 
 # Test der Motor-Control-Unit
 
-Um die korrekte Funktion der `motor_control_unit` sicherzustellen, wurde eine Testbench gemäß folgender Testverfahren erstellt.
-
-## Test-Prozedur 1 - Reset-Funktionalität
-
-| signal         | desired output |
-| :------------- | :--------------|
-| mode_state     | `IDLE`         |
---!    | pwm_state      | `ONE`          |
---!           | steps_counter  | `0`            |
---!           | motor_pwm      | `0000`         | 
---!           | motor_en       | `00`           |
---!           | ir             | `0`            |
-
-## Test Prozedur 2
+Um die korrekte Funktion der `motor_control_unit` sicherzustellen, wurde eine Testbench erstellt. In ihr werden die verschiedenen Anforderungen an die Komponente verifiziert. Im Allgemeinen werden alle Modi in den verschiedenen Geschwindigkeits- und Richtungseinstellungen getestet. Für weitere Informationen sei auf die Dokumentation des Testbench `motor_control_unit_tb.vhdl` verwiesen.
 
 <!-- Links -->
 
 [fig:gantt]: ../Planning/Gantt-Diagramm.png "Gantt-Diagramm zur kompletten Zeitplanung"
 
-[fig:projektplanung]: ../Planning/Planung_Meilenstein3a.png "Projektplanung für Meilenstein 3a" 
+[fig:projektplanung]: ../Planning/Planung_Meilenstein3b.png "Projektplanung für Meilenstein 3b" 
 
 [fig:zeitbedarf]: ../Planning/Zeitbedarf.png "Zeitbedarfsübersicht für das gesamte Projekt"
 
-[fig:register_interface_bd]: ../Milestone_3a/Diagrams/Block/register_interface.png "Block Diagramm des Register Interface"
+[fig:register_interface_bd]: ../Milestone_3b/Diagrams/Block/register_interface.png "Block Diagramm des Register Interface"
 
-[fig:motor_control_unit_bd]: ../Milestone_3a/Diagrams/Block/motor_control_unit.png "Block-Diagramm der Motor-Control-Unit-Komponente"
+[fig:motor_control_unit_bd]: ../Milestone_3b/Diagrams/Block/motor_control_unit.png "Block-Diagramm der Motor-Control-Unit-Komponente"
 
-[fig:motor_control_unit_sm]: ../Milestone_3a/Diagrams/State-Machines/motor_control_unit.png "State-Machine zu den Mode-Übergängen der Motor-Control-Unit-Komponente"
+[fig:motor_control_unit_sm]: ../Milestone_3b/Diagrams/State-Machines/motor_control_unit.png "State-Machine zu den Mode-Übergängen der Motor-Control-Unit-Komponente"
 
-[fig:motor_phases_sm]: ../Milestone_3a/Diagrams/State-Machines/motor_phases.png "State-Machine zu Beschaltung der Wicklungen des Schrittmotors"
+[fig:motor_phases_sm]: ../Milestone_3b/Diagrams/State-Machines/motor_phases.png "State-Machine zu Beschaltung der Wicklungen des Schrittmotors"
 
-[fig:milestone3a]: ../Milestone_3a/Diagrams/Block/milestone3a.png "Block-Diagramm der Testumgebung"
+[fig:milestone3b]: ../Milestone_3b/Diagrams/Block/milestone3b.png "Block-Diagramm der Testumgebung"
 
-[fig:uebersicht-der-komponenten-und-rollen]: ../Milestone_3a/Diagrams/Uebersicht-Komponenten-und-Rollen.png "Überblick der Komponenten und Rollen"
+[fig:uebersicht-der-komponenten-und-rollen]: ../Milestone_3b/Diagrams/Uebersicht-Komponenten-und-Rollen.png "Überblick der Komponenten und Rollen"
