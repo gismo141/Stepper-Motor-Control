@@ -26,12 +26,14 @@
 --!               - corrected formatting
 --!               - improved documentation
 --! @details      v1.0.0 18.11.2014 Riedel & Kossmann
---!				          - verified functionality -> release MS2
+--!				         - verified functionality -> release MS2
 --! @details      v1.0.1 19.11.2014 Kossmann
---!				          - changed register write implementation to more save version
+--!				         - changed register write implementation to more save version
 --! @details      v1.0.2 21.11.2014 Riedel & Kossmann
---!				          - removed ctrlSetReg and ctrlClrReg signals
+--!				         - removed ctrlSetReg and ctrlClrReg signals
 --!               - added register access for mcu
+--! @details      v1.0.3 01.12.2014 Kossmann
+--!               - reacting to rising edge of ir signal
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -92,8 +94,9 @@ begin
 	  ctrlReg <= (others => '0');
 	elsif (rising_edge(clock)) then
 		ctrlReg <= ctrlReg;
- 		if(ir = '1') then -- set IR-bit when mcu requests interrupt
-      ctrlReg(7) <= ir;
+ 		if(ir = '1') then -- set IR-bit and reset R/S when mcu requests interrupt
+      ctrlReg(7) <= '1';
+      ctrlReg(0) <= '0';
     end if;
 		if (addr = B"000" AND write_n = '0' AND ce_n = '0') then
       ctrlReg <= write_data(7 downto 0);             -- overwrite complete ctrlReg 
