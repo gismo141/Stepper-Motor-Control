@@ -152,7 +152,7 @@ begin
   -- set interrupt
   irq <= ctrlReg(6) and ctrlReg(7);
   -- clone ctrlReg to red leds
-  redleds(6 downto 0) <= ctrlReg(6 downto 0);
+  redleds <= ctrlReg;
   -- clone speedReg to green leds
   greenleds(2 downto 0) <= speedReg;
   greenleds(7 downto 3) <= (others => '0');

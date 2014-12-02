@@ -147,23 +147,23 @@ BEGIN
     old_speed_wire <= speed_wire;
 		CASE speed IS
     WHEN "000" =>
-      speed_wire <= 400;
+      speed_wire <= 400 - 1;
     WHEN "001" =>
-      speed_wire <= 200;
+      speed_wire <= 200 - 1;
     WHEN "010" =>
-      speed_wire <= 100;
+      speed_wire <= 100 - 1;
     WHEN "011" =>
-      speed_wire <= 50;
+      speed_wire <= 50 - 1;
     WHEN "100" =>
-      speed_wire <= 20;
+      speed_wire <= 20 - 1;
     WHEN "101" =>
-      speed_wire <= 10;
+      speed_wire <= 10 - 1;
     WHEN "110" =>
-      speed_wire <= 5;
+      speed_wire <= 5 - 1;
     WHEN "111" =>
-      speed_wire <= 2;
+      speed_wire <= 2 - 1;
     WHEN others =>
-      speed_wire <= 400;
+      speed_wire <= 400 - 1;
     END CASE;
   END PROCESS;
   
@@ -171,12 +171,12 @@ BEGIN
   pulse_generation : PROCESS (reset_n, clock, prescaler, speed_wire, old_speed_wire)
   BEGIN
     IF(reset_n = '0') THEN
-      pwm_5ms_counter <= (speed_wire - 1);
+      pwm_5ms_counter <= speed_wire;
     ELSIF(speed_wire /= old_speed_wire) THEN
-        pwm_5ms_counter <= (speed_wire - 1);
+        pwm_5ms_counter <= speed_wire;
     ELSIF(rising_edge(clock) and prescaler = '1') THEN
 		  IF(pwm_5ms_counter = 0) THEN
-        pwm_5ms_counter <= (speed_wire - 1);
+        pwm_5ms_counter <= speed_wire;
 		  ELSE
         pwm_5ms_counter <= pwm_5ms_counter - 1;
 		  END IF;

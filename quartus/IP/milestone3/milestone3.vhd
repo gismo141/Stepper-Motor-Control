@@ -28,7 +28,18 @@ LIBRARY ieee;
 USE ieee.STD_LOGIC_1164.all;
 
 --! @brief Milestone 3
-ENTITY milestone3 is
+ENTITY milestone3 is  
+  GENERIC
+  (
+    --! @brief		Prescaler for PWM-signal.
+    --! @details	For this purpose 2,5 ms are used as minimal pulse-width.
+    --!	@details	The prescaler is calculated with the given and desired frequency
+    --!			via the following formula:
+    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
+    --!					prescaler = 50 Mhz / 400 Hz = 125000
+    divider : integer := 125000
+  );
   port(
     CLOCK_50_B5B      : IN  STD_LOGIC;                      --! component clock
     CPU_RESET_n       : IN  STD_LOGIC;                      --! resets the component
@@ -88,6 +99,7 @@ COMPONENT register_interface is
 END COMPONENT;
 
 COMPONENT motor_control_unit is
+  GENERIC ( divider : integer );
   PORT(
     clock             : IN  STD_LOGIC;                      --! component clock
     reset_n           : IN  STD_LOGIC;                      --! resets the component
@@ -156,6 +168,7 @@ BEGIN
     );
 
   motor_control_unit_inst : COMPONENT motor_control_unit
+	 GENERIC MAP ( divider => divider )
     PORT MAP(
       clock           => CLOCK_50_B5B,
       reset_n         => CPU_RESET_n,

@@ -2,7 +2,7 @@
 --! @file         motor_control_unit_tb.vhd
 --! @author       Marc Kossmann
 --! @author       Michael Riedel
---! @version      v1.0.0
+--! @version      v0.1.0
 --! @date         26.11.2014
 --!
 --! @brief        Testbench for Motor-Control-Unit Component

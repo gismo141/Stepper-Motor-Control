@@ -10,6 +10,9 @@
 --! @par History:
 --! @details      v0.1.0 25.11.2014 Riedel & Kossmann
 --!               - first draft
+--! @details      v0.1.1 02.12.2014 Kossmann
+--!               - complete redesign because registers in register_interface
+--!					  should be written only when input changes
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -51,6 +54,8 @@ ARCHITECTURE my_debug_key_detect of debug_key_detect is
   SIGNAL key0_detect_wire : STD_LOGIC;  --! Signal to detect key0 press
   SIGNAL key0_reg         : STD_LOGIC;        --! Signal to toggle run/stop in ctrlReg(0) via key0
   SIGNAL addr_counter     : INTEGER RANGE 0 TO 4;
+  SIGNAL old_switches     : STD_LOGIC_VECTOR(9 DOWNTO 0);
+  SIGNAL reg_write_stage  : INTEGER;
   
 BEGIN
 
@@ -62,7 +67,7 @@ BEGIN
     key_detect            => key0_detect_wire
   );
   
-  input : PROCESS(reset_n, key0_detect_wire)
+  key_input_tmp_register : PROCESS(reset_n, key0_detect_wire)
   BEGIN
     IF(reset_n = '0') THEN
       key0_reg <= '0';
@@ -71,45 +76,45 @@ BEGIN
     END IF;
   END PROCESS;
   
-  set_address : PROCESS(clock, reset_n, addr_counter) 
+  
+  write_registers : PROCESS(reset_n, clock, key0_detect_wire, switches, old_switches) 
   BEGIN
     IF(reset_n = '0') THEN
-      addr_counter <= 0;
-    ELSIF(rising_edge(clock)) THEN
-      case addr_counter is
-       when 0 =>
-        addr <= "000";
-        addr_counter <= 3;
-       when 3 =>
-        addr <= "011";
-        addr_counter <= 0;
-       when others =>
-        addr_counter <= addr_counter;
-       END case;
-    END IF;
+      write_n       <= '1';
+		old_switches <= switches;
+		reg_write_stage <= 0;
+		data <= (others => '0');  -- unused bits to 0	 
+    ELSIF(rising_edge(clock)) then
+		IF(key0_detect_wire = '1') then
+			old_switches <= switches;
+			reg_write_stage <= 0;
+			data <= (others => '0');  -- unused bits to 0
+		ELSIF(old_switches /= switches) THEN
+			old_switches <= switches;
+			reg_write_stage <= 0;
+			data <= (others => '0');  -- unused bits to 0
+		END IF;
+		IF(reg_write_stage = 0) then
+		  addr <= "000";
+		  data(0) <= key0_reg;      -- R/S
+		  data(1) <= switches(1);   -- L/R
+		  data(2) <= switches(2);   -- Mode1
+		  data(3) <= switches(3);   -- Mode2  
+		  data(4) <= switches(4);   -- Mode3
+		  data(5) <= switches(5);   -- Mode4
+		  data(6) <= switches(6);   -- IE
+		  reg_write_stage <= 1;
+		  write_n       <= '0';
+		ELSIF(reg_write_stage = 1) then
+		  addr <= "011";
+		  data(2 downto 0) <= switches(9 downto 7);
+		  reg_write_stage <= 2;
+		ELSIF(reg_write_stage = 2) then
+		  write_n <= '1';
+		END IF;
+	 END IF;
   END PROCESS;
   
-  set_data : PROCESS(clock, key0_reg, switches, addr_counter) 
-  BEGIN
-    IF (rising_edge(clock)) THEN
-      data <= (others => '0');  -- unused bits to 0
-      case addr_counter is
-       when 0 =>                -- ctrlReg
-        data(0) <= key0_reg;      -- R/S
-        data(1) <= switches(1);   -- L/R
-        data(2) <= switches(2);   -- Mode1
-        data(3) <= switches(3);   -- Mode2  
-        data(4) <= switches(4);   -- Mode3
-        data(5) <= switches(5);   -- Mode4
-        data(6) <= switches(6);   -- IE
-       when 3 =>                -- speedReg
-        data(2 downto 0) <= switches(9 downto 7);
-       when others =>
-       END case;
-    END IF;
-  END PROCESS;
-  
-  write_n       <= '0';
   ce_n          <= '0';
   
 END my_debug_key_detect;
