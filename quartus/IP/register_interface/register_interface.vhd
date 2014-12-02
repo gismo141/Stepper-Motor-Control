@@ -58,7 +58,7 @@ entity register_interface is
     irq           : out std_logic;                      --! Avalon IRQ line
     greenleds     : out std_logic_vector (7 downto 0);  --! external: green leds
     redleds       : out std_logic_vector (7 downto 0);  --! external: red leds
-    run		        : out std_logic;						          --! enable signal for mcu
+    run		      : out std_logic;						          --! enable signal for mcu
     direction     : out std_logic;						          --! direction signal for mcu
     mode          : out std_logic_vector(3 downto 0);   --! output of Mode bits for mcu
     speed         : out std_logic_vector(2 downto 0);   --! output of speedReg for mcu
@@ -86,25 +86,26 @@ begin
    --!        - writing registers
    --!        - reading registers
    --!        - implementing set and clear functionality
-  process(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, speedReg, stepsReg) 
+  process(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg) 
   begin
- 
 	-- ctrlReg Register Write
 	if (reset_n = '0') then
 	  ctrlReg <= (others => '0');
 	elsif (rising_edge(clock)) then
 		ctrlReg <= ctrlReg;
+		
  		if(ir = '1') then -- set IR-bit and reset R/S when mcu requests interrupt
-      ctrlReg(7) <= '1';
-      ctrlReg(0) <= '0';
-    end if;
-		if (addr = B"000" AND write_n = '0' AND ce_n = '0') then
-      ctrlReg <= write_data(7 downto 0);             -- overwrite complete ctrlReg 
-	  elsif(addr = B"001" AND write_n = '0' AND ce_n = '0') then
-      ctrlReg <= ctrlReg or write_data(7 downto 0);  -- set ctrlReg bitwise
-	  elsif(addr = B"010" AND write_n = '0' AND ce_n = '0') then
-      ctrlReg <= ctrlReg and (not write_data(7 downto 0));  -- clr ctrlReg 
-	  end if;
+			ctrlReg(7) <= '1';
+			ctrlReg(0) <= '0';
+		end if;
+		
+	   if (addr = B"000" AND write_n = '0' AND ce_n = '0') then
+        ctrlReg <= write_data(7 downto 0);             -- overwrite complete ctrlReg 
+	   elsif(addr = B"001" AND write_n = '0' AND ce_n = '0') then
+        ctrlReg <= ctrlReg or write_data(7 downto 0);  -- set ctrlReg bitwise
+	   elsif(addr = B"010" AND write_n = '0' AND ce_n = '0') then
+        ctrlReg <= ctrlReg and (not write_data(7 downto 0));  -- clr ctrlReg 
+	   end if;
 	end if; 
    
   -- speedReg Register Write
@@ -151,7 +152,7 @@ begin
   -- set interrupt
   irq <= ctrlReg(6) and ctrlReg(7);
   -- clone ctrlReg to red leds
-  redleds <= ctrlReg;
+  redleds(6 downto 0) <= ctrlReg(6 downto 0);
   -- clone speedReg to green leds
   greenleds(2 downto 0) <= speedReg;
   greenleds(7 downto 3) <= (others => '0');

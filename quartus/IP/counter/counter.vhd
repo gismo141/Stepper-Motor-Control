@@ -6,7 +6,7 @@
 --! @date         23.11.2014
 --!
 --! @brief        Counter which divides the clock according to the divider
---! @details      Provide 5 ms time base when divider = 125000.
+--! @details      Provide 5 ms time base when divider = 250000.
 --! @par History:
 --! @details      v0.1.0 23.11.2014 Kossmann
 --!               - first draft

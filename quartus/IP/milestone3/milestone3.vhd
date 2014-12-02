@@ -16,8 +16,10 @@
 --!               - added signals and connected the three components
 --! @details      v0.1.2 25.11.2014 Riedel & Kossmann
 --!               - changed entitiy according to pin-assignments
---! @details      v0.1.0 28.11.2014 Kossmann
+--! @details      v0.1.3 28.11.2014 Kossmann
 --!               - improved documemtation
+--! @details      v0.1.4 02.12.2014 Riedel & Kossmann
+--!               - fix wrong green leds output
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -167,7 +169,11 @@ BEGIN
       ir              => ir_wire
     );
    
-	LEDG(3 DOWNTO 0)	 <= motor_pwm_wire;
+	LEDG(3) <= motor_pwm_wire(3);
+	LEDG(2) <= motor_pwm_wire(1);
+	LEDG(1) <= motor_pwm_wire(2);
+	LEDG(0) <= motor_pwm_wire(0);
+
 	LEDG(5 DOWNTO 4)	 <= motor_en_wire;
 	
    HSMC_RX_P(0)       <= motor_pwm_wire(0);

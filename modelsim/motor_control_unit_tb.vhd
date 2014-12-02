@@ -107,14 +107,14 @@ ENTITY motor_control_unit_tb  IS
   GENERIC
   (
     --! @brief		Prescaler for PWM-signal.
-    --! @details	For this purpose 5 ms are used as minimal pulse-width.
+    --! @details	For this purpose 2,5 ms are used as minimal pulse-width.
     --!	@details	The prescaler is calculated with the given and desired frequency
     --!			via the following formula:
     --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
-    --!			e.g.:	f_prescaler = 1/5 ms = 200 Hz
-    --!					prescaler = 50 Mhz / 200 Hz = 250000
-    --! @details	For simulation purpose the best value to use is 2.
-    divider : integer := 250
+    --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
+    --!					prescaler = 50 Mhz / 400 Hz = 125000
+    --! @details In simulation the divider is 125 for faster wave generation.
+    divider : integer := 125
   );
 END; 
  
@@ -179,7 +179,7 @@ BEGIN
   -- Test-procedure (1), reset_n
   reset_n   <= '0',
                '1' after 20 ns;
-               
+
   -- Test-procedure (2), Continuous Run with speed = 0, direction = left
   -- 5 ms sim time for two pulses
 --  run       <= '1' after 20 ns;
@@ -188,8 +188,8 @@ BEGIN
 --  speed     <= "000";
 
   -- Test-procedure (3), Continuous Run with speed = 1, direction = left, R/S toggle
-  -- 6 ms sim time for two pulses
---  run       <= '1' after 20 ns,
+  -- 3 ms sim time for two pulses
+--  run       <= '1' after 20 ns,sim:/motor_control_unit_tb
 --               '0' after 3000 us,
 --               '1' after 3100 us; 
 --  mode    	 <= "0001" after 20 ns;
@@ -197,25 +197,26 @@ BEGIN
 --  speed     <= "001"; 
 
   -- Test-procedure (4), Continuous Run with speed = 7, direction = left
-  -- 30 us sim time for two pulses
+  -- 15 us sim time for two pulses
 --  run       <= '1' after 20 ns;
 --  mode    	 <= "0001" after 20 ns;
 --  direction <= left;
 --  speed     <= "111";
                
   -- Test-procedure (5), Continuous Run with speed = 7, direction = right
-  -- 30 us sim time for two pulses
+  -- 15 us sim time for two pulses
 --  run       <= '1' after 20 ns;
 --  mode    	 <= "0001" after 20 ns;
 --  direction <= right;
 --  speed     <= "111";
                
   -- Test-procedure (6), Chain of Steps - 1/4 rotation with speed = 7, direction = left
-  -- 1500 us sim time for 1/4 rotation
+  -- 750 us sim time for 1/4 rotation
 --  register_interface_sim : process(clock) 
 --  begin
 --    if (reset_n = '0') then
---      run <= '1';
+--      run <= '1';sim:/motor_control_unit_tb/DUT/signal_generator_inst/ir
+
 --    elsif(rising_edge(clock)) then
 --      if(ir = '1') then
 --        run <= '0';
@@ -231,27 +232,7 @@ BEGIN
   
   
   -- Test-procedure (7), Chain of Steps - 1/4 rotation with speed = 7, direction = left/right switch
-  -- 1500 us sim time for 1/4 rotation
-  register_interface_sim : process(clock) 
-  begin
-    if (reset_n = '0') then
-      run <= '1';
-    elsif(rising_edge(clock)) then
-      if(ir = '1') then
-        run <= '0';
-      else  
-        run <= run;
-      end if;
-    end if;
-  end process;
-  
-  mode    	 <= "0010" after 20 ns;
-  direction <= right,
-               left after 700 us;
-  speed     <= "111" after 20 ns;
-
-  -- Test-procedure (7), Chain of Steps - 1/4 rotation with speed = 7, direction = left with R/S restart
-  -- 1500 us sim time for 1/4 rotation
+  -- 750 us sim time for 1/4 rotation
 --  register_interface_sim : process(clock) 
 --  begin
 --    if (reset_n = '0') then
@@ -260,15 +241,36 @@ BEGIN
 --      if(ir = '1') then
 --        run <= '0';
 --      else  
---        run <= '1';
+--        run <= run;
 --      end if;
 --    end if;
 --  end process;
 --  
 --  mode    	 <= "0010" after 20 ns;
 --  direction <= right,
---               left after 700 us;
+--               left after 300 us;
+--
 --  speed     <= "111" after 20 ns;
+
+  -- Test-procedure (7), Chain of Steps - 1/4 rotation with speed = 7, direction = left with R/S restart
+  -- 750 us sim time for 1/4 rotation
+  register_interface_sim : process(clock) 
+  begin
+    if (reset_n = '0') then
+      run <= '1';
+    elsif(rising_edge(clock)) then
+      if(ir = '1') then
+        run <= '0';
+      else  
+        run <= '1';
+      end if;
+    end if;
+  end process;
+  
+  mode    	 <= "0010" after 20 ns;
+  direction <= right,
+               left after 300 us;
+  speed     <= "111" after 20 ns;
   
   finish_sim_time : PROCESS
     BEGIN
