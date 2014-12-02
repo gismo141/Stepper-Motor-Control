@@ -20,6 +20,8 @@
 --!               - improved documemtation
 --! @details      v0.1.4 02.12.2014 Riedel & Kossmann
 --!               - fix wrong green leds output
+--! @details      v0.1.5 02.12.2014 Kossmann
+--!               - adjustments to work with new debug_key_detect design
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -68,10 +70,12 @@ COMPONENT debug_key_detect is
     reset_n           : IN  STD_LOGIC;                      --! reset of component
     switches          : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);   --! Switches to set registers in register_interface
     key               : IN  STD_LOGIC;                      --! Run/Stop key0
+	 read_data         : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! data of selected register
     ce_n              : OUT STD_LOGIC;                      --! chip enable 
     write_n           : OUT STD_LOGIC;                      --! write enable for register_interface
+    read_n            : OUT STD_LOGIC;                      --! read enable for register_interface
     addr              : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);   --! selects the register to write
-    data              : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)   --! data to write to selected register
+    write_data        : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)   --! data to write to selected register
   );
 END COMPONENT;
 
@@ -117,18 +121,15 @@ END COMPONENT;
 SIGNAL ce_n_wire      : STD_LOGIC;
 SIGNAL write_n_wire   : STD_LOGIC;
 SIGNAL addr_wire      : STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL data_wire      : STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL write_data_wire: STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL run_wire       : STD_LOGIC;
 SIGNAL direction_wire : STD_LOGIC;
 SIGNAL mode_wire      : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL speed_wire     : STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL steps_wire     : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL ir_wire        : STD_LOGIC;
-
-SIGNAL read_n_wire    : STD_LOGIC := '1';                   -- not used
--- SIGNAL read_data_wire : STD_LOGIC_VECTOR(31 DOWNTO 0)
---                := (others => 'Z');                       -- not used 
--- SIGNAL irq_wire       : STD_LOGIC := '0';                -- not used
+SIGNAL read_n_wire    : STD_LOGIC;                 
+SIGNAL read_data_wire : STD_LOGIC_VECTOR(31 DOWNTO 0); 
 
 SIGNAL motor_pwm_wire : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL motor_en_wire  : STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -142,8 +143,10 @@ BEGIN
       key             => KEY(0),
       ce_n            => ce_n_wire,
       write_n         => write_n_wire,
+      read_n          => read_n_wire,
       addr            => addr_wire,
-      data            => data_wire
+      write_data      => write_data_wire,
+      read_data       => read_data_wire
     );
 
   register_interface_inst : COMPONENT register_interface
@@ -154,8 +157,8 @@ BEGIN
       read_n          => read_n_wire,
       write_n         => write_n_wire,
       addr            => addr_wire,
-      write_data      => data_wire,
---      read_data       => read_data_wire,
+      write_data      => write_data_wire,
+      read_data       => read_data_wire,
 --      irq             => irq_wire,
 --      greenleds       => LEDG,
       redleds         => LEDR,

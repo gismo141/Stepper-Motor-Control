@@ -34,6 +34,8 @@
 --!               - fixed Chain of Steps Bug though evaluating run signal of mcu
 --! @details      v0.1.7 02.12.2014 Riedel & Kossmann
 --!               - changed structure and fixed bugs to get code working on fpga
+--! @details      v0.1.8 02.12.2014 Kossmann
+--!               - little adjustments for fulfill specification
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -214,24 +216,7 @@ BEGIN
 		   END IF;
   END PROCESS;
   
-  steps_counting : PROCESS (reset_n, prescaler, pwm_5ms_counter, pwm_state, run)
-  BEGIN
-    IF(reset_n = '0') THEN
-      steps_counter <= 0;
-      steps_output_wire <= 0; 
-	   ELSIF(run = '0') then
-    			 steps_counter <= 0;
-  		 ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
-      			IF(direction = LEFT) THEN
-      			  steps_output_wire <= steps_output_wire - 1;
-      			ELSE
-      			  steps_output_wire <= steps_output_wire + 1;
-      			END IF;
-   			  steps_counter <= steps_counter + 1;
-		 END IF;
-  END PROCESS;
-
-  pwm_generation : PROCESS (run, pwm_state)
+  pwm_output : PROCESS (run, pwm_state)
   BEGIN
     IF(run = '1') THEN
       motor_en_wire <= "11";
@@ -248,6 +233,24 @@ BEGIN
       WHEN FOUR =>
         motor_pwm_wire <= "1001";
       END CASE;
+  END PROCESS;
+  
+  steps_counting : PROCESS (reset_n, prescaler, pwm_5ms_counter, pwm_state, run)
+  BEGIN
+     IF(reset_n = '0') THEN
+      steps_counter <= 0;
+      steps_output_wire <= 0;
+	  ELSIF(run = '0') then
+    			 steps_counter <= 0;
+      steps_output_wire <= 0;
+  		 ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
+      			IF(direction = LEFT) THEN
+      			  steps_output_wire <= steps_output_wire - 1;
+      			ELSE
+      			  steps_output_wire <= steps_output_wire + 1;
+      			END IF;
+   			  steps_counter <= steps_counter + 1;
+		 END IF;
   END PROCESS;
 
   motor_en  <= motor_en_wire;

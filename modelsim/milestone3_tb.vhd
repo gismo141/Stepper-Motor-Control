@@ -93,11 +93,27 @@ BEGIN
   CPU_RESET_n   <= '0', '1' after 20 ns;
   
   --Testing continous run with speed 7. Direction and Run/stop switched
-  sw(1)           <= '0';     --direction ('0' is left)
-  sw(5 downto 2)  <= "0001";  --mode 
+--  sw(1)           <= '0';     --direction ('0' is left)
+--  sw(5 downto 2)  <= "0001";  --mode 
+--  sw(6)           <= '1';     --interrupt enabled
+--  sw(9 downto 7)  <= "111";   --speed
+--  -- low active key
+--  key(0)          <= '0' after 100 ns,  --on
+--                     '1' after 130 ns,
+--                     '0' after 300 us,  --off
+--                     '1' after 301 us,
+--                     '0' after 400 us,  --on
+--                     '1' after 401 us;
+
+  --Testing Chain of Steps 1/4 with speed 7. Direction switched
+  sw(1)           <= '0',     --direction ('0' is left)
+                     '1' after 300 us;
+  sw(5 downto 2)  <= "0010";  --mode 
   sw(6)           <= '1';     --interrupt enabled
   sw(9 downto 7)  <= "111";   --speed
   key(0)          <= '0' after 100 ns,  -- low active
-                     '1' after 130 ns;
+                     '1' after 130 ns,
+                     '0' after 550 us,  --on
+                     '1' after 551 us;
 
 END ; 
