@@ -91,6 +91,8 @@
 --! @details      v0.1.4 30.11.2014 Riedel & Kossmann
 --!               - wiring new run signal for signal_generator
 --!               - added testcases
+--! @details      v0.1.5 03.12.2014 Kossmann
+--!               - implemented more testcases
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -189,7 +191,7 @@ BEGIN
 
   -- Test-procedure (3), Continuous Run with speed = 1, direction = left, R/S toggle
   -- 3 ms sim time for two pulses
---  run       <= '1' after 20 ns,sim:/motor_control_unit_tb
+--  run       <= '1' after 20 ns,
 --               '0' after 3000 us,
 --               '1' after 3100 us; 
 --  mode    	 <= "0001" after 20 ns;
@@ -215,8 +217,8 @@ BEGIN
 --  register_interface_sim : process(clock) 
 --  begin
 --    if (reset_n = '0') then
---      run <= '1';sim:/motor_control_unit_tb/DUT/signal_generator_inst/ir
-
+--      run <= '1';
+--
 --    elsif(rising_edge(clock)) then
 --      if(ir = '1') then
 --        run <= '0';
@@ -229,8 +231,7 @@ BEGIN
 --  mode    	 <= "0010" after 20 ns;
 --  direction <= right;
 --  speed     <= "111" after 20 ns;
-  
-  
+
   -- Test-procedure (7), Chain of Steps - 1/4 rotation with speed = 7, direction = left/right switch
   -- 750 us sim time for 1/4 rotation
 --  register_interface_sim : process(clock) 
@@ -249,28 +250,107 @@ BEGIN
 --  mode    	 <= "0010" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
---
+--  speed     <= "111" after 20 ns;
+  
+  -- Test-procedure (8), Chain of Steps - 1/4 rotation with speed = 7, direction = left with R/S restart
+  -- 750 us sim time for 1/4 rotation
+--  register_interface_sim : process(clock) 
+--  begin
+--    if (reset_n = '0') then
+--      run <= '1';
+--    elsif(rising_edge(clock)) then
+--      if(ir = '1') then
+--        run <= '0';
+--      else  
+--        run <= '1';
+--      end if;
+--    end if;
+--  end process;
+--  
+--  mode    	 <= "0010" after 20 ns;
+--  direction <= right,
+--               left after 300 us;
+--  speed     <= "111" after 20 ns;
+  
+  -- Test-procedure (9): Chain of Steps - 1/2 rotation with speed = 7, direction = left
+  -- 1100 us sim time for 1/2 rotation
+--  register_interface_sim : process(clock) 
+--  begin
+--    if (reset_n = '0') then
+--      run <= '1';
+--    elsif(rising_edge(clock)) then
+--      if(ir = '1') then
+--        run <= '0';
+--      else  
+--        run <= run;
+--      end if;
+--    end if;
+--  end process;
+--  
+--  mode    	 <= "0110" after 20 ns;
+--  direction <= right,
+--               left after 300 us;
 --  speed     <= "111" after 20 ns;
 
-  -- Test-procedure (7), Chain of Steps - 1/4 rotation with speed = 7, direction = left with R/S restart
-  -- 750 us sim time for 1/4 rotation
-  register_interface_sim : process(clock) 
-  begin
-    if (reset_n = '0') then
-      run <= '1';
-    elsif(rising_edge(clock)) then
-      if(ir = '1') then
-        run <= '0';
-      else  
-        run <= '1';
-      end if;
-    end if;
-  end process;
+  -- Test-procedure (10): Chain of Steps - 1 rotation with speed = 7, direction = left
+  -- 2100 us sim time for 1 rotation
+--  register_interface_sim : process(clock) 
+--  begin
+--    if (reset_n = '0') then
+--      run <= '1';
+--    elsif(rising_edge(clock)) then
+--      if(ir = '1') then
+--        run <= '0';
+--      else  
+--        run <= run;
+--      end if;
+--    end if;
+--  end process;
+--  
+--  mode    	 <= "1010" after 20 ns;
+--  direction <= right,
+--               left after 300 us;
+--  speed     <= "111" after 20 ns;
   
-  mode    	 <= "0010" after 20 ns;
-  direction <= right,
-               left after 300 us;
-  speed     <= "111" after 20 ns;
+  -- Test-procedure (11): Chain of Steps - 2 rotation with speed = 7, direction = left
+  -- 4200 us sim time for 2 rotation
+--  register_interface_sim : process(clock) 
+--  begin
+--    if (reset_n = '0') then
+--      run <= '1';
+--    elsif(rising_edge(clock)) then
+--      if(ir = '1') then
+--        run <= '0';
+--      else  
+--        run <= run;
+--      end if;
+--    end if;
+--  end process;
+--  
+--  mode    	 <= "1110" after 20 ns;
+--  direction <= right,
+--               left after 300 us;
+--  speed     <= "111" after 20 ns;
+
+  -- Test-procedure (12): Reserved mode with speed = 7, direction = left
+  -- 200 us sim time for 2 rotation
+--  register_interface_sim : process(clock) 
+--  begin
+--    if (reset_n = '0') then
+--      run <= '1';
+--    elsif(rising_edge(clock)) then
+--      if(ir = '1') then
+--        run <= '0';
+--      else  
+--        run <= run;
+--      end if;
+--    end if;
+--  end process;
+--  
+--  mode    	 <= "1111" after 20 ns;
+--  direction <= right,
+--               left after 300 us;
+--  speed     <= "111" after 20 ns;
   
   finish_sim_time : PROCESS
     BEGIN

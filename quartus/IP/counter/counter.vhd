@@ -25,7 +25,7 @@ USE ieee.std_logic_1164.all;
 
 --! @brief Counter-Component
 ENTITY counter is
-  GENERIC ( divider : INTEGER ); --! clock(Hz) / clk_out(Hz)
+  GENERIC ( divider : INTEGER := 250000 ); --! clock(Hz) / clk_out(Hz)
   PORT
   (
     clock     : IN  STD_LOGIC;    --! input clock

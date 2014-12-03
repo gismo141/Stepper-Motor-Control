@@ -35,7 +35,9 @@
 --! @details      v0.1.7 02.12.2014 Riedel & Kossmann
 --!               - changed structure and fixed bugs to get code working on fpga
 --! @details      v0.1.8 02.12.2014 Kossmann
---!               - little adjustments for fulfill specification
+--!               - small adjustments for fulfill specification
+--! @details      v0.1.9 03.12.2014 Kossmann
+--!               - moved motor driver enable to mode_state machine
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -95,6 +97,7 @@ BEGIN
     ELSIF(rising_edge(clock)) THEN
       CASE mode_state IS
       WHEN IDLE =>
+        motor_en_wire <= "00";
         ir_wire <= '0';
         IF mode(1 DOWNTO 0) = "01" THEN
           mode_state <= CR;
@@ -108,10 +111,20 @@ BEGIN
           mode_state <= COS_2;
         END IF;
       WHEN CR =>
+        IF(run = '1') THEN
+          motor_en_wire <= "11";
+        ELSE
+          motor_en_wire <= "00";
+        END IF;
 			  IF(mode(1 DOWNTO 0) = "00") THEN     -- user stopped the motor
           mode_state <= IDLE;
         END IF;
       WHEN OTHERS =>
+        IF(run = '1') THEN
+          motor_en_wire <= "11";
+        ELSE
+          motor_en_wire <= "00";
+        END IF;
         IF(mode(1 DOWNTO 0) = "00") THEN     -- user stopped the motor
           mode_state <= IDLE;
         END IF;
@@ -144,6 +157,7 @@ BEGIN
   END PROCESS;
 
   --- SPEED's
+  -- this block generates 9 comination loops with latches
   speed_converting : PROCESS (reset_n, clock, speed, speed_wire)
   BEGIN
     old_speed_wire <= speed_wire;
@@ -216,13 +230,8 @@ BEGIN
 		   END IF;
   END PROCESS;
   
-  pwm_output : PROCESS (run, pwm_state)
+  pwm_output : PROCESS (pwm_state)
   BEGIN
-    IF(run = '1') THEN
-      motor_en_wire <= "11";
-    ELSE
-      motor_en_wire <= "00";
-    END IF;
     CASE pwm_state IS
       WHEN ONE =>
         motor_pwm_wire <= "1100";
