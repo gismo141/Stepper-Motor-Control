@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for MotorControlUnit
-Wed Nov 26 01:25:40 2014
-Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
+Wed Dec 03 13:46:51 2014
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
 
 
 ---------------------
@@ -22,67 +22,55 @@ Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
  14. Hold Times
  15. Clock to Output Times
  16. Minimum Clock to Output Times
- 17. Propagation Delay
- 18. Minimum Propagation Delay
- 19. Slow 1100mV 85C Model Metastability Report
- 20. Slow 1100mV 0C Model Fmax Summary
- 21. Slow 1100mV 0C Model Setup Summary
- 22. Slow 1100mV 0C Model Hold Summary
- 23. Slow 1100mV 0C Model Recovery Summary
- 24. Slow 1100mV 0C Model Removal Summary
- 25. Slow 1100mV 0C Model Minimum Pulse Width Summary
- 26. Setup Times
- 27. Hold Times
- 28. Clock to Output Times
- 29. Minimum Clock to Output Times
- 30. Propagation Delay
- 31. Minimum Propagation Delay
- 32. Slow 1100mV 0C Model Metastability Report
- 33. Fast 1100mV 85C Model Setup Summary
- 34. Fast 1100mV 85C Model Hold Summary
- 35. Fast 1100mV 85C Model Recovery Summary
- 36. Fast 1100mV 85C Model Removal Summary
- 37. Fast 1100mV 85C Model Minimum Pulse Width Summary
- 38. Setup Times
- 39. Hold Times
- 40. Clock to Output Times
- 41. Minimum Clock to Output Times
- 42. Propagation Delay
- 43. Minimum Propagation Delay
- 44. Fast 1100mV 85C Model Metastability Report
- 45. Fast 1100mV 0C Model Setup Summary
- 46. Fast 1100mV 0C Model Hold Summary
- 47. Fast 1100mV 0C Model Recovery Summary
- 48. Fast 1100mV 0C Model Removal Summary
- 49. Fast 1100mV 0C Model Minimum Pulse Width Summary
+ 17. Slow 1100mV 85C Model Metastability Report
+ 18. Slow 1100mV 0C Model Fmax Summary
+ 19. Slow 1100mV 0C Model Setup Summary
+ 20. Slow 1100mV 0C Model Hold Summary
+ 21. Slow 1100mV 0C Model Recovery Summary
+ 22. Slow 1100mV 0C Model Removal Summary
+ 23. Slow 1100mV 0C Model Minimum Pulse Width Summary
+ 24. Setup Times
+ 25. Hold Times
+ 26. Clock to Output Times
+ 27. Minimum Clock to Output Times
+ 28. Slow 1100mV 0C Model Metastability Report
+ 29. Fast 1100mV 85C Model Setup Summary
+ 30. Fast 1100mV 85C Model Hold Summary
+ 31. Fast 1100mV 85C Model Recovery Summary
+ 32. Fast 1100mV 85C Model Removal Summary
+ 33. Fast 1100mV 85C Model Minimum Pulse Width Summary
+ 34. Setup Times
+ 35. Hold Times
+ 36. Clock to Output Times
+ 37. Minimum Clock to Output Times
+ 38. Fast 1100mV 85C Model Metastability Report
+ 39. Fast 1100mV 0C Model Setup Summary
+ 40. Fast 1100mV 0C Model Hold Summary
+ 41. Fast 1100mV 0C Model Recovery Summary
+ 42. Fast 1100mV 0C Model Removal Summary
+ 43. Fast 1100mV 0C Model Minimum Pulse Width Summary
+ 44. Setup Times
+ 45. Hold Times
+ 46. Clock to Output Times
+ 47. Minimum Clock to Output Times
+ 48. Fast 1100mV 0C Model Metastability Report
+ 49. Multicorner Timing Analysis Summary
  50. Setup Times
  51. Hold Times
  52. Clock to Output Times
  53. Minimum Clock to Output Times
- 54. Propagation Delay
- 55. Minimum Propagation Delay
- 56. Fast 1100mV 0C Model Metastability Report
- 57. Multicorner Timing Analysis Summary
- 58. Setup Times
- 59. Hold Times
- 60. Clock to Output Times
- 61. Minimum Clock to Output Times
- 62. Propagation Delay
- 63. Minimum Propagation Delay
- 64. Board Trace Model Assignments
- 65. Input Transition Times
- 66. Signal Integrity Metrics (Slow 1100mv 0c Model)
- 67. Signal Integrity Metrics (Slow 1100mv 85c Model)
- 68. Signal Integrity Metrics (Fast 1100mv 0c Model)
- 69. Signal Integrity Metrics (Fast 1100mv 85c Model)
- 70. Setup Transfers
- 71. Hold Transfers
- 72. Recovery Transfers
- 73. Removal Transfers
- 74. Report TCCS
- 75. Report RSKM
- 76. Unconstrained Paths
- 77. TimeQuest Timing Analyzer Messages
+ 54. Board Trace Model Assignments
+ 55. Input Transition Times
+ 56. Signal Integrity Metrics (Slow 1100mv 0c Model)
+ 57. Signal Integrity Metrics (Slow 1100mv 85c Model)
+ 58. Signal Integrity Metrics (Fast 1100mv 0c Model)
+ 59. Signal Integrity Metrics (Fast 1100mv 85c Model)
+ 60. Setup Transfers
+ 61. Hold Transfers
+ 62. Report TCCS
+ 63. Report RSKM
+ 64. Unconstrained Paths
+ 65. TimeQuest Timing Analyzer Messages
 
 
 
@@ -109,7 +97,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; TimeQuest Timing Analyzer Summary                                       ;
 +--------------------+----------------------------------------------------+
-; Quartus II Version ; Version 14.0.2 Build 209 09/17/2014 SJ Web Edition ;
+; Quartus II Version ; Version 14.0.0 Build 200 06/17/2014 SJ Web Edition ;
 ; Revision Name      ; MotorControlUnit                                   ;
 ; Device Family      ; Cyclone V                                          ;
 ; Device Name        ; 5CGXFC5C6F27C7                                     ;
@@ -135,7 +123,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------+--------+--------------------------+
 ; SDC File Path        ; Status ; Read at                  ;
 +----------------------+--------+--------------------------+
-; MotorControlUnit.sdc ; OK     ; Wed Nov 26 01:25:28 2014 ;
+; MotorControlUnit.sdc ; OK     ; Wed Dec 03 13:46:43 2014 ;
 +----------------------+--------+--------------------------+
 
 
@@ -153,7 +141,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+-----------------+------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
 +------------+-----------------+------------+------+
-; 218.25 MHz ; 218.25 MHz      ; clock      ;      ;
+; 158.03 MHz ; 158.03 MHz      ; clock      ;      ;
 +------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -169,7 +157,7 @@ HTML report is unavailable in plain text report export.
 +-------+--------+--------------------+
 ; Clock ; Slack  ; End Point TNS      ;
 +-------+--------+--------------------+
-; clock ; 15.418 ; 0.000              ;
+; clock ; 13.672 ; 0.000              ;
 +-------+--------+--------------------+
 
 
@@ -178,26 +166,20 @@ HTML report is unavailable in plain text report export.
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; clock ; 0.447 ; 0.000              ;
+; clock ; 0.443 ; 0.000              ;
 +-------+-------+--------------------+
 
 
-+----------------------------------------+
+------------------------------------------
 ; Slow 1100mV 85C Model Recovery Summary ;
-+-------+--------+-----------------------+
-; Clock ; Slack  ; End Point TNS         ;
-+-------+--------+-----------------------+
-; clock ; 15.306 ; 0.000                 ;
-+-------+--------+-----------------------+
+------------------------------------------
+No paths to report.
 
 
-+---------------------------------------+
+-----------------------------------------
 ; Slow 1100mV 85C Model Removal Summary ;
-+-------+-------+-----------------------+
-; Clock ; Slack ; End Point TNS         ;
-+-------+-------+-----------------------+
-; clock ; 1.827 ; 0.000                 ;
-+-------+-------+-----------------------+
+-----------------------------------------
+No paths to report.
 
 
 +---------------------------------------------------+
@@ -205,7 +187,7 @@ HTML report is unavailable in plain text report export.
 +-------+-------+-----------------------------------+
 ; Clock ; Slack ; End Point TNS                     ;
 +-------+-------+-----------------------------------+
-; clock ; 8.776 ; 0.000                             ;
+; clock ; 9.242 ; 0.000                             ;
 +-------+-------+-----------------------------------+
 
 
@@ -214,19 +196,20 @@ HTML report is unavailable in plain text report export.
 +-------------+------------+-------+-------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------+------------+-------+-------+------------+-----------------+
-; CPU_RESET_n ; clock      ; 3.147 ; 4.784 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; 1.376 ; 1.596 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; 1.376 ; 1.596 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 1.629 ; 2.187 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.953 ; 1.369 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.929 ; 1.450 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; 1.370 ; 1.780 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; 1.629 ; 2.187 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; 1.572 ; 2.108 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; 1.361 ; 1.745 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; 1.476 ; 2.015 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; 1.455 ; 1.902 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; 1.176 ; 1.435 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; 6.266 ; 8.007 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; 1.359 ; 1.587 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; 1.359 ; 1.587 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 5.100 ; 5.672 ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 4.401 ; 4.662 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; 3.469 ; 3.799 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 3.185 ; 3.423 ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; 4.511 ; 4.838 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; 4.326 ; 4.530 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; 4.035 ; 4.335 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; 3.537 ; 3.837 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; 5.100 ; 5.672 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; 4.720 ; 5.159 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; 3.756 ; 4.007 ; Rise       ; clock           ;
 +-------------+------------+-------+-------+------------+-----------------+
 
 
@@ -235,19 +218,20 @@ HTML report is unavailable in plain text report export.
 +-------------+------------+--------+--------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-------------+------------+--------+--------+------------+-----------------+
-; CPU_RESET_n ; clock      ; -1.797 ; -2.883 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; 0.195  ; -0.026 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; 0.195  ; -0.026 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 0.134  ; -0.226 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.090  ; -0.226 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.134  ; -0.329 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; -0.191 ; -0.553 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; -0.520 ; -0.998 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; -0.469 ; -0.837 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; -0.295 ; -0.547 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; -0.356 ; -0.809 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; -0.368 ; -0.656 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; -0.137 ; -0.332 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; -0.866 ; -1.734 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; -0.282 ; -0.446 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; -0.282 ; -0.446 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 0.246  ; 0.033  ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 0.105  ; -0.136 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; -0.011 ; -0.298 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 0.246  ; 0.033  ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; -0.369 ; -0.623 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; -0.174 ; -0.349 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; -0.004 ; -0.176 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; -0.266 ; -0.467 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; -0.787 ; -1.169 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; -0.458 ; -0.690 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; -0.127 ; -0.331 ; Rise       ; clock           ;
 +-------------+------------+--------+--------+------------+-----------------+
 
 
@@ -256,29 +240,22 @@ HTML report is unavailable in plain text report export.
 +---------------+------------+--------+--------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +---------------+------------+--------+--------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 16.262 ; 17.156 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 16.262 ; 17.156 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 15.038 ; 15.509 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 17.078 ; 16.127 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 16.996 ; 16.080 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 17.078 ; 16.127 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 12.974 ; 13.982 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 12.974 ; 13.982 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 12.795 ; 13.729 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 12.795 ; 13.729 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 13.348 ; 14.388 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 13.252 ; 14.181 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 11.995 ; 12.290 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 13.348 ; 14.388 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 13.753 ; 14.863 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 13.679 ; 14.656 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 13.426 ; 14.382 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 13.211 ; 14.188 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 13.205 ; 14.112 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 13.241 ; 14.296 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 13.547 ; 14.609 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 13.273 ; 14.352 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 13.753 ; 14.863 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 13.279 ; 14.253 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 13.279 ; 14.253 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 12.768 ; 13.646 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 12.768 ; 13.646 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 13.387 ; 14.425 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 13.387 ; 14.425 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 13.345 ; 14.376 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 14.097 ; 15.394 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 14.032 ; 15.203 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 14.097 ; 15.394 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 12.880 ; 13.600 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 13.704 ; 14.740 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 13.957 ; 15.080 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 12.328 ; 12.751 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 13.834 ; 14.970 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 12.324 ; 12.729 ; Rise       ; clock           ;
 +---------------+------------+--------+--------+------------+-----------------+
 
 
@@ -287,54 +264,23 @@ HTML report is unavailable in plain text report export.
 +---------------+------------+--------+--------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +---------------+------------+--------+--------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 10.527 ; 10.818 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 11.335 ; 12.074 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 10.527 ; 10.818 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 11.836 ; 11.106 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 11.836 ; 11.106 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 12.122 ; 11.426 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 10.785 ; 11.595 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 10.785 ; 11.595 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 10.648 ; 11.423 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 10.648 ; 11.423 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 9.929  ; 10.142 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 11.050 ; 11.819 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 9.929  ; 10.142 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 11.133 ; 11.990 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 11.014 ; 11.779 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 11.456 ; 12.277 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 11.226 ; 12.028 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 11.014 ; 11.834 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 11.021 ; 11.779 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 11.019 ; 11.897 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 11.303 ; 12.152 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 11.050 ; 11.935 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 11.488 ; 12.377 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 11.085 ; 11.919 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 11.085 ; 11.919 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 10.623 ; 11.388 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 10.623 ; 11.388 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 11.146 ; 12.035 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 11.188 ; 12.084 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 11.146 ; 12.035 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 10.247 ; 10.580 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 11.768 ; 12.743 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 11.796 ; 12.855 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 10.736 ; 11.302 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 11.483 ; 12.368 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 11.685 ; 12.616 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 10.247 ; 10.580 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 11.592 ; 12.576 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 10.259 ; 10.592 ; Rise       ; clock           ;
 +---------------+------------+--------+--------+------------+-----------------+
-
-
-+--------------------------------------------------------+
-; Propagation Delay                                      ;
-+-------------+--------------+--------+----+----+--------+
-; Input Port  ; Output Port  ; RR     ; RF ; FR ; FF     ;
-+-------------+--------------+--------+----+----+--------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 14.862 ;    ;    ; 17.410 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 13.638 ;    ;    ; 15.763 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 15.545 ;    ;    ; 16.165 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 15.627 ;    ;    ; 16.212 ;
-+-------------+--------------+--------+----+----+--------+
-
-
-+--------------------------------------------------------+
-; Minimum Propagation Delay                              ;
-+-------------+--------------+--------+----+----+--------+
-; Input Port  ; Output Port  ; RR     ; RF ; FR ; FF     ;
-+-------------+--------------+--------+----+----+--------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 12.050 ;    ;    ; 13.949 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 10.973 ;    ;    ; 12.535 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 12.612 ;    ;    ; 13.000 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 12.748 ;    ;    ; 13.056 ;
-+-------------+--------------+--------+----+----+--------+
 
 
 ----------------------------------------------
@@ -348,7 +294,7 @@ No synchronizer chains to report.
 +------------+-----------------+------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
 +------------+-----------------+------------+------+
-; 220.75 MHz ; 220.75 MHz      ; clock      ;      ;
+; 155.13 MHz ; 155.13 MHz      ; clock      ;      ;
 +------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -358,7 +304,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; clock ; 15.470 ; 0.000             ;
+; clock ; 13.554 ; 0.000             ;
 +-------+--------+-------------------+
 
 
@@ -367,26 +313,20 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; clock ; 0.285 ; 0.000             ;
+; clock ; 0.467 ; 0.000             ;
 +-------+-------+-------------------+
 
 
-+---------------------------------------+
+-----------------------------------------
 ; Slow 1100mV 0C Model Recovery Summary ;
-+-------+--------+----------------------+
-; Clock ; Slack  ; End Point TNS        ;
-+-------+--------+----------------------+
-; clock ; 15.266 ; 0.000                ;
-+-------+--------+----------------------+
+-----------------------------------------
+No paths to report.
 
 
-+--------------------------------------+
+----------------------------------------
 ; Slow 1100mV 0C Model Removal Summary ;
-+-------+-------+----------------------+
-; Clock ; Slack ; End Point TNS        ;
-+-------+-------+----------------------+
-; clock ; 1.706 ; 0.000                ;
-+-------+-------+----------------------+
+----------------------------------------
+No paths to report.
 
 
 +--------------------------------------------------+
@@ -394,7 +334,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-------+----------------------------------+
 ; Clock ; Slack ; End Point TNS                    ;
 +-------+-------+----------------------------------+
-; clock ; 8.717 ; 0.000                            ;
+; clock ; 9.337 ; 0.000                            ;
 +-------+-------+----------------------------------+
 
 
@@ -403,19 +343,20 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+------------+-------+-------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------+------------+-------+-------+------------+-----------------+
-; CPU_RESET_n ; clock      ; 2.667 ; 4.301 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; 1.464 ; 1.853 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; 1.464 ; 1.853 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 1.466 ; 2.071 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.792 ; 1.271 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.803 ; 1.348 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; 1.250 ; 1.776 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; 1.466 ; 2.071 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; 1.446 ; 2.050 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; 1.245 ; 1.726 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; 1.299 ; 1.888 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; 1.310 ; 1.853 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; 0.980 ; 1.353 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; 6.036 ; 7.762 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; 1.292 ; 1.597 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; 1.292 ; 1.597 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 4.960 ; 5.551 ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 4.250 ; 4.554 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; 3.249 ; 3.575 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 3.053 ; 3.327 ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; 4.398 ; 4.778 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; 4.211 ; 4.495 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; 3.876 ; 4.302 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; 3.335 ; 3.656 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; 4.960 ; 5.551 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; 4.439 ; 4.961 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; 3.508 ; 3.840 ; Rise       ; clock           ;
 +-------------+------------+-------+-------+------------+-----------------+
 
 
@@ -424,19 +365,20 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+------------+--------+--------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-------------+------------+--------+--------+------------+-----------------+
-; CPU_RESET_n ; clock      ; -1.362 ; -2.496 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; -0.049 ; -0.333 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; -0.049 ; -0.333 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 0.262  ; -0.126 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.250  ; -0.126 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.262  ; -0.215 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; -0.039 ; -0.439 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; -0.348 ; -0.875 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; -0.329 ; -0.768 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; -0.168 ; -0.501 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; -0.175 ; -0.683 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; -0.205 ; -0.579 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; 0.058  ; -0.238 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; -0.494 ; -1.396 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; -0.199 ; -0.431 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; -0.199 ; -0.431 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 0.337  ; 0.065  ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 0.253  ; -0.047 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; 0.048  ; -0.278 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 0.337  ; 0.065  ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; -0.231 ; -0.569 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; -0.014 ; -0.281 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; 0.160  ; -0.102 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; -0.116 ; -0.430 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; -0.690 ; -1.121 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; -0.312 ; -0.638 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; -0.028 ; -0.305 ; Rise       ; clock           ;
 +-------------+------------+--------+--------+------------+-----------------+
 
 
@@ -445,29 +387,22 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------+------------+--------+--------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +---------------+------------+--------+--------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 16.013 ; 16.953 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 16.013 ; 16.953 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 14.826 ; 15.376 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 16.896 ; 15.961 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 16.828 ; 15.908 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 16.896 ; 15.961 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 12.707 ; 13.712 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 12.707 ; 13.712 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 12.537 ; 13.500 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 12.537 ; 13.500 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 13.056 ; 14.128 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 12.996 ; 13.934 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 11.724 ; 12.109 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 13.056 ; 14.128 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 13.443 ; 14.546 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 13.392 ; 14.418 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 13.146 ; 14.143 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 12.924 ; 13.922 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 12.926 ; 13.866 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 12.994 ; 14.010 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 13.236 ; 14.342 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 12.997 ; 14.066 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 13.443 ; 14.546 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 12.995 ; 13.993 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 12.995 ; 13.993 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 12.507 ; 13.404 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 12.507 ; 13.404 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 13.114 ; 14.173 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 13.114 ; 14.173 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 13.068 ; 14.121 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 13.770 ; 15.101 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 13.691 ; 14.886 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 13.770 ; 15.101 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 12.630 ; 13.395 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 13.408 ; 14.474 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 13.628 ; 14.778 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 12.065 ; 12.570 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 13.545 ; 14.691 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 12.059 ; 12.530 ; Rise       ; clock           ;
 +---------------+------------+--------+--------+------------+-----------------+
 
 
@@ -476,54 +411,23 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------+------------+--------+--------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +---------------+------------+--------+--------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 10.297 ; 10.607 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 11.056 ; 11.819 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 10.297 ; 10.607 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 11.596 ; 10.833 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 11.596 ; 10.833 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 11.894 ; 11.201 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 10.558 ; 11.380 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 10.558 ; 11.380 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 10.427 ; 11.245 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 10.427 ; 11.245 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 9.676  ; 9.973  ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 10.830 ; 11.628 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 9.676  ; 9.973  ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 10.878 ; 11.793 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 10.764 ; 11.592 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 11.206 ; 12.095 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 10.983 ; 11.845 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 10.764 ; 11.626 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 10.781 ; 11.592 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 10.806 ; 11.675 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 11.028 ; 11.956 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 10.811 ; 11.716 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 11.213 ; 12.135 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 10.837 ; 11.708 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 10.837 ; 11.708 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 10.401 ; 11.194 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 10.401 ; 11.194 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 10.905 ; 11.829 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 10.951 ; 11.880 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 10.905 ; 11.829 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 9.998  ; 10.382 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 11.458 ; 12.485 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 11.513 ; 12.621 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 10.495 ; 11.108 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 11.227 ; 12.158 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 11.396 ; 12.380 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 9.998  ; 10.411 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 11.343 ; 12.348 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 9.999  ; 10.382 ; Rise       ; clock           ;
 +---------------+------------+--------+--------+------------+-----------------+
-
-
-+--------------------------------------------------------+
-; Propagation Delay                                      ;
-+-------------+--------------+--------+----+----+--------+
-; Input Port  ; Output Port  ; RR     ; RF ; FR ; FF     ;
-+-------------+--------------+--------+----+----+--------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 14.285 ;    ;    ; 16.830 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 13.098 ;    ;    ; 15.253 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 15.007 ;    ;    ; 15.551 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 15.074 ;    ;    ; 15.604 ;
-+-------------+--------------+--------+----+----+--------+
-
-
-+--------------------------------------------------------+
-; Minimum Propagation Delay                              ;
-+-------------+--------------+--------+----+----+--------+
-; Input Port  ; Output Port  ; RR     ; RF ; FR ; FF     ;
-+-------------+--------------+--------+----+----+--------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 11.489 ;    ;    ; 13.402 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 10.427 ;    ;    ; 12.018 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 12.105 ;    ;    ; 12.460 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 12.233 ;    ;    ; 12.528 ;
-+-------------+--------------+--------+----+----+--------+
 
 
 ---------------------------------------------
@@ -537,7 +441,7 @@ No synchronizer chains to report.
 +-------+--------+--------------------+
 ; Clock ; Slack  ; End Point TNS      ;
 +-------+--------+--------------------+
-; clock ; 17.613 ; 0.000              ;
+; clock ; 16.899 ; 0.000              ;
 +-------+--------+--------------------+
 
 
@@ -546,26 +450,20 @@ No synchronizer chains to report.
 +-------+-------+--------------------+
 ; Clock ; Slack ; End Point TNS      ;
 +-------+-------+--------------------+
-; clock ; 0.182 ; 0.000              ;
+; clock ; 0.179 ; 0.000              ;
 +-------+-------+--------------------+
 
 
-+----------------------------------------+
+------------------------------------------
 ; Fast 1100mV 85C Model Recovery Summary ;
-+-------+--------+-----------------------+
-; Clock ; Slack  ; End Point TNS         ;
-+-------+--------+-----------------------+
-; clock ; 17.623 ; 0.000                 ;
-+-------+--------+-----------------------+
+------------------------------------------
+No paths to report.
 
 
-+---------------------------------------+
+-----------------------------------------
 ; Fast 1100mV 85C Model Removal Summary ;
-+-------+-------+-----------------------+
-; Clock ; Slack ; End Point TNS         ;
-+-------+-------+-----------------------+
-; clock ; 0.845 ; 0.000                 ;
-+-------+-------+-----------------------+
+-----------------------------------------
+No paths to report.
 
 
 +---------------------------------------------------+
@@ -573,7 +471,7 @@ No synchronizer chains to report.
 +-------+-------+-----------------------------------+
 ; Clock ; Slack ; End Point TNS                     ;
 +-------+-------+-----------------------------------+
-; clock ; 8.649 ; 0.000                             ;
+; clock ; 9.123 ; 0.000                             ;
 +-------+-------+-----------------------------------+
 
 
@@ -582,19 +480,20 @@ No synchronizer chains to report.
 +-------------+------------+-------+-------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------+------------+-------+-------+------------+-----------------+
-; CPU_RESET_n ; clock      ; 1.899 ; 3.744 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; 0.937 ; 1.163 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; 0.937 ; 1.163 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 1.178 ; 1.587 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.853 ; 1.195 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.808 ; 1.136 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; 0.972 ; 1.290 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; 1.178 ; 1.587 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; 1.149 ; 1.576 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; 0.998 ; 1.297 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; 1.132 ; 1.540 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; 1.054 ; 1.415 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; 0.886 ; 1.149 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; 3.408 ; 5.324 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; 0.892 ; 1.103 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; 0.892 ; 1.103 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 2.805 ; 3.322 ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 2.272 ; 2.536 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; 1.936 ; 2.221 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 1.677 ; 1.912 ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; 2.293 ; 2.611 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; 2.158 ; 2.393 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; 2.091 ; 2.348 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; 1.978 ; 2.205 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; 2.805 ; 3.322 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; 2.479 ; 2.884 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; 2.003 ; 2.243 ; Rise       ; clock           ;
 +-------------+------------+-------+-------+------------+-----------------+
 
 
@@ -603,19 +502,20 @@ No synchronizer chains to report.
 +-------------+------------+--------+--------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-------------+------------+--------+--------+------------+-----------------+
-; CPU_RESET_n ; clock      ; -1.235 ; -2.725 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; -0.092 ; -0.300 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; -0.092 ; -0.300 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; -0.324 ; -0.611 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; -0.376 ; -0.645 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; -0.324 ; -0.611 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; -0.472 ; -0.726 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; -0.664 ; -1.015 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; -0.643 ; -0.968 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; -0.525 ; -0.757 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; -0.616 ; -0.959 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; -0.560 ; -0.826 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; -0.421 ; -0.647 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; -0.701 ; -1.980 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; -0.419 ; -0.592 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; -0.419 ; -0.592 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; -0.184 ; -0.366 ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; -0.329 ; -0.542 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; -0.371 ; -0.612 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; -0.184 ; -0.366 ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; -0.507 ; -0.741 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; -0.420 ; -0.629 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; -0.334 ; -0.525 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; -0.498 ; -0.686 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; -0.871 ; -1.198 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; -0.570 ; -0.831 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; -0.356 ; -0.542 ; Rise       ; clock           ;
 +-------------+------------+--------+--------+------------+-----------------+
 
 
@@ -624,29 +524,22 @@ No synchronizer chains to report.
 +---------------+------------+-------+-------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +---------------+------------+-------+-------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 8.436 ; 9.109 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 8.436 ; 9.109 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 7.499 ; 7.805 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 9.169 ; 8.123 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 9.065 ; 8.076 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 9.169 ; 8.123 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 6.822 ; 7.743 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 6.822 ; 7.743 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 6.627 ; 7.492 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 6.627 ; 7.492 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 6.923 ; 7.899 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 6.917 ; 7.814 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 5.997 ; 6.364 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 6.923 ; 7.899 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 7.268 ; 8.293 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 7.092 ; 8.042 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 6.966 ; 7.893 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 6.875 ; 7.778 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 6.875 ; 7.756 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 7.050 ; 7.972 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 7.076 ; 8.074 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 6.985 ; 7.998 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 7.268 ; 8.293 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 6.908 ; 7.830 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 6.908 ; 7.830 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 6.609 ; 7.443 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 6.609 ; 7.443 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 6.949 ; 7.921 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 6.949 ; 7.921 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 6.938 ; 7.902 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 7.402 ; 8.580 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 7.380 ; 8.482 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 7.402 ; 8.580 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 6.570 ; 7.238 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 7.173 ; 8.154 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 7.307 ; 8.377 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 6.182 ; 6.645 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 7.247 ; 8.331 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 6.166 ; 6.632 ; Rise       ; clock           ;
 +---------------+------------+-------+-------+------------+-----------------+
 
 
@@ -655,54 +548,23 @@ No synchronizer chains to report.
 +---------------+------------+-------+-------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +---------------+------------+-------+-------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 5.427 ; 5.714 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 6.108 ; 6.873 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 5.427 ; 5.714 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 6.680 ; 5.905 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 6.680 ; 5.905 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 6.809 ; 6.122 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 5.839 ; 6.630 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 5.839 ; 6.630 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 5.679 ; 6.440 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 5.679 ; 6.440 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 5.102 ; 5.423 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 5.945 ; 6.746 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 5.102 ; 5.423 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 5.945 ; 6.803 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 5.906 ; 6.698 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 6.117 ; 6.977 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 5.998 ; 6.830 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 5.906 ; 6.711 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 5.910 ; 6.698 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 6.045 ; 6.853 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 6.078 ; 6.935 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 5.990 ; 6.870 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 6.241 ; 7.119 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 5.942 ; 6.778 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 5.942 ; 6.778 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 5.669 ; 6.428 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 5.669 ; 6.428 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 5.969 ; 6.846 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 5.980 ; 6.865 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 5.969 ; 6.846 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 5.260 ; 5.685 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 6.357 ; 7.340 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 6.372 ; 7.400 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 5.624 ; 6.202 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 6.190 ; 7.079 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 6.298 ; 7.247 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 5.278 ; 5.691 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 6.255 ; 7.249 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 5.260 ; 5.685 ; Rise       ; clock           ;
 +---------------+------------+-------+-------+------------+-----------------+
-
-
-+-------------------------------------------------------+
-; Propagation Delay                                     ;
-+-------------+--------------+-------+----+----+--------+
-; Input Port  ; Output Port  ; RR    ; RF ; FR ; FF     ;
-+-------------+--------------+-------+----+----+--------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 8.185 ;    ;    ; 10.789 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 7.249 ;    ;    ; 9.485  ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 8.807 ;    ;    ; 9.710  ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 8.910 ;    ;    ; 9.757  ;
-+-------------+--------------+-------+----+----+--------+
-
-
-+------------------------------------------------------+
-; Minimum Propagation Delay                            ;
-+-------------+--------------+-------+----+----+-------+
-; Input Port  ; Output Port  ; RR    ; RF ; FR ; FF    ;
-+-------------+--------------+-------+----+----+-------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 6.835 ;    ;    ; 8.987 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 5.988 ;    ;    ; 7.831 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 7.343 ;    ;    ; 8.099 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 7.480 ;    ;    ; 8.156 ;
-+-------------+--------------+-------+----+----+-------+
 
 
 ----------------------------------------------
@@ -716,7 +578,7 @@ No synchronizer chains to report.
 +-------+--------+-------------------+
 ; Clock ; Slack  ; End Point TNS     ;
 +-------+--------+-------------------+
-; clock ; 17.820 ; 0.000             ;
+; clock ; 17.147 ; 0.000             ;
 +-------+--------+-------------------+
 
 
@@ -725,26 +587,20 @@ No synchronizer chains to report.
 +-------+-------+-------------------+
 ; Clock ; Slack ; End Point TNS     ;
 +-------+-------+-------------------+
-; clock ; 0.168 ; 0.000             ;
+; clock ; 0.170 ; 0.000             ;
 +-------+-------+-------------------+
 
 
-+---------------------------------------+
+-----------------------------------------
 ; Fast 1100mV 0C Model Recovery Summary ;
-+-------+--------+----------------------+
-; Clock ; Slack  ; End Point TNS        ;
-+-------+--------+----------------------+
-; clock ; 17.797 ; 0.000                ;
-+-------+--------+----------------------+
+-----------------------------------------
+No paths to report.
 
 
-+--------------------------------------+
+----------------------------------------
 ; Fast 1100mV 0C Model Removal Summary ;
-+-------+-------+----------------------+
-; Clock ; Slack ; End Point TNS        ;
-+-------+-------+----------------------+
-; clock ; 0.760 ; 0.000                ;
-+-------+-------+----------------------+
+----------------------------------------
+No paths to report.
 
 
 +--------------------------------------------------+
@@ -752,7 +608,7 @@ No synchronizer chains to report.
 +-------+-------+----------------------------------+
 ; Clock ; Slack ; End Point TNS                    ;
 +-------+-------+----------------------------------+
-; clock ; 8.645 ; 0.000                            ;
+; clock ; 9.084 ; 0.000                            ;
 +-------+-------+----------------------------------+
 
 
@@ -761,19 +617,20 @@ No synchronizer chains to report.
 +-------------+------------+-------+-------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------+------------+-------+-------+------------+-----------------+
-; CPU_RESET_n ; clock      ; 1.641 ; 3.312 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; 0.882 ; 1.125 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; 0.882 ; 1.125 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 1.097 ; 1.465 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.821 ; 1.114 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.784 ; 1.065 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; 0.927 ; 1.222 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; 1.077 ; 1.438 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; 1.097 ; 1.465 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; 0.966 ; 1.248 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; 1.061 ; 1.411 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; 0.964 ; 1.291 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; 0.833 ; 1.092 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; 3.083 ; 4.792 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; 0.855 ; 1.060 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; 0.855 ; 1.060 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 2.593 ; 3.019 ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 2.115 ; 2.351 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; 1.815 ; 2.052 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 1.588 ; 1.790 ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; 2.138 ; 2.426 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; 2.003 ; 2.221 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; 1.921 ; 2.181 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; 1.818 ; 2.019 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; 2.593 ; 3.019 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; 2.252 ; 2.630 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; 1.848 ; 2.074 ; Rise       ; clock           ;
 +-------------+------------+-------+-------+------------+-----------------+
 
 
@@ -782,19 +639,20 @@ No synchronizer chains to report.
 +-------------+------------+--------+--------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-------------+------------+--------+--------+------------+-----------------+
-; CPU_RESET_n ; clock      ; -1.029 ; -2.420 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; -0.188 ; -0.381 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; -0.188 ; -0.381 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; -0.319 ; -0.556 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; -0.363 ; -0.591 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; -0.319 ; -0.556 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; -0.438 ; -0.658 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; -0.588 ; -0.900 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; -0.611 ; -0.892 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; -0.510 ; -0.719 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; -0.567 ; -0.864 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; -0.491 ; -0.732 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; -0.387 ; -0.601 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; -0.557 ; -1.764 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; -0.403 ; -0.566 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; -0.403 ; -0.566 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; -0.206 ; -0.364 ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; -0.315 ; -0.507 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; -0.400 ; -0.591 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; -0.206 ; -0.364 ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; -0.475 ; -0.692 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; -0.377 ; -0.582 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; -0.312 ; -0.495 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; -0.493 ; -0.661 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; -0.829 ; -1.102 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; -0.513 ; -0.753 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; -0.357 ; -0.530 ; Rise       ; clock           ;
 +-------------+------------+--------+--------+------------+-----------------+
 
 
@@ -803,29 +661,22 @@ No synchronizer chains to report.
 +---------------+------------+-------+-------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +---------------+------------+-------+-------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 7.834 ; 8.356 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 7.834 ; 8.356 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 6.954 ; 7.221 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 8.422 ; 7.589 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 8.329 ; 7.527 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 8.422 ; 7.589 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 6.408 ; 7.112 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 6.408 ; 7.112 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 6.236 ; 6.899 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 6.236 ; 6.899 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 6.493 ; 7.253 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 6.450 ; 7.185 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 5.566 ; 5.908 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 6.493 ; 7.253 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 6.762 ; 7.592 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 6.632 ; 7.392 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 6.543 ; 7.267 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 6.443 ; 7.151 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 6.451 ; 7.137 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 6.581 ; 7.312 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 6.620 ; 7.400 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 6.513 ; 7.317 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 6.762 ; 7.592 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 6.483 ; 7.200 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 6.483 ; 7.200 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 6.226 ; 6.858 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 6.226 ; 6.858 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 6.534 ; 7.287 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 6.534 ; 7.287 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 6.509 ; 7.258 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 6.930 ; 7.853 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 6.884 ; 7.754 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 6.930 ; 7.853 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 6.100 ; 6.655 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 6.718 ; 7.486 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 6.805 ; 7.662 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 5.758 ; 6.153 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 6.746 ; 7.625 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 5.699 ; 6.131 ; Rise       ; clock           ;
 +---------------+------------+-------+-------+------------+-----------------+
 
 
@@ -834,54 +685,23 @@ No synchronizer chains to report.
 +---------------+------------+-------+-------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +---------------+------------+-------+-------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 4.993 ; 5.230 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 5.638 ; 6.232 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 4.993 ; 5.230 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 6.076 ; 5.454 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 6.076 ; 5.454 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 6.196 ; 5.669 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 5.451 ; 6.039 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 5.451 ; 6.039 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 5.310 ; 5.883 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 5.310 ; 5.883 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 4.693 ; 4.984 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 5.504 ; 6.153 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 4.693 ; 4.984 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 5.540 ; 6.202 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 5.499 ; 6.115 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 5.681 ; 6.356 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 5.597 ; 6.237 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 5.499 ; 6.120 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 5.510 ; 6.115 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 5.605 ; 6.242 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 5.650 ; 6.321 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 5.545 ; 6.244 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 5.768 ; 6.485 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 5.542 ; 6.176 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 5.542 ; 6.176 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 5.306 ; 5.866 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 5.306 ; 5.866 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 5.564 ; 6.229 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 5.589 ; 6.257 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 5.564 ; 6.229 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 4.819 ; 5.195 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 5.896 ; 6.660 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 5.931 ; 6.719 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 5.181 ; 5.649 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 5.760 ; 6.442 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 5.826 ; 6.578 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 4.876 ; 5.217 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 5.780 ; 6.568 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 4.819 ; 5.195 ; Rise       ; clock           ;
 +---------------+------------+-------+-------+------------+-----------------+
-
-
-+------------------------------------------------------+
-; Propagation Delay                                    ;
-+-------------+--------------+-------+----+----+-------+
-; Input Port  ; Output Port  ; RR    ; RF ; FR ; FF    ;
-+-------------+--------------+-------+----+----+-------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 7.537 ;    ;    ; 9.804 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 6.656 ;    ;    ; 8.669 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 8.019 ;    ;    ; 8.908 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 8.112 ;    ;    ; 8.969 ;
-+-------------+--------------+-------+----+----+-------+
-
-
-+------------------------------------------------------+
-; Minimum Propagation Delay                            ;
-+-------------+--------------+-------+----+----+-------+
-; Input Port  ; Output Port  ; RR    ; RF ; FR ; FF    ;
-+-------------+--------------+-------+----+----+-------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 6.247 ;    ;    ; 8.135 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 5.451 ;    ;    ; 7.128 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 6.638 ;    ;    ; 7.438 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 6.758 ;    ;    ; 7.508 ;
-+-------------+--------------+-------+----+----+-------+
 
 
 ---------------------------------------------
@@ -895,10 +715,10 @@ No synchronizer chains to report.
 +------------------+--------+-------+----------+---------+---------------------+
 ; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack ; 15.418 ; 0.168 ; 15.266   ; 0.760   ; 8.645               ;
-;  clock           ; 15.418 ; 0.168 ; 15.266   ; 0.760   ; 8.645               ;
+; Worst-case Slack ; 13.554 ; 0.170 ; N/A      ; N/A     ; 9.084               ;
+;  clock           ; 13.554 ; 0.170 ; N/A      ; N/A     ; 9.084               ;
 ; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
-;  clock           ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
+;  clock           ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
 +------------------+--------+-------+----------+---------+---------------------+
 
 
@@ -907,19 +727,20 @@ No synchronizer chains to report.
 +-------------+------------+-------+-------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-------------+------------+-------+-------+------------+-----------------+
-; CPU_RESET_n ; clock      ; 3.147 ; 4.784 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; 1.464 ; 1.853 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; 1.464 ; 1.853 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 1.629 ; 2.187 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.953 ; 1.369 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.929 ; 1.450 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; 1.370 ; 1.780 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; 1.629 ; 2.187 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; 1.572 ; 2.108 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; 1.361 ; 1.745 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; 1.476 ; 2.015 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; 1.455 ; 1.902 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; 1.176 ; 1.435 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; 6.266 ; 8.007 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; 1.359 ; 1.597 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; 1.359 ; 1.597 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 5.100 ; 5.672 ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 4.401 ; 4.662 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; 3.469 ; 3.799 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 3.185 ; 3.423 ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; 4.511 ; 4.838 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; 4.326 ; 4.530 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; 4.035 ; 4.335 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; 3.537 ; 3.837 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; 5.100 ; 5.672 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; 4.720 ; 5.159 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; 3.756 ; 4.007 ; Rise       ; clock           ;
 +-------------+------------+-------+-------+------------+-----------------+
 
 
@@ -928,19 +749,20 @@ No synchronizer chains to report.
 +-------------+------------+--------+--------+------------+-----------------+
 ; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-------------+------------+--------+--------+------------+-----------------+
-; CPU_RESET_n ; clock      ; -1.029 ; -2.420 ; Rise       ; clock           ;
-; KEY[*]      ; clock      ; 0.195  ; -0.026 ; Rise       ; clock           ;
-;  KEY[0]     ; clock      ; 0.195  ; -0.026 ; Rise       ; clock           ;
-; SW[*]       ; clock      ; 0.262  ; -0.126 ; Rise       ; clock           ;
-;  SW[1]      ; clock      ; 0.250  ; -0.126 ; Rise       ; clock           ;
-;  SW[2]      ; clock      ; 0.262  ; -0.215 ; Rise       ; clock           ;
-;  SW[3]      ; clock      ; -0.039 ; -0.439 ; Rise       ; clock           ;
-;  SW[4]      ; clock      ; -0.348 ; -0.875 ; Rise       ; clock           ;
-;  SW[5]      ; clock      ; -0.329 ; -0.768 ; Rise       ; clock           ;
-;  SW[6]      ; clock      ; -0.168 ; -0.501 ; Rise       ; clock           ;
-;  SW[7]      ; clock      ; -0.175 ; -0.683 ; Rise       ; clock           ;
-;  SW[8]      ; clock      ; -0.205 ; -0.579 ; Rise       ; clock           ;
-;  SW[9]      ; clock      ; 0.058  ; -0.238 ; Rise       ; clock           ;
+; CPU_RESET_n ; clock      ; -0.494 ; -1.396 ; Rise       ; clock           ;
+; KEY[*]      ; clock      ; -0.199 ; -0.431 ; Rise       ; clock           ;
+;  KEY[0]     ; clock      ; -0.199 ; -0.431 ; Rise       ; clock           ;
+; SW[*]       ; clock      ; 0.337  ; 0.065  ; Rise       ; clock           ;
+;  SW[0]      ; clock      ; 0.253  ; -0.047 ; Rise       ; clock           ;
+;  SW[1]      ; clock      ; 0.048  ; -0.278 ; Rise       ; clock           ;
+;  SW[2]      ; clock      ; 0.337  ; 0.065  ; Rise       ; clock           ;
+;  SW[3]      ; clock      ; -0.231 ; -0.569 ; Rise       ; clock           ;
+;  SW[4]      ; clock      ; -0.014 ; -0.281 ; Rise       ; clock           ;
+;  SW[5]      ; clock      ; 0.160  ; -0.102 ; Rise       ; clock           ;
+;  SW[6]      ; clock      ; -0.116 ; -0.430 ; Rise       ; clock           ;
+;  SW[7]      ; clock      ; -0.690 ; -1.102 ; Rise       ; clock           ;
+;  SW[8]      ; clock      ; -0.312 ; -0.638 ; Rise       ; clock           ;
+;  SW[9]      ; clock      ; -0.028 ; -0.305 ; Rise       ; clock           ;
 +-------------+------------+--------+--------+------------+-----------------+
 
 
@@ -949,29 +771,22 @@ No synchronizer chains to report.
 +---------------+------------+--------+--------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +---------------+------------+--------+--------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 16.262 ; 17.156 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 16.262 ; 17.156 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 15.038 ; 15.509 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 17.078 ; 16.127 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 16.996 ; 16.080 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 17.078 ; 16.127 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 12.974 ; 13.982 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 12.974 ; 13.982 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 12.795 ; 13.729 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 12.795 ; 13.729 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 13.348 ; 14.388 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 13.252 ; 14.181 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 11.995 ; 12.290 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 13.348 ; 14.388 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 13.753 ; 14.863 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 13.679 ; 14.656 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 13.426 ; 14.382 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 13.211 ; 14.188 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 13.205 ; 14.112 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 13.241 ; 14.296 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 13.547 ; 14.609 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 13.273 ; 14.352 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 13.753 ; 14.863 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 13.279 ; 14.253 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 13.279 ; 14.253 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 12.768 ; 13.646 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 12.768 ; 13.646 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 13.387 ; 14.425 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 13.387 ; 14.425 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 13.345 ; 14.376 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 14.097 ; 15.394 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 14.032 ; 15.203 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 14.097 ; 15.394 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 12.880 ; 13.600 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 13.704 ; 14.740 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 13.957 ; 15.080 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 12.328 ; 12.751 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 13.834 ; 14.970 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 12.324 ; 12.729 ; Rise       ; clock           ;
 +---------------+------------+--------+--------+------------+-----------------+
 
 
@@ -980,54 +795,23 @@ No synchronizer chains to report.
 +---------------+------------+-------+-------+------------+-----------------+
 ; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +---------------+------------+-------+-------+------------+-----------------+
-; HSMC_RX_N[*]  ; clock      ; 4.993 ; 5.230 ; Rise       ; clock           ;
-;  HSMC_RX_N[0] ; clock      ; 5.638 ; 6.232 ; Rise       ; clock           ;
-;  HSMC_RX_N[1] ; clock      ; 4.993 ; 5.230 ; Rise       ; clock           ;
-; HSMC_RX_P[*]  ; clock      ; 6.076 ; 5.454 ; Rise       ; clock           ;
-;  HSMC_RX_P[0] ; clock      ; 6.076 ; 5.454 ; Rise       ; clock           ;
-;  HSMC_RX_P[1] ; clock      ; 6.196 ; 5.669 ; Rise       ; clock           ;
-; HSMC_TX_N[*]  ; clock      ; 5.451 ; 6.039 ; Rise       ; clock           ;
-;  HSMC_TX_N[2] ; clock      ; 5.451 ; 6.039 ; Rise       ; clock           ;
-; HSMC_TX_P[*]  ; clock      ; 5.310 ; 5.883 ; Rise       ; clock           ;
-;  HSMC_TX_P[3] ; clock      ; 5.310 ; 5.883 ; Rise       ; clock           ;
-; LEDG[*]       ; clock      ; 4.693 ; 4.984 ; Rise       ; clock           ;
-;  LEDG[0]      ; clock      ; 5.504 ; 6.153 ; Rise       ; clock           ;
-;  LEDG[1]      ; clock      ; 4.693 ; 4.984 ; Rise       ; clock           ;
-;  LEDG[2]      ; clock      ; 5.540 ; 6.202 ; Rise       ; clock           ;
-; LEDR[*]       ; clock      ; 5.499 ; 6.115 ; Rise       ; clock           ;
-;  LEDR[0]      ; clock      ; 5.681 ; 6.356 ; Rise       ; clock           ;
-;  LEDR[1]      ; clock      ; 5.597 ; 6.237 ; Rise       ; clock           ;
-;  LEDR[2]      ; clock      ; 5.499 ; 6.120 ; Rise       ; clock           ;
-;  LEDR[3]      ; clock      ; 5.510 ; 6.115 ; Rise       ; clock           ;
-;  LEDR[4]      ; clock      ; 5.605 ; 6.242 ; Rise       ; clock           ;
-;  LEDR[5]      ; clock      ; 5.650 ; 6.321 ; Rise       ; clock           ;
-;  LEDR[6]      ; clock      ; 5.545 ; 6.244 ; Rise       ; clock           ;
-;  LEDR[7]      ; clock      ; 5.768 ; 6.485 ; Rise       ; clock           ;
+; HSMC_TX_N[*]  ; clock      ; 5.542 ; 6.176 ; Rise       ; clock           ;
+;  HSMC_TX_N[2] ; clock      ; 5.542 ; 6.176 ; Rise       ; clock           ;
+; HSMC_TX_P[*]  ; clock      ; 5.306 ; 5.866 ; Rise       ; clock           ;
+;  HSMC_TX_P[3] ; clock      ; 5.306 ; 5.866 ; Rise       ; clock           ;
+; LEDG[*]       ; clock      ; 5.564 ; 6.229 ; Rise       ; clock           ;
+;  LEDG[4]      ; clock      ; 5.589 ; 6.257 ; Rise       ; clock           ;
+;  LEDG[5]      ; clock      ; 5.564 ; 6.229 ; Rise       ; clock           ;
+; LEDR[*]       ; clock      ; 4.819 ; 5.195 ; Rise       ; clock           ;
+;  LEDR[0]      ; clock      ; 5.896 ; 6.660 ; Rise       ; clock           ;
+;  LEDR[1]      ; clock      ; 5.931 ; 6.719 ; Rise       ; clock           ;
+;  LEDR[2]      ; clock      ; 5.181 ; 5.649 ; Rise       ; clock           ;
+;  LEDR[3]      ; clock      ; 5.760 ; 6.442 ; Rise       ; clock           ;
+;  LEDR[4]      ; clock      ; 5.826 ; 6.578 ; Rise       ; clock           ;
+;  LEDR[5]      ; clock      ; 4.876 ; 5.217 ; Rise       ; clock           ;
+;  LEDR[6]      ; clock      ; 5.780 ; 6.568 ; Rise       ; clock           ;
+;  LEDR[7]      ; clock      ; 4.819 ; 5.195 ; Rise       ; clock           ;
 +---------------+------------+-------+-------+------------+-----------------+
-
-
-+--------------------------------------------------------+
-; Propagation Delay                                      ;
-+-------------+--------------+--------+----+----+--------+
-; Input Port  ; Output Port  ; RR     ; RF ; FR ; FF     ;
-+-------------+--------------+--------+----+----+--------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 14.862 ;    ;    ; 17.410 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 13.638 ;    ;    ; 15.763 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 15.545 ;    ;    ; 16.165 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 15.627 ;    ;    ; 16.212 ;
-+-------------+--------------+--------+----+----+--------+
-
-
-+------------------------------------------------------+
-; Minimum Propagation Delay                            ;
-+-------------+--------------+-------+----+----+-------+
-; Input Port  ; Output Port  ; RR    ; RF ; FR ; FF    ;
-+-------------+--------------+-------+----+----+-------+
-; CPU_RESET_n ; HSMC_RX_N[0] ; 6.247 ;    ;    ; 8.135 ;
-; CPU_RESET_n ; HSMC_RX_N[1] ; 5.451 ;    ;    ; 7.128 ;
-; CPU_RESET_n ; HSMC_RX_P[0] ; 6.638 ;    ;    ; 7.438 ;
-; CPU_RESET_n ; HSMC_RX_P[1] ; 6.758 ;    ;    ; 7.508 ;
-+-------------+--------------+-------+----+----+-------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1127,7 +911,6 @@ No synchronizer chains to report.
 +--------------+--------------+-----------------+-----------------+
 ; Pin          ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
 +--------------+--------------+-----------------+-----------------+
-; SW[0]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; KEY[1]       ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; KEY[2]       ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; KEY[3]       ; 1.2 V        ; 960 ps          ; 960 ps          ;
@@ -1135,13 +918,14 @@ No synchronizer chains to report.
 ; CLOCK_50_B5B ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
 ; SW[7]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; SW[8]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
-; SW[1]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; SW[9]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
+; SW[5]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
+; SW[6]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
+; SW[0]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
+; SW[1]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; SW[2]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; SW[3]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; SW[4]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
-; SW[5]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
-; SW[6]        ; 1.2 V        ; 960 ps          ; 960 ps          ;
 ; KEY[0]       ; 1.2 V        ; 960 ps          ; 960 ps          ;
 +--------------+--------------+-----------------+-----------------+
 
@@ -1519,7 +1303,7 @@ No synchronizer chains to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clock      ; clock    ; 2231     ; 0        ; 0        ; 0        ;
+; clock      ; clock    ; 2982     ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1529,27 +1313,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clock      ; clock    ; 2231     ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
-
-
-+-------------------------------------------------------------------+
-; Recovery Transfers                                                ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clock      ; clock    ; 195      ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
-
-
-+-------------------------------------------------------------------+
-; Removal Transfers                                                 ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clock      ; clock    ; 195      ; 0        ; 0        ; 0        ;
+; clock      ; clock    ; 2982     ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1573,10 +1337,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 2     ; 2    ;
-; Unconstrained Input Ports       ; 11    ; 11   ;
-; Unconstrained Input Port Paths  ; 105   ; 105  ;
-; Unconstrained Output Ports      ; 17    ; 17   ;
-; Unconstrained Output Port Paths ; 169   ; 169  ;
+; Unconstrained Input Ports       ; 12    ; 12   ;
+; Unconstrained Input Port Paths  ; 343   ; 343  ;
+; Unconstrained Output Ports      ; 20    ; 20   ;
+; Unconstrained Output Port Paths ; 28    ; 28   ;
 +---------------------------------+-------+------+
 
 
@@ -1585,130 +1349,107 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
-    Info: Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
-    Info: Processing started: Wed Nov 26 01:25:23 2014
+    Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+    Info: Processing started: Wed Dec 03 13:46:40 2014
 Info: Command: quartus_sta MotorControlUnit -c MotorControlUnit
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+Warning (335093): TimeQuest Timing Analyzer is analyzing 20 combinational loops as latches.
 Info (332104): Reading SDC File: 'MotorControlUnit.sdc'
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Warning (332060): Node: CPU_RESET_n was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Latch debug_key_detect:debug_inst|old_switches[2]~9 is being clocked by CPU_RESET_n
 Warning (332060): Node: motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[5] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
-Warning (332060): Node: debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register debug_key_detect:debug_inst|key0_reg~DUPLICATE is being clocked by debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress
+    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_counter[31] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
-Info (332146): Worst-case setup slack is 15.418
+Info (332146): Worst-case setup slack is 13.672
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    15.418               0.000 clock 
-Info (332146): Worst-case hold slack is 0.447
+    Info (332119):    13.672               0.000 clock 
+Info (332146): Worst-case hold slack is 0.443
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.447               0.000 clock 
-Info (332146): Worst-case recovery slack is 15.306
+    Info (332119):     0.443               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.242
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    15.306               0.000 clock 
-Info (332146): Worst-case removal slack is 1.827
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     1.827               0.000 clock 
-Info (332146): Worst-case minimum pulse width slack is 8.776
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     8.776               0.000 clock 
+    Info (332119):     9.242               0.000 clock 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+Warning (332060): Node: CPU_RESET_n was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Latch debug_key_detect:debug_inst|old_switches[2]~9 is being clocked by CPU_RESET_n
 Warning (332060): Node: motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[5] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
-Warning (332060): Node: debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register debug_key_detect:debug_inst|key0_reg~DUPLICATE is being clocked by debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress
+    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_counter[31] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 15.470
+Info (332146): Worst-case setup slack is 13.554
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    15.470               0.000 clock 
-Info (332146): Worst-case hold slack is 0.285
+    Info (332119):    13.554               0.000 clock 
+Info (332146): Worst-case hold slack is 0.467
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.285               0.000 clock 
-Info (332146): Worst-case recovery slack is 15.266
+    Info (332119):     0.467               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.337
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    15.266               0.000 clock 
-Info (332146): Worst-case removal slack is 1.706
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     1.706               0.000 clock 
-Info (332146): Worst-case minimum pulse width slack is 8.717
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     8.717               0.000 clock 
+    Info (332119):     9.337               0.000 clock 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+Warning (332060): Node: CPU_RESET_n was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Latch debug_key_detect:debug_inst|old_switches[2]~9 is being clocked by CPU_RESET_n
 Warning (332060): Node: motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[5] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
-Warning (332060): Node: debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register debug_key_detect:debug_inst|key0_reg~DUPLICATE is being clocked by debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress
+    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_counter[31] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 17.613
+Info (332146): Worst-case setup slack is 16.899
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.613               0.000 clock 
-Info (332146): Worst-case hold slack is 0.182
+    Info (332119):    16.899               0.000 clock 
+Info (332146): Worst-case hold slack is 0.179
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.182               0.000 clock 
-Info (332146): Worst-case recovery slack is 17.623
+    Info (332119):     0.179               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.123
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.623               0.000 clock 
-Info (332146): Worst-case removal slack is 0.845
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     0.845               0.000 clock 
-Info (332146): Worst-case minimum pulse width slack is 8.649
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     8.649               0.000 clock 
+    Info (332119):     9.123               0.000 clock 
 Info: Analyzing Fast 1100mV 0C Model
+Warning (332060): Node: CPU_RESET_n was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Latch debug_key_detect:debug_inst|old_switches[2]~9 is being clocked by CPU_RESET_n
 Warning (332060): Node: motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[5] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
-Warning (332060): Node: debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register debug_key_detect:debug_inst|key0_reg~DUPLICATE is being clocked by debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.newpress
+    Info (13166): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_counter[31] is being clocked by motor_control_unit:motor_control_unit_inst|counter:prescaler_inst|counter[0]
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
-Info (332146): Worst-case setup slack is 17.820
+Info (332146): Worst-case setup slack is 17.147
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.820               0.000 clock 
-Info (332146): Worst-case hold slack is 0.168
+    Info (332119):    17.147               0.000 clock 
+Info (332146): Worst-case hold slack is 0.170
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.168               0.000 clock 
-Info (332146): Worst-case recovery slack is 17.797
+    Info (332119):     0.170               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.084
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    17.797               0.000 clock 
-Info (332146): Worst-case removal slack is 0.760
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     0.760               0.000 clock 
-Info (332146): Worst-case minimum pulse width slack is 8.645
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     8.645               0.000 clock 
+    Info (332119):     9.084               0.000 clock 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 909 megabytes
-    Info: Processing ended: Wed Nov 26 01:25:40 2014
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:17
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 891 megabytes
+    Info: Processing ended: Wed Dec 03 13:46:51 2014
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:11
 
 

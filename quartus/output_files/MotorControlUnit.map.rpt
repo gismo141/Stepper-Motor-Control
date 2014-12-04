@@ -1,6 +1,6 @@
 Analysis & Synthesis report for MotorControlUnit
-Tue Dec 02 00:01:29 2014
-Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
+Wed Dec 03 13:45:45 2014
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
 
 
 ---------------------
@@ -13,11 +13,21 @@ Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. State Machine - |milestone3|motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_state
+  9. State Machine - |milestone3|motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|mode_state
+ 10. State Machine - |milestone3|debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |milestone3
+ 17. Parameter Settings for User Entity Instance: motor_control_unit:motor_control_unit_inst
+ 18. Parameter Settings for User Entity Instance: motor_control_unit:motor_control_unit_inst|counter:prescaler_inst
+ 19. Port Connectivity Checks: "register_interface:register_interface_inst"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -44,14 +54,14 @@ agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Dec 02 00:01:29 2014      ;
-; Quartus II 64-Bit Version       ; 14.0.2 Build 209 09/17/2014 SJ Web Edition ;
+; Analysis & Synthesis Status     ; Successful - Wed Dec 03 13:45:45 2014      ;
+; Quartus II 64-Bit Version       ; 14.0.0 Build 200 06/17/2014 SJ Web Edition ;
 ; Revision Name                   ; MotorControlUnit                           ;
-; Top-level Entity Name           ; register_interface                         ;
+; Top-level Entity Name           ; milestone3                                 ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 43                                         ;
-; Total pins                      ; 131                                        ;
+; Total registers                 ; 120                                        ;
+; Total pins                      ; 100                                        ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
 ; Total DSP Blocks                ; 0                                          ;
@@ -70,7 +80,7 @@ agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC5C6F27C7     ;                    ;
-; Top-level entity name                                                           ; register_interface ; MotorControlUnit   ;
+; Top-level entity name                                                           ; milestone3         ; MotorControlUnit   ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone IV GX      ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -163,48 +173,136 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                   ;
-+----------------------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
-; File Name with User-Entered Path             ; Used in Netlist ; File Type       ; File Name with Absolute Path                                ; Library ;
-+----------------------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
-; IP/register_interface/register_interface.vhd ; yes             ; User VHDL File  ; Z:/SoC/quartus/IP/register_interface/register_interface.vhd ;         ;
-+----------------------------------------------+-----------------+-----------------+-------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
++----------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path             ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                     ; Library ;
++----------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------+---------+
+; IP/key_detect_tut/key_detect_tut.vhd         ; yes             ; User VHDL File  ; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/key_detect_tut/key_detect_tut.vhd         ;         ;
+; IP/register_interface/register_interface.vhd ; yes             ; User VHDL File  ; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/register_interface/register_interface.vhd ;         ;
+; IP/motor_control_unit/motor_control_unit.vhd ; yes             ; User VHDL File  ; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/motor_control_unit/motor_control_unit.vhd ;         ;
+; IP/milestone3/milestone3.vhd                 ; yes             ; User VHDL File  ; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/milestone3/milestone3.vhd                 ;         ;
+; IP/counter/counter.vhd                       ; yes             ; User VHDL File  ; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/counter/counter.vhd                       ;         ;
+; IP/debug_key_detect/debug_key_detect.vhd     ; yes             ; User VHDL File  ; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/debug_key_detect/debug_key_detect.vhd     ;         ;
+; IP/signal_generator/signal_generator.vhd     ; yes             ; User VHDL File  ; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/signal_generator/signal_generator.vhd     ;         ;
++----------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 59          ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 56          ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 29          ;
-;     -- 5 input functions                    ; 11          ;
-;     -- 4 input functions                    ; 14          ;
-;     -- <=3 input functions                  ; 2           ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 43          ;
-;                                             ;             ;
-; I/O pins                                    ; 131         ;
-; Total DSP Blocks                            ; 0           ;
-; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 43          ;
-; Total fan-out                               ; 709         ;
-; Average fan-out                             ; 1.96        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 130               ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 229               ;
+;     -- 7 input functions                    ; 0                 ;
+;     -- 6 input functions                    ; 29                ;
+;     -- 5 input functions                    ; 28                ;
+;     -- 4 input functions                    ; 39                ;
+;     -- <=3 input functions                  ; 133               ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 120               ;
+;                                             ;                   ;
+; I/O pins                                    ; 100               ;
+; Total DSP Blocks                            ; 0                 ;
+; Maximum fan-out node                        ; CPU_RESET_n~input ;
+; Maximum fan-out                             ; 129               ;
+; Total fan-out                               ; 1388              ;
+; Average fan-out                             ; 2.53              ;
++---------------------------------------------+-------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                       ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
-; |register_interface        ; 56 (56)           ; 43 (43)      ; 0                 ; 0          ; 131  ; 0            ; |register_interface ; work         ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                      ;
++-------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                           ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------+--------------+
+; |milestone3                                     ; 229 (0)           ; 120 (0)      ; 0                 ; 0          ; 100  ; 0            ; |milestone3                                                                                   ; work         ;
+;    |debug_key_detect:debug_inst|                ; 56 (54)           ; 24 (22)      ; 0                 ; 0          ; 0    ; 0            ; |milestone3|debug_key_detect:debug_inst                                                       ; work         ;
+;       |key_detect_tut:key0_inst|                ; 2 (2)             ; 2 (2)        ; 0                 ; 0          ; 0    ; 0            ; |milestone3|debug_key_detect:debug_inst|key_detect_tut:key0_inst                              ; work         ;
+;    |motor_control_unit:motor_control_unit_inst| ; 168 (0)           ; 85 (0)       ; 0                 ; 0          ; 0    ; 0            ; |milestone3|motor_control_unit:motor_control_unit_inst                                        ; work         ;
+;       |counter:prescaler_inst|                  ; 42 (42)           ; 32 (32)      ; 0                 ; 0          ; 0    ; 0            ; |milestone3|motor_control_unit:motor_control_unit_inst|counter:prescaler_inst                 ; work         ;
+;       |signal_generator:signal_generator_inst|  ; 126 (126)         ; 53 (53)      ; 0                 ; 0          ; 0    ; 0            ; |milestone3|motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst ; work         ;
+;    |register_interface:register_interface_inst| ; 5 (5)             ; 11 (11)      ; 0                 ; 0          ; 0    ; 0            ; |milestone3|register_interface:register_interface_inst                                        ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |milestone3|motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_state ;
++-----------------+----------------+-----------------+---------------+----------------------------------------------------+
+; Name            ; pwm_state.FOUR ; pwm_state.THREE ; pwm_state.TWO ; pwm_state.ONE                                      ;
++-----------------+----------------+-----------------+---------------+----------------------------------------------------+
+; pwm_state.ONE   ; 0              ; 0               ; 0             ; 0                                                  ;
+; pwm_state.TWO   ; 0              ; 0               ; 1             ; 1                                                  ;
+; pwm_state.THREE ; 0              ; 1               ; 0             ; 1                                                  ;
+; pwm_state.FOUR  ; 1              ; 0               ; 0             ; 1                                                  ;
++-----------------+----------------+-----------------+---------------+----------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |milestone3|motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|mode_state             ;
++--------------------+------------------+------------------+--------------------+--------------------+---------------+-----------------+
+; Name               ; mode_state.COS_2 ; mode_state.COS_1 ; mode_state.COS_1_2 ; mode_state.COS_1_4 ; mode_state.CR ; mode_state.IDLE ;
++--------------------+------------------+------------------+--------------------+--------------------+---------------+-----------------+
+; mode_state.IDLE    ; 0                ; 0                ; 0                  ; 0                  ; 0             ; 0               ;
+; mode_state.CR      ; 0                ; 0                ; 0                  ; 0                  ; 1             ; 1               ;
+; mode_state.COS_1_4 ; 0                ; 0                ; 0                  ; 1                  ; 0             ; 1               ;
+; mode_state.COS_1_2 ; 0                ; 0                ; 1                  ; 0                  ; 0             ; 1               ;
+; mode_state.COS_1   ; 0                ; 1                ; 0                  ; 0                  ; 0             ; 1               ;
+; mode_state.COS_2   ; 1                ; 0                ; 0                  ; 0                  ; 0             ; 1               ;
++--------------------+------------------+------------------+--------------------+--------------------+---------------+-----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------+
+; State Machine - |milestone3|debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey ;
++----------------+---------------+----------------+--------------------------------------+
+; Name           ; STkey.pressed ; STkey.newpress ; STkey.start                          ;
++----------------+---------------+----------------+--------------------------------------+
+; STkey.start    ; 0             ; 0              ; 0                                    ;
+; STkey.newpress ; 0             ; 1              ; 1                                    ;
+; STkey.pressed  ; 1             ; 0              ; 1                                    ;
++----------------+---------------+----------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                          ;
++------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                              ; Reason for Removal                                                                                             ;
++------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|motor_en_wire[1]         ; Merged with motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|motor_en_wire[0] ;
+; debug_key_detect:debug_inst|addr[1]                                                                        ; Merged with debug_key_detect:debug_inst|addr[0]                                                                ;
+; debug_key_detect:debug_inst|reg_write_stage[2..9,11..30]                                                   ; Merged with debug_key_detect:debug_inst|reg_write_stage[10]                                                    ;
+; debug_key_detect:debug_inst|addr[2]                                                                        ; Stuck at GND due to stuck port data_in                                                                         ;
+; debug_key_detect:debug_inst|reg_write_stage[10]                                                            ; Stuck at GND due to stuck port data_in                                                                         ;
+; debug_key_detect:debug_inst|write_data[7]                                                                  ; Stuck at GND due to stuck port data_in                                                                         ;
+; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_output_wire[0..31] ; Lost fanout                                                                                                    ;
+; register_interface:register_interface_inst|stepsReg[0]                                                     ; Lost fanout                                                                                                    ;
+; debug_key_detect:debug_inst|key_detect_tut:key0_inst|STkey.pressed                                         ; Lost fanout                                                                                                    ;
+; debug_key_detect:debug_inst|reg_write_stage[31]                                                            ; Stuck at GND due to stuck port data_in                                                                         ;
+; Total Number of Removed Registers = 68                                                                     ;                                                                                                                ;
++------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                            ;
++-------------------------------------------------+---------------------------+----------------------------------------------------------------------------------------------------------+
+; Register name                                   ; Reason for Removal        ; Registers Removed due to This Register                                                                   ;
++-------------------------------------------------+---------------------------+----------------------------------------------------------------------------------------------------------+
+; debug_key_detect:debug_inst|addr[2]             ; Stuck at GND              ; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_output_wire[0],  ;
+;                                                 ; due to stuck port data_in ; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_output_wire[31], ;
+;                                                 ;                           ; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_output_wire[30], ;
+;                                                 ;                           ; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_output_wire[3],  ;
+;                                                 ;                           ; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_output_wire[2],  ;
+;                                                 ;                           ; motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_output_wire[1],  ;
+;                                                 ;                           ; register_interface:register_interface_inst|stepsReg[0]                                                   ;
+; debug_key_detect:debug_inst|reg_write_stage[10] ; Stuck at GND              ; debug_key_detect:debug_inst|reg_write_stage[31]                                                          ;
+;                                                 ; due to stuck port data_in ;                                                                                                          ;
++-------------------------------------------------+---------------------------+----------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -212,27 +310,78 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 43    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 32    ;
-; Number of registers using Asynchronous Clear ; 43    ;
+; Total registers                              ; 120   ;
+; Number of registers using Synchronous Clear  ; 32    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 118   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 42    ;
+; Number of registers using Clock Enable       ; 106   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |register_interface|stepsReg[1] ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |register_interface|ctrlReg[5]  ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |register_interface|read_data   ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |register_interface|read_data   ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 15 LEs               ; 3 LEs                  ; No         ; |register_interface|read_data   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; debug_key_detect:debug_inst|write_n    ; 3       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone3|debug_key_detect:debug_inst|write_data[3]                                                        ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |milestone3|debug_key_detect:debug_inst|write_data[2]                                                        ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |milestone3|debug_key_detect:debug_inst|old_switches[5]                                                      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |milestone3|debug_key_detect:debug_inst|reg_write_stage[31]                                                  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |milestone3|motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_state.FOUR ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 30 LEs               ; 6 LEs                  ; No         ; |milestone3|motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|Selector6      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |milestone3 ;
++----------------+--------+--------------------------------------------------+
+; Parameter Name ; Value  ; Type                                             ;
++----------------+--------+--------------------------------------------------+
+; divider        ; 125000 ; Signed Integer                                   ;
++----------------+--------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_control_unit:motor_control_unit_inst ;
++----------------+--------+---------------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                          ;
++----------------+--------+---------------------------------------------------------------+
+; divider        ; 125000 ; Signed Integer                                                ;
++----------------+--------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: motor_control_unit:motor_control_unit_inst|counter:prescaler_inst ;
++----------------+--------+--------------------------------------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                                                 ;
++----------------+--------+--------------------------------------------------------------------------------------+
+; divider        ; 125000 ; Signed Integer                                                                       ;
++----------------+--------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_interface:register_interface_inst"                                              ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; irq       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; greenleds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -240,22 +389,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 43                          ;
-;     CLR               ; 1                           ;
-;     ENA CLR           ; 10                          ;
-;     ENA CLR SLD       ; 32                          ;
-; arriav_lcell_comb     ; 57                          ;
-;     normal            ; 57                          ;
-;         0 data inputs ; 1                           ;
+; arriav_ff             ; 120                         ;
+;     CLR               ; 14                          ;
+;     ENA               ; 2                           ;
+;     ENA CLR           ; 72                          ;
+;     ENA CLR SCLR      ; 32                          ;
+; arriav_lcell_comb     ; 232                         ;
+;     arith             ; 72                          ;
+;         1 data inputs ; 71                          ;
 ;         2 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 14                          ;
-;         5 data inputs ; 11                          ;
+;     normal            ; 160                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 21                          ;
+;         3 data inputs ; 39                          ;
+;         4 data inputs ; 39                          ;
+;         5 data inputs ; 28                          ;
 ;         6 data inputs ; 29                          ;
-; boundary_port         ; 131                         ;
+; boundary_port         ; 100                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.34                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.17                        ;
 +-----------------------+-----------------------------+
 
 
@@ -264,7 +418,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -273,8 +427,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
-    Info: Processing started: Tue Dec 02 00:01:23 2014
+    Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+    Info: Processing started: Wed Dec 03 13:45:42 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MotorControlUnit -c MotorControlUnit
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file ip/key_detect_tut/key_detect_tut.vhd
@@ -298,24 +452,128 @@ Info (12021): Found 2 design units, including 1 entities, in source file ip/debu
 Info (12021): Found 2 design units, including 1 entities, in source file ip/signal_generator/signal_generator.vhd
     Info (12022): Found design unit 1: signal_generator-my_signal_generator
     Info (12023): Found entity 1: signal_generator
-Info (12127): Elaborating entity "register_interface" for the top level hierarchy
+Info (12127): Elaborating entity "milestone3" for the top level hierarchy
+Warning (10873): Using initial value X (don't care) for net "HSMC_RX_P[16..2]" at milestone3.vhd(50)
+Warning (10873): Using initial value X (don't care) for net "HSMC_RX_N[16..2]" at milestone3.vhd(51)
+Warning (10873): Using initial value X (don't care) for net "HSMC_TX_N[16..3]" at milestone3.vhd(52)
+Warning (10873): Using initial value X (don't care) for net "HSMC_TX_N[1..0]" at milestone3.vhd(52)
+Warning (10873): Using initial value X (don't care) for net "HSMC_TX_P[16..4]" at milestone3.vhd(53)
+Warning (10873): Using initial value X (don't care) for net "HSMC_TX_P[2..0]" at milestone3.vhd(53)
+Warning (10873): Using initial value X (don't care) for net "LEDG[7..6]" at milestone3.vhd(54)
+Info (12128): Elaborating entity "debug_key_detect" for hierarchy "debug_key_detect:debug_inst"
+Warning (10492): VHDL Process Statement warning at debug_key_detect.vhd(77): signal "read_data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "key_detect_tut" for hierarchy "debug_key_detect:debug_inst|key_detect_tut:key0_inst"
+Info (12128): Elaborating entity "register_interface" for hierarchy "register_interface:register_interface_inst"
+Info (12128): Elaborating entity "motor_control_unit" for hierarchy "motor_control_unit:motor_control_unit_inst"
+Info (12128): Elaborating entity "counter" for hierarchy "motor_control_unit:motor_control_unit_inst|counter:prescaler_inst"
+Info (12128): Elaborating entity "signal_generator" for hierarchy "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst"
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[8]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[8]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[8]~1"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[7]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[7]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[7]~5"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[6]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[6]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[6]~9"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[5]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[5]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[5]~13"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[4]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[4]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[4]~17"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[3]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[3]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[3]~21"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[2]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[2]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[2]~25"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[1]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[1]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[1]~29"
+    Warning (13310): Register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[0]" is converted into an equivalent circuit using register "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[0]~_emulated" and latch "motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|pwm_5ms_counter[0]~33"
+    Warning (13310): Register "debug_key_detect:debug_inst|run_bit" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|run_bit~_emulated" and latch "debug_key_detect:debug_inst|run_bit~1"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[0]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[0]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[0]~1"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[1]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[1]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[1]~5"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[2]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[2]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[2]~9"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[3]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[3]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[3]~13"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[4]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[4]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[4]~17"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[5]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[5]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[5]~21"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[6]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[6]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[6]~25"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[7]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[7]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[7]~29"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[8]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[8]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[8]~33"
+    Warning (13310): Register "debug_key_detect:debug_inst|old_switches[9]" is converted into an equivalent circuit using register "debug_key_detect:debug_inst|old_switches[9]~_emulated" and latch "debug_key_detect:debug_inst|old_switches[9]~37"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "greenleds[3]" is stuck at GND
-    Warning (13410): Pin "greenleds[4]" is stuck at GND
-    Warning (13410): Pin "greenleds[5]" is stuck at GND
-    Warning (13410): Pin "greenleds[6]" is stuck at GND
-    Warning (13410): Pin "greenleds[7]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[2]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[3]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[4]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[5]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[6]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[7]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[8]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[9]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[10]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[11]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[12]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[13]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[14]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[15]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_P[16]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[2]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[3]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[4]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[5]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[6]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[7]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[8]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[9]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[10]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[11]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[12]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[13]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[14]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[15]" is stuck at GND
+    Warning (13410): Pin "HSMC_RX_N[16]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[0]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[1]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[3]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[4]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[5]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[6]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[7]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[8]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[9]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[10]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[11]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[12]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[13]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[14]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[15]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_N[16]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[0]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[1]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[2]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[4]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[5]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[6]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[7]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[8]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[9]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[10]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[11]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[12]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[13]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[14]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[15]" is stuck at GND
+    Warning (13410): Pin "HSMC_TX_P[16]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_counter[31] will power up to Low
+    Critical Warning (18010): Register motor_control_unit:motor_control_unit_inst|signal_generator:signal_generator_inst|steps_counter[0] will power up to Low
+    Critical Warning (18010): Register debug_key_detect:debug_inst|reg_write_stage[0] will power up to Low
+    Critical Warning (18010): Register debug_key_detect:debug_inst|reg_write_stage[31] will power up to Low
+Info (17049): 34 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 222 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 73 input pins
-    Info (21059): Implemented 58 output pins
-    Info (21061): Implemented 91 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 630 megabytes
-    Info: Processing ended: Tue Dec 02 00:01:29 2014
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:06
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]"
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+Info (21057): Implemented 338 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 16 input pins
+    Info (21059): Implemented 84 output pins
+    Info (21061): Implemented 238 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 104 warnings
+    Info: Peak virtual memory: 626 megabytes
+    Info: Processing ended: Wed Dec 03 13:45:45 2014
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

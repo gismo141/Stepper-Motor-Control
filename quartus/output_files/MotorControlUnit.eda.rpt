@@ -1,6 +1,6 @@
 EDA Netlist Writer report for MotorControlUnit
-Wed Nov 26 01:25:45 2014
-Quartus II 64-Bit Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
+Wed Dec 03 13:46:55 2014
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
 
 
 ---------------------
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Nov 26 01:25:45 2014 ;
+; EDA Netlist Writer Status ; Successful - Wed Dec 03 13:46:55 2014 ;
 ; Revision Name             ; MotorControlUnit                      ;
 ; Top-level Entity Name     ; milestone3                            ;
 ; Family                    ; Cyclone V                             ;
@@ -67,13 +67,13 @@ agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+-------------------------------------------------------+
-; Simulation Generated Files                            ;
-+-------------------------------------------------------+
-; Generated Files                                       ;
-+-------------------------------------------------------+
-; /SoC/quartus/simulation/modelsim/MotorControlUnit.vho ;
-+-------------------------------------------------------+
++----------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                   ;
++----------------------------------------------------------------------------------------------+
+; Generated Files                                                                              ;
++----------------------------------------------------------------------------------------------+
+; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/simulation/modelsim/MotorControlUnit.vho ;
++----------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -81,15 +81,15 @@ agreement for further details.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
-    Info: Version 14.0.2 Build 209 09/17/2014 SJ Web Edition
-    Info: Processing started: Wed Nov 26 01:25:43 2014
+    Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+    Info: Processing started: Wed Dec 03 13:46:53 2014
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off MotorControlUnit -c MotorControlUnit
 Warning (10905): Generated the EDA functional simulation files although EDA timing simulation option is chosen.
-Info (204019): Generated file MotorControlUnit.vho in folder "/SoC/quartus/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file MotorControlUnit.vho in folder "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 547 megabytes
-    Info: Processing ended: Wed Nov 26 01:25:45 2014
+    Info: Peak virtual memory: 542 megabytes
+    Info: Processing ended: Wed Dec 03 13:46:55 2014
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 

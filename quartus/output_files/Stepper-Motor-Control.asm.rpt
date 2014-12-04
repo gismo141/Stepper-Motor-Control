@@ -1,0 +1,105 @@
+Assembler report for Stepper-Motor-Control
+Thu Dec 04 20:09:44 2014
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Assembler Summary
+  3. Assembler Settings
+  4. Assembler Encrypted IP Cores Summary
+  5. Assembler Generated Files
+  6. Assembler Device Options: C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control_time_limited.sof
+  7. Assembler Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; Assembler Summary                                             ;
++-----------------------+---------------------------------------+
+; Assembler Status      ; Successful - Thu Dec 04 20:09:44 2014 ;
+; Revision Name         ; Stepper-Motor-Control                 ;
+; Top-level Entity Name ; interface_RTX_Base                    ;
+; Family                ; Cyclone V                             ;
+; Device                ; 5CGXFC5C6F27C7                        ;
++-----------------------+---------------------------------------+
+
+
++----------------------------------+
+; Assembler Settings               ;
++--------+---------+---------------+
+; Option ; Setting ; Default Value ;
++--------+---------+---------------+
+
+
++--------------------------------------------------------+
+; Assembler Encrypted IP Cores Summary                   ;
++--------+-------------------------------+---------------+
+; Vendor ; IP Core Name                  ; License Type  ;
++--------+-------------------------------+---------------+
+; Altera ; Nios II Processor (6AF7 00A2) ; OpenCore Plus ;
+; Altera ; Signal Tap (6AF7 BCE1)        ; Licensed      ;
+; Altera ; Signal Tap (6AF7 BCEC)        ; Licensed      ;
++--------+-------------------------------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                               ;
++---------------------------------------------------------------------------------------------------------+
+; File Name                                                                                               ;
++---------------------------------------------------------------------------------------------------------+
+; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control_time_limited.sof ;
++---------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control_time_limited.sof ;
++----------------+------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                          ;
++----------------+------------------------------------------------------------------------------------------------------------------+
+; Device         ; 5CGXFC5C6F27C7                                                                                                   ;
+; JTAG usercode  ; 0x00DD3C59                                                                                                       ;
+; Checksum       ; 0x00DD3C59                                                                                                       ;
++----------------+------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------+
+; Assembler Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Assembler
+    Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+    Info: Processing started: Thu Dec 04 20:09:33 2014
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Stepper-Motor-Control -c Stepper-Motor-Control
+Info (115030): Assembler is generating device programming files
+Info (115017): Design contains a time-limited core -- only a single, time-limited programming file can be generated
+Warning (210042): Can't convert time-limited SOF into POF, HEX File, TTF, or RBF
+Info: Quartus II 64-Bit Assembler was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 703 megabytes
+    Info: Processing ended: Thu Dec 04 20:09:44 2014
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:10
+
+

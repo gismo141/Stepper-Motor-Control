@@ -2,7 +2,7 @@ set_global_assignment -entity "StepperMotorControl" -library "StepperMotorContro
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_TOOL_VERSION "14.0"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "StepperMotorControl" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../StepperMotorControl.sopcinfo"]
-set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name SLD_INFO "QSYS_NAME StepperMotorControl HAS_SOPCINFO 1 GENERATION_ID 1416301245"
+set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name SLD_INFO "QSYS_NAME StepperMotorControl HAS_SOPCINFO 1 GENERATION_ID 1417718146"
 set_global_assignment -library "StepperMotorControl" -name MISC_FILE [file join $::quartus(qip_path) "../StepperMotorControl.cmp"]
 set_global_assignment -library "StepperMotorControl" -name SLD_FILE [file join $::quartus(qip_path) "StepperMotorControl.regmap"]
 set_global_assignment -library "StepperMotorControl" -name SLD_FILE [file join $::quartus(qip_path) "StepperMotorControl.debuginfo"]
@@ -16,7 +16,7 @@ set_global_assignment -entity "StepperMotorControl" -library "StepperMotorContro
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQxNjMwMTI0NQ==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTQxNzcxODE0Ng==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBW::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::NUNHWEZDNUM2RjI3Qzc=::QXV0byBERVZJQ0U="
 set_global_assignment -entity "StepperMotorControl" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19DTEtfQ0xPQ0tfUkFURQ==::LTE=::QXV0byBDTE9DS19SQVRF"
@@ -750,14 +750,22 @@ set_global_assignment -entity "altera_merlin_master_translator" -library "Steppe
 set_global_assignment -entity "altera_merlin_master_translator" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVZfUkVHSVNURVJJTkNPTUlOR1NJR05BTFM=::MA==::cmVnaXN0ZXJJbmNvbWluZ1NpZ25hbHM="
 set_global_assignment -entity "altera_merlin_master_translator" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVZfQUxXQVlTQlVSU1RNQVhCVVJTVA==::MA==::QWx3YXlzIGJ1cnN0IG1heC1idXJzdA=="
 set_global_assignment -entity "altera_merlin_master_translator" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19DTEtfQ0xPQ0tfUkFURQ==::MTAwMDAwMDAw::QXV0byBDTE9DS19SQVRF"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_NAME "bW90b3JfY29udHJvbF91bml0"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_DISPLAY_NAME "TW90b3IgQ29udHJvbCBVbml0"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_AUTHOR "TWljaGFlbCBSaWVkZWwgJiBNYXJjIEtvc3NtYW5u"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_VERSION "MS4w"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_DESCRIPTION "TW90b3IgQ29udHJvbCBVbml0"
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "ZGl2aWRlcg==::MTI1MDAw::ZGl2aWRlcg=="
+set_global_assignment -entity "motor_control_unit" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19DTE9DS19DTE9DS19SQVRF::MTAwMDAwMDAw::QXV0byBDTE9DS19SQVRF"
 set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_NAME "cmVnaXN0ZXJfaW50ZXJmYWNl"
-set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_DISPLAY_NAME "aW50ZXJmYWNlIGZvciByZWdpc3RlcnMgKGN0cmxSZWcsIHNwZWVkUmVnLCBzdGVwc1JlZyk="
+set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_DISPLAY_NAME "SW50ZXJmYWNlIGZvciBSZWdpc3RlcnMgKGN0cmxSZWcsIHNwZWVkUmVnLCBzdGVwc1JlZyk="
 set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
 set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_AUTHOR "TWljaGFlbCBSaWVkZWwgJiBNYXJjIEtvc3NtYW5u"
-set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_VERSION "MS4wLjA="
+set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_VERSION "Mi4wLjA="
 set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_DESCRIPTION "aW50ZXJmYWNlIGZvciByZWdpc3RlcnMgKGN0cmxSZWcsIHNwZWVkUmVnLCBzdGVwc1JlZyk="
-set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "TXlQYXJhbWV0ZXI=::NDI=::TXlQYXJhbWV0ZXI="
 set_global_assignment -entity "register_interface" -library "StepperMotorControl" -name IP_COMPONENT_PARAMETER "QVVUT19DTE9DS19DTE9DS19SQVRF::MTAwMDAwMDAw::QXV0byBDTE9DS19SQVRF"
 set_global_assignment -entity "StepperMotorControl_pio_led9" -library "StepperMotorControl" -name IP_COMPONENT_NAME "U3RlcHBlck1vdG9yQ29udHJvbF9waW9fbGVkOQ=="
 set_global_assignment -entity "StepperMotorControl_pio_led9" -library "StepperMotorControl" -name IP_COMPONENT_DISPLAY_NAME "UElPIChQYXJhbGxlbCBJL08p"
@@ -1560,6 +1568,8 @@ set_global_assignment -library "StepperMotorControl" -name SYSTEMVERILOG_FILE [f
 set_global_assignment -library "StepperMotorControl" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_agent.sv"]
 set_global_assignment -library "StepperMotorControl" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_translator.sv"]
 set_global_assignment -library "StepperMotorControl" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_translator.sv"]
+set_global_assignment -library "StepperMotorControl" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/motor_control_unit.vhd"]
+set_global_assignment -library "StepperMotorControl" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/signal_generator.vhd"]
 set_global_assignment -library "StepperMotorControl" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/register_interface.vhd"]
 set_global_assignment -library "StepperMotorControl" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/StepperMotorControl_pio_led9.v"]
 set_global_assignment -library "StepperMotorControl" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/StepperMotorControl_pio_hex0.v"]

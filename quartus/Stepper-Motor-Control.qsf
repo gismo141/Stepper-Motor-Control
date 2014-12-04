@@ -879,6 +879,8 @@ set_location_assignment PIN_H25 -to SRAM_LB_n
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_LB_n
 set_location_assignment PIN_M25 -to SRAM_UB_n
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SRAM_UB_n
+set_global_assignment -name VHDL_FILE IP/motor_control_unit/motor_control_unit.vhd
+set_global_assignment -name VHDL_FILE IP/counter/counter.vhd
 set_global_assignment -name VHDL_FILE ../modelsim/register_interface_tb.vhd
 set_global_assignment -name VHDL_FILE IP/register_interface/register_interface.vhd
 set_global_assignment -name VHDL_FILE ../RTX_VHDL_Base/interface_RTX_Base.vhd

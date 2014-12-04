@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2014.11.18.10:00:45</td>
+    <td class="l">2014.12.04.19:35:46</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -131,7 +131,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </a> altera_avalon_pio 14.0
      <br/>&#160;&#160;
      <a href="#module_registers"><b>registers</b>
-     </a> register_interface 1.0.0</span>
+     </a> register_interface 2.0.0</span>
    </div>
   </div>
   <div style="width:100% ;  height:10px"> </div>
@@ -390,7 +390,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_50MHz">clk_50MHz</a>
       </td>
       <td class="from">clk_reset&#160;&#160;</td>
-      <td class="main" rowspan="90">CPU</td>
+      <td class="main" rowspan="93">CPU</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;reset_n</td>
@@ -849,6 +849,22 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td></td>
       <td class="to">&#160;&#160;register_slave</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">jtag_debug_module_reset&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_motor_control_unit_0">motor_control_unit_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;reset</td>
      </tr>
     </table>
    </div>
@@ -1571,7 +1587,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">timestamp</td>
-        <td class="parametervalue">1416301245</td>
+        <td class="parametervalue">1417718146</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_CLK_CLOCK_RATE</td>
@@ -1604,7 +1620,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">TIMESTAMP</td>
-        <td class="parametervalue">1416301245</td>
+        <td class="parametervalue">1417718146</td>
        </tr>
       </table>
      </td>
@@ -2385,7 +2401,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_50MHz">clk_50MHz</a>
       </td>
       <td class="from">clk_reset&#160;&#160;</td>
-      <td class="main" rowspan="54">pll_100MHz</td>
+      <td class="main" rowspan="57">pll_100MHz</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;reset</td>
@@ -2654,6 +2670,22 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td class="from">outclk0&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
        <a href="#module_registers">registers</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;clock</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">outclk0&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_motor_control_unit_0">motor_control_unit_0</a>
       </td>
      </tr>
      <tr>
@@ -6315,7 +6347,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <a name="module_registers"> </a>
   <div>
    <hr/>
-   <h2>registers</h2>register_interface v1.0.0
+   <h2>registers</h2>register_interface v2.0.0
    <br/>
    <div class="greydiv">
     <table class="connectionboxes">
@@ -6324,7 +6356,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_CPU">CPU</a>
       </td>
       <td class="from">d_irq&#160;&#160;</td>
-      <td class="main" rowspan="12">registers</td>
+      <td class="main" rowspan="15">registers</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;interrupt_request</td>
@@ -6365,6 +6397,18 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <tr>
       <td class="to">&#160;&#160;reset</td>
      </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_motor_control_unit_0">motor_control_unit_0</a>
+      </td>
+      <td class="from">conduit_register_interface&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;conduit_mcu</td>
+     </tr>
     </table>
    </div>
    <br/>
@@ -6375,8 +6419,94 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <h2>Parameters</h2>
       <table>
        <tr>
-        <td class="parametername">MyParameter</td>
-        <td class="parametervalue">42</td>
+        <td class="parametername">AUTO_CLOCK_CLOCK_RATE</td>
+        <td class="parametervalue">100000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_motor_control_unit_0"> </a>
+  <div>
+   <hr/>
+   <h2>motor_control_unit_0</h2>motor_control_unit v1.0
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_CPU">CPU</a>
+      </td>
+      <td class="from">jtag_debug_module_reset&#160;&#160;</td>
+      <td class="main" rowspan="10">motor_control_unit_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_clk_50MHz">clk_50MHz</a>
+      </td>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_pll_100MHz">pll_100MHz</a>
+      </td>
+      <td class="from">outclk0&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clock</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">conduit_register_interface&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_registers">registers</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;conduit_mcu</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">divider</td>
+        <td class="parametervalue">125000</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_CLOCK_CLOCK_RATE</td>
@@ -6403,8 +6533,8 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </div>
   <table class="blueBar">
    <tr>
-    <td class="l">generation took 0,02 seconds</td>
-    <td class="r">rendering took 0,14 seconds</td>
+    <td class="l">generation took 0,00 seconds</td>
+    <td class="r">rendering took 0,10 seconds</td>
    </tr>
   </table>
  </body>

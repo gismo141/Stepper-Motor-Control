@@ -1,12 +1,12 @@
-# system info StepperMotorControl on 2014.11.18.10:00:38
+# system info StepperMotorControl on 2014.12.04.19:35:40
 system_info:
 name,value
 DEVICE,5CGXFC5C6F27C7
 DEVICE_FAMILY,Cyclone V
-GENERATION_ID,1416301101
+GENERATION_ID,1417718035
 #
 #
-# Files generated for StepperMotorControl on 2014.11.18.10:00:38
+# Files generated for StepperMotorControl on 2014.12.04.19:35:40
 files:
 filepath,kind,attributes,module,is_top
 simulation/StepperMotorControl.vhd,VHDL,,StepperMotorControl,true
@@ -48,6 +48,8 @@ simulation/submodules/StepperMotorControl_pio_key.vhd,VHDL,,StepperMotorControl_
 simulation/submodules/StepperMotorControl_pio_hex0.vhd,VHDL,,StepperMotorControl_pio_hex0,false
 simulation/submodules/StepperMotorControl_pio_led9.vhd,VHDL,,StepperMotorControl_pio_led9,false
 simulation/submodules/register_interface.vhd,VHDL,,register_interface,false
+simulation/submodules/motor_control_unit.vhd,VHDL,,motor_control_unit,false
+simulation/submodules/signal_generator.vhd,VHDL,,motor_control_unit,false
 simulation/submodules/StepperMotorControl_mm_interconnect_0.vhd,VHDL,,StepperMotorControl_mm_interconnect_0,false
 simulation/submodules/steppermotorcontrol_mm_interconnect_0_cpu_jtag_debug_module_translator.vhd,VHDL,,StepperMotorControl_mm_interconnect_0,false
 simulation/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_translator.vhd,VHDL,,StepperMotorControl_mm_interconnect_0,false
@@ -153,6 +155,7 @@ StepperMotorControl.pio_hex2,StepperMotorControl_pio_hex0
 StepperMotorControl.pio_hex3,StepperMotorControl_pio_hex0
 StepperMotorControl.pio_led9,StepperMotorControl_pio_led9
 StepperMotorControl.registers,register_interface
+StepperMotorControl.motor_control_unit_0,motor_control_unit
 StepperMotorControl.mm_interconnect_0,StepperMotorControl_mm_interconnect_0
 StepperMotorControl.mm_interconnect_0.CPU_instruction_master_translator,altera_merlin_master_translator
 StepperMotorControl.mm_interconnect_0.CPU_data_master_translator,altera_merlin_master_translator

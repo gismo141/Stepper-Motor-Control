@@ -1,0 +1,65 @@
+EDA Netlist Writer report for Stepper-Motor-Control
+Thu Dec 04 20:10:23 2014
+Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. EDA Netlist Writer Summary
+  3. EDA Netlist Writer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; EDA Netlist Writer Summary                                    ;
++---------------------------+-----------------------------------+
+; EDA Netlist Writer Status ; Failed - Thu Dec 04 20:10:23 2014 ;
+; Revision Name             ; Stepper-Motor-Control             ;
+; Top-level Entity Name     ; interface_RTX_Base                ;
+; Family                    ; Cyclone V                         ;
++---------------------------+-----------------------------------+
+
+
++-----------------------------+
+; EDA Netlist Writer Messages ;
++-----------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit EDA Netlist Writer
+    Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
+    Info: Processing started: Thu Dec 04 20:10:21 2014
+Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off Stepper-Motor-Control -c Stepper-Motor-Control
+Error (204012): Can't generate netlist output files because the file "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.v" is an OpenCore Plus time-limited file
+Error (204009): Can't generate netlist output files because the license for encrypted file "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.v" is not available
+Error (204012): Can't generate netlist output files because the file "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.v" is an OpenCore Plus time-limited file
+Error (204009): Can't generate netlist output files because the license for encrypted file "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.v" is not available
+Error (204012): Can't generate netlist output files because the file "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.v" is an OpenCore Plus time-limited file
+Error (204009): Can't generate netlist output files because the license for encrypted file "C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/StepperMotorControl/synthesis/submodules/StepperMotorControl_CPU.v" is not available
+Error: Quartus II 64-Bit EDA Netlist Writer was unsuccessful. 6 errors, 0 warnings
+    Error: Peak virtual memory: 572 megabytes
+    Error: Processing ended: Thu Dec 04 20:10:23 2014
+    Error: Elapsed time: 00:00:02
+    Error: Total CPU time (on all processors): 00:00:02
+
+

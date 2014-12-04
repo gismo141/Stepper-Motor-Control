@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 14.0 209 win32 2014.11.18.10:00:40
+# ACDS 14.0 200 win32 2014.12.04.19:35:42
 
 # ----------------------------------------
 # ncsim - auto-generated simulation script
@@ -78,6 +78,7 @@ mkdir -p ./libraries/tda/
 mkdir -p ./libraries/tdt/
 mkdir -p ./libraries/irq_mapper/
 mkdir -p ./libraries/mm_interconnect_0/
+mkdir -p ./libraries/motor_control_unit_0/
 mkdir -p ./libraries/registers/
 mkdir -p ./libraries/pio_led9/
 mkdir -p ./libraries/pio_hex0/
@@ -178,6 +179,8 @@ if [ $SKIP_COM -eq 0 ]; then
   ncvhdl -v93 "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_sram_cvgx_uas_cmd_width_adapter.vhd"        -work mm_interconnect_0                    -cdslib ./cds_libs/mm_interconnect_0.cds.lib                   
   ncvhdl -v93 "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_cpu_instruction_master_translator.vhd"      -work mm_interconnect_0                    -cdslib ./cds_libs/mm_interconnect_0.cds.lib                   
   ncvhdl -v93 "$QSYS_SIMDIR/submodules/steppermotorcontrol_mm_interconnect_0_cpu_data_master_translator.vhd"             -work mm_interconnect_0                    -cdslib ./cds_libs/mm_interconnect_0.cds.lib                   
+  ncvhdl -v93 "$QSYS_SIMDIR/submodules/motor_control_unit.vhd"                                                           -work motor_control_unit_0                 -cdslib ./cds_libs/motor_control_unit_0.cds.lib                
+  ncvhdl -v93 "$QSYS_SIMDIR/submodules/signal_generator.vhd"                                                             -work motor_control_unit_0                 -cdslib ./cds_libs/motor_control_unit_0.cds.lib                
   ncvhdl -v93 "$QSYS_SIMDIR/submodules/register_interface.vhd"                                                           -work registers                            -cdslib ./cds_libs/registers.cds.lib                           
   ncvhdl -v93 "$QSYS_SIMDIR/submodules/StepperMotorControl_pio_led9.vhd"                                                 -work pio_led9                             -cdslib ./cds_libs/pio_led9.cds.lib                            
   ncvhdl -v93 "$QSYS_SIMDIR/submodules/StepperMotorControl_pio_hex0.vhd"                                                 -work pio_hex0                             -cdslib ./cds_libs/pio_hex0.cds.lib                            

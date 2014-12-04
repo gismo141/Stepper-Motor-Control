@@ -108,6 +108,14 @@
          type = "int";
       }
    }
+   element motor_control_unit_0
+   {
+      datum _sortIndex
+      {
+         value = "18";
+         type = "int";
+      }
+   }
    element pio_hex0
    {
       datum _sortIndex
@@ -193,48 +201,11 @@
          type = "int";
       }
    }
-   element RTX_Timer.s1
-   {
-      datum _tags
-      {
-         value = "";
-         type = "String";
-      }
-      datum baseAddress
-      {
-         value = "1052864";
-         type = "String";
-      }
-   }
-   element pio_hex1.s1
+   element pio_hex3.s1
    {
       datum baseAddress
       {
-         value = "1052768";
-         type = "String";
-      }
-   }
-   element pio_sw.s1
-   {
-      datum baseAddress
-      {
-         value = "1052832";
-         type = "String";
-      }
-   }
-   element pio_hex2.s1
-   {
-      datum baseAddress
-      {
-         value = "1052736";
-         type = "String";
-      }
-   }
-   element pio_key.s1
-   {
-      datum baseAddress
-      {
-         value = "1052912";
+         value = "1052704";
          type = "String";
       }
    }
@@ -246,11 +217,11 @@
          type = "String";
       }
    }
-   element pio_hex3.s1
+   element pio_sw.s1
    {
       datum baseAddress
       {
-         value = "1052704";
+         value = "1052832";
          type = "String";
       }
    }
@@ -259,6 +230,43 @@
       datum baseAddress
       {
          value = "1052896";
+         type = "String";
+      }
+   }
+   element pio_key.s1
+   {
+      datum baseAddress
+      {
+         value = "1052912";
+         type = "String";
+      }
+   }
+   element pio_hex2.s1
+   {
+      datum baseAddress
+      {
+         value = "1052736";
+         type = "String";
+      }
+   }
+   element pio_hex1.s1
+   {
+      datum baseAddress
+      {
+         value = "1052768";
+         type = "String";
+      }
+   }
+   element RTX_Timer.s1
+   {
+      datum _tags
+      {
+         value = "";
+         type = "String";
+      }
+      datum baseAddress
+      {
+         value = "1052864";
          type = "String";
       }
    }
@@ -291,7 +299,7 @@
  <parameter name="hdlLanguage" value="VERILOG" />
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="maxAdditionalLatency" value="1" />
- <parameter name="projectName">Stepper-Motor-Control.qpf</parameter>
+ <parameter name="projectName">MotorControlUnit.qpf</parameter>
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
  <parameter name="testBenchDutName" value="" />
@@ -337,7 +345,17 @@
    internal="pio_led9.external_connection"
    type="conduit"
    dir="end" />
- <interface name="leds" internal="registers.conduit" type="conduit" dir="end" />
+ <interface name="leds" internal="registers.conduit" />
+ <interface
+   name="registers_conduit_nios"
+   internal="registers.conduit_nios"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="mcu_conduit_motor"
+   internal="motor_control_unit_0.conduit_motor"
+   type="conduit"
+   dir="end" />
  <module kind="clock_source" version="14.0" enabled="1" name="clk_50MHz">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -903,10 +921,17 @@
  </module>
  <module
    kind="register_interface"
-   version="1.0.0"
+   version="2.0.0"
    enabled="1"
    name="registers">
-  <parameter name="MyParameter" value="42" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="100000000" />
+ </module>
+ <module
+   kind="motor_control_unit"
+   version="1.0"
+   enabled="1"
+   name="motor_control_unit_0">
+  <parameter name="divider" value="125000" />
   <parameter name="AUTO_CLOCK_CLOCK_RATE" value="100000000" />
  </module>
  <connection
@@ -1321,6 +1346,32 @@
    version="14.0"
    start="clk_50MHz.clk_reset"
    end="registers.reset" />
+ <connection
+   kind="reset"
+   version="14.0"
+   start="CPU.jtag_debug_module_reset"
+   end="motor_control_unit_0.reset" />
+ <connection
+   kind="reset"
+   version="14.0"
+   start="clk_50MHz.clk_reset"
+   end="motor_control_unit_0.reset" />
+ <connection
+   kind="clock"
+   version="14.0"
+   start="pll_100MHz.outclk0"
+   end="motor_control_unit_0.clock" />
+ <connection
+   kind="conduit"
+   version="14.0"
+   start="motor_control_unit_0.conduit_register_interface"
+   end="registers.conduit_mcu">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

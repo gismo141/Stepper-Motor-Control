@@ -31,6 +31,7 @@ DEFINE tda                                  ./libraries/tda/
 DEFINE tdt                                  ./libraries/tdt/                                 
 DEFINE irq_mapper                           ./libraries/irq_mapper/                          
 DEFINE mm_interconnect_0                    ./libraries/mm_interconnect_0/                   
+DEFINE motor_control_unit_0                 ./libraries/motor_control_unit_0/                
 DEFINE registers                            ./libraries/registers/                           
 DEFINE pio_led9                             ./libraries/pio_led9/                            
 DEFINE pio_hex0                             ./libraries/pio_hex0/                            

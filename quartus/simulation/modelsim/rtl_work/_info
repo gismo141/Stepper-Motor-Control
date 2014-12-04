@@ -1,0 +1,44 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\simulation\modelsim
+Esignal_generator
+Z1 w1417609953
+Z2 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\Users\mpeg\Desktop\Stepper-Motor-Control\quartus\simulation\modelsim
+Z7 8C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/signal_generator/signal_generator.vhd
+Z8 FC:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/signal_generator/signal_generator.vhd
+l0
+L53
+V5X`cAZWXDnBOT]K5UOB`o0
+!s100 MnFXC]:lnL3b^h93=nMFl1
+Z9 OV;C;10.1e;51
+31
+!i10b 1
+Z10 !s108 1417609987.075000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/signal_generator/signal_generator.vhd|
+Z12 !s107 C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/IP/signal_generator/signal_generator.vhd|
+Z13 o-93 -work work -O0
+Z14 tExplicit 1
+Amy_signal_generator
+R2
+R3
+R4
+R5
+DEx4 work 16 signal_generator 0 22 5X`cAZWXDnBOT]K5UOB`o0
+l91
+L70
+VK4S4QF@o8^B>4>LAR92H[0
+!s100 zIhm]QhMN<k<aD`c3Cb=O0
+R9
+31
+!i10b 1
+R10
+R11
+R12
+R13
+R14

@@ -76,6 +76,8 @@ set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file j
 set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/aldec/altera_merlin_slave_translator.sv"]
 set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/mentor/altera_merlin_master_translator.sv"]
 set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/aldec/altera_merlin_master_translator.sv"]
+set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/motor_control_unit.vhd"]
+set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/signal_generator.vhd"]
 set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/register_interface.vhd"]
 set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/StepperMotorControl_pio_led9.vhd"]
 set_global_assignment -library "lib_StepperMotorControl" -name MISC_FILE [file join $::quartus(sip_path) "submodules/StepperMotorControl_pio_hex0.vhd"]

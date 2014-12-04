@@ -3,21 +3,21 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="47" />
+   <connections preferredWidth="207" />
    <irq preferredWidth="34" />
    <inputclock preferredWidth="152" />
    <name preferredWidth="216" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project" />
+ <library expandedCategories="Project/User Components,Library,Project" />
  <window width="1680" height="1010" x="0" y="0" />
  <hdlexample language="VHDL" />
  <generation synthesis="VHDL" path="_PROJECT_NAME_" simulation="VHDL" />
  <clocktable>
   <columns>
-   <clockname preferredWidth="495" />
-   <clocksource preferredWidth="494" />
-   <frequency preferredWidth="490" />
+   <clockname preferredWidth="429" />
+   <clocksource preferredWidth="428" />
+   <frequency preferredWidth="424" />
   </columns>
  </clocktable>
 </preferences>

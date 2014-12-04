@@ -359,6 +359,14 @@
    type="VHDL"
    library="mm_interconnect_0" />
  <file
+   path="simulation/submodules/motor_control_unit.vhd"
+   type="VHDL"
+   library="motor_control_unit_0" />
+ <file
+   path="simulation/submodules/signal_generator.vhd"
+   type="VHDL"
+   library="motor_control_unit_0" />
+ <file
    path="simulation/submodules/register_interface.vhd"
    type="VHDL"
    library="registers" />

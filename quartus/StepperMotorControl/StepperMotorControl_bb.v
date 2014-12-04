@@ -19,8 +19,10 @@ module StepperMotorControl (
 	hex2_export,
 	hex3_export,
 	led9_export,
-	leds_redleds,
-	leds_greenleds);	
+	registers_conduit_nios_redleds,
+	registers_conduit_nios_greenleds,
+	mcu_conduit_motor_motor_pwm,
+	mcu_conduit_motor_motor_en);	
 
 	input		reset_reset_n;
 	input		clk_clk;
@@ -41,6 +43,8 @@ module StepperMotorControl (
 	output	[6:0]	hex2_export;
 	output	[6:0]	hex3_export;
 	output		led9_export;
-	output	[7:0]	leds_redleds;
-	output	[7:0]	leds_greenleds;
+	output	[7:0]	registers_conduit_nios_redleds;
+	output	[7:0]	registers_conduit_nios_greenleds;
+	output	[3:0]	mcu_conduit_motor_motor_pwm;
+	output	[1:0]	mcu_conduit_motor_motor_en;
 endmodule
