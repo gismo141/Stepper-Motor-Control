@@ -12,6 +12,10 @@ v2.0.0 Marc Kossmann & Michael Riedel:
 
 - finalized milestone 2
 
+v3.0.0 Marc Kossmann & Michael Riedel:
+
+- finalized milestone 3b
+
 ## Overview
 
 This project is an example for a system-on-a-chip-design of a stepper-motor-control using the NIOS II/s Processor on the development boards from [terasIC](http://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=163#Category165).
