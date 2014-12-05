@@ -25,7 +25,17 @@ USE ieee.std_logic_1164.all;
 
 --! @brief Counter-Component
 ENTITY counter is
-  GENERIC ( divider : INTEGER := 250000 ); --! clock(Hz) / clk_out(Hz)
+  GENERIC
+  (
+    --! @brief    Prescaler for PWM-signal.
+    --! @details  For this purpose 2,5 ms are used as minimal pulse-width.
+    --! @details  The prescaler is calculated with the given and desired frequency
+    --!     via the following formula:
+    --!     prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!     e.g.: f_prescaler = 1/5 ms = 400 Hz
+    --!         prescaler = 50 Mhz / 400 Hz = 125000
+    divider : INTEGER := 125000
+  );
   PORT
   (
     clock     : IN  STD_LOGIC;    --! input clock

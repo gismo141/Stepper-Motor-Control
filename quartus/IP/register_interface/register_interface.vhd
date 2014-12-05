@@ -26,11 +26,11 @@
 --!               - corrected formatting
 --!               - improved documentation
 --! @details      v1.0.0 18.11.2014 Riedel & Kossmann
---!                - verified functionality -> release MS2
+--!               - verified functionality -> release MS2
 --! @details      v1.0.1 19.11.2014 Kossmann
---!                - changed register write implementation to more save version
+--!               - changed register write implementation to more save version
 --! @details      v1.0.2 21.11.2014 Riedel & Kossmann
---!                - removed ctrlSetReg and ctrlClrReg signals
+--!               - removed ctrlSetReg and ctrlClrReg signals
 --!               - added register access for mcu
 --! @details      v1.0.3 01.12.2014 Kossmann
 --!               - reacting to rising edge of ir signal
@@ -101,13 +101,13 @@ BEGIN
       ctrlReg(0) <= '0';
     END IF;
     
-     IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
+    IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
       ctrlReg <= write_data(7 DOWNTO 0);             -- overwrite complete ctrlReg 
-     ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
+    ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
       ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);  -- set ctrlReg bitwise
-     ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
+    ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
       ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));  -- clr ctrlReg 
-     END IF;
+    END IF;
   END IF; 
    
   -- speedReg Register Write
