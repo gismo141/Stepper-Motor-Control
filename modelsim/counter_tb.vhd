@@ -2,9 +2,8 @@
 --! @file         counter_tb.vhd
 --! @author       Marc Kossmann
 --! @author       Michael Riedel
---! @version      v0.1.0
---! @date         23.11.2014
---!
+--! @version      v1.0.0
+--! @date         05.12.2014
 --! @brief        Testbench for counter component
 --! @par History:
 --! @details      v0.1.0 23.11.2014 Kossmann
@@ -13,6 +12,8 @@
 --!               - improved documentation
 --! @details      v0.1.3 05.12.2014 Riedel
 --!               - corrected formatting and indention
+--! @details      v1.0.0 05.12.2014 Riedel & Kossmann
+--!               - release milestone 3b
 -------------------------------------------------------------------------------
 
 --! Use Standard Library

@@ -2,8 +2,8 @@
 --! @file         counter.vhd
 --! @author       Marc Kossmann
 --! @author       Michael Riedel
---! @version      v0.1.0
---! @date         23.11.2014
+--! @version      v1.0.0
+--! @date         05.12.2014
 --!
 --! @brief        Counter which divides the clock according to the divider
 --! @details      Provide 5 ms time base when divider = 250000.
@@ -16,6 +16,8 @@
 --!               - re-implemented counter according to digital ciruit design
 --! @details      v0.1.2 28.11.2014 Kossmann
 --!               - improved documentation
+--! @details      v1.0.0 05.12.2014 Riedel & Kossmann
+--!               - release milestone 3b
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -51,8 +53,7 @@ END counter;
 architecture counter_arch of counter is
   SIGNAL counter : INTEGER := 0;
 BEGIN
-  --! @brief counting process incrementing internal signal value
-  count: PROCESS(reset_n, clock, enable)
+  count_clock : PROCESS(reset_n, clock, enable)
   BEGIN
     IF(reset_n = '0') THEN
       counter <= 0;
@@ -63,8 +64,8 @@ BEGIN
       END IF;
     END IF; 
   END PROCESS;
-  --! @brief process to output the divided clock
-  output: PROCESS(counter)
+
+  output : PROCESS(counter)
   BEGIN 
     IF(counter = 0) THEN
       clk_out <= '1';

@@ -2,78 +2,11 @@
 --! @file         motor_control_unit_tb.vhd
 --! @author       Marc Kossmann
 --! @author       Michael Riedel
---! @version      v0.1.0
---! @date         26.11.2014
+--! @version      v1.0.0
+--! @date         05.12.2014
 --!
 --! @brief        Testbench for Motor-Control-Unit Component
 --! @details      Tests full functionality of component
---!
---! @details  Test-procedure (1): reset_n
---!           | signal         | desired output |
---!           | :------------- | :--------------|
---!           | mode_state     | `IDLE`         |
---!           | pwm_state      | `ONE`          |
---! @details  Test-procedure (2): Continuous Run with speed = 0, direction = left
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `CR`                                  |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---! @details  Test-procedure (3): Continuous Run with speed = 1, direction = left, R/S toggle
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `CR`                                  |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---! @details  Test-procedure (4): Continuous Run with speed = 7, direction = left
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `CR`                                  |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---! @details  Test-procedure (5): Continuous Run with speed = 7, direction = right
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `CR`                                  |
---!           | pwm_state      | cycling `FOUR`, `THREE`, `TWO`, `ONE` |
---!           | motor_pwm      | `0000`                                |
---!           | motor_en       | `00`                                  |
---! @details  Test-procedure (6): Chain of Steps - 1/4 rotation with speed = 7, direction = left
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `COS_1_4`                             |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `100`                                 |
---!           | ir             | `1`                                   |
---! @details  Test-procedure (7): Chain of Steps - 1/4 rotation with speed = 7, direction = left/right switch
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `COS_1_4`                             |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `40`                                 |
---!           | ir             | `1`                                   |
---! @details  Test-procedure (8): Chain of Steps - 1/4 rotation with speed = 7, direction = left with R/S restart
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `COS_1_4`                             |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `100`                                 |
---!           | ir             | `1`                                   |
---! @details  Test-procedure (9): Chain of Steps - 1/2 rotation with speed = 7, direction = left
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `COS_1_2`                             |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `0`                                   |
---! @details  Test-procedure (10): Chain of Steps - 1 rotation with speed = 7, direction = left
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `COS_1`                               |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `0`                                   |
---! @details  Test-procedure (11): Chain of Steps - 2 rotations with speed = 7, direction = left
---!           | signal         | desired output                        |
---!           | :------------- | :-------------------------------------|
---!           | mode_state     | `COS_2`                               |
---!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
---!           | steps_counter  | `0`                                   |
 --!
 --! @par History:
 --! @details      v0.1.0 26.11.2014 Riedel
@@ -93,6 +26,8 @@
 --!               - added testcases
 --! @details      v0.1.5 03.12.2014 Kossmann
 --!               - implemented more testcases
+--! @details      v1.0.0 05.12.2014 Riedel & Kossmann
+--!               - release milestone 3b
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -108,13 +43,13 @@ USE ieee.STD_LOGIC_SIGNED.all;
 ENTITY motor_control_unit_tb  IS 
   GENERIC
   (
-    --! @brief		Prescaler for PWM-signal.
-    --! @details	For this purpose 2,5 ms are used as minimal pulse-width.
-    --!	@details	The prescaler is calculated with the given and desired frequency
-    --!			via the following formula:
-    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
-    --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
-    --!					prescaler = 50 Mhz / 400 Hz = 125000
+    --! @brief    Prescaler for PWM-signal.
+    --! @details  For this purpose 2,5 ms are used as minimal pulse-width.
+    --! @details  The prescaler is calculated with the given and desired frequency
+    --!     via the following formula:
+    --!     prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!     e.g.: f_prescaler = 1/5 ms = 400 Hz
+    --!         prescaler = 50 Mhz / 400 Hz = 125000
     --! @details In simulation the divider is 125 for faster wave generation.
     divider : integer := 125
   );
@@ -185,7 +120,7 @@ BEGIN
   -- Test-procedure (2), Continuous Run with speed = 0, direction = left
   -- 5 ms sim time for two pulses
 --  run       <= '1' after 20 ns;
---  mode    	 <= "0001" after 20 ns;
+--  mode       <= "0001" after 20 ns;
 --  direction <= left;
 --  speed     <= "000";
 
@@ -194,21 +129,21 @@ BEGIN
 --  run       <= '1' after 20 ns,
 --               '0' after 3000 us,
 --               '1' after 3100 us; 
---  mode    	 <= "0001" after 20 ns;
+--  mode       <= "0001" after 20 ns;
 --  direction <= left;
 --  speed     <= "001"; 
 
   -- Test-procedure (4), Continuous Run with speed = 7, direction = left
   -- 15 us sim time for two pulses
 --  run       <= '1' after 20 ns;
---  mode    	 <= "0001" after 20 ns;
+--  mode       <= "0001" after 20 ns;
 --  direction <= left;
 --  speed     <= "111";
                
   -- Test-procedure (5), Continuous Run with speed = 7, direction = right
   -- 15 us sim time for two pulses
 --  run       <= '1' after 20 ns;
---  mode    	 <= "0001" after 20 ns;
+--  mode       <= "0001" after 20 ns;
 --  direction <= right;
 --  speed     <= "111";
                
@@ -228,7 +163,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode    	 <= "0010" after 20 ns;
+--  mode       <= "0010" after 20 ns;
 --  direction <= right;
 --  speed     <= "111" after 20 ns;
 
@@ -247,7 +182,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode    	 <= "0010" after 20 ns;
+--  mode       <= "0010" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -267,7 +202,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode    	 <= "0010" after 20 ns;
+--  mode       <= "0010" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -287,7 +222,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode    	 <= "0110" after 20 ns;
+--  mode       <= "0110" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -307,7 +242,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode    	 <= "1010" after 20 ns;
+--  mode       <= "1010" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -327,7 +262,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode    	 <= "1110" after 20 ns;
+--  mode       <= "1110" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -347,7 +282,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode    	 <= "1111" after 20 ns;
+--  mode       <= "1111" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;

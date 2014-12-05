@@ -2,8 +2,8 @@
 --! @file         register_interface.vhd
 --! @author       Marc Kossmann
 --! @author       Michael Riedel
---! @version      v1.0.0
---! @date         18.11.2014
+--! @version      v2.0.0
+--! @date         05.12.2014
 --!
 --! @brief        Register component
 --! @details      Provides the `ctrlReg`, `speedReg`, `stepsReg` registers.
@@ -36,6 +36,8 @@
 --!               - reacting to rising edge of ir signal
 --! @details      v1.0.4 05.12.2014 Riedel
 --!               - corrected formatting and indention
+--! @details      v2.0.0 05.12.2014 Riedel & Kossmann
+--!               - release milestone 3b
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -45,7 +47,7 @@ USE ieee.STD_LOGIC_1164.all;
 --! Use Conversion Functions
 USE ieee.STD_LOGIC_signed.all;
 
---! @brief Register Interfact-Component
+--! @brief Register Interface-Component
 ENTITY register_interface IS
   PORT
   (
@@ -88,25 +90,30 @@ BEGIN
    --!        - writing registers
    --!        - reading registers
    --!        - implementing set and clear functionality
-  PROCESS(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg) 
+  processing : PROCESS(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg)
   BEGIN
+  
   -- ctrlReg Register Write
   IF (reset_n = '0') THEN
     ctrlReg <= (others => '0');
   ELSIF (rising_edge(clock)) THEN
     ctrlReg <= ctrlReg;
     
-    IF(ir = '1') THEN -- set IR-bit and reset R/S when mcu requests interrupt
+    IF(ir = '1') THEN
+    -- set IR-bit and reset R/S when mcu requests interrupt
       ctrlReg(7) <= '1';
       ctrlReg(0) <= '0';
     END IF;
     
     IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
-      ctrlReg <= write_data(7 DOWNTO 0);             -- overwrite complete ctrlReg 
+    -- overwrite complete ctrlReg
+      ctrlReg <= write_data(7 DOWNTO 0);
     ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
-      ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);  -- set ctrlReg bitwise
+    -- set ctrlReg bitwise
+      ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);
     ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
-      ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));  -- clr ctrlReg 
+    -- clr ctrlReg 
+      ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));
     END IF;
   END IF; 
    
