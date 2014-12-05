@@ -1,8 +1,0 @@
-<map id="SoC" name="SoC">
-<area shape="rect" id="node2" href="dir_acb9c305cf594a1eee575eea580d222b.html" title="modelsim" alt="" coords="423,61,502,109"/>
-<area shape="rect" id="node3" href="dir_00cac0feaae6111d24dacec2b7f1bf08.html" title="quartus" alt="" coords="328,61,400,109"/>
-<area shape="rect" id="node4" href="dir_a772cd42985ab6c4e2588c6734d442dc.html" title="RTX_C_Source" alt="" coords="189,61,304,109"/>
-<area shape="rect" id="node5" href="dir_efa0b447e21510c0a039052a5930fbe3.html" title="RTX_VHDL_Base" alt="" coords="37,61,166,109"/>
-<area shape="rect" id="clust2" href="dir_dda353c25c39eeda86b15f139adb53bb.html" alt="" coords="27,51,608,120"/>
-<area shape="rect" id="clust1" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html" title="Developer" alt="" coords="16,16,619,131"/>
-</map>

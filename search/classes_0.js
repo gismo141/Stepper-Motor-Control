@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['interface_5frtx_5fbase',['interface_RTX_Base',['../classinterface___r_t_x___base.html',1,'']]]
+  ['counter',['counter',['../classcounter.html',1,'']]],
+  ['counter_5ftb',['counter_tb',['../classcounter__tb.html',1,'']]]
 ];

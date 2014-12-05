@@ -137,14 +137,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a39faba8eb837cd0a61c8e06506a76810"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a></td></tr>
 <tr class="memdesc:a39faba8eb837cd0a61c8e06506a76810"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the heartbeat-task and user-input-task.  <a href="#a39faba8eb837cd0a61c8e06506a76810">More...</a><br /></td></tr>
 <tr class="separator:a39faba8eb837cd0a61c8e06506a76810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8357b3c899f81d3beb7a5c304b5d5180"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8357b3c899f81d3beb7a5c304b5d5180"></a>
-OS_EVENT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8357b3c899f81d3beb7a5c304b5d5180">outputTaskDataMutex</a></td></tr>
-<tr class="memdesc:a8357b3c899f81d3beb7a5c304b5d5180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for secured variable acces. <br /></td></tr>
-<tr class="separator:a8357b3c899f81d3beb7a5c304b5d5180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1627cf0fd4c3b7441fba259220db60a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1627cf0fd4c3b7441fba259220db60a"></a>
-<a class="el" href="data_types_8h.html#a87575b1c79c6feb2c6391ef67d8f8f95">outputTaskData_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac1627cf0fd4c3b7441fba259220db60a">outputTaskData</a></td></tr>
-<tr class="memdesc:ac1627cf0fd4c3b7441fba259220db60a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable for transmitting information from InputTask to OutputTask. <br /></td></tr>
-<tr class="separator:ac1627cf0fd4c3b7441fba259220db60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694636da8f6f21f593e9fddebb1e5f30"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a694636da8f6f21f593e9fddebb1e5f30">userOutputTaskFlagsGrp</a></td></tr>
+<tr class="memdesc:a694636da8f6f21f593e9fddebb1e5f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the user-output-task.  <a href="#a694636da8f6f21f593e9fddebb1e5f30">More...</a><br /></td></tr>
+<tr class="separator:a694636da8f6f21f593e9fddebb1e5f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95bce3f30c5782b913b2b4007fd206f0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a95bce3f30c5782b913b2b4007fd206f0">ISRcontext</a></td></tr>
 <tr class="memdesc:a95bce3f30c5782b913b2b4007fd206f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable for ISR-Context.  <a href="#a95bce3f30c5782b913b2b4007fd206f0">More...</a><br /></td></tr>
 <tr class="separator:a95bce3f30c5782b913b2b4007fd206f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,8 +149,8 @@ OS_EVENT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 <dl class="section author"><dt>Author</dt><dd>Michael Riedel </dd>
 <dd>
 Marc Kossmann </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v1.0.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>11.11.2014 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>v2.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18.11.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>v0.1.0 22.10.2014 Riedel &amp; Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
@@ -171,7 +166,13 @@ Marc Kossmann </dd></dl>
 <li>moved <a class="el" href="user_input_task_8h.html#a2fdf7e32c853914654f176e45c2a03c7" title="Tests hardware. ">hardwareTest()</a> and initial printouts into userInputTask because the need OS running</li>
 </ul>
 <p>v1.0.1 14.11.2014 Kossmann</p><ul>
-<li>finished motor isr registration -moved init IPC global var to main </li>
+<li>finished motor isr registration</li>
+<li>moved init IPC global var to main</li>
+</ul>
+<p>v2.0.0 18.11.2014 Riedel &amp; Kossmann</p><ul>
+<li>adapted function call init_outputTaskDataTxRx <dl class="section see"><dt>See also</dt><dd><a class="el" href="auxilary_functions_8h.html" title="Header file for auxilaryFunctions.c. ">auxilaryFunctions.h</a></dd></dl>
+</li>
+<li>verified functionality -&gt; release MS2 </li>
 </ul>
 
 <p>Definition in file <a class="el" href="main_8c_source.html">main.c</a>.</p>
@@ -198,14 +199,14 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="main_8c_source.html#l00040">40</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p>Definition at line <a class="el" href="main_8c_source.html#l00042">42</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png" border="0" usemap="#main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" alt=""/></div>
 <map name="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" id="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph">
-<area shape="rect" id="node2" href="auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e" title="Initializes terminal output. " alt="" coords="152,796,225,821"/><area shape="rect" id="node3" href="user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb" title="UserInputTask. " alt="" coords="364,727,470,752"/><area shape="rect" id="node18" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5" title="UserOutputTask. " alt="" coords="359,277,475,303"/><area shape="rect" id="node26" href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02" title="The task for the hearbeat and the debug&#45;mode. " alt="" coords="135,999,242,1024"/><area shape="rect" id="node32" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="130,1048,247,1073"/><area shape="rect" id="node34" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of keys edgecapture register. " alt="" coords="321,1124,513,1149"/><area shape="rect" id="node35" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="117,1149,260,1175"/><area shape="rect" id="node36" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="118,1199,259,1224"/><area shape="rect" id="node38" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="119,1248,258,1273"/><area shape="rect" id="node39" href="motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622" title="IRQ&#45;Handler for motor stopped. " alt="" coords="355,924,479,949"/><area shape="rect" id="node40" href="auxilary_functions_8h.html#a9268043032ffc639ce55808a56f9bb8b" title="Initializes the interprocess communication between OutputTask and InputTask. " alt="" coords="104,1297,273,1323"/><area shape="rect" id="node4" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="772,352,857,377"/><area shape="rect" id="node5" href="auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="600,800,663,825"/><area shape="rect" id="node7" href="auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18" title="Sets the cursor position on display. " alt="" coords="589,403,675,428"/><area shape="rect" id="node8" href="auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="594,452,670,477"/><area shape="rect" id="node9" href="auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="593,501,671,527"/><area shape="rect" id="node10" href="register_access_8h.html#aefd08a636b65d8a42e870d55b9f4f034" title="Sets the CtrlReg bitwise. " alt="" coords="582,899,681,924"/><area shape="rect" id="node11" href="register_access_8h.html#a1ff261c931dfc629ff9bc0eb572a5ac4" title="Clears the CtrlReg bitwise. " alt="" coords="584,849,680,875"/><area shape="rect" id="node12" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="589,948,674,973"/><area shape="rect" id="node13" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="580,603,684,628"/><area shape="rect" id="node14" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="582,997,681,1023"/><area shape="rect" id="node15" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="561,652,703,677"/><area shape="rect" id="node16" href="auxilary_functions_8h.html#adfb8dc9cb300c90d13d376e6bf2ef2d5" title="Sends data to ipc channel. " alt="" coords="567,701,696,727"/><area shape="rect" id="node17" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="581,751,683,776"/><area shape="rect" id="node6" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="Initialization function of LCD DOGM162B&#45;A. " alt="" coords="751,800,877,825"/><area shape="rect" id="node19" href="auxilary_functions_8h.html#ac6fe1c25f3128a1a2ab12cae70b58c26" title="Received data from ipc channel. " alt="" coords="567,301,697,327"/><area shape="rect" id="node20" href="user_output_task_8c.html#a1ece67a90bea58a04e4f70cb751a274d" title="Prints Motor information on the terminal. " alt="" coords="572,252,692,277"/><area shape="rect" id="node21" href="auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="595,5,669,31"/><area shape="rect" id="node22" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="575,55,689,80"/><area shape="rect" id="node23" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="575,104,689,129"/><area shape="rect" id="node24" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="575,153,689,179"/><area shape="rect" id="node25" href="auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4" title="Writes buffed data to terminal. " alt="" coords="588,203,675,228"/><area shape="rect" id="node27" href="heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="347,973,487,999"/><area shape="rect" id="node29" href="heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="566,1096,698,1121"/><area shape="rect" id="node28" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="583,1047,681,1072"/><area shape="rect" id="node30" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="757,1071,871,1096"/><area shape="rect" id="node31" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="758,1120,870,1145"/><area shape="rect" id="node33" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of keys edgecapture register. " alt="" coords="337,1075,497,1100"/><area shape="rect" id="node37" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="324,1199,510,1224"/></map>
+<area shape="rect" id="node2" href="auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e" title="Initializes terminal output. " alt="" coords="152,796,225,821"/><area shape="rect" id="node3" href="user_input_task_8h.html#a33dcaae5b81538ffd1eedb93228b65bb" title="UserInputTask. " alt="" coords="364,727,470,752"/><area shape="rect" id="node18" href="user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5" title="UserOutputTask. " alt="" coords="359,277,475,303"/><area shape="rect" id="node26" href="heartbeat_task_8h.html#a00b1b959673cfff6628206a4104dfe02" title="The task for the hearbeat and the debug&#45;mode. " alt="" coords="135,999,242,1024"/><area shape="rect" id="node32" href="keys_i_r_qhandler_8h.html#a200e6646e9d1d9032bfa64f3df522450" title="IRQ&#45;Handler for key&#45;input. " alt="" coords="130,1048,247,1073"/><area shape="rect" id="node34" href="hardware_access_8h.html#ad068c5588df0d8decc2095ea4a5d6665" title="Function to clear bits of keys edgecapture register. " alt="" coords="321,1124,513,1149"/><area shape="rect" id="node35" href="hardware_access_8h.html#adf981c6fea97526812a4998299372aa5" title="Function to enable interrupts for pio key. " alt="" coords="117,1149,260,1175"/><area shape="rect" id="node36" href="switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="118,1199,259,1224"/><area shape="rect" id="node38" href="hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="119,1248,258,1273"/><area shape="rect" id="node39" href="motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622" title="IRQ&#45;Handler for motor stopped. " alt="" coords="355,924,479,949"/><area shape="rect" id="node40" href="auxilary_functions_8h.html#a1b2f37911303e7f288213b7be734ecb8" title="Initializes the interprocess communication between OutputTask and InputTask. " alt="" coords="104,1297,273,1323"/><area shape="rect" id="node4" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="772,352,857,377"/><area shape="rect" id="node5" href="auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="600,800,663,825"/><area shape="rect" id="node7" href="auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18" title="Sets the cursor position on display. " alt="" coords="589,403,675,428"/><area shape="rect" id="node8" href="auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="594,452,670,477"/><area shape="rect" id="node9" href="auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="593,501,671,527"/><area shape="rect" id="node10" href="register_access_8h.html#aefd08a636b65d8a42e870d55b9f4f034" title="Sets the CtrlReg bitwise. " alt="" coords="582,899,681,924"/><area shape="rect" id="node11" href="register_access_8h.html#a1ff261c931dfc629ff9bc0eb572a5ac4" title="Clears the CtrlReg bitwise. " alt="" coords="584,849,680,875"/><area shape="rect" id="node12" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="589,948,674,973"/><area shape="rect" id="node13" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="580,603,684,628"/><area shape="rect" id="node14" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="582,997,681,1023"/><area shape="rect" id="node15" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="561,652,703,677"/><area shape="rect" id="node16" href="auxilary_functions_8h.html#af2d80087a2b769739f08fc33a3378d7a" title="Sends data to ipc channel. " alt="" coords="567,701,696,727"/><area shape="rect" id="node17" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="581,751,683,776"/><area shape="rect" id="node6" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="Initialization function of LCD DOGM162B&#45;A. " alt="" coords="751,800,877,825"/><area shape="rect" id="node19" href="auxilary_functions_8h.html#a7e80429ee0a57ae33875ddc5cd7d3274" title="Received data from ipc channel. " alt="" coords="567,301,697,327"/><area shape="rect" id="node20" href="user_output_task_8c.html#a1ece67a90bea58a04e4f70cb751a274d" title="Prints Motor information on the terminal. " alt="" coords="572,252,692,277"/><area shape="rect" id="node21" href="auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="595,5,669,31"/><area shape="rect" id="node22" href="hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="575,55,689,80"/><area shape="rect" id="node23" href="hardware_access_8h.html#ad2243420f7c1c2bc30a18d9b95fc4308" title="Function to set segments on hex1 display. " alt="" coords="575,104,689,129"/><area shape="rect" id="node24" href="hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd" title="Function to set segments on hex2 display. " alt="" coords="575,153,689,179"/><area shape="rect" id="node25" href="auxilary_functions_8h.html#ab6e2427be137543aaf966090e82ad3f4" title="Writes buffed data to terminal. " alt="" coords="588,203,675,228"/><area shape="rect" id="node27" href="heartbeat_task_8c.html#a5d14e946cd93e1478c02c98a0c6b9920" title="This function implements the debug&#45;logic. " alt="" coords="347,973,487,999"/><area shape="rect" id="node29" href="heartbeat_task_8c.html#a655f2f5e5b9732fb918fbc61da1f2062" title="State machine for the heartbeat. " alt="" coords="566,1096,698,1121"/><area shape="rect" id="node28" href="register_access_8h.html#a0089d956f2c707e5b5b5afc8c166e2c1" title="Sets the given steps for the Stepper&#45;Motor&#45;Control VHDL&#45;component. " alt="" coords="583,1047,681,1072"/><area shape="rect" id="node30" href="hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48" title="Function to set segments on hex3 display. " alt="" coords="757,1071,871,1096"/><area shape="rect" id="node31" href="hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1" title="Function to set led9 for heartbeat. " alt="" coords="758,1120,870,1145"/><area shape="rect" id="node33" href="hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d" title="Function to read content of keys edgecapture register. " alt="" coords="337,1075,497,1100"/><area shape="rect" id="node37" href="hardware_access_8h.html#abd9aa36a3326dd1655387758edc43be6" title="Function to clear bits of switches edgecapture register. " alt="" coords="324,1199,510,1224"/></map>
 </div>
 </p>
 
@@ -225,7 +226,7 @@ Here is the call graph for this function:</div>
 <p>The flags group used in the heartbeat-task and user-input-task. </p>
 <p>This group contains the debug-event that can be triggered via <code>sw_9</code>. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00038">38</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00042">42</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +243,7 @@ Here is the call graph for this function:</div>
 <p>Variable for ISR-Context. </p>
 <p>Not used in this program </p>
 
-<p>Definition at line <a class="el" href="main_8c_source.html#l00038">38</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p>Definition at line <a class="el" href="main_8c_source.html#l00040">40</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>
@@ -259,7 +260,24 @@ Here is the call graph for this function:</div>
 <p>The flags group used in the user-input-task. </p>
 <p>This group contains all possibly events, which can be triggered by the user. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00028">28</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00032">32</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a694636da8f6f21f593e9fddebb1e5f30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OS_FLAG_GRP* userOutputTaskFlagsGrp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The flags group used in the user-output-task. </p>
+<p>This group contains all possibly events. </p>
+
+<p>Definition at line <a class="el" href="events_8h_source.html#l00051">51</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -268,8 +286,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_aec8fa7fe884afaf35d7c5716048936d.html">SRC</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
-    <li class="footer">Generated on Mon Nov 17 2014 12:19:38 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="footer">Generated on Fri Dec 5 2014 09:25:09 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

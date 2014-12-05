@@ -140,18 +140,17 @@ Variables</h2></td></tr>
 <tr class="memitem:a39faba8eb837cd0a61c8e06506a76810"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_input_task_8c.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a></td></tr>
 <tr class="memdesc:a39faba8eb837cd0a61c8e06506a76810"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the heartbeat-task and user-input-task.  <a href="#a39faba8eb837cd0a61c8e06506a76810">More...</a><br /></td></tr>
 <tr class="separator:a39faba8eb837cd0a61c8e06506a76810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8357b3c899f81d3beb7a5c304b5d5180"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8357b3c899f81d3beb7a5c304b5d5180"></a>
-OS_EVENT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_input_task_8c.html#a8357b3c899f81d3beb7a5c304b5d5180">outputTaskDataMutex</a></td></tr>
-<tr class="memdesc:a8357b3c899f81d3beb7a5c304b5d5180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for secured variable acces. <br /></td></tr>
-<tr class="separator:a8357b3c899f81d3beb7a5c304b5d5180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694636da8f6f21f593e9fddebb1e5f30"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="user_input_task_8c.html#a694636da8f6f21f593e9fddebb1e5f30">userOutputTaskFlagsGrp</a></td></tr>
+<tr class="memdesc:a694636da8f6f21f593e9fddebb1e5f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the user-output-task.  <a href="#a694636da8f6f21f593e9fddebb1e5f30">More...</a><br /></td></tr>
+<tr class="separator:a694636da8f6f21f593e9fddebb1e5f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Source code for User-Input-Task which is highest instance, reacts to user input and controls register and hardware access. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Riedel </dd>
 <dd>
 Marc Kossmann </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v1.0.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>11.11.2014 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>v2.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18.11.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>v0.1.0 22.10.2014 Kossmann</p><ul>
 <li>first draft for milestone 1b</li>
@@ -191,7 +190,13 @@ Marc Kossmann </dd></dl>
 </ul>
 <p>v1.0.2 14.11.2014 Kossmann</p><ul>
 <li>removed registerMutex because no longer needed with real registers</li>
-<li>moved init IPC global var to main </li>
+<li>moved init IPC global var to main</li>
+</ul>
+<p>v2.0.0 18.11.2014 Riedel &amp; Kossmann</p><ul>
+<li>removed unnecessary wait</li>
+<li>added flag posting for GLOB_VAR_UPDATE <dl class="section see"><dt>See also</dt><dd><a class="el" href="events_8h.html" title="definitions for used events ">events.h</a></dd></dl>
+</li>
+<li>verified functionality -&gt; release MS2 </li>
 </ul>
 
 <p>Definition in file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
@@ -218,7 +223,7 @@ Marc Kossmann </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00226">226</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
+<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00223">223</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -259,14 +264,14 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00052">52</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
+<p>Definition at line <a class="el" href="user_input_task_8c_source.html#l00055">55</a> of file <a class="el" href="user_input_task_8c_source.html">userInputTask.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="user_input_task_8c_a33dcaae5b81538ffd1eedb93228b65bb_cgraph.png" border="0" usemap="#user_input_task_8c_a33dcaae5b81538ffd1eedb93228b65bb_cgraph" alt=""/></div>
 <map name="user_input_task_8c_a33dcaae5b81538ffd1eedb93228b65bb_cgraph" id="user_input_task_8c_a33dcaae5b81538ffd1eedb93228b65bb_cgraph">
-<area shape="rect" id="node2" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="188,5,273,31"/><area shape="rect" id="node3" href="auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="199,55,262,80"/><area shape="rect" id="node5" href="auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18" title="Sets the cursor position on display. " alt="" coords="188,104,274,129"/><area shape="rect" id="node6" href="auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="193,153,269,179"/><area shape="rect" id="node7" href="auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="192,203,270,228"/><area shape="rect" id="node8" href="register_access_8h.html#aefd08a636b65d8a42e870d55b9f4f034" title="Sets the CtrlReg bitwise. " alt="" coords="181,252,280,277"/><area shape="rect" id="node9" href="register_access_8h.html#a1ff261c931dfc629ff9bc0eb572a5ac4" title="Clears the CtrlReg bitwise. " alt="" coords="183,301,279,327"/><area shape="rect" id="node10" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="188,351,273,376"/><area shape="rect" id="node11" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="179,400,283,425"/><area shape="rect" id="node12" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="181,449,280,475"/><area shape="rect" id="node13" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="160,499,302,524"/><area shape="rect" id="node14" href="auxilary_functions_8h.html#adfb8dc9cb300c90d13d376e6bf2ef2d5" title="Sends data to ipc channel. " alt="" coords="166,548,295,573"/><area shape="rect" id="node15" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="180,597,282,623"/><area shape="rect" id="node4" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="Initialization function of LCD DOGM162B&#45;A. " alt="" coords="350,55,476,80"/></map>
+<area shape="rect" id="node2" href="auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="188,5,273,31"/><area shape="rect" id="node3" href="auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="199,55,262,80"/><area shape="rect" id="node5" href="auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18" title="Sets the cursor position on display. " alt="" coords="188,104,274,129"/><area shape="rect" id="node6" href="auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28" title="Writes formated string to lcd. " alt="" coords="193,153,269,179"/><area shape="rect" id="node7" href="auxilary_functions_8h.html#aef9f99cbe33f5c9b05d0886fef2f05c0" title="Writes buffed data to lcd. " alt="" coords="192,203,270,228"/><area shape="rect" id="node8" href="register_access_8h.html#aefd08a636b65d8a42e870d55b9f4f034" title="Sets the CtrlReg bitwise. " alt="" coords="181,252,280,277"/><area shape="rect" id="node9" href="register_access_8h.html#a1ff261c931dfc629ff9bc0eb572a5ac4" title="Clears the CtrlReg bitwise. " alt="" coords="183,301,279,327"/><area shape="rect" id="node10" href="register_access_8h.html#a5793dc3526877ac1481dc95dd5cca5af" title="Returns the actual content of the control&#45;register. " alt="" coords="188,351,273,376"/><area shape="rect" id="node11" href="register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="179,400,283,425"/><area shape="rect" id="node12" href="register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="181,449,280,475"/><area shape="rect" id="node13" href="hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="160,499,302,524"/><area shape="rect" id="node14" href="auxilary_functions_8h.html#af2d80087a2b769739f08fc33a3378d7a" title="Sends data to ipc channel. " alt="" coords="166,548,295,573"/><area shape="rect" id="node15" href="register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="180,597,282,623"/><area shape="rect" id="node4" href="lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="Initialization function of LCD DOGM162B&#45;A. " alt="" coords="350,55,476,80"/></map>
 </div>
 </p>
 
@@ -286,7 +291,7 @@ Here is the call graph for this function:</div>
 <p>The flags group used in the heartbeat-task and user-input-task. </p>
 <p>This group contains the debug-event that can be triggered via <code>sw_9</code>. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00038">38</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00042">42</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -303,7 +308,24 @@ Here is the call graph for this function:</div>
 <p>The flags group used in the user-input-task. </p>
 <p>This group contains all possibly events, which can be triggered by the user. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00028">28</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00032">32</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a694636da8f6f21f593e9fddebb1e5f30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OS_FLAG_GRP* userOutputTaskFlagsGrp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The flags group used in the user-output-task. </p>
+<p>This group contains all possibly events. </p>
+
+<p>Definition at line <a class="el" href="events_8h_source.html#l00051">51</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -312,8 +334,8 @@ Here is the call graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_aec8fa7fe884afaf35d7c5716048936d.html">SRC</a></li><li class="navelem"><a class="el" href="user_input_task_8c.html">userInputTask.c</a></li>
-    <li class="footer">Generated on Mon Nov 17 2014 12:19:38 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="user_input_task_8c.html">userInputTask.c</a></li>
+    <li class="footer">Generated on Fri Dec 5 2014 09:25:09 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

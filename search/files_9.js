@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['switchesirqhandler_2ec',['switchesIRQhandler.c',['../switches_i_r_qhandler_8c.html',1,'']]],
-  ['switchesirqhandler_2eh',['switchesIRQhandler.h',['../switches_i_r_qhandler_8h.html',1,'']]]
+  ['register_5finterface_2evhd',['register_interface.vhd',['../register__interface_8vhd.html',1,'']]],
+  ['register_5finterface_5ftb_2evhd',['register_interface_tb.vhd',['../register__interface__tb_8vhd.html',1,'']]],
+  ['registeraccess_2eh',['registerAccess.h',['../register_access_8h.html',1,'']]]
 ];

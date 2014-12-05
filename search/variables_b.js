@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['term',['term',['../auxilary_functions_8c.html#a81ca74012898e61924f36e780ab08864',1,'auxilaryFunctions.c']]]
+  ['prescaler',['prescaler',['../classsignal__generator.html#aeb92cbf93f4d71ebc369ef29d064fcb2',1,'signal_generator']]]
 ];

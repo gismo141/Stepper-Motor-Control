@@ -1,13 +1,13 @@
 var searchData=
 [
   ['icon0_5fbooster1_5fcontrast_5fc4_5f0_5fc5_5f1',['ICON0_BOOSTER1_CONTRAST_C4_0_C5_1',['../lcd_d_o_g_m162_8h.html#afa30d374d719e81fcc71adc7956d6de5',1,'lcdDOGM162.h']]],
-  ['ieee',['ieee',['../classinterface___r_t_x___base.html#a0a6af6eef40212dbaf130d57ce711256',1,'interface_RTX_Base.ieee()'],['../classregister__interface.html#a0a6af6eef40212dbaf130d57ce711256',1,'register_interface.ieee()'],['../classregister__interface__tb.html#a0a6af6eef40212dbaf130d57ce711256',1,'register_interface_tb.ieee()']]],
+  ['ieee',['ieee',['../classinterface___r_t_x___base.html#a0a6af6eef40212dbaf130d57ce711256',1,'interface_RTX_Base.ieee()'],['../classcounter.html#a0a6af6eef40212dbaf130d57ce711256',1,'counter.ieee()'],['../classdebug__key__detect.html#a0a6af6eef40212dbaf130d57ce711256',1,'debug_key_detect.ieee()'],['../classkey__detect__tut.html#a0a6af6eef40212dbaf130d57ce711256',1,'key_detect_tut.ieee()'],['../classmilestone3.html#a0a6af6eef40212dbaf130d57ce711256',1,'milestone3.ieee()'],['../classmotor__control__unit.html#a0a6af6eef40212dbaf130d57ce711256',1,'motor_control_unit.ieee()'],['../classregister__interface.html#a0a6af6eef40212dbaf130d57ce711256',1,'register_interface.ieee()'],['../classsignal__generator.html#a0a6af6eef40212dbaf130d57ce711256',1,'signal_generator.ieee()'],['../classcounter__tb.html#a0a6af6eef40212dbaf130d57ce711256',1,'counter_tb.ieee()'],['../classmilestone3__tb.html#a0a6af6eef40212dbaf130d57ce711256',1,'milestone3_tb.ieee()'],['../classmotor__control__unit__tb.html#a0a6af6eef40212dbaf130d57ce711256',1,'motor_control_unit_tb.ieee()'],['../classregister__interface__tb.html#a0a6af6eef40212dbaf130d57ce711256',1,'register_interface_tb.ieee()'],['../classsignal__generator__tb.html#a0a6af6eef40212dbaf130d57ce711256',1,'signal_generator_tb.ieee()']]],
   ['init_5flcd',['init_lcd',['../auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2',1,'init_lcd(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#aafed2ade168a085630c2fe8d776432f2',1,'init_lcd(void):&#160;auxilaryFunctions.c']]],
-  ['init_5foutputtaskdatatxrx',['init_outputTaskDataTxRx',['../auxilary_functions_8h.html#a9268043032ffc639ce55808a56f9bb8b',1,'init_outputTaskDataTxRx(OS_EVENT *mutex, outputTaskData_t *data):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#a9268043032ffc639ce55808a56f9bb8b',1,'init_outputTaskDataTxRx(OS_EVENT *mutex, outputTaskData_t *data):&#160;auxilaryFunctions.c']]],
+  ['init_5foutputtaskdatatxrx',['init_outputTaskDataTxRx',['../auxilary_functions_8h.html#a1b2f37911303e7f288213b7be734ecb8',1,'init_outputTaskDataTxRx(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#a1b2f37911303e7f288213b7be734ecb8',1,'init_outputTaskDataTxRx(void):&#160;auxilaryFunctions.c']]],
   ['init_5fterm',['init_term',['../auxilary_functions_8h.html#adab0cd0ff9c3ba11a356e0b6dace535e',1,'init_term(void):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#adab0cd0ff9c3ba11a356e0b6dace535e',1,'init_term(void):&#160;auxilaryFunctions.c']]],
   ['interface_5frtx_5fbase',['interface_RTX_Base',['../classinterface___r_t_x___base.html',1,'']]],
   ['interface_5frtx_5fbase_2evhd',['interface_RTX_Base.vhd',['../interface___r_t_x___base_8vhd.html',1,'']]],
-  ['interrupt_5fenable',['INTERRUPT_ENABLE',['../main_8h.html#acf43057fc38f77d20456c074909ba772',1,'main.h']]],
+  ['interrupt_5fenable',['INTERRUPT_ENABLE',['../user_input_task_8h.html#acf43057fc38f77d20456c074909ba772',1,'userInputTask.h']]],
   ['ioaddr_5fregs_5fctrl',['IOADDR_REGS_CTRL',['../register_access_8h.html#aec6e3d8494638eca707ca5471758d4d5',1,'registerAccess.h']]],
   ['ioaddr_5fregs_5fctrl_5fclr',['IOADDR_REGS_CTRL_CLR',['../register_access_8h.html#ae53d7510cdb3b89189d4eb3058ef2f9e',1,'registerAccess.h']]],
   ['ioaddr_5fregs_5fctrl_5fset',['IOADDR_REGS_CTRL_SET',['../register_access_8h.html#ad7387f39c41dbed007f67203e4baae97',1,'registerAccess.h']]],
@@ -24,6 +24,7 @@ var searchData=
   ['iowr_5fregs_5fctrl_5fset',['IOWR_REGS_CTRL_SET',['../register_access_8h.html#a7a104cf3d0518e54058480880ba5f5c7',1,'registerAccess.h']]],
   ['iowr_5fregs_5fspeed',['IOWR_REGS_SPEED',['../register_access_8h.html#a9ffdcf020225feda46d22751e1f7d276',1,'registerAccess.h']]],
   ['iowr_5fregs_5fsteps',['IOWR_REGS_STEPS',['../register_access_8h.html#ab05752608f14b476fd659ac017634437',1,'registerAccess.h']]],
-  ['irq',['irq',['../classregister__interface.html#a734d3afe13d2df48cc2727d2e0f57e6e',1,'register_interface']]],
+  ['ir',['ir',['../classmotor__control__unit.html#ac95a919732aaa1189002becd3d41b53f',1,'motor_control_unit.ir()'],['../classregister__interface.html#ac62754137695ddfe7d458ffe4a951179',1,'register_interface.ir()'],['../classsignal__generator.html#ac95a919732aaa1189002becd3d41b53f',1,'signal_generator.ir()']]],
+  ['irq',['irq',['../classregister__interface.html#ac9b654c757f80f124f02274781e7939c',1,'register_interface']]],
   ['isrcontext',['ISRcontext',['../main_8c.html#a95bce3f30c5782b913b2b4007fd206f0',1,'main.c']]]
 ];

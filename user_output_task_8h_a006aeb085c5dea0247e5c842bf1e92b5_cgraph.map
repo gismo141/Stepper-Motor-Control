@@ -1,5 +1,5 @@
 <map id="UserOutputTask" name="UserOutputTask">
-<area shape="rect" id="node2" href="$auxilary_functions_8h.html#ac6fe1c25f3128a1a2ab12cae70b58c26" title="Received data from ipc channel. " alt="" coords="170,5,301,31"/>
+<area shape="rect" id="node2" href="$auxilary_functions_8h.html#a7e80429ee0a57ae33875ddc5cd7d3274" title="Received data from ipc channel. " alt="" coords="170,5,301,31"/>
 <area shape="rect" id="node3" href="$user_output_task_8c.html#a1ece67a90bea58a04e4f70cb751a274d" title="Prints Motor information on the terminal. " alt="" coords="175,55,295,80"/>
 <area shape="rect" id="node4" href="$auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="349,80,434,105"/>
 <area shape="rect" id="node5" href="$auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="198,156,273,181"/>

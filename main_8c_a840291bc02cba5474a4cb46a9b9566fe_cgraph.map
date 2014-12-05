@@ -9,7 +9,7 @@
 <area shape="rect" id="node36" href="$switches_i_r_qhandler_8h.html#ad831687986b7a5fb97291c2c3fd65ff9" title="IRQ&#45;Handler for switches. " alt="" coords="118,1199,259,1224"/>
 <area shape="rect" id="node38" href="$hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5" title="Function to enable interrupts for pio sw. " alt="" coords="119,1248,258,1273"/>
 <area shape="rect" id="node39" href="$motor_i_r_qhandler_8h.html#aabc0f0f03e310d42c71637d32f996622" title="IRQ&#45;Handler for motor stopped. " alt="" coords="355,924,479,949"/>
-<area shape="rect" id="node40" href="$auxilary_functions_8h.html#a9268043032ffc639ce55808a56f9bb8b" title="Initializes the interprocess communication between OutputTask and InputTask. " alt="" coords="104,1297,273,1323"/>
+<area shape="rect" id="node40" href="$auxilary_functions_8h.html#a1b2f37911303e7f288213b7be734ecb8" title="Initializes the interprocess communication between OutputTask and InputTask. " alt="" coords="104,1297,273,1323"/>
 <area shape="rect" id="node4" href="$auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b" title="Writes formated string to terminal. " alt="" coords="772,352,857,377"/>
 <area shape="rect" id="node5" href="$auxilary_functions_8h.html#aafed2ade168a085630c2fe8d776432f2" title="Initializes lcd output. " alt="" coords="600,800,663,825"/>
 <area shape="rect" id="node7" href="$auxilary_functions_8h.html#a368e5496d68661c60eb2cca07524eb18" title="Sets the cursor position on display. " alt="" coords="589,403,675,428"/>
@@ -21,10 +21,10 @@
 <area shape="rect" id="node13" href="$register_access_8h.html#a14838af61ed14fa73209e8e98a0d3615" title="Returns the actual content of the speed&#45;register. " alt="" coords="580,603,684,628"/>
 <area shape="rect" id="node14" href="$register_access_8h.html#a36a370abe9bcf373d9bfe2c50ccd3ae8" title="Returns the actual content of the steps&#45;register. " alt="" coords="582,997,681,1023"/>
 <area shape="rect" id="node15" href="$hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21" title="Function to read content of switches data register. " alt="" coords="561,652,703,677"/>
-<area shape="rect" id="node16" href="$auxilary_functions_8h.html#adfb8dc9cb300c90d13d376e6bf2ef2d5" title="Sends data to ipc channel. " alt="" coords="567,701,696,727"/>
+<area shape="rect" id="node16" href="$auxilary_functions_8h.html#af2d80087a2b769739f08fc33a3378d7a" title="Sends data to ipc channel. " alt="" coords="567,701,696,727"/>
 <area shape="rect" id="node17" href="$register_access_8h.html#ac11f0ef891f7a9c9acd985c3ed083544" title="Sets the speed, how fast the Stepper&#45;Motor&#45;Control turns the motor. " alt="" coords="581,751,683,776"/>
 <area shape="rect" id="node6" href="$lcd_d_o_g_m162_8h.html#a258c1b0dd98d52ca201b371cdadcf72e" title="Initialization function of LCD DOGM162B&#45;A. " alt="" coords="751,800,877,825"/>
-<area shape="rect" id="node19" href="$auxilary_functions_8h.html#ac6fe1c25f3128a1a2ab12cae70b58c26" title="Received data from ipc channel. " alt="" coords="567,301,697,327"/>
+<area shape="rect" id="node19" href="$auxilary_functions_8h.html#a7e80429ee0a57ae33875ddc5cd7d3274" title="Received data from ipc channel. " alt="" coords="567,301,697,327"/>
 <area shape="rect" id="node20" href="$user_output_task_8c.html#a1ece67a90bea58a04e4f70cb751a274d" title="Prints Motor information on the terminal. " alt="" coords="572,252,692,277"/>
 <area shape="rect" id="node21" href="$auxilary_functions_8h.html#aac33d8b0fb1efae6f9fe889517e1134b" title="Clears display. " alt="" coords="595,5,669,31"/>
 <area shape="rect" id="node22" href="$hardware_access_8h.html#aff57e01cc0c282a3b4826d805822f484" title="Function to set segments on hex0 display. " alt="" coords="575,55,689,80"/>

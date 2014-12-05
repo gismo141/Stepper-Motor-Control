@@ -13,5 +13,6 @@ var searchData=
   ['useroutputtask',['UserOutputTask',['../user_output_task_8h.html#a006aeb085c5dea0247e5c842bf1e92b5',1,'UserOutputTask(void *pdata):&#160;userOutputTask.c'],['../user_output_task_8c.html#a006aeb085c5dea0247e5c842bf1e92b5',1,'UserOutputTask(void *pdata):&#160;userOutputTask.c']]],
   ['useroutputtask_2ec',['userOutputTask.c',['../user_output_task_8c.html',1,'']]],
   ['useroutputtask_2eh',['userOutputTask.h',['../user_output_task_8h.html',1,'']]],
-  ['useroutputtask_5fstk',['UserOutputTask_Stk',['../main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30',1,'main.h']]]
+  ['useroutputtask_5fstk',['UserOutputTask_Stk',['../main_8h.html#ae745b8e0e5b8e62b2ba859088876ad30',1,'main.h']]],
+  ['useroutputtaskflagsgrp',['userOutputTaskFlagsGrp',['../events_8h.html#a694636da8f6f21f593e9fddebb1e5f30',1,'userOutputTaskFlagsGrp():&#160;events.h'],['../main_8c.html#a694636da8f6f21f593e9fddebb1e5f30',1,'userOutputTaskFlagsGrp():&#160;events.h'],['../user_input_task_8c.html#a694636da8f6f21f593e9fddebb1e5f30',1,'userOutputTaskFlagsGrp():&#160;events.h'],['../user_output_task_8c.html#a694636da8f6f21f593e9fddebb1e5f30',1,'userOutputTaskFlagsGrp():&#160;events.h']]]
 ];

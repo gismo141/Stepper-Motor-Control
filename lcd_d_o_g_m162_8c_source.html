@@ -111,8 +111,8 @@ $(document).ready(function(){initNavTree('lcd_d_o_g_m162_8c_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * @file      lcdDOGM162.c</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @author    Johann Mayr</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * @author    Prof. Dr.-Ing. Ferdinand Englberger</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version   V2.0.0</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date      25.03.2014</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * @version   V2.0.2</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * @date      06.11.2014</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * @copyright 2011 - 2014 UniBw M - ETTI - WE 4</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * @brief     Initialization program for LCD DOGM162. Qsys uses Altera</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *            LCD component &quot;altera_avalon_lcd_16207&quot;.</span></div>
@@ -121,21 +121,21 @@ $(document).ready(function(){initNavTree('lcd_d_o_g_m162_8c_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *            function has to be called before the display can be used.</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *************************************************************************</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * @par History:</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *  @details  V2.0.0 Ferdinand Englberger</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *            - comments in english</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *            - Remove all functions, but initialization function</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *            - uses component register interface, instead of own access</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *              function.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *            - uses a base parameter to identify lcd.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *  @details  V1.1 25.06.2012 Johann Mayr</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> *            - Initial version</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *  @details  V1.0 20.12.2011 Johann Mayr</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *            - Initial version</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> *  @details  06.11.2014 Riedel</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> *            - Created defines for init-codes and moved to header</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> *  @details  06.11.2014 Kossmann</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> *            - moved clear, set-position functionality into</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *              auxilaryFunctions.c because stream not available here</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *  @details  V2.0.2 06.11.2014 Kossmann</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *            - moved clear, set-position functionality into</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *              auxilaryFunctions.c because stream not available here</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *  @details  V2.0.1 06.11.2014 Riedel</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *            - Created defines for init-codes and moved to header</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *  @details  V2.0.0 Ferdinand Englberger</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *            - comments in english</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> *            - Remove all functions, but initialization function</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *            - uses component register interface, instead of own access</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *              function.</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> *            - uses a base parameter to identify lcd.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> *  @details  V1.1 25.06.2012 Johann Mayr</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> *            - Initial version</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> *  @details  V1.0 20.12.2011 Johann Mayr</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *            - Initial version</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> **************************************************************************</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
@@ -192,8 +192,8 @@ $(document).ready(function(){initNavTree('lcd_d_o_g_m162_8c_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_aec8fa7fe884afaf35d7c5716048936d.html">SRC</a></li><li class="navelem"><a class="el" href="lcd_d_o_g_m162_8c.html">lcdDOGM162.c</a></li>
-    <li class="footer">Generated on Mon Nov 17 2014 12:19:38 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_eb8380eab13a048bff8618983792f65c.html">SRC</a></li><li class="navelem"><a class="el" href="lcd_d_o_g_m162_8c.html">lcdDOGM162.c</a></li>
+    <li class="footer">Generated on Fri Dec 5 2014 09:25:09 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

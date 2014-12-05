@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['userinputtask_2ec',['userInputTask.c',['../user_input_task_8c.html',1,'']]],
-  ['userinputtask_2eh',['userInputTask.h',['../user_input_task_8h.html',1,'']]],
-  ['useroutputtask_2ec',['userOutputTask.c',['../user_output_task_8c.html',1,'']]],
-  ['useroutputtask_2eh',['userOutputTask.h',['../user_output_task_8h.html',1,'']]]
+  ['signal_5fgenerator_2evhd',['signal_generator.vhd',['../signal__generator_8vhd.html',1,'']]],
+  ['signal_5fgenerator_5ftb_2evhd',['signal_generator_tb.vhd',['../signal__generator__tb_8vhd.html',1,'']]],
+  ['switchesirqhandler_2ec',['switchesIRQhandler.c',['../switches_i_r_qhandler_8c.html',1,'']]],
+  ['switchesirqhandler_2eh',['switchesIRQhandler.h',['../switches_i_r_qhandler_8h.html',1,'']]]
 ];

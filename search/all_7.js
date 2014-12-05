@@ -27,5 +27,9 @@ var searchData=
   ['hex_5fsix',['HEX_SIX',['../user_output_task_8h.html#a849c29f5863dcc1ba21ad11482bd12bb',1,'userOutputTask.h']]],
   ['hex_5fthree',['HEX_THREE',['../user_output_task_8h.html#aaf8738506fa63d5c3e2f343b11b4c573',1,'userOutputTask.h']]],
   ['hex_5ftwo',['HEX_TWO',['../user_output_task_8h.html#ac215ceacc73308544591939e033e4743',1,'userOutputTask.h']]],
-  ['hex_5fzero',['HEX_ZERO',['../user_output_task_8h.html#a3c70a68d014bfc1c4bf0f942efb9fe75',1,'userOutputTask.h']]]
+  ['hex_5fzero',['HEX_ZERO',['../user_output_task_8h.html#a3c70a68d014bfc1c4bf0f942efb9fe75',1,'userOutputTask.h']]],
+  ['hsmc_5frx_5fn',['HSMC_RX_N',['../classmilestone3.html#aa93a929d3500d8a6113e8535ef6b599f',1,'milestone3']]],
+  ['hsmc_5frx_5fp',['HSMC_RX_P',['../classmilestone3.html#a1f0ea0fdc2d9b3e38c44686955b7bbe8',1,'milestone3']]],
+  ['hsmc_5ftx_5fn',['HSMC_TX_N',['../classmilestone3.html#aab44d52de441124562f685aad4539421',1,'milestone3']]],
+  ['hsmc_5ftx_5fp',['HSMC_TX_P',['../classmilestone3.html#af8f620268e77a0cfd3499fd5d6b09f72',1,'milestone3']]]
 ];

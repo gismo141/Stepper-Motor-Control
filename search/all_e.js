@@ -17,6 +17,7 @@ var searchData=
   ['pio_5fsw_5flr_5fmsk',['PIO_SW_LR_MSK',['../hardware_access_8h.html#a2bb0b68b2356ae5de65ca459e39758c1',1,'hardwareAccess.h']]],
   ['pio_5fsw_5fmode_5fmsk',['PIO_SW_MODE_MSK',['../hardware_access_8h.html#ac4e375c506335ab05683727b4110adbd',1,'hardwareAccess.h']]],
   ['pio_5fsw_5fsetirmsk',['PIO_SW_SetIRMsk',['../hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5',1,'hardwareAccess.h']]],
+  ['prescaler',['prescaler',['../classsignal__generator.html#aeb92cbf93f4d71ebc369ef29d064fcb2',1,'signal_generator']]],
   ['printf_5flcd',['printf_lcd',['../auxilary_functions_8h.html#abefd91ac47e060cab8a33073782b0e28',1,'printf_lcd(const char *,...):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#aed7b3831a70eb14aaf5f85c156a01a2a',1,'printf_lcd(const char *format,...):&#160;auxilaryFunctions.c']]],
   ['printf_5fterm',['printf_term',['../auxilary_functions_8h.html#a751fdda7ea41d06cce059e6e77f1183b',1,'printf_term(const char *,...):&#160;auxilaryFunctions.c'],['../auxilary_functions_8c.html#a4ef071e335e215eb794cb631f59fc9b5',1,'printf_term(const char *format,...):&#160;auxilaryFunctions.c']]],
   ['printterminalinfo',['printTerminalInfo',['../user_output_task_8h.html#a1ece67a90bea58a04e4f70cb751a274d',1,'printTerminalInfo(outputTaskData_t *outputTaskDataPtr, uint32_t *termMsgCounterPtr):&#160;userOutputTask.c'],['../user_output_task_8c.html#a1ece67a90bea58a04e4f70cb751a274d',1,'printTerminalInfo(outputTaskData_t *outputTaskDataPtr, uint32_t *termMsgCounterPtr):&#160;userOutputTask.c']]]

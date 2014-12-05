@@ -152,6 +152,14 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#a036d4ab9c3e5c9e343054268d86a4084">DEBUG_OFF_EVENT</a>&#160;&#160;&#160;(0x2)</td></tr>
 <tr class="memdesc:a036d4ab9c3e5c9e343054268d86a4084"><td class="mdescLeft">&#160;</td><td class="mdescRight">deactivates the debug-mode via <code>sw_9</code> <br /></td></tr>
 <tr class="separator:a036d4ab9c3e5c9e343054268d86a4084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af198f5dba61ed9e85516d2b2ecb9d77e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#af198f5dba61ed9e85516d2b2ecb9d77e">MOTOR_STOP_EVENT</a>&#160;&#160;&#160;(0b01000)</td></tr>
+<tr class="memdesc:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="mdescLeft">&#160;</td><td class="mdescRight">the interrupt is sent via VHDL-Component, when the motor reached its end-position <br /></td></tr>
+<tr class="separator:af198f5dba61ed9e85516d2b2ecb9d77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b695eb7936bc7bd53a5f54241684ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51b695eb7936bc7bd53a5f54241684ed"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#a51b695eb7936bc7bd53a5f54241684ed">GLOB_VAR_UPDATE</a>&#160;&#160;&#160;(0b00001)</td></tr>
+<tr class="memdesc:a51b695eb7936bc7bd53a5f54241684ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">signals that data changed <br /></td></tr>
+<tr class="separator:a51b695eb7936bc7bd53a5f54241684ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -161,14 +169,17 @@ Variables</h2></td></tr>
 <tr class="memitem:a39faba8eb837cd0a61c8e06506a76810"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#a39faba8eb837cd0a61c8e06506a76810">heartbeatTaskFlagsGrp</a></td></tr>
 <tr class="memdesc:a39faba8eb837cd0a61c8e06506a76810"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the heartbeat-task and user-input-task.  <a href="#a39faba8eb837cd0a61c8e06506a76810">More...</a><br /></td></tr>
 <tr class="separator:a39faba8eb837cd0a61c8e06506a76810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a694636da8f6f21f593e9fddebb1e5f30"><td class="memItemLeft" align="right" valign="top">OS_FLAG_GRP *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="events_8h.html#a694636da8f6f21f593e9fddebb1e5f30">userOutputTaskFlagsGrp</a></td></tr>
+<tr class="memdesc:a694636da8f6f21f593e9fddebb1e5f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">The flags group used in the user-output-task.  <a href="#a694636da8f6f21f593e9fddebb1e5f30">More...</a><br /></td></tr>
+<tr class="separator:a694636da8f6f21f593e9fddebb1e5f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>definitions for used events </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Riedel </dd>
 <dd>
 Marc Kossmann </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v1.0.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>11.11.2014 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>v2.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18.11.2014 </dd></dl>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>v0.1.0 27.10.2014 Riedel</p><ul>
 <li>first draft for milestone 1b</li>
@@ -177,7 +188,11 @@ Marc Kossmann </dd></dl>
 <li>Moved DEBUG_ON_EVENT from <a class="el" href="heartbeat_task_8h.html" title="Header file for heartbeatTask.c. ">heartbeatTask.h</a> to this header</li>
 </ul>
 <p>v1.0.0 07.11.2014 Kossmann</p><ul>
-<li>added DEBUG_OFF_EVENT </li>
+<li>added DEBUG_OFF_EVENT</li>
+</ul>
+<p>v2.0.0 18.11.2014 Riedel &amp; Kossmann</p><ul>
+<li>introduced userOutputTaskFlagsGrp and GLOB_VAR_UPDATE event for signaling changed data in global IPC variable</li>
+<li>verified functionality -&gt; release MS2 </li>
 </ul>
 
 <p>Definition in file <a class="el" href="events_8h_source.html">events.h</a>.</p>
@@ -195,7 +210,7 @@ Marc Kossmann </dd></dl>
 <p>The flags group used in the heartbeat-task and user-input-task. </p>
 <p>This group contains the debug-event that can be triggered via <code>sw_9</code>. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00038">38</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00042">42</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -212,7 +227,24 @@ Marc Kossmann </dd></dl>
 <p>The flags group used in the user-input-task. </p>
 <p>This group contains all possibly events, which can be triggered by the user. </p>
 
-<p>Definition at line <a class="el" href="events_8h_source.html#l00028">28</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+<p>Definition at line <a class="el" href="events_8h_source.html#l00032">32</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a694636da8f6f21f593e9fddebb1e5f30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OS_FLAG_GRP* userOutputTaskFlagsGrp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The flags group used in the user-output-task. </p>
+<p>This group contains all possibly events. </p>
+
+<p>Definition at line <a class="el" href="events_8h_source.html#l00051">51</a> of file <a class="el" href="events_8h_source.html">events.h</a>.</p>
 
 </div>
 </div>
@@ -221,8 +253,8 @@ Marc Kossmann </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_a52bccc3e7ee0685cf06a49264f991ab.html">Developer</a></li><li class="navelem"><a class="el" href="dir_dda353c25c39eeda86b15f139adb53bb.html">SoC</a></li><li class="navelem"><a class="el" href="dir_a772cd42985ab6c4e2588c6734d442dc.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_e1960e8036ada45c220ea874dd4d27ba.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
-    <li class="footer">Generated on Mon Nov 17 2014 12:19:38 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_4fb8514c4d9373989a079f5a1f38d014.html">RTX_C_Source</a></li><li class="navelem"><a class="el" href="dir_d64c9ccc7af0079bf45b09dec56fa20a.html">INC</a></li><li class="navelem"><a class="el" href="events_8h.html">events.h</a></li>
+    <li class="footer">Generated on Fri Dec 5 2014 09:25:09 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
