@@ -125,119 +125,9 @@ Entities</h2></td></tr>
 <dl class="section author"><dt>Author</dt><dd>Marc Kossmann </dd>
 <dd>
 Michael Riedel </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v0.1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>26.11.2014</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>v1.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05.12.2014</dd></dl>
 <p>Tests full functionality of component</p>
-<p>Test-procedure (1): reset_n </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>IDLE</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left"><code>ONE</code> </td></tr>
-</table>
-<p>Test-procedure (2): Continuous Run with speed = 0, direction = left </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>CR</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-</table>
-<p>Test-procedure (3): Continuous Run with speed = 1, direction = left, R/S toggle </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>CR</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-</table>
-<p>Test-procedure (4): Continuous Run with speed = 7, direction = left </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>CR</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-</table>
-<p>Test-procedure (5): Continuous Run with speed = 7, direction = right </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>CR</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>FOUR</code>, <code>THREE</code>, <code>TWO</code>, <code>ONE</code> </td></tr>
-<tr>
-<td align="left">motor_pwm </td><td align="left"><code>0000</code> </td></tr>
-<tr>
-<td align="left">motor_en </td><td align="left"><code>00</code> </td></tr>
-</table>
-<p>Test-procedure (6): Chain of Steps - 1/4 rotation with speed = 7, direction = left </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>COS_1_4</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-<tr>
-<td align="left">steps_counter </td><td align="left"><code>100</code> </td></tr>
-<tr>
-<td align="left">ir </td><td align="left"><code>1</code> </td></tr>
-</table>
-<p>Test-procedure (7): Chain of Steps - 1/4 rotation with speed = 7, direction = left/right switch </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>COS_1_4</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-<tr>
-<td align="left">steps_counter </td><td align="left"><code>40</code> </td></tr>
-<tr>
-<td align="left">ir </td><td align="left"><code>1</code> </td></tr>
-</table>
-<p>Test-procedure (8): Chain of Steps - 1/4 rotation with speed = 7, direction = left with R/S restart </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>COS_1_4</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-<tr>
-<td align="left">steps_counter </td><td align="left"><code>100</code> </td></tr>
-<tr>
-<td align="left">ir </td><td align="left"><code>1</code> </td></tr>
-</table>
-<p>Test-procedure (9): Chain of Steps - 1/2 rotation with speed = 7, direction = left </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>COS_1_2</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-<tr>
-<td align="left">steps_counter </td><td align="left"><code>0</code> </td></tr>
-</table>
-<p>Test-procedure (10): Chain of Steps - 1 rotation with speed = 7, direction = left </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>COS_1</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-<tr>
-<td align="left">steps_counter </td><td align="left"><code>0</code> </td></tr>
-</table>
-<p>Test-procedure (11): Chain of Steps - 2 rotations with speed = 7, direction = left </p><table class="doxtable">
-<tr>
-<th align="left">signal </th><th align="left">desired output  </th></tr>
-<tr>
-<td align="left">mode_state </td><td align="left"><code>COS_2</code> </td></tr>
-<tr>
-<td align="left">pwm_state </td><td align="left">cycling <code>ONE</code>, <code>TWO</code>, <code>THREE</code>, <code>FOUR</code> </td></tr>
-<tr>
-<td align="left">steps_counter </td><td align="left"><code>0</code> </td></tr>
-</table>
 <dl class="section user"><dt>History:</dt><dd></dd></dl>
 <p>v0.1.0 26.11.2014 Riedel</p><ul>
 <li>first draft</li>
@@ -259,7 +149,10 @@ Michael Riedel </dd></dl>
 <li>added testcases</li>
 </ul>
 <p>v0.1.5 03.12.2014 Kossmann</p><ul>
-<li>implemented more testcases </li>
+<li>implemented more testcases</li>
+</ul>
+<p>v1.0.0 05.12.2014 Riedel &amp; Kossmann</p><ul>
+<li>release milestone 3b </li>
 </ul>
 
 <p>Definition in file <a class="el" href="motor__control__unit__tb_8vhd_source.html">motor_control_unit_tb.vhd</a>.</p>
@@ -269,7 +162,7 @@ Michael Riedel </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_8854af97696abeac31b4d2f93d43fdb1.html">modelsim</a></li><li class="navelem"><a class="el" href="motor__control__unit__tb_8vhd.html">motor_control_unit_tb.vhd</a></li>
-    <li class="footer">Generated on Fri Dec 5 2014 09:25:09 for Stepper-Motor-Control by
+    <li class="footer">Generated on Fri Dec 5 2014 13:11:03 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

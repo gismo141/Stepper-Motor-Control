@@ -11,6 +11,6 @@ var classmilestone3 =
     [ "KEY", "classmilestone3.html#a5eaa40616970d6ce995eee15fba14015", null ],
     [ "LEDG", "classmilestone3.html#aa07c674af9258cb957fd6d65b4f3f7ed", null ],
     [ "LEDR", "classmilestone3.html#ace63aa83afde7bc596268541bf31b18a", null ],
-    [ "STD_LOGIC_1164", "classmilestone3.html#aa4b2b25246a821511120e3149b003563", null ],
+    [ "std_logic_1164", "classmilestone3.html#acd03516902501cd1c7296a98e22c6fcb", null ],
     [ "SW", "classmilestone3.html#ad4980b960d0e91a9e8d199367887306c", null ]
 ];
