@@ -15,9 +15,9 @@
 
 -- VENDOR "Altera"
 -- PROGRAM "Quartus II 64-Bit"
--- VERSION "Version 14.0.0 Build 200 06/17/2014 SJ Web Edition"
+-- VERSION "Version 14.0.2 Build 209 09/17/2014 SJ Web Edition"
 
--- DATE "12/03/2014 13:46:54"
+-- DATE "12/04/2014 20:22:33"
 
 -- 
 -- Device: Altera 5CGXFC5C6F27C7 Package FBGA672
@@ -42,12 +42,12 @@ ENTITY 	milestone3 IS
 	CPU_RESET_n : IN std_logic;
 	SW : IN std_logic_vector(9 DOWNTO 0);
 	KEY : IN std_logic_vector(3 DOWNTO 0);
-	HSMC_RX_P : BUFFER std_logic_vector(16 DOWNTO 0);
-	HSMC_RX_N : BUFFER std_logic_vector(16 DOWNTO 0);
-	HSMC_TX_N : BUFFER std_logic_vector(16 DOWNTO 0);
-	HSMC_TX_P : BUFFER std_logic_vector(16 DOWNTO 0);
-	LEDG : BUFFER std_logic_vector(7 DOWNTO 0);
-	LEDR : BUFFER std_logic_vector(7 DOWNTO 0)
+	HSMC_RX_P : OUT std_logic_vector(16 DOWNTO 0);
+	HSMC_RX_N : OUT std_logic_vector(16 DOWNTO 0);
+	HSMC_TX_N : OUT std_logic_vector(16 DOWNTO 0);
+	HSMC_TX_P : OUT std_logic_vector(16 DOWNTO 0);
+	LEDG : OUT std_logic_vector(7 DOWNTO 0);
+	LEDR : OUT std_logic_vector(7 DOWNTO 0)
 	);
 END milestone3;
 
@@ -524,14 +524,14 @@ SIGNAL \motor_control_unit_inst|signal_generator_inst|motor_en_wire~0_combout\ :
 SIGNAL \debug_inst|write_data~16_combout\ : std_logic;
 SIGNAL \register_interface_inst|ctrlReg~1_combout\ : std_logic;
 SIGNAL \motor_control_unit_inst|signal_generator_inst|motor_pwm\ : std_logic_vector(3 DOWNTO 0);
-SIGNAL \debug_inst|write_data\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \register_interface_inst|speedReg\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \motor_control_unit_inst|signal_generator_inst|steps_counter\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \motor_control_unit_inst|signal_generator_inst|motor_en_wire\ : std_logic_vector(1 DOWNTO 0);
+SIGNAL \debug_inst|reg_write_stage\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \register_interface_inst|ctrlReg\ : std_logic_vector(7 DOWNTO 0);
 SIGNAL \motor_control_unit_inst|prescaler_inst|counter\ : std_logic_vector(31 DOWNTO 0);
-SIGNAL \motor_control_unit_inst|signal_generator_inst|motor_en_wire\ : std_logic_vector(1 DOWNTO 0);
-SIGNAL \register_interface_inst|speedReg\ : std_logic_vector(2 DOWNTO 0);
 SIGNAL \debug_inst|addr\ : std_logic_vector(2 DOWNTO 0);
-SIGNAL \debug_inst|reg_write_stage\ : std_logic_vector(31 DOWNTO 0);
+SIGNAL \debug_inst|write_data\ : std_logic_vector(31 DOWNTO 0);
 SIGNAL \motor_control_unit_inst|signal_generator_inst|ALT_INV_mode_state.IDLE~DUPLICATE_q\ : std_logic;
 SIGNAL \ALT_INV_KEY[0]~input_o\ : std_logic;
 SIGNAL \ALT_INV_SW[4]~input_o\ : std_logic;

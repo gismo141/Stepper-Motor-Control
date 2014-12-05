@@ -38,6 +38,9 @@
 --!               - small adjustments for fulfill specification
 --! @details      v0.1.9 03.12.2014 Kossmann
 --!               - moved motor driver enable to mode_state machine
+--! @details      v0.1.10 05.12.2014 Riedel
+--!               - added few documentational lines
+--!               - corrected formatting and indention
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -157,7 +160,7 @@ BEGIN
   END PROCESS;
 
   --- SPEED's
-  -- this block generates 9 comination loops with latches
+  --- this block generates 9 comination loops with latches
   speed_converting : PROCESS (reset_n, clock, speed, speed_wire)
   BEGIN
     old_speed_wire <= speed_wire;
@@ -203,63 +206,64 @@ BEGIN
   BEGIN
     IF(reset_n = '0') THEN
       pwm_state <= ONE;    
-  		 ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
-      			IF(direction = LEFT) THEN
-      			  CASE pwm_state IS
-      			  WHEN FOUR   =>
-      				  pwm_state <= THREE;
-      			  WHEN THREE  =>
-      				  pwm_state <= TWO;
-      			  WHEN TWO    =>
-      				  pwm_state <= ONE;
-      			  WHEN ONE    =>
-      				  pwm_state <= FOUR;
-      			  END CASE;
-      			ELSE
-      			  CASE pwm_state IS
-      			  WHEN ONE    =>
-      				  pwm_state <= TWO;
-      			  WHEN TWO    =>
-      				  pwm_state <= THREE;
-      			  WHEN THREE  =>
-      				  pwm_state <= FOUR;
-      			  WHEN FOUR   =>
-      				  pwm_state <= ONE;
-      			  END CASE;
-      			END IF;
-		   END IF;
+		ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
+			IF(direction = LEFT) THEN
+			  CASE pwm_state IS
+			  WHEN FOUR   =>
+				  pwm_state <= THREE;
+			  WHEN THREE  =>
+				  pwm_state <= TWO;
+			  WHEN TWO    =>
+				  pwm_state <= ONE;
+			  WHEN ONE    =>
+				  pwm_state <= FOUR;
+			  END CASE;
+			ELSE
+			  CASE pwm_state IS
+			  WHEN ONE    =>
+				  pwm_state <= TWO;
+			  WHEN TWO    =>
+				  pwm_state <= THREE;
+			  WHEN THREE  =>
+				  pwm_state <= FOUR;
+			  WHEN FOUR   =>
+				  pwm_state <= ONE;
+			  END CASE;
+			END IF;
+    END IF;
   END PROCESS;
   
   pwm_output : PROCESS (pwm_state)
   BEGIN
     CASE pwm_state IS
-      WHEN ONE =>
-        motor_pwm_wire <= "1100";
-      WHEN TWO =>
-        motor_pwm_wire <= "0110";
-      WHEN THREE =>
-        motor_pwm_wire <= "0011";
-      WHEN FOUR =>
-        motor_pwm_wire <= "1001";
-      END CASE;
+    WHEN ONE =>
+      motor_pwm_wire <= "1100";
+    WHEN TWO =>
+      motor_pwm_wire <= "0110";
+    WHEN THREE =>
+      motor_pwm_wire <= "0011";
+    WHEN FOUR =>
+      motor_pwm_wire <= "1001";
+    END CASE;
   END PROCESS;
   
+  --- STEPS's
   steps_counting : PROCESS (reset_n, prescaler, pwm_5ms_counter, pwm_state, run)
   BEGIN
-     IF(reset_n = '0') THEN
+    IF(reset_n = '0') THEN
       steps_counter <= 0;
       steps_output_wire <= 0;
 	  ELSIF(run = '0') then
-    			 steps_counter <= 0;
+    	steps_counter <= 0;
       steps_output_wire <= 0;
-  		 ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
-      			IF(direction = LEFT) THEN
-      			  steps_output_wire <= steps_output_wire - 1;
-      			ELSE
-      			  steps_output_wire <= steps_output_wire + 1;
-      			END IF;
-   			  steps_counter <= steps_counter + 1;
-		 END IF;
+  	ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
+			IF(direction = LEFT) THEN
+			  steps_output_wire <= steps_output_wire - 1;
+			ELSE
+			  steps_output_wire <= steps_output_wire + 1;
+			END IF;
+   	  steps_counter <= steps_counter + 1;
+		END IF;
   END PROCESS;
 
   motor_en  <= motor_en_wire;

@@ -10,6 +10,9 @@
 --! @par History:
 --! @details      v0.1.0 02.12.2014 Kossmann
 --!               - first draft
+--! @details      v0.1.1 04.12.2014 Riedel
+--!               - corrected output-naming for LEDs
+--!               - corrected formatting and indention
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -20,7 +23,6 @@ USE ieee.STD_LOGIC_1164.all;
 USE ieee.STD_LOGIC_arith.all;
 --! Use Conversion Functions
 USE ieee.STD_LOGIC_SIGNED.all;
-
 
 --! @brief    Entity of testbench for milestone3
 ENTITY milestone3_tb  IS   
@@ -34,112 +36,113 @@ ENTITY milestone3_tb  IS
     --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
     --!					prescaler = 50 Mhz / 400 Hz = 125000
     --! @details In simulation the divider is 125 for faster wave generation.
-    divider : integer := 125
+    divider : INTEGER := 125
   );
-END ; 
- 
+END;
 
 --! @brief    Architecture of testbench for milestone3
 ARCHITECTURE milestone3_tb_arch OF milestone3_tb IS
 
-  SIGNAL LEDG   :  std_logic_vector (7 downto 0) := (others => '0') ; 
-  SIGNAL CLOCK_50_B5B   :  STD_LOGIC := '0' ; 
-  SIGNAL HSMC_TX_P   :  std_logic_vector (16 downto 0) := (others => '0'); 
-  SIGNAL HSMC_RX_N   :  std_logic_vector (16 downto 0) := (others => '0'); 
-  SIGNAL KEY   :  std_logic_vector (3 downto 0) := (others => '1'); -- low active
-  SIGNAL SW   :  std_logic_vector (9 downto 0) := (others => '0'); 
-  SIGNAL LEDR   :  std_logic_vector (7 downto 0) := (others => '0'); 
-  SIGNAL HSMC_TX_N   :  std_logic_vector (16 downto 0) := (others => '0'); 
-  SIGNAL HSMC_RX_P   :  std_logic_vector (16 downto 0) := (others => '0'); 
-  SIGNAL CPU_RESET_n   :  STD_LOGIC := '0'; 
+  SIGNAL LEDG         : STD_LOGIC_VECTOR (7 DOWNTO 0)   := (others => '0');
+  SIGNAL CLOCK_50_B5B : STD_LOGIC                       := '0';
+  SIGNAL HSMC_TX_P    : STD_LOGIC_VECTOR (16 DOWNTO 0)  := (others => '0'); 
+  SIGNAL HSMC_RX_N    : STD_LOGIC_VECTOR (16 DOWNTO 0)  := (others => '0'); 
+  SIGNAL KEY          : STD_LOGIC_VECTOR (3 DOWNTO 0)   := (others => '1'); -- low active
+  SIGNAL SW           : STD_LOGIC_VECTOR (9 DOWNTO 0)   := (others => '0'); 
+  SIGNAL LEDR         : STD_LOGIC_VECTOR (7 DOWNTO 0)   := (others => '0'); 
+  SIGNAL HSMC_TX_N    : STD_LOGIC_VECTOR (16 DOWNTO 0)  := (others => '0'); 
+  SIGNAL HSMC_RX_P    : STD_LOGIC_VECTOR (16 DOWNTO 0)  := (others => '0'); 
+  SIGNAL CPU_RESET_n  : STD_LOGIC                       := '0'; 
   COMPONENT milestone3
     GENERIC
     ( 
       divider  : INTEGER
     );  
     PORT ( 
-      LEDG  : out std_logic_vector (7 downto 0) ; 
-      CLOCK_50_B5B  : in STD_LOGIC ; 
-      HSMC_TX_P  : out std_logic_vector (16 downto 0) ; 
-      HSMC_RX_N  : out std_logic_vector (16 downto 0) ; 
-      KEY  : in std_logic_vector (3 downto 0) ; 
-      SW  : in std_logic_vector (9 downto 0) ; 
-      LEDR  : out std_logic_vector (7 downto 0) ; 
-      HSMC_TX_N  : out std_logic_vector (16 downto 0) ; 
-      HSMC_RX_P  : out std_logic_vector (16 downto 0) ; 
-      CPU_RESET_n  : in STD_LOGIC ); 
-  END COMPONENT ; 
+      LEDG            : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+      CLOCK_50_B5B    : IN  STD_LOGIC;
+      HSMC_TX_P       : OUT STD_LOGIC_VECTOR (16 DOWNTO 0);
+      HSMC_RX_N       : OUT STD_LOGIC_VECTOR (16 DOWNTO 0);
+      KEY             : IN  STD_LOGIC_VECTOR (3 DOWNTO 0);
+      SW              : IN  STD_LOGIC_VECTOR (9 DOWNTO 0);
+      LEDR            : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+      HSMC_TX_N       : OUT STD_LOGIC_VECTOR (16 DOWNTO 0);
+      HSMC_RX_P       : OUT STD_LOGIC_VECTOR (16 DOWNTO 0);
+      CPU_RESET_n     : IN  STD_LOGIC ); 
+  END COMPONENT;
 BEGIN
   DUT  : milestone3      
     GENERIC MAP
     ( 
       divider         => divider
     )
-    PORT MAP ( 
-      LEDG   => LEDG  ,
-      CLOCK_50_B5B   => CLOCK_50_B5B  ,
-      HSMC_TX_P   => HSMC_TX_P  ,
-      HSMC_RX_N   => HSMC_RX_N  ,
-      KEY   => KEY  ,
-      SW   => SW  ,
-      LEDR   => LEDR  ,
-      HSMC_TX_N   => HSMC_TX_N  ,
-      HSMC_RX_P   => HSMC_RX_P  ,
-      CPU_RESET_n   => CPU_RESET_n   ) ; 
+    PORT MAP
+    (
+      LEDG            => LEDG,
+      CLOCK_50_B5B    => CLOCK_50_B5B,
+      HSMC_TX_P       => HSMC_TX_P,
+      HSMC_RX_N       => HSMC_RX_N,
+      KEY             => KEY,
+      SW              => SW,
+      LEDR            => LEDR,
+      HSMC_TX_N       => HSMC_TX_N,
+      HSMC_RX_P       => HSMC_RX_P,
+      CPU_RESET_n     => CPU_RESET_n
+    );
 
   -- creates the clock
-  CLOCK_50_B5B  <= not CLOCK_50_B5B after 10 ns;
+  CLOCK_50_B5B  <= not CLOCK_50_B5B AFTER 10 ns;
   -- initial reset
-  CPU_RESET_n   <= '0', '1' after 20 ns;
+  CPU_RESET_n   <= '0', '1' AFTER 20 ns;
   
   --Testing continous run with speed 7 and 6. Direction and Run/stop switched
   --750 us simtime
---  sw(1)           <= '0';     --direction ('0' is left)
---  sw(5 downto 2)  <= "0001";  --mode 
+  --sw(1)           <= '0';     --direction ('0' is left)
+--  sw(5 DOWNTO 2)  <= "0001";  --mode 
 --  sw(6)           <= '1';     --interrupt enabled
 --  sw(1)           <= '0';     --direction ('0' is left)
---  sw(5 downto 2)  <= "0001";  --mode 
+--  sw(5 DOWNTO 2)  <= "0001";  --mode 
 --  sw(6)           <= '1';     --interrupt enabled
---  sw(9 downto 7)  <= "111",   --speed
---                     "110" after 200 us;
+--  sw(9 DOWNTO 7)  <= "111",   --speed
+--                     "110" AFTER 200 us;
 --  -- low active key
---  key(0)          <= '0' after 100 ns,  --on
---                     '1' after 130 ns,
---                     '0' after 300 us,  --off
---                     '1' after 301 us,
---                     '0' after 400 us,  --on
---                     '1' after 401 us;sw(9 downto 7)  <= "111",   --speed
---                     "110" after 200 us;
+--  key(0)          <= '0' AFTER 100 ns,  --on
+--                     '1' AFTER 130 ns,
+--                     '0' AFTER 300 us,  --off
+--                     '1' AFTER 301 us,
+--                     '0' AFTER 400 us,  --on
+--                     '1' AFTER 401 us;sw(9 DOWNTO 7)  <= "111",   --speed
+--                     "110" AFTER 200 us;
 --  -- low active key
---  key(0)          <= '0' after 100 ns,  --on
---                     '1' after 130 ns,
---                     '0' after 300 us,  --off
---                     '1' after 301 us,
---                     '0' after 400 us,  --on
---                     '1' after 401 us;
+--  key(0)          <= '0' AFTER 100 ns,  --on
+--                     '1' AFTER 130 ns,
+--                     '0' AFTER 300 us,  --off
+--                     '1' AFTER 301 us,
+--                     '0' AFTER 400 us,  --on
+--                     '1' AFTER 401 us;
 
   --Testing Chain of Steps 1/4 with speed 7. Direction switched and restart
   --750 us simtime
 --  sw(1)           <= '0',     --direction ('0' is left)
---                     '1' after 300 us;
---  sw(5 downto 2)  <= "0010";  --mode 
+--                     '1' AFTER 300 us;
+--  sw(5 DOWNTO 2)  <= "0010";  --mode 
 --  sw(6)           <= '1';     --interrupt enabled
---  sw(9 downto 7)  <= "111";   --speed
---  key(0)          <= '0' after 100 ns,  -- low active
---                     '1' after 130 ns,
---                     '0' after 550 us,  --on
---                     '1' after 551 us;
+--  sw(9 DOWNTO 7)  <= "111";   --speed
+--  key(0)          <= '0' AFTER 100 ns,  -- low active
+--                     '1' AFTER 130 ns,
+--                     '0' AFTER 550 us,  --on
+--                     '1' AFTER 551 us;
 
   --Testing Chain of Steps 1/2 with speed 7. Direction switched
   --1100 us simtime
   sw(1)           <= '0',     --direction ('0' is left)
-                     '1' after 300 us;
-  sw(5 downto 2)  <= "0110";  --mode 
+                     '1' AFTER 300 us;
+  sw(5 DOWNTO 2)  <= "0110";  --mode 
   sw(6)           <= '1';     --interrupt enabled
-  sw(9 downto 7)  <= "111";   --speed
-  key(0)          <= '0' after 100 ns,  -- low active
-                     '1' after 130 ns,
-                     '0' after 550 us,  --on
-                     '1' after 551 us;
+  sw(9 DOWNTO 7)  <= "111";   --speed
+  key(0)          <= '0' AFTER 100 ns,  -- low active
+                     '1' AFTER 130 ns,
+                     '0' AFTER 550 us,  --on
+                     '1' AFTER 551 us;
 
-END ; 
+END;

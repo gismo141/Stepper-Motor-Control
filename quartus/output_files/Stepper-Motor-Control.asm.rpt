@@ -1,5 +1,5 @@
 Assembler report for Stepper-Motor-Control
-Thu Dec 04 20:09:44 2014
+Thu Dec 04 23:57:54 2014
 Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
 
 
@@ -11,7 +11,7 @@ Quartus II 64-Bit Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control_time_limited.sof
+  6. Assembler Device Options: Z:/SoC/quartus/output_files/Stepper-Motor-Control_time_limited.sof
   7. Assembler Messages
 
 
@@ -39,7 +39,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Dec 04 20:09:44 2014 ;
+; Assembler Status      ; Successful - Thu Dec 04 23:57:54 2014 ;
 ; Revision Name         ; Stepper-Motor-Control                 ;
 ; Top-level Entity Name ; interface_RTX_Base                    ;
 ; Family                ; Cyclone V                             ;
@@ -65,24 +65,24 @@ agreement for further details.
 +--------+-------------------------------+---------------+
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                               ;
-+---------------------------------------------------------------------------------------------------------+
-; File Name                                                                                               ;
-+---------------------------------------------------------------------------------------------------------+
-; C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control_time_limited.sof ;
-+---------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------+
+; Assembler Generated Files                                          ;
++--------------------------------------------------------------------+
+; File Name                                                          ;
++--------------------------------------------------------------------+
+; Z:/SoC/quartus/output_files/Stepper-Motor-Control_time_limited.sof ;
++--------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/mpeg/Desktop/Stepper-Motor-Control/quartus/output_files/Stepper-Motor-Control_time_limited.sof ;
-+----------------+------------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                          ;
-+----------------+------------------------------------------------------------------------------------------------------------------+
-; Device         ; 5CGXFC5C6F27C7                                                                                                   ;
-; JTAG usercode  ; 0x00DD3C59                                                                                                       ;
-; Checksum       ; 0x00DD3C59                                                                                                       ;
-+----------------+------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------+
+; Assembler Device Options: Z:/SoC/quartus/output_files/Stepper-Motor-Control_time_limited.sof ;
++----------------+-----------------------------------------------------------------------------+
+; Option         ; Setting                                                                     ;
++----------------+-----------------------------------------------------------------------------+
+; Device         ; 5CGXFC5C6F27C7                                                              ;
+; JTAG usercode  ; 0x00DD1C5A                                                                  ;
+; Checksum       ; 0x00DD1C5A                                                                  ;
++----------------+-----------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -91,15 +91,15 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 14.0.0 Build 200 06/17/2014 SJ Web Edition
-    Info: Processing started: Thu Dec 04 20:09:33 2014
+    Info: Processing started: Thu Dec 04 23:57:21 2014
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Stepper-Motor-Control -c Stepper-Motor-Control
 Info (115030): Assembler is generating device programming files
 Info (115017): Design contains a time-limited core -- only a single, time-limited programming file can be generated
 Warning (210042): Can't convert time-limited SOF into POF, HEX File, TTF, or RBF
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 703 megabytes
-    Info: Processing ended: Thu Dec 04 20:09:44 2014
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Processing ended: Thu Dec 04 23:57:54 2014
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:30
 
 

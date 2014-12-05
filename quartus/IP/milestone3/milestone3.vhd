@@ -70,7 +70,7 @@ COMPONENT debug_key_detect is
     reset_n           : IN  STD_LOGIC;                      --! reset of component
     switches          : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);   --! Switches to set registers in register_interface
     key               : IN  STD_LOGIC;                      --! Run/Stop key0
-	 read_data         : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! data of selected register
+	  read_data         : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! data of selected register
     ce_n              : OUT STD_LOGIC;                      --! chip enable 
     write_n           : OUT STD_LOGIC;                      --! write enable for register_interface
     read_n            : OUT STD_LOGIC;                      --! read enable for register_interface
@@ -192,11 +192,11 @@ BEGIN
 
 	LEDG(5 DOWNTO 4)	 <= motor_en_wire;
 	
-   HSMC_RX_P(0)       <= motor_pwm_wire(0);
-   HSMC_RX_P(1)       <= motor_pwm_wire(1);
-   HSMC_RX_N(0)       <= motor_pwm_wire(2);
-   HSMC_RX_N(1)       <= motor_pwm_wire(3);
-   HSMC_TX_N(2)       <= motor_en_wire(0);
-   HSMC_TX_P(3)       <= motor_en_wire(1);
+  HSMC_RX_P(0)       <= motor_pwm_wire(0);
+  HSMC_RX_P(1)       <= motor_pwm_wire(1);
+  HSMC_RX_N(0)       <= motor_pwm_wire(2);
+  HSMC_RX_N(1)       <= motor_pwm_wire(3);
+  HSMC_TX_N(2)       <= motor_en_wire(0);
+  HSMC_TX_P(3)       <= motor_en_wire(1);
    
 END my_milestone3;

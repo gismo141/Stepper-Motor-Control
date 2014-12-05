@@ -26,46 +26,48 @@
 --!               - corrected formatting
 --!               - improved documentation
 --! @details      v1.0.0 18.11.2014 Riedel & Kossmann
---!				         - verified functionality -> release MS2
+--!                - verified functionality -> release MS2
 --! @details      v1.0.1 19.11.2014 Kossmann
---!				         - changed register write implementation to more save version
+--!                - changed register write implementation to more save version
 --! @details      v1.0.2 21.11.2014 Riedel & Kossmann
---!				         - removed ctrlSetReg and ctrlClrReg signals
+--!                - removed ctrlSetReg and ctrlClrReg signals
 --!               - added register access for mcu
 --! @details      v1.0.3 01.12.2014 Kossmann
 --!               - reacting to rising edge of ir signal
+--! @details      v1.0.4 05.12.2014 Riedel
+--!               - corrected formatting and indention
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
 LIBRARY ieee; 
 --! Use Logic Elements
-USE ieee.std_logic_1164.all;
+USE ieee.STD_LOGIC_1164.all;
 --! Use Conversion Functions
-USE ieee.std_logic_signed.all;
+USE ieee.STD_LOGIC_signed.all;
 
 --! @brief Register Interfact-Component
-entity register_interface is
-  port
+ENTITY register_interface IS
+  PORT
   (
-    clock         : in  std_logic;                      --! Avalon clock
-    reset_n       : in  std_logic;                      --! Avalon reset the component
-    ce_n          : in  std_logic;                      --! Avalon chip enable
-    read_n        : in  std_logic;                      --! Avalon set read-request
-    write_n       : in  std_logic;                      --! Avalon set write-request
-    addr          : in  std_logic_vector (2 downto 0);  --! Avalon address bus (selects the register)
-    write_data    : in  std_logic_vector (31 downto 0); --! Avalon write data to selected register
-    read_data     : out std_logic_vector (31 downto 0); --! Avalon read data from selected register       
-    irq           : out std_logic;                      --! Avalon IRQ line
-    greenleds     : out std_logic_vector (7 downto 0);  --! external: green leds
-    redleds       : out std_logic_vector (7 downto 0);  --! external: red leds
-    run		      : out std_logic;						          --! enable signal for mcu
-    direction     : out std_logic;						          --! direction signal for mcu
-    mode          : out std_logic_vector(3 downto 0);   --! output of Mode bits for mcu
-    speed         : out std_logic_vector(2 downto 0);   --! output of speedReg for mcu
-    steps         : in std_logic_vector(31 downto 0);   --! input for stepsReg for mcu
-    ir            : in std_logic                        --! input request of mcu
+    clock         : IN  STD_LOGIC;                      --! Avalon clock
+    reset_n       : IN  STD_LOGIC;                      --! Avalon reset the component
+    ce_n          : IN  STD_LOGIC;                      --! Avalon chip enable
+    read_n        : IN  STD_LOGIC;                      --! Avalon set read-request
+    write_n       : IN  STD_LOGIC;                      --! Avalon set write-request
+    addr          : IN  STD_LOGIC_VECTOR (2 DOWNTO 0);  --! Avalon address bus (selects the register)
+    write_data    : IN  STD_LOGIC_VECTOR (31 DOWNTO 0); --! Avalon write data to selected register
+    read_data     : OUT STD_LOGIC_VECTOR (31 DOWNTO 0); --! Avalon read data from selected register       
+    irq           : OUT STD_LOGIC;                      --! Avalon IRQ line
+    greenleds     : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);  --! external: green leds
+    redleds       : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);  --! external: red leds
+    run           : OUT STD_LOGIC;                      --! enable signal for mcu
+    direction     : OUT STD_LOGIC;                      --! direction signal for mcu
+    mode          : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);   --! output of Mode bits for mcu
+    speed         : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);   --! output of speedReg for mcu
+    steps         : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! input for stepsReg for mcu
+    ir            : IN  STD_LOGIC                       --! input request of mcu
   );
-end register_interface;
+END register_interface;
 
 --! @brief    Architecture of register_interface
 --! @details  realized components:
@@ -73,93 +75,93 @@ end register_interface;
 --!           - 3 green LEDs showing speedReg with 0 .. 2
 --!           - 8 red LEDs showing ctrlReg
 --!           - generating motor interrupt
-architecture my_register_interface of register_interface is
+ARCHITECTURE my_register_interface OF register_interface IS
 
   --! internal signal representing the registers  
-  signal ctrlReg      : std_logic_vector(7 downto 0);
-  signal speedReg       : std_logic_vector(2 downto 0);
-  signal stepsReg       : std_logic_vector(31 downto 0);
+  SIGNAL ctrlReg  : STD_LOGIC_VECTOR(7 DOWNTO 0);
+  SIGNAL speedReg : STD_LOGIC_VECTOR(2 DOWNTO 0);
+  SIGNAL stepsReg : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-begin
+BEGIN
    --! @brief processing the tasks:
    --!        - interface to NIOS-processor
    --!        - writing registers
    --!        - reading registers
    --!        - implementing set and clear functionality
-  process(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg) 
-  begin
-	-- ctrlReg Register Write
-	if (reset_n = '0') then
-	  ctrlReg <= (others => '0');
-	elsif (rising_edge(clock)) then
-		ctrlReg <= ctrlReg;
-		
- 		if(ir = '1') then -- set IR-bit and reset R/S when mcu requests interrupt
-			ctrlReg(7) <= '1';
-			ctrlReg(0) <= '0';
-		end if;
-		
-	   if (addr = B"000" AND write_n = '0' AND ce_n = '0') then
-        ctrlReg <= write_data(7 downto 0);             -- overwrite complete ctrlReg 
-	   elsif(addr = B"001" AND write_n = '0' AND ce_n = '0') then
-        ctrlReg <= ctrlReg or write_data(7 downto 0);  -- set ctrlReg bitwise
-	   elsif(addr = B"010" AND write_n = '0' AND ce_n = '0') then
-        ctrlReg <= ctrlReg and (not write_data(7 downto 0));  -- clr ctrlReg 
-	   end if;
-	end if; 
+  PROCESS(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg) 
+  BEGIN
+  -- ctrlReg Register Write
+  IF (reset_n = '0') THEN
+    ctrlReg <= (others => '0');
+  ELSIF (rising_edge(clock)) THEN
+    ctrlReg <= ctrlReg;
+    
+    IF(ir = '1') THEN -- set IR-bit and reset R/S when mcu requests interrupt
+      ctrlReg(7) <= '1';
+      ctrlReg(0) <= '0';
+    END IF;
+    
+     IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
+      ctrlReg <= write_data(7 DOWNTO 0);             -- overwrite complete ctrlReg 
+     ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
+      ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);  -- set ctrlReg bitwise
+     ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
+      ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));  -- clr ctrlReg 
+     END IF;
+  END IF; 
    
   -- speedReg Register Write
-  if (reset_n = '0') then
+  IF (reset_n = '0') THEN
     speedReg <= (others => '0');
-  elsif (rising_edge(clock)) then
-	  if (addr = B"011" AND write_n = '0' AND ce_n = '0') then
-      speedReg <= write_data(2 downto 0);
+  ELSIF (rising_edge(clock)) THEN
+    IF (addr = B"011" AND write_n = '0' AND ce_n = '0') THEN
+      speedReg <= write_data(2 DOWNTO 0);
     else
       speedReg <= speedReg;
-    end if;
-  end if; 
+    END IF;
+  END IF; 
   
   -- stepsReg Register Write
-  if (reset_n = '0') then
+  IF (reset_n = '0') THEN
     stepsReg <= (others => '0');
-  elsif (rising_edge(clock)) then
+  ELSIF (rising_edge(clock)) THEN
     stepsReg <= stepsReg;
-    if(CONV_INTEGER(steps) /= 0) then  -- write stepsReg from mcu when mcu input is not '0'
+    IF(CONV_INTEGER(steps) /= 0) THEN  -- write stepsReg from mcu when mcu input is not '0'
       stepsReg <= steps;
-	  end if;
-	  if (addr = B"100" AND write_n = '0' AND ce_n = '0') then
-      stepsReg <= write_data(31 downto 0);
-    end if;
-  end if;
+    END IF;
+    IF (addr = B"100" AND write_n = '0' AND ce_n = '0') THEN
+      stepsReg <= write_data(31 DOWNTO 0);
+    END IF;
+  END IF;
    
   -- Processor reads from Register
   read_data <= (others => '0'); -- unused bits to 0
-  if (read_n = '0' AND ce_n = '0') then
-    case addr is
-    when B"000" =>
-      read_data(7 downto 0) <= ctrlReg;
-    when B"011" =>
-      read_data(2 downto 0) <= speedReg;
-    when B"100" =>
-      read_data(31 downto 0) <= stepsReg;
-    when others =>
-      read_data(31 downto 0) <= (others => '0');
-    end case;
-  end if;
+  IF (read_n = '0' AND ce_n = '0') THEN
+    CASE addr is
+    WHEN B"000" =>
+      read_data(7 DOWNTO 0) <= ctrlReg;
+    WHEN B"011" =>
+      read_data(2 DOWNTO 0) <= speedReg;
+    WHEN B"100" =>
+      read_data(31 DOWNTO 0) <= stepsReg;
+    WHEN others =>
+      read_data(31 DOWNTO 0) <= (others => '0');
+    END CASE;
+  END IF;
 
-  end process;
+  END process;
   
   -- set interrupt
   irq <= ctrlReg(6) and ctrlReg(7);
   -- clone ctrlReg to red leds
   redleds <= ctrlReg;
   -- clone speedReg to green leds
-  greenleds(2 downto 0) <= speedReg;
-  greenleds(7 downto 3) <= (others => '0');
+  greenleds(2 DOWNTO 0) <= speedReg;
+  greenleds(7 DOWNTO 3) <= (others => '0');
   -- extra mcu outputs
   run       <= ctrlReg(0);
   direction <= ctrlReg(1);
-  mode      <= ctrlReg(5 downto 2);
+  mode      <= ctrlReg(5 DOWNTO 2);
   speed     <= speedReg;
     
-end my_register_interface;
+END my_register_interface;

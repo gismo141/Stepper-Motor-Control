@@ -44,7 +44,7 @@
 	 ATTRIBUTE synthesis_clearbox OF RTL : ARCHITECTURE IS 1;
  BEGIN
 
-	readdata <= ( "0" & address & "0" & address & "0" & "1" & "0" & "0" & address & "0" & "0" & "0" & "0" & "0" & "0" & "0" & address & "0" & address & "0" & address & "0" & "0" & address & "0" & "0" & "0" & address & "0" & "0" & address & address);
+	readdata <= ( "0" & address & "0" & address & "0" & "1" & "0" & "0" & address & "0" & "0" & "0" & "0" & "0" & "0" & "0" & address & address & address & "0" & "0" & "0" & address & address & address & "0" & "0" & "0" & address & "0" & "0" & "0");
 
  END RTL; --StepperMotorControl_sysid_qsys_0
 --synopsys translate_on

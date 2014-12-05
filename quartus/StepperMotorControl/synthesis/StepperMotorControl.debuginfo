@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="StepperMotorControl" kind="system" version="14.0" fabric="QSYS">
  <!-- Format version 14.0 200 (Future versions may contain additional information.) -->
- <!-- 2014.12.04.19:36:07 -->
+ <!-- 2014.12.04.23:47:42 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1417718146</value>
+  <value>1417733210</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -3134,7 +3134,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1417718146</value>
+   <value>1417733210</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -3154,7 +3154,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1417718146</value>
+   <value>1417733210</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -3170,7 +3170,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1417718146</value>
+   <value>1417733210</value>
    <derived>false</derived>
    <enabled>false</enabled>
    <visible>false</visible>
@@ -28915,5 +28915,5 @@ parameters are a RESULT of the module parameters. -->
   <version>14.0</version>
  </plugin>
  <reportVersion>14.0 200</reportVersion>
- <uniqueIdentifier>90E6BA15BDD40000014A16962FAA</uniqueIdentifier>
+ <uniqueIdentifier>000C295D64950000014A177C2E22</uniqueIdentifier>
 </EnsembleReport>
