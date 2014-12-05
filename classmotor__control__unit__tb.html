@@ -20,6 +20,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -168,10 +174,15 @@ Generics</h2></td></tr>
 
 <p>Prescaler for PWM-signal. </p>
 <p>For this purpose 2,5 ms are used as minimal pulse-width.</p>
-<p>The prescaler is calculated with the given and desired frequency via the following formula: prescaler = f_clock [Hz] / f_prescaler [Hz] e.g.: f_prescaler = 1/5 ms = 400 Hz prescaler = 50 Mhz / 400 Hz = 125000</p>
-<p>In simulation the divider is 125 for faster wave generation. </p>
+<p>The prescaler is calculated with the given and desired frequency via the following formula: </p><p class="formulaDsp">
+\begin{equation*} \text{prescaler} = \frac{f_{\text{clock}}\,\text{Hz}}{f_{\text{prescaler}}\,\text{Hz}} \end{equation*}
+</p>
+<p> e.g.: </p><p class="formulaDsp">
+\begin{equation*} \left.\begin{aligned} f_{\text{prescaler}} &amp;= \frac{2}{5}\,\text{ms} \newline &amp;= 400\,\text{Hz} \newline\newline \text{prescaler} &amp;= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline &amp;= 125000 \newline \end{aligned} \right\} \qquad \text{pulse-width: 5 ms} \end{equation*}
+</p>
+<p>For simulation-purpose the divider was set to 125 for faster wave generation. </p>
 
-<p>Definition at line <a class="el" href="motor__control__unit__tb_8vhd_source.html#l00055">55</a> of file <a class="el" href="motor__control__unit__tb_8vhd_source.html">motor_control_unit_tb.vhd</a>.</p>
+<p>Definition at line <a class="el" href="motor__control__unit__tb_8vhd_source.html#l00066">66</a> of file <a class="el" href="motor__control__unit__tb_8vhd_source.html">motor_control_unit_tb.vhd</a>.</p>
 
 </div>
 </div>
@@ -184,7 +195,7 @@ Generics</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classmotor__control__unit__tb.html">motor_control_unit_tb</a></li>
-    <li class="footer">Generated on Fri Dec 5 2014 13:38:51 for Stepper-Motor-Control by
+    <li class="footer">Generated on Fri Dec 5 2014 16:51:53 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -1,0 +1,2 @@
+\form#0:\begin{align*} \text{prescaler} &= \frac{f_{\text{clock}}\,\text{Hz}}{f_{\text{prescaler}}\,\text{Hz}}\ \end{align*}
+\form#1:\begin{align*} f_{\text{prescaler}} &= \frac{2}{5}\,\text{ms} \ &= 400\,\text{Hz} \ \text{prescaler} &= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \ &= 125000 \end{align*}
