@@ -85,7 +85,7 @@ SIGNAL    mode_state      : MODE_STATE_TYPE;
 SIGNAL    pwm_state       : PWM_STATE_TYPE;
 SIGNAL    speed_wire      : INTEGER RANGE 0 TO 400;
 SIGNAL    old_speed_wire  : INTEGER RANGE 0 TO 400;
-SIGNAL    pwm_5ms_counter : INTEGER RANGE 0 TO 400;
+SIGNAL    pwm_counter     : INTEGER RANGE 0 TO 400;
 SIGNAL    steps_to_run    : INTEGER;
 SIGNAL    steps_counter   : INTEGER;
 SIGNAL    motor_en_wire   : STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -114,6 +114,8 @@ BEGIN
           mode_state <= COS_1;
         ELSIF mode = "1110" THEN
           mode_state <= COS_2;
+        ELSE
+          mode_state <= IDLE;
         END IF;
       WHEN CR =>
         IF(run = '1') THEN
@@ -121,7 +123,7 @@ BEGIN
         ELSE
           motor_en_wire <= "00";
         END IF;
-        IF(mode(1 DOWNTO 0) = "00") THEN     -- user stopped the motor
+			  IF(mode(1 DOWNTO 0) = "00") THEN     -- user stopped the motor
           mode_state <= IDLE;
         ELSIF mode(1 DOWNTO 0) = "01" THEN
           mode_state <= CR;
@@ -133,6 +135,8 @@ BEGIN
           mode_state <= COS_1;
         ELSIF mode = "1110" THEN
           mode_state <= COS_2;
+        ELSE
+          mode_state <= IDLE;
         END IF;
       WHEN OTHERS =>                -- all CoS states
         IF(run = '1') THEN
@@ -152,6 +156,8 @@ BEGIN
           mode_state <= COS_1;
         ELSIF mode = "1110" THEN
           mode_state <= COS_2;
+        ELSE
+          mode_state <= IDLE;
         END IF;
         IF(steps_counter = steps_to_run) THEN
           ir_wire <= '1';
@@ -163,22 +169,22 @@ BEGIN
   
   mode_processing : PROCESS (mode_state)
   BEGIN
-    CASE mode_state IS
-    WHEN IDLE       =>
-      steps_to_run  <= UNLIMITED_STEPS;
-    WHEN CR         =>
-      steps_to_run  <= UNLIMITED_STEPS;
-    WHEN COS_1_4    =>
-      steps_to_run  <= 100 - 1;
-    WHEN COS_1_2    =>
-      steps_to_run  <= 200 - 1;
-    WHEN COS_1      =>
-      steps_to_run  <= 400 - 1;
-    WHEN COS_2      =>
-      steps_to_run  <= 800 - 1;
-    WHEN others     =>
-      steps_to_run  <= 0;
-    END CASE;
+      CASE mode_state IS
+      WHEN IDLE       =>
+        steps_to_run  <= UNLIMITED_STEPS;
+      WHEN CR         =>
+        steps_to_run  <= UNLIMITED_STEPS;
+      WHEN COS_1_4    =>
+        steps_to_run  <= 200 - 1;
+      WHEN COS_1_2    =>
+        steps_to_run  <= 400 - 1;
+      WHEN COS_1      =>
+        steps_to_run  <= 800 - 1;
+      WHEN COS_2      =>
+        steps_to_run  <= 1600 - 1;
+      WHEN others     =>
+        steps_to_run  <= 0;
+      END CASE;
   END PROCESS;
 
   --- SPEED's
@@ -186,25 +192,25 @@ BEGIN
   speed_converting : PROCESS (reset_n, clock, speed, speed_wire)
   BEGIN
     old_speed_wire <= speed_wire;
-    CASE speed IS
-    WHEN "000"      =>
-      speed_wire    <= 400 - 1;
-    WHEN "001"      =>
-      speed_wire    <= 200 - 1;
-    WHEN "010"      =>
-      speed_wire    <= 100 - 1;
-    WHEN "011"      =>
-      speed_wire    <= 50 - 1;
-    WHEN "100"      =>
-      speed_wire    <= 20 - 1;
-    WHEN "101"      =>
-      speed_wire    <= 10 - 1;
-    WHEN "110"      =>
-      speed_wire    <= 5 - 1;
-    WHEN "111"      =>
-      speed_wire    <= 2 - 1;
-    WHEN others     =>
-      speed_wire    <= 400 - 1;
+		CASE speed IS
+    WHEN "000" =>
+      speed_wire <= 400 - 1;
+    WHEN "001" =>
+      speed_wire <= 200 - 1;
+    WHEN "010" =>
+      speed_wire <= 100 - 1;
+    WHEN "011" =>
+      speed_wire <= 50 - 1;
+    WHEN "100" =>
+      speed_wire <= 20 - 1;
+    WHEN "101" =>
+      speed_wire <= 10 - 1;
+    WHEN "110" =>
+      speed_wire <= 5 - 1;
+    WHEN "111" =>
+      speed_wire <= 2 - 1;
+    WHEN others =>
+      speed_wire <= 400 - 1;
     END CASE;
   END PROCESS;
   
@@ -212,46 +218,46 @@ BEGIN
   pulse_generation : PROCESS (reset_n, clock, prescaler, speed_wire, old_speed_wire)
   BEGIN
     IF(reset_n = '0') THEN
-      pwm_5ms_counter <= speed_wire;
+      pwm_counter <= speed_wire;
     ELSIF(speed_wire /= old_speed_wire) THEN
-      pwm_5ms_counter <= speed_wire;
+        pwm_counter <= speed_wire;
     ELSIF(rising_edge(clock) and prescaler = '1') THEN
-      IF(pwm_5ms_counter = 0) THEN
-        pwm_5ms_counter <= speed_wire;
-      ELSE
-        pwm_5ms_counter <= pwm_5ms_counter - 1;
-      END IF;
+		  IF(pwm_counter = 0) THEN
+        pwm_counter <= speed_wire;
+		  ELSE
+        pwm_counter <= pwm_counter - 1;
+		  END IF;
     END IF;
   END PROCESS;
 
-  pwm_state_machine : PROCESS (reset_n, clock, prescaler, pwm_5ms_counter, direction, pwm_state)
+  pwm_state_machine : PROCESS (reset_n, clock, prescaler, pwm_counter, direction, pwm_state)
   BEGIN
     IF(reset_n = '0') THEN
-      pwm_state <= ONE;    
-    ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
-      IF(direction = LEFT) THEN
-        CASE pwm_state IS
-        WHEN FOUR   =>
-          pwm_state <= THREE;
-        WHEN THREE  =>
-          pwm_state <= TWO;
-        WHEN TWO    =>
-          pwm_state <= ONE;
-        WHEN ONE    =>
-          pwm_state <= FOUR;
-        END CASE;
-      ELSE
-        CASE pwm_state IS
-        WHEN ONE    =>
-          pwm_state <= TWO;
-        WHEN TWO    =>
-          pwm_state <= THREE;
-        WHEN THREE  =>
-          pwm_state <= FOUR;
-        WHEN FOUR   =>
-          pwm_state <= ONE;
-        END CASE;
-      END IF;
+      pwm_state <= ONE;
+		ELSIF(rising_edge(clock) and prescaler = '1' AND pwm_counter = 0) THEN
+			IF(direction = LEFT) THEN
+			  CASE pwm_state IS
+			  WHEN FOUR   =>
+				  pwm_state <= THREE;
+			  WHEN THREE  =>
+				  pwm_state <= TWO;
+			  WHEN TWO    =>
+				  pwm_state <= ONE;
+			  WHEN ONE    =>
+				  pwm_state <= FOUR;
+			  END CASE;
+			ELSE
+			  CASE pwm_state IS
+			  WHEN ONE    =>
+				  pwm_state <= TWO;
+			  WHEN TWO    =>
+				  pwm_state <= THREE;
+			  WHEN THREE  =>
+				  pwm_state <= FOUR;
+			  WHEN FOUR   =>
+				  pwm_state <= ONE;
+			  END CASE;
+			END IF;
     END IF;
   END PROCESS;
   
@@ -270,22 +276,22 @@ BEGIN
   END PROCESS;
   
   --- STEPS's
-  steps_counting : PROCESS (reset_n, prescaler, pwm_5ms_counter, pwm_state, run)
+  steps_counting : PROCESS (reset_n, prescaler, pwm_counter, pwm_state, run)
   BEGIN
     IF(reset_n = '0') THEN
       steps_counter <= 0;
       steps_output_wire <= 0;
-    ELSIF(run = '0') then
-      steps_counter <= 0;
+	  ELSIF(run = '0') then
+    	 steps_counter <= 0;
       steps_output_wire <= 0;
-    ELSIF(rising_edge(prescaler) AND pwm_5ms_counter = 0) THEN
-      IF(direction = LEFT) THEN
-        steps_output_wire <= steps_output_wire - 1;
-      ELSE
-        steps_output_wire <= steps_output_wire + 1;
-      END IF;
-      steps_counter <= steps_counter + 1;
-    END IF;
+  	ELSIF(rising_edge(prescaler) AND pwm_counter = 0) THEN
+			IF(direction = LEFT) THEN
+			  steps_output_wire <= steps_output_wire - 1;
+			ELSE
+			  steps_output_wire <= steps_output_wire + 1;
+			END IF;
+   	  steps_counter <= steps_counter + 1;
+		END IF;
   END PROCESS;
 
   motor_en  <= motor_en_wire;

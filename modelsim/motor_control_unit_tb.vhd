@@ -43,25 +43,14 @@ USE ieee.STD_LOGIC_SIGNED.all;
 ENTITY motor_control_unit_tb  IS 
   GENERIC
   (
-    --! @brief    Prescaler for PWM-signal.
-    --! @details  For this purpose 2,5 ms are used as minimal pulse-width.
-    --! @details  The prescaler is calculated with the given and desired frequency
-    --!     via the following formula:
-    --!     \f{equation*}{
-    --!       \text{prescaler}      = \frac{f_{\text{clock}}\,\text{Hz}}{f_{\text{prescaler}}\,\text{Hz}}
-    --!     \f}
-    --!     e.g.:
-    --!     \f{equation*}{
-    --!       \left.\begin{aligned}
-    --!         f_{\text{prescaler}}  &= \frac{2}{5}\,\text{ms} \newline
-    --!                               &= 400\,\text{Hz} \newline\newline
-    --!         \text{prescaler}      &= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline
-    --!                               &= 125000 \newline
-    --!       \end{aligned}
-    --!     \right\}
-    --!     \qquad \text{pulse-width: 5 ms}
-    --!     \f}
-    --! @details For simulation-purpose the divider was set to 125 for faster wave generation.
+    --! @brief		Prescaler for PWM-signal.
+    --! @details	For this purpose 2,5 ms are used as minimal pulse-width.
+    --!	@details	The prescaler is calculated with the given and desired frequency
+    --!			via the following formula:
+    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
+    --!					prescaler = 50 Mhz / 400 Hz = 125000
+    --! @details In simulation the divider is 125 for faster wave generation.
     divider : integer := 125
   );
 END; 
@@ -131,7 +120,7 @@ BEGIN
   -- Test-procedure (2), Continuous Run with speed = 0, direction = left
   -- 5 ms sim time for two pulses
 --  run       <= '1' after 20 ns;
---  mode       <= "0001" after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
 --  direction <= left;
 --  speed     <= "000";
 
@@ -140,21 +129,21 @@ BEGIN
 --  run       <= '1' after 20 ns,
 --               '0' after 3000 us,
 --               '1' after 3100 us; 
---  mode       <= "0001" after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
 --  direction <= left;
 --  speed     <= "001"; 
 
   -- Test-procedure (4), Continuous Run with speed = 7, direction = left
   -- 15 us sim time for two pulses
 --  run       <= '1' after 20 ns;
---  mode       <= "0001" after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
 --  direction <= left;
 --  speed     <= "111";
                
   -- Test-procedure (5), Continuous Run with speed = 7, direction = right
   -- 15 us sim time for two pulses
 --  run       <= '1' after 20 ns;
---  mode       <= "0001" after 20 ns;
+--  mode    	 <= "0001" after 20 ns;
 --  direction <= right;
 --  speed     <= "111";
                
@@ -174,7 +163,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode       <= "0010" after 20 ns;
+--  mode    	 <= "0010" after 20 ns;
 --  direction <= right;
 --  speed     <= "111" after 20 ns;
 
@@ -193,7 +182,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode       <= "0010" after 20 ns;
+--  mode    	 <= "0010" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -213,7 +202,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode       <= "0010" after 20 ns;
+--  mode    	 <= "0010" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -233,7 +222,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode       <= "0110" after 20 ns;
+--  mode    	 <= "0110" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -253,7 +242,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode       <= "1010" after 20 ns;
+--  mode    	 <= "1010" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -273,7 +262,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode       <= "1110" after 20 ns;
+--  mode    	 <= "1110" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;
@@ -293,7 +282,7 @@ BEGIN
 --    end if;
 --  end process;
 --  
---  mode       <= "1111" after 20 ns;
+--  mode    	 <= "1111" after 20 ns;
 --  direction <= right,
 --               left after 300 us;
 --  speed     <= "111" after 20 ns;

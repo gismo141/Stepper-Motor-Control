@@ -27,6 +27,88 @@ USE ieee.STD_LOGIC_SIGNED.all;
 ENTITY signal_generator_tb IS
 END; 
 
+--! @brief    Architecture of testbench for signal_generator
+--! @details  Test-procedure (1): reset_n
+--!           | signal         | desired output |
+--!           | :------------- | :--------------|
+--!           | mode_state     | `IDLE`         |
+--!           | pwm_state      | `ONE`          |
+--!           | steps_counter  | `0`            |
+--!           | motor_pwm      | `0000`         | 
+--!           | motor_en       | `00`           |
+--!           | ir             | `0`            |
+--! @details  Test-procedure (2): Continuous Run with speed = 0, direction = left
+--!           | signal         | desired output |
+--!           | :------------- | :--------------|
+--!           | mode_state     | `CR`           |
+--!           | pwm_state      | `ONE`          |
+--!           | steps_counter  | `0`            |
+--!           | motor_pwm      | `0000`         |
+--!           | motor_en       | `00`           |
+--!           | ir             | `0`            |
+--! @details  Test-procedure (3): Continuous Run with speed = 1, direction = left
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `CR`                                  |
+--!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
+--!           | steps_counter  | `0`                                   |
+--!           | motor_pwm      | `0000`                                |
+--!           | motor_en       | `00`                                  |
+--!           | ir             | `0`                                   |
+--! @details  Test-procedure (4): Continuous Run with speed = 7, direction = left
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `CR`                                  |
+--!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
+--!           | steps_counter  | `0`                                   |
+--!           | motor_pwm      | `0000`                                |
+--!           | motor_en       | `00`                                  |
+--!           | ir             | `0`                                   |
+--! @details  Test-procedure (5): Continuous Run with speed = 7, direction = right
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `CR`                                  |
+--!           | pwm_state      | cycling `FOUR`, `THREE`, `TWO`, `ONE` |
+--!           | steps_counter  | `0`                                   |
+--!           | motor_pwm      | `0000`                                |
+--!           | motor_en       | `00`                                  |
+--!           | ir             | `0`                                   |
+--! @details  Test-procedure (6): Chain of Steps - 1/4 rotation with speed = 0, direction = left
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `COS_1_4`                             |
+--!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
+--!           | steps_counter  | `0`                                   |
+--!           | motor_pwm      | `0000`                                |
+--!           | motor_en       | `00`                                  |
+--!           | ir             | `0`                                   |
+--! @details  Test-procedure (7): Chain of Steps - 1/2 rotation with speed = 0, direction = left
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `COS_1_2`                             |
+--!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
+--!           | steps_counter  | `0`                                   |
+--!           | motor_pwm      | `0000`                                |
+--!           | motor_en       | `00`                                  |
+--!           | ir             | `0`                                   |
+--! @details  Test-procedure (8): Chain of Steps - 1 rotation with speed = 0, direction = left
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `COS_1`                               |
+--!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
+--!           | steps_counter  | `0`                                   |
+--!           | motor_pwm      | `0000`                                |
+--!           | motor_en       | `00`                                  |
+--!           | ir             | `0`                                   |
+--! @details  Test-procedure (9): Chain of Steps - 2 rotations with speed = 0, direction = left
+--!           | signal         | desired output                        |
+--!           | :------------- | :-------------------------------------|
+--!           | mode_state     | `COS_2`                               |
+--!           | pwm_state      | cycling `ONE`, `TWO`, `THREE`, `FOUR` |
+--!           | steps_counter  | `0`                                   |
+--!           | motor_pwm      | `0000`                                |
+--!           | motor_en       | `00`                                  |
+--!           | ir             | `0`                                   |
 ARCHITECTURE signal_generator_tb_arch OF signal_generator_tb IS
 
   SIGNAL    motor_pwm  : STD_LOGIC_VECTOR (3 DOWNTO 0);

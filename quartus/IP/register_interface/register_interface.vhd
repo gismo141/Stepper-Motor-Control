@@ -92,28 +92,23 @@ BEGIN
    --!        - implementing set and clear functionality
   processing : PROCESS(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg)
   BEGIN
-  
   -- ctrlReg Register Write
   IF (reset_n = '0') THEN
     ctrlReg <= (others => '0');
   ELSIF (rising_edge(clock)) THEN
     ctrlReg <= ctrlReg;
     
-    IF(ir = '1') THEN
-    -- set IR-bit and reset R/S when mcu requests interrupt
+    IF(ir = '1') THEN -- set IR-bit and reset R/S when mcu requests interrupt
       ctrlReg(7) <= '1';
       ctrlReg(0) <= '0';
     END IF;
     
     IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
-    -- overwrite complete ctrlReg
-      ctrlReg <= write_data(7 DOWNTO 0);
+      ctrlReg <= write_data(7 DOWNTO 0);             -- overwrite complete ctrlReg 
     ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
-    -- set ctrlReg bitwise
-      ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);
+      ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);  -- set ctrlReg bitwise
     ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
-    -- clr ctrlReg 
-      ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));
+      ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));  -- clr ctrlReg 
     END IF;
   END IF; 
    

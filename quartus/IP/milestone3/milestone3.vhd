@@ -29,33 +29,32 @@
 --! Use Standard Library
 LIBRARY ieee; 
 --! Use Logic Elements
-USE ieee.std_logic_1164.all;
+USE ieee.STD_LOGIC_1164.all;
 
 --! @brief Milestone 3
 ENTITY milestone3 is  
   GENERIC
   (
-    --! @brief    Prescaler for PWM-signal.
-    --! @details  For this purpose 2,5 ms are used as minimal pulse-width.
-    --! @details  The prescaler is calculated with the given and desired frequency
-    --!     via the following formula:
-    --!     prescaler = f_clock [Hz] / f_prescaler [Hz]
-    --!     e.g.: f_prescaler = 1/5 ms = 400 Hz
-    --!         prescaler = 50 Mhz / 400 Hz = 125000
+    --! @brief		Prescaler for PWM-signal.
+    --! @details	For this purpose 2,5 ms are used as minimal pulse-width.
+    --!	@details	The prescaler is calculated with the given and desired frequency
+    --!			via the following formula:
+    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
+    --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
+    --!					prescaler = 50 Mhz / 400 Hz = 125000
     divider : integer := 125000
   );
-  PORT
-  (
+  port(
     CLOCK_50_B5B      : IN  STD_LOGIC;                      --! component clock
     CPU_RESET_n       : IN  STD_LOGIC;                      --! resets the component
     SW                : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);   --! switch input  
     KEY               : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);   --! key input
     HSMC_RX_P         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_pwm1( bit 0 ) and Motor_pwm2( bit 1 )
-    HSMC_RX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0); --! Motor_pwm3( bit 0 ) and Motor_pwm4( bit 1 )
+    HSMC_RX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_pwm3( bit 0 ) and Motor_pwm4( bit 1 )
     HSMC_TX_N         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_en_a( bit 2 )
     HSMC_TX_P         : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);  --! Motor_en_b( bit 3 )
-    LEDG              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); --! green leds
-    LEDR              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)  --! red leds
+    LEDG              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);   --! green leds
+    LEDR              : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)    --! red leds
   );
 END milestone3;
 
@@ -73,7 +72,7 @@ COMPONENT debug_key_detect is
     reset_n           : IN  STD_LOGIC;                      --! reset of component
     switches          : IN  STD_LOGIC_VECTOR(9 DOWNTO 0);   --! Switches to set registers in register_interface
     key               : IN  STD_LOGIC;                      --! Run/Stop key0
-    read_data         : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! data of selected register
+	  read_data         : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! data of selected register
     ce_n              : OUT STD_LOGIC;                      --! chip enable 
     write_n           : OUT STD_LOGIC;                      --! write enable for register_interface
     read_n            : OUT STD_LOGIC;                      --! read enable for register_interface
@@ -114,7 +113,7 @@ COMPONENT motor_control_unit is
     direction         : IN  STD_LOGIC;                      --! motor direction (`0` is left)
     mode              : IN  STD_LOGIC_VECTOR(3 DOWNTO 0);   --! mode to run motor with
     speed             : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);   --! speed to run moter with                   
-    motor_pwm         : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);    --! pwm signalto control motor
+    motor_pwm         : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);	   --! pwm signalto control motor
     motor_en          : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);   --! enables motor driver
     steps             : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);  --! number of steps motor did 
     ir                : OUT STD_LOGIC                       --! IR signal set when motor stopped
@@ -174,7 +173,7 @@ BEGIN
     );
 
   motor_control_unit_inst : COMPONENT motor_control_unit
-   GENERIC MAP ( divider => divider )
+	 GENERIC MAP ( divider => divider )
     PORT MAP(
       clock           => CLOCK_50_B5B,
       reset_n         => CPU_RESET_n,
@@ -188,13 +187,13 @@ BEGIN
       ir              => ir_wire
     );
    
-  LEDG(3) <= motor_pwm_wire(3);
-  LEDG(2) <= motor_pwm_wire(1);
-  LEDG(1) <= motor_pwm_wire(2);
-  LEDG(0) <= motor_pwm_wire(0);
+	LEDG(3) <= motor_pwm_wire(3);
+	LEDG(2) <= motor_pwm_wire(1);
+	LEDG(1) <= motor_pwm_wire(2);
+	LEDG(0) <= motor_pwm_wire(0);
 
-  LEDG(5 DOWNTO 4)   <= motor_en_wire;
-  
+	LEDG(5 DOWNTO 4)	 <= motor_en_wire;
+	
   HSMC_RX_P(0)       <= motor_pwm_wire(0);
   HSMC_RX_P(1)       <= motor_pwm_wire(1);
   HSMC_RX_N(0)       <= motor_pwm_wire(2);

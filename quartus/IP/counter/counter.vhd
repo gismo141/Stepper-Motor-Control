@@ -36,7 +36,7 @@ ENTITY counter is
     --!     prescaler = f_clock [Hz] / f_prescaler [Hz]
     --!     e.g.: f_prescaler = 1/5 ms = 400 Hz
     --!         prescaler = 50 Mhz / 400 Hz = 125000
-    divider : INTEGER := 125000
+    divider : INTEGER
   );
   PORT
   (
@@ -53,7 +53,8 @@ END counter;
 architecture counter_arch of counter is
   SIGNAL counter : INTEGER := 0;
 BEGIN
-  count_clock : PROCESS(reset_n, clock, enable)
+  --! @brief counting process incrementing internal signal value
+  count: PROCESS(reset_n, clock, enable)
   BEGIN
     IF(reset_n = '0') THEN
       counter <= 0;
@@ -64,8 +65,8 @@ BEGIN
       END IF;
     END IF; 
   END PROCESS;
-
-  output : PROCESS(counter)
+  --! @brief process to output the divided clock
+  output: PROCESS(counter)
   BEGIN 
     IF(counter = 0) THEN
       clk_out <= '1';
