@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"hardware_access_8h.html#a09841ddeebaad23352b820e8e1bc3da1":[1,0,8,13],
+"hardware_access_8h.html#a16c412e9385c655ecd16ecf3379eec21":[1,0,8,15],
+"hardware_access_8h.html#a2bb0b68b2356ae5de65ca459e39758c1":[1,0,8,4],
+"hardware_access_8h.html#a2c06e6e7b73469bc5358011ff4120a48":[1,0,8,9],
 "hardware_access_8h.html#a2eca107134198ba52e6379f6adb42ed5":[1,0,8,16],
 "hardware_access_8h.html#a600c270eac68c21d9ca4f698fc0218dd":[1,0,8,8],
 "hardware_access_8h.html#a89492ff1d8b21807006359d5db6c6c9d":[1,0,8,11],

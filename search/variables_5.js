@@ -6,8 +6,8 @@ var searchData=
   ['hex1',['HEX1',['../classinterface___r_t_x___base.html#a28c305ef60a9fec138854998cb078dea',1,'interface_RTX_Base']]],
   ['hex2',['HEX2',['../classinterface___r_t_x___base.html#a651da984e618af86b300cdde1171cf15',1,'interface_RTX_Base']]],
   ['hex3',['HEX3',['../classinterface___r_t_x___base.html#a98a2149b506e231b04088e44e3921b53',1,'interface_RTX_Base']]],
-  ['hsmc_5frx_5fn',['HSMC_RX_N',['../classmilestone3.html#aa93a929d3500d8a6113e8535ef6b599f',1,'milestone3']]],
-  ['hsmc_5frx_5fp',['HSMC_RX_P',['../classmilestone3.html#a1f0ea0fdc2d9b3e38c44686955b7bbe8',1,'milestone3']]],
-  ['hsmc_5ftx_5fn',['HSMC_TX_N',['../classmilestone3.html#aab44d52de441124562f685aad4539421',1,'milestone3']]],
-  ['hsmc_5ftx_5fp',['HSMC_TX_P',['../classmilestone3.html#af8f620268e77a0cfd3499fd5d6b09f72',1,'milestone3']]]
+  ['hsmc_5frx_5fn',['HSMC_RX_N',['../classinterface___r_t_x___base.html#aa93a929d3500d8a6113e8535ef6b599f',1,'interface_RTX_Base.HSMC_RX_N()'],['../classmilestone3.html#aa93a929d3500d8a6113e8535ef6b599f',1,'milestone3.HSMC_RX_N()']]],
+  ['hsmc_5frx_5fp',['HSMC_RX_P',['../classinterface___r_t_x___base.html#a1f0ea0fdc2d9b3e38c44686955b7bbe8',1,'interface_RTX_Base.HSMC_RX_P()'],['../classmilestone3.html#a1f0ea0fdc2d9b3e38c44686955b7bbe8',1,'milestone3.HSMC_RX_P()']]],
+  ['hsmc_5ftx_5fn',['HSMC_TX_N',['../classinterface___r_t_x___base.html#aab44d52de441124562f685aad4539421',1,'interface_RTX_Base.HSMC_TX_N()'],['../classmilestone3.html#aab44d52de441124562f685aad4539421',1,'milestone3.HSMC_TX_N()']]],
+  ['hsmc_5ftx_5fp',['HSMC_TX_P',['../classinterface___r_t_x___base.html#af8f620268e77a0cfd3499fd5d6b09f72',1,'interface_RTX_Base.HSMC_TX_P()'],['../classmilestone3.html#af8f620268e77a0cfd3499fd5d6b09f72',1,'milestone3.HSMC_TX_P()']]]
 ];

@@ -141,8 +141,8 @@ Use Clauses</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Generics"></a>
 Generics</h2></td></tr>
- <tr class="memitem:a3a128602c0cbb475601dfa9412931ddd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcounter.html#a3a128602c0cbb475601dfa9412931ddd">divider</a> &#160;</td><td class="memItemRight" valign="bottom"><b><b><span class="comment">INTEGER</span><span class="vhdlchar"> </span><span class="vhdlchar">:</span><span class="vhdlchar">=</span><span class="vhdlchar"> </span> <span class="vhdldigit">125000</span> <span class="vhdlchar"> </span></b></b></td></tr>
-<tr class="memdesc:a3a128602c0cbb475601dfa9412931ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prescaler for PWM-signal.  <a href="#a3a128602c0cbb475601dfa9412931ddd"></a><br /></td></tr>
+ <tr class="memitem:ad2bca14072086cb05f738391d9ea4e2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcounter.html#ad2bca14072086cb05f738391d9ea4e2d">divider</a> &#160;</td><td class="memItemRight" valign="bottom"><b><b><span class="comment">INTEGER</span><span class="vhdlchar"> </span></b></b></td></tr>
+<tr class="memdesc:ad2bca14072086cb05f738391d9ea4e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prescaler for PWM-signal.  <a href="#ad2bca14072086cb05f738391d9ea4e2d"></a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="Ports"></a>
 Ports</h2></td></tr>
@@ -164,7 +164,7 @@ Ports</h2></td></tr>
 
 <p>Definition at line <a class="el" href="counter_8vhd_source.html#l00029">29</a> of file <a class="el" href="counter_8vhd_source.html">counter.vhd</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3a128602c0cbb475601dfa9412931ddd"></a>
+<a class="anchor" id="ad2bca14072086cb05f738391d9ea4e2d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -172,7 +172,7 @@ Ports</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classcounter.html#a3a128602c0cbb475601dfa9412931ddd">divider</a> <b><span class="vhdlchar"> </span></b> <b><span class="comment">INTEGER</span><span class="vhdlchar"> </span><span class="vhdlchar">:</span><span class="vhdlchar">=</span><span class="vhdlchar"> </span> <span class="vhdldigit">125000</span> <span class="vhdlchar"> </span></b> </td>
+          <td class="memname"><a class="el" href="classcounter.html#ad2bca14072086cb05f738391d9ea4e2d">divider</a> <b><span class="vhdlchar"> </span></b> <b><span class="comment">INTEGER</span><span class="vhdlchar"> </span></b> </td>
         </tr>
       </table>
   </td>
@@ -184,9 +184,15 @@ Ports</h2></td></tr>
 
 <p>Prescaler for PWM-signal. </p>
 <p>For this purpose 2,5 ms are used as minimal pulse-width.</p>
-<p>The prescaler is calculated with the given and desired frequency via the following formula: prescaler = f_clock [Hz] / f_prescaler [Hz] e.g.: f_prescaler = 1/5 ms = 400 Hz prescaler = 50 Mhz / 400 Hz = 125000 </p>
+<p>The prescaler is calculated with the given and desired frequency via the following formula: </p><p class="formulaDsp">
+\begin{equation*} \text{prescaler} = \frac{f_{\text{clock}} \text{Hz}}{f_{\text{prescaler}} \text{Hz}} \end{equation*}
+</p>
+<p> e.g.: </p><p class="formulaDsp">
+\begin{equation*} \left.\begin{aligned} f_{\text{prescaler}} &amp;= \frac{2}{5}\,\text{ms} \newline &amp;= 400\,\text{Hz} \newline\newline \text{prescaler} &amp;= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline &amp;= 125000 \newline \end{aligned} \right\} \qquad \text{pulse-width: 2.5 ms} \end{equation*}
+</p>
+<p>For simulation-purpose the divider was set to 125 for faster wave generation. </p>
 
-<p>Definition at line <a class="el" href="counter_8vhd_source.html#l00040">40</a> of file <a class="el" href="counter_8vhd_source.html">counter.vhd</a>.</p>
+<p>Definition at line <a class="el" href="counter_8vhd_source.html#l00052">52</a> of file <a class="el" href="counter_8vhd_source.html">counter.vhd</a>.</p>
 
 </div>
 </div>
@@ -199,7 +205,7 @@ Ports</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classcounter.html">counter</a></li>
-    <li class="footer">Generated on Fri Dec 5 2014 16:51:53 for Stepper-Motor-Control by
+    <li class="footer">Generated on Tue Dec 9 2014 15:31:43 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

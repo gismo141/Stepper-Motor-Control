@@ -143,91 +143,90 @@ $(document).ready(function(){initNavTree('counter__tb_8vhd_source.html','');});
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">    --! @details  For this purpose 2,5 ms are used as minimal pulse-width.</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">    --! @details  The prescaler is calculated with the given and desired frequency</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">    --!     via the following formula:</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">    --!           via the following formula:</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">    --!     \f{equation*}{</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">    --!       \text{prescaler}      = \frac{f_{\text{clock}}\,\text{Hz}}{f_{\text{prescaler}}\,\text{Hz}}</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">    --!     \f}</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">    --!     e.g.:</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">    --!     \f{equation*}{</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">    --!       \left.\begin{aligned}</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">    --!         f_{\text{prescaler}}  &amp;= \frac{2}{5}\,\text{ms} \newline</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">    --!                               &amp;= 400\,\text{Hz} \newline\newline</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">    --!         \text{prescaler}      &amp;= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">    --!                               &amp;= 125000 \newline</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">    --!       \end{aligned}</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">    --!     \right\}</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">    --!     \qquad \text{pulse-width: 5 ms}</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">    --!     \f}</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">    --! @details For simulation-purpose the divider was set to 125 for faster wave generation.</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="vhdlchar"><a class="code" href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">divider</a></span>  <span class="vhdlchar">:</span> <span class="comment">INTEGER</span>   <span class="vhdlchar">:=</span> <span class="vhdllogic"></span><span class="vhdllogic">125</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">   49</a></span>&#160;  <span class="vhdlchar">)</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordflow">END</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">--! @brief    Architecture of testbench</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">--! @details  Just to test if counter works like expected</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordflow">ARCHITECTURE</span> counter_tb_arch <span class="keywordflow">OF</span> <a class="code" href="classcounter__tb.html">counter_tb</a> IS</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">reset_n</span>  <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">clock</span>    <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">clk_out</span>  <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">enable</span>   <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordflow">COMPONENT</span> <a class="code" href="classcounter.html">counter</a></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">GENERIC</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ( </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <a class="code" href="classcounter.html#a3a128602c0cbb475601dfa9412931ddd">divider</a>     : <span class="comment">INTEGER</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    );  </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">PORT</span> ( </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <a class="code" href="classcounter.html#a111031a2e78f01ffa0821f937b97f2ed">reset_n</a>     : <span class="keywordflow">in</span> <span class="comment">STD_LOGIC</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <a class="code" href="classcounter.html#ab5720adee8823fbb2881037df2e189a6">clock</a>       : <span class="keywordflow">in</span> <span class="comment">STD_LOGIC</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <a class="code" href="classcounter.html#aca831668c06f160fa2610e7f89626690">clk_out</a>     : <span class="keywordflow">out</span> <span class="comment">STD_LOGIC</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <a class="code" href="classcounter.html#a47bcac90c9dc05195640a9eb8c54910e">enable</a>      : <span class="keywordflow">in</span> <span class="comment">STD_LOGIC</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    ); </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">END</span> <span class="keywordflow">COMPONENT</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="vhdlkeyword">BEGIN</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  DUT  : <a class="code" href="classcounter.html">counter</a></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">GENERIC</span> <span class="keywordflow">MAP</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    ( </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <a class="code" href="classcounter.html#a3a128602c0cbb475601dfa9412931ddd">divider</a>      =&gt; <a class="code" href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">divider</a></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="vhdlchar">)</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">PORT</span> <span class="keywordflow">MAP</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    (</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <a class="code" href="classcounter.html#a111031a2e78f01ffa0821f937b97f2ed">reset_n</a>      =&gt; reset_n,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <a class="code" href="classcounter.html#ab5720adee8823fbb2881037df2e189a6">clock</a>        =&gt; clock,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <a class="code" href="classcounter.html#aca831668c06f160fa2610e7f89626690">clk_out</a>      =&gt; clk_out,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <a class="code" href="classcounter.html#a47bcac90c9dc05195640a9eb8c54910e">enable</a>       =&gt; enable</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="vhdlchar">)</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="vhdlchar">clock</span>         <span class="vhdlchar">&lt;=</span> <span class="keywordflow">NOT</span> <span class="vhdlchar">clock</span> <span class="keywordflow">AFTER</span> <span class="vhdllogic"></span><span class="vhdllogic">10</span> <span class="vhdlchar">ns</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    enable        &lt;= &#39;1&#39; <span class="keywordflow">AFTER</span> <span class="vhdllogic">20</span> ns;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="vhdlchar">reset_n</span>       <span class="vhdlchar">&lt;=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">1</span><span class="vhdlchar">&#39;</span> <span class="keywordflow">AFTER</span> <span class="vhdllogic"></span><span class="vhdllogic">20</span> <span class="vhdlchar">ns</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    finish_sim_time : <span class="keywordflow">PROCESS</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">BEGIN</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">WAIT</span> <span class="keywordflow">FOR</span> <span class="vhdllogic"></span><span class="vhdllogic">50</span> <span class="vhdlchar">ms</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keywordflow">ASSERT</span> <span class="vhdlchar">false</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">REPORT</span> <span class="keyword">&quot;simulation finished&quot;</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">SEVERITY</span> <span class="vhdlchar">failure</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordflow">END</span> <span class="keywordflow">PROCESS</span> <span class="vhdlchar">finish_sim_time</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordflow">END</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="ttc" id="classcounter_html_a47bcac90c9dc05195640a9eb8c54910e"><div class="ttname"><a href="classcounter.html#a47bcac90c9dc05195640a9eb8c54910e">counter.enable</a></div><div class="ttdeci">in enableSTD_LOGIC</div><div class="ttdoc">enables component </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00045">counter.vhd:45</a></div></div>
-<div class="ttc" id="classcounter_html_a111031a2e78f01ffa0821f937b97f2ed"><div class="ttname"><a href="classcounter.html#a111031a2e78f01ffa0821f937b97f2ed">counter.reset_n</a></div><div class="ttdeci">in reset_nSTD_LOGIC</div><div class="ttdoc">global reset </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00044">counter.vhd:44</a></div></div>
-<div class="ttc" id="classcounter_html_aca831668c06f160fa2610e7f89626690"><div class="ttname"><a href="classcounter.html#aca831668c06f160fa2610e7f89626690">counter.clk_out</a></div><div class="ttdeci">out clk_outSTD_LOGIC</div><div class="ttdoc">divided clock output </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00047">counter.vhd:47</a></div></div>
-<div class="ttc" id="classcounter__tb_html_a9fbb8fa788a52896a5557675479498af"><div class="ttname"><a href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">counter_tb.divider</a></div><div class="ttdeci">dividerINTEGER:=125</div><div class="ttdoc">Prescaler for PWM-signal. </div><div class="ttdef"><b>Definition:</b> <a href="counter__tb_8vhd_source.html#l00049">counter_tb.vhd:49</a></div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">    --!     \f{equation*}{</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">    --!       \text{prescaler}         = \frac{f_{\text{clock}} \text{Hz}}{f_{\text{prescaler}} \text{Hz}}</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">    --!     \f}</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">    --!     e.g.:</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">    --!     \f{equation*}{</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">    --!       \left.\begin{aligned}</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">    --!         f_{\text{prescaler}}  &amp;= \frac{2}{5}\,\text{ms} \newline</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">    --!                               &amp;= 400\,\text{Hz} \newline\newline</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">    --!         \text{prescaler}      &amp;= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">    --!                               &amp;= 125000 \newline</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">    --!       \end{aligned}</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">    --!     \right\}</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">    --!     \qquad \text{pulse-width: 2.5 ms}</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">    --!     \f}</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">    --! @details For simulation-purpose the divider was set to 125 for faster wave generation.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="vhdlchar"><a class="code" href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">divider</a></span>  <span class="vhdlchar">:</span> <span class="comment">INTEGER</span>   <span class="vhdlchar">:=</span> <span class="vhdllogic"></span><span class="vhdllogic">125</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">   48</a></span>&#160;  <span class="vhdlchar">)</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordflow">END</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">--! @brief    Architecture of testbench</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">--! @details  Just to test if counter works like expected</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordflow">ARCHITECTURE</span> counter_tb_arch <span class="keywordflow">OF</span> <a class="code" href="classcounter__tb.html">counter_tb</a> IS</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">reset_n</span>  <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">clock</span>    <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">clk_out</span>  <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">SIGNAL</span> <span class="vhdlchar">enable</span>   <span class="vhdlchar">:</span>  <span class="comment">STD_LOGIC</span>    <span class="vhdlchar">:=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">0</span><span class="vhdlchar">&#39;</span>; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordflow">COMPONENT</span> <a class="code" href="classcounter.html">counter</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">GENERIC</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    ( </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <a class="code" href="classcounter.html#ad2bca14072086cb05f738391d9ea4e2d">divider</a>     : <span class="comment">INTEGER</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    );  </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">PORT</span> ( </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <a class="code" href="classcounter.html#a111031a2e78f01ffa0821f937b97f2ed">reset_n</a>     : <span class="keywordflow">IN</span>  <span class="comment">STD_LOGIC</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <a class="code" href="classcounter.html#ab5720adee8823fbb2881037df2e189a6">clock</a>       : <span class="keywordflow">IN</span>  <span class="comment">STD_LOGIC</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <a class="code" href="classcounter.html#aca831668c06f160fa2610e7f89626690">clk_out</a>     : <span class="keywordflow">OUT</span> <span class="comment">STD_LOGIC</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <a class="code" href="classcounter.html#a47bcac90c9dc05195640a9eb8c54910e">enable</a>      : <span class="keywordflow">IN</span>  <span class="comment">STD_LOGIC</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ); </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">END</span> <span class="keywordflow">COMPONENT</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="vhdlkeyword">BEGIN</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  DUT  : <a class="code" href="classcounter.html">counter</a></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">GENERIC</span> <span class="keywordflow">MAP</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    ( </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <a class="code" href="classcounter.html#ad2bca14072086cb05f738391d9ea4e2d">divider</a>      =&gt; <a class="code" href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">divider</a></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="vhdlchar">)</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">PORT</span> <span class="keywordflow">MAP</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    (</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <a class="code" href="classcounter.html#a111031a2e78f01ffa0821f937b97f2ed">reset_n</a>      =&gt; reset_n,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <a class="code" href="classcounter.html#ab5720adee8823fbb2881037df2e189a6">clock</a>        =&gt; clock,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <a class="code" href="classcounter.html#aca831668c06f160fa2610e7f89626690">clk_out</a>      =&gt; clk_out,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <a class="code" href="classcounter.html#a47bcac90c9dc05195640a9eb8c54910e">enable</a>       =&gt; enable</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="vhdlchar">)</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="vhdlchar">clock</span>         <span class="vhdlchar">&lt;=</span> <span class="keywordflow">NOT</span> <span class="vhdlchar">clock</span> <span class="keywordflow">AFTER</span> <span class="vhdllogic"></span><span class="vhdllogic">10</span> <span class="vhdlchar">ns</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    enable        &lt;= &#39;1&#39; <span class="keywordflow">AFTER</span> <span class="vhdllogic">20</span> ns;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="vhdlchar">reset_n</span>       <span class="vhdlchar">&lt;=</span> <span class="vhdlchar">&#39;</span><span class="vhdllogic"></span><span class="vhdllogic">1</span><span class="vhdlchar">&#39;</span> <span class="keywordflow">AFTER</span> <span class="vhdllogic"></span><span class="vhdllogic">20</span> <span class="vhdlchar">ns</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    finish_sim_time : <span class="keywordflow">PROCESS</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">BEGIN</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">WAIT</span> <span class="keywordflow">FOR</span> <span class="vhdllogic"></span><span class="vhdllogic">50</span> <span class="vhdlchar">ms</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">ASSERT</span> <span class="vhdlchar">false</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">REPORT</span> <span class="keyword">&quot;simulation finished&quot;</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">SEVERITY</span> <span class="vhdlchar">failure</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">END</span> <span class="keywordflow">PROCESS</span> <span class="vhdlchar">finish_sim_time</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordflow">END</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="ttc" id="classcounter_html_a47bcac90c9dc05195640a9eb8c54910e"><div class="ttname"><a href="classcounter.html#a47bcac90c9dc05195640a9eb8c54910e">counter.enable</a></div><div class="ttdeci">in enableSTD_LOGIC</div><div class="ttdoc">enables component </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00057">counter.vhd:57</a></div></div>
+<div class="ttc" id="classcounter_html_a111031a2e78f01ffa0821f937b97f2ed"><div class="ttname"><a href="classcounter.html#a111031a2e78f01ffa0821f937b97f2ed">counter.reset_n</a></div><div class="ttdeci">in reset_nSTD_LOGIC</div><div class="ttdoc">global reset </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00056">counter.vhd:56</a></div></div>
+<div class="ttc" id="classcounter_html_aca831668c06f160fa2610e7f89626690"><div class="ttname"><a href="classcounter.html#aca831668c06f160fa2610e7f89626690">counter.clk_out</a></div><div class="ttdeci">out clk_outSTD_LOGIC</div><div class="ttdoc">divided clock output </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00059">counter.vhd:59</a></div></div>
+<div class="ttc" id="classcounter__tb_html_a9fbb8fa788a52896a5557675479498af"><div class="ttname"><a href="classcounter__tb.html#a9fbb8fa788a52896a5557675479498af">counter_tb.divider</a></div><div class="ttdeci">dividerINTEGER:=125</div><div class="ttdoc">Prescaler for PWM-signal. </div><div class="ttdef"><b>Definition:</b> <a href="counter__tb_8vhd_source.html#l00048">counter_tb.vhd:48</a></div></div>
 <div class="ttc" id="classcounter_html_a0a6af6eef40212dbaf130d57ce711256"><div class="ttname"><a href="classcounter.html#a0a6af6eef40212dbaf130d57ce711256">counter.ieee</a></div><div class="ttdeci">_library_ ieeeieee</div><div class="ttdoc">Use Standard Library. </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00024">counter.vhd:24</a></div></div>
 <div class="ttc" id="classcounter__tb_html"><div class="ttname"><a href="classcounter__tb.html">counter_tb</a></div><div class="ttdoc">Testbench entity. </div><div class="ttdef"><b>Definition:</b> <a href="counter__tb_8vhd_source.html#l00025">counter_tb.vhd:25</a></div></div>
 <div class="ttc" id="classcounter_html"><div class="ttname"><a href="classcounter.html">counter</a></div><div class="ttdoc">Counter-Component. </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00029">counter.vhd:29</a></div></div>
-<div class="ttc" id="classcounter_html_ab5720adee8823fbb2881037df2e189a6"><div class="ttname"><a href="classcounter.html#ab5720adee8823fbb2881037df2e189a6">counter.clock</a></div><div class="ttdeci">in clockSTD_LOGIC</div><div class="ttdoc">input clock </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00043">counter.vhd:43</a></div></div>
-<div class="ttc" id="classcounter_html_a3a128602c0cbb475601dfa9412931ddd"><div class="ttname"><a href="classcounter.html#a3a128602c0cbb475601dfa9412931ddd">counter.divider</a></div><div class="ttdeci">dividerINTEGER:=125000</div><div class="ttdoc">Prescaler for PWM-signal. </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00040">counter.vhd:40</a></div></div>
+<div class="ttc" id="classcounter_html_ab5720adee8823fbb2881037df2e189a6"><div class="ttname"><a href="classcounter.html#ab5720adee8823fbb2881037df2e189a6">counter.clock</a></div><div class="ttdeci">in clockSTD_LOGIC</div><div class="ttdoc">input clock </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00055">counter.vhd:55</a></div></div>
+<div class="ttc" id="classcounter_html_ad2bca14072086cb05f738391d9ea4e2d"><div class="ttname"><a href="classcounter.html#ad2bca14072086cb05f738391d9ea4e2d">counter.divider</a></div><div class="ttdeci">dividerINTEGER</div><div class="ttdoc">Prescaler for PWM-signal. </div><div class="ttdef"><b>Definition:</b> <a href="counter_8vhd_source.html#l00052">counter.vhd:52</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8d82e22343e26f334200ce0c1dee65bf.html">Developer</a></li><li class="navelem"><a class="el" href="dir_5697df860a8373229e11d215ecabbefa.html">SoC</a></li><li class="navelem"><a class="el" href="dir_8854af97696abeac31b4d2f93d43fdb1.html">modelsim</a></li><li class="navelem"><a class="el" href="counter__tb_8vhd.html">counter_tb.vhd</a></li>
-    <li class="footer">Generated on Fri Dec 5 2014 16:51:53 for Stepper-Motor-Control by
+    <li class="navelem"><a class="el" href="dir_553cc1562f10e866c78329eb0f6fc7e1.html">modelsim</a></li><li class="navelem"><a class="el" href="counter__tb_8vhd.html">counter_tb.vhd</a></li>
+    <li class="footer">Generated on Tue Dec 9 2014 15:31:43 for Stepper-Motor-Control by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
