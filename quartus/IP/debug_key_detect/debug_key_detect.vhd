@@ -12,7 +12,7 @@
 --!               - first draft
 --! @details      v0.1.1 02.12.2014 Kossmann
 --!               - complete redesign because registers in register_interface
---!					        should be written only when input changes
+--!                 should be written only when input changes
 --! @details      v0.1.2 05.12.2014 Riedel
 --!               - added few comments to code for better findability
 --!               - corrected formatting and indention
@@ -79,50 +79,50 @@ BEGIN
     IF(reset_n = '0') THEN
       write_n       <= '1';
       addr <= "000";
-    	run_bit <= read_data(0);
-		  old_switches <= switches;
-		  reg_write_stage <= 0;
-		  write_data <= (others => '0');  -- unused bits to 0
+      run_bit <= read_data(0);
+      old_switches <= switches;
+      reg_write_stage <= 0;
+      write_data <= (others => '0');  -- unused bits to 0
 
     ELSIF(rising_edge(clock)) then
-    	run_bit <= read_data(0);
-  		IF(key0_detect_wire = '1') then
+      run_bit <= read_data(0);
+      IF(key0_detect_wire = '1') then
       -- user toggled run/stop key
-  		  run_bit <= not run_bit;
-  			old_switches <= switches;
-  			reg_write_stage <= 0;
-  			write_data <= (others => '0');  -- unused bits to 0
-  		ELSIF(old_switches /= switches) THEN
+        run_bit <= not run_bit;
+        old_switches <= switches;
+        reg_write_stage <= 0;
+        write_data <= (others => '0');  -- unused bits to 0
+      ELSIF(old_switches /= switches) THEN
       -- user changed the speed via switches
-  			old_switches <= switches;
-  			reg_write_stage <= 0;
-  			write_data <= (others => '0');  -- unused bits to 0
-  		ELSIF(reg_write_stage = 0) then
+        old_switches <= switches;
+        reg_write_stage <= 0;
+        write_data <= (others => '0');  -- unused bits to 0
+      ELSIF(reg_write_stage = 0) then
       -- read the switches-positions ...
-  		  addr <= "000";
-  		  write_data(0) <= run_bit;   -- toogle R/S
-  		  write_data(1) <= switches(1);   -- L/R
-  		  write_data(2) <= switches(2);   -- Mode1
-  		  write_data(3) <= switches(3);   -- Mode2  
-  		  write_data(4) <= switches(4);   -- Mode3
-  		  write_data(5) <= switches(5);   -- Mode4
-  		  write_data(6) <= switches(6);   -- IE
-  		  reg_write_stage <= 1;
-  		  write_n       <= '0';
-  		ELSIF(reg_write_stage = 1) then
+        addr <= "000";
+        write_data(0) <= run_bit;   -- toogle R/S
+        write_data(1) <= switches(1);   -- L/R
+        write_data(2) <= switches(2);   -- Mode1
+        write_data(3) <= switches(3);   -- Mode2  
+        write_data(4) <= switches(4);   -- Mode3
+        write_data(5) <= switches(5);   -- Mode4
+        write_data(6) <= switches(6);   -- IE
+        reg_write_stage <= 1;
+        write_n       <= '0';
+      ELSIF(reg_write_stage = 1) then
       -- ... write them to the register ...
-  		  addr <= "011";
-  		  write_data(2 downto 0) <= switches(9 downto 7);
-  		  reg_write_stage <= 2;
-  		ELSIF(reg_write_stage = 2) then
+        addr <= "011";
+        write_data(2 downto 0) <= switches(9 downto 7);
+        reg_write_stage <= 2;
+      ELSIF(reg_write_stage = 2) then
       -- ... reset the addr and disable the write-signal
-  		  addr <= "000";
-  		  write_n <= '1';
-  		END IF;
+        addr <= "000";
+        write_n <= '1';
+      END IF;
     END IF;
   END PROCESS;
   
-  read_n 		 <= '0';
+  read_n     <= '0';
   ce_n          <= '0';
   
 END my_debug_key_detect;

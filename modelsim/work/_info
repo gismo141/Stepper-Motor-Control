@@ -4,30 +4,30 @@ K3
 cModel Technology
 dC:\altera\14.0
 Ecounter
-Z0 w1417719252
+Z0 w1418109940
 Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
 Z3 dZ:\SoC\modelsim
 Z4 8//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd
 Z5 F//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd
 l0
-L27
-V;knd@g>G>db4zJ^>XW9ZA0
+L29
+VSIFidRzH[V8PMoenk:b3n1
 Z6 OV;C;10.1e;51
 32
-Z7 !s108 1417720657.127000
+Z7 !s108 1418133794.379000
 Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd|
 Z9 !s107 //vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd|
 Z10 o-work work -2002 -explicit -O0
 Z11 tExplicit 1
-!s100 S7DiP6dFADUc^cHh88Jef0
+!s100 ;60nVdiHObf?MH3XWZ7kc0
 !i10b 1
 Acounter_arch
 R1
 R2
-DEx4 work 7 counter 0 22 ;knd@g>G>db4zJ^>XW9ZA0
-l43
-L41
+DEx4 work 7 counter 0 22 SIFidRzH[V8PMoenk:b3n1
+l55
+L53
 VG>Xi3]lmZkmj`3Z<nbCmJ0
 R6
 32
@@ -36,33 +36,33 @@ R8
 R9
 R10
 R11
-!s100 a4BSFRTHiZ49KVM5]UaMo2
+!s100 >?1_2N4Ijz6O?GYgVORhV2
 !i10b 1
 Edebug_key_detect
-Z12 w1417719252
+Z12 w1417776024
 R1
 R2
 R3
 Z13 8Z:/SoC/quartus/IP/debug_key_detect/debug_key_detect.vhd
 Z14 FZ:/SoC/quartus/IP/debug_key_detect/debug_key_detect.vhd
 l0
-L24
+L29
 VllV1jiJUX;[l=XcDidDi<3
 R6
 32
-Z15 !s108 1417720661.783000
+Z15 !s108 1418133795.178000
 Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/debug_key_detect/debug_key_detect.vhd|
 Z17 !s107 Z:/SoC/quartus/IP/debug_key_detect/debug_key_detect.vhd|
 R10
 R11
-!s100 ZGlPAh`[jGOdh@@C8Ufn73
+!s100 NzMkbCzMA2ch6`0kU8WQj2
 !i10b 1
 Amy_debug_key_detect
 R1
 R2
 DEx4 work 16 debug_key_detect 0 22 llV1jiJUX;[l=XcDidDi<3
-l62
-L44
+l67
+L49
 VHcM7K9]jQ1?AjoCkoHF:P3
 R6
 32
@@ -71,180 +71,180 @@ R16
 R17
 R10
 R11
-!s100 WYzGXnhFImQ5W;HmU5T0]1
+!s100 cc<3deHmg1zaJf7RYzf:g3
 !i10b 1
 Ekey_detect_tut
-R12
-Z18 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
-Z19 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z18 w1417775512
+Z19 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
+Z20 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
 R1
 R2
 R3
-Z20 8Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd
-Z21 FZ:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd
+Z21 8Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd
+Z22 FZ:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd
 l0
 L30
 V=GJzRnl3bG6g_Mea[@N`g1
 R6
 32
-Z22 !s108 1417720662.080000
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd|
-Z24 !s107 Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd|
+Z23 !s108 1418133795.427000
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd|
+Z25 !s107 Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd|
 R10
 R11
 !s100 [H1Hb7cL6i3@<]4Wn28W`3
 !i10b 1
 Amykeydetect
-R18
 R19
+R20
 R1
 R2
 DEx4 work 14 key_detect_tut 0 22 =GJzRnl3bG6g_Mea[@N`g1
 l50
 L43
-VffNnEMOTjNbf9S9BfGW@D3
+Ve?oUViO1m<3jO?cYMLmO<3
 R6
 32
-R22
 R23
 R24
+R25
 R10
 R11
-!s100 VUodAN?6G2<lEMmF<D7iJ1
+!s100 K?_nVYH`zXo8d0G5N3F9<0
 !i10b 1
 Emilestone3
-R12
+Z26 w1418114638
 R1
 R2
 R3
-Z25 8Z:/SoC/quartus/IP/milestone3/milestone3.vhd
-Z26 FZ:/SoC/quartus/IP/milestone3/milestone3.vhd
+Z27 8Z:/SoC/quartus/IP/milestone3/milestone3.vhd
+Z28 FZ:/SoC/quartus/IP/milestone3/milestone3.vhd
 l0
-L33
+L35
 VUh[kKO195[TlC8^Z8o<0@1
 R6
 32
-Z27 !s108 1417720663.706000
-Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/milestone3/milestone3.vhd|
-Z29 !s107 Z:/SoC/quartus/IP/milestone3/milestone3.vhd|
+Z29 !s108 1418133795.677000
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/milestone3/milestone3.vhd|
+Z31 !s107 Z:/SoC/quartus/IP/milestone3/milestone3.vhd|
 R10
 R11
-!s100 a>V^@Zdb6TKSbYFUECV=m0
+!s100 @WcZ[]S@OGgFMYYWE1Hmz3
 !i10b 1
 Amy_milestone3
 R1
 R2
 DEx4 work 10 milestone3 0 22 Uh[kKO195[TlC8^Z8o<0@1
-l137
-L65
+l139
+L67
 VRojL]lTT_ChljK:MJo7Q`3
-!s100 4Uo<KL5736QEVohME6YQz3
+!s100 P@]=[i_N0F>`55GUWP_zW0
 R6
 32
-R27
-R28
 R29
+R30
+R31
 R10
 R11
 !i10b 1
 Emilestone3_tb
-Z30 w1417720654
-R18
+Z32 w1418133788
 R19
+R20
 R1
 R2
 R3
-Z31 8Z:/SoC/modelsim/milestone3_tb.vhd
-Z32 FZ:/SoC/modelsim/milestone3_tb.vhd
+Z33 8Z:/SoC/modelsim/milestone3_tb.vhd
+Z34 FZ:/SoC/modelsim/milestone3_tb.vhd
 l0
-L26
-V8@nHzbE^T`l7JHnYE7z_@2
+L30
+VS`EK>V=96;WZJc5=lj[>J3
 R6
 32
-Z33 !s108 1417720657.752000
-Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/modelsim/milestone3_tb.vhd|
-Z35 !s107 Z:/SoC/modelsim/milestone3_tb.vhd|
+Z35 !s108 1418133794.911000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/modelsim/milestone3_tb.vhd|
+Z37 !s107 Z:/SoC/modelsim/milestone3_tb.vhd|
 R10
 R11
-!s100 FfaQCPP`C:PA=Qldb19IX0
+!s100 cFlCoeVR^JAZ;V:=iAWB40
 !i10b 1
 Amilestone3_tb_arch
-R18
 R19
+R20
 R1
 R2
-DEx4 work 13 milestone3_tb 0 22 8@nHzbE^T`l7JHnYE7z_@2
-l72
-L43
-V6Bl?8V4g5WR4jG3DWc=Ah1
+DEx4 work 13 milestone3_tb 0 22 S`EK>V=96;WZJc5=lj[>J3
+l75
+L46
+Vdl@ziZ:PA33I4bUl6:Ym`2
 R6
 32
-R33
-R34
 R35
+R36
+R37
 R10
 R11
-!s100 V_Jc_UhF;UHSVW>RmzSCN2
+!s100 Fda:fgChRPEnS<F7[5;<H1
 !i10b 1
 Emotor_control_unit
-R12
+Z38 w1418116638
 R1
 R2
 R3
-Z36 8Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
-Z37 FZ:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
+Z39 8Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
+Z40 FZ:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
 l0
-L42
+L44
 VM==_dclo8m<hW1BaGS0:61
 R6
 32
-Z38 !s108 1417720656.830000
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd|
-Z40 !s107 Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd|
+Z41 !s108 1418133794.161000
+Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd|
+Z43 !s107 Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd|
 R10
 R11
-!s100 f`U=Am?SN4iL=:z8ECDZJ2
+!s100 O?5g2RiBn[O4H3_<WenNH1
 !i10b 1
 Amy_motor_control_unit
 R1
 R2
 DEx4 work 18 motor_control_unit 0 22 M==_dclo8m<hW1BaGS0:61
-l104
-L72
+l106
+L74
 V_X<gXKk?cAdSCnV:7bV0X0
 R6
 32
-R38
-R39
-R40
+R41
+R42
+R43
 R10
 R11
-!s100 QR=IOPT@`4cRP5DTg4LhJ3
+!s100 HKdN276dO2XHHF_zFz<BB1
 !i10b 1
 Emotor_control_unit_tb
-Z41 w1417466242
-R18
+Z44 w1417466242
 R19
+R20
 R1
 R2
-Z42 d\\vmware-host\Shared Folders\SoC\modelsim
-Z43 8//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd
-Z44 F//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd
+Z45 d\\vmware-host\Shared Folders\SoC\modelsim
+Z46 8//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd
+Z47 F//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd
 l0
 L98
 V;_0cmfI4<O>@4NzUER<9C2
 R6
 32
-Z45 !s108 1417466337.694000
-Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd|
-Z47 !s107 //vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd|
+Z48 !s108 1417466337.694000
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd|
+Z50 !s107 //vmware-host/Shared Folders/SoC/modelsim/motor_control_unit_tb.vhd|
 R10
 R11
 !s100 Xm3[DQ06NV<2<j7RGdV7<0
 !i10b 1
 Amotor_control_unit_tb_arch
-R18
 R19
+R20
 R1
 R2
 DEx4 work 21 motor_control_unit_tb 0 22 ;_0cmfI4<O>@4NzUER<9C2
@@ -253,88 +253,88 @@ L114
 VS@73QaR7IzKM`jWZZFn<]3
 R6
 32
-R45
-R46
-R47
+R48
+R49
+R50
 R10
 R11
 !s100 QT4FF@lCMWmTTGmCBkGce2
 !i10b 1
 Eregister_interface
-R12
+Z51 w1418128830
+R20
 R19
-R18
 R1
 R2
 R3
-Z48 8Z:/SoC/quartus/IP/register_interface/register_interface.vhd
-Z49 FZ:/SoC/quartus/IP/register_interface/register_interface.vhd
+Z52 8Z:/SoC/quartus/IP/register_interface/register_interface.vhd
+Z53 FZ:/SoC/quartus/IP/register_interface/register_interface.vhd
 l0
-L47
-V<]KU5ZdbM?fKTXC^WiNHO1
-!s100 nI2FU]>^V7L8K?K[i4PLd0
+L51
+V7egl9]6_cQ3mH6:dLzB=W3
+!s100 GlhM=0X9oQX^MZ]dK49hC3
 R6
 32
 !i10b 1
-Z50 !s108 1417720664.080000
-Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/register_interface/register_interface.vhd|
-Z52 !s107 Z:/SoC/quartus/IP/register_interface/register_interface.vhd|
+Z54 !s108 1418133795.926000
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/SoC/quartus/IP/register_interface/register_interface.vhd|
+Z56 !s107 Z:/SoC/quartus/IP/register_interface/register_interface.vhd|
 R10
 R11
 Amy_register_interface
+R20
 R19
-R18
 R1
 R2
-Z53 DEx4 work 18 register_interface 0 22 <]KU5ZdbM?fKTXC^WiNHO1
-l83
-L76
-Z54 VL5z2gPWN@g`Oc_6K[OAdH2
-Z55 !s100 4XA7]Kk8:B2z97@ej=L2l1
+Z57 DEx4 work 18 register_interface 0 22 7egl9]6_cQ3mH6:dLzB=W3
+l87
+L80
+Z58 Ve6ldc4QmAfllEHFVRI9mg3
+Z59 !s100 4UlK0_nVhk9RAfC[EOO>X3
 R6
 32
 !i10b 1
-R50
-R51
-R52
+R54
+R55
+R56
 R10
 R11
 Esignal_generator
-R12
-R18
+Z60 w1418133355
 R19
+R20
 R1
 R2
 R3
-Z56 8//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd
-Z57 F//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd
+Z61 8//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd
+Z62 F//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd
 l0
-L53
+L58
 Vk=5>go?KR=hdYG=`6_J`g3
 R6
 32
-Z58 !s108 1417720657.455000
-Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd|
-Z60 !s107 //vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd|
+Z63 !s108 1418133794.661000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd|
+Z65 !s107 //vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd|
 R10
 R11
-!s100 MnFXC]:lnL3b^h93=nMFl1
+!s100 @XBXZgMHak9@EeL<j3bo60
 !i10b 1
 Amy_signal_generator
-R18
 R19
+R20
 R1
 R2
 DEx4 work 16 signal_generator 0 22 k=5>go?KR=hdYG=`6_J`g3
-l91
-L70
-V2f2J]E@4hTJ]OnK^BP7Qn3
+l96
+L75
+Vk@86aQo7L<iWH1Y4=MV9J0
 R6
 32
-R58
-R59
-R60
+R63
+R64
+R65
 R10
 R11
-!s100 2kScE3Kg0IUT3kf@BYihE0
+!s100 h9U]XF:fblZAU^zNg;fQ31
 !i10b 1

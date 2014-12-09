@@ -92,74 +92,76 @@ BEGIN
    --!        - implementing set and clear functionality
   processing : PROCESS(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg)
   BEGIN
-  -- ctrlReg Register Write
-  IF (reset_n = '0') THEN
-    ctrlReg <= (others => '0');
-  ELSIF (rising_edge(clock)) THEN
-    ctrlReg <= ctrlReg;
+    -- ctrlReg Register Write
+    IF (reset_n = '0') THEN
+      ctrlReg <= (others => '0');
+    ELSIF (rising_edge(clock)) THEN
+      ctrlReg <= ctrlReg;
+      
+      IF(ir = '1') THEN -- set IR-bit in ctrlReg
+        ctrlReg(7) <= '1';
+      END IF;
+      
+      IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
+        ctrlReg <= write_data(7 DOWNTO 0);             -- overwrite complete ctrlReg 
+      ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
+        ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);  -- set ctrlReg bitwise
+      ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
+        ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));  -- clr ctrlReg 
+      END IF;
+    END IF; 
+     
+    -- speedReg Register Write
+    IF (reset_n = '0') THEN
+      speedReg <= (others => '0');
+    ELSIF (rising_edge(clock)) THEN
+      IF (addr = B"011" AND write_n = '0' AND ce_n = '0') THEN
+        speedReg <= write_data(2 DOWNTO 0);
+      else
+        speedReg <= speedReg;
+      END IF;
+    END IF; 
     
-    IF(ir = '1') THEN -- set IR-bit and reset R/S when mcu requests interrupt
-      ctrlReg(7) <= '1';
-      ctrlReg(0) <= '0';
+    -- stepsReg Register Write
+    IF (reset_n = '0') THEN
+      stepsReg <= (others => '0');
+    ELSIF (rising_edge(clock)) THEN
+      stepsReg <= stepsReg;
+      IF(CONV_INTEGER(steps) /= 0) THEN  -- write stepsReg from mcu when mcu input is not '0'
+        stepsReg <= steps;
+      END IF;
+      IF (addr = B"100" AND write_n = '0' AND ce_n = '0') THEN
+        stepsReg <= write_data(31 DOWNTO 0);
+      END IF;
     END IF;
-    
-    IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
-      ctrlReg <= write_data(7 DOWNTO 0);             -- overwrite complete ctrlReg 
-    ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
-      ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);  -- set ctrlReg bitwise
-    ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
-      ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));  -- clr ctrlReg 
+     
+    -- Processor reads from Register
+    read_data <= (others => '0'); -- unused bits to 0
+    IF (read_n = '0' AND ce_n = '0') THEN
+      CASE addr is
+      WHEN B"000" =>
+        read_data(7 DOWNTO 0)   <= ctrlReg;
+      WHEN B"011" =>
+        read_data(2 DOWNTO 0)   <= speedReg;
+      WHEN B"100" =>
+        read_data(31 DOWNTO 0)  <= stepsReg;
+      WHEN others =>
+        read_data(31 DOWNTO 0)  <= (others => '0');
+      END CASE;
     END IF;
-  END IF; 
-   
-  -- speedReg Register Write
-  IF (reset_n = '0') THEN
-    speedReg <= (others => '0');
-  ELSIF (rising_edge(clock)) THEN
-    IF (addr = B"011" AND write_n = '0' AND ce_n = '0') THEN
-      speedReg <= write_data(2 DOWNTO 0);
-    else
-      speedReg <= speedReg;
-    END IF;
-  END IF; 
-  
-  -- stepsReg Register Write
-  IF (reset_n = '0') THEN
-    stepsReg <= (others => '0');
-  ELSIF (rising_edge(clock)) THEN
-    stepsReg <= stepsReg;
-    IF(CONV_INTEGER(steps) /= 0) THEN  -- write stepsReg from mcu when mcu input is not '0'
-      stepsReg <= steps;
-    END IF;
-    IF (addr = B"100" AND write_n = '0' AND ce_n = '0') THEN
-      stepsReg <= write_data(31 DOWNTO 0);
-    END IF;
-  END IF;
-   
-  -- Processor reads from Register
-  read_data <= (others => '0'); -- unused bits to 0
-  IF (read_n = '0' AND ce_n = '0') THEN
-    CASE addr is
-    WHEN B"000" =>
-      read_data(7 DOWNTO 0) <= ctrlReg;
-    WHEN B"011" =>
-      read_data(2 DOWNTO 0) <= speedReg;
-    WHEN B"100" =>
-      read_data(31 DOWNTO 0) <= stepsReg;
-    WHEN others =>
-      read_data(31 DOWNTO 0) <= (others => '0');
-    END CASE;
-  END IF;
 
-  END process;
+  END PROCESS;
   
   -- set interrupt
-  irq <= ctrlReg(6) and ctrlReg(7);
+  irq       <= ctrlReg(6) and ctrlReg(7);
+
   -- clone ctrlReg to red leds
-  redleds <= ctrlReg;
+  redleds   <= ctrlReg;
+
   -- clone speedReg to green leds
   greenleds(2 DOWNTO 0) <= speedReg;
   greenleds(7 DOWNTO 3) <= (others => '0');
+
   -- extra mcu outputs
   run       <= ctrlReg(0);
   direction <= ctrlReg(1);

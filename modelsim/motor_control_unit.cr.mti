@@ -6,42 +6,6 @@ Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling entity counter_tb
 -- Compiling architecture counter_tb_arch of counter_tb
 
-} {} {}} Z:/SoC/quartus/IP/debug_key_detect/debug_key_detect.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/debug_key_detect/debug_key_detect.vhd
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity debug_key_detect
--- Compiling architecture my_debug_key_detect of debug_key_detect
-
-} {} {}} Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/key_detect_tut/key_detect_tut.vhd
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
--- Compiling entity key_detect_tut
--- Compiling architecture mykeydetect of key_detect_tut
-
-} {} {}} Z:/SoC/quartus/IP/milestone3/milestone3.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/milestone3/milestone3.vhd
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity milestone3
--- Compiling architecture my_milestone3 of milestone3
-
-} {} {}} Z:/SoC/quartus/IP/register_interface/register_interface.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/register_interface/register_interface.vhd
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
--- Compiling entity register_interface
--- Compiling architecture my_register_interface of register_interface
-
 } {} {}} S:/SoC04/Stepper-Motor-Control/quartus/IP/counter/counter.vhd {1 {vcom -work work -2002 -explicit S:/SoC04/Stepper-Motor-Control/quartus/IP/counter/counter.vhd
 Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 -- Loading package STANDARD
@@ -56,30 +20,4 @@ Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
 
 No such file or directory. (errno = ENOENT)
 
-} {3.0 4.0} {}} Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd {1 {vcom -work work -2002 -explicit Z:/SoC/quartus/IP/motor_control_unit/motor_control_unit.vhd
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity motor_control_unit
--- Compiling architecture my_motor_control_unit of motor_control_unit
-
-} {} {}} {//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/SoC/quartus/IP/counter/counter.vhd}
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity counter
--- Compiling architecture counter_arch of counter
-
-} {} {}} {//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd} {1 {vcom -work work -2002 -explicit {//vmware-host/Shared Folders/SoC/quartus/IP/signal_generator/signal_generator.vhd}
-Model Technology ModelSim ALTERA vcom 10.1e Compiler 2013.06 Jun 12 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_SIGNED
--- Compiling entity signal_generator
--- Compiling architecture my_signal_generator of signal_generator
-
-} {} {}}
+} {3.0 4.0} {}}

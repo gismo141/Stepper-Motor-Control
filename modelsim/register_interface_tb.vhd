@@ -1,100 +1,101 @@
 -----------------------------------------------------------------------------
 --! @file register_interface_tb.vhd
---! @author  	Marc Kossmann
---! @author  	Michael Riedel
---! @version 	v2.0.0
---! @date    	05.12.2014
+--! @author   Marc Kossmann
+--! @author   Michael Riedel
+--! @version  v2.0.0
+--! @date     05.12.2014
 --!
---! @brief 		Testbench for Register Component
---! @details 	Tests full functionality of component
+--! @brief    Testbench for Register Component
+--! @details  Tests full functionality of component
 --! @par History:
---! @details 	    v0.1.0 06.11.2014 Kossmann
---!          	    - first draft
---! @details 	    v0.1.1 07.11.2014 Kossmann
---!          	    - finished reset_n task
+--! @details      v0.1.0 06.11.2014 Kossmann
+--!               - first draft
+--! @details      v0.1.1 07.11.2014 Kossmann
+--!               - finished reset_n task
 --! @details      v1.0.0 18.11.2014 Riedel & Kossmann
---!				        - verified functionality -> release MS2
+--!               - verified functionality -> release MS2
 --! @details      v1.0.1 23.11.2014 Riedel & Kossmann
---!				        - added test of reserved mode
+--!               - added test of reserved mode
 --! @details      v2.0.0 05.12.2014 Riedel & Kossmann
 --!               - release milestone 3b
 -----------------------------------------------------------------------------
 
 --! Use Standard Library
-LIBRARY ieee  ; 
+LIBRARY ieee;
 --! Use Logic Elements
-USE ieee.std_logic_1164.all  ; 
+USE ieee.std_logic_1164.all;
 --! Use Conversion Functions
-USE ieee.STD_LOGIC_SIGNED.all  ; 
+USE ieee.STD_LOGIC_SIGNED.all;
 
 --! @brief    Entity of testbench for register_interface
 ENTITY register_interface_tb  IS 
-END ; 
- 
+END;
  
 --! @brief    Architecture of testbench for register_interface
 --! @details  first test if all registers can be written
 --!           then resets everything
 --!           test if set and clear is working the right way
 ARCHITECTURE register_interface_tb_arch OF register_interface_tb IS
-  SIGNAL write_n      :  STD_LOGIC  := '1' ; 
-  SIGNAL greenleds    :  std_logic_vector (7 downto 0) := (others => '0') ; 
-  SIGNAL addr         :  std_logic_vector (2 downto 0) := "111"  ; 
-  SIGNAL clock        :  STD_LOGIC := '0' ; 
-  SIGNAL ce_n         :  STD_LOGIC := '1' ; 
-  SIGNAL reset_n      :  STD_LOGIC := '0' ; 
-  SIGNAL read_n       :  STD_LOGIC := '1' ; 
-  SIGNAL redleds      :  std_logic_vector (7 downto 0) := (others => '0')  ; 
-  SIGNAL write_data   :  std_logic_vector (31 downto 0) := (others => '0')  ; 
-  SIGNAL irq          :  STD_LOGIC := '0' ; 
-  SIGNAL read_data    :  std_logic_vector (31 downto 0) := (others => '0')  ; 
-  SIGNAL run		      :  std_logic := '0' ;						          
-  SIGNAL direction    :  std_logic := '0' ;						         
-  SIGNAL mode         :  std_logic_vector(3 downto 0) := (others => '0') ;  
-  SIGNAL speed        :  std_logic_vector(2 downto 0) := (others => '0') ;
-  SIGNAL steps        :  std_logic_vector(31 downto 0) := (others => '0') ;
-  SIGNAL ir           :  std_logic := '0' ;
+  SIGNAL write_n      :  STD_LOGIC                      := '1';
+  SIGNAL greenleds    :  STD_LOGIC_VECTOR (7 DOWNTO 0)  := (OTHERS => '0');
+  SIGNAL addr         :  STD_LOGIC_VECTOR (2 DOWNTO 0)  := "111";
+  SIGNAL clock        :  STD_LOGIC                      := '0';
+  SIGNAL ce_n         :  STD_LOGIC                      := '1';
+  SIGNAL reset_n      :  STD_LOGIC                      := '0';
+  SIGNAL read_n       :  STD_LOGIC                      := '1';
+  SIGNAL redleds      :  STD_LOGIC_VECTOR (7 DOWNTO 0)  := (OTHERS => '0');
+  SIGNAL write_data   :  STD_LOGIC_VECTOR (31 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL irq          :  STD_LOGIC                      := '0';
+  SIGNAL read_data    :  STD_LOGIC_VECTOR (31 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL run          :  STD_LOGIC                      := '0';                     
+  SIGNAL direction    :  STD_LOGIC                      := '0';                    
+  SIGNAL mode         :  STD_LOGIC_VECTOR(3 DOWNTO 0)   := (OTHERS => '0'); 
+  SIGNAL speed        :  STD_LOGIC_VECTOR(2 DOWNTO 0)   := (OTHERS => '0');
+  SIGNAL steps        :  STD_LOGIC_VECTOR(31 DOWNTO 0)  := (OTHERS => '0');
+  SIGNAL ir           :  STD_LOGIC                      := '0';
   
   COMPONENT register_interface  
     PORT ( 
-      clock         : in  std_logic;                      --! Avalon clock
-      reset_n       : in  std_logic;                      --! Avalon reset the component
-      ce_n          : in  std_logic;                      --! Avalon chip enable
-      read_n        : in  std_logic;                      --! Avalon set read-request
-      write_n       : in  std_logic;                      --! Avalon set write-request
-      addr          : in  std_logic_vector (2 downto 0);  --! Avalon address bus (selects the register)
-      write_data    : in  std_logic_vector (31 downto 0); --! Avalon write data to selected register
-      read_data     : out std_logic_vector (31 downto 0); --! Avalon read data from selected register       
-      irq           : out std_logic;                      --! Avalon IRQ line
-      greenleds     : out std_logic_vector (7 downto 0);  --! external: green leds
-      redleds       : out std_logic_vector (7 downto 0);  --! external: red leds
-      run		        : out std_logic;						          --! enable signal for mcu
-      direction     : out std_logic;						          --! direction signal for mcu
-      mode          : out std_logic_vector(3 downto 0);   --! output of Mode bits for mcu
-      speed         : out std_logic_vector(2 downto 0);   --! output of speedReg for mcu
-      steps         : in std_logic_vector(31 downto 0);   --! input for stepsReg for mcu
-      ir            : in std_logic                        --! input request of mcu
+      clock           : IN  STD_LOGIC;                      --! Avalon clock
+      reset_n         : IN  STD_LOGIC;                      --! Avalon reset the component
+      ce_n            : IN  STD_LOGIC;                      --! Avalon chip enable
+      read_n          : IN  STD_LOGIC;                      --! Avalon set read-request
+      write_n         : IN  STD_LOGIC;                      --! Avalon set write-request
+      addr            : IN  STD_LOGIC_VECTOR (2 DOWNTO 0);  --! Avalon address bus (selects the register)
+      write_data      : IN  STD_LOGIC_VECTOR (31 DOWNTO 0); --! Avalon write data to selected register
+      read_data       : OUT STD_LOGIC_VECTOR (31 DOWNTO 0); --! Avalon read data from selected register       
+      irq             : OUT STD_LOGIC;                      --! Avalon IRQ line
+      greenleds       : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);  --! external: green leds
+      redleds         : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);  --! external: red leds
+      run             : OUT STD_LOGIC;                      --! enable signal for mcu
+      direction       : OUT STD_LOGIC;                      --! direction signal for mcu
+      mode            : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);   --! output of Mode bits for mcu
+      speed           : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);   --! output of speedReg for mcu
+      steps           : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);  --! input for stepsReg for mcu
+      ir              : IN  STD_LOGIC                       --! input request of mcu
       );
-  END COMPONENT ; 
+  END COMPONENT;
 BEGIN
   DUT  : register_interface  
-    PORT MAP ( 
-      write_n   => write_n  ,
-      greenleds   => greenleds  ,
-      addr   => addr  ,
-      clock   => clock  ,
-      ce_n   => ce_n  ,
-      reset_n   => reset_n  ,
-      read_n   => read_n  ,
-      redleds   => redleds  ,
-      write_data   => write_data  ,
-      irq   => irq  ,
-      run   => run,
+  PORT MAP
+  ( 
+      write_n     => write_n,
+      greenleds   => greenleds,
+      addr        => addr,
+      clock       => clock,
+      ce_n        => ce_n,
+      reset_n     => reset_n,
+      read_n      => read_n,
+      redleds     => redleds,
+      write_data  => write_data,
+      irq         => irq,
+      run         => run,
       direction   => direction,
-      mode   => mode,
-      speed   => speed,
-      steps   => steps,
-      ir   => ir   ) ; 
+      mode        => mode,
+      speed       => speed,
+      steps       => steps,
+      ir          => ir
+    );
       
     
     -- first test if all registers can be written
@@ -133,5 +134,5 @@ BEGIN
         report "simulation finished"
         severity failure;
   end process finish_sim_time;
-END ; 
+END;
 

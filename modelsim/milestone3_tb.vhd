@@ -30,14 +30,25 @@ USE ieee.STD_LOGIC_SIGNED.all;
 ENTITY milestone3_tb  IS   
   GENERIC
   (
-    --! @brief		Prescaler for PWM-signal.
-    --! @details	For this purpose 2,5 ms are used as minimal pulse-width.
-    --!	@details	The prescaler is calculated with the given and desired frequency
-    --!			via the following formula:
-    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
-    --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
-    --!					prescaler = 50 Mhz / 400 Hz = 125000
-    --! @details In simulation the divider is 125 for faster wave generation.
+    --! @brief    Prescaler for PWM-signal.
+    --! @details  For this purpose 2,5 ms are used as minimal pulse-width.
+    --! @details  The prescaler is calculated with the given and desired frequency
+    --!     via the following formula:
+    --!     \f{equation*}{
+    --!       \text{prescaler}         = \frac{f_{\text{clock}} \text{Hz}}{f_{\text{prescaler}} \text{Hz}}
+    --!     \f}
+    --!     e.g.:
+    --!     \f{equation*}{
+    --!       \left.\begin{aligned}
+    --!         f_{\text{prescaler}}  &= \frac{2}{5}\,\text{ms} \newline
+    --!                               &= 400\,\text{Hz} \newline\newline
+    --!         \text{prescaler}      &= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline
+    --!                               &= 125000 \newline
+    --!       \end{aligned}
+    --!     \right\}
+    --!     \qquad \text{pulse-width: 2.5 ms}
+    --!     \f}
+    --! @details For simulation-purpose the divider was set to 125 for faster wave generation.
     divider : INTEGER := 125
   );
 END;
@@ -108,7 +119,7 @@ BEGIN
 --  key(0)          <= '0' AFTER 100 ns,  --on
 --                     '1' AFTER 130 ns;
   
-  --Testing continous run with speed 7 and 6. Direction and Run/stop switched
+  --Testing continous run with speed 7 and 6. Run/stop switched
   --750 us simtime
 --  sw(1)           <= '0';     --direction ('0' is left)
 --  sw(5 DOWNTO 2)  <= "0001";  --mode 
@@ -124,18 +135,18 @@ BEGIN
 --                     '1' AFTER 401 us;
 
   --Testing Chain of Steps 1/4 with speed 7. Direction switched and restart
-  --750 us simtime
-  sw(1)           <= '0',     --direction ('0' is left)
-                     '1' AFTER 300 us;
-  sw(5 DOWNTO 2)  <= "0010";  --mode 
-  sw(6)           <= '1';     --interrupt enabled
-  sw(9 DOWNTO 7)  <= "111";   --speed
-  key(0)          <= '0' AFTER 100 ns,  -- low active
-                     '1' AFTER 130 ns;
+  --1050 us simtime
+--  sw(1)           <= '0',     --direction ('0' is left)
+--                     '1' AFTER 300 us;
+--  sw(5 DOWNTO 2)  <= "0010";  --mode 
+--  sw(6)           <= '1';     --interrupt enabled
+--  sw(9 DOWNTO 7)  <= "111";   --speed
+--  key(0)          <= '0' AFTER 100 ns,  -- low active
+--                     '1' AFTER 130 ns;
 
   --Testing Chain of Steps 1/2 with speed 7. Direction switched
   --1100 us simtime
---  sw(1)           <= '0',     --direction ('0' is left)
+  --sw(1)           <= '0',     --direction ('0' is left)
 --                     '1' AFTER 300 us;
 --  sw(5 DOWNTO 2)  <= "0110";  --mode 
 --  sw(6)           <= '1';     --interrupt enabled
@@ -146,40 +157,32 @@ BEGIN
 --                     '1' AFTER 551 us;
                      
   -- Testing CoS 1/4 after finish CoS 1/2 with speed = 7, direction = left
-  -- 1500 us sim time for both
+  -- 3000 us sim time for both
 --  sw(1)           <= '0';     --direction ('0' is left)
 --  sw(5 DOWNTO 2)  <= "0010",  --mode 
---                     "0110" after 600 us;
+--                     "0110" after 1200 us;
 --  sw(6)           <= '1';     --interrupt enabled
 --  sw(9 DOWNTO 7)  <= "111";   --speed
---  key(0)          <= '0' AFTER 100 ns,  -- low active
+--  key(0)          <= '0' AFTER 100 ns,  -- on
 --                     '1' AFTER 130 ns,
---                     '0' AFTER 650 us,  --on
---                     '1' AFTER 651 us;
-                  
-  -- Testing CoS 1/4 after finish CoS 1/2 with speed = 7, direction = left
-  -- 1500 us sim time for both
---  sw(1)           <= '0';     --direction ('0' is left)
---  sw(5 DOWNTO 2)  <= "0010",  --mode
---                     "1111" after 600 us;
---  sw(6)           <= '1';     --interrupt enabled
---  sw(9 DOWNTO 7)  <= "111";   --speed
---  key(0)          <= '0' AFTER 100 ns,  -- low active
---                     '1' AFTER 130 ns;
+--                     '0' AFTER 1250 us, -- off
+--                     '1' AFTER 1251 us,
+--                     '0' AFTER 1350 us, -- on
+--                     '1' AFTER 1351 us;
                      
   -- Testing CoS 1/2 multiple times with speed = 7, direction = left
-  -- 1500 us sim time for both
---  sw(1)           <= '0';     --direction ('0' is left)
---  sw(5 DOWNTO 2)  <= "0110";  --mode
---  sw(6)           <= '1';     --interrupt enabled
---  sw(9 DOWNTO 7)  <= "111";   --speed
---  key(0)          <= '0' AFTER 100 ns,  -- low active
---                     '1' AFTER 130 ns,
---                     '0' AFTER 1050 us,  --on
---                     '1' AFTER 1051 us,
---                     '0' AFTER 2200 us,
---                     '1' AFTER 2201 us,
---                     '0' AFTER 3400 us,
---                     '1' AFTER 3401 us;
+  -- 4000 us sim time for both
+  sw(1)           <= '0';     --direction ('0' is left)
+  sw(5 DOWNTO 2)  <= "0110";  --mode
+  sw(6)           <= '1';     --interrupt enabled
+  sw(9 DOWNTO 7)  <= "111";   --speed
+  key(0)          <= '0' AFTER 100 ns,   -- on
+                     '1' AFTER 130 ns,
+                     '0' AFTER 1050 us,  -- off
+                     '1' AFTER 1051 us,
+                     '0' AFTER 2200 us,  -- on
+                     '1' AFTER 2201 us,
+                     '0' AFTER 3400 us,  -- off
+                     '1' AFTER 3401 us;
 
 END;

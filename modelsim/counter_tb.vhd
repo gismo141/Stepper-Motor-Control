@@ -29,10 +29,22 @@ ENTITY counter_tb  IS
     --! @details  For this purpose 2,5 ms are used as minimal pulse-width.
     --! @details  The prescaler is calculated with the given and desired frequency
     --!     via the following formula:
-    --!     prescaler = f_clock [Hz] / f_prescaler [Hz]
-    --!     e.g.: f_prescaler = 1/5 ms = 400 Hz
-    --!         prescaler = 50 Mhz / 400 Hz = 125000
-    divider  : INTEGER   := 250000
+    --!     \f{equation*}{
+    --!       \text{prescaler}         = \frac{f_{\text{clock}} \text{Hz}}{f_{\text{prescaler}} \text{Hz}}
+    --!     \f}
+    --!     e.g.:
+    --!     \f{equation*}{
+    --!       \left.\begin{aligned}
+    --!         f_{\text{prescaler}}  &= \frac{2}{5}\,\text{ms} \newline
+    --!                               &= 400\,\text{Hz} \newline\newline
+    --!         \text{prescaler}      &= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline
+    --!                               &= 125000 \newline
+    --!       \end{aligned}
+    --!     \right\}
+    --!     \qquad \text{pulse-width: 2.5 ms}
+    --!     \f}
+    --! @details For simulation-purpose the divider was set to 125 for faster wave generation.
+    divider  : INTEGER   := 125
   );
 END;
 
@@ -51,10 +63,10 @@ ARCHITECTURE counter_tb_arch OF counter_tb IS
       divider     : INTEGER
     );  
     PORT ( 
-      reset_n     : in STD_LOGIC;
-      clock       : in STD_LOGIC;
-      clk_out     : out STD_LOGIC;
-      enable      : in STD_LOGIC
+      reset_n     : IN  STD_LOGIC;
+      clock       : IN  STD_LOGIC;
+      clk_out     : OUT STD_LOGIC;
+      enable      : IN  STD_LOGIC
     ); 
   END COMPONENT;
 

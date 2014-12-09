@@ -44,13 +44,25 @@ USE ieee.std_logic_1164.all;
 ENTITY motor_control_unit is
   GENERIC
   (
-    --! @brief		Prescaler for PWM-signal.
-    --! @details	For this purpose 2,5 ms are used as minimal pulse-width.
-    --!	@details	The prescaler is calculated with the given and desired frequency
-    --!			via the following formula:
-    --!			prescaler = f_clock [Hz] / f_prescaler [Hz]
-    --!			e.g.:	f_prescaler = 1/5 ms = 400 Hz
-    --!					prescaler = 50 Mhz / 400 Hz = 125000
+    --! @brief    Prescaler for PWM-signal.
+    --! @details  For this purpose 2,5 ms are used as minimal pulse-width.
+    --! @details  The prescaler is calculated with the given and desired frequency
+    --!     via the following formula:
+    --!     \f{equation*}{
+    --!       \text{prescaler}         = \frac{f_{\text{clock}} \text{Hz}}{f_{\text{prescaler}} \text{Hz}}
+    --!     \f}
+    --!     e.g.:
+    --!     \f{equation*}{
+    --!       \left.\begin{aligned}
+    --!         f_{\text{prescaler}}  &= \frac{2}{5}\,\text{ms} \newline
+    --!                               &= 400\,\text{Hz} \newline\newline
+    --!         \text{prescaler}      &= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline
+    --!                               &= 125000 \newline
+    --!       \end{aligned}
+    --!     \right\}
+    --!     \qquad \text{pulse-width: 2.5 ms}
+    --!     \f}
+    --! @details For simulation-purpose the divider was set to 125 for faster wave generation.
     divider : integer := 125000
   );
   PORT(
@@ -64,7 +76,7 @@ ENTITY motor_control_unit is
     motor_en        : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);   --! both enable signals for the motor
     steps           : OUT STD_LOGIC_VECTOR (31 DOWNTO 0); --! number of steps motor did 
     ir              : OUT STD_LOGIC                       --! IR signal set when motor stopped
-	);
+  );
 end motor_control_unit;
 
 --! @brief    Architecture of motor control unit
@@ -101,22 +113,22 @@ COMPONENT signal_generator is
   );
 end COMPONENT;
 
-	SIGNAL prescaler_wire : std_logic;
+  SIGNAL prescaler_wire : std_logic;
 
 BEGIN
 
-	prescaler_inst : COMPONENT counter
-	GENERIC MAP ( divider => divider )
+  prescaler_inst : COMPONENT counter
+  GENERIC MAP ( divider => divider )
    PORT MAP
    (
     clock     => clock,
     reset_n   => reset_n,
     enable    => run,
     clk_out   => prescaler_wire
-	);
-	
-	signal_generator_inst : COMPONENT signal_generator
-	PORT MAP
+  );
+  
+  signal_generator_inst : COMPONENT signal_generator
+  PORT MAP
    (
     clock     => clock,
     run       => run,
