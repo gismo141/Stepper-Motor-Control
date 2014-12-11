@@ -94,7 +94,6 @@ SIGNAL    speed_wire        : INTEGER RANGE 0 TO 400;
 SIGNAL    old_speed_wire    : INTEGER RANGE 0 TO 400;
 SIGNAL    pwm_counter       : INTEGER RANGE 0 TO 400;
 SIGNAL    steps_to_run      : INTEGER;
-SIGNAL    steps_counter     : INTEGER;
 SIGNAL    motor_en_wire     : STD_LOGIC_VECTOR(1 DOWNTO 0);
 SIGNAL    motor_pwm_wire    : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL    ir_wire           : STD_LOGIC;
@@ -102,7 +101,7 @@ SIGNAL    steps_output_wire : INTEGER;
 
 BEGIN
   --- MODE's
-  mode_state_machine : PROCESS (reset_n, clock, mode)
+  mode_state_machine : PROCESS (reset_n, clock, ir_wire, mode)
   BEGIN
     IF(reset_n = '0') THEN
       mode_state <= IDLE;
@@ -126,7 +125,7 @@ BEGIN
     END IF; 
   END PROCESS;
   
-  mode_processing : PROCESS (mode_state, steps_counter, steps_to_run)
+  mode_processing : PROCESS (mode_state)
   BEGIN
       CASE mode_state IS
       WHEN IDLE       =>
@@ -148,27 +147,27 @@ BEGIN
 
   --- SPEED's
   --- this block generates 9 combinational loops with latches
-  speed_converting : PROCESS (reset_n, clock, speed, speed_wire)
+  speed_converting : PROCESS (reset_n, clock, speed)
   BEGIN
     old_speed_wire <= speed_wire;
     CASE speed IS
-    WHEN "000" =>
+    WHEN "000"   =>
       speed_wire <= 400 - 1;
-    WHEN "001" =>
+    WHEN "001"   =>
       speed_wire <= 200 - 1;
-    WHEN "010" =>
+    WHEN "010"   =>
       speed_wire <= 100 - 1;
-    WHEN "011" =>
+    WHEN "011"   =>
       speed_wire <= 50 - 1;
-    WHEN "100" =>
+    WHEN "100"   =>
       speed_wire <= 20 - 1;
-    WHEN "101" =>
+    WHEN "101"   =>
       speed_wire <= 10 - 1;
-    WHEN "110" =>
+    WHEN "110"   =>
       speed_wire <= 5 - 1;
-    WHEN "111" =>
+    WHEN "111"   =>
       speed_wire <= 2 - 1;
-    WHEN others =>
+    WHEN others  =>
       speed_wire <= 400 - 1;
     END CASE;
   END PROCESS;
@@ -189,7 +188,7 @@ BEGIN
     END IF;
   END PROCESS;
 
-  pwm_state_machine : PROCESS (reset_n, clock, prescaler, pwm_counter, direction, pwm_state)
+  pwm_state_machine : PROCESS (reset_n, clock, prescaler, pwm_counter, direction)
   BEGIN
     IF(reset_n = '0') THEN
       pwm_state <= ONE;
@@ -244,27 +243,28 @@ BEGIN
   END PROCESS;
   
   --- STEPS's
-  count_steps_and_set_ir : PROCESS (reset_n, steps_counter, steps_to_run, clock, run, prescaler, pwm_counter, pwm_state, mode_state)
+  count_steps_and_set_ir : PROCESS (reset_n, steps_to_run, clock, run, prescaler, pwm_counter, mode_state)
+    VARIABLE steps_counter : INTEGER := 0;
   BEGIN
-    ir_wire <= '0';
     IF(reset_n = '0') THEN
-      steps_counter <= 0;
+      steps_counter := 0;
       steps_output_wire <= 0;
       ir_wire <= '0';
     ELSIF(run = '0') then
-      steps_counter <= 0;
+      steps_counter := 0;
       steps_output_wire <= 0;
       ir_wire <= '0';
-    ELSIF(steps_counter = steps_to_run) THEN
-      steps_counter <= 0;
-      ir_wire <= '1';
     ELSIF(rising_edge(clock) AND prescaler = '1' AND pwm_counter = 0 AND mode_state /= CR AND mode_state /= IDLE) THEN
+      IF(steps_counter = steps_to_run) THEN
+        steps_counter := 0;
+        ir_wire <= '1';
+      END IF;
       IF(direction = LEFT) THEN
         steps_output_wire <= steps_output_wire - 1;
       ELSE
         steps_output_wire <= steps_output_wire + 1;
       END IF;
-      steps_counter <= steps_counter + 1;
+      steps_counter := steps_counter + 1;
     END IF;
   END PROCESS;
 
