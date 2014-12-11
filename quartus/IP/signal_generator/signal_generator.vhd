@@ -41,15 +41,18 @@
 --! @details      v0.1.10 05.12.2014 Riedel
 --!               - added few documentational lines
 --!               - corrected formatting and indention
---! @details      v1.0.0 05.12.2014 Riedel & Kossmann
+--! @details      v1.0.11 05.12.2014 Riedel & Kossmann
 --!               - release milestone 3b
---! @details      v1.0.1 09.12.2014 Riedel & Kossmann
+--! @details      v1.0.12 09.12.2014 Riedel & Kossmann
 --!               - swapped `rising_edge(prescaler)` with
 --!                 `rising_edge(clock) AND prescaler = '1'`
---! @details      v1.0.2 09.12.2014 Riedel
+--! @details      v1.0.13 09.12.2014 Riedel
 --!               - restructured state-machine for modes
 --!               - created new process for motor power-management
 --!               - moved ir-logic to renamed `count_steps_and_set_ir`-process
+--! @details      v1.0.14 11.12.2014 Riedel & Kossmann
+--!               - corrected ir wire not being high for one clock
+--!               - corrected versioning mistake
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -101,7 +104,7 @@ SIGNAL    steps_output_wire : INTEGER;
 
 BEGIN
   --- MODE's
-  mode_state_machine : PROCESS (reset_n, clock, ir_wire, mode)
+  mode_state_machine : PROCESS (reset_n, clock, mode)
   BEGIN
     IF(reset_n = '0') THEN
       mode_state <= IDLE;
