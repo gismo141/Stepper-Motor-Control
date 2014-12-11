@@ -41,15 +41,18 @@
 --! @details      v0.1.10 05.12.2014 Riedel
 --!               - added few documentational lines
 --!               - corrected formatting and indention
---! @details      v1.0.0 05.12.2014 Riedel & Kossmann
+--! @details      v1.0.11 05.12.2014 Riedel & Kossmann
 --!               - release milestone 3b
---! @details      v1.0.1 09.12.2014 Riedel & Kossmann
+--! @details      v1.0.12 09.12.2014 Riedel & Kossmann
 --!               - swapped `rising_edge(prescaler)` with
 --!                 `rising_edge(clock) AND prescaler = '1'`
---! @details      v1.0.2 09.12.2014 Riedel
+--! @details      v1.0.13 09.12.2014 Riedel
 --!               - restructured state-machine for modes
 --!               - created new process for motor power-management
 --!               - moved ir-logic to renamed `count_steps_and_set_ir`-process
+--! @details      v1.0.14 11.12.2014 Riedel & Kossmann
+--!               - corrected ir wire not being high for one clock
+--!               - corrected versioning mistake
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -243,10 +246,10 @@ BEGIN
     END IF;
   END PROCESS;
   
+  
   --- STEPS's
-  count_steps_and_set_ir : PROCESS (reset_n, steps_counter, steps_to_run, clock, run, prescaler, pwm_counter, pwm_state, mode_state)
+  count_steps_and_set_ir : PROCESS (reset_n, steps_to_run, clock, run, prescaler, pwm_counter, mode_state)
   BEGIN
-    ir_wire <= '0';
     IF(reset_n = '0') THEN
       steps_counter <= 0;
       steps_output_wire <= 0;
@@ -255,10 +258,11 @@ BEGIN
       steps_counter <= 0;
       steps_output_wire <= 0;
       ir_wire <= '0';
-    ELSIF(steps_counter = steps_to_run) THEN
-      steps_counter <= 0;
-      ir_wire <= '1';
     ELSIF(rising_edge(clock) AND prescaler = '1' AND pwm_counter = 0 AND mode_state /= CR AND mode_state /= IDLE) THEN
+      IF(steps_counter = steps_to_run) THEN
+        steps_counter <= 0;
+        ir_wire <= '1';
+      END IF;
       IF(direction = LEFT) THEN
         steps_output_wire <= steps_output_wire - 1;
       ELSE
