@@ -136,13 +136,13 @@ BEGIN
       WHEN CR         =>
         steps_to_run  <= UNLIMITED_STEPS;
       WHEN COS_1_4    =>
-        steps_to_run  <= 200 - 1;
+        steps_to_run  <= 199;
       WHEN COS_1_2    =>
-        steps_to_run  <= 400 - 1;
+        steps_to_run  <= 399;
       WHEN COS_1      =>
-        steps_to_run  <= 800 - 1;
+        steps_to_run  <= 799;
       WHEN COS_2      =>
-        steps_to_run  <= 1600 - 1;
+        steps_to_run  <= 1599;
       WHEN others     =>
         steps_to_run  <= 0;
       END CASE;
@@ -155,23 +155,23 @@ BEGIN
     old_speed_wire <= speed_wire;
     CASE speed IS
     WHEN "000"   =>
-      speed_wire <= 400 - 1;
+      speed_wire <= 399;
     WHEN "001"   =>
-      speed_wire <= 200 - 1;
+      speed_wire <= 199;
     WHEN "010"   =>
-      speed_wire <= 100 - 1;
+      speed_wire <= 99;
     WHEN "011"   =>
-      speed_wire <= 50 - 1;
+      speed_wire <= 49;
     WHEN "100"   =>
-      speed_wire <= 20 - 1;
+      speed_wire <= 19;
     WHEN "101"   =>
-      speed_wire <= 10 - 1;
+      speed_wire <= 9;
     WHEN "110"   =>
-      speed_wire <= 5 - 1;
+      speed_wire <= 4;
     WHEN "111"   =>
-      speed_wire <= 2 - 1;
+      speed_wire <= 1;
     WHEN others  =>
-      speed_wire <= 400 - 1;
+      speed_wire <= 399;
     END CASE;
   END PROCESS;
   
