@@ -38,6 +38,8 @@
 --!               - corrected formatting and indention
 --! @details      v2.0.0 05.12.2014 Riedel & Kossmann
 --!               - release milestone 3b
+--! @details      v2.0.1 12.12.2014 Kossmann
+--!               - changed ctrlReg and stepsReg priorization. mcu highest
 -------------------------------------------------------------------------------
 
 --! Use Standard Library
@@ -98,16 +100,16 @@ BEGIN
     ELSIF (rising_edge(clock)) THEN
       ctrlReg <= ctrlReg;
       
-      IF(ir = '1') THEN -- set IR-bit in ctrlReg
-        ctrlReg(7) <= '1';
-      END IF;
-      
       IF (addr = B"000" AND write_n = '0' AND ce_n = '0') THEN
         ctrlReg <= write_data(7 DOWNTO 0);             -- overwrite complete ctrlReg 
       ELSIF(addr = B"001" AND write_n = '0' AND ce_n = '0') THEN
         ctrlReg <= ctrlReg or write_data(7 DOWNTO 0);  -- set ctrlReg bitwise
       ELSIF(addr = B"010" AND write_n = '0' AND ce_n = '0') THEN
         ctrlReg <= ctrlReg and (not write_data(7 DOWNTO 0));  -- clr ctrlReg 
+      END IF;
+      IF(ir = '1') THEN -- set IR-bit in ctrlReg
+        ctrlReg(7) <= '1';
+        ctrlReg(0) <= '0';
       END IF;
     END IF; 
      
@@ -127,11 +129,11 @@ BEGIN
       stepsReg <= (others => '0');
     ELSIF (rising_edge(clock)) THEN
       stepsReg <= stepsReg;
-      IF(CONV_INTEGER(steps) /= 0) THEN  -- write stepsReg from mcu when mcu input is not '0'
-        stepsReg <= steps;
-      END IF;
       IF (addr = B"100" AND write_n = '0' AND ce_n = '0') THEN
         stepsReg <= write_data(31 DOWNTO 0);
+      END IF;
+      IF(CONV_INTEGER(steps) /= 0) THEN  -- write stepsReg from mcu when mcu input is not '0'
+        stepsReg <= steps;
       END IF;
     END IF;
      
