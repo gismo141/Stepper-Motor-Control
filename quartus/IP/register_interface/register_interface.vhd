@@ -92,7 +92,7 @@ BEGIN
    --!        - writing registers
    --!        - reading registers
    --!        - implementing set and clear functionality
-  processing : PROCESS(clock, reset_n, ce_n, read_n, write_n, addr, ctrlReg, ir, speedReg, stepsReg)
+  processing : PROCESS(clock, reset_n, ce_n, read_n, write_n, addr, ir)
   BEGIN
     -- ctrlReg Register Write
     IF (reset_n = '0') THEN

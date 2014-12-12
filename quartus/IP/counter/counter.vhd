@@ -39,7 +39,7 @@ ENTITY counter is
     --!     e.g.:
     --!     \f{equation*}{
     --!       \left.\begin{aligned}
-    --!         f_{\text{prescaler}}  &= \frac{2}{5}\,\text{ms} \newline
+    --!         f_{\text{prescaler}}  &= \frac{5}{2}\,\text{ms} \newline
     --!                               &= 400\,\text{Hz} \newline\newline
     --!         \text{prescaler}      &= \frac{50\,\text{Mhz}}{400\,\text{Hz}} \newline
     --!                               &= 125000 \newline
